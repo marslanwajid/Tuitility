@@ -13,6 +13,7 @@ import UtilityTools from './pages/utility/UtilityTools'
 import KnowledgeCalculator from './pages/knowledge/KnowledgeCalculator'
 import FractionCalculator from './components/math/FractionCalculator'
 import BinaryCalculator from './components/math/BinaryCalculator'
+import DecimalCalculator from './components/math/DecimalCalculator'
 
 const App = () => {
   return (
@@ -25,6 +26,7 @@ const App = () => {
         <Route path="/math" element={<MathCalculator />} />
         <Route path="/math/calculators/fraction-calculator" element={<FractionCalculator />} />
         <Route path="/math/calculators/binary-calculator" element={<BinaryCalculator />} />
+        <Route path="/math/calculators/decimal-calculator" element={<DecimalCalculator />} />
         <Route path="/finance" element={<FinanceCalculator />} />
         <Route path="/science" element={<ScienceCalculator />} />
         <Route path="/health" element={<HealthCalculator />} />

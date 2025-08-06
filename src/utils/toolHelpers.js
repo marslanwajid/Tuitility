@@ -3,8 +3,9 @@
 export const getRelatedTools = (toolCategory) => {
   const mathTools = [
     { name: "Fraction Calculator", icon: "fas fa-divide", link: "/math/calculators/fraction-calculator" },
-    { name: "Percentage Calculator", icon: "fas fa-percent", link: "/math/calculators/percentage-calculator" },
+    { name: "Binary Calculator", icon: "fas fa-calculator", link: "/math/calculators/binary-calculator" },
     { name: "Decimal Calculator", icon: "fas fa-calculator", link: "/math/calculators/decimal-calculator" },
+    { name: "Percentage Calculator", icon: "fas fa-percent", link: "/math/calculators/percentage-calculator" },
     { name: "LCM Calculator", icon: "fas fa-sort-numeric-up", link: "/math/calculators/lcm-calculator" },
     { name: "LCD Calculator", icon: "fas fa-sort-numeric-down", link: "/math/calculators/lcd-calculator" },
     { name: "Compare Fractions", icon: "fas fa-balance-scale", link: "/math/calculators/comparing-fractions-calculator" }

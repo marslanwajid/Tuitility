@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ToolHero, ToolLayout, ContentSection, TableOfContents, FeedbackForm, FAQSection } from '../tool';
+import { ToolHero, ToolLayout, ContentSection, TableOfContents, FeedbackForm, FAQSection, MathFormula } from '../tool';
 import { getRelatedTools } from '../../utils/toolHelpers';
 import binaryCalculatorLogic from '../../assets/js/math/binary-calculator.js';
 import '../../assets/css/math/binary-calculator.css';
@@ -91,7 +91,22 @@ const BinaryCalculator = () => {
         "OR: Bitwise OR operation",
         "XOR: Bitwise XOR operation",
         "NOT: Bitwise NOT operation (complement)"
-      ]
+      ],
+             content: (
+         <div>
+           <p>Our calculator supports the following binary operations:</p>
+           <div style={{ marginTop: '1rem' }}>
+             <MathFormula formula="(1101)_2 = 1 \times 2^3 + 1 \times 2^2 + 0 \times 2^1 + 1 \times 2^0 = 13" variant="content" />
+             <MathFormula formula="13 = 1101_2" variant="content" />
+             <MathFormula formula="1101_2 + 1010_2 = 10111_2" variant="content" />
+             <MathFormula formula="1101_2 - 1010_2 = 11_2" variant="content" />
+             <MathFormula formula="1101_2 \times 1010_2 = 10000010_2" variant="content" />
+             <MathFormula formula="1101_2 \land 1010_2 = 1000_2" variant="content" />
+             <MathFormula formula="1101_2 \lor 1010_2 = 1111_2" variant="content" />
+             <MathFormula formula="1101_2 \oplus 1010_2 = 0111_2" variant="content" />
+           </div>
+         </div>
+       )
     },
     {
       id: "how-to-use",
@@ -117,7 +132,21 @@ const BinaryCalculator = () => {
             { label: "Step 2", content: "Add: 42 + 27 = 69" },
             { label: "Step 3", content: "Convert back: 69₁₀ = 1000101₂" },
             { label: "Result", content: "101010 + 11011 = 1000101₂ = 69₁₀" }
-          ]
+          ],
+                     content: (
+             <div>
+               <p><strong>Problem:</strong> Calculate <MathFormula formula="101010_2 + 11011_2" variant="content" /></p>
+               <div className="solution-steps">
+                 <h4>Solution:</h4>
+                 <ol>
+                   <li>Convert to decimal: <MathFormula formula="101010_2 = 42_{10}" variant="content" /> and <MathFormula formula="11011_2 = 27_{10}" variant="content" /></li>
+                   <li>Add in decimal: <MathFormula formula="42 + 27 = 69" variant="content" /></li>
+                   <li>Convert back to binary: <MathFormula formula="69_{10} = 1000101_2" variant="content" /></li>
+                   <li>Result: <MathFormula formula="101010_2 + 11011_2 = 1000101_2 = 69_{10}" variant="result" /></li>
+                 </ol>
+               </div>
+             </div>
+           )
         },
         {
           title: "Example 2: Logical AND",
@@ -127,7 +156,22 @@ const BinaryCalculator = () => {
             { label: "Step 2", content: "Convert to binary: 165₁₀ = 10100101₂, 63₁₀ = 00111111₂" },
             { label: "Step 3", content: "AND operation: 10100101 AND 00111111 = 00100101₂" },
             { label: "Result", content: "A5 AND 3F = 25₁₆ = 37₁₀" }
-          ]
+          ],
+                     content: (
+             <div>
+               <p><strong>Problem:</strong> Calculate <MathFormula formula="A5_{16} \land 3F_{16}" variant="content" /> (bitwise AND)</p>
+               <div className="solution-steps">
+                 <h4>Solution:</h4>
+                 <ol>
+                   <li>Convert to decimal: <MathFormula formula="A5_{16} = 165_{10}" variant="content" /> and <MathFormula formula="3F_{16} = 63_{10}" variant="content" /></li>
+                   <li>Convert to binary: <MathFormula formula="165_{10} = 10100101_2" variant="content" /> and <MathFormula formula="63_{10} = 00111111_2" variant="content" /></li>
+                   <li>AND operation: <MathFormula formula="10100101_2 \land 00111111_2 = 00100101_2" variant="content" /></li>
+                   <li>Convert back: <MathFormula formula="00100101_2 = 25_{16} = 37_{10}" variant="content" /></li>
+                   <li>Result: <MathFormula formula="A5_{16} \land 3F_{16} = 25_{16} = 37_{10}" variant="result" /></li>
+                 </ol>
+               </div>
+             </div>
+           )
         }
       ]
     },

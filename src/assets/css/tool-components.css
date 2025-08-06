@@ -791,4 +791,95 @@
     font-size: 0.9rem;
     line-height: 1.5;
   }
+}
+
+/* Math Formula Styles */
+.math-formula {
+  text-align: center;
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.math-formula .katex {
+  font-size: 1.8rem !important;
+  font-weight: 600;
+}
+
+.math-formula .katex-display {
+  margin: 0;
+  text-align: center;
+}
+
+/* Result Formula Styles */
+.result-formula {
+  text-align: center;
+  margin: 1rem 0;
+  padding: 1rem;
+  background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+  border-radius: 12px;
+  border: 1px solid #a7f3d0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.result-formula .katex {
+  font-size: 2rem !important;
+  font-weight: 700;
+  color: #059669;
+}
+
+/* Content Formula Styles */
+.content-formula {
+  text-align: center;
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.content-formula .katex {
+  font-size: 1.8rem !important;
+  font-weight: 600;
+}
+
+/* Responsive Math Formula Styles */
+@media (max-width: 768px) {
+  .math-formula,
+  .result-formula,
+  .content-formula {
+    margin: 1rem 0;
+    padding: 0.75rem;
+  }
+  
+  .math-formula .katex,
+  .content-formula .katex {
+    font-size: 1.5rem !important;
+  }
+  
+  .result-formula .katex {
+    font-size: 1.7rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .math-formula,
+  .result-formula,
+  .content-formula {
+    margin: 0.75rem 0;
+    padding: 0.5rem;
+  }
+  
+  .math-formula .katex,
+  .content-formula .katex {
+    font-size: 1.3rem !important;
+  }
+  
+  .result-formula .katex {
+    font-size: 1.5rem !important;
+  }
 } 
