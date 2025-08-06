@@ -4,6 +4,7 @@ import './assets/css/tool-components.css'
 import Home from './components/Home'
 import Header from './components/Header'
 import Footer from './components/Footer'
+import ScrollToTop from './components/ScrollToTop'
 import MathCalculator from './pages/math/MathCalculator'
 import FinanceCalculator from './pages/finance/FinanceCalculator'
 import ScienceCalculator from './pages/science/ScienceCalculator'
@@ -16,6 +17,7 @@ import BinaryCalculator from './components/math/BinaryCalculator'
 const App = () => {
   return (
     <>
+      <ScrollToTop />
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
