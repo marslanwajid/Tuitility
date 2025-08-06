@@ -32,7 +32,7 @@ const Header = () => {
       <nav className="navbar">
         <div className="logo">
           <Link to="/">
-            <img src="/asset/images/toolingo_final.png" alt="Tuitility" />
+            <img src="/images/logo.png" alt="Tuitility" />
            
           </Link>
         </div>

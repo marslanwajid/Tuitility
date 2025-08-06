@@ -11,7 +11,7 @@ const Footer = () => {
           {/* Company Info Section */}
           <div className="footer-brand">
             <div className="footer-logo">
-              <img src="/asset/images/toolingo_final.png" alt="Tuitility" />
+              <img src="/images/logo.png" alt="Tuitility" />
             </div>
             <p className="footer-description">
               Your ultimate destination for free online calculators and tools. 
@@ -35,27 +35,27 @@ const Footer = () => {
             <div className="footer-links-section">
               <h3>Categories</h3>
               <div className="links-grid">
-                <Link to="/math/math-calculators" className="footer-link">
+                <Link to="/math" className="footer-link">
                   <i className="fas fa-calculator"></i>
                   <span>Math</span>
                 </Link>
-                <Link to="/finance/finance-calculators" className="footer-link">
+                <Link to="/finance" className="footer-link">
                   <i className="fas fa-dollar-sign"></i>
                   <span>Finance</span>
                 </Link>
-                <Link to="/science/science-calculators" className="footer-link">
+                <Link to="/science" className="footer-link">
                   <i className="fas fa-atom"></i>
                   <span>Science</span>
                 </Link>
-                <Link to="/health/health-calculators" className="footer-link">
+                <Link to="/health" className="footer-link">
                   <i className="fas fa-heartbeat"></i>
                   <span>Health</span>
                 </Link>
-                <Link to="/utility-tools/conversion-tools" className="footer-link">
+                <Link to="/utility-tools" className="footer-link">
                   <i className="fas fa-tools"></i>
                   <span>Utility</span>
                 </Link>
-                <Link to="/knowledge/knowledge-calculators" className="footer-link">
+                <Link to="/knowledge" className="footer-link">
                   <i className="fas fa-brain"></i>
                   <span>Knowledge</span>
                 </Link>
