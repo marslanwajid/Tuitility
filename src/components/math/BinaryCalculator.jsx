@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ToolHero, ToolLayout, ContentSection, TableOfContents, FeedbackForm } from '../tool';
+import { ToolHero, ToolLayout, ContentSection, TableOfContents, FeedbackForm, FAQSection } from '../tool';
 import { getRelatedTools } from '../../utils/toolHelpers';
 import binaryCalculatorLogic from '../../assets/js/math/binary-calculator.js';
 import '../../assets/css/math/binary-calculator.css';
@@ -142,19 +142,49 @@ const BinaryCalculator = () => {
         "Used in image processing and multimedia applications"
       ]
     },
-    {
-      id: "applications",
-      title: "Applications",
-      list: [
-        "Computer programming and software development",
-        "Digital circuit design and electronics",
-        "Network protocols and data communication",
-        "Cryptography and security systems",
-        "Image and video processing",
-        "Embedded systems and microcontrollers"
-      ]
-    }
-  ];
+         {
+       id: "applications",
+       title: "Applications",
+       list: [
+         "Computer programming and software development",
+         "Digital circuit design and electronics",
+         "Network protocols and data communication",
+         "Cryptography and security systems",
+         "Image and video processing",
+         "Embedded systems and microcontrollers"
+       ]
+     },
+     {
+       id: "faqs",
+       title: "Frequently Asked Questions",
+       content: (
+         <FAQSection 
+           faqs={[
+             {
+               question: "What is the difference between binary and decimal numbers?",
+               answer: "Binary numbers use only two digits (0 and 1) and represent values in base-2, while decimal numbers use ten digits (0-9) and represent values in base-10. Binary is the fundamental language of computers."
+             },
+             {
+               question: "How do I convert a decimal number to binary?",
+               answer: "To convert decimal to binary, repeatedly divide the number by 2 and record the remainders in reverse order. For example, 13 in decimal is 1101 in binary (13 ÷ 2 = 6 remainder 1, 6 ÷ 2 = 3 remainder 0, 3 ÷ 2 = 1 remainder 1, 1 ÷ 2 = 0 remainder 1)."
+             },
+             {
+               question: "What are bitwise operations?",
+               answer: "Bitwise operations perform calculations on individual bits of binary numbers. Common operations include AND, OR, XOR, and NOT. These are fundamental in computer programming and digital electronics."
+             },
+             {
+               question: "Why do computers use binary?",
+               answer: "Computers use binary because electronic circuits can easily represent two states (on/off, high/low voltage). Binary is also mathematically efficient for digital logic operations and error detection."
+             },
+             {
+               question: "What is hexadecimal and why is it used?",
+               answer: "Hexadecimal is a base-16 number system using digits 0-9 and letters A-F. It's commonly used in programming because it's more compact than binary (4 binary digits = 1 hexadecimal digit) and easier to read."
+             }
+           ]}
+         />
+       )
+     }
+   ];
 
   // Table of Contents sections
   const tocSections = [
@@ -164,7 +194,8 @@ const BinaryCalculator = () => {
     { id: "how-to-use", title: "How to Use" },
     { id: "examples", title: "Examples" },
     { id: "significance", title: "Significance" },
-    { id: "applications", title: "Applications" }
+    { id: "applications", title: "Applications" },
+    { id: "faqs", title: "FAQs" }
   ];
 
   // Sidebar props - Math-specific related tools

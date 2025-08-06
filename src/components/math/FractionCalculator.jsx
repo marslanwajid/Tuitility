@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { FAQSection } from '../tool'
 import '../../assets/css/math/fraction-calculator.css'
 
 const FractionCalculator = () => {
@@ -868,46 +869,30 @@ const FractionCalculator = () => {
                   {/* FAQs */}
                   <div id="faqs" className="content-block">
                     <h2 className="content-title">Frequently Asked Questions</h2>
-                    
-                    <div className="faq-item">
-                      <h3>What is the difference between a fraction and a decimal?</h3>
-                      <p>
-                        A fraction represents a part of a whole using two numbers (numerator/denominator), 
-                        while a decimal represents the same value using a decimal point system.
-                      </p>
-                    </div>
-
-                    <div className="faq-item">
-                      <h3>How do I simplify a fraction?</h3>
-                      <p>
-                        To simplify a fraction, find the Greatest Common Divisor (GCD) of the numerator 
-                        and denominator, then divide both by this number.
-                      </p>
-                    </div>
-
-                    <div className="faq-item">
-                      <h3>What is a mixed number?</h3>
-                      <p>
-                        A mixed number combines a whole number with a fraction, such as 2 1/3, 
-                        representing 2 + 1/3.
-                      </p>
-                    </div>
-
-                    <div className="faq-item">
-                      <h3>Can I use negative numbers in fractions?</h3>
-                      <p>
-                        Yes, you can use negative numbers. The negative sign can be applied to either 
-                        the numerator or denominator, or the entire fraction.
-                      </p>
-                    </div>
-
-                    <div className="faq-item">
-                      <h3>What happens if I divide by zero?</h3>
-                      <p>
-                        Division by zero is undefined in mathematics. The calculator will show an error 
-                        message if you attempt to divide by zero.
-                      </p>
-                    </div>
+                    <FAQSection 
+                      faqs={[
+                        {
+                          question: "What is the difference between a fraction and a decimal?",
+                          answer: "A fraction represents a part of a whole using two numbers (numerator/denominator), while a decimal represents the same value using a decimal point system."
+                        },
+                        {
+                          question: "How do I simplify a fraction?",
+                          answer: "To simplify a fraction, find the Greatest Common Divisor (GCD) of the numerator and denominator, then divide both by this number."
+                        },
+                        {
+                          question: "What is a mixed number?",
+                          answer: "A mixed number combines a whole number with a fraction, such as 2 1/3, representing 2 + 1/3."
+                        },
+                        {
+                          question: "Can I use negative numbers in fractions?",
+                          answer: "Yes, you can use negative numbers. The negative sign can be applied to either the numerator or denominator, or the entire fraction."
+                        },
+                        {
+                          question: "What happens if I divide by zero?",
+                          answer: "Division by zero is undefined in mathematics. The calculator will show an error message if you attempt to divide by zero."
+                        }
+                      ]}
+                    />
                   </div>
                 </div>
               </section>
