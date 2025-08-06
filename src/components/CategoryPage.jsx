@@ -79,16 +79,17 @@ const CategoryPage = ({
         {!searchQuery && (
           <div className="category-filter-section">
             <div className="category-filter-tabs">
-              {categories.map((category) => (
-                <button
-                  key={category.id}
-                  className={`category-filter-tab ${activeFilter === category.id ? 'active' : ''}`}
-                  onClick={() => handleFilterClick(category.id)}
-                >
-                  <i className={category.icon}></i>
-                  <span>{category.name}</span>
-                </button>
-              ))}
+                             {categories.map((category, index) => (
+                 <button
+                   key={category.id}
+                   className={`category-filter-tab ${activeFilter === category.id ? 'active' : ''}`}
+                   onClick={() => handleFilterClick(category.id)}
+                   style={{ '--tab-index': index }}
+                 >
+                   <i className={category.icon}></i>
+                   <span>{category.name}</span>
+                 </button>
+               ))}
             </div>
           </div>
         )}
@@ -109,14 +110,17 @@ const CategoryPage = ({
             </p>
           </div>
 
-          <div className="category-tools-grid">
-            {filteredTools.map((tool, index) => (
-              <Link
-                key={index}
-                to={baseUrl + tool.url}
-                className="category-tool-card"
-                style={{ '--tool-color': getToolColor(index) }}
-              >
+                     <div className="category-tools-grid">
+             {filteredTools.map((tool, index) => (
+               <Link
+                 key={index}
+                 to={baseUrl + tool.url}
+                 className="category-tool-card"
+                 style={{ 
+                   '--tool-color': getToolColor(index),
+                   '--card-index': index 
+                 }}
+               >
                 <div className="category-tool-icon">
                   <i className={tool.icon}></i>
                 </div>
