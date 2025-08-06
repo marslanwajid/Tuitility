@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { ToolHero, ToolLayout, ContentSection } from '../tool';
+import { ToolHero, ToolLayout, ContentSection, TableOfContents, FeedbackForm } from '../tool';
+import { getRelatedTools } from '../../utils/toolHelpers';
 import binaryCalculatorLogic from '../../assets/js/math/binary-calculator.js';
 import '../../assets/css/math/binary-calculator.css';
 
@@ -155,6 +156,22 @@ const BinaryCalculator = () => {
     }
   ];
 
+  // Table of Contents sections
+  const tocSections = [
+    { id: "introduction", title: "Introduction" },
+    { id: "what-is-binary", title: "What is Binary?" },
+    { id: "operations", title: "Supported Operations" },
+    { id: "how-to-use", title: "How to Use" },
+    { id: "examples", title: "Examples" },
+    { id: "significance", title: "Significance" },
+    { id: "applications", title: "Applications" }
+  ];
+
+  // Sidebar props - Math-specific related tools
+  const sidebarProps = {
+    relatedTools: getRelatedTools('math')
+  };
+
   return (
     <div className="tool-page">
       <ToolHero 
@@ -169,7 +186,7 @@ const BinaryCalculator = () => {
         ]}
       />
       
-      <ToolLayout>
+      <ToolLayout sidebarProps={sidebarProps}>
         {/* Calculator Section */}
         <section className="calculator-section">
           <div className="calculator-container">
@@ -310,6 +327,14 @@ const BinaryCalculator = () => {
                 </div>
               </div>
             )}
+          </div>
+        </section>
+
+        {/* Table of Contents & Feedback */}
+        <section className="toc-feedback-section">
+          <div className="toc-feedback-container">
+            <TableOfContents sections={tocSections} />
+            <FeedbackForm onSubmit={(data) => console.log('Feedback submitted:', data)} />
           </div>
         </section>
 
