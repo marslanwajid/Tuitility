@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import SearchBar from './SearchBar'
 import '../assets/css/category-navigation.css'
 
 const CategoryNavigation = () => {
   const [activeFilter, setActiveFilter] = useState('all')
+  const [searchQuery, setSearchQuery] = useState('')
 
   const categories = [
     {
@@ -69,6 +71,14 @@ const CategoryNavigation = () => {
 
   const handleFilterClick = (filterId) => {
     setActiveFilter(filterId)
+    setSearchQuery('') // Clear search when switching tabs
+  }
+
+  const handleSearchChange = (query) => {
+    setSearchQuery(query)
+    if (query) {
+      setActiveFilter('all') // Reset to all when searching
+    }
   }
 
   const allTools = [
@@ -114,13 +124,16 @@ const CategoryNavigation = () => {
     { name: 'RGB to HEX', desc: 'Convert color formats', url: '/utility-tools/converter-tools/rgb-to-hex-converter', category: 'Utility', icon: 'fas fa-palette' },
     { name: 'Text Case Converter', desc: 'Change text case formats', url: '/utility-tools/converter-tools/text-case-converter', category: 'Utility', icon: 'fas fa-font' },
     
-    { name: 'PDF Compressor', desc: 'Reduce PDF file size while maintaining quality', url: '/utility-tools/converter-tools/compress-pdf', category: 'Utility', icon: 'fas fa-compress-alt' },
-    { name: 'PDF Merger', desc: 'Combine multiple PDF files into one', url: '/utility-tools/converter-tools/merge-pdf', category: 'Utility', icon: 'fas fa-object-group' },
-    { name: 'PDF Splitter', desc: 'Split PDF documents into multiple files', url: '/utility-tools/converter-tools/split-pdf', category: 'Utility', icon: 'fas fa-cut' },
-    { name: 'Delete PDF Pages', desc: 'Remove unwanted pages from PDF documents', url: '/utility-tools/converter-tools/delete-pages-from-pdf', category: 'Utility', icon: 'fas fa-trash-alt' },
-    { name: 'PDF OCR', desc: 'Extract text from scanned PDF documents', url: '/utility-tools/converter-tools/ocr-pdf', category: 'Utility', icon: 'fas fa-eye' },
-    { name: 'PDF Repair', desc: 'Fix corrupted or damaged PDF files', url: '/utility-tools/converter-tools/repair-pdf', category: 'Utility', icon: 'fas fa-wrench' },
-    { name: 'PDF Organizer', desc: 'Reorder and organize PDF pages efficiently', url: '/utility-tools/converter-tools/organize-pdf', category: 'Utility', icon: 'fas fa-sort' },
+    { name: 'PDF Compressor', desc: 'Reduce PDF file size while maintaining quality', url: '/utility-tools/converter-tools/compress-pdf', category: 'PDF', icon: 'fas fa-compress-alt' },
+    { name: 'PDF Merger', desc: 'Combine multiple PDF files into one', url: '/utility-tools/converter-tools/merge-pdf', category: 'PDF', icon: 'fas fa-object-group' },
+    { name: 'PDF Splitter', desc: 'Split PDF documents into multiple files', url: '/utility-tools/converter-tools/split-pdf', category: 'PDF', icon: 'fas fa-cut' },
+    { name: 'Delete PDF Pages', desc: 'Remove unwanted pages from PDF documents', url: '/utility-tools/converter-tools/delete-pages-from-pdf', category: 'PDF', icon: 'fas fa-trash-alt' },
+    { name: 'PDF OCR', desc: 'Extract text from scanned PDF documents', url: '/utility-tools/converter-tools/ocr-pdf', category: 'PDF', icon: 'fas fa-eye' },
+    { name: 'PDF Repair', desc: 'Fix corrupted or damaged PDF files', url: '/utility-tools/converter-tools/repair-pdf', category: 'PDF', icon: 'fas fa-wrench' },
+    { name: 'PDF Organizer', desc: 'Reorder and organize PDF pages efficiently', url: '/utility-tools/converter-tools/organize-pdf', category: 'PDF', icon: 'fas fa-sort' },
+    { name: 'PDF to Word', desc: 'Convert PDF to Word document', url: '/pdf/pdf-to-word', category: 'PDF', icon: 'fas fa-file-word' },
+    { name: 'PDF to Excel', desc: 'Convert PDF to Excel spreadsheet', url: '/pdf/pdf-to-excel', category: 'PDF', icon: 'fas fa-file-excel' },
+    { name: 'PDF to Image', desc: 'Convert PDF pages to images', url: '/utility-tools/image-tools/pdf-to-image', category: 'PDF', icon: 'fas fa-file-image' },
     
     { name: 'Morse Code Translator', desc: 'Convert text to Morse code and decode', url: '/utility-tools/converter-tools/morse-code-translator', category: 'Utility', icon: 'fas fa-signal' },
     { name: 'HTML to Markdown', desc: 'Convert HTML markup to Markdown', url: '/utility-tools/converter-tools/html-to-markdown-converter', category: 'Utility', icon: 'fab fa-html5' },
@@ -135,7 +148,6 @@ const CategoryNavigation = () => {
     { name: 'Image to WebP Converter', desc: 'Convert images to WebP format', url: '/utility-tools/image-tools/image-to-webp-converter', category: 'Utility', icon: 'fas fa-image' },
     { name: 'Aspect Ratio Converter', desc: 'Calculate and convert aspect ratios', url: '/utility-tools/image-tools/aspect-ratio-converter', category: 'Utility', icon: 'fas fa-expand-arrows-alt' },
     { name: 'Color Blindness Simulator', desc: 'Simulate color vision deficiencies', url: '/utility-tools/image-tools/color-blindness-simulator', category: 'Utility', icon: 'fas fa-low-vision' },
-    { name: 'PDF to Image', desc: 'Convert PDF pages to images', url: '/utility-tools/image-tools/pdf-to-image', category: 'Utility', icon: 'fas fa-file-image' },
     
     { name: 'GPA Calculator', desc: 'Calculate your grade point average', url: '/knowledge/calculators/gpa-calculator', category: 'Knowledge', icon: 'fas fa-graduation-cap' },
     { name: 'Age Calculator', desc: 'Calculate age in years, months, days', url: '/knowledge/calculators/age-calculator', category: 'Knowledge', icon: 'fas fa-calendar-alt' },
@@ -146,9 +158,16 @@ const CategoryNavigation = () => {
     { name: 'Zakat Calculator', desc: 'Calculate Islamic charity amount', url: '/knowledge/calculators/zakat-calculator', category: 'Knowledge', icon: 'fas fa-hand-holding-heart' }
   ]
 
-  const filteredTools = activeFilter === 'all'
-    ? allTools
-    : allTools.filter(tool => tool.category.toLowerCase() === activeFilter)
+  // Filter tools based on search query or active filter
+  const filteredTools = searchQuery
+    ? allTools.filter(tool =>
+        tool.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        tool.desc.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        tool.category.toLowerCase().includes(searchQuery.toLowerCase())
+      )
+    : activeFilter === 'all'
+      ? allTools
+      : allTools.filter(tool => tool.category.toLowerCase() === activeFilter)
 
   const getCategoryColor = (category) => {
     const categoryMap = {
@@ -209,39 +228,54 @@ const CategoryNavigation = () => {
           ))}
         </div>
 
-        {/* Filter Tabs Section */}
-        <div className="filter-section">
-          <div className="filter-tabs">
-            {filterTabs.map((tab) => (
-              <button
-                key={tab.id}
-                className={`filter-tab ${activeFilter === tab.id ? 'active' : ''}`}
-                onClick={() => handleFilterClick(tab.id)}
-                style={{ '--tab-color': tab.color }}
-              >
-                <div
-                  className="filter-tab-icon"
-                  style={{
-                    backgroundColor: activeFilter === tab.id ? tab.color : `${tab.color}15`,
-                    border: `1px solid ${activeFilter === tab.id ? tab.color : `${tab.color}30`}`
-                  }}
+        {/* Search Bar */}
+        <SearchBar
+          allTools={allTools}
+          onSearchChange={handleSearchChange}
+          searchQuery={searchQuery}
+          isSearching={!!searchQuery}
+        />
+
+        {/* Filter Tabs Section - Hidden when searching */}
+        {!searchQuery && (
+          <div className="filter-section">
+            <div className="filter-tabs">
+              {filterTabs.map((tab) => (
+                <button
+                  key={tab.id}
+                  className={`filter-tab ${activeFilter === tab.id ? 'active' : ''}`}
+                  onClick={() => handleFilterClick(tab.id)}
+                  style={{ '--tab-color': tab.color }}
                 >
-                  <i
-                    className={tab.icon}
-                    style={{ color: activeFilter === tab.id ? 'white' : tab.color }}
-                  ></i>
-                </div>
-                <span className="filter-tab-title">{tab.title}</span>
-              </button>
-            ))}
+                  <div
+                    className="filter-tab-icon"
+                    style={{
+                      backgroundColor: activeFilter === tab.id ? tab.color : `${tab.color}15`,
+                      border: `1px solid ${activeFilter === tab.id ? tab.color : `${tab.color}30`}`
+                    }}
+                  >
+                    <i
+                      className={tab.icon}
+                      style={{ color: activeFilter === tab.id ? 'white' : tab.color }}
+                    ></i>
+                  </div>
+                  <span className="filter-tab-title">{tab.title}</span>
+                </button>
+              ))}
+            </div>
           </div>
-        </div>
+        )}
 
         {/* Tools Grid Section */}
         <div className="tools-section">
           <div className="tools-header">
             <h3 className="tools-title">
-              {activeFilter === 'all' ? 'All Tools' : `${activeFilter.charAt(0).toUpperCase() + activeFilter.slice(1)} Tools`}
+              {searchQuery 
+                ? `Search Results for "${searchQuery}"`
+                : activeFilter === 'all' 
+                  ? 'All Tools' 
+                  : `${activeFilter.charAt(0).toUpperCase() + activeFilter.slice(1)} Tools`
+              }
             </h3>
             <p className="tools-count">
               {filteredTools.length} {filteredTools.length === 1 ? 'tool' : 'tools'} available

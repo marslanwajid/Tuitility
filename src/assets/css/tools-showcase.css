@@ -168,104 +168,115 @@
 
 /* Responsive Design */
 @media (max-width: 1200px) {
-  .tools-showcase .tools-grid {
+  .tools-grid {
     grid-template-columns: repeat(3, 1fr);
     gap: 1.25rem;
   }
 }
 
 @media (max-width: 1024px) {
-  .tools-showcase .tools-grid {
+  .tools-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 1.25rem;
+    gap: 1rem;
+  }
+  
+  .tool-card {
+    padding: 1.25rem;
+  }
+  
+  .tool-icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 1rem;
+  }
+  
+  .tool-icon i {
+    font-size: 1.1rem;
+  }
+  
+  .tool-title {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .tool-description {
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
   }
 }
 
 @media (max-width: 768px) {
-  .tools-showcase {
-    padding: 3rem 0;
+  .tools-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.875rem;
   }
   
-  .tools-showcase .section-title {
-    font-size: 2rem;
-  }
-  
-  .tools-showcase .section-description {
-    font-size: 1rem;
-  }
-  
-  .tools-showcase .tools-grid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-
-  .tools-showcase .tool-card {
-    padding: 1.25rem;
+  .tool-card {
+    padding: 1rem;
     min-height: 160px;
   }
-
-  .tools-showcase .tool-icon {
-    width: 45px;
-    height: 45px;
-    margin-bottom: 0.75rem;
-  }
-
-  .tools-showcase .tool-icon i {
-    font-size: 1.125rem;
-  }
-
-  .tools-showcase .tool-title {
-    font-size: 0.95rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .tools-showcase .tool-description {
-    font-size: 0.75rem;
-    margin-bottom: 0.75rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .tools-showcase .container {
-    padding: 0 1rem;
-  }
-
-  .tools-showcase .tools-grid {
-    gap: 0.75rem;
-  }
-
-  .tools-showcase .tool-card {
-    padding: 1rem;
-    min-height: 150px;
-  }
-
-  .tools-showcase .tool-icon {
+  
+  .tool-icon {
     width: 40px;
     height: 40px;
     margin-bottom: 0.75rem;
   }
-
-  .tools-showcase .tool-icon i {
+  
+  .tool-icon i {
     font-size: 1rem;
   }
-
-  .tools-showcase .tool-title {
+  
+  .tool-title {
     font-size: 0.9rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.375rem;
   }
-
-  .tools-showcase .tool-description {
-    font-size: 0.7rem;
+  
+  .tool-description {
+    font-size: 0.8rem;
     margin-bottom: 0.75rem;
+    -webkit-line-clamp: 2;
   }
-
-  .tools-showcase .tool-category-badge {
-    font-size: 0.65rem;
-    padding: 0.2rem 0.6rem;
+  
+  .tool-category-badge {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.7rem;
   }
+}
 
-  .tools-showcase .cta-button {
-    padding: 0.875rem 1.5rem;
+@media (max-width: 480px) {
+  .tools-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+  
+  .tool-card {
+    padding: 0.875rem;
+    min-height: 140px;
+  }
+  
+  .tool-icon {
+    width: 36px;
+    height: 36px;
+    margin-bottom: 0.625rem;
+  }
+  
+  .tool-icon i {
     font-size: 0.9rem;
+  }
+  
+  .tool-title {
+    font-size: 0.85rem;
+    margin-bottom: 0.25rem;
+  }
+  
+  .tool-description {
+    font-size: 0.75rem;
+    margin-bottom: 0.625rem;
+    -webkit-line-clamp: 2;
+  }
+  
+  .tool-category-badge {
+    padding: 0.2rem 0.4rem;
+    font-size: 0.65rem;
   }
 }
