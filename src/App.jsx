@@ -2,6 +2,7 @@ import React from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Home from './components/Home'
 import Header from './components/Header'
+import Footer from './components/Footer'
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
         <Route path="/utility-tools/conversion-tools" element={<div>Utility Tools Page</div>} />
         <Route path="/knowledge/knowledge-calculators" element={<div>Knowledge Calculators Page</div>} />
       </Routes>
+      <Footer />
     </>
   )
 }
