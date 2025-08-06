@@ -1,54 +1,8 @@
 /* Home page styles */
 .home-container {
   min-height: 100vh;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+  background: white;
 }
 
-.home-content {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem;
-}
-
-.home-title {
-  font-size: 3.5rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-.home-subtitle {
-  font-size: 1.5rem;
-  margin-bottom: 2rem;
-  opacity: 0.9;
-  font-weight: 300;
-}
-
-.home-description {
-  font-size: 1.1rem;
-  max-width: 600px;
-  margin: 0 auto 3rem;
-  line-height: 1.6;
-  opacity: 0.8;
-}
-
-/* Responsive design */
-@media (max-width: 768px) {
-  .home-title {
-    font-size: 2.5rem;
-  }
-  
-  .home-subtitle {
-    font-size: 1.2rem;
-  }
-  
-  .home-description {
-    font-size: 1rem;
-  }
-}
+/* Remove old styles that are no longer needed */
+/* The individual components now handle their own styling */

@@ -1,17 +1,17 @@
 import React from 'react'
+import HeroSection from './HeroSection'
+import CategoryNavigation from './CategoryNavigation'
+import ToolsShowcase from './ToolsShowcase'
+import PopularTools from './PopularTools'
 import "../assets/css/home.css"
 
 const Home = () => {
   return (
     <div className="home-container">
-      <div className="home-content">
-        <h1 className="home-title">Welcome to Tuitility</h1>
-        <h2 className="home-subtitle">Your Ultimate Calculator & Utility Hub</h2>
-        <p className="home-description">
-          Discover a comprehensive collection of calculators and tools for math, finance, science, health, and more. 
-          Everything you need, all in one place.
-        </p>
-      </div>
+      <HeroSection />
+      <CategoryNavigation />
+      <ToolsShowcase />
+      <PopularTools />
     </div>
   )
 }

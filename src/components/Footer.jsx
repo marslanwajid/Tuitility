@@ -22,10 +22,7 @@ const Footer = () => {
                 <span className="stat-number">100+</span>
                 <span className="stat-label">Tools</span>
               </div>
-              <div className="stat-item">
-                <span className="stat-number">1M+</span>
-                <span className="stat-label">Calculations</span>
-              </div>
+              
               <div className="stat-item">
                 <span className="stat-number">24/7</span>
                 <span className="stat-label">Available</span>
@@ -108,7 +105,7 @@ const Footer = () => {
             <p>&copy; 2025 Tuitility. All rights reserved.</p>
           </div>
           <div className="footer-credits">
-            <span>Developed by <a href="https://www.linkedin.com/in/arslan-wajid/" target="_blank" rel="noopener noreferrer">Digital Optimisers</a></span>
+            <span>Developed by <a href="https://www.linkedin.com/in/arslan-wajid/" target="_blank" rel="noopener noreferrer">Arslan Wajid</a></span>
           </div>
         </div>
       </div>
