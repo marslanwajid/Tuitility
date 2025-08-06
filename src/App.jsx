@@ -9,6 +9,7 @@ import ScienceCalculator from './pages/science/ScienceCalculator'
 import HealthCalculator from './pages/health/HealthCalculator'
 import UtilityTools from './pages/utility/UtilityTools'
 import KnowledgeCalculator from './pages/knowledge/KnowledgeCalculator'
+import FractionCalculator from './components/math/FractionCalculator'
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
         <Route path="/" element={<Home />} />
         {/* Add more routes here as needed */}
         <Route path="/math" element={<MathCalculator />} />
+        <Route path="/math/calculators/fraction-calculator" element={<FractionCalculator />} />
         <Route path="/finance" element={<FinanceCalculator />} />
         <Route path="/science" element={<ScienceCalculator />} />
         <Route path="/health" element={<HealthCalculator />} />
