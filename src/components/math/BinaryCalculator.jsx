@@ -1,0 +1,323 @@
+import React, { useState } from 'react';
+import { ToolHero, ToolLayout, ContentSection } from '../tool';
+import binaryCalculatorLogic from '../../assets/js/math/binary-calculator.js';
+import '../../assets/css/math/binary-calculator.css';
+
+const BinaryCalculator = () => {
+  const [formData, setFormData] = useState(binaryCalculatorLogic.resetFormData());
+  const [result, setResult] = useState(null);
+  const [error, setError] = useState('');
+
+  const handleInputChange = (field, value) => {
+    const typeField = field === 'firstNumber' ? 'firstNumberType' : 'secondNumberType';
+    if (binaryCalculatorLogic.validateInput(value, formData[typeField])) {
+      setFormData(prev => ({
+        ...prev,
+        [field]: value
+      }));
+    }
+  };
+
+  const handleTypeChange = (field, value) => {
+    setFormData(prev => ({
+      ...prev,
+      [field]: value
+    }));
+  };
+
+  const handleOperatorChange = (value) => {
+    setFormData(prev => ({
+      ...prev,
+      operator: value
+    }));
+  };
+
+  const calculate = () => {
+    const calculationResult = binaryCalculatorLogic.calculate(formData);
+    
+    if (calculationResult.error) {
+      setError(calculationResult.error);
+      setResult(null);
+    } else {
+      setResult(calculationResult.result);
+      setError('');
+    }
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    calculate();
+  };
+
+  const handleReset = () => {
+    setFormData(binaryCalculatorLogic.resetFormData());
+    setResult(null);
+    setError('');
+  };
+
+  // Content sections for the Binary Calculator
+  const contentSections = [
+    {
+      id: "introduction",
+      title: "Introduction",
+      intro: [
+        "Binary numbers are the foundation of computer science and digital electronics. They use only two digits: 0 and 1, representing the base-2 number system.",
+        "Our Binary Calculator allows you to perform arithmetic and logical operations on numbers in different number systems including binary, decimal, hexadecimal, and octal."
+      ]
+    },
+    {
+      id: "what-is-binary",
+      title: "What is Binary?",
+      intro: [
+        "Binary is a number system that uses only two digits: 0 and 1. Each position represents a power of 2, making it the fundamental language of computers."
+      ],
+      list: [
+        "Binary uses base-2 number system",
+        "Each digit is called a bit (binary digit)",
+        "8 bits make a byte",
+        "Computers process all data as binary"
+      ]
+    },
+    {
+      id: "operations",
+      title: "Supported Operations",
+      list: [
+        "Addition (+): Add two numbers",
+        "Subtraction (-): Subtract second number from first",
+        "Multiplication (×): Multiply two numbers",
+        "Division (÷): Divide first number by second (integer division)",
+        "AND: Bitwise AND operation",
+        "OR: Bitwise OR operation",
+        "XOR: Bitwise XOR operation",
+        "NOT: Bitwise NOT operation (complement)"
+      ]
+    },
+    {
+      id: "how-to-use",
+      title: "How to Use Binary Calculator",
+      steps: [
+        "Select the number system for your first number (Binary, Decimal, Hexadecimal, or Octal)",
+        "Enter your first number in the selected format",
+        "Choose the operation you want to perform",
+        "If the operation requires two numbers, enter the second number and its number system",
+        "Click Calculate to see the result in all number systems",
+        "Review the step-by-step solution for understanding"
+      ]
+    },
+    {
+      id: "examples",
+      title: "Examples",
+      examples: [
+        {
+          title: "Example 1: Binary Addition",
+          description: "Calculate: 101010 + 11011",
+          solution: [
+            { label: "Step 1", content: "Convert to decimal: 101010₂ = 42₁₀, 11011₂ = 27₁₀" },
+            { label: "Step 2", content: "Add: 42 + 27 = 69" },
+            { label: "Step 3", content: "Convert back: 69₁₀ = 1000101₂" },
+            { label: "Result", content: "101010 + 11011 = 1000101₂ = 69₁₀" }
+          ]
+        },
+        {
+          title: "Example 2: Logical AND",
+          description: "Calculate: A5 AND 3F (hexadecimal)",
+          solution: [
+            { label: "Step 1", content: "Convert to decimal: A5₁₆ = 165₁₀, 3F₁₆ = 63₁₀" },
+            { label: "Step 2", content: "Convert to binary: 165₁₀ = 10100101₂, 63₁₀ = 00111111₂" },
+            { label: "Step 3", content: "AND operation: 10100101 AND 00111111 = 00100101₂" },
+            { label: "Result", content: "A5 AND 3F = 25₁₆ = 37₁₀" }
+          ]
+        }
+      ]
+    },
+    {
+      id: "significance",
+      title: "Significance",
+      list: [
+        "Essential for computer programming and digital electronics",
+        "Used in cryptography and data encoding",
+        "Fundamental for understanding computer architecture",
+        "Important in network protocols and data transmission",
+        "Used in image processing and multimedia applications"
+      ]
+    },
+    {
+      id: "applications",
+      title: "Applications",
+      list: [
+        "Computer programming and software development",
+        "Digital circuit design and electronics",
+        "Network protocols and data communication",
+        "Cryptography and security systems",
+        "Image and video processing",
+        "Embedded systems and microcontrollers"
+      ]
+    }
+  ];
+
+  return (
+    <div className="tool-page">
+      <ToolHero 
+        title="Binary Calculator"
+        icon="fas fa-calculator"
+        description="Perform arithmetic and logical operations on binary, decimal, hexadecimal, and octal numbers with step-by-step solutions."
+        features={[
+          "Multiple number systems",
+          "Arithmetic operations",
+          "Logical operations",
+          "Step-by-step solutions"
+        ]}
+      />
+      
+      <ToolLayout>
+        {/* Calculator Section */}
+        <section className="calculator-section">
+          <div className="calculator-container">
+            <h2 className="calculator-title">
+              <i className="fas fa-calculator"></i>
+              Binary Calculator
+            </h2>
+            
+            <form className="calculator-form" onSubmit={handleSubmit}>
+              <div className="form-row">
+                <div className="form-group">
+                  <label htmlFor="firstNumber">First Number</label>
+                  <input
+                    type="text"
+                    id="firstNumber"
+                    value={formData.firstNumber}
+                    onChange={(e) => handleInputChange('firstNumber', e.target.value)}
+                    placeholder="Enter first number"
+                  />
+                </div>
+                
+                <div className="form-group">
+                  <label htmlFor="firstNumberType">Number System</label>
+                  <select
+                    id="firstNumberType"
+                    value={formData.firstNumberType}
+                    onChange={(e) => handleTypeChange('firstNumberType', e.target.value)}
+                  >
+                    <option value="binary">Binary</option>
+                    <option value="decimal">Decimal</option>
+                    <option value="hexadecimal">Hexadecimal</option>
+                    <option value="octal">Octal</option>
+                  </select>
+                </div>
+              </div>
+
+              <div className="form-row">
+                <div className="form-group">
+                  <label htmlFor="operator">Operation</label>
+                  <select
+                    id="operator"
+                    value={formData.operator}
+                    onChange={(e) => handleOperatorChange(e.target.value)}
+                  >
+                    <option value="+">Addition (+)</option>
+                    <option value="-">Subtraction (-)</option>
+                    <option value="*">Multiplication (×)</option>
+                    <option value="/">Division (÷)</option>
+                    <option value="AND">AND</option>
+                    <option value="OR">OR</option>
+                    <option value="XOR">XOR</option>
+                    <option value="NOT">NOT</option>
+                  </select>
+                </div>
+              </div>
+
+              {formData.operator !== 'NOT' && (
+                <div className="form-row">
+                  <div className="form-group">
+                    <label htmlFor="secondNumber">Second Number</label>
+                    <input
+                      type="text"
+                      id="secondNumber"
+                      value={formData.secondNumber}
+                      onChange={(e) => handleInputChange('secondNumber', e.target.value)}
+                      placeholder="Enter second number"
+                    />
+                  </div>
+                  
+                  <div className="form-group">
+                    <label htmlFor="secondNumberType">Number System</label>
+                    <select
+                      id="secondNumberType"
+                      value={formData.secondNumberType}
+                      onChange={(e) => handleTypeChange('secondNumberType', e.target.value)}
+                    >
+                      <option value="binary">Binary</option>
+                      <option value="decimal">Decimal</option>
+                      <option value="hexadecimal">Hexadecimal</option>
+                      <option value="octal">Octal</option>
+                    </select>
+                  </div>
+                </div>
+              )}
+
+              <div className="form-actions">
+                <button type="submit" className="btn-calculate">
+                  <i className="fas fa-equals"></i>
+                  Calculate
+                </button>
+                <button type="button" className="btn-reset" onClick={handleReset}>
+                  <i className="fas fa-redo"></i>
+                  Reset
+                </button>
+              </div>
+            </form>
+
+            {error && (
+              <div className="error-message">
+                <i className="fas fa-exclamation-triangle"></i>
+                <span>{error}</span>
+              </div>
+            )}
+
+            {result && (
+              <div className="result-section">
+                <h3 className="result-title">Result</h3>
+                <div className="result-display">
+                  <div className="results-container">
+                    <div className="result-row">
+                      <span className="result-label">Binary:</span>
+                      <span className="result-value">{result.binary}</span>
+                    </div>
+                    <div className="result-row">
+                      <span className="result-label">Decimal:</span>
+                      <span className="result-value">{result.decimal}</span>
+                    </div>
+                    <div className="result-row">
+                      <span className="result-label">Hexadecimal:</span>
+                      <span className="result-value">{result.hexadecimal}</span>
+                    </div>
+                    <div className="result-row">
+                      <span className="result-label">Octal:</span>
+                      <span className="result-value">{result.octal}</span>
+                    </div>
+                  </div>
+                  
+                  <div className="solution-steps">
+                    <h4>Solution Steps</h4>
+                    <div className="steps-container">
+                      {result.steps.map((step, index) => (
+                        <div key={index} className="step">
+                          {step}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+        </section>
+
+        {/* Content Section */}
+        <ContentSection sections={contentSections} />
+      </ToolLayout>
+    </div>
+  );
+};
+
+export default BinaryCalculator; 

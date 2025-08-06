@@ -14,7 +14,7 @@ const CategoryNavigation = () => {
       description: 'Basic and advanced mathematical calculations',
       icon: 'fas fa-calculator',
       color: '#3b82f6',
-      link: '/math/math-calculators'
+      link: '/math'
     },
     {
       id: 2,
@@ -22,7 +22,7 @@ const CategoryNavigation = () => {
       description: 'Financial planning and investment tools',
       icon: 'fas fa-dollar-sign',
       color: '#10b981',
-      link: '/finance/finance-calculators'
+      link: '/finance'
     },
     {
       id: 3,
@@ -30,7 +30,7 @@ const CategoryNavigation = () => {
       description: 'Scientific and engineering calculations',
       icon: 'fas fa-atom',
       color: '#f59e0b',
-      link: '/science/science-calculators'
+      link: '/science'
     },
     {
       id: 4,
@@ -38,7 +38,7 @@ const CategoryNavigation = () => {
       description: 'Health and fitness calculations',
       icon: 'fas fa-heartbeat',
       color: '#ec4899',
-      link: '/health/health-calculators'
+      link: '/health'
     },
     {
       id: 5,
@@ -46,7 +46,7 @@ const CategoryNavigation = () => {
       description: 'Conversion and utility tools',
       icon: 'fas fa-tools',
       color: '#8b5cf6',
-      link: '/utility-tools/conversion-tools'
+      link: '/utility-tools'
     },
     {
       id: 6,
@@ -54,7 +54,7 @@ const CategoryNavigation = () => {
       description: 'Educational and knowledge-based tools',
       icon: 'fas fa-brain',
       color: '#f59e0b',
-      link: '/knowledge/knowledge-calculators'
+      link: '/knowledge'
     }
   ]
 

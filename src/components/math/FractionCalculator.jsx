@@ -229,19 +229,106 @@ const FractionCalculator = () => {
     setError('')
   }
 
-  // Initialize MathJax when component mounts (simplified)
+
+
+  // Initialize KaTeX when component mounts
   useEffect(() => {
-    const timer = setTimeout(() => {
-      if (window.MathJax) {
+    const renderFormulas = () => {
+      if (window.katex) {
         try {
-          window.MathJax.typesetPromise();
+          // Addition formula
+          katex.render('\\frac{a}{b} + \\frac{c}{d} = \\frac{ad + bc}{bd}', 
+            document.getElementById('addition-formula'));
+          
+          // Subtraction formula
+          katex.render('\\frac{a}{b} - \\frac{c}{d} = \\frac{ad - bc}{bd}', 
+            document.getElementById('subtraction-formula'));
+          
+          // Multiplication formula
+          katex.render('\\frac{a}{b} \\times \\frac{c}{d} = \\frac{ac}{bd}', 
+            document.getElementById('multiplication-formula'));
+          
+          // Division formula
+          katex.render('\\frac{a}{b} \\div \\frac{c}{d} = \\frac{ad}{bc}', 
+            document.getElementById('division-formula'));
+
+          // Example 1 formulas
+          katex.render('\\frac{1}{2} + \\frac{1}{4}', 
+            document.getElementById('example1-formula'));
+          katex.render('\\frac{1}{2} = \\frac{2}{4}, \\frac{1}{4} = \\frac{1}{4}', 
+            document.getElementById('example1-step2'));
+          katex.render('\\frac{2}{4} + \\frac{1}{4} = \\frac{3}{4}', 
+            document.getElementById('example1-step3'));
+          katex.render('\\frac{3}{4} = 0.75', 
+            document.getElementById('example1-result'));
+
+          // Example 2 formulas
+          katex.render('\\frac{2}{3} \\times \\frac{3}{4}', 
+            document.getElementById('example2-formula'));
+          katex.render('\\frac{6}{12} = \\frac{1}{2}', 
+            document.getElementById('example2-step3'));
+          katex.render('\\frac{1}{2} = 0.5', 
+            document.getElementById('example2-result'));
         } catch (error) {
-          console.log('MathJax initialization error:', error);
+          console.log('KaTeX rendering error:', error);
         }
       }
-    }, 200);
+    };
+
+    // Wait for KaTeX to be ready
+    const checkKaTeX = () => {
+      if (window.katex) {
+        renderFormulas();
+      } else {
+        setTimeout(checkKaTeX, 100);
+      }
+    };
+
+    const timer = setTimeout(checkKaTeX, 500);
     return () => clearTimeout(timer);
   }, []);
+
+  // Render KaTeX formulas when results change
+  useEffect(() => {
+    const renderResultFormulas = () => {
+      if (window.katex && result) {
+        try {
+          // Convert fraction string to LaTeX format
+          const fractionToLatex = (fractionStr) => {
+            // Handle mixed numbers like "1 3/4"
+            if (fractionStr.includes(' ')) {
+              const parts = fractionStr.split(' ');
+              const whole = parts[0];
+              const fraction = parts[1];
+              const [num, den] = fraction.split('/');
+              return `${whole}\\frac{${num}}{${den}}`;
+            }
+            // Handle simple fractions like "3/4"
+            else if (fractionStr.includes('/')) {
+              const [num, den] = fractionStr.split('/');
+              return `\\frac{${num}}{${den}}`;
+            }
+            // Handle whole numbers
+            else {
+              return fractionStr;
+            }
+          };
+
+          // Render result formula
+          const resultElement = document.getElementById('result-formula');
+          if (resultElement) {
+            const latexFormula = fractionToLatex(result.fraction);
+            katex.render(latexFormula, resultElement);
+          }
+        } catch (error) {
+          console.log('KaTeX result rendering error:', error);
+        }
+      }
+    };
+
+    const timer = setTimeout(renderResultFormulas, 100);
+    return () => clearTimeout(timer);
+  }, [result]);
 
   return (
     <div className="tool-page">
@@ -456,7 +543,8 @@ const FractionCalculator = () => {
                       <div className="result-content">
                         <div className="result-main">
                           <div className="result-item">
-                            <strong>Fraction:</strong> {result.fraction}
+                            <strong>Fraction:</strong>
+                            <div className="result-formula" id="result-formula"></div>
                           </div>
                           <div className="result-item">
                             <strong>Decimal:</strong> {result.decimal}
@@ -540,17 +628,19 @@ const FractionCalculator = () => {
                   {/* Introduction */}
                   <div id="introduction" className="content-block">
                     <h2 className="content-title">Introduction</h2>
-                    <p>
-                      Fractions are fundamental mathematical concepts that represent parts of a whole. 
-                      They are used extensively in mathematics, science, engineering, and everyday life. 
-                      Our Fraction Calculator is designed to simplify complex fraction operations, 
-                      providing accurate results with detailed step-by-step solutions.
-                    </p>
-                    <p>
-                      Whether you're a student learning fractions, a teacher explaining concepts, 
-                      or a professional working with measurements, this calculator helps you perform 
-                      addition, subtraction, multiplication, and division of fractions efficiently.
-                    </p>
+                    <div className="content-intro">
+                      <p>
+                        Fractions are fundamental mathematical concepts that represent parts of a whole. 
+                        They are used extensively in mathematics, science, engineering, and everyday life. 
+                        Our Fraction Calculator is designed to simplify complex fraction operations, 
+                        providing accurate results with detailed step-by-step solutions.
+                      </p>
+                      <p>
+                        Whether you're a student learning fractions, a teacher explaining concepts, 
+                        or a professional working with measurements, this calculator helps you perform 
+                        addition, subtraction, multiplication, and division of fractions efficiently.
+                      </p>
+                    </div>
                   </div>
 
                   {/* What is a Fraction Calculator */}
@@ -564,23 +654,29 @@ const FractionCalculator = () => {
                         calculators are available, each with specialized functionality:
                       </p>
                     </div>
-                    <div className="calculator-types">
-                      <div className="type-item">
-                        <strong>Fraction Calculator:</strong> Designed for basic operations between two fractions.
-                      </div>
-                      <div className="type-item">
-                        <strong>3 Fraction Calculator:</strong> Simplifies operations involving three fractions at once.
-                      </div>
-                      <div className="type-item">
-                        <strong>4 Fraction Calculator:</strong> Manages calculations with four fractions, ideal for more detailed comparisons.
-                      </div>
-                      <div className="type-item">
-                        <strong>Mixed Number Fraction Calculator:</strong> This tool is ideal for calculations that involve both whole numbers and fractions, often converting mixed numbers into improper fractions to make calculations easier.
-                      </div>
+                    <ul>
+                      <li>
+                        <i className="fas fa-check"></i>
+                        <span><strong>Fraction Calculator:</strong> Designed for basic operations between two fractions.</span>
+                      </li>
+                      <li>
+                        <i className="fas fa-check"></i>
+                        <span><strong>3 Fraction Calculator:</strong> Simplifies operations involving three fractions at once.</span>
+                      </li>
+                      <li>
+                        <i className="fas fa-check"></i>
+                        <span><strong>4 Fraction Calculator:</strong> Manages calculations with four fractions, ideal for more detailed comparisons.</span>
+                      </li>
+                      <li>
+                        <i className="fas fa-check"></i>
+                        <span><strong>Mixed Number Fraction Calculator:</strong> This tool is ideal for calculations that involve both whole numbers and fractions, often converting mixed numbers into improper fractions to make calculations easier.</span>
+                      </li>
+                    </ul>
+                    <div className="content-intro">
+                      <p>
+                        Each calculator type is user-friendly and provides instant solutions, making it easier to approach and solve various fraction problems.
+                      </p>
                     </div>
-                    <p>
-                      Each calculator type is user-friendly and provides instant solutions, making it easier to approach and solve various fraction problems.
-                    </p>
                   </div>
 
                   {/* Formulas */}
@@ -589,33 +685,25 @@ const FractionCalculator = () => {
                     
                     <div className="formula-section">
                       <h3>Addition</h3>
-                      <div className="math-formula">
-                        a/b + c/d = (ad + bc)/(bd)
-                      </div>
+                      <div className="math-formula" id="addition-formula"></div>
                       <p>To add fractions, we find a common denominator and add the numerators.</p>
                     </div>
 
                     <div className="formula-section">
                       <h3>Subtraction</h3>
-                      <div className="math-formula">
-                        a/b - c/d = (ad - bc)/(bd)
-                      </div>
+                      <div className="math-formula" id="subtraction-formula"></div>
                       <p>To subtract fractions, we find a common denominator and subtract the numerators.</p>
                     </div>
 
                     <div className="formula-section">
                       <h3>Multiplication</h3>
-                      <div className="math-formula">
-                        a/b × c/d = (ac)/(bd)
-                      </div>
+                      <div className="math-formula" id="multiplication-formula"></div>
                       <p>To multiply fractions, we multiply the numerators and denominators directly.</p>
                     </div>
 
                     <div className="formula-section">
                       <h3>Division</h3>
-                      <div className="math-formula">
-                        a/b ÷ c/d = (ad)/(bc)
-                      </div>
+                      <div className="math-formula" id="division-formula"></div>
                       <p>To divide fractions, we multiply by the reciprocal of the second fraction.</p>
                     </div>
 
@@ -663,23 +751,23 @@ const FractionCalculator = () => {
                     
                     <div className="example-section">
                       <h3>Example 1: Adding Fractions</h3>
-                      <p>Calculate: 1/2 + 1/4</p>
+                      <p>Calculate: <div className="content-formula" id="example1-formula"></div></p>
                       <div className="example-solution">
                         <p><strong>Step 1:</strong> Find common denominator (LCD = 4)</p>
-                        <p><strong>Step 2:</strong> Convert fractions: 1/2 = 2/4, 1/4 = 1/4</p>
-                        <p><strong>Step 3:</strong> Add numerators: 2/4 + 1/4 = 3/4</p>
-                        <p><strong>Result:</strong> 3/4 = 0.75</p>
+                        <p><strong>Step 2:</strong> Convert fractions: <div className="content-formula" id="example1-step2"></div></p>
+                        <p><strong>Step 3:</strong> Add numerators: <div className="content-formula" id="example1-step3"></div></p>
+                        <p><strong>Result:</strong> <div className="content-formula" id="example1-result"></div></p>
                       </div>
                     </div>
 
                     <div className="example-section">
                       <h3>Example 2: Multiplying Fractions</h3>
-                      <p>Calculate: 2/3 × 3/4</p>
+                      <p>Calculate: <div className="content-formula" id="example2-formula"></div></p>
                       <div className="example-solution">
                         <p><strong>Step 1:</strong> Multiply numerators: 2 × 3 = 6</p>
                         <p><strong>Step 2:</strong> Multiply denominators: 3 × 4 = 12</p>
-                        <p><strong>Step 3:</strong> Simplify: 6/12 = 1/2</p>
-                        <p><strong>Result:</strong> 1/2 = 0.5</p>
+                        <p><strong>Step 3:</strong> Simplify: <div className="content-formula" id="example2-step3"></div></p>
+                        <p><strong>Result:</strong> <div className="content-formula" id="example2-result"></div></p>
                       </div>
                     </div>
                   </div>
@@ -691,11 +779,26 @@ const FractionCalculator = () => {
                       Fractions are essential in mathematics and have numerous applications in real life:
                     </p>
                     <ul>
-                      <li>They represent parts of wholes in measurements and quantities</li>
-                      <li>They are fundamental in algebra and calculus</li>
-                      <li>They are used in probability and statistics</li>
-                      <li>They help in understanding ratios and proportions</li>
-                      <li>They are crucial in engineering and scientific calculations</li>
+                      <li>
+                        <i className="fas fa-check"></i>
+                        <span>They represent parts of wholes in measurements and quantities</span>
+                      </li>
+                      <li>
+                        <i className="fas fa-check"></i>
+                        <span>They are fundamental in algebra and calculus</span>
+                      </li>
+                      <li>
+                        <i className="fas fa-check"></i>
+                        <span>They are used in probability and statistics</span>
+                      </li>
+                      <li>
+                        <i className="fas fa-check"></i>
+                        <span>They help in understanding ratios and proportions</span>
+                      </li>
+                      <li>
+                        <i className="fas fa-check"></i>
+                        <span>They are crucial in engineering and scientific calculations</span>
+                      </li>
                     </ul>
                   </div>
 
@@ -704,12 +807,30 @@ const FractionCalculator = () => {
                     <h2 className="content-title">Functionality</h2>
                     <p>Our Fraction Calculator provides:</p>
                     <ul>
-                      <li><strong>Multiple Operations:</strong> Addition, subtraction, multiplication, and division</li>
-                      <li><strong>Step-by-step Solutions:</strong> Detailed calculation process</li>
-                      <li><strong>Multiple Formats:</strong> Fraction, decimal, and mixed number results</li>
-                      <li><strong>Simplification:</strong> Automatic reduction to lowest terms</li>
-                      <li><strong>Error Handling:</strong> Validation for invalid inputs</li>
-                      <li><strong>Multiple Fractions:</strong> Support for 2, 3, or 4 fractions</li>
+                      <li>
+                        <i className="fas fa-check"></i>
+                        <span><strong>Multiple Operations:</strong> Addition, subtraction, multiplication, and division</span>
+                      </li>
+                      <li>
+                        <i className="fas fa-check"></i>
+                        <span><strong>Step-by-step Solutions:</strong> Detailed calculation process</span>
+                      </li>
+                      <li>
+                        <i className="fas fa-check"></i>
+                        <span><strong>Multiple Formats:</strong> Fraction, decimal, and mixed number results</span>
+                      </li>
+                      <li>
+                        <i className="fas fa-check"></i>
+                        <span><strong>Simplification:</strong> Automatic reduction to lowest terms</span>
+                      </li>
+                      <li>
+                        <i className="fas fa-check"></i>
+                        <span><strong>Error Handling:</strong> Validation for invalid inputs</span>
+                      </li>
+                      <li>
+                        <i className="fas fa-check"></i>
+                        <span><strong>Multiple Fractions:</strong> Support for 2, 3, or 4 fractions</span>
+                      </li>
                     </ul>
                   </div>
 
