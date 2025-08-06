@@ -3,6 +3,12 @@ import { Routes, Route } from 'react-router-dom'
 import Home from './components/Home'
 import Header from './components/Header'
 import Footer from './components/Footer'
+import MathCalculator from './pages/math/MathCalculator'
+import FinanceCalculator from './pages/finance/FinanceCalculator'
+import ScienceCalculator from './pages/science/ScienceCalculator'
+import HealthCalculator from './pages/health/HealthCalculator'
+import UtilityTools from './pages/utility/UtilityTools'
+import KnowledgeCalculator from './pages/knowledge/KnowledgeCalculator'
 
 const App = () => {
   return (
@@ -11,12 +17,12 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         {/* Add more routes here as needed */}
-        <Route path="/math/math-calculators" element={<div>Math Calculators Page</div>} />
-        <Route path="/finance/finance-calculators" element={<div>Finance Calculators Page</div>} />
-        <Route path="/science/science-calculators" element={<div>Science Calculators Page</div>} />
-        <Route path="/health/health-calculators" element={<div>Health Calculators Page</div>} />
-        <Route path="/utility-tools/conversion-tools" element={<div>Utility Tools Page</div>} />
-        <Route path="/knowledge/knowledge-calculators" element={<div>Knowledge Calculators Page</div>} />
+        <Route path="/math" element={<MathCalculator />} />
+        <Route path="/finance" element={<FinanceCalculator />} />
+        <Route path="/science" element={<ScienceCalculator />} />
+        <Route path="/health" element={<HealthCalculator />} />
+        <Route path="/utility-tools" element={<UtilityTools />} />
+        <Route path="/knowledge" element={<KnowledgeCalculator />} />
       </Routes>
       <Footer />
     </>

@@ -64,37 +64,37 @@ const Header = () => {
           
           <li><Link to="/" onClick={closeMenu}> Home</Link></li>
           <li className="nav-category">
-            <Link to="/math/math-calculators" onClick={closeMenu}>
+            <Link to="/math" onClick={closeMenu}>
               <i className="fas fa-calculator"></i>
               <span>Math</span>
             </Link>
           </li>
           <li className="nav-category">
-            <Link to="/finance/finance-calculators" onClick={closeMenu}>
+            <Link to="/finance" onClick={closeMenu}>
               <i className="fas fa-dollar-sign"></i>
               <span>Finance</span>
             </Link>
           </li>
           <li className="nav-category">
-            <Link to="/science/science-calculators" onClick={closeMenu}>
+            <Link to="/science" onClick={closeMenu}>
               <i className="fas fa-cog"></i>
               <span>Science</span>
             </Link>
           </li>
           <li className="nav-category">
-            <Link to="/health/health-calculators" onClick={closeMenu}>
+            <Link to="/health" onClick={closeMenu}>
               <i className="fas fa-heartbeat"></i>
               <span>Health</span>
             </Link>
           </li>
           <li className="nav-category">
-            <Link to="/utility-tools/conversion-tools" onClick={closeMenu}>
+            <Link to="/utility-tools" onClick={closeMenu}>
               <i className="fas fa-tools"></i>
               <span>Utility</span>
             </Link>
           </li>
           <li className="nav-category">
-            <Link to="/knowledge/knowledge-calculators" onClick={closeMenu}>
+            <Link to="/knowledge" onClick={closeMenu}>
               <i className="fas fa-brain"></i>
               <span>Knowledge</span>
             </Link>
