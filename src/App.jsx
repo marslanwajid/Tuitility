@@ -16,6 +16,7 @@ import BinaryCalculator from './components/math/BinaryCalculator'
 import DecimalCalculator from './components/math/DecimalCalculator'
 import PercentageCalculator from './components/math/PercentageCalculator'
 import DecimalToFractionCalculator from './components/math/DecimalToFractionCalculator'
+import LCMCalculator from './components/math/LCMCalculator'
 
 const App = () => {
   return (
@@ -31,6 +32,7 @@ const App = () => {
                <Route path="/math/calculators/decimal-calculator" element={<DecimalCalculator />} />
                <Route path="/math/calculators/percentage-calculator" element={<PercentageCalculator />} />
                <Route path="/math/calculators/decimal-to-fraction-calculator" element={<DecimalToFractionCalculator />} />
+               <Route path="/math/calculators/lcm-calculator" element={<LCMCalculator />} />
         <Route path="/finance" element={<FinanceCalculator />} />
         <Route path="/science" element={<ScienceCalculator />} />
         <Route path="/health" element={<HealthCalculator />} />
