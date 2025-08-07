@@ -1,107 +1,282 @@
-import React, { useState } from 'react';
-import { ToolHero, ToolLayout, ContentSection, TableOfContents, FeedbackForm, FAQSection, MathFormula } from '../tool';
-import { getRelatedTools } from '../../utils/toolHelpers';
-import fractionToPercentCalculatorLogic from '../../assets/js/math/fraction-to-percent-calculator.js';
-import '../../assets/css/math/fraction-to-percent-calculator.css';
+import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
+import { 
+  ToolHero, 
+  ToolSidebar, 
+  ToolLayout, 
+  TableOfContents, 
+  FeedbackForm, 
+  ContentSection, 
+  FAQSection,
+  MathFormula 
+} from '../tool'
+import { getRelatedTools } from '../../utils/toolHelpers'
+import '../../assets/css/math/fraction-to-percent-calculator.css'
 
 const FractionToPercentCalculator = () => {
-  const [activeTab, setActiveTab] = useState('simple');
-  const [simpleFormData, setSimpleFormData] = useState(fractionToPercentCalculatorLogic.resetFormData('simple'));
-  const [mixedFormData, setMixedFormData] = useState(fractionToPercentCalculatorLogic.resetFormData('mixed'));
-  const [result, setResult] = useState(null);
-  const [error, setError] = useState('');
+  const [activeTab, setActiveTab] = useState('simple-fraction')
+  const [result, setResult] = useState(null)
+  const [error, setError] = useState('')
 
-  const handleTabChange = (tabType) => {
-    setActiveTab(tabType);
-    setResult(null);
-    setError('');
-  };
+  // Calculator state
+  const [simpleFraction, setSimpleFraction] = useState({
+    numerator: 3,
+    denominator: 4
+  })
 
-  const handleInputChange = (field, value, type = 'simple') => {
-    if (fractionToPercentCalculatorLogic.validateInput(value)) {
-      if (type === 'simple') {
-        setSimpleFormData(prev => ({
-          ...prev,
-          [field]: value
-        }));
-      } else {
-        setMixedFormData(prev => ({
-          ...prev,
-          [field]: value
-        }));
-      }
+  const [mixedNumber, setMixedNumber] = useState({
+    whole: 1,
+    numerator: 2,
+    denominator: 3
+  })
+
+  // Utility functions
+  const formatDecimal = (number) => {
+    if (!isFinite(number)) {
+      return 'Undefined'
     }
-  };
-
-  const calculate = () => {
-    const currentFormData = activeTab === 'simple' ? simpleFormData : mixedFormData;
-    const calculationResult = fractionToPercentCalculatorLogic.calculate(currentFormData, activeTab);
     
-    if (calculationResult.error) {
-      setError(calculationResult.error);
-      setResult(null);
-    } else {
-      setResult(calculationResult);
-      setError('');
-    }
-  };
+    let str = number.toFixed(4)
+    str = str.replace(/\.?0+$/, "")
+    return str
+  }
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    calculate();
-  };
+  const calculateResult = () => {
+    console.log('calculateResult function called')
+    try {
+      let numerator, denominator, whole = 0
+      let steps = []
+      let inputDisplay = ''
+
+      if (activeTab === 'simple-fraction') {
+        console.log('Processing simple fraction')
+        numerator = simpleFraction.numerator
+        denominator = simpleFraction.denominator
+        
+        if (isNaN(numerator) || isNaN(denominator) || denominator === 0) {
+          throw new Error('Please enter valid numbers. Denominator cannot be zero.')
+        }
+
+        inputDisplay = `${numerator}/${denominator}`
+        steps.push(`Start with fraction: ${numerator}/${denominator}`)
+        
+      } else if (activeTab === 'mixed-number') {
+        console.log('Processing mixed number')
+        whole = mixedNumber.whole || 0
+        numerator = mixedNumber.numerator
+        denominator = mixedNumber.denominator
+        
+        if (isNaN(numerator) || isNaN(denominator) || denominator === 0) {
+          throw new Error('Please enter valid numbers. Denominator cannot be zero.')
+        }
+
+        inputDisplay = `${whole} ${numerator}/${denominator}`
+        steps.push(`Start with mixed number: ${whole} ${numerator}/${denominator}`)
+        
+        // Convert to improper fraction
+        const improperNumerator = (whole * denominator) + numerator
+        steps.push(`Convert to improper fraction: (${whole} × ${denominator}) + ${numerator} = ${improperNumerator}/${denominator}`)
+        
+        numerator = improperNumerator
+      }
+
+      // Calculate decimal
+      const decimal = numerator / denominator
+      steps.push(`Divide: ${numerator} ÷ ${denominator} = ${formatDecimal(decimal)}`)
+      
+      // Calculate percentage
+      const percentage = decimal * 100
+      steps.push(`Multiply by 100: ${formatDecimal(decimal)} × 100 = ${formatDecimal(percentage)}%`)
+
+      const resultData = {
+        inputDisplay: inputDisplay,
+        percentage: formatDecimal(percentage),
+        decimal: formatDecimal(decimal),
+        steps: steps
+      }
+      
+      console.log('Setting result:', resultData)
+      setResult(resultData)
+      setError('')
+    } catch (error) {
+      console.log('Error in calculation:', error.message)
+      setError(error.message)
+      setResult(null)
+    }
+  }
+
+  const handleSimpleFractionChange = (field, value) => {
+    const newValue = parseInt(value) || 0
+    setSimpleFraction(prev => ({
+      ...prev,
+      [field]: newValue
+    }))
+  }
+
+  const handleMixedNumberChange = (field, value) => {
+    const newValue = parseInt(value) || 0
+    setMixedNumber(prev => ({
+      ...prev,
+      [field]: newValue
+    }))
+  }
+
+  const handleTabChange = (tabId) => {
+    setActiveTab(tabId)
+    setResult(null)
+    setError('')
+  }
+
+  const handleCalculate = (e) => {
+    e.preventDefault()
+    console.log('Calculate button clicked')
+    console.log('Active tab:', activeTab)
+    console.log('Simple fraction state:', simpleFraction)
+    console.log('Mixed number state:', mixedNumber)
+    calculateResult()
+  }
 
   const handleReset = () => {
-    if (activeTab === 'simple') {
-      setSimpleFormData(fractionToPercentCalculatorLogic.resetFormData('simple'));
-    } else {
-      setMixedFormData(fractionToPercentCalculatorLogic.resetFormData('mixed'));
-    }
-    setResult(null);
-    setError('');
-  };
+    setSimpleFraction({
+      numerator: 3,
+      denominator: 4
+    })
+    setMixedNumber({
+      whole: 1,
+      numerator: 2,
+      denominator: 3
+    })
+    setResult(null)
+    setError('')
+  }
 
-  // Content sections for the Fraction to Percent Calculator
+  // Monitor result state changes
+  useEffect(() => {
+    console.log('Result state changed:', result)
+  }, [result])
+
+  // Monitor error state changes
+  useEffect(() => {
+    console.log('Error state changed:', error)
+  }, [error])
+
+  // Initialize KaTeX when component mounts
+  useEffect(() => {
+    const renderFormulas = () => {
+      if (window.katex) {
+        try {
+          // Basic conversion formula
+          katex.render('\\text{Percentage} = \\frac{\\text{Numerator}}{\\text{Denominator}} \\times 100', 
+            document.getElementById('conversion-formula'));
+          
+          // Example 1 formulas
+          katex.render('\\frac{3}{4} \\times 100', 
+            document.getElementById('example1-formula'));
+          katex.render('0.75 \\times 100 = 75\\%', 
+            document.getElementById('example1-result'));
+
+          // Example 2 formulas
+          katex.render('1\\frac{2}{3} = \\frac{5}{3}', 
+            document.getElementById('example2-step1'));
+          katex.render('\\frac{5}{3} \\times 100', 
+            document.getElementById('example2-formula'));
+          katex.render('1.6667 \\times 100 = 166.67\\%', 
+            document.getElementById('example2-result'));
+        } catch (error) {
+          console.log('KaTeX rendering error:', error);
+        }
+      }
+    };
+
+    // Wait for KaTeX to be ready
+    const checkKaTeX = () => {
+      if (window.katex) {
+        renderFormulas();
+      } else {
+        setTimeout(checkKaTeX, 100);
+      }
+    };
+
+    const timer = setTimeout(checkKaTeX, 500);
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Render KaTeX formulas when results change
+  useEffect(() => {
+    const renderResultFormulas = () => {
+      if (window.katex && result) {
+        try {
+          // Convert fraction string to LaTeX format
+          const fractionToLatex = (fractionStr) => {
+            // Handle mixed numbers like "1 2/3"
+            if (fractionStr.includes(' ')) {
+              const parts = fractionStr.split(' ');
+              const whole = parts[0];
+              const fraction = parts[1];
+              const [num, den] = fraction.split('/');
+              return `${whole}\\frac{${num}}{${den}}`;
+            }
+            // Handle simple fractions like "3/4"
+            else if (fractionStr.includes('/')) {
+              const [num, den] = fractionStr.split('/');
+              return `\\frac{${num}}{${den}}`;
+            }
+            // Handle whole numbers
+            else {
+              return fractionStr;
+            }
+          };
+
+          // Render result formula
+          const resultElement = document.getElementById('result-formula');
+          if (resultElement) {
+            const latexFormula = fractionToLatex(result.inputDisplay);
+            katex.render(latexFormula, resultElement);
+          }
+        } catch (error) {
+          console.log('KaTeX result rendering error:', error);
+        }
+      }
+    };
+
+    const timer = setTimeout(renderResultFormulas, 100);
+    return () => clearTimeout(timer);
+  }, [result]);
+
+  // Content sections for the tool
   const contentSections = [
     {
       id: "introduction",
       title: "Introduction",
       intro: [
-        "Converting fractions to percentages is a fundamental mathematical skill that helps us understand fractions in terms of parts per hundred.",
-        "Our Fraction to Percent Calculator provides instant conversions with step-by-step solutions, showing you exactly how to convert any fraction or mixed number to its percentage equivalent."
+        "Converting fractions to percentages is a fundamental mathematical skill used in various fields including education, finance, statistics, and everyday calculations. Our Fraction to Percent Calculator simplifies this process, providing accurate conversions with detailed step-by-step explanations.",
+        "Whether you're working with simple fractions like 3/4 or mixed numbers like 1 2/3, this calculator will help you convert them to percentages quickly and accurately."
       ]
     },
     {
-      id: "what-are-fractions",
-      title: "What are Fractions?",
+      id: "what-is-fraction-to-percent",
+      title: "What is Fraction to Percent Conversion?",
       intro: [
-        "Fractions represent parts of a whole, using a numerator (top number) and denominator (bottom number) to show how many parts we have out of the total."
+        "Fraction to percent conversion is the process of expressing a fraction as a percentage. A percentage represents a part of 100, making it easier to understand and compare values."
       ],
       list: [
-        "Fractions represent parts of a whole using division",
-        "The numerator (top) shows how many parts we have",
-        "The denominator (bottom) shows the total number of equal parts",
-        "Common examples: 1/2 = one half, 3/4 = three quarters, 2/3 = two thirds",
-        "Fractions can be proper (numerator < denominator), improper (numerator ≥ denominator), or mixed numbers"
+        "Simple Fractions: Basic fractions like 3/4, 1/2, or 5/8",
+        "Mixed Numbers: Combinations of whole numbers and fractions like 1 2/3 or 2 1/4",
+        "Improper Fractions: Fractions where the numerator is larger than the denominator",
+        "Decimal Equivalents: The decimal representation of the fraction"
       ]
     },
     {
-      id: "conversion-process",
-      title: "How Fraction to Percent Conversion Works",
-      list: [
-        "Convert mixed numbers to improper fractions (if applicable)",
-        "Divide the numerator by the denominator to get the decimal",
-        "Multiply the decimal by 100 to get the percentage",
-        "Round the result to the desired number of decimal places"
+      id: "formulas",
+      title: "Formulas & Methods",
+      intro: [
+        "The conversion from fraction to percentage follows a simple mathematical process:"
       ],
       content: (
-        <div>
-          <p>The conversion process follows these mathematical principles:</p>
-          <div style={{ marginTop: '1rem' }}>
-            <MathFormula formula="\text{Decimal} = \frac{\text{Numerator}}{\text{Denominator}}" variant="content" />
-            <MathFormula formula="\text{Percentage} = \text{Decimal} \times 100" variant="content" />
-            <MathFormula formula="\text{For mixed numbers: } \text{Improper Fraction} = \text{Whole} + \frac{\text{Numerator}}{\text{Denominator}}" variant="content" />
-          </div>
+        <div className="formula-section">
+          <h3>Basic Conversion Formula</h3>
+          <div className="math-formula" id="conversion-formula"></div>
+          <p>To convert a fraction to a percentage, divide the numerator by the denominator and multiply by 100.</p>
         </div>
       )
     },
@@ -109,12 +284,11 @@ const FractionToPercentCalculator = () => {
       id: "how-to-use",
       title: "How to Use Fraction to Percent Calculator",
       steps: [
-        "Choose between Simple Fraction or Mixed Number tab",
+        "Select the appropriate tab: Simple Fraction or Mixed Number",
         "Enter the numerator and denominator values",
         "For mixed numbers, also enter the whole number part",
-        "Click Calculate to see the conversion results",
-        "Review the step-by-step solution to understand the conversion process",
-        "Use Reset to clear all inputs and start over"
+        "Click Calculate to see the result and step-by-step solution",
+        "The calculator will show the percentage, decimal equivalent, and detailed steps"
       ]
     },
     {
@@ -123,298 +297,214 @@ const FractionToPercentCalculator = () => {
       examples: [
         {
           title: "Example 1: Simple Fraction",
-          description: "Convert 3/4 to percentage",
+          description: "Convert 3/4 to a percentage",
           solution: [
-            { label: "Step 1", content: "Start with fraction: 3/4" },
-            { label: "Step 2", content: "Divide: 3 ÷ 4 = 0.75" },
-            { label: "Step 3", content: "Multiply by 100: 0.75 × 100 = 75%" }
-          ],
-          content: (
-            <div>
-              <p><strong>Problem:</strong> Convert 3/4 to percentage</p>
-              <div className="solution-steps">
-                <h4>Solution:</h4>
-                <ol>
-                  <li>Start with fraction: <MathFormula formula="\frac{3}{4}" variant="content" /></li>
-                  <li>Divide: <MathFormula formula="3 \div 4 = 0.75" variant="content" /></li>
-                  <li>Multiply by 100: <MathFormula formula="0.75 \times 100 = 75\%" variant="result" /></li>
-                </ol>
-              </div>
-            </div>
-          )
+            { label: "Step 1", content: "Divide numerator by denominator: 3 ÷ 4 = 0.75" },
+            { label: "Step 2", content: "Multiply by 100: 0.75 × 100 = 75%" },
+            { label: "Result", content: "3/4 = 75%" }
+          ]
         },
         {
           title: "Example 2: Mixed Number",
-          description: "Convert 1 2/3 to percentage",
+          description: "Convert 1 2/3 to a percentage",
           solution: [
-            { label: "Step 1", content: "Start with mixed number: 1 2/3" },
-            { label: "Step 2", content: "Convert to improper fraction: (1 × 3) + 2 = 5/3" },
-            { label: "Step 3", content: "Divide: 5 ÷ 3 = 1.6667" },
-            { label: "Step 4", content: "Multiply by 100: 1.6667 × 100 = 166.67%" }
-          ],
-          content: (
-            <div>
-              <p><strong>Problem:</strong> Convert 1 2/3 to percentage</p>
-              <div className="solution-steps">
-                <h4>Solution:</h4>
-                <ol>
-                  <li>Start with mixed number: <MathFormula formula="1 \frac{2}{3}" variant="content" /></li>
-                  <li>Convert to improper fraction: <MathFormula formula="(1 \times 3) + 2 = \frac{5}{3}" variant="content" /></li>
-                  <li>Divide: <MathFormula formula="5 \div 3 = 1.6667" variant="content" /></li>
-                  <li>Multiply by 100: <MathFormula formula="1.6667 \times 100 = 166.67\%" variant="result" /></li>
-                </ol>
-              </div>
-            </div>
-          )
-        },
-        {
-          title: "Example 3: Common Fractions",
-          description: "Convert common fractions to percentages",
-          solution: [
-            { label: "1/2", content: "1 ÷ 2 = 0.5, 0.5 × 100 = 50%" },
-            { label: "1/4", content: "1 ÷ 4 = 0.25, 0.25 × 100 = 25%" },
-            { label: "3/5", content: "3 ÷ 5 = 0.6, 0.6 × 100 = 60%" }
-          ],
-          content: (
-            <div>
-              <p><strong>Common Fraction Conversions:</strong></p>
-              <div className="solution-steps">
-                <h4>Quick Reference:</h4>
-                <ul>
-                  <li><MathFormula formula="\frac{1}{2} = 50\%" variant="content" /></li>
-                  <li><MathFormula formula="\frac{1}{4} = 25\%" variant="content" /></li>
-                  <li><MathFormula formula="\frac{3}{5} = 60\%" variant="content" /></li>
-                  <li><MathFormula formula="\frac{2}{3} = 66.67\%" variant="content" /></li>
-                  <li><MathFormula formula="\frac{4}{5} = 80\%" variant="content" /></li>
-                </ul>
-              </div>
-            </div>
-          )
+            { label: "Step 1", content: "Convert to improper fraction: 1 2/3 = 5/3" },
+            { label: "Step 2", content: "Divide: 5 ÷ 3 = 1.6667" },
+            { label: "Step 3", content: "Multiply by 100: 1.6667 × 100 = 166.67%" },
+            { label: "Result", content: "1 2/3 = 166.67%" }
+          ]
         }
-      ]
-    },
-    {
-      id: "formulas",
-      title: "Key Conversion Formulas",
-      list: [
-        "Decimal = Numerator ÷ Denominator",
-        "Percentage = Decimal × 100",
-        "For mixed numbers: Improper Fraction = (Whole × Denominator) + Numerator",
-        "Percentage = (Improper Fraction ÷ Denominator) × 100",
-        "Common conversions: 1/2 = 50%, 1/4 = 25%, 3/4 = 75%"
       ]
     },
     {
       id: "significance",
       title: "Significance",
       list: [
-        "Essential for understanding fractions in everyday contexts",
-        "Used in financial calculations and interest rates",
-        "Important for statistical analysis and data interpretation",
-        "Critical for solving real-world problems involving proportions",
-        "Used in academic mathematics and standardized tests",
-        "Helps develop number sense and mathematical intuition"
+        "Educational applications in mathematics and statistics",
+        "Financial calculations including interest rates and discounts",
+        "Data analysis and reporting in business and research",
+        "Everyday calculations like sales tax and tips",
+        "Scientific measurements and laboratory work",
+        "Sports statistics and performance metrics"
+      ]
+    },
+    {
+      id: "functionality",
+      title: "Functionality",
+      list: [
+        "Simple fraction conversion with step-by-step solutions",
+        "Mixed number support for complex calculations",
+        "Automatic decimal and percentage display",
+        "Input validation and error handling",
+        "Responsive design for all devices",
+        "Detailed calculation steps for learning purposes"
       ]
     },
     {
       id: "applications",
       title: "Applications",
-      list: [
-        "Financial calculations and interest rates",
-        "Statistical analysis and data interpretation",
-        "Academic mathematics and standardized tests",
-        "Everyday shopping and discounts",
-        "Recipe scaling and cooking measurements",
-        "Construction and measurement tasks",
-        "Sports statistics and performance metrics",
-        "Business analytics and reporting"
-      ]
-    },
-    {
-      id: "faqs",
-      title: "Frequently Asked Questions",
       content: (
-        <FAQSection 
-          faqs={[
-            {
-              question: "How do I convert a mixed number to a percentage?",
-              answer: "First convert the mixed number to an improper fraction by multiplying the whole number by the denominator and adding the numerator. Then divide the numerator by the denominator to get the decimal, and multiply by 100 to get the percentage."
-            },
-            {
-              question: "What's the difference between a fraction and a percentage?",
-              answer: "A fraction represents parts of a whole (e.g., 3/4 means 3 parts out of 4), while a percentage represents parts per hundred (e.g., 75% means 75 parts out of 100). Percentages are often easier to understand in everyday contexts."
-            },
-            {
-              question: "Can I convert any fraction to a percentage?",
-              answer: "Yes, any fraction can be converted to a percentage. The result may be a whole number (like 50%), a decimal (like 66.67%), or even greater than 100% for improper fractions (like 150% for 3/2)."
-            },
-            {
-              question: "Why do some fractions result in repeating decimals?",
-              answer: "Fractions with denominators that have prime factors other than 2 and 5 result in repeating decimals. For example, 1/3 = 0.3333... and 2/7 = 0.285714285714... These are perfectly valid and can still be converted to percentages."
-            },
-            {
-              question: "How accurate are the percentage conversions?",
-              answer: "The calculator provides results accurate to 4 decimal places and removes trailing zeros for cleaner display. For most practical purposes, this level of precision is sufficient."
-            },
-            {
-              question: "What are some common fraction to percentage conversions I should know?",
-              answer: "Common conversions include: 1/2 = 50%, 1/4 = 25%, 3/4 = 75%, 1/3 = 33.33%, 2/3 = 66.67%, 1/5 = 20%, 2/5 = 40%, 3/5 = 60%, 4/5 = 80%, and 1/10 = 10%."
-            }
-          ]}
-        />
+        <div className="applications-grid">
+          <div className="application-item">
+            <h4><i className="fas fa-graduation-cap"></i> Education</h4>
+            <p>Teaching fraction concepts and percentage calculations in schools</p>
+          </div>
+          <div className="application-item">
+            <h4><i className="fas fa-chart-line"></i> Finance</h4>
+            <p>Calculating interest rates, discounts, and financial ratios</p>
+          </div>
+          <div className="application-item">
+            <h4><i className="fas fa-flask"></i> Science</h4>
+            <p>Laboratory measurements and experimental data analysis</p>
+          </div>
+          <div className="application-item">
+            <h4><i className="fas fa-chart-bar"></i> Statistics</h4>
+            <p>Data analysis and statistical reporting</p>
+          </div>
+          <div className="application-item">
+            <h4><i className="fas fa-shopping-cart"></i> Retail</h4>
+            <p>Sales calculations, discounts, and tax computations</p>
+          </div>
+          <div className="application-item">
+            <h4><i className="fas fa-trophy"></i> Sports</h4>
+            <p>Performance statistics and success rate calculations</p>
+          </div>
+        </div>
       )
     }
-  ];
+  ]
 
-  // Table of Contents sections
-  const tocSections = [
-    { id: "introduction", title: "Introduction" },
-    { id: "what-are-fractions", title: "What are Fractions?" },
-    { id: "conversion-process", title: "Conversion Process" },
-    { id: "how-to-use", title: "How to Use" },
-    { id: "examples", title: "Examples" },
-    { id: "formulas", title: "Key Formulas" },
-    { id: "significance", title: "Significance" },
-    { id: "applications", title: "Applications" },
-    { id: "faqs", title: "FAQs" }
-  ];
-
-  // Sidebar props - Math-specific related tools
-  const sidebarProps = {
-    relatedTools: getRelatedTools('math')
-  };
+  // FAQ data
+  const faqs = [
+    {
+      question: "What is the difference between a fraction and a percentage?",
+      answer: "A fraction represents a part of a whole using two numbers (numerator/denominator), while a percentage represents the same value as parts per hundred (out of 100)."
+    },
+    {
+      question: "How do I convert a mixed number to a percentage?",
+      answer: "First convert the mixed number to an improper fraction, then divide the numerator by the denominator and multiply by 100."
+    },
+    {
+      question: "Can percentages be greater than 100%?",
+      answer: "Yes, when the numerator is larger than the denominator, the percentage will be greater than 100%. For example, 3/2 = 150%."
+    },
+    {
+      question: "What if the denominator is zero?",
+      answer: "Division by zero is undefined in mathematics. The calculator will show an error message if you attempt to use a denominator of zero."
+    },
+    {
+      question: "How accurate are the decimal results?",
+      answer: "The calculator displays results to 4 decimal places and automatically removes trailing zeros for cleaner display."
+    }
+  ]
 
   return (
     <div className="tool-page">
-      <ToolHero 
+      {/* Hero Section */}
+      <ToolHero
         title="Fraction to Percent Calculator"
         icon="fas fa-percentage"
-        description="Convert fractions and mixed numbers to percentages with step-by-step solutions and detailed explanations to understand the conversion process."
+        description="Convert fractions to percentages with step-by-step solutions. Perfect for students, teachers, and anyone working with fractions and percentages."
         features={[
-          "Simple fraction and mixed number conversion",
+          "Simple fraction conversion",
+          "Mixed number support", 
           "Step-by-step solutions",
-          "Real-time calculation",
-          "Comprehensive examples"
+          "Decimal equivalents"
         ]}
       />
-      
-      <ToolLayout sidebarProps={sidebarProps}>
+
+      <ToolLayout
+        sidebarProps={{
+          relatedTools: getRelatedTools('math')
+        }}
+      >
         {/* Calculator Section */}
         <section className="calculator-section">
-          <div className="fraction-to-percent-calculator">
-            <h2 className="calculator-title">
-              <i className="fas fa-percentage"></i>
+          <div className="calculator-container">
+            <h2 className="section-title">
+              <i className="fas fa-calculator"></i>
               Fraction to Percent Calculator
             </h2>
             
-            {/* Tab Navigation */}
-            <div className="tab-navigation">
+            <div className="calculator-tabs">
               <button 
-                className={`tab-button ${activeTab === 'simple' ? 'active' : ''}`}
-                onClick={() => handleTabChange('simple')}
+                className={`tab-button ${activeTab === 'simple-fraction' ? 'active' : ''}`}
+                onClick={() => handleTabChange('simple-fraction')}
               >
-                <i className="fas fa-fraction"></i>
                 Simple Fraction
               </button>
               <button 
-                className={`tab-button ${activeTab === 'mixed' ? 'active' : ''}`}
-                onClick={() => handleTabChange('mixed')}
+                className={`tab-button ${activeTab === 'mixed-number' ? 'active' : ''}`}
+                onClick={() => handleTabChange('mixed-number')}
               >
-                <i className="fas fa-layer-group"></i>
                 Mixed Number
               </button>
             </div>
-            
-            <form className="calculator-form" onSubmit={handleSubmit}>
-              {/* Simple Fraction Tab */}
-              <div className={`tab-content ${activeTab === 'simple' ? 'active' : ''}`}>
-                <div className="form-row">
-                  <div className="form-group">
-                    <label htmlFor="numerator">Numerator</label>
-                    <input
-                      type="text"
-                      id="numerator"
-                      name="numerator"
-                      value={simpleFormData.numerator}
-                      onChange={(e) => handleInputChange('numerator', e.target.value, 'simple')}
-                      placeholder="Enter numerator"
-                      className="input-field"
-                    />
-                  </div>
-                  <div className="form-group">
-                    <label htmlFor="denominator">Denominator</label>
-                    <input
-                      type="text"
-                      id="denominator"
-                      name="denominator"
-                      value={simpleFormData.denominator}
-                      onChange={(e) => handleInputChange('denominator', e.target.value, 'simple')}
-                      placeholder="Enter denominator"
-                      className="input-field bottom"
-                    />
-                  </div>
-                </div>
-                
-                <div className="fraction-display">
-                  <span>{simpleFormData.numerator}</span>
-                  <div className="fraction-line"></div>
-                  <span>{simpleFormData.denominator}</span>
-                </div>
-              </div>
 
-              {/* Mixed Number Tab */}
-              <div className={`tab-content ${activeTab === 'mixed' ? 'active' : ''}`}>
-                <div className="form-row mixed">
-                  <div className="form-group">
-                    <label htmlFor="whole">Whole Number</label>
+            <form onSubmit={handleCalculate} className="calculator-form">
+              {activeTab === 'simple-fraction' && (
+                <div className="input-group">
+                  <label>Enter Fraction:</label>
+                  <div className="fraction-inputs">
                     <input
-                      type="text"
-                      id="whole"
-                      name="whole"
-                      value={mixedFormData.whole}
-                      onChange={(e) => handleInputChange('whole', e.target.value, 'mixed')}
-                      placeholder="Enter whole number"
+                      type="number"
                       className="input-field"
+                      value={simpleFraction.numerator}
+                      onChange={(e) => handleSimpleFractionChange('numerator', e.target.value)}
+                      placeholder="0"
+                      min="0"
                     />
-                  </div>
-                  <div className="form-group">
-                    <label htmlFor="mixed-numerator">Numerator</label>
+                    <div className="fraction-line"></div>
                     <input
-                      type="text"
-                      id="mixed-numerator"
-                      name="numerator"
-                      value={mixedFormData.numerator}
-                      onChange={(e) => handleInputChange('numerator', e.target.value, 'mixed')}
-                      placeholder="Enter numerator"
+                      type="number"
                       className="input-field"
-                    />
-                  </div>
-                  <div className="form-group">
-                    <label htmlFor="mixed-denominator">Denominator</label>
-                    <input
-                      type="text"
-                      id="mixed-denominator"
-                      name="denominator"
-                      value={mixedFormData.denominator}
-                      onChange={(e) => handleInputChange('denominator', e.target.value, 'mixed')}
-                      placeholder="Enter denominator"
-                      className="input-field bottom"
+                      value={simpleFraction.denominator}
+                      onChange={(e) => handleSimpleFractionChange('denominator', e.target.value)}
+                      placeholder="1"
+                      min="1"
                     />
                   </div>
                 </div>
-                
-                <div className="fraction-display">
-                  <span>{mixedFormData.whole}</span>
-                  <span>{mixedFormData.numerator}</span>
-                  <div className="fraction-line"></div>
-                  <span>{mixedFormData.denominator}</span>
-                </div>
-              </div>
+              )}
 
-              <div className="form-actions">
+              {activeTab === 'mixed-number' && (
+                <div className="input-group">
+                  <label>Enter Mixed Number:</label>
+                  <div className="mixed-number-inputs">
+                    <input
+                      type="number"
+                      className="whole-number"
+                      value={mixedNumber.whole}
+                      onChange={(e) => handleMixedNumberChange('whole', e.target.value)}
+                      placeholder="0"
+                      min="0"
+                    />
+                    <span>+</span>
+                    <input
+                      type="number"
+                      className="input-field"
+                      value={mixedNumber.numerator}
+                      onChange={(e) => handleMixedNumberChange('numerator', e.target.value)}
+                      placeholder="0"
+                      min="0"
+                    />
+                    <div className="fraction-line"></div>
+                    <input
+                      type="number"
+                      className="input-field"
+                      value={mixedNumber.denominator}
+                      onChange={(e) => handleMixedNumberChange('denominator', e.target.value)}
+                      placeholder="1"
+                      min="1"
+                    />
+                  </div>
+                </div>
+              )}
+
+              <div className="calculator-buttons">
                 <button type="submit" className="btn-calculate">
-                  <i className="fas fa-calculator"></i>
-                  Convert
+                  <i className="fas fa-equals"></i>
+                  Calculate
                 </button>
                 <button type="button" className="btn-reset" onClick={handleReset}>
                   <i className="fas fa-redo"></i>
@@ -423,74 +513,54 @@ const FractionToPercentCalculator = () => {
               </div>
             </form>
 
+            {/* Results */}
             {error && (
-              <div className="error-message">
-                <i className="fas fa-exclamation-triangle"></i>
-                <span>{error}</span>
+              <div className="result-section" style={{ display: 'block' }}>
+                <div className="result-header">
+                  <h3 className="result-title">Error</h3>
+                  <p className="result-subtitle">Please check your inputs</p>
+                </div>
+                <div className="result-values">
+                  <div className="result-item">
+                    <div className="result-label">Error Message</div>
+                    <div className="result-value" style={{ color: '#e74c3c' }}>{error}</div>
+                  </div>
+                </div>
               </div>
             )}
 
             {result && (
               <div className="result-section" style={{ display: 'block' }}>
-                <h3 className="result-title">
-                  <i className="fas fa-check-circle"></i>
-                  Conversion Results
-                </h3>
-                <div className="result-display">
-                  <div className="results-container">
-                    <div className="result-row">
-                      <span className="result-label">Input:</span>
-                      <span className="result-value">{result.inputDisplay}</span>
-                    </div>
-                    <div className="result-row">
-                      <span className="result-label">Decimal:</span>
-                      <span className="result-value">{result.decimal}</span>
-                    </div>
-                    <div className="result-row">
-                      <span className="result-label">Percentage:</span>
-                      <span className="result-value">{result.percentage}%</span>
-                    </div>
+                <div className="result-header">
+                  <h3 className="result-title">Result</h3>
+                  <p className="result-subtitle">Your fraction converted to percentage</p>
+                </div>
+                <div className="result-values">
+                  <div className="result-item">
+                    <div className="result-label">Input</div>
+                    <div className="result-value">{result.inputDisplay}</div>
                   </div>
-                  
-                  <div className="solution-steps">
-                    <h4>
-                      <i className="fas fa-list-ol"></i>
-                      Step-by-Step Solution
-                    </h4>
-                    <div className="steps-container">
-                      {result.steps.map((step, index) => (
-                        <div key={index} className="step">
-                          {step}
-                        </div>
-                      ))}
-                    </div>
-                    
-                    <div className="formula-display">
-                      <span>{result.inputDisplay} = {result.percentage}%</span>
-                    </div>
-                    
-                    <table className="conversion-table">
-                      <thead>
-                        <tr>
-                          <th>Property</th>
-                          <th>Value</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>Input</td>
-                          <td>{result.inputDisplay}</td>
-                        </tr>
-                        <tr>
-                          <td>Decimal</td>
-                          <td>{result.decimal}</td>
-                        </tr>
-                        <tr>
-                          <td>Percentage</td>
-                          <td>{result.percentage}%</td>
-                        </tr>
-                      </tbody>
-                    </table>
+                  <div className="result-item">
+                    <div className="result-label">Percentage</div>
+                    <div className="result-value">{result.percentage}%</div>
+                  </div>
+                  <div className="result-item">
+                    <div className="result-label">Decimal</div>
+                    <div className="result-value">{result.decimal}</div>
+                  </div>
+                </div>
+                
+                <div className="steps-container">
+                  <div className="steps-title">
+                    <i className="fas fa-list-ol"></i>
+                    Calculation Steps
+                  </div>
+                  <div className="steps-list">
+                    {result.steps.map((step, index) => (
+                      <div key={index} className="step">
+                        {step}
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>
@@ -501,16 +571,38 @@ const FractionToPercentCalculator = () => {
         {/* Table of Contents & Feedback */}
         <section className="toc-feedback-section">
           <div className="toc-feedback-container">
-            <TableOfContents sections={tocSections} />
-            <FeedbackForm onSubmit={(data) => console.log('Feedback submitted:', data)} />
+            <TableOfContents 
+              sections={[
+                { id: "introduction", title: "Introduction" },
+                { id: "what-is-fraction-to-percent", title: "What is Fraction to Percent?" },
+                { id: "formulas", title: "Formulas & Methods" },
+                { id: "how-to-use", title: "How to Use Calculator" },
+                { id: "examples", title: "Examples" },
+                { id: "significance", title: "Significance" },
+                { id: "functionality", title: "Functionality" },
+                { id: "applications", title: "Applications" },
+                { id: "faqs", title: "FAQs" }
+              ]}
+            />
+            <FeedbackForm />
           </div>
         </section>
 
         {/* Content Section */}
         <ContentSection sections={contentSections} />
+
+        {/* FAQs */}
+        <section className="content-section">
+          <div className="content-container">
+            <div id="faqs" className="content-block">
+              <h2 className="content-title">Frequently Asked Questions</h2>
+              <FAQSection faqs={faqs} />
+            </div>
+          </div>
+        </section>
       </ToolLayout>
     </div>
-  );
-};
+  )
+}
 
-export default FractionToPercentCalculator;
+export default FractionToPercentCalculator
