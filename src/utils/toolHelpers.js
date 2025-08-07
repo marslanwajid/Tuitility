@@ -6,8 +6,10 @@ export const getRelatedTools = (toolCategory) => {
     { name: "Binary Calculator", icon: "fas fa-calculator", link: "/math/calculators/binary-calculator" },
     { name: "Decimal Calculator", icon: "fas fa-calculator", link: "/math/calculators/decimal-calculator" },
     { name: "Percentage Calculator", icon: "fas fa-percent", link: "/math/calculators/percentage-calculator" },
+    { name: "Decimal to Fraction", icon: "fas fa-exchange-alt", link: "/math/calculators/decimal-to-fraction-calculator" },
     { name: "LCM Calculator", icon: "fas fa-sort-numeric-up", link: "/math/calculators/lcm-calculator" },
     { name: "LCD Calculator", icon: "fas fa-sort-numeric-down", link: "/math/calculators/lcd-calculator" },
+    { name: "Comparing Decimals", icon: "fas fa-balance-scale", link: "/math/calculators/comparing-decimals-calculator" },
     { name: "Compare Fractions", icon: "fas fa-balance-scale", link: "/math/calculators/comparing-fractions-calculator" }
   ];
 

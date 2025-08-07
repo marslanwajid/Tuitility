@@ -90,6 +90,7 @@ const CategoryNavigation = () => {
     { name: 'LCD Calculator', desc: 'Find lowest common denominator', url: '/math/calculators/lcd-calculator', category: 'Math', icon: 'fas fa-sort-numeric-down' },
     { name: 'Compare Fractions', desc: 'Compare multiple fractions', url: '/math/calculators/comparing-fractions-calculator', category: 'Math', icon: 'fas fa-balance-scale' },
     { name: 'Decimal Calculator', desc: 'Perform decimal arithmetic operations', url: '/math/calculators/decimal-calculator', category: 'Math', icon: 'fas fa-calculator' },
+    { name: 'Comparing Decimals', desc: 'Compare decimals and find the greater or lesser value', url: '/math/calculators/comparing-decimals-calculator', category: 'Math', icon: 'fas fa-calculator' },
     
     { name: 'Mortgage Calculator', desc: 'Calculate monthly mortgage payments', url: '/finance/mortgage-calculator', category: 'Finance', icon: 'fas fa-home' },
     { name: 'Loan Calculator', desc: 'Calculate loan payments and interest', url: '/finance/loan-calculator', category: 'Finance', icon: 'fas fa-hand-holding-usd' },

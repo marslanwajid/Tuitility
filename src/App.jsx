@@ -15,6 +15,10 @@ import FractionCalculator from './components/math/FractionCalculator'
 import BinaryCalculator from './components/math/BinaryCalculator'
 import DecimalCalculator from './components/math/DecimalCalculator'
 import PercentageCalculator from './components/math/PercentageCalculator'
+import DecimalToFractionCalculator from './components/math/DecimalToFractionCalculator'
+import LCMCalculator from './components/math/LCMCalculator'
+import LCDCalculator from './components/math/LCDCalculator'
+import ComparingDecimalsCalculator from './components/math/ComparingDecimalsCalculator'
 
 const App = () => {
   return (
@@ -25,10 +29,14 @@ const App = () => {
         <Route path="/" element={<Home />} />
         {/* Add more routes here as needed */}
         <Route path="/math" element={<MathCalculator />} />
-                       <Route path="/math/calculators/fraction-calculator" element={<FractionCalculator />} />
+               <Route path="/math/calculators/fraction-calculator" element={<FractionCalculator />} />
                <Route path="/math/calculators/binary-calculator" element={<BinaryCalculator />} />
                <Route path="/math/calculators/decimal-calculator" element={<DecimalCalculator />} />
                <Route path="/math/calculators/percentage-calculator" element={<PercentageCalculator />} />
+               <Route path="/math/calculators/decimal-to-fraction-calculator" element={<DecimalToFractionCalculator />} />
+                                     <Route path="/math/calculators/lcm-calculator" element={<LCMCalculator />} />
+                      <Route path="/math/calculators/lcd-calculator" element={<LCDCalculator />} />
+                      <Route path="/math/calculators/comparing-decimals-calculator" element={<ComparingDecimalsCalculator />} />
         <Route path="/finance" element={<FinanceCalculator />} />
         <Route path="/science" element={<ScienceCalculator />} />
         <Route path="/health" element={<HealthCalculator />} />
