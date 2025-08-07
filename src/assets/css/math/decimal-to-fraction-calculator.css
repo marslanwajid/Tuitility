@@ -1,13 +1,5 @@
-/* Comparing Fractions Calculator Specific Styles */
-.calculator-section {
-  background: white;
-  border-radius: 16px;
-  padding: 2rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  border: 1px solid rgba(0, 0, 0, 0.06);
-}
-
-.comparing-fractions-calculator {
+/* Decimal to Fraction Calculator Specific Styles */
+.decimal-to-fraction-calculator {
   background: white;
   border-radius: 16px;
   padding: 2rem;
@@ -38,7 +30,7 @@
 
 .form-row {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 1rem;
 }
 
@@ -54,7 +46,8 @@
   font-size: 0.95rem;
 }
 
-.form-group input {
+.form-group input,
+.form-group select {
   padding: 0.75rem;
   border: 2px solid #e2e8f0;
   border-radius: 8px;
@@ -63,7 +56,8 @@
   background: white;
 }
 
-.form-group input:focus {
+.form-group input:focus,
+.form-group select:focus {
   outline: none;
   border-color: #3b82f6;
   box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
@@ -123,17 +117,18 @@
 .error-message {
   background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
   border: 1px solid #fecaca;
-  color: #dc2626;
-  padding: 1rem;
   border-radius: 8px;
+  padding: 1rem;
+  margin-top: 1rem;
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  color: #dc2626;
   font-weight: 500;
-  margin-top: 1rem;
 }
 
 .error-message i {
+  color: #dc2626;
   font-size: 1.1rem;
 }
 
@@ -147,6 +142,10 @@
   display: none;
 }
 
+.result-section.show {
+  display: block;
+}
+
 .result-title {
   font-size: 1.3rem;
   font-weight: 700;
@@ -158,7 +157,7 @@
 }
 
 .result-title i {
-  color: #0284c7;
+  color: #0ea5e9;
   font-size: 1.1rem;
 }
 
@@ -169,12 +168,12 @@
 }
 
 .results-container {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 1rem;
   background: white;
-  padding: 1.5rem;
   border-radius: 8px;
+  padding: 1rem;
   border: 1px solid #e2e8f0;
 }
 
@@ -182,41 +181,42 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.75rem;
-  background: #f8fafc;
-  border-radius: 6px;
-  border: 1px solid #e2e8f0;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.result-row:last-child {
+  border-bottom: none;
 }
 
 .result-label {
   font-weight: 600;
   color: #374151;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
 }
 
 .result-value {
   font-weight: 700;
   color: #1e293b;
-  font-family: 'Courier New', monospace;
-  font-size: 1rem;
-  background: white;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  border: 1px solid #e2e8f0;
+  font-size: 1.1rem;
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 /* Solution Steps */
 .solution-steps {
   background: white;
   border-radius: 8px;
-  padding: 1.5rem;
+  padding: 1rem;
   border: 1px solid #e2e8f0;
 }
 
 .solution-steps h4 {
   font-size: 1.1rem;
-  font-weight: 600;
-  color: #374151;
+  font-weight: 700;
+  color: #1e293b;
   margin-bottom: 1rem;
   display: flex;
   align-items: center;
@@ -236,116 +236,27 @@
 
 .step {
   background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
-  padding: 1rem;
-  border-radius: 8px;
-  border-left: 4px solid #3b82f6;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 0.75rem;
   font-size: 0.95rem;
   color: #374151;
   line-height: 1.5;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
+  position: relative;
+  padding-left: 2rem;
 }
 
-.step strong {
-  color: #1e293b;
-  font-weight: 600;
-}
-
-.step p {
-  margin: 0.5rem 0;
-}
-
-/* Comparison Table */
-.comparison-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 1rem 0;
-  background: white;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  table-layout: fixed;
-  word-wrap: break-word;
-}
-
-.comparison-table th {
-  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-  color: #1e293b;
-  font-weight: 600;
-  padding: 0.75rem;
-  text-align: center;
-  border: 1px solid #e2e8f0;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-}
-
-.comparison-table td {
-  padding: 0.75rem;
-  text-align: center;
-  border: 1px solid #e2e8f0;
-  font-family: 'Courier New', monospace;
-  font-weight: 500;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-}
-
-.comparison-table tr:nth-child(even) {
-  background: #f8fafc;
-}
-
-/* Mathematical Formula Display */
-.formula-display {
-  text-align: center;
-  margin: 1rem 0;
-  padding: 1rem;
-  background: rgba(46, 81, 162, 0.1);
-  border-radius: 8px;
-  border-left: 4px solid #2e51a2;
-}
-
-.formula-display span {
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #2e51a2;
-}
-
-/* Supported Formats List */
-.supported-formats {
-  background: #f8fafc;
-  border-radius: 8px;
-  padding: 1rem;
-  margin-top: 1rem;
-  border: 1px solid #e2e8f0;
-}
-
-.supported-formats h5 {
-  font-size: 1rem;
-  font-weight: 600;
-  color: #374151;
-  margin-bottom: 0.5rem;
-}
-
-.supported-formats ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.supported-formats li {
-  padding: 0.25rem 0;
-  color: #6b7280;
-  font-size: 0.9rem;
-}
-
-.supported-formats li:before {
-  content: "• ";
+.step::before {
+  content: '→';
+  position: absolute;
+  left: 0.75rem;
   color: #3b82f6;
   font-weight: bold;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .comparing-fractions-calculator {
+  .decimal-to-fraction-calculator {
     padding: 1.5rem;
   }
 
@@ -366,29 +277,21 @@
     width: 100%;
   }
 
-  .result-row {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.5rem;
+  .results-container {
+    grid-template-columns: 1fr;
   }
 
   .result-value {
-    align-self: stretch;
-    text-align: center;
+    font-size: 1rem;
   }
 
-  .comparison-table {
+  .step {
     font-size: 0.9rem;
-  }
-
-  .comparison-table th,
-  .comparison-table td {
-    padding: 0.5rem;
   }
 }
 
 @media (max-width: 480px) {
-  .comparing-fractions-calculator {
+  .decimal-to-fraction-calculator {
     padding: 1rem;
   }
 
@@ -396,28 +299,25 @@
     font-size: 1.3rem;
   }
 
-  .form-group input {
-    padding: 0.6rem;
+  .form-group input,
+  .form-group select {
+    padding: 0.625rem;
     font-size: 0.9rem;
   }
 
   .btn-calculate,
   .btn-reset {
-    padding: 0.6rem 1rem;
+    padding: 0.625rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .result-value {
     font-size: 0.9rem;
   }
 
   .step {
-    font-size: 0.9rem;
-    padding: 0.75rem;
-  }
-
-  .comparison-table {
-    font-size: 0.8rem;
-  }
-
-  .comparison-table th,
-  .comparison-table td {
-    padding: 0.4rem;
+    font-size: 0.85rem;
+    padding: 0.625rem;
+    padding-left: 1.75rem;
   }
 }

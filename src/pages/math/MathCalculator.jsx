@@ -10,8 +10,7 @@ const MathCalculator = () => {
     { name: 'Binary Calculator', desc: 'Convert and calculate binary numbers', url: '/math/calculators/binary-calculator', category: 'Number Systems', icon: 'fas fa-1' },
     { name: 'LCD Calculator', desc: 'Find lowest common denominator', url: '/math/calculators/lcd-calculator', category: 'Number Theory', icon: 'fas fa-sort-numeric-down' },
     { name: 'Compare Fractions', desc: 'Compare multiple fractions', url: '/math/calculators/comparing-fractions-calculator', category: 'Fractions', icon: 'fas fa-balance-scale' },
-    { name: 'Decimal Calculator', desc: 'Perform decimal arithmetic operations', url: '/math/calculators/decimal-calculator', category: 'Decimals', icon: 'fas fa-calculator' },
-    { name: 'Fraction to Percent', desc: 'Convert fractions to percentages', url: '/math/calculators/fraction-to-percent-calculator', category: 'Percentages', icon: 'fas fa-percentage' },
+    { name: 'Decimal Calculator', desc: 'Perform decimal arithmetic operations', url: '/math/calculators/decimal-calculator', category: 'Decimals', icon: 'fas fa-calculator' }
   ]
 
   const categories = [

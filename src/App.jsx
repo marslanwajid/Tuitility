@@ -12,10 +12,10 @@ import HealthCalculator from './pages/health/HealthCalculator'
 import UtilityTools from './pages/utility/UtilityTools'
 import KnowledgeCalculator from './pages/knowledge/KnowledgeCalculator'
 import FractionCalculator from './components/math/FractionCalculator'
-import FractionToPercentCalculator from './components/math/FractionToPercentCalculator'
 import BinaryCalculator from './components/math/BinaryCalculator'
 import DecimalCalculator from './components/math/DecimalCalculator'
 import PercentageCalculator from './components/math/PercentageCalculator'
+import DecimalToFractionCalculator from './components/math/DecimalToFractionCalculator'
 
 const App = () => {
   return (
@@ -27,10 +27,10 @@ const App = () => {
         {/* Add more routes here as needed */}
         <Route path="/math" element={<MathCalculator />} />
                        <Route path="/math/calculators/fraction-calculator" element={<FractionCalculator />} />
-               <Route path="/math/calculators/fraction-to-percent-calculator" element={<FractionToPercentCalculator />} />
                <Route path="/math/calculators/binary-calculator" element={<BinaryCalculator />} />
                <Route path="/math/calculators/decimal-calculator" element={<DecimalCalculator />} />
                <Route path="/math/calculators/percentage-calculator" element={<PercentageCalculator />} />
+               <Route path="/math/calculators/decimal-to-fraction-calculator" element={<DecimalToFractionCalculator />} />
         <Route path="/finance" element={<FinanceCalculator />} />
         <Route path="/science" element={<ScienceCalculator />} />
         <Route path="/health" element={<HealthCalculator />} />
