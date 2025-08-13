@@ -98,7 +98,7 @@ const CategoryNavigation = () => {
     { name: 'Derivative Calculator', desc: 'Calculate derivatives of functions', url: '/math/calculators/derivative-calculator', category: 'Math', icon: 'fas fa-calculator' },
     { name: 'Integral Calculator', desc: 'Calculate definite and indefinite integrals', url: '/math/calculators/integral-calculator', category: 'Math', icon: 'fas fa-integral' },
     
-    { name: 'Mortgage Calculator', desc: 'Calculate monthly mortgage payments', url: '/finance/mortgage-calculator', category: 'Finance', icon: 'fas fa-home' },
+    { name: 'Mortgage Calculator', desc: 'Calculate monthly mortgage payments with taxes, insurance, PMI', url: '/finance/mortgage-calculator', category: 'Finance', icon: 'fas fa-home' },
     { name: 'Loan Calculator', desc: 'Calculate loan payments and interest', url: '/finance/loan-calculator', category: 'Finance', icon: 'fas fa-hand-holding-usd' },
     { name: 'Currency Converter', desc: 'Convert between different currencies', url: '/finance/currency-calculator', category: 'Finance', icon: 'fas fa-exchange-alt' },
     { name: 'Amortization Calculator', desc: 'Calculate loan amortization schedule', url: '/finance/amortization-calculator', category: 'Finance', icon: 'fas fa-chart-line' },
