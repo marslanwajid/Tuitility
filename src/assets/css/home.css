@@ -1,0 +1,8 @@
+/* Home page styles */
+.home-container {
+  min-height: 100vh;
+  background: white;
+}
+
+/* Remove old styles that are no longer needed */
+/* The individual components now handle their own styling */
