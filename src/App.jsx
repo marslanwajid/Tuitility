@@ -28,6 +28,7 @@ import DerivativeCalculator from './components/math/DerivativeCalculator'
 import IntegralCalculator from './components/math/IntegralCalculator'
 import MortgageCalculator from './components/finance/MortgageCalculator'
 import LoanCalculator from './components/finance/LoanCalculator'
+import CurrencyCalculator from './components/finance/CurrencyCalculator'
 
 
 const App = () => {
@@ -54,9 +55,10 @@ const App = () => {
                        <Route path="/math/calculators/derivative-calculator" element={<DerivativeCalculator />} />
                        <Route path="/math/calculators/integral-calculator" element={<IntegralCalculator />} />
                        <Route path="/math/calculators/improper-fraction-to-mixed-calculator" element={<ImproperFractionToMixedCalculator />} />
-            <Route path="/finance" element={<FinanceCalculator />} />
-                         <Route path="/finance/mortgage-calculator" element={<MortgageCalculator />} />
-             <Route path="/finance/loan-calculator" element={<LoanCalculator />} />
+                                         <Route path="/finance" element={<FinanceCalculator />} />
+                             <Route path="/finance/mortgage-calculator" element={<MortgageCalculator />} />
+                             <Route path="/finance/loan-calculator" element={<LoanCalculator />} />
+                             <Route path="/finance/currency-calculator" element={<CurrencyCalculator />} />
            
         <Route path="/science" element={<ScienceCalculator />} />
         <Route path="/health" element={<HealthCalculator />} />

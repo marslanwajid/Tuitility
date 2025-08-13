@@ -52,7 +52,7 @@
 }
 
 .hero-title i {
-  color: #10b981;
+  /* color: #10b981; */
   font-size: 2rem;
 }
 
@@ -77,12 +77,12 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  color: #10b981;
+  /* color: #10b981; */
   font-weight: 500;
 }
 
 .feature i {
-  color: #059669;
+  /* color: #059669; */
 }
 
 /* Main Content */
@@ -122,9 +122,6 @@
   gap: 0.5rem;
 }
 
-.sidebar-title i {
-  color: #10b981;
-}
 
 .category-links, .tool-links {
   display: flex;
@@ -146,12 +143,12 @@
 
 .category-link:hover, .tool-link:hover {
   background: #f1f5f9;
-  color: #10b981;
+ 
   transform: translateX(4px);
 }
 
 .tool-link.active {
-  background: #10b981;
+ 
   color: #ffffff;
 }
 
@@ -179,9 +176,6 @@
   gap: 0.75rem;
 }
 
-.section-title i {
-  color: #10b981;
-}
 
 .calculator-form {
   display: flex;
@@ -196,9 +190,6 @@
   position: relative;
 }
 
-.input-group:focus-within .input-label {
-  color: #10b981;
-}
 
 .input-row {
   display: grid;
@@ -232,7 +223,7 @@
 
 .input-field:focus {
   outline: none;
-  border-color: #10b981;
+ 
   box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
   transform: translateY(-1px);
 }
@@ -274,7 +265,7 @@ select.input-field:focus {
   background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
   border-radius: 12px;
   padding: 1.5rem;
-  border: 1px solid #10b981;
+  
   margin-top: 1rem;
   animation: slideDown 0.3s ease;
 }
@@ -329,14 +320,8 @@ select.input-field:focus {
   transition: all 0.2s ease;
 }
 
-.checkbox-label:hover input ~ .checkmark {
-  border-color: #10b981;
-}
 
-.checkbox-label input:checked ~ .checkmark {
-  background-color: #10b981;
-  border-color: #10b981;
-}
+
 
 .checkmark:after {
   content: "";
@@ -378,13 +363,13 @@ select.input-field:focus {
 }
 
 .btn-calculate {
-  background: linear-gradient(135deg, #10b981, #059669);
+  
   color: #ffffff;
   flex: 1;
 }
 
 .btn-calculate:hover {
-  background: linear-gradient(135deg, #059669, #047857);
+ 
   transform: translateY(-2px);
   box-shadow: 0 8px 25px -5px rgba(16, 185, 129, 0.4);
 }
@@ -468,7 +453,7 @@ select.input-field:focus {
   justify-content: center;
   font-size: 1.5rem;
   font-weight: 700;
-  color: #10b981;
+ 
 }
 
 /* Payment Breakdown */
@@ -493,7 +478,7 @@ select.input-field:focus {
 }
 
 .breakdown-item.total {
-  border-top: 2px solid #10b981;
+
   border-bottom: none;
   font-weight: 700;
   font-size: 1.1rem;
@@ -504,11 +489,11 @@ select.input-field:focus {
 
 .breakdown-item .amount {
   font-weight: 600;
-  color: #10b981;
+
 }
 
 .breakdown-item.total .amount {
-  color: #059669;
+
   font-size: 1.2rem;
 }
 
@@ -517,7 +502,7 @@ select.input-field:focus {
   background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
   border-radius: 12px;
   padding: 1.5rem;
-  border: 1px solid #10b981;
+ 
 }
 
 .detail-item {
@@ -534,12 +519,12 @@ select.input-field:focus {
 }
 
 .detail-item span:first-child {
-  color: #065f46;
+
   font-weight: 500;
 }
 
 .detail-item span:last-child {
-  color: #10b981;
+
   font-weight: 600;
 }
 
@@ -605,7 +590,7 @@ select.input-field:focus {
 }
 
 .toc-title i, .feedback-title i {
-  color: #10b981;
+
 }
 
 .toc-nav {
@@ -625,7 +610,6 @@ select.input-field:focus {
 
 .toc-link:hover {
   background: #f1f5f9;
-  color: #10b981;
   transform: translateX(4px);
 }
 
@@ -656,12 +640,11 @@ select.input-field:focus {
 
 .form-group input:focus, .form-group textarea:focus {
   outline: none;
-  border-color: #10b981;
   box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
 }
 
 .btn-submit {
-  background: linear-gradient(135deg, #10b981, #059669);
+  /*  */
   color: #ffffff;
   border: none;
   padding: 0.75rem 1.5rem;
@@ -675,11 +658,7 @@ select.input-field:focus {
   gap: 0.5rem;
 }
 
-.btn-submit:hover {
-  background: linear-gradient(135deg, #059669, #047857);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px -5px rgba(16, 185, 129, 0.4);
-}
+
 
 /* Content Section */
 .content-section {
@@ -708,7 +687,7 @@ select.input-field:focus {
   font-weight: 700;
   margin-bottom: 1.5rem;
   color: #1e293b;
-  border-bottom: 3px solid #10b981;
+ 
   padding-bottom: 0.5rem;
 }
 
@@ -736,11 +715,11 @@ select.input-field:focus {
   padding: 1rem;
   background: #f8fafc;
   border-radius: 8px;
-  border-left: 4px solid #10b981;
+ 
 }
 
 .content-block li i {
-  color: #059669;
+ 
   margin-top: 0.125rem;
   flex-shrink: 0;
 }
@@ -799,14 +778,8 @@ select.input-field:focus {
 }
 
 /* Usage Steps */
-.usage-steps li {
-  background: linear-gradient(135deg, #ecfdf5, #d1fae5);
-  border-left-color: #10b981;
-}
 
-.usage-steps li i {
-  color: #10b981;
-}
+
 
 /* Factors Grid */
 .factors-grid {
@@ -839,9 +812,7 @@ select.input-field:focus {
   gap: 0.5rem;
 }
 
-.factor-item h4 i {
-  color: #10b981;
-}
+
 
 .factor-item p {
   color: #64748b;
