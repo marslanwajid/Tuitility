@@ -29,8 +29,8 @@
   right: 0;
   bottom: 0;
   background-image: 
-    linear-gradient(90deg, rgba(59, 130, 246, 0.03) 1px, transparent 1px),
-    linear-gradient(rgba(59, 130, 246, 0.03) 1px, transparent 1px);
+    linear-gradient(90deg, rgba(16, 185, 129, 0.03) 1px, transparent 1px),
+    linear-gradient(rgba(16, 185, 129, 0.03) 1px, transparent 1px);
   background-size: 20px 20px;
   opacity: 0.5;
 }
@@ -52,7 +52,7 @@
 }
 
 .hero-title i {
-  color: #3b82f6;
+  color: #10b981;
   font-size: 2rem;
 }
 
@@ -77,12 +77,12 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  color: #3b82f6;
+  color: #10b981;
   font-weight: 500;
 }
 
 .feature i {
-  color: #10b981;
+  color: #059669;
 }
 
 /* Main Content */
@@ -123,7 +123,7 @@
 }
 
 .sidebar-title i {
-  color: #3b82f6;
+  color: #10b981;
 }
 
 .category-links, .tool-links {
@@ -146,12 +146,12 @@
 
 .category-link:hover, .tool-link:hover {
   background: #f1f5f9;
-  color: #3b82f6;
+  color: #10b981;
   transform: translateX(4px);
 }
 
 .tool-link.active {
-  background: #3b82f6;
+  background: #10b981;
   color: #ffffff;
 }
 
@@ -180,7 +180,7 @@
 }
 
 .section-title i {
-  color: #3b82f6;
+  color: #10b981;
 }
 
 .calculator-form {
@@ -197,7 +197,7 @@
 }
 
 .input-group:focus-within .input-label {
-  color: #3b82f6;
+  color: #10b981;
 }
 
 .input-row {
@@ -232,8 +232,8 @@
 
 .input-field:focus {
   outline: none;
-  border-color: #3b82f6;
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  border-color: #10b981;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
   transform: translateY(-1px);
 }
 
@@ -258,7 +258,7 @@ select.input-field {
 }
 
 select.input-field:focus {
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%233b82f6' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%2310b981' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
 }
 
 .input-help {
@@ -271,16 +271,16 @@ select.input-field:focus {
 
 /* Advanced Fields */
 .advanced-fields {
-  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+  background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
   border-radius: 12px;
   padding: 1.5rem;
-  border: 1px solid #0ea5e9;
+  border: 1px solid #10b981;
   margin-top: 1rem;
   animation: slideDown 0.3s ease;
 }
 
 .advanced-fields h3 {
-  color: #0c4a6e;
+  color: #065f46;
   font-size: 1.25rem;
   font-weight: 600;
   margin-bottom: 1rem;
@@ -290,7 +290,7 @@ select.input-field:focus {
 }
 
 .advanced-fields h3::before {
-  content: '⚙️';
+  content: '💰';
   font-size: 1.1rem;
 }
 
@@ -330,12 +330,12 @@ select.input-field:focus {
 }
 
 .checkbox-label:hover input ~ .checkmark {
-  border-color: #3b82f6;
+  border-color: #10b981;
 }
 
 .checkbox-label input:checked ~ .checkmark {
-  background-color: #3b82f6;
-  border-color: #3b82f6;
+  background-color: #10b981;
+  border-color: #10b981;
 }
 
 .checkmark:after {
@@ -378,15 +378,15 @@ select.input-field:focus {
 }
 
 .btn-calculate {
-  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  background: linear-gradient(135deg, #10b981, #059669);
   color: #ffffff;
   flex: 1;
 }
 
 .btn-calculate:hover {
-  background: linear-gradient(135deg, #2563eb, #1e40af);
+  background: linear-gradient(135deg, #059669, #047857);
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px -5px rgba(59, 130, 246, 0.4);
+  box-shadow: 0 8px 25px -5px rgba(16, 185, 129, 0.4);
 }
 
 .btn-reset {
@@ -468,7 +468,7 @@ select.input-field:focus {
   justify-content: center;
   font-size: 1.5rem;
   font-weight: 700;
-  color: #3b82f6;
+  color: #10b981;
 }
 
 /* Payment Breakdown */
@@ -493,7 +493,7 @@ select.input-field:focus {
 }
 
 .breakdown-item.total {
-  border-top: 2px solid #3b82f6;
+  border-top: 2px solid #10b981;
   border-bottom: none;
   font-weight: 700;
   font-size: 1.1rem;
@@ -504,20 +504,20 @@ select.input-field:focus {
 
 .breakdown-item .amount {
   font-weight: 600;
-  color: #3b82f6;
+  color: #10b981;
 }
 
 .breakdown-item.total .amount {
-  color: #1d4ed8;
+  color: #059669;
   font-size: 1.2rem;
 }
 
 /* Loan Details */
 .loan-details {
-  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+  background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
   border-radius: 12px;
   padding: 1.5rem;
-  border: 1px solid #0ea5e9;
+  border: 1px solid #10b981;
 }
 
 .detail-item {
@@ -525,7 +525,7 @@ select.input-field:focus {
   justify-content: space-between;
   align-items: center;
   padding: 0.75rem 0;
-  border-bottom: 1px solid #bae6fd;
+  border-bottom: 1px solid #a7f3d0;
   font-size: 1rem;
 }
 
@@ -534,12 +534,12 @@ select.input-field:focus {
 }
 
 .detail-item span:first-child {
-  color: #0c4a6e;
+  color: #065f46;
   font-weight: 500;
 }
 
 .detail-item span:last-child {
-  color: #0ea5e9;
+  color: #10b981;
   font-weight: 600;
 }
 
@@ -567,7 +567,11 @@ select.input-field:focus {
   margin-bottom: 2rem;
 }
 
-
+/* .toc-feedback-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+} */
 
 /* Responsive Design for TOC */
 @media (max-width: 1024px) {
@@ -581,8 +585,6 @@ select.input-field:focus {
     gap: 1.5rem;
   }
 }
-
-
 
 .toc-section, .feedback-section {
   background: #ffffff;
@@ -603,7 +605,7 @@ select.input-field:focus {
 }
 
 .toc-title i, .feedback-title i {
-  color: #3b82f6;
+  color: #10b981;
 }
 
 .toc-nav {
@@ -623,7 +625,7 @@ select.input-field:focus {
 
 .toc-link:hover {
   background: #f1f5f9;
-  color: #3b82f6;
+  color: #10b981;
   transform: translateX(4px);
 }
 
@@ -654,8 +656,8 @@ select.input-field:focus {
 
 .form-group input:focus, .form-group textarea:focus {
   outline: none;
-  border-color: #3b82f6;
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  border-color: #10b981;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
 }
 
 .btn-submit {
@@ -706,7 +708,7 @@ select.input-field:focus {
   font-weight: 700;
   margin-bottom: 1.5rem;
   color: #1e293b;
-  border-bottom: 3px solid #3b82f6;
+  border-bottom: 3px solid #10b981;
   padding-bottom: 0.5rem;
 }
 
@@ -734,11 +736,11 @@ select.input-field:focus {
   padding: 1rem;
   background: #f8fafc;
   border-radius: 8px;
-  border-left: 4px solid #3b82f6;
+  border-left: 4px solid #10b981;
 }
 
 .content-block li i {
-  color: #10b981;
+  color: #059669;
   margin-top: 0.125rem;
   flex-shrink: 0;
 }
@@ -798,12 +800,12 @@ select.input-field:focus {
 
 /* Usage Steps */
 .usage-steps li {
-  background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
-  border-left-color: #0ea5e9;
+  background: linear-gradient(135deg, #ecfdf5, #d1fae5);
+  border-left-color: #10b981;
 }
 
 .usage-steps li i {
-  color: #0ea5e9;
+  color: #10b981;
 }
 
 /* Factors Grid */
@@ -838,7 +840,7 @@ select.input-field:focus {
 }
 
 .factor-item h4 i {
-  color: #3b82f6;
+  color: #10b981;
 }
 
 .factor-item p {

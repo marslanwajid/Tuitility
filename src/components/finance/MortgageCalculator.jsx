@@ -666,17 +666,15 @@ const MortgageCalculator = () => {
             <div className="toc-feedback-section">
               <div className="toc-feedback-container">
                 <TableOfContents
-                  title="Table of Contents"
-                  icon="fas fa-list"
-                  links={[
-                    { text: 'What is a Mortgage Calculator?', href: '#what-is-mortgage' },
-                    { text: 'Mortgage Payment Formula', href: '#mortgage-formula' },
-                    { text: 'How to Use', href: '#how-to-use' },
-                    { text: 'Understanding Results', href: '#understanding-results' },
-                    { text: 'Factors Affecting Payment', href: '#factors-affecting-payment' },
-                    { text: 'Tips for Home Buyers', href: '#tips-for-buyers' },
-                    { text: 'Common Mistakes to Avoid', href: '#common-mistakes' },
-                    { text: 'FAQ', href: '#faq' }
+                  sections={[
+                    { id: "what-is-mortgage", title: "What is a Mortgage Calculator?" },
+                    { id: "mortgage-formula", title: "Mortgage Payment Formula" },
+                    { id: "how-to-use", title: "How to Use" },
+                    { id: "understanding-results", title: "Understanding Results" },
+                    { id: "factors-affecting-payment", title: "Factors Affecting Payment" },
+                    { id: "tips-for-buyers", title: "Tips for Home Buyers" },
+                    { id: "common-mistakes", title: "Common Mistakes to Avoid" },
+                    { id: "faq", title: "FAQ" }
                   ]}
                 />
                 <FeedbackForm
