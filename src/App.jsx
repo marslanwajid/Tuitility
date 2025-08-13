@@ -24,6 +24,7 @@ import FractionToPercentCalculator from './components/math/FractionToPercentCalc
 import ImproperFractionToMixedCalculator from './components/math/ImproperFractionToMixedCalculator'
 import PercentToFractionCalculator from './components/math/PercentToFractionCalculator'
 import SSECalculator from './components/math/SSECalculator'
+import DerivativeCalculator from './components/math/DerivativeCalculator'
 
 const App = () => {
   return (
@@ -46,6 +47,7 @@ const App = () => {
                                              <Route path="/math/calculators/fraction-to-percent-calculator" element={<FractionToPercentCalculator />} />
                        <Route path="/math/calculators/percent-to-fraction-calculator" element={<PercentToFractionCalculator />} />
                        <Route path="/math/calculators/sse-calculator" element={<SSECalculator />} />
+                       <Route path="/math/calculators/derivative-calculator" element={<DerivativeCalculator />} />
                        <Route path="/math/calculators/improper-fraction-to-mixed-calculator" element={<ImproperFractionToMixedCalculator />} />
             <Route path="/finance" element={<FinanceCalculator />} />
         <Route path="/science" element={<ScienceCalculator />} />

@@ -195,6 +195,12 @@
   gap: 0.5rem;
 }
 
+.input-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
 .input-label {
   font-weight: 600;
   color: #374151;
@@ -207,8 +213,6 @@
   border-radius: 8px;
   font-size: 1rem;
   transition: border-color 0.2s ease;
-  resize: vertical;
-  min-height: 80px;
 }
 
 .input-field:focus {
@@ -221,6 +225,70 @@
   color: #6b7280;
   font-size: 0.875rem;
   margin-top: -0.5rem;
+}
+
+/* Checkbox Group */
+.checkbox-group {
+  margin-top: 1rem;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  font-weight: 500;
+  color: #374151;
+  position: relative;
+  padding-left: 2rem;
+}
+
+.checkbox-label input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  position: absolute;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: #ffffff;
+  border: 2px solid #d1d5db;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.checkbox-label:hover input ~ .checkmark {
+  border-color: #3b82f6;
+}
+
+.checkbox-label input:checked ~ .checkmark {
+  background-color: #3b82f6;
+  border-color: #3b82f6;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.checkbox-label input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.checkbox-label .checkmark:after {
+  left: 6px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
 }
 
 .calculator-actions {
@@ -334,11 +402,11 @@
 }
 
 .result-formula .katex {
-  font-size: 1.5rem !important;
+  font-size: 1.1rem !important;
   font-weight: 600;
 }
 
-/* Steps Table */
+/* Steps Content */
 .result-steps {
   margin-top: 2rem;
 }
@@ -351,49 +419,41 @@
   text-align: center;
 }
 
-.steps-table {
-  overflow-x: auto;
-  border-radius: 8px;
-  border: 1px solid #e2e8f0;
-}
-
-.steps-table table {
-  width: 100%;
-  border-collapse: collapse;
-  background: #ffffff;
-}
-
-.steps-table th {
-  background: #3b82f6;
-  color: #ffffff;
-  padding: 12px;
-  text-align: center;
-  font-weight: 600;
-  border: 1px solid #2563eb;
-}
-
-.steps-table td {
-  padding: 10px;
-  text-align: center;
-  border: 1px solid #e2e8f0;
-}
-
-.steps-table tbody tr:nth-child(even) {
+.steps-content {
   background: #f8fafc;
+  border-radius: 8px;
+  padding: 1.5rem;
+  border: 1px solid #e2e8f0;
+  max-height: 400px;
+  overflow-y: auto;
 }
 
-.steps-table tbody tr:hover {
-  background: #f1f5f9;
+.step {
+  margin-bottom: 1rem;
+  padding: 0.75rem;
+  background: #ffffff;
+  border-radius: 6px;
+  border-left: 4px solid #3b82f6;
+  line-height: 1.6;
+  color: #374151;
 }
 
-.steps-table tfoot tr {
-  background: #3b82f6;
-  color: #ffffff;
+.step:last-child {
+  margin-bottom: 0;
 }
 
-.steps-table tfoot td {
-  font-weight: 600;
-  border: 1px solid #2563eb;
+.step .katex {
+  font-size: 1rem !important;
+}
+
+.rules-applied {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+  border-radius: 8px;
+  border: 1px solid #0ea5e9;
+  color: #0c4a6e;
+  font-weight: 500;
 }
 
 /* Table of Contents & Feedback */
@@ -401,11 +461,7 @@
   margin-bottom: 2rem;
 }
 
-/* .toc-feedback-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-} */
+
 
 .toc-section, .feedback-section {
   background: #ffffff;
@@ -718,6 +774,10 @@
   .toc-feedback-container {
     grid-template-columns: 1fr;
   }
+  
+  .input-row {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 768px) {
@@ -738,12 +798,8 @@
     grid-template-columns: 1fr;
   }
   
-  .steps-table {
-    font-size: 0.875rem;
-  }
-  
-  .steps-table th, .steps-table td {
-    padding: 8px 6px;
+  .steps-content {
+    max-height: 300px;
   }
 }
 
