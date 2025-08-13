@@ -16,6 +16,7 @@ const MathCalculator = () => {
      { name: 'Percent to Fraction', desc: 'Convert percentages to fractions', url: '/math/calculators/percent-to-fraction-calculator', category: 'Conversions', icon: 'fas fa-percentage' },
      { name: 'SSE Calculator', desc: 'Calculate Sum of Squared Errors', url: '/math/calculators/sse-calculator', category: 'Statistics', icon: 'fas fa-chart-line' },
      { name: 'Derivative Calculator', desc: 'Calculate derivatives with step-by-step solutions', url: '/math/calculators/derivative-calculator', category: 'Calculus', icon: 'fas fa-function' },
+     { name: 'Integral Calculator', desc: 'Calculate definite and indefinite integrals with step-by-step solutions', url: '/math/calculators/integral-calculator', category: 'Calculus', icon: 'fas fa-integral' },
      { name: 'Improper to Mixed', desc: 'Convert improper fractions to mixed numbers', url: '/math/calculators/improper-fraction-to-mixed-calculator', category: 'Fractions', icon: 'fas fa-layer-group' }
   ]
 

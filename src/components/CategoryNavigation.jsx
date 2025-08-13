@@ -96,6 +96,7 @@ const CategoryNavigation = () => {
     { name: 'Percent to Fraction', desc: 'Convert percentages to fractions', url: '/math/calculators/percent-to-fraction-calculator', category: 'Math', icon: 'fas fa-percentage' },
     { name: 'SSE Calculator', desc: 'Calculate sum of squares of errors', url: '/math/calculators/sse-calculator', category: 'Math', icon: 'fas fa-calculator' },
     { name: 'Derivative Calculator', desc: 'Calculate derivatives of functions', url: '/math/calculators/derivative-calculator', category: 'Math', icon: 'fas fa-calculator' },
+    { name: 'Integral Calculator', desc: 'Calculate definite and indefinite integrals', url: '/math/calculators/integral-calculator', category: 'Math', icon: 'fas fa-integral' },
     
     { name: 'Mortgage Calculator', desc: 'Calculate monthly mortgage payments', url: '/finance/mortgage-calculator', category: 'Finance', icon: 'fas fa-home' },
     { name: 'Loan Calculator', desc: 'Calculate loan payments and interest', url: '/finance/loan-calculator', category: 'Finance', icon: 'fas fa-hand-holding-usd' },
