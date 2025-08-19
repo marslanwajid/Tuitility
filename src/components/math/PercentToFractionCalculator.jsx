@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { FAQSection } from '../tool'
-import '../../assets/css/math/percent-to-fraction-calculator.css'
+// import '../../assets/css/math/percent-to-fraction-calculator.css'
 
 const PercentToFractionCalculator = () => {
   const [percentage, setPercentage] = useState('25')

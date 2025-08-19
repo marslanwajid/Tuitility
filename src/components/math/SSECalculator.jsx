@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { FAQSection } from '../tool'
-import '../../assets/css/math/sse-calculator.css'
+// import '../../assets/css/math/sse-calculator.css'
 
 const SSECalculator = () => {
   const [actualData, setActualData] = useState('2, 4, 6, 8')

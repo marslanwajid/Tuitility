@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { FAQSection } from '../tool'
 import { computeDerivative, evaluateAtPoint, formatStepForDisplay } from '../../assets/js/math/derivative-calculator.js'
-import '../../assets/css/math/derivative-calculator.css'
+// import '../../assets/css/math/derivative-calculator.css'
 
 const DerivativeCalculator = () => {
   const [functionInput, setFunctionInput] = useState('x^3 + 2*x^2 + x + 1')

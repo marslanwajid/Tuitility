@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { FAQSection } from '../tool'
-import '../../assets/css/math/comparing-fractions-calculator.css'
+// import '../../assets/css/math/comparing-fractions-calculator.css'
 
 const ComparingFractionsCalculator = () => {
   const [firstValue, setFirstValue] = useState('')

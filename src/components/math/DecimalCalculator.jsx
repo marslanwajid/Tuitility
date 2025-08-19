@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { ToolHero, ToolLayout, ContentSection, TableOfContents, FeedbackForm, FAQSection, MathFormula } from '../tool';
 import { getRelatedTools } from '../../utils/toolHelpers';
 import decimalCalculatorLogic from '../../assets/js/math/decimal-calculator.js';
-import '../../assets/css/math/decimal-calculator.css';
+// import '../../assets/css/math/decimal-calculator.css';
 
 const DecimalCalculator = () => {
   const [formData, setFormData] = useState(decimalCalculatorLogic.resetFormData());

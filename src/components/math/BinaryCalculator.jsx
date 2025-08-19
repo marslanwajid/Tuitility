@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { ToolHero, ToolLayout, ContentSection, TableOfContents, FeedbackForm, FAQSection, MathFormula } from '../tool';
 import { getRelatedTools } from '../../utils/toolHelpers';
 import binaryCalculatorLogic from '../../assets/js/math/binary-calculator.js';
-import '../../assets/css/math/binary-calculator.css';
+// import '../../assets/css/math/binary-calculator.css';
 
 const BinaryCalculator = () => {
   const [formData, setFormData] = useState(binaryCalculatorLogic.resetFormData());

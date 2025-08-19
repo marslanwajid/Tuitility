@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { ToolHero, ToolLayout, ContentSection, TableOfContents, FeedbackForm, FAQSection, MathFormula } from '../tool';
 import { getRelatedTools } from '../../utils/toolHelpers';
 import lcmCalculatorLogic from '../../assets/js/math/lcm-calculator.js';
-import '../../assets/css/math/lcm-calculator.css';
+// import '../../assets/css/math/lcm-calculator.css';
 
 const LCMCalculator = () => {
   const [formData, setFormData] = useState(lcmCalculatorLogic.resetFormData());

@@ -11,7 +11,7 @@ import {
   MathFormula,
   KaTeXRenderer
 } from '../tool';
-import '../../assets/css/math/integral-calculator.css';
+// import '../../assets/css/math/integral-calculator.css';
 
 const IntegralCalculatorComponent = () => {
   const [functionInput, setFunctionInput] = useState('');

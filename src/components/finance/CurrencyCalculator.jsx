@@ -8,7 +8,7 @@ import {
   FAQSection,
   MathFormula
 } from '../tool';
-import '../../assets/css/finance/currency-calculator.css';
+// import '../../assets/css/finance/currency-calculator.css';
 
 const CurrencyCalculator = () => {
   const [formData, setFormData] = useState({

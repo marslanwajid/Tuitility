@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { FAQSection } from '../tool'
-import '../../assets/css/math/improper-fraction-to-mixed-calculator.css'
+// import '../../assets/css/math/improper-fraction-to-mixed-calculator.css'
 
 const ImproperFractionToMixedCalculator = () => {
   const [fraction, setFraction] = useState({ numerator: '11', denominator: '4' })

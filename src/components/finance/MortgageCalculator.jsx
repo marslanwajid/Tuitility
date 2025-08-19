@@ -8,7 +8,7 @@ import {
   FAQSection,
   MathFormula
 } from '../tool';
-import '../../assets/css/finance/mortgage-calculator.css';
+// import '../../assets/css/finance/mortgage-calculator.css';
 
 const MortgageCalculator = () => {
   const [formData, setFormData] = useState({

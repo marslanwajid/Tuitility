@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { FAQSection } from '../tool'
-import '../../assets/css/math/fraction-calculator.css'
+// import '../../assets/css/math/fraction-calculator.css'
 
 const FractionCalculator = () => {
   const [activeTab, setActiveTab] = useState('2-fractions')
