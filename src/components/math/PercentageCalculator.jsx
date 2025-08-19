@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { ToolHero, ToolLayout, ContentSection, TableOfContents, FeedbackForm, FAQSection, MathFormula } from '../tool';
 import { getRelatedTools } from '../../utils/toolHelpers';
 import percentageCalculatorLogic from '../../assets/js/math/percentage-calculator.js';
-// import '../../assets/css/math/percentage-calculator.css';
+import '../../assets/css/math/percentage-calculator.css';
 
 const PercentageCalculator = () => {
   const [formData, setFormData] = useState(percentageCalculatorLogic.resetFormData());
