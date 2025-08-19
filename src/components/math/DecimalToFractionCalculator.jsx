@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { ToolHero, ToolLayout, ContentSection, TableOfContents, FeedbackForm, FAQSection, MathFormula } from '../tool';
 import { getRelatedTools } from '../../utils/toolHelpers';
 import decimalToFractionCalculatorLogic from '../../assets/js/math/decimal-to-fraction-calculator.js';
-// import '../../assets/css/math/decimal-to-fraction-calculator.css';
+import '../../assets/css/math/decimal-to-fraction-calculator.css';
 
 const DecimalToFractionCalculator = () => {
   const [formData, setFormData] = useState(decimalToFractionCalculatorLogic.resetFormData());
