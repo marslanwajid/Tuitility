@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import '../assets/css/calculator.css'
+import '../assets/css/hero-calculator.css'
 
 const Calculator = () => {
   const [display, setDisplay] = useState('0')
@@ -143,131 +143,131 @@ const Calculator = () => {
   }, [display, previousValue, operation, waitingForOperand])
 
   return (
-    <div className="calculator">
-      <div className="calculator-display">
-        <div className="calculator-expression">
+    <div className="hero-calc">
+      <div className="hero-calc-display">
+        <div className="hero-calc-expression">
           {previousValue !== null && operation && (
             <span>{previousValue} {operation}</span>
           )}
         </div>
-        <div className="calculator-result">{display}</div>
+        <div className="hero-calc-result">{display}</div>
       </div>
       
-      <div className="calculator-buttons">
+      <div className="hero-calc-buttons">
         <button 
-          className="calculator-btn function" 
+          className="hero-calc-btn hero-calc-function" 
           onClick={clearDisplay}
         >
           AC
         </button>
         <button 
-          className="calculator-btn function" 
+          className="hero-calc-btn hero-calc-function" 
           onClick={handlePlusMinus}
         >
           ±
         </button>
         <button 
-          className="calculator-btn function" 
+          className="hero-calc-btn hero-calc-function" 
           onClick={handlePercentage}
         >
           %
         </button>
         <button 
-          className={`calculator-btn operator ${operation === '÷' ? 'active' : ''}`}
+          className={`hero-calc-btn hero-calc-operator ${operation === '÷' ? 'active' : ''}`}
           onClick={() => performOperation('÷')}
         >
           ÷
         </button>
         
         <button 
-          className="calculator-btn number" 
+          className="hero-calc-btn hero-calc-number" 
           onClick={() => inputDigit(7)}
         >
           7
         </button>
         <button 
-          className="calculator-btn number" 
+          className="hero-calc-btn hero-calc-number" 
           onClick={() => inputDigit(8)}
         >
           8
         </button>
         <button 
-          className="calculator-btn number" 
+          className="hero-calc-btn hero-calc-number" 
           onClick={() => inputDigit(9)}
         >
           9
         </button>
         <button 
-          className={`calculator-btn operator ${operation === '×' ? 'active' : ''}`}
+          className={`hero-calc-btn hero-calc-operator ${operation === '×' ? 'active' : ''}`}
           onClick={() => performOperation('×')}
         >
           ×
         </button>
         
         <button 
-          className="calculator-btn number" 
+          className="hero-calc-btn hero-calc-number" 
           onClick={() => inputDigit(4)}
         >
           4
         </button>
         <button 
-          className="calculator-btn number" 
+          className="hero-calc-btn hero-calc-number" 
           onClick={() => inputDigit(5)}
         >
           5
         </button>
         <button 
-          className="calculator-btn number" 
+          className="hero-calc-btn hero-calc-number" 
           onClick={() => inputDigit(6)}
         >
           6
         </button>
         <button 
-          className={`calculator-btn operator ${operation === '-' ? 'active' : ''}`}
+          className={`hero-calc-btn hero-calc-operator ${operation === '-' ? 'active' : ''}`}
           onClick={() => performOperation('-')}
         >
           −
         </button>
         
         <button 
-          className="calculator-btn number" 
+          className="hero-calc-btn hero-calc-number" 
           onClick={() => inputDigit(1)}
         >
           1
         </button>
         <button 
-          className="calculator-btn number" 
+          className="hero-calc-btn hero-calc-number" 
           onClick={() => inputDigit(2)}
         >
           2
         </button>
         <button 
-          className="calculator-btn number" 
+          className="hero-calc-btn hero-calc-number" 
           onClick={() => inputDigit(3)}
         >
           3
         </button>
         <button 
-          className={`calculator-btn operator ${operation === '+' ? 'active' : ''}`}
+          className={`hero-calc-btn hero-calc-operator ${operation === '+' ? 'active' : ''}`}
           onClick={() => performOperation('+')}
         >
           +
         </button>
         
         <button 
-          className="calculator-btn number zero" 
+          className="hero-calc-btn hero-calc-number hero-calc-zero" 
           onClick={() => inputDigit(0)}
         >
           0
         </button>
         <button 
-          className="calculator-btn number" 
+          className="hero-calc-btn hero-calc-number" 
           onClick={inputDecimal}
         >
           .
         </button>
         <button 
-          className="calculator-btn equals" 
+          className="hero-calc-btn hero-calc-equals" 
           onClick={handleEquals}
         >
           =

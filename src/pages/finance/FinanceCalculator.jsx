@@ -10,9 +10,6 @@ const FinanceCalculator = () => {
                 { name: 'Compound Interest Calculator', desc: 'Calculate investment growth with compound interest', url: '/finance/calculators/compound-interest-calculator', category: 'Investments', icon: 'fas fa-chart-area' },
         { name: 'ROI Calculator', desc: 'Calculate return on investment and annualized returns', url: '/finance/calculators/roi-calculator', category: 'Investments', icon: 'fas fa-chart-line' },
       { name: 'Amortization Calculator', desc: 'Generate detailed loan amortization schedules', url: '/finance/calculators/amortization-calculator', category: 'Loans', icon: 'fas fa-chart-line' },
-    
-
-    { name: 'ROI Calculator', desc: 'Calculate return on investment and profitability', url: '/finance/calculators/roi-calculator', category: 'Investments', icon: 'fas fa-trending-up' },
     { name: 'Business Loan Calculator', desc: 'Calculate business loan payments and terms', url: '/finance/calculators/business-loan-calculator', category: 'Business', icon: 'fas fa-briefcase' },
     { name: 'Credit Card Calculator', desc: 'Calculate credit card payments and interest', url: '/finance/calculators/credit-card-calculator', category: 'Loans', icon: 'fas fa-credit-card' },
     { name: 'Investment Calculator', desc: 'Plan your investment strategy and growth', url: '/finance/calculators/investment-calculator', category: 'Investments', icon: 'fas fa-chart-pie' },
