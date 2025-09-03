@@ -29,8 +29,8 @@ import LCDCalculator from './components/math/LCDCalculator'
 // import PercentToFractionCalculator from './components/math/PercentToFractionCalculator'
 import SSECalculator from './components/math/SSECalculator'
 import CurrencyCalculator from './components/finance/CurrencyCalculator'
+import LoanCalculator from './components/finance/LoanCalculator'
 // import MortgageCalculator from './components/finance/MortgageCalculator'
-// import LoanCalculator from './components/finance/LoanCalculator'
 // import CurrencyCalculator from './components/finance/CurrencyCalculator'
 
 
@@ -43,26 +43,25 @@ const App = () => {
         <Route path="/" element={<Home />} />
         {/* Add more routes here as needed */}
         <Route path="/math" element={<MathCalculator />} />
-        <Route path="/math/calculators/binary-calculator" element={<BinaryCalculatorTool />} />
-        <Route path="/math/calculators/comparing-decimals-calculator" element={<ComparingDecimalsCalculator />} />
-        <Route path="/math/calculators/comparing-fractions-calculator" element={<ComparingFractionsCalculator />} />
-        <Route path="/math/calculators/decimal-calculator" element={<DecimalCalculator />} />
-        <Route path="/math/calculators/decimal-to-fraction-calculator" element={<DecimalToFractionCalculator />} />
-        <Route path="/math/calculators/derivative-calculator" element={<DerivativeCalculator />} />
-        <Route path="/math/calculators/fraction-calculator" element={<FractionCalculator />} />
-        <Route path="/math/calculators/fraction-to-percent-calculator" element={<FractionToPercentCalculator />} />
-        <Route path="/math/calculators/improper-fraction-to-mixed-calculator" element={<ImproperFractionToMixedCalculator />} />
-        <Route path="/math/calculators/integral-calculator" element={<IntegralCalculator />} />
-        <Route path="/math/calculators/lcd-calculator" element={<LCDCalculator />} />
-        <Route path="/math/calculators/lcm-calculator" element={<LCMCalculator />} />
-        <Route path="/math/calculators/percentage-calculator" element={<PercentageCalculator />} />
-        <Route path="/math/calculators/percent-to-fraction-calculator" element={<PercentToFractionCalculator />} />
-                      <Route path="/math/calculators/sse-calculator" element={<SSECalculator />} />
-              <Route path="/finance/calculators/currency-calculator" element={<CurrencyCalculator />} />
-                       <Route path="/finance" element={<FinanceCalculator />} />
-                             {/* <Route path="/finance/mortgage-calculator" element={<MortgageCalculator />} />
-                             <Route path="/finance/loan-calculator" element={<LoanCalculator />} /> */}
-                             <Route path="/finance/currency-calculator" element={<CurrencyCalculator />} />
+            <Route path="/math/calculators/binary-calculator" element={<BinaryCalculatorTool />} />
+            <Route path="/math/calculators/comparing-decimals-calculator" element={<ComparingDecimalsCalculator />} />
+            <Route path="/math/calculators/comparing-fractions-calculator" element={<ComparingFractionsCalculator />} />
+            <Route path="/math/calculators/decimal-calculator" element={<DecimalCalculator />} />
+            <Route path="/math/calculators/decimal-to-fraction-calculator" element={<DecimalToFractionCalculator />} />
+            <Route path="/math/calculators/derivative-calculator" element={<DerivativeCalculator />} />
+            <Route path="/math/calculators/fraction-calculator" element={<FractionCalculator />} />
+            <Route path="/math/calculators/fraction-to-percent-calculator" element={<FractionToPercentCalculator />} />
+            <Route path="/math/calculators/improper-fraction-to-mixed-calculator" element={<ImproperFractionToMixedCalculator />} />
+            <Route path="/math/calculators/integral-calculator" element={<IntegralCalculator />} />
+            <Route path="/math/calculators/lcd-calculator" element={<LCDCalculator />} />
+            <Route path="/math/calculators/lcm-calculator" element={<LCMCalculator />} />
+            <Route path="/math/calculators/percentage-calculator" element={<PercentageCalculator />} />
+            <Route path="/math/calculators/percent-to-fraction-calculator" element={<PercentToFractionCalculator />} />
+            <Route path="/math/calculators/sse-calculator" element={<SSECalculator />} />
+        <Route path="/finance" element={<FinanceCalculator />} />
+            <Route path="/finance/calculators/currency-calculator" element={<CurrencyCalculator />} />
+            <Route path="/finance/calculators/loan-calculator" element={<LoanCalculator />} />
+        {/* <Route path="/finance/mortgage-calculator" element={<MortgageCalculator />} /> */}
            
         <Route path="/science" element={<ScienceCalculator />} />
         <Route path="/health" element={<HealthCalculator />} />

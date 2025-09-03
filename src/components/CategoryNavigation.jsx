@@ -99,8 +99,8 @@ const CategoryNavigation = () => {
     { name: 'Integral Calculator', desc: 'Calculate definite and indefinite integrals', url: '/math/calculators/integral-calculator', category: 'Math', icon: 'fas fa-integral' },
     
     { name: 'Mortgage Calculator', desc: 'Calculate monthly mortgage payments with taxes, insurance, PMI', url: '/finance/mortgage-calculator', category: 'Finance', icon: 'fas fa-home' },
-                 { name: 'Loan Calculator', desc: 'Calculate loan payments with down payment and fees', url: '/finance/loan-calculator', category: 'Finance', icon: 'fas fa-hand-holding-usd' },
-             { name: 'Currency Calculator', desc: 'Convert between 170+ world currencies with real-time rates', url: '/finance/currency-calculator', category: 'Finance', icon: 'fas fa-exchange-alt' },
+                 { name: 'Loan Calculator', desc: 'Calculate loan payments with down payment and fees', url: '/finance/calculators/loan-calculator', category: 'Finance', icon: 'fas fa-hand-holding-usd' },
+             { name: 'Currency Calculator', desc: 'Convert between 170+ world currencies with real-time rates', url: '/finance/calculators/currency-calculator', category: 'Finance', icon: 'fas fa-exchange-alt' },
     { name: 'Amortization Calculator', desc: 'Calculate loan amortization schedule', url: '/finance/amortization-calculator', category: 'Finance', icon: 'fas fa-chart-line' },
     { name: 'House Affordability', desc: 'How much house can you afford?', url: '/finance/house-affordability-calculator', category: 'Finance', icon: 'fas fa-house-user' },
     { name: 'Compound Interest', desc: 'Calculate compound interest growth', url: '/finance/compound-interest-calculator', category: 'Finance', icon: 'fas fa-chart-area' },

@@ -160,7 +160,7 @@ const MortgageCalculator = () => {
   };
 
   const relatedTools = [
-    { name: 'Loan Calculator', path: '/finance/loan-calculator', icon: 'fas fa-hand-holding-usd' },
+    { name: 'Loan Calculator', path: '/finance/calculators/loan-calculator', icon: 'fas fa-hand-holding-usd' },
     { name: 'Amortization Calculator', path: '/finance/amortization-calculator', icon: 'fas fa-chart-line' },
     { name: 'House Affordability Calculator', path: '/finance/house-affordability-calculator', icon: 'fas fa-house-user' },
     { name: 'Compound Interest Calculator', path: '/finance/compound-interest-calculator', icon: 'fas fa-chart-area' },
@@ -173,7 +173,7 @@ const MortgageCalculator = () => {
       name: 'Loan Calculators',
       tools: [
         { name: 'Mortgage Calculator', path: '/finance/mortgage-calculator' },
-        { name: 'Loan Calculator', path: '/finance/loan-calculator' },
+        { name: 'Loan Calculator', path: '/finance/calculators/loan-calculator' },
         { name: 'Business Loan Calculator', path: '/finance/business-loan-calculator' }
       ]
     },
