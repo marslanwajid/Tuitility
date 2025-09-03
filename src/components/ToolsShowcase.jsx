@@ -16,6 +16,7 @@ const ToolsShowcase = () => {
         { name: 'Percentage Calculator', desc: 'Calculate percentages with 14 different types', url: '/math/calculators/percentage-calculator', category: 'Math', icon: 'fas fa-percentage' },
         { name: 'LCD Calculator', desc: 'Find least common denominator of fractions', url: '/math/calculators/lcd-calculator', category: 'Math', icon: 'fas fa-sort-numeric-down' },
         { name: 'LCM Calculator', desc: 'Find least common multiple of numbers', url: '/math/calculators/lcm-calculator', category: 'Math', icon: 'fas fa-sort-numeric-up' },
+    { name: 'SSE Calculator', desc: 'Calculate Sum of Squared Errors for statistical analysis', url: '/math/calculators/sse-calculator', category: 'Math', icon: 'fas fa-chart-line' },
     { name: 'BMI Calculator', desc: 'Calculate your body mass index', url: '/health/calculators/bmi-calculator', category: 'Health', icon: 'fas fa-weight' },
     { name: 'Mortgage Calculator', desc: 'Calculate monthly mortgage payments', url: '/finance/mortgage-calculator', category: 'Finance', icon: 'fas fa-home' },
     { name: 'QR Code Generator', desc: 'Generate QR codes instantly', url: '/utility-tools/converter-tools/qr-code-generator', category: 'Utility', icon: 'fas fa-qrcode' },
