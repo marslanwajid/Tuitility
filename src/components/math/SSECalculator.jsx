@@ -1,61 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import ToolPageLayout from '../tool/ToolPageLayout';
-import CalculatorSection from '../tool/CalculatorSection';
-import ContentSection from '../tool/ContentSection';
-import FAQSection from '../tool/FAQSection';
-import TableOfContents from '../tool/TableOfContents';
-import FeedbackForm from '../tool/FeedbackForm';
-import '../../assets/css/math/sse-calculator.css';
+import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
+import { FAQSection } from '../tool'
+// import '../../assets/css/math/sse-calculator.css'
 
 const SSECalculator = () => {
   const [actualData, setActualData] = useState('2, 4, 6, 8')
   const [predictedData, setPredictedData] = useState('1.5, 3.5, 5.5, 7.5')
   const [result, setResult] = useState(null)
   const [error, setError] = useState('')
-
-  // Tool data
-  const toolData = {
-    name: 'Sum of Squared Errors (SSE) Calculator',
-    description: 'Calculate the Sum of Squared Errors with step-by-step solutions. Perfect for statistical analysis, machine learning evaluation, and data science projects.',
-    icon: 'fas fa-chart-line',
-    category: 'Math',
-    breadcrumb: ['Math', 'Calculators', 'Sum of Squared Errors (SSE) Calculator']
-  };
-
-  // Categories for sidebar
-  const categories = [
-    { name: 'Math', url: '/math', icon: 'fas fa-calculator' },
-    { name: 'Finance', url: '/finance', icon: 'fas fa-dollar-sign' },
-    { name: 'Health', url: '/health', icon: 'fas fa-heartbeat' },
-    { name: 'Science', url: '/science', icon: 'fas fa-flask' },
-    { name: 'Utility', url: '/utility', icon: 'fas fa-wrench' },
-    { name: 'Knowledge', url: '/knowledge', icon: 'fas fa-book' }
-  ];
-
-  // Related tools for sidebar
-  const relatedTools = [
-    { name: 'Fraction Calculator', url: '/math/calculators/fraction-calculator', icon: 'fas fa-divide' },
-    { name: 'Percentage Calculator', url: '/math/calculators/percentage-calculator', icon: 'fas fa-percentage' },
-    { name: 'Fraction to Percent', url: '/math/calculators/fraction-to-percent-calculator', icon: 'fas fa-percentage' },
-    { name: 'Percent to Fraction', url: '/math/calculators/percent-to-fraction-calculator', icon: 'fas fa-percentage' },
-    { name: 'Decimal to Fraction', url: '/math/calculators/decimal-to-fraction-calculator', icon: 'fas fa-arrows-alt-h' },
-    { name: 'Comparing Fractions', url: '/math/calculators/comparing-fractions-calculator', icon: 'fas fa-balance-scale' },
-    { name: 'Comparing Decimals', url: '/math/calculators/comparing-decimals-calculator', icon: 'fas fa-sort-numeric-up' },
-    { name: 'Binary Calculator', url: '/math/calculators/binary-calculator', icon: 'fas fa-1' }
-  ];
-
-  // Table of contents
-  const tableOfContents = [
-    { id: 'introduction', title: 'Introduction' },
-    { id: 'what-is-sse', title: 'What is SSE?' },
-    { id: 'formulas', title: 'Formulas & Methods' },
-    { id: 'how-to-use', title: 'How to Use Calculator' },
-    { id: 'examples', title: 'Examples' },
-    { id: 'significance', title: 'Significance' },
-    { id: 'functionality', title: 'Functionality' },
-    { id: 'applications', title: 'Applications' },
-    { id: 'faqs', title: 'FAQs' }
-  ];
 
   // Handle input changes
   const handleInputChange = (field, value) => {
@@ -122,19 +74,13 @@ const SSECalculator = () => {
     }
   }
 
-  const calculateSSEHandler = () => {
-    console.log('=== CALCULATE FUNCTION CALLED ===')
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    
     try {
-      console.log('Calculating SSE...')
-      console.log('Actual data:', actualData)
-      console.log('Predicted data:', predictedData)
-      
       // Parse numbers
       const actualNumbers = parseNumbers(actualData)
       const predictedNumbers = parseNumbers(predictedData)
-      
-      console.log('Parsed actual numbers:', actualNumbers)
-      console.log('Parsed predicted numbers:', predictedNumbers)
       
       // Validate inputs
       validateInputs(actualNumbers, predictedNumbers)
@@ -142,13 +88,9 @@ const SSECalculator = () => {
       // Calculate SSE
       const sseResult = calculateSSE(actualNumbers, predictedNumbers)
       
-      console.log('SSE result:', sseResult)
-      
       setResult(sseResult)
       setError('')
-      console.log('Result state set to:', sseResult)
     } catch (error) {
-      console.log('Error in calculation:', error)
       setError(error.message)
       setResult(null)
     }
@@ -156,6 +98,7 @@ const SSECalculator = () => {
 
   const handleReset = () => {
     setActualData('2, 4, 6, 8')
+    setPredictedData('1.5, 3.5, 5.5, 7.5')
     setResult(null)
     setError('')
   }
@@ -227,20 +170,146 @@ const SSECalculator = () => {
   }, [result])
 
   return (
-    <ToolPageLayout 
-      toolData={toolData} 
-      tableOfContents={tableOfContents}
-      categories={categories}
-      relatedTools={relatedTools}
-    >
-      <CalculatorSection 
-        title="Sum of Squared Errors (SSE) Calculator"
-        onCalculate={calculateSSEHandler}
-        calculateButtonText="Calculate SSE"
-        error={error}
-        result={null}
-      >
-        <div className="calculator-form">
+    <div className="tool-page">
+      {/* Hero Section */}
+      <section className="tool-hero">
+        <div className="container">
+          <div className="hero-content">
+            <h1 className="hero-title">
+              <i className="fas fa-chart-line"></i>
+              Sum of Squared Errors (SSE) Calculator
+            </h1>
+            <p className="hero-description">
+              Calculate the Sum of Squared Errors with step-by-step solutions. 
+              Perfect for statistical analysis, machine learning evaluation, and data science projects.
+            </p>
+            <div className="hero-features">
+              <span className="feature">
+                <i className="fas fa-check"></i>
+                Statistical analysis
+              </span>
+              <span className="feature">
+                <i className="fas fa-check"></i>
+                Step-by-step solutions
+              </span>
+              <span className="feature">
+                <i className="fas fa-check"></i>
+                Error calculation
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div className="tool-main">
+        <div className="container">
+          <div className="tool-layout">
+            {/* Sidebar */}
+            <aside className="tool-sidebar">
+              {/* Categories Box */}
+              <div className="sidebar-section">
+                <h3 className="sidebar-title">
+                  <i className="fas fa-th"></i>
+                  Categories
+                </h3>
+                <div className="category-links">
+                  <Link to="/math" className="category-link">
+                    <i className="fas fa-calculator"></i>
+                    <span>Math</span>
+                  </Link>
+                  <Link to="/finance" className="category-link">
+                    <i className="fas fa-dollar-sign"></i>
+                    <span>Finance</span>
+                  </Link>
+                  <Link to="/science" className="category-link">
+                    <i className="fas fa-atom"></i>
+                    <span>Science</span>
+                  </Link>
+                  <Link to="/health" className="category-link">
+                    <i className="fas fa-heartbeat"></i>
+                    <span>Health</span>
+                  </Link>
+                  <Link to="/utility-tools" className="category-link">
+                    <i className="fas fa-tools"></i>
+                    <span>Utility</span>
+                  </Link>
+                  <Link to="/knowledge" className="category-link">
+                    <i className="fas fa-brain"></i>
+                    <span>Knowledge</span>
+                  </Link>
+                </div>
+              </div>
+
+              {/* Math Tools */}
+              <div className="sidebar-section">
+                <h3 className="sidebar-title">
+                  <i className="fas fa-calculator"></i>
+                  Math Tools
+                </h3>
+                <div className="tool-links">
+                  <Link to="/math/calculators/fraction-calculator" className="tool-link">
+                    <i className="fas fa-divide"></i>
+                    <span>Fraction Calculator</span>
+                  </Link>
+                  <Link to="/math/calculators/percentage-calculator" className="tool-link">
+                    <i className="fas fa-percentage"></i>
+                    <span>Percentage Calculator</span>
+                  </Link>
+                  <Link to="/math/calculators/decimal-to-fraction-calculator" className="tool-link">
+                    <i className="fas fa-arrows-alt-h"></i>
+                    <span>Decimal to Fraction</span>
+                  </Link>
+                  <Link to="/math/calculators/fraction-to-percent-calculator" className="tool-link">
+                    <i className="fas fa-percentage"></i>
+                    <span>Fraction to Percent</span>
+                  </Link>
+                  <Link to="/math/calculators/percent-to-fraction-calculator" className="tool-link">
+                    <i className="fas fa-percentage"></i>
+                    <span>Percent to Fraction</span>
+                  </Link>
+                  <Link to="/math/calculators/improper-fraction-to-mixed-calculator" className="tool-link">
+                    <i className="fas fa-layer-group"></i>
+                    <span>Improper to Mixed</span>
+                  </Link>
+                  <Link to="/math/calculators/sse-calculator" className="tool-link active">
+                    <i className="fas fa-chart-line"></i>
+                    <span>SSE Calculator</span>
+                  </Link>
+                  <Link to="/math/calculators/lcm-calculator" className="tool-link">
+                    <i className="fas fa-sort-numeric-up"></i>
+                    <span>LCM Calculator</span>
+                  </Link>
+                  <Link to="/math/calculators/binary-calculator" className="tool-link">
+                    <i className="fas fa-1"></i>
+                    <span>Binary Calculator</span>
+                  </Link>
+                  <Link to="/math/calculators/lcd-calculator" className="tool-link">
+                    <i className="fas fa-sort-numeric-down"></i>
+                    <span>LCD Calculator</span>
+                  </Link>
+                  <Link to="/math/calculators/comparing-fractions-calculator" className="tool-link">
+                    <i className="fas fa-balance-scale"></i>
+                    <span>Compare Fractions</span>
+                  </Link>
+                  <Link to="/math/calculators/comparing-decimals-calculator" className="tool-link">
+                    <i className="fas fa-sort-numeric-up"></i>
+                    <span>Compare Decimals</span>
+                  </Link>
+                </div>
+              </div>
+            </aside>
+
+            {/* Main Content */}
+            <main className="tool-content">
+              {/* Calculator Section */}
+              <section className="calculator-section">
+                <div className="calculator-container">
+                  <h2 className="section-title">
+                    <i className="fas fa-chart-line"></i>
+                    Sum of Squared Errors (SSE) Calculator
+                  </h2>
+                  
+                  <form onSubmit={handleSubmit} className="calculator-form">
                     <div className="input-group">
                       <label htmlFor="actual-data" className="input-label">
                         Actual Data Points:
@@ -276,16 +345,29 @@ const SSECalculator = () => {
                     </small>
 
                     <div className="calculator-actions">
+                      <button type="submit" className="btn-calculate">
+                        <i className="fas fa-chart-line"></i>
+                        Calculate SSE
+                      </button>
                       <button type="button" className="btn-reset" onClick={handleReset}>
                         <i className="fas fa-redo"></i>
                         Reset
                       </button>
+                    </div>
+                  </form>
+
+                  {/* Results */}
+                  {error && (
+                    <div className="result-section error">
+                      <div className="result-content">
+                        <i className="fas fa-exclamation-triangle"></i>
+                        <span>{error}</span>
                       </div>
                     </div>
+                  )}
 
-        {/* Custom Results Section */}
                   {result && (
-          <div className="result-section sse-calculator-result">
+                    <div className="result-section show">
                       <h3 className="result-title">SSE Calculation Result</h3>
                       <div className="result-content">
                         <div className="result-main">
@@ -339,16 +421,66 @@ const SSECalculator = () => {
                       </div>
                     </div>
                   )}
-      </CalculatorSection>
+                </div>
+              </section>
 
-      {/* TOC and Feedback Section - After Calculator, Before Content */}
-      <div className="tool-bottom-section">
-        <TableOfContents items={tableOfContents} />
-        <FeedbackForm toolName={toolData.name} />
+              {/* Table of Contents & Feedback */}
+              <section className="toc-feedback-section">
+                <div className="toc-feedback-container">
+                  {/* Table of Contents */}
+                  <div className="toc-section">
+                    <h3 className="toc-title">
+                      <i className="fas fa-list"></i>
+                      Table of Contents
+                    </h3>
+                    <nav className="toc-nav">
+                      <a href="#introduction" className="toc-link">Introduction</a>
+                      <a href="#what-is-sse" className="toc-link">What is SSE?</a>
+                      <a href="#formulas" className="toc-link">Formulas & Methods</a>
+                      <a href="#how-to-use" className="toc-link">How to Use Calculator</a>
+                      <a href="#examples" className="toc-link">Examples</a>
+                      <a href="#significance" className="toc-link">Significance</a>
+                      <a href="#functionality" className="toc-link">Functionality</a>
+                      <a href="#applications" className="toc-link">Applications</a>
+                      <a href="#faqs" className="toc-link">FAQs</a>
+                    </nav>
                   </div>
 
-      {/* Content Sections */}
-      <ContentSection id="introduction" title="Introduction">
+                  {/* Feedback Form */}
+                  <div className="feedback-section">
+                    <h3 className="feedback-title">
+                      <i className="fas fa-comment"></i>
+                      Feedback
+                    </h3>
+                    <form className="feedback-form">
+                      <div className="form-group">
+                        <label htmlFor="feedback-name">Name</label>
+                        <input type="text" id="feedback-name" placeholder="Your name" />
+                      </div>
+                      <div className="form-group">
+                        <label htmlFor="feedback-email">Email</label>
+                        <input type="email" id="feedback-email" placeholder="Your email" />
+                      </div>
+                      <div className="form-group">
+                        <label htmlFor="feedback-message">Message</label>
+                        <textarea id="feedback-message" rows="4" placeholder="Your feedback or suggestions..."></textarea>
+                      </div>
+                      <button type="submit" className="btn-submit">
+                        <i className="fas fa-paper-plane"></i>
+                        Send Feedback
+                      </button>
+                    </form>
+                  </div>
+                </div>
+              </section>
+
+              {/* Content Section */}
+              <section className="content-section">
+                <div className="content-container">
+                  {/* Introduction */}
+                  <div id="introduction" className="content-block">
+                    <h2 className="content-title">Introduction</h2>
+                    <div className="content-intro">
                       <p>
                         The Sum of Squared Errors (SSE) is a fundamental statistical measure used to evaluate 
                         the accuracy of predictions or models. It quantifies the total squared difference between 
@@ -359,43 +491,57 @@ const SSECalculator = () => {
                         This tool helps students understand statistical concepts and professionals evaluate model 
                         performance in data science and machine learning projects.
                       </p>
-      </ContentSection>
+                    </div>
+                  </div>
 
-      <ContentSection id="what-is-sse" title="What is Sum of Squared Errors (SSE)?">
+                  {/* What is SSE */}
+                  <div id="what-is-sse" className="content-block">
+                    <h2 className="content-title">What is Sum of Squared Errors (SSE)?</h2>
+                    <div className="content-intro">
                       <p>
                         SSE is a statistical measure that calculates the sum of the squared differences between 
                         actual observed values and predicted values. It's widely used in regression analysis, 
                         machine learning, and statistical modeling to assess prediction accuracy.
                       </p>
+                    </div>
                     <ul>
                       <li>
+                        <i className="fas fa-check"></i>
                         <span><strong>Purpose:</strong> Measure the total prediction error in a model</span>
                       </li>
                       <li>
+                        <i className="fas fa-check"></i>
                         <span><strong>Method:</strong> Square each error and sum all squared errors</span>
                       </li>
                       <li>
+                        <i className="fas fa-check"></i>
                         <span><strong>Result:</strong> A single value representing total squared error</span>
                       </li>
                       <li>
+                        <i className="fas fa-check"></i>
                         <span><strong>Applications:</strong> Essential for model evaluation and comparison</span>
                       </li>
                     </ul>
-      </ContentSection>
+                  </div>
 
-      <ContentSection id="formulas" title="Formulas & Methods">
-        <p>Our calculator supports the following calculation process:</p>
-        <ul>
-          <li><strong>Step 1:</strong> Calculate the error for each data point (Actual - Predicted)</li>
-          <li><strong>Step 2:</strong> Square each error to eliminate negative values</li>
-          <li><strong>Step 3:</strong> Sum all squared errors to get the total SSE</li>
-          <li><strong>Step 4:</strong> Interpret the result (lower values indicate better predictions)</li>
-        </ul>
+                  {/* Formulas */}
+                  <div id="formulas" className="content-block">
+                    <h2 className="content-title">Formulas & Methods</h2>
                     
                     <div className="formula-section">
                       <h3>SSE Formula</h3>
                       <div className="math-formula" id="formula-example"></div>
                       <p>Where y_i is the actual value and ŷ_i is the predicted value for the i-th observation.</p>
+                    </div>
+
+                    <div className="formula-section">
+                      <h3>Calculation Steps</h3>
+                      <ul>
+                        <li><strong>Step 1:</strong> Calculate the error for each data point (Actual - Predicted)</li>
+                        <li><strong>Step 2:</strong> Square each error to eliminate negative values</li>
+                        <li><strong>Step 3:</strong> Sum all squared errors to get the total SSE</li>
+                        <li><strong>Step 4:</strong> Interpret the result (lower values indicate better predictions)</li>
+                      </ul>
                     </div>
 
                     <div className="formula-section">
@@ -406,27 +552,38 @@ const SSECalculator = () => {
                         Complex case: SSE = 10.0 (poor predictions)
                       </p>
                     </div>
-      </ContentSection>
+                  </div>
 
-      <ContentSection id="how-to-use" title="How to Use SSE Calculator">
+                  {/* How to Use */}
+                  <div id="how-to-use" className="content-block">
+                    <h2 className="content-title">How to Use SSE Calculator</h2>
+                    <div className="content-intro">
                       <p>Using the calculator is straightforward:</p>
+                    </div>
                     <ul className="usage-steps">
                       <li>
+                        <i className="fas fa-check"></i>
                         <span><strong>Enter Actual Data:</strong> Input the actual observed values as comma or space-separated numbers.</span>
                       </li>
                       <li>
+                        <i className="fas fa-check"></i>
                         <span><strong>Enter Predicted Values:</strong> Input the corresponding predicted values in the same format.</span>
                       </li>
                       <li>
+                        <i className="fas fa-check"></i>
                         <span><strong>Calculate:</strong> Click the "Calculate SSE" button to get the result.</span>
                       </li>
                       <li>
+                        <i className="fas fa-check"></i>
                         <span><strong>View Results:</strong> The calculator will show the SSE value and detailed step-by-step calculations.</span>
                       </li>
                     </ul>
-      </ContentSection>
+                  </div>
 
-      <ContentSection id="examples" title="Examples">
+                  {/* Examples */}
+                  <div id="examples" className="content-block">
+                    <h2 className="content-title">Examples</h2>
+                    
                     <div className="example-section">
                       <h3>Example 1: Good Predictions</h3>
                       <p>Calculate SSE: <div className="content-formula" id="example1-formula"></div></p>
@@ -465,54 +622,73 @@ const SSECalculator = () => {
                         <p><strong>Interpretation:</strong> Poor predictions (high SSE relative to data scale)</p>
                       </div>
                     </div>
-      </ContentSection>
+                  </div>
 
-      <ContentSection id="significance" title="Significance">
-        <p>Understanding SSE is crucial in statistics and data science for several reasons:</p>
+                  {/* Significance */}
+                  <div id="significance" className="content-block">
+                    <h2 className="content-title">Significance</h2>
+                    <p>
+                      Understanding SSE is crucial in statistics and data science for several reasons:
+                    </p>
                     <ul>
                       <li>
+                        <i className="fas fa-check"></i>
                         <span>Essential for evaluating model performance and accuracy</span>
                       </li>
                       <li>
+                        <i className="fas fa-check"></i>
                         <span>Foundation for advanced statistical analysis and machine learning</span>
                       </li>
                       <li>
+                        <i className="fas fa-check"></i>
                         <span>Used in regression analysis and predictive modeling</span>
                       </li>
                       <li>
+                        <i className="fas fa-check"></i>
                         <span>Important for comparing different models and algorithms</span>
                       </li>
                       <li>
+                        <i className="fas fa-check"></i>
                         <span>Helps develop critical thinking in data analysis</span>
                       </li>
                     </ul>
-      </ContentSection>
+                  </div>
 
-      <ContentSection id="functionality" title="Functionality">
+                  {/* Functionality */}
+                  <div id="functionality" className="content-block">
+                    <h2 className="content-title">Functionality</h2>
                     <p>Our SSE Calculator provides:</p>
                     <ul>
                       <li>
+                        <i className="fas fa-check"></i>
                         <span><strong>Input Validation:</strong> Ensures valid numerical inputs and matching data counts</span>
                       </li>
                       <li>
+                        <i className="fas fa-check"></i>
                         <span><strong>Accurate Results:</strong> Provides precise SSE calculations with proper error handling</span>
                       </li>
                       <li>
+                        <i className="fas fa-check"></i>
                         <span><strong>Step-by-step Solutions:</strong> Detailed breakdown of each calculation step</span>
                       </li>
                       <li>
+                        <i className="fas fa-check"></i>
                         <span><strong>Visual Table:</strong> Clear tabular display of all calculations</span>
                       </li>
                       <li>
+                        <i className="fas fa-check"></i>
                         <span><strong>Error Handling:</strong> Clear error messages for invalid inputs</span>
                       </li>
                       <li>
+                        <i className="fas fa-check"></i>
                         <span><strong>Mathematical Notation:</strong> Proper formula display with LaTeX rendering</span>
                       </li>
                     </ul>
-      </ContentSection>
+                  </div>
 
-      <ContentSection id="applications" title="Applications">
+                  {/* Applications */}
+                  <div id="applications" className="content-block">
+                    <h2 className="content-title">Applications</h2>
                     <div className="applications-grid">
                       <div className="application-item">
                         <h4><i className="fas fa-graduation-cap"></i> Education</h4>
@@ -539,8 +715,11 @@ const SSECalculator = () => {
                         <p>Business analytics and predictive modeling</p>
                       </div>
                     </div>
-      </ContentSection>
+                  </div>
 
+                  {/* FAQs */}
+                  <div id="faqs" className="content-block">
+                    <h2 className="content-title">Frequently Asked Questions</h2>
                     <FAQSection 
                       faqs={[
                         {
@@ -568,10 +747,16 @@ const SSECalculator = () => {
                           answer: "The calculator provides 100% accurate SSE calculations using standard statistical formulas and proper numerical precision."
                         }
                       ]}
-        title="Frequently Asked Questions"
-      />
-    </ToolPageLayout>
-  );
+                    />
+                  </div>
+                </div>
+              </section>
+            </main>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
 }
 
-export default SSECalculator;
+export default SSECalculator

@@ -338,156 +338,62 @@
   font-weight: 600;
 }
 
-/* SSE Calculator Specific Result Section Styling */
-.sse-calculator-result {
-  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%) !important;
-  border-radius: 15px;
-  padding: 2rem;
+/* Steps Table */
+.result-steps {
   margin-top: 2rem;
-  color: white;
-  box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
-  animation: resultSlideIn 0.6s ease-out;
-  border: none !important;
-  display: block !important; /* Override the display: none from .result-section */
 }
 
-/* Override any white background that might be coming from other CSS */
-.sse-calculator-result .result-main,
-.sse-calculator-result .result-steps,
-.sse-calculator-result .result-item {
-  background: transparent !important;
-}
-
-/* Ensure all result content has transparent background */
-.sse-calculator-result .result-content,
-.sse-calculator-result .result-main,
-.sse-calculator-result .result-steps,
-.sse-calculator-result .result-item {
-  background: transparent !important;
-}
-
-.sse-calculator-result .result-title {
-  color: white;
-  font-size: 1.8rem;
-  font-weight: 700;
-  margin: 0 0 1.5rem 0;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-.sse-calculator-result .result-content {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.sse-calculator-result .result-main {
-  background: rgba(255, 255, 255, 0.1);
-  padding: 1.5rem;
-  border-radius: 10px;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.sse-calculator-result .result-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1rem;
+.result-steps h4 {
+  font-size: 1.125rem;
+  font-weight: 600;
   margin-bottom: 1rem;
-}
-
-.sse-calculator-result .result-item:last-child {
-  margin-bottom: 0;
-}
-
-.sse-calculator-result .result-item strong {
-  color: rgba(255, 255, 255, 0.9);
-  font-size: 1.1rem;
-  font-weight: 600;
-}
-
-.sse-calculator-result .result-formula {
-  color: #fbbf24;
-  font-size: 1.2rem;
-  font-weight: 600;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-  background: transparent !important;
-}
-
-/* Result Steps */
-.sse-calculator-result .result-steps {
-  background: rgba(255, 255, 255, 0.15) !important;
-  padding: 1.5rem;
-  border-radius: 10px;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.sse-calculator-result .result-steps h4 {
-  color: white !important;
-  font-size: 1.3rem;
-  margin: 0 0 1rem 0;
+  color: #1e293b;
   text-align: center;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
 }
 
-/* Steps Table - Override all table styles */
-.sse-calculator-result .steps-table {
-  background: transparent !important;
+.steps-table {
+  overflow-x: auto;
   border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  overflow: hidden;
+  border: 1px solid #e2e8f0;
 }
 
-.sse-calculator-result .steps-table table {
+.steps-table table {
   width: 100%;
   border-collapse: collapse;
-  background: transparent !important;
+  background: #ffffff;
 }
 
-.sse-calculator-result .steps-table th {
-  background: rgba(255, 255, 255, 0.2) !important;
-  color: white !important;
+.steps-table th {
+  background: #3b82f6;
+  color: #ffffff;
   padding: 12px;
   text-align: center;
   font-weight: 600;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1px solid #2563eb;
 }
 
-.sse-calculator-result .steps-table td {
+.steps-table td {
   padding: 10px;
   text-align: center;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: white !important;
-  background: transparent !important;
+  border: 1px solid #e2e8f0;
 }
 
-.sse-calculator-result .steps-table tbody tr:nth-child(even) {
-  background: rgba(255, 255, 255, 0.1) !important;
+.steps-table tbody tr:nth-child(even) {
+  background: #f8fafc;
 }
 
-.sse-calculator-result .steps-table tbody tr:hover {
-  background: rgba(255, 255, 255, 0.15) !important;
+.steps-table tbody tr:hover {
+  background: #f1f5f9;
 }
 
-.sse-calculator-result .steps-table tfoot tr {
-  background: rgba(255, 255, 255, 0.25) !important;
-  color: white !important;
+.steps-table tfoot tr {
+  background: #3b82f6;
+  color: #ffffff;
 }
 
-.sse-calculator-result .steps-table tfoot td {
+.steps-table tfoot td {
   font-weight: 600;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  color: white !important;
+  border: 1px solid #2563eb;
 }
 
 /* Table of Contents & Feedback */
@@ -654,6 +560,12 @@
   border-left: 4px solid #3b82f6;
 }
 
+.content-block li i {
+  color: #10b981;
+  margin-top: 0.125rem;
+  flex-shrink: 0;
+}
+
 .content-block li span {
   color: #374151;
   line-height: 1.6;
@@ -702,6 +614,10 @@
 .usage-steps li {
   background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
   border-left-color: #0ea5e9;
+}
+
+.usage-steps li i {
+  color: #0ea5e9;
 }
 
 /* Example Sections */
@@ -788,17 +704,6 @@
   }
 }
 
-@keyframes resultSlideIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 /* Responsive Design */
 @media (max-width: 1024px) {
   .tool-layout {
@@ -840,22 +745,6 @@
   .steps-table th, .steps-table td {
     padding: 8px 6px;
   }
-  
-  .sse-calculator-result {
-    padding: 1.5rem;
-    margin-top: 1.5rem;
-  }
-  
-  .sse-calculator-result .result-title {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-  }
-  
-  .sse-calculator-result .result-item {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.5rem;
-  }
 }
 
 @media (max-width: 480px) {
@@ -873,24 +762,5 @@
   
   .content-title {
     font-size: 1.5rem;
-  }
-  
-  .sse-calculator-result {
-    padding: 1rem;
-    margin-top: 1rem;
-  }
-  
-  .sse-calculator-result .result-title {
-    font-size: 1.3rem;
-    margin-bottom: 0.8rem;
-  }
-  
-  .sse-calculator-result .result-steps {
-    padding: 1rem;
-  }
-  
-  .sse-calculator-result .result-steps h4 {
-    font-size: 1.2rem;
-    margin-bottom: 0.8rem;
   }
 }

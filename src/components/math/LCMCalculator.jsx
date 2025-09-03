@@ -192,97 +192,97 @@ const LCMCalculator = () => {
         result={null}
       >
         <div className="calculator-form">
-              <div className="form-row">
-                <div className="form-group">
+          <div className="form-row">
+            <div className="form-group">
               <label htmlFor="numbers" className="input-label">Numbers (comma-separated)</label>
-                  <input
-                    type="text"
-                    id="numbers"
+              <input
+                type="text"
+                id="numbers"
                 className="input-field"
-                    value={formData.numbers}
-                    onChange={(e) => handleInputChange('numbers', e.target.value)}
-                    placeholder="Enter numbers (e.g., 12, 18, 24)"
-                  />
+                value={formData.numbers}
+                onChange={(e) => handleInputChange('numbers', e.target.value)}
+                placeholder="Enter numbers (e.g., 12, 18, 24)"
+              />
               <small className="input-help">
                 Enter two or more positive integers separated by commas
               </small>
-                </div>
-                <div className="form-group">
+            </div>
+            <div className="form-group">
               <label htmlFor="method" className="input-label">Calculation Method</label>
-                  <select
-                    id="method"
+              <select
+                id="method"
                 className="input-field"
-                    value={formData.method}
-                    onChange={(e) => handleSelectChange('method', e.target.value)}
-                  >
-                    {lcmCalculatorLogic.getMethods().map(method => (
-                      <option key={method.value} value={method.value}>
-                        {method.label}
-                      </option>
-                    ))}
-                  </select>
+                value={formData.method}
+                onChange={(e) => handleSelectChange('method', e.target.value)}
+              >
+                {lcmCalculatorLogic.getMethods().map(method => (
+                  <option key={method.value} value={method.value}>
+                    {method.label}
+                  </option>
+                ))}
+              </select>
               <small className="input-help">
                 Choose your preferred calculation method
               </small>
-                </div>
-              </div>
+            </div>
+          </div>
 
           <div className="calculator-actions">
-                <button type="button" className="btn-reset" onClick={handleReset}>
-                  <i className="fas fa-redo"></i>
-                  Reset
-                </button>
-              </div>
-              </div>
+            <button type="button" className="btn-reset" onClick={handleReset}>
+              <i className="fas fa-redo"></i>
+              Reset
+            </button>
+          </div>
+        </div>
 
         {/* Custom Results Section */}
-            {result && (
+        {result && (
           <div className="result-section lcm-calculator-result">
-                <h3 className="result-title">
-                  <i className="fas fa-check-circle"></i>
-                  LCM Result
-                </h3>
+            <h3 className="result-title">
+              <i className="fas fa-check-circle"></i>
+              LCM Result
+            </h3>
             <div className="result-content">
               <div className="result-main">
                 <div className="result-item">
                   <strong>Least Common Multiple:</strong>
-                      <span className="result-value">{result.result}</span>
-                    </div>
-                  </div>
-                  
+                  <span className="result-value">{result.result}</span>
+                </div>
+              </div>
+              
               <div className="result-steps">
-                    <h4>
-                      <i className="fas fa-list-ol"></i>
-                      Solution Steps
-                    </h4>
-                    <div className="steps-container">
-                      {result.steps.map((step, index) => (
-                        <div key={index} className="step">
-                          {step}
-                        </div>
-                      ))}
+                <h4>
+                  <i className="fas fa-list-ol"></i>
+                  Solution Steps
+                </h4>
+                <div className="steps-container">
+                  {result.steps.map((step, index) => (
+                    <div key={index} className="step">
+                      {step}
                     </div>
-                    
-                    {result.tableSteps && result.tableSteps.length > 0 && (
-                      <div className="table-container">
-                        <h5>Calculation Table:</h5>
-                        <div className="calculation-table">
-                          {result.tableSteps.map((row, rowIndex) => (
-                            <div key={rowIndex} className="table-row">
-                              {row.map((cell, cellIndex) => (
-                                <div key={cellIndex} className="table-cell">
-                                  {cell}
-                                </div>
-                              ))}
+                  ))}
+                </div>
+                
+                {result.tableSteps && result.tableSteps.length > 0 && (
+                  <div className="table-container">
+                    <h5>Calculation Table:</h5>
+                    <div className="calculation-table">
+                      {result.tableSteps.map((row, rowIndex) => (
+                        <div key={rowIndex} className="table-row">
+                          {row.map((cell, cellIndex) => (
+                            <div key={cellIndex} className="table-cell">
+                              {cell}
                             </div>
                           ))}
                         </div>
-                      </div>
-                    )}
+                      ))}
+                    </div>
                   </div>
-                </div>
+                )}
               </div>
-            )}
+            </div>
+          </div>
+        )}
       </CalculatorSection>
 
       {/* TOC and Feedback Section - After Calculator, Before Content */}
@@ -497,7 +497,7 @@ const LCMCalculator = () => {
             <h4><i className="fas fa-lightbulb"></i>Everyday Problem Solving</h4>
             <p>Practical applications in daily life situations</p>
           </div>
-    </div>
+        </div>
       </ContentSection>
 
       <FAQSection 

@@ -484,66 +484,66 @@ const PercentageCalculator = () => {
         result={null}
       >
         <div className="calculator-form">
-          <div className="form-row">
-            <div className="form-group calculation-type-group">
-              <label htmlFor="calculation-type">Calculation Type</label>
-              <select
-                id="calculation-type"
-                value={formData.calculationType}
-                onChange={(e) => handleSelectChange('calculationType', e.target.value)}
-              >
-                {percentageCalculatorLogic.calculationTypes.map(type => (
-                  <option key={type.value} value={type.value}>
-                    {type.label}
-                  </option>
-                ))}
-              </select>
-            </div>
-          </div>
+              <div className="form-row">
+                <div className="form-group calculation-type-group">
+                  <label htmlFor="calculation-type">Calculation Type</label>
+                  <select
+                    id="calculation-type"
+                    value={formData.calculationType}
+                    onChange={(e) => handleSelectChange('calculationType', e.target.value)}
+                  >
+                    {percentageCalculatorLogic.calculationTypes.map(type => (
+                      <option key={type.value} value={type.value}>
+                        {type.label}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </div>
 
-          <div className="input-sets-container">
-            {renderInputSet()}
-          </div>
+              <div className="input-sets-container">
+                {renderInputSet()}
+              </div>
 
           <div className="calculator-actions">
-            <button type="button" className="btn-reset" onClick={handleReset}>
-              <i className="fas fa-redo"></i>
-              Reset
-            </button>
-          </div>
-        </div>
+                <button type="button" className="btn-reset" onClick={handleReset}>
+                  <i className="fas fa-redo"></i>
+                  Reset
+                </button>
+              </div>
+              </div>
 
         {/* Custom Results Section */}
-        {result && (
+            {result && (
           <div className="result-section percentage-calculator-result">
-            <h3 className="result-title">
-              <i className="fas fa-check-circle"></i>
-              Result
-            </h3>
-            <div className="result-display">
-              <div className="results-container">
-                <div className="result-row">
-                  <span className="result-label">Result:</span>
-                  <span className="result-value">{result.result}</span>
-                </div>
-              </div>
-              
-              <div className="solution-steps">
-                <h4>
-                  <i className="fas fa-list-ol"></i>
-                  Solution Steps
-                </h4>
-                <div className="steps-container">
-                  {result.steps.map((step, index) => (
-                    <div key={index} className="step">
-                      {step}
+                <h3 className="result-title">
+                  <i className="fas fa-check-circle"></i>
+                  Result
+                </h3>
+                <div className="result-display">
+                  <div className="results-container">
+                    <div className="result-row">
+                      <span className="result-label">Result:</span>
+                      <span className="result-value">{result.result}</span>
                     </div>
-                  ))}
+                  </div>
+                  
+                  <div className="solution-steps">
+                    <h4>
+                      <i className="fas fa-list-ol"></i>
+                      Solution Steps
+                    </h4>
+                    <div className="steps-container">
+                      {result.steps.map((step, index) => (
+                        <div key={index} className="step">
+                          {step}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
-        )}
+            )}
       </CalculatorSection>
 
       {/* TOC and Feedback Section - After Calculator, Before Content */}
@@ -754,7 +754,7 @@ const PercentageCalculator = () => {
             <h4><i className="fas fa-flask"></i>Scientific Research</h4>
             <p>Experimental results and measurement analysis</p>
           </div>
-        </div>
+    </div>
       </ContentSection>
 
       <FAQSection 

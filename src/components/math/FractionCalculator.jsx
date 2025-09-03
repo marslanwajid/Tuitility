@@ -389,220 +389,220 @@ const FractionCalculator = () => {
         error={error}
         result={null}
       >
-        <div className="calculator-tabs">
-          <button 
-            className={`tab-button ${activeTab === '2-fractions' ? 'active' : ''}`}
-            onClick={() => handleTabChange('2-fractions')}
-          >
-            2 Fractions
-          </button>
-          <button 
-            className={`tab-button ${activeTab === '3-fractions' ? 'active' : ''}`}
-            onClick={() => handleTabChange('3-fractions')}
-          >
-            3 Fractions
-          </button>
-          <button 
-            className={`tab-button ${activeTab === '4-fractions' ? 'active' : ''}`}
-            onClick={() => handleTabChange('4-fractions')}
-          >
-            4 Fractions
-          </button>
-        </div>
-
-        <form onSubmit={handleCalculate} className="calculator-form">
-          <div className="fractions-container">
-            {fractions[activeTab].map((fraction, index) => (
-              <div key={index} className="fraction-group">
-                <div className="fraction-input">
-                  <input
-                    type="number"
-                    className="input-field top"
-                    value={fraction.numerator}
-                    onChange={(e) => handleFractionChange(index, 'numerator', e.target.value)}
-                    placeholder="0"
-                    min="0"
-                  />
-                  <div className="fraction-line"></div>
-                  <input
-                    type="number"
-                    className="input-field bottom"
-                    value={fraction.denominator}
-                    onChange={(e) => handleFractionChange(index, 'denominator', e.target.value)}
-                    placeholder="1"
-                    min="1"
-                  />
-                </div>
-                
-                {index < fractions[activeTab].length - 1 && (
-                  <select
-                    className="operator-select"
-                    value={operators[activeTab][index]}
-                    onChange={(e) => handleOperatorChange(index, e.target.value)}
-                  >
-                    <option value="+">+</option>
-                    <option value="-">-</option>
-                    <option value="*">×</option>
-                    <option value="/">÷</option>
-                  </select>
-                )}
-              </div>
-            ))}
-          </div>
-          
-          {/* Calculate and Reset Buttons */}
-          <div className="calculator-actions">
-            <button type="submit" className="btn-calculate">
-              Calculate
-            </button>
-            <button type="button" className="btn-reset" onClick={handleReset}>
-              Reset
-            </button>
-          </div>
-        </form>
-
-        {result && (
-          <div className="result-section fraction-calculator-result">
-            <h3 className="result-title">Result</h3>
-            <div className="result-content">
-              <div className="result-main">
-                <div className="result-item">
-                  <strong>Fraction:</strong>
-                  <div className="result-formula" id="result-formula"></div>
-                </div>
-                <div className="result-item">
-                  <strong>Decimal:</strong> {result.decimal}
-                </div>
-                {result.mixedNumber !== result.fraction && (
-                  <div className="result-item">
-                    <strong>Mixed Number:</strong> {result.mixedNumber}
+                  <div className="calculator-tabs">
+                    <button 
+                      className={`tab-button ${activeTab === '2-fractions' ? 'active' : ''}`}
+                      onClick={() => handleTabChange('2-fractions')}
+                    >
+                      2 Fractions
+                    </button>
+                    <button 
+                      className={`tab-button ${activeTab === '3-fractions' ? 'active' : ''}`}
+                      onClick={() => handleTabChange('3-fractions')}
+                    >
+                      3 Fractions
+                    </button>
+                    <button 
+                      className={`tab-button ${activeTab === '4-fractions' ? 'active' : ''}`}
+                      onClick={() => handleTabChange('4-fractions')}
+                    >
+                      4 Fractions
+                    </button>
                   </div>
-                )}
-              </div>
-              
-              <div className="result-steps">
-                <h4>Calculation Steps:</h4>
-                <div className="steps-container">
-                  {result.steps.map((step, index) => (
-                    <div key={index} className="step">
-                      {step}
+
+                  <form onSubmit={handleCalculate} className="calculator-form">
+                    <div className="fractions-container">
+                      {fractions[activeTab].map((fraction, index) => (
+                        <div key={index} className="fraction-group">
+                          <div className="fraction-input">
+                            <input
+                              type="number"
+                              className="input-field top"
+                              value={fraction.numerator}
+                              onChange={(e) => handleFractionChange(index, 'numerator', e.target.value)}
+                              placeholder="0"
+                              min="0"
+                            />
+                            <div className="fraction-line"></div>
+                            <input
+                              type="number"
+                              className="input-field bottom"
+                              value={fraction.denominator}
+                              onChange={(e) => handleFractionChange(index, 'denominator', e.target.value)}
+                              placeholder="1"
+                              min="1"
+                            />
+                          </div>
+                          
+                          {index < fractions[activeTab].length - 1 && (
+                            <select
+                              className="operator-select"
+                              value={operators[activeTab][index]}
+                              onChange={(e) => handleOperatorChange(index, e.target.value)}
+                            >
+                              <option value="+">+</option>
+                              <option value="-">-</option>
+                              <option value="*">×</option>
+                              <option value="/">÷</option>
+                            </select>
+                          )}
+                        </div>
+                      ))}
                     </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
+
+          {/* Calculate and Reset Buttons */}
+                    <div className="calculator-actions">
+                      <button type="submit" className="btn-calculate">
+                        Calculate
+                      </button>
+                      <button type="button" className="btn-reset" onClick={handleReset}>
+                        Reset
+                      </button>
+                    </div>
+                  </form>
+
+                  {result && (
+          <div className="result-section fraction-calculator-result">
+                      <h3 className="result-title">Result</h3>
+                      <div className="result-content">
+                        <div className="result-main">
+                          <div className="result-item">
+                            <strong>Fraction:</strong>
+                            <div className="result-formula" id="result-formula"></div>
+                          </div>
+                          <div className="result-item">
+                            <strong>Decimal:</strong> {result.decimal}
+                          </div>
+                          {result.mixedNumber !== result.fraction && (
+                            <div className="result-item">
+                              <strong>Mixed Number:</strong> {result.mixedNumber}
+                            </div>
+                          )}
+                        </div>
+                        
+                        <div className="result-steps">
+                          <h4>Calculation Steps:</h4>
+                          <div className="steps-container">
+                            {result.steps.map((step, index) => (
+                              <div key={index} className="step">
+                                {step}
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  )}
       </CalculatorSection>
 
       {/* TOC and Feedback Section - After Calculator, Before Content */}
       <div className="tool-bottom-section">
         <TableOfContents items={tableOfContents} />
         <FeedbackForm toolName={toolData.name} />
-      </div>
+                  </div>
 
       {/* Content Sections */}
       <ContentSection id="introduction" title="Introduction">
-        <p>
-          Fractions are fundamental mathematical concepts that represent parts of a whole. 
-          They are used extensively in mathematics, science, engineering, and everyday life. 
-          Our Fraction Calculator is designed to simplify complex fraction operations, 
-          providing accurate results with detailed step-by-step solutions.
-        </p>
-        <p>
-          Whether you're a student learning fractions, a teacher explaining concepts, 
-          or a professional working with measurements, this calculator helps you perform 
-          addition, subtraction, multiplication, and division of fractions efficiently.
-        </p>
+                      <p>
+                        Fractions are fundamental mathematical concepts that represent parts of a whole. 
+                        They are used extensively in mathematics, science, engineering, and everyday life. 
+                        Our Fraction Calculator is designed to simplify complex fraction operations, 
+                        providing accurate results with detailed step-by-step solutions.
+                      </p>
+                      <p>
+                        Whether you're a student learning fractions, a teacher explaining concepts, 
+                        or a professional working with measurements, this calculator helps you perform 
+                        addition, subtraction, multiplication, and division of fractions efficiently.
+                      </p>
       </ContentSection>
 
       <ContentSection id="what-is-fraction" title="What is a Fraction Calculator?">
-        <p>
-          A fraction calculator is a tool that performs fraction calculations quickly and accurately. 
-          These calculators allow you to input fractions in various forms, including simple fractions, 
-          mixed fractions (whole number + fraction), and improper fractions. Different types of fraction 
-          calculators are available, each with specialized functionality:
-        </p>
+                      <p>
+                        A fraction calculator is a tool that performs fraction calculations quickly and accurately. 
+                        These calculators allow you to input fractions in various forms, including simple fractions, 
+                        mixed fractions (whole number + fraction), and improper fractions. Different types of fraction 
+                        calculators are available, each with specialized functionality:
+                      </p>
         <ul>
           <li><strong>Fraction Calculator:</strong> Designed for basic operations between two fractions.</li>
           <li><strong>3 Fraction Calculator:</strong> Simplifies operations involving three fractions at once.</li>
           <li><strong>4 Fraction Calculator:</strong> Manages calculations with four fractions, ideal for more detailed comparisons.</li>
           <li><strong>Mixed Number Fraction Calculator:</strong> This tool is ideal for calculations that involve both whole numbers and fractions, often converting mixed numbers into improper fractions to make calculations easier.</li>
-        </ul>
-        <p>
-          Each calculator type is user-friendly and provides instant solutions, making it easier to approach and solve various fraction problems.
-        </p>
+                    </ul>
+                      <p>
+                        Each calculator type is user-friendly and provides instant solutions, making it easier to approach and solve various fraction problems.
+                      </p>
       </ContentSection>
 
       <ContentSection id="formulas" title="Formulas & Methods">
-        <div className="formula-section">
-          <h3>Addition</h3>
-          <div className="math-formula" id="addition-formula"></div>
-          <p>To add fractions, we find a common denominator and add the numerators.</p>
-        </div>
+                    <div className="formula-section">
+                      <h3>Addition</h3>
+                      <div className="math-formula" id="addition-formula"></div>
+                      <p>To add fractions, we find a common denominator and add the numerators.</p>
+                    </div>
 
-        <div className="formula-section">
-          <h3>Subtraction</h3>
-          <div className="math-formula" id="subtraction-formula"></div>
-          <p>To subtract fractions, we find a common denominator and subtract the numerators.</p>
-        </div>
+                    <div className="formula-section">
+                      <h3>Subtraction</h3>
+                      <div className="math-formula" id="subtraction-formula"></div>
+                      <p>To subtract fractions, we find a common denominator and subtract the numerators.</p>
+                    </div>
 
-        <div className="formula-section">
-          <h3>Multiplication</h3>
-          <div className="math-formula" id="multiplication-formula"></div>
-          <p>To multiply fractions, we multiply the numerators and denominators directly.</p>
-        </div>
+                    <div className="formula-section">
+                      <h3>Multiplication</h3>
+                      <div className="math-formula" id="multiplication-formula"></div>
+                      <p>To multiply fractions, we multiply the numerators and denominators directly.</p>
+                    </div>
 
-        <div className="formula-section">
-          <h3>Division</h3>
-          <div className="math-formula" id="division-formula"></div>
-          <p>To divide fractions, we multiply by the reciprocal of the second fraction.</p>
-        </div>
+                    <div className="formula-section">
+                      <h3>Division</h3>
+                      <div className="math-formula" id="division-formula"></div>
+                      <p>To divide fractions, we multiply by the reciprocal of the second fraction.</p>
+                    </div>
 
-        <div className="formula-section">
-          <h3>Simplification</h3>
-          <p>
-            After any operation, we simplify the result by finding the Greatest Common Divisor (GCD) 
-            and dividing both numerator and denominator by it.
-          </p>
-        </div>
+                    <div className="formula-section">
+                      <h3>Simplification</h3>
+                      <p>
+                        After any operation, we simplify the result by finding the Greatest Common Divisor (GCD) 
+                        and dividing both numerator and denominator by it.
+                      </p>
+                    </div>
       </ContentSection>
 
       <ContentSection id="how-to-use" title="How to Use a Fraction Calculator">
-        <p>Using a fraction calculator is very simple:</p>
+                      <p>Using a fraction calculator is very simple:</p>
         <ul>
           <li><strong>Select Operation:</strong> Choose the type of operation you wish to perform—addition, subtraction, multiplication, or division.</li>
           <li><strong>Enter Fractions:</strong> Input each fraction's numerator and denominator as required by the calculator.</li>
           <li><strong>Calculate:</strong> Press the calculate button, and the calculator will display the result.</li>
           <li><strong>Simplification:</strong> Many fraction calculators automatically reduce fractions to their simplest form. This helps you avoid unnecessary steps and ensures the fraction is fully simplified.</li>
-        </ul>
-        <p>
-          Each type of fraction calculator has similar steps, with specialized calculators allowing you to enter three or four fractions for more complex calculations.
-        </p>
+                    </ul>
+                    <p>
+                      Each type of fraction calculator has similar steps, with specialized calculators allowing you to enter three or four fractions for more complex calculations.
+                    </p>
       </ContentSection>
 
       <ContentSection id="examples" title="Examples">
-        <div className="example-section">
-          <h3>Example 1: Adding Fractions</h3>
-          <p>Calculate: <div className="content-formula" id="example1-formula"></div></p>
-          <div className="example-solution">
-            <p><strong>Step 1:</strong> Find common denominator (LCD = 4)</p>
-            <p><strong>Step 2:</strong> Convert fractions: <div className="content-formula" id="example1-step2"></div></p>
-            <p><strong>Step 3:</strong> Add numerators: <div className="content-formula" id="example1-step3"></div></p>
-            <p><strong>Result:</strong> <div className="content-formula" id="example1-result"></div></p>
-          </div>
-        </div>
+                    <div className="example-section">
+                      <h3>Example 1: Adding Fractions</h3>
+                      <p>Calculate: <div className="content-formula" id="example1-formula"></div></p>
+                      <div className="example-solution">
+                        <p><strong>Step 1:</strong> Find common denominator (LCD = 4)</p>
+                        <p><strong>Step 2:</strong> Convert fractions: <div className="content-formula" id="example1-step2"></div></p>
+                        <p><strong>Step 3:</strong> Add numerators: <div className="content-formula" id="example1-step3"></div></p>
+                        <p><strong>Result:</strong> <div className="content-formula" id="example1-result"></div></p>
+                      </div>
+                    </div>
 
-        <div className="example-section">
-          <h3>Example 2: Multiplying Fractions</h3>
-          <p>Calculate: <div className="content-formula" id="example2-formula"></div></p>
-          <div className="example-solution">
-            <p><strong>Step 1:</strong> Multiply numerators: 2 × 3 = 6</p>
-            <p><strong>Step 2:</strong> Multiply denominators: 3 × 4 = 12</p>
-            <p><strong>Step 3:</strong> Simplify: <div className="content-formula" id="example2-step3"></div></p>
-            <p><strong>Result:</strong> <div className="content-formula" id="example2-result"></div></p>
-          </div>
-        </div>
+                    <div className="example-section">
+                      <h3>Example 2: Multiplying Fractions</h3>
+                      <p>Calculate: <div className="content-formula" id="example2-formula"></div></p>
+                      <div className="example-solution">
+                        <p><strong>Step 1:</strong> Multiply numerators: 2 × 3 = 6</p>
+                        <p><strong>Step 2:</strong> Multiply denominators: 3 × 4 = 12</p>
+                        <p><strong>Step 3:</strong> Simplify: <div className="content-formula" id="example2-step3"></div></p>
+                        <p><strong>Result:</strong> <div className="content-formula" id="example2-result"></div></p>
+                      </div>
+                    </div>
       </ContentSection>
 
       <ContentSection id="significance" title="Significance">
@@ -613,73 +613,73 @@ const FractionCalculator = () => {
           <li>They are used in probability and statistics</li>
           <li>They help in understanding ratios and proportions</li>
           <li>They are crucial in engineering and scientific calculations</li>
-        </ul>
+                    </ul>
       </ContentSection>
 
       <ContentSection id="functionality" title="Functionality">
-        <p>Our Fraction Calculator provides:</p>
-        <ul>
+                    <p>Our Fraction Calculator provides:</p>
+                    <ul>
           <li><strong>Multiple Operations:</strong> Addition, subtraction, multiplication, and division</li>
           <li><strong>Step-by-step Solutions:</strong> Detailed calculation process</li>
           <li><strong>Multiple Formats:</strong> Fraction, decimal, and mixed number results</li>
           <li><strong>Simplification:</strong> Automatic reduction to lowest terms</li>
           <li><strong>Error Handling:</strong> Validation for invalid inputs</li>
           <li><strong>Multiple Fractions:</strong> Support for 2, 3, or 4 fractions</li>
-        </ul>
+                    </ul>
       </ContentSection>
 
       <ContentSection id="applications" title="Applications">
-        <div className="applications-grid">
-          <div className="application-item">
-            <h4><i className="fas fa-graduation-cap"></i> Education</h4>
-            <p>Teaching and learning fraction concepts in schools and universities</p>
-          </div>
-          <div className="application-item">
-            <h4><i className="fas fa-calculator"></i> Engineering</h4>
-            <p>Precise calculations in mechanical and electrical engineering</p>
-          </div>
-          <div className="application-item">
-            <h4><i className="fas fa-flask"></i> Science</h4>
-            <p>Laboratory measurements and scientific research</p>
-          </div>
-          <div className="application-item">
-            <h4><i className="fas fa-chart-line"></i> Finance</h4>
-            <p>Interest calculations and financial ratios</p>
-          </div>
-          <div className="application-item">
-            <h4><i className="fas fa-ruler"></i> Construction</h4>
-            <p>Measurement and scaling in building projects</p>
-          </div>
-          <div className="application-item">
-            <h4><i className="fas fa-utensils"></i> Cooking</h4>
-            <p>Recipe scaling and ingredient measurements</p>
-          </div>
-        </div>
+                    <div className="applications-grid">
+                      <div className="application-item">
+                        <h4><i className="fas fa-graduation-cap"></i> Education</h4>
+                        <p>Teaching and learning fraction concepts in schools and universities</p>
+                      </div>
+                      <div className="application-item">
+                        <h4><i className="fas fa-calculator"></i> Engineering</h4>
+                        <p>Precise calculations in mechanical and electrical engineering</p>
+                      </div>
+                      <div className="application-item">
+                        <h4><i className="fas fa-flask"></i> Science</h4>
+                        <p>Laboratory measurements and scientific research</p>
+                      </div>
+                      <div className="application-item">
+                        <h4><i className="fas fa-chart-line"></i> Finance</h4>
+                        <p>Interest calculations and financial ratios</p>
+                      </div>
+                      <div className="application-item">
+                        <h4><i className="fas fa-ruler"></i> Construction</h4>
+                        <p>Measurement and scaling in building projects</p>
+                      </div>
+                      <div className="application-item">
+                        <h4><i className="fas fa-utensils"></i> Cooking</h4>
+                        <p>Recipe scaling and ingredient measurements</p>
+                      </div>
+                    </div>
       </ContentSection>
 
-      <FAQSection 
-        faqs={[
-          {
-            question: "What is the difference between a fraction and a decimal?",
-            answer: "A fraction represents a part of a whole using two numbers (numerator/denominator), while a decimal represents the same value using a decimal point system."
-          },
-          {
-            question: "How do I simplify a fraction?",
-            answer: "To simplify a fraction, find the Greatest Common Divisor (GCD) of the numerator and denominator, then divide both by this number."
-          },
-          {
-            question: "What is a mixed number?",
-            answer: "A mixed number combines a whole number with a fraction, such as 2 1/3, representing 2 + 1/3."
-          },
-          {
-            question: "Can I use negative numbers in fractions?",
-            answer: "Yes, you can use negative numbers. The negative sign can be applied to either the numerator or denominator, or the entire fraction."
-          },
-          {
-            question: "What happens if I divide by zero?",
-            answer: "Division by zero is undefined in mathematics. The calculator will show an error message if you attempt to divide by zero."
-          }
-        ]}
+                    <FAQSection 
+                      faqs={[
+                        {
+                          question: "What is the difference between a fraction and a decimal?",
+                          answer: "A fraction represents a part of a whole using two numbers (numerator/denominator), while a decimal represents the same value using a decimal point system."
+                        },
+                        {
+                          question: "How do I simplify a fraction?",
+                          answer: "To simplify a fraction, find the Greatest Common Divisor (GCD) of the numerator and denominator, then divide both by this number."
+                        },
+                        {
+                          question: "What is a mixed number?",
+                          answer: "A mixed number combines a whole number with a fraction, such as 2 1/3, representing 2 + 1/3."
+                        },
+                        {
+                          question: "Can I use negative numbers in fractions?",
+                          answer: "Yes, you can use negative numbers. The negative sign can be applied to either the numerator or denominator, or the entire fraction."
+                        },
+                        {
+                          question: "What happens if I divide by zero?",
+                          answer: "Division by zero is undefined in mathematics. The calculator will show an error message if you attempt to divide by zero."
+                        }
+                      ]}
         title="Frequently Asked Questions"
       />
     </ToolPageLayout>
