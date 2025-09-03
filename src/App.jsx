@@ -28,6 +28,7 @@ import LCDCalculator from './components/math/LCDCalculator'
 // import FractionToPercentCalculator from './components/math/FractionToPercentCalculator'
 // import PercentToFractionCalculator from './components/math/PercentToFractionCalculator'
 import SSECalculator from './components/math/SSECalculator'
+import CurrencyCalculator from './components/finance/CurrencyCalculator'
 // import MortgageCalculator from './components/finance/MortgageCalculator'
 // import LoanCalculator from './components/finance/LoanCalculator'
 // import CurrencyCalculator from './components/finance/CurrencyCalculator'
@@ -56,11 +57,12 @@ const App = () => {
         <Route path="/math/calculators/lcm-calculator" element={<LCMCalculator />} />
         <Route path="/math/calculators/percentage-calculator" element={<PercentageCalculator />} />
         <Route path="/math/calculators/percent-to-fraction-calculator" element={<PercentToFractionCalculator />} />
-        <Route path="/math/calculators/sse-calculator" element={<SSECalculator />} />
-                       {/* <Route path="/finance" element={<FinanceCalculator />} />
-                             <Route path="/finance/mortgage-calculator" element={<MortgageCalculator />} />
-                             <Route path="/finance/loan-calculator" element={<LoanCalculator />} />
-                             <Route path="/finance/currency-calculator" element={<CurrencyCalculator />} /> */}
+                      <Route path="/math/calculators/sse-calculator" element={<SSECalculator />} />
+              <Route path="/finance/calculators/currency-calculator" element={<CurrencyCalculator />} />
+                       <Route path="/finance" element={<FinanceCalculator />} />
+                             {/* <Route path="/finance/mortgage-calculator" element={<MortgageCalculator />} />
+                             <Route path="/finance/loan-calculator" element={<LoanCalculator />} /> */}
+                             <Route path="/finance/currency-calculator" element={<CurrencyCalculator />} />
            
         <Route path="/science" element={<ScienceCalculator />} />
         <Route path="/health" element={<HealthCalculator />} />
