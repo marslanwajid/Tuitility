@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import ToolPageLayout from '../tool/ToolPageLayout'
 import CalculatorSection from '../tool/CalculatorSection'
 import ContentSection from '../tool/ContentSection'
@@ -243,6 +243,27 @@ const HouseAffordabilityCalculator = () => {
   const formatPercentage = (value, decimals = 2) => {
     return `${parseFloat(value).toFixed(decimals)}%`;
   };
+
+  // KaTeX rendering effect
+  useEffect(() => {
+    if (typeof window !== 'undefined' && window.katex) {
+      // Render all math formulas
+      const mathElements = document.querySelectorAll('.math-formula');
+      mathElements.forEach(element => {
+        if (element && !element.dataset.rendered) {
+          try {
+            window.katex.render(element.textContent, element, {
+              throwOnError: false,
+              displayMode: true
+            });
+            element.dataset.rendered = 'true';
+          } catch (error) {
+            console.error('KaTeX rendering error:', error);
+          }
+        }
+      });
+    }
+  }, [result]); // Re-render when results change
 
   return (
     <ToolPageLayout 
@@ -608,7 +629,7 @@ const HouseAffordabilityCalculator = () => {
         <div className="formula-section">
           <h3>Debt-to-Income Ratio</h3>
           <div className="math-formula">
-            DTI = (Monthly Debt + Monthly Housing Payment) / Monthly Gross Income
+            {'DTI = \\frac{\\text{Monthly Debt} + \\text{Monthly Housing Payment}}{\\text{Monthly Gross Income}}'}
           </div>
           <p>Lenders typically prefer a DTI ratio of 43% or less.</p>
         </div>
@@ -616,7 +637,7 @@ const HouseAffordabilityCalculator = () => {
         <div className="formula-section">
           <h3>Maximum Monthly Payment</h3>
           <div className="math-formula">
-            Max Payment = (Monthly Income × DTI Ratio) - Monthly Debt
+            {'\\text{Max Payment} = (\\text{Monthly Income} \\times \\text{DTI Ratio}) - \\text{Monthly Debt}'}
           </div>
           <p>This determines how much you can afford for housing costs.</p>
         </div>
@@ -624,7 +645,7 @@ const HouseAffordabilityCalculator = () => {
         <div className="formula-section">
           <h3>Maximum Loan Amount</h3>
           <div className="math-formula">
-            Max Loan = Available Payment × [(1 - (1 + r)^-n) / r]
+            {'\\text{Max Loan} = \\text{Available Payment} \\times \\frac{1 - (1 + r)^{-n}}{r}'}
           </div>
           <p>Where r = monthly interest rate, n = total number of payments.</p>
         </div>
@@ -632,7 +653,7 @@ const HouseAffordabilityCalculator = () => {
         <div className="formula-section">
           <h3>Total Home Price</h3>
           <div className="math-formula">
-            Max Home Price = Maximum Loan Amount + Down Payment
+            {'\\text{Max Home Price} = \\text{Maximum Loan Amount} + \\text{Down Payment}'}
           </div>
           <p>This is the total amount you can afford to spend on a home.</p>
         </div>

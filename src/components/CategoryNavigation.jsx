@@ -102,8 +102,9 @@ const CategoryNavigation = () => {
                  { name: 'Loan Calculator', desc: 'Calculate loan payments with down payment and fees', url: '/finance/calculators/loan-calculator', category: 'Finance', icon: 'fas fa-hand-holding-usd' },
                { name: 'Currency Calculator', desc: 'Convert between 170+ world currencies with real-time rates', url: '/finance/calculators/currency-calculator', category: 'Finance', icon: 'fas fa-exchange-alt' },
                { name: 'House Affordability Calculator', desc: 'Calculate how much house you can afford', url: '/finance/calculators/house-affordability-calculator', category: 'Finance', icon: 'fas fa-home' },
+               { name: 'Compound Interest Calculator', desc: 'Calculate investment growth with compound interest', url: '/finance/calculators/compound-interest-calculator', category: 'Finance', icon: 'fas fa-chart-area' },
     
-    { name: 'Compound Interest', desc: 'Calculate compound interest growth', url: '/finance/compound-interest-calculator', category: 'Finance', icon: 'fas fa-chart-area' },
+    
     { name: 'ROI Calculator', desc: 'Calculate return on investment', url: '/finance/roi-calculator', category: 'Finance', icon: 'fas fa-trending-up' },
     { name: 'Business Loan Calculator', desc: 'Calculate business loan payments', url: '/finance/business-loan-calculator', category: 'Finance', icon: 'fas fa-briefcase' },
     

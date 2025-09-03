@@ -204,6 +204,27 @@ const AmortizationCalculator = () => {
     return `${parseFloat(value).toFixed(decimals)}%`;
   };
 
+  // KaTeX rendering effect
+  useEffect(() => {
+    if (typeof window !== 'undefined' && window.katex) {
+      // Render all math formulas
+      const mathElements = document.querySelectorAll('.math-formula');
+      mathElements.forEach(element => {
+        if (element && !element.dataset.rendered) {
+          try {
+            window.katex.render(element.textContent, element, {
+              throwOnError: false,
+              displayMode: true
+            });
+            element.dataset.rendered = 'true';
+          } catch (error) {
+            console.error('KaTeX rendering error:', error);
+          }
+        }
+      });
+    }
+  }, [result]); // Re-render when results change
+
   return (
     <ToolPageLayout 
       toolData={toolData} 
@@ -433,7 +454,7 @@ const AmortizationCalculator = () => {
         <div className="formula-section">
           <h3>Monthly Payment Formula</h3>
           <div className="math-formula">
-            M = P × [r(1 + r)ⁿ] / [(1 + r)ⁿ - 1]
+            {'M = P \\times \\frac{r(1 + r)^n}{(1 + r)^n - 1}'}
           </div>
           <p>Where:</p>
           <ul>
@@ -447,7 +468,7 @@ const AmortizationCalculator = () => {
         <div className="formula-section">
           <h3>Interest Calculation</h3>
           <div className="math-formula">
-            Interest = Remaining Balance × Monthly Interest Rate
+            {'\\text{Interest} = \\text{Remaining Balance} \\times \\text{Monthly Interest Rate}'}
           </div>
           <p>Interest is calculated on the remaining loan balance each month.</p>
         </div>
@@ -455,7 +476,7 @@ const AmortizationCalculator = () => {
         <div className="formula-section">
           <h3>Principal Calculation</h3>
           <div className="math-formula">
-            Principal = Monthly Payment - Interest
+            {'\\text{Principal} = \\text{Monthly Payment} - \\text{Interest}'}
           </div>
           <p>Principal is what remains after paying the interest portion.</p>
         </div>

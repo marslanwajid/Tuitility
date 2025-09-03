@@ -285,13 +285,27 @@ background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%) !important;
 .math-formula {
   font-size: 1.3rem;
   font-weight: 600;
-  color: #f59e0b;
+  color: #8b5cf6;
   margin: 1rem 0;
   padding: 1rem;
-  background: rgba(245, 158, 11, 0.1);
+  background: rgba(139, 92, 246, 0.1);
   border-radius: 8px;
-  border: 1px solid rgba(245, 158, 11, 0.2);
+  border: 1px solid rgba(139, 92, 246, 0.2);
   font-family: 'Courier New', monospace;
+}
+
+/* Override KaTeX text color to match our theme */
+.math-formula .katex,
+.math-formula .katex * {
+  color: #8b5cf6 !important;
+}
+
+.math-formula .katex-display {
+  color: #8b5cf6 !important;
+}
+
+.math-formula .katex-html {
+  color: #8b5cf6 !important;
 }
 
 .formula-section p {
