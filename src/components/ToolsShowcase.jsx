@@ -19,8 +19,9 @@ const ToolsShowcase = () => {
                 { name: 'SSE Calculator', desc: 'Calculate Sum of Squared Errors for statistical analysis', url: '/math/calculators/sse-calculator', category: 'Math', icon: 'fas fa-chart-line' },
             { name: 'Currency Calculator', desc: 'Convert between 150+ world currencies with real-time rates', url: '/finance/calculators/currency-calculator', category: 'Finance', icon: 'fas fa-exchange-alt' },
             { name: 'Loan Calculator', desc: 'Calculate loan payments, interest, and amortization schedules', url: '/finance/calculators/loan-calculator', category: 'Finance', icon: 'fas fa-home' },
+            { name: 'Mortgage Calculator', desc: 'Calculate monthly mortgage payments with taxes, insurance, and PMI', url: '/finance/mortgage-calculator', category: 'Finance', icon: 'fas fa-home' },
     { name: 'BMI Calculator', desc: 'Calculate your body mass index', url: '/health/calculators/bmi-calculator', category: 'Health', icon: 'fas fa-weight' },
-    { name: 'Mortgage Calculator', desc: 'Calculate monthly mortgage payments', url: '/finance/mortgage-calculator', category: 'Finance', icon: 'fas fa-home' },
+    
     { name: 'QR Code Generator', desc: 'Generate QR codes instantly', url: '/utility-tools/converter-tools/qr-code-generator', category: 'Utility', icon: 'fas fa-qrcode' },
     { name: 'Password Generator', desc: 'Create secure passwords', url: '/utility-tools/converter-tools/password-generator', category: 'Utility', icon: 'fas fa-key' },
     { name: 'PDF Merger', desc: 'Combine multiple PDF files into one', url: '/utility-tools/converter-tools/merge-pdf', category: 'Utility', icon: 'fas fa-object-group' },
