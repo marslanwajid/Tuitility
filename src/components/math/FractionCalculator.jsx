@@ -452,9 +452,8 @@ const FractionCalculator = () => {
 
           {/* Calculate and Reset Buttons */}
                     <div className="calculator-actions">
-                      <button type="submit" className="btn-calculate">
-                        Calculate
-                      </button>
+                    
+                    
                       <button type="button" className="btn-reset" onClick={handleReset}>
                         Reset
                       </button>
@@ -584,23 +583,30 @@ const FractionCalculator = () => {
       <ContentSection id="examples" title="Examples">
                     <div className="example-section">
                       <h3>Example 1: Adding Fractions</h3>
-                      <p>Calculate: <div className="content-formula" id="example1-formula"></div></p>
+                      <p>Calculate:</p>
+                      <div className="content-formula" id="example1-formula"></div>
                       <div className="example-solution">
                         <p><strong>Step 1:</strong> Find common denominator (LCD = 4)</p>
-                        <p><strong>Step 2:</strong> Convert fractions: <div className="content-formula" id="example1-step2"></div></p>
-                        <p><strong>Step 3:</strong> Add numerators: <div className="content-formula" id="example1-step3"></div></p>
-                        <p><strong>Result:</strong> <div className="content-formula" id="example1-result"></div></p>
+                        <p><strong>Step 2:</strong> Convert fractions:</p>
+                        <div className="content-formula" id="example1-step2"></div>
+                        <p><strong>Step 3:</strong> Add numerators:</p>
+                        <div className="content-formula" id="example1-step3"></div>
+                        <p><strong>Result:</strong></p>
+                        <div className="content-formula" id="example1-result"></div>
                       </div>
                     </div>
 
                     <div className="example-section">
                       <h3>Example 2: Multiplying Fractions</h3>
-                      <p>Calculate: <div className="content-formula" id="example2-formula"></div></p>
+                      <p>Calculate:</p>
+                      <div className="content-formula" id="example2-formula"></div>
                       <div className="example-solution">
                         <p><strong>Step 1:</strong> Multiply numerators: 2 × 3 = 6</p>
                         <p><strong>Step 2:</strong> Multiply denominators: 3 × 4 = 12</p>
-                        <p><strong>Step 3:</strong> Simplify: <div className="content-formula" id="example2-step3"></div></p>
-                        <p><strong>Result:</strong> <div className="content-formula" id="example2-result"></div></p>
+                        <p><strong>Step 3:</strong> Simplify:</p>
+                        <div className="content-formula" id="example2-step3"></div>
+                        <p><strong>Result:</strong></p>
+                        <div className="content-formula" id="example2-result"></div>
                       </div>
                     </div>
       </ContentSection>
