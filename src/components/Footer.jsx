@@ -66,7 +66,7 @@ const Footer = () => {
               <h3>Popular Tools</h3>
               <div className="links-list">
                 <Link to="/math/calculators/percentage-calculator">Percentage Calculator</Link>
-                <Link to="/finance/mortgage-calculator">Mortgage Calculator</Link>
+                <Link to="/finance/calculators/mortgage-calculator">Mortgage Calculator</Link>
                 <Link to="/health/calculators/bmi-calculator">BMI Calculator</Link>
                 <Link to="/math/calculators/fraction-calculator">Fraction Calculator</Link>
                 <Link to="/utility-tools/converter-tools/password-generator">Password Generator</Link>

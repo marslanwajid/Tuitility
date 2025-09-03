@@ -6,7 +6,7 @@ const PopularTools = () => {
   const popularTools = [
     { name: 'Fraction Calculator', desc: 'Add, subtract, multiply and divide fractions', url: '/math/calculators/fraction-calculator', category: 'Math', icon: 'fas fa-divide', rating: 4.8, usage: '50K+' },
     { name: 'BMI Calculator', desc: 'Calculate your body mass index', url: '/health/calculators/bmi-calculator', category: 'Health', icon: 'fas fa-weight', rating: 4.9, usage: '75K+' },
-    { name: 'Mortgage Calculator', desc: 'Calculate monthly mortgage payments', url: '/finance/mortgage-calculator', category: 'Finance', icon: 'fas fa-home', rating: 4.7, usage: '30K+' },
+    
     { name: 'Password Generator', desc: 'Create secure passwords', url: '/utility-tools/converter-tools/password-generator', category: 'Utility', icon: 'fas fa-key', rating: 4.6, usage: '25K+' },
     { name: 'Percentage Calculator', desc: 'Calculate percentages quickly and easily', url: '/math/calculators/percentage-calculator', category: 'Math', icon: 'fas fa-percentage', rating: 4.8, usage: '45K+' },
     { name: 'Decimal Calculator', desc: 'Perform precise arithmetic operations on decimal numbers', url: '/math/calculators/decimal-calculator', category: 'Math', icon: 'fas fa-calculator', rating: 4.7, usage: '40K+' },
@@ -22,7 +22,9 @@ const PopularTools = () => {
                 { name: 'SSE Calculator', desc: 'Calculate Sum of Squared Errors for statistical analysis', url: '/math/calculators/sse-calculator', category: 'Math', icon: 'fas fa-chart-line', rating: 4.6, usage: '25K+' },
             { name: 'Currency Calculator', desc: 'Convert between 150+ world currencies with real-time rates', url: '/finance/calculators/currency-calculator', category: 'Finance', icon: 'fas fa-exchange-alt', rating: 4.8, usage: '45K+' },
             { name: 'Loan Calculator', desc: 'Calculate loan payments, interest, and amortization schedules', url: '/finance/calculators/loan-calculator', category: 'Finance', icon: 'fas fa-home', rating: 4.7, usage: '38K+' },
-            { name: 'Mortgage Calculator', desc: 'Calculate monthly mortgage payments with taxes, insurance, and PMI', url: '/finance/mortgage-calculator', category: 'Finance', icon: 'fas fa-home', rating: 4.8, usage: '42K+' },
+            { name: 'Mortgage Calculator', desc: 'Calculate monthly mortgage payments with taxes, insurance, and PMI', url: '/finance/calculators/mortgage-calculator', category: 'Finance', icon: 'fas fa-home', rating: 4.8, usage: '42K+' },
+            { name: 'Amortization Calculator', desc: 'Generate detailed loan amortization schedules', url: '/finance/calculators/amortization-calculator', category: 'Finance', icon: 'fas fa-chart-line', rating: 4.6, usage: '35K+' },
+            { name: 'House Affordability Calculator', desc: 'Calculate how much house you can afford', url: '/finance/calculators/house-affordability-calculator', category: 'Finance', icon: 'fas fa-home', rating: 4.7, usage: '28K+' },
     { name: 'Age Calculator', desc: 'Calculate age in years, months, days', url: '/knowledge/calculators/age-calculator', category: 'Knowledge', icon: 'fas fa-calendar-alt', rating: 4.5, usage: '20K+' },
     { name: 'QR Code Generator', desc: 'Generate QR codes instantly', url: '/utility-tools/converter-tools/qr-code-generator', category: 'Utility', icon: 'fas fa-qrcode', rating: 4.7, usage: '35K+' },
     { name: 'PDF Merger', desc: 'Combine multiple PDF files into one', url: '/utility-tools/converter-tools/merge-pdf', category: 'Utility', icon: 'fas fa-object-group', rating: 4.6, usage: '28K+' }

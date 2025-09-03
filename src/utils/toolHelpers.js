@@ -13,9 +13,10 @@ export const getRelatedTools = (toolCategory) => {
   ];
 
   const financeTools = [
-    { name: "Mortgage Calculator", icon: "fas fa-home", link: "/finance/mortgage-calculator" },
+            { name: "Mortgage Calculator", icon: "fas fa-home", link: "/finance/calculators/mortgage-calculator" },
     { name: "Loan Calculator", icon: "fas fa-hand-holding-usd", link: "/finance/calculators/loan-calculator" },
-    { name: "Currency Converter", icon: "fas fa-exchange-alt", link: "/finance/calculators/currency-calculator" },
+            { name: "Currency Converter", icon: "fas fa-exchange-alt", link: "/finance/calculators/currency-calculator" },
+        { name: "House Affordability Calculator", icon: "fas fa-home", link: "/finance/calculators/house-affordability-calculator" },
     { name: "Compound Interest", icon: "fas fa-chart-area", link: "/finance/compound-interest-calculator" },
     { name: "ROI Calculator", icon: "fas fa-trending-up", link: "/finance/roi-calculator" }
   ];

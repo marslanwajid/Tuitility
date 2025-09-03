@@ -3,11 +3,12 @@ import CategoryPage from '../../components/CategoryPage'
 
 const FinanceCalculator = () => {
   const financeTools = [
-    { name: 'Mortgage Calculator', desc: 'Calculate monthly mortgage payments with taxes, insurance, PMI', url: '/finance/mortgage-calculator', category: 'Real Estate', icon: 'fas fa-home' },
+            { name: 'Mortgage Calculator', desc: 'Calculate monthly mortgage payments with taxes, insurance, PMI', url: '/finance/calculators/mortgage-calculator', category: 'Real Estate', icon: 'fas fa-home' },
          { name: 'Loan Calculator', desc: 'Calculate loan payments with down payment and fees', url: '/finance/calculators/loan-calculator', category: 'Personal Loans', icon: 'fas fa-hand-holding-usd' },
-     { name: 'Currency Calculator', desc: 'Convert between 170+ world currencies with real-time rates', url: '/finance/calculators/currency-calculator', category: 'Currency', icon: 'fas fa-exchange-alt' },
+        { name: 'Currency Calculator', desc: 'Convert between 170+ world currencies with real-time rates', url: '/finance/calculators/currency-calculator', category: 'Currency', icon: 'fas fa-exchange-alt' },
+        { name: 'House Affordability Calculator', desc: 'Calculate how much house you can afford', url: '/finance/calculators/house-affordability-calculator', category: 'Real Estate', icon: 'fas fa-home' },
     { name: 'Amortization Calculator', desc: 'Generate detailed loan amortization schedules', url: '/finance/calculators/amortization-calculator', category: 'Loans', icon: 'fas fa-chart-line' },
-    { name: 'House Affordability', desc: 'Calculate how much house you can afford', url: '/finance/calculators/house-affordability-calculator', category: 'Real Estate', icon: 'fas fa-house-user' },
+    
     { name: 'Compound Interest', desc: 'Calculate compound interest growth over time', url: '/finance/calculators/compound-interest-calculator', category: 'Investments', icon: 'fas fa-chart-area' },
     { name: 'ROI Calculator', desc: 'Calculate return on investment and profitability', url: '/finance/calculators/roi-calculator', category: 'Investments', icon: 'fas fa-trending-up' },
     { name: 'Business Loan Calculator', desc: 'Calculate business loan payments and terms', url: '/finance/calculators/business-loan-calculator', category: 'Business', icon: 'fas fa-briefcase' },

@@ -19,7 +19,9 @@ const ToolsShowcase = () => {
                 { name: 'SSE Calculator', desc: 'Calculate Sum of Squared Errors for statistical analysis', url: '/math/calculators/sse-calculator', category: 'Math', icon: 'fas fa-chart-line' },
             { name: 'Currency Calculator', desc: 'Convert between 150+ world currencies with real-time rates', url: '/finance/calculators/currency-calculator', category: 'Finance', icon: 'fas fa-exchange-alt' },
             { name: 'Loan Calculator', desc: 'Calculate loan payments, interest, and amortization schedules', url: '/finance/calculators/loan-calculator', category: 'Finance', icon: 'fas fa-home' },
-            { name: 'Mortgage Calculator', desc: 'Calculate monthly mortgage payments with taxes, insurance, and PMI', url: '/finance/mortgage-calculator', category: 'Finance', icon: 'fas fa-home' },
+            { name: 'Mortgage Calculator', desc: 'Calculate monthly mortgage payments with taxes, insurance, and PMI', url: '/finance/calculators/mortgage-calculator', category: 'Finance', icon: 'fas fa-home' },
+            { name: 'Amortization Calculator', desc: 'Generate detailed loan amortization schedules', url: '/finance/calculators/amortization-calculator', category: 'Finance', icon: 'fas fa-chart-line' },
+            { name: 'House Affordability Calculator', desc: 'Calculate how much house you can afford', url: '/finance/calculators/house-affordability-calculator', category: 'Finance', icon: 'fas fa-home' },
     { name: 'BMI Calculator', desc: 'Calculate your body mass index', url: '/health/calculators/bmi-calculator', category: 'Health', icon: 'fas fa-weight' },
     
     { name: 'QR Code Generator', desc: 'Generate QR codes instantly', url: '/utility-tools/converter-tools/qr-code-generator', category: 'Utility', icon: 'fas fa-qrcode' },
