@@ -104,7 +104,7 @@ const CategoryNavigation = () => {
                { name: 'House Affordability Calculator', desc: 'Calculate how much house you can afford', url: '/finance/calculators/house-affordability-calculator', category: 'Finance', icon: 'fas fa-home' },
                { name: 'Compound Interest Calculator', desc: 'Calculate investment growth with compound interest', url: '/finance/calculators/compound-interest-calculator', category: 'Finance', icon: 'fas fa-chart-area' },
                               { name: 'ROI Calculator', desc: 'Calculate return on investment and annualized returns', url: '/finance/calculators/roi-calculator', category: 'Finance', icon: 'fas fa-chart-line' },
-      { name: 'Business Loan Calculator', desc: 'Calculate business loan payments', url: '/finance/business-loan-calculator', category: 'Finance', icon: 'fas fa-briefcase' },
+      { name: 'Business Loan Calculator', desc: 'Calculate business loan payments', url: '/finance/calculators/business-loan-calculator', category: 'Finance', icon: 'fas fa-briefcase' },
     
     { name: 'Wave Speed Calculator', desc: 'Calculate wave speed, frequency, and wavelength', url: '/science/calculators/wave-speed-calculator', category: 'Science', icon: 'fas fa-wave-square' },
     { name: 'Gravity Calculator', desc: 'Calculate gravitational force and acceleration', url: '/science/calculators/gravity-calculator', category: 'Science', icon: 'fas fa-globe' },
