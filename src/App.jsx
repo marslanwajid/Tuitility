@@ -34,6 +34,7 @@ import MortgageCalculator from './components/finance/MortgageCalculator'
 import AmortizationCalculator from './components/finance/AmortizationCalculator'
 import HouseAffordabilityCalculator from './components/finance/HouseAffordabilityCalculator'
 import CompoundInterestCalculator from './components/finance/CompoundInterestCalculator'
+import ROICalculator from './components/finance/ROICalculator'
 // import CurrencyCalculator from './components/finance/CurrencyCalculator'
 
 
@@ -67,8 +68,9 @@ const App = () => {
         <Route path="/finance/calculators/mortgage-calculator" element={<MortgageCalculator />} />
         <Route path="/finance/calculators/amortization-calculator" element={<AmortizationCalculator />} />
         <Route path="/finance/calculators/house-affordability-calculator" element={<HouseAffordabilityCalculator />} />
-        <Route path="/finance/calculators/compound-interest-calculator" element={<CompoundInterestCalculator />} />
-           
+                <Route path="/finance/calculators/compound-interest-calculator" element={<CompoundInterestCalculator />} />
+        <Route path="/finance/calculators/roi-calculator" element={<ROICalculator />} />
+        
         <Route path="/science" element={<ScienceCalculator />} />
         <Route path="/health" element={<HealthCalculator />} />
         <Route path="/utility-tools" element={<UtilityTools />} />

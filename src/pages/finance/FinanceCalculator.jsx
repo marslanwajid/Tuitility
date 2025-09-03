@@ -7,10 +7,11 @@ const FinanceCalculator = () => {
          { name: 'Loan Calculator', desc: 'Calculate loan payments with down payment and fees', url: '/finance/calculators/loan-calculator', category: 'Personal Loans', icon: 'fas fa-hand-holding-usd' },
         { name: 'Currency Calculator', desc: 'Convert between 170+ world currencies with real-time rates', url: '/finance/calculators/currency-calculator', category: 'Currency', icon: 'fas fa-exchange-alt' },
         { name: 'House Affordability Calculator', desc: 'Calculate how much house you can afford', url: '/finance/calculators/house-affordability-calculator', category: 'Real Estate', icon: 'fas fa-home' },
-        { name: 'Compound Interest Calculator', desc: 'Calculate investment growth with compound interest', url: '/finance/calculators/compound-interest-calculator', category: 'Investments', icon: 'fas fa-chart-area' },
-    { name: 'Amortization Calculator', desc: 'Generate detailed loan amortization schedules', url: '/finance/calculators/amortization-calculator', category: 'Loans', icon: 'fas fa-chart-line' },
+                { name: 'Compound Interest Calculator', desc: 'Calculate investment growth with compound interest', url: '/finance/calculators/compound-interest-calculator', category: 'Investments', icon: 'fas fa-chart-area' },
+        { name: 'ROI Calculator', desc: 'Calculate return on investment and annualized returns', url: '/finance/calculators/roi-calculator', category: 'Investments', icon: 'fas fa-chart-line' },
+      { name: 'Amortization Calculator', desc: 'Generate detailed loan amortization schedules', url: '/finance/calculators/amortization-calculator', category: 'Loans', icon: 'fas fa-chart-line' },
     
-    { name: 'Compound Interest', desc: 'Calculate compound interest growth over time', url: '/finance/calculators/compound-interest-calculator', category: 'Investments', icon: 'fas fa-chart-area' },
+
     { name: 'ROI Calculator', desc: 'Calculate return on investment and profitability', url: '/finance/calculators/roi-calculator', category: 'Investments', icon: 'fas fa-trending-up' },
     { name: 'Business Loan Calculator', desc: 'Calculate business loan payments and terms', url: '/finance/calculators/business-loan-calculator', category: 'Business', icon: 'fas fa-briefcase' },
     { name: 'Credit Card Calculator', desc: 'Calculate credit card payments and interest', url: '/finance/calculators/credit-card-calculator', category: 'Loans', icon: 'fas fa-credit-card' },
