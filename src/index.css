@@ -9,6 +9,9 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+.tool-content {
+  box-shadow: none !important;
+}
 
 /* Responsive padding for mobile */
 @media (max-width: 768px) {

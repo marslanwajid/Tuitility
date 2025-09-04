@@ -72,7 +72,10 @@ const ToolsShowcase = () => {
               <div className="tool-icon">
                 <i className={tool.icon}></i>
               </div>
-              <div className="tool-content">
+              <div
+                className="tool-content"
+                style={{ boxShadow: 'none !important' }}
+              >
                 <h4 className="tool-title">{tool.name}</h4>
                 <p className="tool-description">{tool.desc}</p>
                 <div className="tool-category">
