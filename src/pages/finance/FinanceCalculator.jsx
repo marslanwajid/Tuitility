@@ -20,7 +20,10 @@ const FinanceCalculator = () => {
     { name: 'Sales Tax Calculator', desc: 'Calculate sales tax and total cost', url: '/finance/calculators/sales-tax-calculator', category: 'Taxes', icon: 'fas fa-receipt' },
     { name: 'Rental Property Calculator', desc: 'Calculate rental property ROI and cash flow', url: '/finance/calculators/rental-property-calculator', category: 'Real Estate', icon: 'fas fa-home' },
     { name: 'Budget Calculator', desc: 'Create and manage personal budgets', url: '/finance/calculators/budget-calculator', category: 'Planning', icon: 'fas fa-calculator' },
-    { name: 'Debt Income Calculator', desc: 'Calculate your debt-to-income ratio to assess financial health and loan eligibility', url: '/finance/calculators/debt-income-calculator', category: 'Loans', icon: 'fas fa-balance-scale' }
+    { name: 'Debt Income Calculator', desc: 'Calculate your debt-to-income ratio to assess financial health and loan eligibility', url: '/finance/calculators/debt-income-calculator', category: 'Loans', icon: 'fas fa-balance-scale' },
+    { name: 'Down Payment Calculator', desc: 'Calculate the down payment needed for a home purchase', url: '/finance/calculators/down-payment-calculator', category: 'Real Estate', icon: 'fas fa-home' },
+    { name: 'Present Value Calculator', desc: 'Calculate the present value of a future amount', url: '/finance/calculators/present-value-calculator', category: 'Investments', icon: 'fas fa-chart-line' },
+    { name: 'Future Value Calculator', desc: 'Calculate the future value of a present amount', url: '/finance/calculators/future-value-calculator', category: 'Investments', icon: 'fas fa-chart-line' }
   ]
 
   const categories = [

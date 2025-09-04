@@ -46,6 +46,9 @@ import InsuranceCalculator from './components/finance/InsuranceCalculator'
 import BudgetCalculator from './components/finance/BudgetCalculator'
 import RentalPropertyCalculator from './components/finance/RentalPropertyCalculator'
 import DebtIncomeCalculator from './components/finance/DebtIncomeCalculator'
+import DownPaymentCalculator from './components/finance/DownPaymentCalculator'
+import PresentValueCalculator from './components/finance/PresentValueCalculator'
+import FutureValueCalculator from './components/finance/FutureValueCalculator'
 // import CurrencyCalculator from './components/finance/CurrencyCalculator'
 
 
@@ -92,6 +95,9 @@ const App = () => {
         <Route path="/finance/calculators/budget-calculator" element={<BudgetCalculator />} />
         <Route path="/finance/calculators/rental-property-calculator" element={<RentalPropertyCalculator />} />
         <Route path="/finance/calculators/debt-income-calculator" element={<DebtIncomeCalculator />} />
+        <Route path="/finance/calculators/down-payment-calculator" element={<DownPaymentCalculator />} />
+        <Route path="/finance/calculators/present-value-calculator" element={<PresentValueCalculator />} />
+        <Route path="/finance/calculators/future-value-calculator" element={<FutureValueCalculator />} />
         
         <Route path="/science" element={<ScienceCalculator />} />
         <Route path="/health" element={<HealthCalculator />} />

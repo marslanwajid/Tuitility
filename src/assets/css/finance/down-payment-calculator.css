@@ -1,0 +1,398 @@
+/* Down Payment Calculator Specific Styles - Completely Isolated */
+
+/* Down Payment Calculator Form Styles */
+.down-payment-calculator-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.down-payment-calculator-form .down-payment-input-row {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+
+.down-payment-calculator-form .down-payment-input-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-width: 200px;
+}
+
+.down-payment-calculator-form .down-payment-input-label {
+  font-weight: 600;
+  color: #374151;
+  font-size: 1rem;
+}
+
+.down-payment-calculator-form .down-payment-input-field {
+  padding: 0.875rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  background: #f9fafb;
+  min-height: 50px;
+}
+
+.down-payment-calculator-form .down-payment-input-field:focus {
+  outline: none;
+  border-color: #3b82f6;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.down-payment-calculator-form .down-payment-calculator-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.down-payment-calculator-form .down-payment-btn-reset {
+  padding: 0.875rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  min-width: 120px;
+  background: #f3f4f6;
+  color: #374151;
+  border: 1px solid #d1d5db;
+}
+
+.down-payment-calculator-form .down-payment-btn-reset:hover {
+  background: #e5e7eb;
+  transform: translateY(-1px);
+}
+
+.down-payment-input-help {
+  font-size: 0.875rem;
+  color: #6b7280;
+  font-style: italic;
+}
+
+/* Down Payment Calculator Result Section - More specific to override tool-page.css */
+.down-payment-calculator-result {
+  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%) !important;
+  border-radius: 15px;
+  padding: 2rem;
+  margin-top: 2rem;
+  color: white;
+  box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+  animation: downPaymentResultSlideIn 0.6s ease-out;
+  border: none !important;
+}
+
+/* Override any white background that might be coming from other CSS */
+.down-payment-calculator-result .down-payment-result-main,
+.down-payment-calculator-result .down-payment-result-breakdown,
+.down-payment-calculator-result .down-payment-result-summary,
+.down-payment-calculator-result .down-payment-result-item,
+.down-payment-calculator-result .down-payment-result-value,
+.down-payment-calculator-result .down-payment-breakdown-details,
+.down-payment-calculator-result .down-payment-breakdown-item,
+.down-payment-calculator-result .down-payment-summary-details,
+.down-payment-calculator-result .down-payment-summary-item,
+.down-payment-calculator-result .down-payment-result-tip {
+  background: transparent !important;
+}
+
+/* Down Payment Result Content */
+.down-payment-calculator-result .down-payment-result-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.down-payment-calculator-result .down-payment-result-title {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.down-payment-calculator-result .down-payment-result-main {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1.5rem;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+}
+
+.down-payment-calculator-result .down-payment-result-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.down-payment-calculator-result .down-payment-result-item:last-child {
+  border-bottom: none;
+}
+
+.down-payment-calculator-result .down-payment-result-item strong {
+  color: white;
+  font-weight: 600;
+}
+
+.down-payment-calculator-result .down-payment-result-value {
+  color: white;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+/* Down Payment Result Breakdown */
+.down-payment-calculator-result .down-payment-result-breakdown {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1.5rem;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+}
+
+.down-payment-calculator-result .down-payment-result-breakdown h4 {
+  color: white;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 0.5rem;
+}
+
+.down-payment-calculator-result .down-payment-breakdown-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.down-payment-calculator-result .down-payment-breakdown-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.down-payment-calculator-result .down-payment-breakdown-item:last-child {
+  border-bottom: none;
+}
+
+.down-payment-calculator-result .down-payment-breakdown-item span:first-child {
+  color: white;
+  font-weight: 500;
+}
+
+.down-payment-calculator-result .down-payment-breakdown-item span:last-child {
+  color: white;
+  font-weight: 600;
+}
+
+/* Down Payment Result Summary */
+.down-payment-calculator-result .down-payment-result-summary {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1.5rem;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+}
+
+.down-payment-calculator-result .down-payment-result-summary h4 {
+  color: white;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 0.5rem;
+}
+
+.down-payment-calculator-result .down-payment-summary-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.down-payment-calculator-result .down-payment-summary-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.down-payment-calculator-result .down-payment-summary-item:last-child {
+  border-bottom: none;
+}
+
+.down-payment-calculator-result .down-payment-summary-item span:first-child {
+  color: white;
+  font-weight: 500;
+}
+
+.down-payment-calculator-result .down-payment-summary-item span:last-child {
+  color: white;
+  font-weight: 600;
+}
+
+/* Down Payment Result Tip */
+.down-payment-calculator-result .down-payment-result-tip {
+  background: rgba(251, 191, 36, 0.2);
+  padding: 1rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border-left: 4px solid #fbbf24;
+}
+
+.down-payment-calculator-result .down-payment-result-tip i {
+  color: #fbbf24;
+  font-size: 1.25rem;
+}
+
+.down-payment-calculator-result .down-payment-result-tip span {
+  color: white;
+  font-weight: 500;
+}
+
+/* Down Payment Options Grid */
+.down-payment-options-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.down-payment-option-item {
+  background: #f8fafc;
+  padding: 1.5rem;
+  border-radius: 10px;
+  border-left: 4px solid #3b82f6;
+  transition: transform 0.2s ease;
+}
+
+.down-payment-option-item:hover {
+  transform: translateY(-2px);
+}
+
+.down-payment-option-item h4 {
+  color: #1e40af;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.down-payment-option-item h4 i {
+  color: #3b82f6;
+}
+
+.down-payment-option-item p {
+  color: #4b5563;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .down-payment-calculator-form .down-payment-input-row {
+    flex-direction: column;
+  }
+  
+  .down-payment-calculator-form .down-payment-input-group {
+    min-width: 100%;
+  }
+  
+  .down-payment-calculator-result .down-payment-result-item,
+  .down-payment-calculator-result .down-payment-breakdown-item,
+  .down-payment-calculator-result .down-payment-summary-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .down-payment-calculator-result .down-payment-result-title {
+    font-size: 1.25rem;
+  }
+  
+  .down-payment-calculator-result {
+    padding: 1.5rem;
+  }
+  
+  .down-payment-options-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .down-payment-calculator-form .down-payment-calculator-actions {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+  
+  .down-payment-calculator-form .down-payment-btn-reset {
+    width: 100%;
+    max-width: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .down-payment-calculator-form .down-payment-calculator-actions {
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+  
+  .down-payment-calculator-form .down-payment-btn-reset {
+    width: 100%;
+    max-width: 180px;
+    padding: 0.7rem 1.5rem;
+    font-size: 1rem;
+  }
+  
+  .down-payment-calculator-result {
+    padding: 1rem;
+  }
+  
+  .down-payment-calculator-result .down-payment-result-main,
+  .down-payment-calculator-result .down-payment-result-breakdown,
+  .down-payment-calculator-result .down-payment-result-summary {
+    padding: 1rem;
+  }
+  
+  .down-payment-calculator-form .down-payment-input-field {
+    padding: 0.75rem;
+    font-size: 0.95rem;
+  }
+}
+
+/* Animation */
+@keyframes downPaymentResultSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Override KaTeX text color to match our theme */
+.math-formula .katex,
+.math-formula .katex * {
+  color: #3b82f6 !important;
+}

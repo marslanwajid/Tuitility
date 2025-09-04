@@ -28,7 +28,10 @@ export const getRelatedTools = (toolCategory) => {
         { name: "Insurance Calculator", icon: "fas fa-shield-alt", link: "/finance/calculators/insurance-calculator" },
         { name: "Budget Calculator", icon: "fas fa-calculator", link: "/finance/calculators/budget-calculator" },
         { name: "Rental Property Calculator", icon: "fas fa-home", link: "/finance/calculators/rental-property-calculator" },
-        { name: "Debt Income Calculator", icon: "fas fa-balance-scale", link: "/finance/calculators/debt-income-calculator" }
+        { name: "Debt Income Calculator", icon: "fas fa-balance-scale", link: "/finance/calculators/debt-income-calculator" },
+        { name: "Down Payment Calculator", icon: "fas fa-home", link: "/finance/calculators/down-payment-calculator" },
+        { name: "Present Value Calculator", icon: "fas fa-chart-line", link: "/finance/calculators/present-value-calculator" },
+        { name: "Future Value Calculator", icon: "fas fa-chart-line", link: "/finance/calculators/future-value-calculator" }
   ];
 
   const scienceTools = [
