@@ -23,7 +23,12 @@ export const getRelatedTools = (toolCategory) => {
         { name: "Investment Calculator", icon: "fas fa-chart-line", link: "/finance/calculators/investment-calculator" },
         { name: "Tax Calculator", icon: "fas fa-file-invoice-dollar", link: "/finance/calculators/tax-calculator" },
         { name: "Retirement Calculator", icon: "fas fa-piggy-bank", link: "/finance/calculators/retirement-calculator" },
-        { name: "Sales Tax Calculator", icon: "fas fa-receipt", link: "/finance/calculators/sales-tax-calculator" }
+        { name: "Sales Tax Calculator", icon: "fas fa-receipt", link: "/finance/calculators/sales-tax-calculator" },
+        { name: "Debt Payoff Calculator", icon: "fas fa-credit-card", link: "/finance/calculators/debt-payoff-calculator" },
+        { name: "Insurance Calculator", icon: "fas fa-shield-alt", link: "/finance/calculators/insurance-calculator" },
+        { name: "Budget Calculator", icon: "fas fa-calculator", link: "/finance/calculators/budget-calculator" },
+        { name: "Rental Property Calculator", icon: "fas fa-home", link: "/finance/calculators/rental-property-calculator" },
+        { name: "Debt Income Calculator", icon: "fas fa-balance-scale", link: "/finance/calculators/debt-income-calculator" }
   ];
 
   const scienceTools = [

@@ -1,0 +1,368 @@
+/* Rental Property Calculator Specific Styles - Completely Isolated */
+
+/* Rental Property Calculator Form Styles */
+.rental-property-calculator-form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.rental-property-section {
+  background: #f8fafc;
+  padding: 1.5rem;
+  border-radius: 10px;
+  border-left: 4px solid #3b82f6;
+}
+
+.rental-property-section-title {
+  color: #1e40af;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.rental-property-section-title::before {
+  content: "📊";
+  font-size: 1.5rem;
+}
+
+.rental-property-input-row {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+
+.rental-property-input-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-width: 200px;
+}
+
+.rental-property-input-spacer {
+  min-height: 50px;
+}
+
+.rental-property-input-label {
+  font-weight: 600;
+  color: #374151;
+  font-size: 1rem;
+}
+
+.rental-property-input-field {
+  padding: 0.875rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  background: #f9fafb;
+  min-height: 50px;
+}
+
+.rental-property-input-field:focus {
+  outline: none;
+  border-color: #3b82f6;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.rental-property-input-help {
+  font-size: 0.875rem;
+  color: #6b7280;
+  font-style: italic;
+}
+
+/* Checkbox Styles */
+.rental-property-checkbox-group {
+  margin-bottom: 1.5rem;
+}
+
+.rental-property-checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  font-weight: 500;
+  color: #374151;
+}
+
+.rental-property-checkbox {
+  width: 18px;
+  height: 18px;
+  accent-color: #3b82f6;
+  cursor: pointer;
+}
+
+.rental-property-checkbox-text {
+  font-size: 1rem;
+}
+
+/* Conditional Sections */
+.rental-property-loan-details,
+.rental-property-repair-details,
+.rental-property-sell-price-known,
+.rental-property-sell-price-unknown {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: rgba(59, 130, 246, 0.05);
+  border-radius: 8px;
+  border: 1px solid rgba(59, 130, 246, 0.1);
+}
+
+.rental-property-calculator-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.rental-property-btn-reset {
+  padding: 0.875rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  min-width: 120px;
+  background: #f3f4f6;
+  color: #374151;
+  border: 1px solid #d1d5db;
+}
+
+.rental-property-btn-reset:hover {
+  background: #e5e7eb;
+  transform: translateY(-1px);
+}
+
+/* Rental Property Calculator Result Section - More specific to override tool-page.css */
+.rental-property-calculator-result {
+  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%) !important;
+  border-radius: 15px;
+  padding: 2rem;
+  margin-top: 2rem;
+  color: white;
+  box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+  animation: rentalPropertyResultSlideIn 0.6s ease-out;
+  border: none !important;
+}
+
+/* Override any white background that might be coming from other CSS */
+.rental-property-calculator-result .rental-property-result-grid,
+.rental-property-calculator-result .rental-property-result-section,
+.rental-property-calculator-result .rental-property-result-details,
+.rental-property-calculator-result .rental-property-result-item,
+.rental-property-calculator-result .rental-property-result-tip {
+  background: transparent !important;
+}
+
+/* Rental Property Result Content */
+.rental-property-calculator-result .rental-property-result-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.rental-property-calculator-result .rental-property-result-title {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.rental-property-calculator-result .rental-property-result-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.rental-property-calculator-result .rental-property-result-section {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1.5rem;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+}
+
+.rental-property-calculator-result .rental-property-result-section-title {
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 0.5rem;
+}
+
+.rental-property-calculator-result .rental-property-result-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.rental-property-calculator-result .rental-property-result-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.rental-property-calculator-result .rental-property-result-item:last-child {
+  border-bottom: none;
+}
+
+.rental-property-calculator-result .rental-property-result-item span:first-child {
+  color: white;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.rental-property-calculator-result .rental-property-result-item span:last-child {
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+/* Rental Property Result Tip */
+.rental-property-calculator-result .rental-property-result-tip {
+  background: rgba(251, 191, 36, 0.2);
+  padding: 1rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border-left: 4px solid #fbbf24;
+}
+
+.rental-property-calculator-result .rental-property-result-tip i {
+  color: #fbbf24;
+  font-size: 1.25rem;
+}
+
+.rental-property-calculator-result .rental-property-result-tip span {
+  color: white;
+  font-weight: 500;
+}
+
+/* Metrics Grid */
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.metric-item {
+  background: #f8fafc;
+  padding: 1.5rem;
+  border-radius: 10px;
+  border-left: 4px solid #3b82f6;
+  transition: transform 0.2s ease;
+}
+
+.metric-item:hover {
+  transform: translateY(-2px);
+}
+
+.metric-item h4 {
+  color: #1e40af;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.metric-item h4 i {
+  color: #3b82f6;
+}
+
+.metric-item p {
+  color: #4b5563;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .rental-property-input-row {
+    flex-direction: column;
+  }
+  
+  .rental-property-input-group {
+    min-width: 100%;
+  }
+  
+  .rental-property-calculator-result .rental-property-result-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .rental-property-calculator-result .rental-property-result-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .rental-property-calculator-result .rental-property-result-title {
+    font-size: 1.25rem;
+  }
+  
+  .rental-property-calculator-result {
+    padding: 1.5rem;
+  }
+  
+  .metrics-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .rental-property-section {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .rental-property-calculator-result {
+    padding: 1rem;
+  }
+  
+  .rental-property-calculator-result .rental-property-result-section {
+    padding: 1rem;
+  }
+  
+  .rental-property-loan-details,
+  .rental-property-repair-details,
+  .rental-property-sell-price-known,
+  .rental-property-sell-price-unknown {
+    padding: 0.75rem;
+  }
+}
+
+/* Animation */
+@keyframes rentalPropertyResultSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Override KaTeX text color to match our theme */
+.math-formula .katex,
+.math-formula .katex * {
+  color: #3b82f6 !important;
+}

@@ -15,9 +15,12 @@ const FinanceCalculator = () => {
     { name: 'Investment Calculator', desc: 'Plan your investment strategy and growth', url: '/finance/calculators/investment-calculator', category: 'Investments', icon: 'fas fa-chart-pie' },
     { name: 'Tax Calculator', desc: 'Calculate income tax and deductions', url: '/finance/calculators/tax-calculator', category: 'Taxes', icon: 'fas fa-file-invoice-dollar' },
     { name: 'Retirement Calculator', desc: 'Plan your retirement savings and income', url: '/finance/calculators/retirement-calculator', category: 'Planning', icon: 'fas fa-piggy-bank' },
-    { name: 'Debt Payoff Calculator', desc: 'Create debt payoff strategies and schedules', url: '/finance/calculators/debt-payoff-calculator', category: 'Loans', icon: 'fas fa-debt' },
+    { name: 'Debt Payoff Calculator', desc: 'Create debt payoff strategies and schedules', url: '/finance/calculators/debt-payoff-calculator', category: 'Loans', icon: 'fas fa-credit-card' },
     { name: 'Insurance Calculator', desc: 'Calculate insurance premiums and coverage', url: '/finance/calculators/insurance-calculator', category: 'Insurance', icon: 'fas fa-shield-alt' },
-    { name: 'Budget Calculator', desc: 'Create and manage personal budgets', url: '/finance/calculators/budget-calculator', category: 'Planning', icon: 'fas fa-calculator' }
+    { name: 'Sales Tax Calculator', desc: 'Calculate sales tax and total cost', url: '/finance/calculators/sales-tax-calculator', category: 'Taxes', icon: 'fas fa-receipt' },
+    { name: 'Rental Property Calculator', desc: 'Calculate rental property ROI and cash flow', url: '/finance/calculators/rental-property-calculator', category: 'Real Estate', icon: 'fas fa-home' },
+    { name: 'Budget Calculator', desc: 'Create and manage personal budgets', url: '/finance/calculators/budget-calculator', category: 'Planning', icon: 'fas fa-calculator' },
+    { name: 'Debt Income Calculator', desc: 'Calculate your debt-to-income ratio to assess financial health and loan eligibility', url: '/finance/calculators/debt-income-calculator', category: 'Loans', icon: 'fas fa-balance-scale' }
   ]
 
   const categories = [
