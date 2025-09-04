@@ -36,6 +36,11 @@ import HouseAffordabilityCalculator from './components/finance/HouseAffordabilit
 import CompoundInterestCalculator from './components/finance/CompoundInterestCalculator'
 import ROICalculator from './components/finance/ROICalculator'
 import BusinessLoanCalculator from './components/finance/BusinessLoanCalculator'
+import CreditCardCalculator from './components/finance/CreditCardCalculator'
+import InvestmentCalculator from './components/finance/InvestmentCalculator'
+import TaxCalculator from './components/finance/TaxCalculator'
+import RetirementCalculator from './components/finance/RetirementCalculator'
+import SalesTaxCalculator from './components/finance/SalesTaxCalculator'
 // import CurrencyCalculator from './components/finance/CurrencyCalculator'
 
 
@@ -72,6 +77,11 @@ const App = () => {
         <Route path="/finance/calculators/compound-interest-calculator" element={<CompoundInterestCalculator />} />
         <Route path="/finance/calculators/roi-calculator" element={<ROICalculator />} />
         <Route path="/finance/calculators/business-loan-calculator" element={<BusinessLoanCalculator />} />
+        <Route path="/finance/calculators/credit-card-calculator" element={<CreditCardCalculator />} />
+        <Route path="/finance/calculators/investment-calculator" element={<InvestmentCalculator />} />
+        <Route path="/finance/calculators/tax-calculator" element={<TaxCalculator />} />
+        <Route path="/finance/calculators/retirement-calculator" element={<RetirementCalculator />} />
+        <Route path="/finance/calculators/sales-tax-calculator" element={<SalesTaxCalculator />} />
         
         <Route path="/science" element={<ScienceCalculator />} />
         <Route path="/health" element={<HealthCalculator />} />

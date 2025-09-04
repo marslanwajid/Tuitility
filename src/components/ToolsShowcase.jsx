@@ -25,6 +25,11 @@ const ToolsShowcase = () => {
                     { name: 'Compound Interest Calculator', desc: 'Calculate investment growth with compound interest', url: '/finance/calculators/compound-interest-calculator', category: 'Finance', icon: 'fas fa-chart-area' },
                     { name: 'Business Loan Calculator', desc: 'Calculate business loan payments and terms', url: '/finance/calculators/business-loan-calculator', category: 'Finance', icon: 'fas fa-briefcase' },
         { name: 'ROI Calculator', desc: 'Calculate return on investment and annualized returns', url: '/finance/calculators/roi-calculator', category: 'Finance', icon: 'fas fa-chart-line' },
+        { name: 'Credit Card Calculator', desc: 'Calculate credit card payments, interest, and payoff time', url: '/finance/calculators/credit-card-calculator', category: 'Finance', icon: 'fas fa-credit-card' },
+        { name: 'Investment Calculator', desc: 'Calculate investment growth, compound returns, and future value', url: '/finance/calculators/investment-calculator', category: 'Finance', icon: 'fas fa-chart-line' },
+        { name: 'Tax Calculator', desc: 'Calculate federal and state income taxes, deductions, and credits', url: '/finance/calculators/tax-calculator', category: 'Finance', icon: 'fas fa-file-invoice-dollar' },
+        { name: 'Retirement Calculator', desc: 'Calculate retirement savings goals, monthly contributions, and future income', url: '/finance/calculators/retirement-calculator', category: 'Finance', icon: 'fas fa-piggy-bank' },
+        { name: 'Sales Tax Calculator', desc: 'Calculate sales tax, subtotal, and total amount for purchases', url: '/finance/calculators/sales-tax-calculator', category: 'Finance', icon: 'fas fa-receipt' },
       { name: 'BMI Calculator', desc: 'Calculate your body mass index', url: '/health/calculators/bmi-calculator', category: 'Health', icon: 'fas fa-weight' },
     
     { name: 'QR Code Generator', desc: 'Generate QR codes instantly', url: '/utility-tools/converter-tools/qr-code-generator', category: 'Utility', icon: 'fas fa-qrcode' },

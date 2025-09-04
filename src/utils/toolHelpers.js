@@ -18,7 +18,12 @@ export const getRelatedTools = (toolCategory) => {
             { name: "Currency Converter", icon: "fas fa-exchange-alt", link: "/finance/calculators/currency-calculator" },
         { name: "House Affordability Calculator", icon: "fas fa-home", link: "/finance/calculators/house-affordability-calculator" },
         { name: "Compound Interest Calculator", icon: "fas fa-chart-area", link: "/finance/calculators/compound-interest-calculator" },
-        { name: "ROI Calculator", icon: "fas fa-chart-line", link: "/finance/calculators/roi-calculator" }
+        { name: "ROI Calculator", icon: "fas fa-chart-line", link: "/finance/calculators/roi-calculator" },
+        { name: "Credit Card Calculator", icon: "fas fa-credit-card", link: "/finance/calculators/credit-card-calculator" },
+        { name: "Investment Calculator", icon: "fas fa-chart-line", link: "/finance/calculators/investment-calculator" },
+        { name: "Tax Calculator", icon: "fas fa-file-invoice-dollar", link: "/finance/calculators/tax-calculator" },
+        { name: "Retirement Calculator", icon: "fas fa-piggy-bank", link: "/finance/calculators/retirement-calculator" },
+        { name: "Sales Tax Calculator", icon: "fas fa-receipt", link: "/finance/calculators/sales-tax-calculator" }
   ];
 
   const scienceTools = [
