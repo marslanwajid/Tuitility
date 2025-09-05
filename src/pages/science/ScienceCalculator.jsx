@@ -7,6 +7,7 @@ const ScienceCalculator = () => {
     { name: 'Gravity Calculator', desc: 'Calculate gravitational force and acceleration', url: '/science/calculators/gravity-calculator', category: 'Physics', icon: 'fas fa-globe' },
     { name: 'Work Power Calculator', desc: 'Calculate work, power, and energy', url: '/science/calculators/work-power-calculator', category: 'Physics', icon: 'fas fa-cogs' },
     { name: 'DBm Watts Calculator', desc: 'Convert between dBm and watts', url: '/science/calculators/dbm-watts-calculator', category: 'Electronics', icon: 'fas fa-bolt' },
+    { name: 'DBm Milliwatts Calculator', desc: 'Convert between dBm and milliwatts', url: '/science/calculators/dbm-milliwatts-calculator', category: 'Electronics', icon: 'fas fa-bolt' },
     { name: 'Capacitance Calculator', desc: 'Calculate electrical capacitance', url: '/science/calculators/capacitance-calculator', category: 'Electronics', icon: 'fas fa-microchip' },
     { name: 'Electric Flux Calculator', desc: 'Calculate electric flux through surfaces', url: '/science/calculators/electric-flux-calculator', category: 'Electronics', icon: 'fas fa-lightning' },
     { name: 'Atomic Mass Calculator', desc: 'Calculate average atomic mass', url: '/science/calculators/average-atomic-mass-calculator', category: 'Chemistry', icon: 'fas fa-atom' }

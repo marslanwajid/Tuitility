@@ -53,6 +53,7 @@ import WaveSpeedCalculator from './components/science/WaveSpeedCalculator'
 import GravityCalculator from './components/science/GravityCalculator'
 import WorkPowerCalculator from './components/science/WorkPowerCalculator'
 import DBmWattsCalculator from './components/science/DBmWattsCalculator'
+import DBmMilliwattsCalculator from './components/science/DBmMilliwattsCalculator'
 // import CurrencyCalculator from './components/finance/CurrencyCalculator'
 
 
@@ -106,6 +107,7 @@ const App = () => {
         <Route path="/science/calculators/gravity-calculator" element={<GravityCalculator />} />
         <Route path="/science/calculators/work-power-calculator" element={<WorkPowerCalculator />} />
         <Route path="/science/calculators/dbm-watts-calculator" element={<DBmWattsCalculator />} />
+        <Route path="/science/calculators/dbm-milliwatts-calculator" element={<DBmMilliwattsCalculator />} />
         
         <Route path="/science" element={<ScienceCalculator />} />
         <Route path="/health" element={<HealthCalculator />} />
