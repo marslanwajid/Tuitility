@@ -38,6 +38,7 @@ const ToolsShowcase = () => {
         { name: 'Down Payment Calculator', desc: 'Calculate down payment amount, loan amount, and monthly mortgage payments', url: '/finance/calculators/down-payment-calculator', category: 'Finance', icon: 'fas fa-home' },
         { name: 'Present Value Calculator', desc: 'Calculate the present value of future cash flows and investments', url: '/finance/calculators/present-value-calculator', category: 'Finance', icon: 'fas fa-chart-line' },
         { name: 'Future Value Calculator', desc: 'Calculate the future value of investments and savings with compound interest', url: '/finance/calculators/future-value-calculator', category: 'Finance', icon: 'fas fa-chart-line' },
+        { name: 'Gravity Calculator', desc: 'Calculate gravitational force and acceleration between two masses', url: '/science/calculators/gravity-calculator', category: 'Science', icon: 'fas fa-globe' },
       { name: 'BMI Calculator', desc: 'Calculate your body mass index', url: '/health/calculators/bmi-calculator', category: 'Health', icon: 'fas fa-weight' },
     
     { name: 'QR Code Generator', desc: 'Generate QR codes instantly', url: '/utility-tools/converter-tools/qr-code-generator', category: 'Utility', icon: 'fas fa-qrcode' },

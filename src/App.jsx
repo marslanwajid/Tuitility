@@ -49,6 +49,8 @@ import DebtIncomeCalculator from './components/finance/DebtIncomeCalculator'
 import DownPaymentCalculator from './components/finance/DownPaymentCalculator'
 import PresentValueCalculator from './components/finance/PresentValueCalculator'
 import FutureValueCalculator from './components/finance/FutureValueCalculator'
+import WaveSpeedCalculator from './components/science/WaveSpeedCalculator'
+import GravityCalculator from './components/science/GravityCalculator'
 // import CurrencyCalculator from './components/finance/CurrencyCalculator'
 
 
@@ -98,6 +100,8 @@ const App = () => {
         <Route path="/finance/calculators/down-payment-calculator" element={<DownPaymentCalculator />} />
         <Route path="/finance/calculators/present-value-calculator" element={<PresentValueCalculator />} />
         <Route path="/finance/calculators/future-value-calculator" element={<FutureValueCalculator />} />
+        <Route path="/science/calculators/wave-speed-calculator" element={<WaveSpeedCalculator />} />
+        <Route path="/science/calculators/gravity-calculator" element={<GravityCalculator />} />
         
         <Route path="/science" element={<ScienceCalculator />} />
         <Route path="/health" element={<HealthCalculator />} />
