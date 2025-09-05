@@ -35,6 +35,10 @@ export const getRelatedTools = (toolCategory) => {
   ];
 
   const scienceTools = [
+    { name: "Gravity Calculator", icon: "fas fa-globe", link: "/science/calculators/gravity-calculator" },
+    { name: "Work Power Calculator", icon: "fas fa-cogs", link: "/science/calculators/work-power-calculator" },
+    { name: "DBm Watts Calculator", icon: "fas fa-bolt", link: "/science/calculators/dbm-watts-calculator" },
+    { name: "Wave Speed Calculator", icon: "fas fa-wave-square", link: "/science/calculators/wave-speed-calculator" },
     { name: "Unit Converter", icon: "fas fa-ruler", link: "/science/unit-converter" },
     { name: "Scientific Calculator", icon: "fas fa-calculator", link: "/science/scientific-calculator" },
     { name: "Physics Calculator", icon: "fas fa-atom", link: "/science/physics-calculator" },

@@ -1,0 +1,492 @@
+/* Work Power Calculator - Isolated Styling */
+
+/* Main calculator container */
+.work-power-calculator-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+/* Input groups */
+.work-power-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.work-power-input-group label {
+  font-weight: 600;
+  color: #374151;
+  font-size: 0.95rem;
+  margin-bottom: 0.25rem;
+}
+
+/* Input with unit container */
+.work-power-input-with-unit {
+  display: flex;
+  gap: 0.75rem;
+  align-items: stretch;
+}
+
+/* Input fields */
+.work-power-input-field {
+  flex: 1;
+  padding: 0.875rem 1rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  background: #f9fafb;
+  color: #374151;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  min-height: 48px;
+  box-sizing: border-box;
+}
+
+.work-power-input-field::placeholder {
+  color: #9ca3af;
+}
+
+.work-power-input-field:focus {
+  outline: none;
+  border-color: #f59e0b;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.1);
+}
+
+.work-power-input-field:hover {
+  border-color: #d1d5db;
+  background: #ffffff;
+}
+
+/* Select fields */
+.work-power-select-field {
+  min-width: 120px;
+  padding: 0.875rem 1rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  background: #f9fafb;
+  color: #374151;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  min-height: 48px;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23374151' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+  background-position: right 0.75rem center;
+  background-repeat: no-repeat;
+  background-size: 1.25rem;
+  padding-right: 2.5rem;
+}
+
+.work-power-select-field:focus {
+  outline: none;
+  border-color: #f59e0b;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.1);
+}
+
+.work-power-select-field:hover {
+  border-color: #d1d5db;
+  background-color: #ffffff;
+}
+
+.work-power-select-field option {
+  background: #ffffff;
+  color: #374151;
+  padding: 0.5rem;
+}
+
+/* Calculator actions */
+.work-power-calculator-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+.work-power-btn-reset {
+  padding: 0.875rem 1.5rem;
+  background: #6b7280;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 48px;
+}
+
+.work-power-btn-reset:hover {
+  background: #4b5563;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(107, 114, 128, 0.3);
+}
+
+.work-power-btn-reset:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(107, 114, 128, 0.3);
+}
+
+.work-power-btn-reset i {
+  font-size: 0.9rem;
+}
+
+/* Applications Grid */
+.applications-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.application-item {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.application-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.application-item h4 {
+  color: #f59e0b;
+  font-size: 1.2rem;
+  margin: 0 0 1rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.application-item p {
+  color: #666;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Result section */
+.work-power-calculator-result {
+  margin-top: 2rem;
+  padding: 2rem;
+  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%) !important;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(245, 158, 11, 0.3);
+  color: #ffffff;
+  animation: slideInUp 0.6s ease-out;
+}
+
+.work-power-calculator-result h3 {
+  margin: 0 0 1.5rem 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-align: center;
+}
+
+/* Result grid */
+.work-power-result-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.work-power-result-item {
+  text-align: center;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.work-power-result-item h4 {
+  margin: 0 0 0.75rem 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.work-power-result-value {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ffffff;
+  word-break: break-all;
+}
+
+/* Detailed results */
+.work-power-detailed-results {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.work-power-detailed-results h4 {
+  margin: 0 0 1rem 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.work-power-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 0.75rem;
+}
+
+.work-power-detail-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.work-power-detail-item span:first-child {
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.work-power-detail-item span:last-child {
+  font-weight: 600;
+  color: #ffffff;
+  font-family: 'Courier New', monospace;
+}
+
+/* Override global styles for result section */
+.work-power-calculator-result .result-main {
+  background: transparent !important;
+}
+
+.work-power-calculator-result .result-content {
+  background: transparent !important;
+}
+
+.work-power-calculator-result .result-grid {
+  background: transparent !important;
+}
+
+.work-power-calculator-result .result-item {
+  background: transparent !important;
+}
+
+.work-power-calculator-result .result-value {
+  background: transparent !important;
+}
+
+.work-power-calculator-result .result-details {
+  background: transparent !important;
+}
+
+.work-power-calculator-result .result-detail-item {
+  background: transparent !important;
+}
+
+/* KaTeX formula styling */
+.work-power-calculator-result .math-formula {
+  background: transparent !important;
+  color: #ffffff !important;
+}
+
+.work-power-calculator-result .katex {
+  color: #ffffff !important;
+  background: transparent !important;
+}
+
+.work-power-calculator-result .katex-display {
+  background: transparent !important;
+}
+
+.work-power-calculator-result .katex .base {
+  color: #ffffff !important;
+}
+
+.work-power-calculator-result .katex .mord {
+  color: #ffffff !important;
+}
+
+.work-power-calculator-result .katex .mrel {
+  color: #ffffff !important;
+}
+
+.work-power-calculator-result .katex .mbin {
+  color: #ffffff !important;
+}
+
+.work-power-calculator-result .katex .mopen {
+  color: #ffffff !important;
+}
+
+.work-power-calculator-result .katex .mclose {
+  color: #ffffff !important;
+}
+
+.work-power-calculator-result .katex .mpunct {
+  color: #ffffff !important;
+}
+
+.work-power-calculator-result .katex .mord.mathdefault {
+  color: #ffffff !important;
+}
+
+/* Animations */
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .work-power-calculator-form {
+    padding: 1.5rem;
+    gap: 1.25rem;
+  }
+
+  .work-power-input-with-unit {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .work-power-select-field {
+    min-width: auto;
+    width: 100%;
+  }
+
+  .work-power-result-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .work-power-detail-grid {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .work-power-detail-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+
+  .work-power-calculator-result {
+    padding: 1.5rem;
+  }
+
+  .work-power-calculator-result h3 {
+    font-size: 1.25rem;
+  }
+
+  .work-power-result-value {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .work-power-calculator-form {
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .work-power-input-field,
+  .work-power-select-field {
+    padding: 0.75rem 0.875rem;
+    font-size: 0.95rem;
+    min-height: 44px;
+  }
+
+  .work-power-calculator-result {
+    padding: 1rem;
+  }
+
+  .work-power-result-item {
+    padding: 1rem;
+  }
+
+  .work-power-result-value {
+    font-size: 1rem;
+  }
+
+  .work-power-detail-item {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Focus states for accessibility */
+.work-power-input-field:focus-visible,
+.work-power-select-field:focus-visible {
+  outline: 2px solid #f59e0b;
+  outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .work-power-input-field,
+  .work-power-select-field {
+    border-color: #ffffff;
+    background: rgba(0, 0, 0, 0.8);
+  }
+
+  .work-power-calculator-result {
+    background: linear-gradient(135deg, #000000 0%, #333333 100%);
+    border-color: #ffffff;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .work-power-calculator-result {
+    animation: none;
+  }
+
+  .work-power-input-field,
+  .work-power-select-field {
+    transition: none;
+  }
+}
+
+/* Print styles */
+@media print {
+  .work-power-calculator-form {
+    background: white;
+    color: black;
+    border: 1px solid #ccc;
+  }
+
+  .work-power-input-field,
+  .work-power-select-field {
+    background: white;
+    color: black;
+    border: 1px solid #ccc;
+  }
+
+  .work-power-calculator-result {
+    background: white;
+    color: black;
+    border: 1px solid #ccc;
+  }
+}
