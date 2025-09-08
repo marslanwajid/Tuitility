@@ -57,6 +57,8 @@ import DBmMilliwattsCalculator from './components/science/DBmMilliwattsCalculato
 import CapacitanceCalculator from './components/science/CapacitanceCalculator'
 import ElectricFluxCalculator from './components/science/ElectricFluxCalculator'
 import AverageAtomicMassCalculator from './components/science/AverageAtomicMassCalculator'
+import BMICalculator from './components/health/BMICalculator'
+import CalorieCalculator from './components/health/CalorieCalculator'
 // import CurrencyCalculator from './components/finance/CurrencyCalculator'
 
 
@@ -117,6 +119,8 @@ const App = () => {
             <Route path="/science/calculators/average-atomic-mass-calculator" element={<AverageAtomicMassCalculator />} />
         
         <Route path="/health" element={<HealthCalculator />} />
+            <Route path="/health/calculators/bmi-calculator" element={<BMICalculator />} />
+            <Route path="/health/calculators/calorie-calculator" element={<CalorieCalculator />} />
         <Route path="/utility-tools" element={<UtilityTools />} />
         <Route path="/knowledge" element={<KnowledgeCalculator />} />
       </Routes>

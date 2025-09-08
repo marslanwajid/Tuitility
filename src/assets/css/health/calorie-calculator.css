@@ -1,0 +1,514 @@
+/* Calorie Calculator Styles - Individual Classes */
+
+/* Form Container */
+.calorie-calculator-form {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e5e7eb;
+  margin-bottom: 1.5rem;
+}
+
+/* Input Groups */
+.calorie-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Labels */
+.calorie-input-label {
+  font-weight: 600;
+  color: #374151;
+  font-size: 0.95rem;
+  margin-bottom: 0.25rem;
+}
+
+/* Input Fields */
+.calorie-input-field {
+  background: #ffffff;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 0.875rem 1rem;
+  font-size: 1rem;
+  color: #374151;
+  transition: all 0.2s ease;
+  min-height: 44px;
+}
+
+.calorie-input-field:focus {
+  outline: none;
+  border-color: #f59e0b;
+  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.1);
+}
+
+.calorie-input-field::placeholder {
+  color: #9ca3af;
+  font-style: italic;
+}
+
+/* Select Fields */
+.calorie-select-field {
+  background: #ffffff;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 0.875rem 1rem;
+  font-size: 1rem;
+  color: #374151;
+  transition: all 0.2s ease;
+  min-height: 44px;
+  cursor: pointer;
+}
+
+.calorie-select-field:focus {
+  outline: none;
+  border-color: #f59e0b;
+  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.1);
+}
+
+/* Help Text */
+.calorie-input-help {
+  color: #6b7280;
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+  font-style: italic;
+}
+
+/* Input Row Layout */
+.calorie-input-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* Rate Container */
+#calorie-rate-container {
+  display: block;
+}
+
+/* Calculator Actions */
+.calorie-calculator-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+/* Reset Button */
+.calorie-btn-reset {
+  background: #f3f4f6;
+  color: #374151;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  min-width: 120px;
+}
+
+.calorie-btn-reset:hover {
+  background: #e5e7eb;
+  transform: translateY(-1px);
+}
+
+.calorie-btn-reset i {
+  font-size: 0.9rem;
+}
+
+/* Result Section Styling - More specific to override tool-page.css */
+.calorie-calculator-result {
+  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%) !important;
+  border-radius: 15px;
+  padding: 2rem;
+  margin-top: 2rem;
+  color: white;
+  box-shadow: 0 10px 30px rgba(245, 158, 11, 0.3);
+  animation: calorieResultSlideIn 0.6s ease-out;
+  border: none !important;
+}
+
+/* Override any white background that might be coming from other CSS */
+.calorie-calculator-result .calorie-result-main,
+.calorie-calculator-result .calorie-macronutrients,
+.calorie-calculator-result .calorie-weight-projection,
+.calorie-calculator-result .calorie-recommendations,
+.calorie-calculator-result .calorie-result-item {
+  background: transparent !important;
+}
+
+/* Ensure all result content has transparent background */
+.calorie-calculator-result .calorie-result-content,
+.calorie-calculator-result .calorie-macros-grid,
+.calorie-calculator-result .calorie-macro-item,
+.calorie-calculator-result .calorie-projection-content,
+.calorie-calculator-result .calorie-recommendations-content {
+  background: transparent !important;
+}
+
+/* Result Title */
+.calorie-result-title {
+  color: white !important;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 1.5rem 0;
+  text-align: center;
+  background: transparent !important;
+}
+
+/* Result Content */
+.calorie-result-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  background: transparent !important;
+}
+
+/* Main Results */
+.calorie-result-main {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background: transparent !important;
+}
+
+/* Result Items */
+.calorie-result-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.calorie-result-item strong {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-weight: 600;
+  background: transparent !important;
+}
+
+.calorie-result-value {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-weight: 600;
+  font-size: 1.1rem;
+  background: transparent !important;
+}
+
+.calorie-result-final {
+  color: #fbbf24 !important;
+  font-weight: 700 !important;
+  font-size: 1.25rem;
+}
+
+/* Macronutrients Section */
+.calorie-macronutrients {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-radius: 8px;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.calorie-macros-title {
+  color: white !important;
+  font-size: 1.2rem;
+  margin: 0 0 1rem 0;
+  text-align: center;
+  background: transparent !important;
+}
+
+.calorie-macros-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  background: transparent !important;
+}
+
+.calorie-macro-item {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-radius: 8px;
+  padding: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.calorie-macro-item:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.15) !important;
+}
+
+.calorie-macro-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+  background: transparent !important;
+}
+
+.calorie-macro-header i {
+  color: #fbbf24 !important;
+  font-size: 1.2rem;
+  background: transparent !important;
+}
+
+.calorie-macro-header h5 {
+  color: white !important;
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+  background: transparent !important;
+}
+
+.calorie-macro-content {
+  background: transparent !important;
+}
+
+.calorie-macro-grams {
+  color: #fbbf24 !important;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+  background: transparent !important;
+}
+
+.calorie-macro-calories {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-size: 0.9rem;
+  background: transparent !important;
+}
+
+/* Weight Projection */
+.calorie-weight-projection {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-radius: 8px;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.calorie-projection-title {
+  color: white !important;
+  font-size: 1.2rem;
+  margin: 0 0 1rem 0;
+  text-align: center;
+  background: transparent !important;
+}
+
+.calorie-projection-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  background: transparent !important;
+}
+
+.calorie-projection-content p {
+  color: rgba(255, 255, 255, 0.9) !important;
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: transparent !important;
+}
+
+.calorie-projection-content strong {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-weight: 600;
+  background: transparent !important;
+}
+
+/* Recommendations */
+.calorie-recommendations {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-radius: 8px;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.calorie-recommendations-title {
+  color: white !important;
+  font-size: 1.2rem;
+  margin: 0 0 1rem 0;
+  text-align: center;
+  background: transparent !important;
+}
+
+.calorie-recommendations-content {
+  background: transparent !important;
+}
+
+.calorie-recommendations-content ul {
+  margin: 0;
+  padding-left: 1.5rem;
+  background: transparent !important;
+}
+
+.calorie-recommendations-content li {
+  color: rgba(255, 255, 255, 0.9) !important;
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+  background: transparent !important;
+}
+
+/* KaTeX Formula Styling */
+.math-formula .katex {
+  color: #f59e0b !important;
+}
+
+.math-formula .katex * {
+  color: #f59e0b !important;
+}
+
+/* Applications Grid */
+.applications-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.application-item {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.application-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.application-item h4 {
+  color: #f59e0b;
+  font-size: 1.2rem;
+  margin: 0 0 1rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.application-item p {
+  color: #666;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .calorie-calculator-form {
+    padding: 1.5rem;
+  }
+
+  .calorie-input-row {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .calorie-calculator-result {
+    padding: 1.5rem;
+  }
+
+  .calorie-result-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .calorie-macros-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .calorie-projection-content p {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+
+  .applications-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .calorie-calculator-form {
+    padding: 1rem;
+  }
+
+  .calorie-input-field,
+  .calorie-select-field {
+    padding: 0.75rem 0.875rem;
+    font-size: 0.95rem;
+    min-height: 44px;
+  }
+
+  .calorie-calculator-result {
+    padding: 1rem;
+  }
+
+  .calorie-result-item {
+    padding: 1rem;
+  }
+
+  .calorie-result-value {
+    font-size: 1rem;
+  }
+
+  .calorie-macro-item {
+    padding: 0.75rem;
+  }
+
+  .calorie-macro-grams {
+    font-size: 1.3rem;
+  }
+}
+
+/* Focus states for accessibility */
+.calorie-input-field:focus-visible,
+.calorie-select-field:focus-visible {
+  outline: 2px solid #f59e0b;
+  outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .calorie-input-field,
+  .calorie-select-field {
+    border-color: #000;
+  }
+  
+  .calorie-input-field:focus,
+  .calorie-select-field:focus {
+    border-color: #f59e0b;
+    box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.3);
+  }
+}
+
+/* Animation for result section */
+@keyframes calorieResultSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

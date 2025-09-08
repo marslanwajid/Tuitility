@@ -3,8 +3,8 @@ import CategoryPage from '../../components/CategoryPage'
 
 const HealthCalculator = () => {
   const healthTools = [
-    { name: 'BMI Calculator', desc: 'Calculate your body mass index', url: '/health/calculators/bmi-calculator', category: 'Fitness', icon: 'fas fa-weight' },
-    { name: 'Calorie Calculator', desc: 'Calculate daily calorie needs', url: '/health/calculators/calorie-calculator', category: 'Nutrition', icon: 'fas fa-apple-alt' },
+    { name: 'BMI Calculator', desc: 'Calculate your body mass index with advanced body composition analysis', url: '/health/calculators/bmi-calculator', category: 'Fitness', icon: 'fas fa-weight' },
+    { name: 'Calorie Calculator', desc: 'Calculate daily calorie needs, BMR, and macronutrient requirements for weight management', url: '/health/calculators/calorie-calculator', category: 'Nutrition', icon: 'fas fa-apple-alt' },
     { name: 'Water Intake Calculator', desc: 'Calculate daily water requirements', url: '/health/calculators/water-intake-calculator', category: 'Nutrition', icon: 'fas fa-tint' },
     { name: 'Weight Loss Calculator', desc: 'Plan your weight loss journey', url: '/health/calculators/weight-loss-calculator', category: 'Fitness', icon: 'fas fa-chart-line' },
     { name: 'Body Fat Calculator', desc: 'Calculate body fat percentage', url: '/health/calculators/body-fat-calculator', category: 'Fitness', icon: 'fas fa-user' },
