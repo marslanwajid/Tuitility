@@ -1,7 +1,7 @@
-/* DBm to Milliwatts Calculator Styles - Individual Classes */
+/* Average Atomic Mass Calculator Styles - Individual Classes */
 
 /* Form Container */
-.dbm-milliwatts-calculator-form {
+.atomic-mass-calculator-form {
   background: #ffffff;
   border-radius: 12px;
   padding: 2rem;
@@ -10,23 +10,16 @@
   margin-bottom: 1.5rem;
 }
 
-/* Input Row Layout */
-.dbm-milliwatts-input-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
-  margin-bottom: 1.5rem;
-}
-
 /* Input Groups */
-.dbm-milliwatts-input-group {
+.atomic-mass-input-group {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  margin-bottom: 1rem;
 }
 
 /* Labels */
-.dbm-milliwatts-input-label {
+.atomic-mass-input-label {
   font-weight: 600;
   color: #374151;
   font-size: 0.95rem;
@@ -34,7 +27,7 @@
 }
 
 /* Input Fields */
-.dbm-milliwatts-input-field {
+.atomic-mass-input-field {
   background: #ffffff;
   border: 2px solid #e5e7eb;
   border-radius: 8px;
@@ -45,27 +38,76 @@
   min-height: 44px;
 }
 
-.dbm-milliwatts-input-field:focus {
+.atomic-mass-input-field:focus {
   outline: none;
-  border-color: #f59e0b;
-  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.1);
+  border-color: #10b981;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
 }
 
-.dbm-milliwatts-input-field::placeholder {
+.atomic-mass-input-field::placeholder {
   color: #9ca3af;
   font-style: italic;
 }
 
+/* Select Fields */
+.atomic-mass-select-field {
+  background: #ffffff;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 0.875rem 1rem;
+  font-size: 1rem;
+  color: #374151;
+  transition: all 0.2s ease;
+  min-height: 44px;
+  cursor: pointer;
+}
+
+.atomic-mass-select-field:focus {
+  outline: none;
+  border-color: #10b981;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
 /* Help Text */
-.dbm-milliwatts-input-help {
+.atomic-mass-input-help {
   color: #6b7280;
   font-size: 0.85rem;
   margin-top: 0.25rem;
   font-style: italic;
 }
 
+/* Isotope Inputs Container */
+.atomic-mass-isotope-inputs {
+  margin: 1.5rem 0;
+}
+
+/* Isotope Group */
+.atomic-mass-isotope-group {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.atomic-mass-isotope-title {
+  color: #374151;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0 0 1rem 0;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #10b981;
+}
+
+/* Input Row Layout */
+.atomic-mass-input-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+}
+
 /* Calculator Actions */
-.dbm-milliwatts-calculator-actions {
+.atomic-mass-calculator-actions {
   display: flex;
   justify-content: flex-end;
   gap: 1rem;
@@ -75,7 +117,7 @@
 }
 
 /* Reset Button */
-.dbm-milliwatts-btn-reset {
+.atomic-mass-btn-reset {
   background: #f3f4f6;
   color: #374151;
   border: 1px solid #d1d5db;
@@ -92,44 +134,44 @@
   min-width: 120px;
 }
 
-.dbm-milliwatts-btn-reset:hover {
+.atomic-mass-btn-reset:hover {
   background: #e5e7eb;
   transform: translateY(-1px);
 }
 
-.dbm-milliwatts-btn-reset i {
+.atomic-mass-btn-reset i {
   font-size: 0.9rem;
 }
 
 /* Result Section Styling - More specific to override tool-page.css */
-.dbm-milliwatts-calculator-result {
-    background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%) !important;
+.atomic-mass-calculator-result {
+  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%) !important;
   border-radius: 15px;
   padding: 2rem;
   margin-top: 2rem;
   color: white;
-  box-shadow: 0 10px 30px rgba(245, 158, 11, 0.3);
+  box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3);
   animation: resultSlideIn 0.6s ease-out;
   border: none !important;
 }
 
 /* Override any white background that might be coming from other CSS */
-.dbm-milliwatts-calculator-result .dbm-milliwatts-result-main,
-.dbm-milliwatts-calculator-result .dbm-milliwatts-result-breakdown,
-.dbm-milliwatts-calculator-result .dbm-milliwatts-result-summary,
-.dbm-milliwatts-calculator-result .dbm-milliwatts-result-item {
+.atomic-mass-calculator-result .atomic-mass-result-main,
+.atomic-mass-calculator-result .atomic-mass-result-breakdown,
+.atomic-mass-calculator-result .atomic-mass-result-summary,
+.atomic-mass-calculator-result .atomic-mass-result-item {
   background: transparent !important;
 }
 
 /* Ensure all result content has transparent background */
-.dbm-milliwatts-calculator-result .dbm-milliwatts-result-content,
-.dbm-milliwatts-calculator-result .dbm-milliwatts-breakdown-details,
-.dbm-milliwatts-calculator-result .dbm-milliwatts-summary-details {
+.atomic-mass-calculator-result .atomic-mass-result-content,
+.atomic-mass-calculator-result .atomic-mass-breakdown-details,
+.atomic-mass-calculator-result .atomic-mass-summary-details {
   background: transparent !important;
 }
 
 /* Result Title */
-.dbm-milliwatts-result-title {
+.atomic-mass-result-title {
   color: white !important;
   font-size: 1.5rem;
   font-weight: 700;
@@ -139,7 +181,7 @@
 }
 
 /* Result Content */
-.dbm-milliwatts-result-content {
+.atomic-mass-result-content {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -147,7 +189,7 @@
 }
 
 /* Main Results */
-.dbm-milliwatts-result-main {
+.atomic-mass-result-main {
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -155,7 +197,7 @@
 }
 
 /* Result Items */
-.dbm-milliwatts-result-item {
+.atomic-mass-result-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -166,27 +208,27 @@
   backdrop-filter: blur(10px);
 }
 
-.dbm-milliwatts-result-item strong {
+.atomic-mass-result-item strong {
   color: rgba(255, 255, 255, 0.9) !important;
   font-weight: 600;
   background: transparent !important;
 }
 
-.dbm-milliwatts-result-value {
+.atomic-mass-result-value {
   color: rgba(255, 255, 255, 0.9) !important;
   font-weight: 600;
   font-size: 1.1rem;
   background: transparent !important;
 }
 
-.dbm-milliwatts-result-final {
+.atomic-mass-result-final {
   color: #fbbf24 !important;
   font-weight: 700 !important;
   font-size: 1.25rem;
 }
 
 /* Breakdown Section */
-.dbm-milliwatts-result-breakdown {
+.atomic-mass-result-breakdown {
   background: rgba(255, 255, 255, 0.1) !important;
   border-radius: 8px;
   padding: 1.5rem;
@@ -194,21 +236,21 @@
   backdrop-filter: blur(10px);
 }
 
-.dbm-milliwatts-result-breakdown h4 {
+.atomic-mass-result-breakdown h4 {
   color: white !important;
   font-size: 1.2rem;
   margin: 0 0 1rem 0;
   background: transparent !important;
 }
 
-.dbm-milliwatts-breakdown-details {
+.atomic-mass-breakdown-details {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
   background: transparent !important;
 }
 
-.dbm-milliwatts-breakdown-item {
+.atomic-mass-breakdown-item {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -219,13 +261,13 @@
   background: transparent !important;
 }
 
-.dbm-milliwatts-breakdown-item span:first-child {
+.atomic-mass-breakdown-item span:first-child {
   color: rgba(255, 255, 255, 0.9) !important;
   font-weight: 500;
   background: transparent !important;
 }
 
-.dbm-milliwatts-breakdown-item span:last-child {
+.atomic-mass-breakdown-item span:last-child {
   color: rgba(255, 255, 255, 0.9) !important;
   font-weight: 600;
   text-align: right;
@@ -233,7 +275,7 @@
 }
 
 /* Summary Section */
-.dbm-milliwatts-result-summary {
+.atomic-mass-result-summary {
   background: rgba(255, 255, 255, 0.1) !important;
   border-radius: 8px;
   padding: 1.5rem;
@@ -241,21 +283,21 @@
   backdrop-filter: blur(10px);
 }
 
-.dbm-milliwatts-result-summary h4 {
+.atomic-mass-result-summary h4 {
   color: white !important;
   font-size: 1.2rem;
   margin: 0 0 1rem 0;
   background: transparent !important;
 }
 
-.dbm-milliwatts-summary-details {
+.atomic-mass-summary-details {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
   background: transparent !important;
 }
 
-.dbm-milliwatts-summary-item {
+.atomic-mass-summary-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -266,20 +308,20 @@
   background: transparent !important;
 }
 
-.dbm-milliwatts-summary-item span:first-child {
+.atomic-mass-summary-item span:first-child {
   color: rgba(255, 255, 255, 0.9) !important;
   font-weight: 500;
   background: transparent !important;
 }
 
-.dbm-milliwatts-summary-item span:last-child {
+.atomic-mass-summary-item span:last-child {
   color: rgba(255, 255, 255, 0.9) !important;
   font-weight: 600;
   background: transparent !important;
 }
 
 /* Result Tip */
-.dbm-milliwatts-result-tip {
+.atomic-mass-result-tip {
   background: rgba(255, 255, 255, 0.1) !important;
   border-radius: 8px;
   padding: 1rem;
@@ -290,14 +332,14 @@
   gap: 0.75rem;
 }
 
-.dbm-milliwatts-result-tip i {
+.atomic-mass-result-tip i {
   color: #fbbf24 !important;
   font-size: 1.1rem;
   margin-top: 0.1rem;
   background: transparent !important;
 }
 
-.dbm-milliwatts-result-tip span {
+.atomic-mass-result-tip span {
   color: rgba(255, 255, 255, 0.9) !important;
   font-size: 0.95rem;
   line-height: 1.5;
@@ -306,11 +348,11 @@
 
 /* KaTeX Formula Styling */
 .math-formula .katex {
-  color: #f59e0b !important;
+  color: #10b981 !important;
 }
 
 .math-formula .katex * {
-  color: #f59e0b !important;
+  color: #10b981 !important;
 }
 
 /* Applications Grid */
@@ -336,7 +378,7 @@
 }
 
 .application-item h4 {
-  color: #f59e0b;
+  color: #10b981;
   font-size: 1.2rem;
   margin: 0 0 1rem 0;
   display: flex;
@@ -352,27 +394,31 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .dbm-milliwatts-calculator-form {
+  .atomic-mass-calculator-form {
     padding: 1.5rem;
   }
 
-  .dbm-milliwatts-input-row {
+  .atomic-mass-input-row {
     grid-template-columns: 1fr;
     gap: 1rem;
   }
 
-  .dbm-milliwatts-calculator-result {
+  .atomic-mass-isotope-group {
+    padding: 1rem;
+  }
+
+  .atomic-mass-calculator-result {
     padding: 1.5rem;
   }
 
-  .dbm-milliwatts-result-item {
+  .atomic-mass-result-item {
     flex-direction: column;
     align-items: flex-start;
     gap: 0.5rem;
   }
 
-  .dbm-milliwatts-breakdown-item,
-  .dbm-milliwatts-summary-item {
+  .atomic-mass-breakdown-item,
+  .atomic-mass-summary-item {
     flex-direction: column;
     align-items: flex-start;
     gap: 0.5rem;
@@ -384,51 +430,58 @@
 }
 
 @media (max-width: 480px) {
-  .dbm-milliwatts-calculator-form {
+  .atomic-mass-calculator-form {
     padding: 1rem;
-    gap: 1rem;
   }
 
-  .dbm-milliwatts-input-field {
+  .atomic-mass-input-field,
+  .atomic-mass-select-field {
     padding: 0.75rem 0.875rem;
     font-size: 0.95rem;
     min-height: 44px;
   }
 
-  .dbm-milliwatts-calculator-result {
+  .atomic-mass-isotope-group {
+    padding: 0.75rem;
+  }
+
+  .atomic-mass-calculator-result {
     padding: 1rem;
   }
 
-  .dbm-milliwatts-result-item {
+  .atomic-mass-result-item {
     padding: 1rem;
   }
 
-  .dbm-milliwatts-result-value {
+  .atomic-mass-result-value {
     font-size: 1rem;
   }
 
-  .dbm-milliwatts-breakdown-item,
-  .dbm-milliwatts-summary-item {
+  .atomic-mass-breakdown-item,
+  .atomic-mass-summary-item {
     padding: 0.5rem 0.75rem;
     font-size: 0.9rem;
   }
 }
 
 /* Focus states for accessibility */
-.dbm-milliwatts-input-field:focus-visible {
-  outline: 2px solid #f59e0b;
+.atomic-mass-input-field:focus-visible,
+.atomic-mass-select-field:focus-visible {
+  outline: 2px solid #10b981;
   outline-offset: 2px;
 }
 
 /* High contrast mode support */
 @media (prefers-contrast: high) {
-  .dbm-milliwatts-input-field {
+  .atomic-mass-input-field,
+  .atomic-mass-select-field {
     border-color: #000;
   }
   
-  .dbm-milliwatts-input-field:focus {
-    border-color: #f59e0b;
-    box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.3);
+  .atomic-mass-input-field:focus,
+  .atomic-mass-select-field:focus {
+    border-color: #10b981;
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.3);
   }
 }
 

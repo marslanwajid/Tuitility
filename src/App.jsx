@@ -54,6 +54,9 @@ import GravityCalculator from './components/science/GravityCalculator'
 import WorkPowerCalculator from './components/science/WorkPowerCalculator'
 import DBmWattsCalculator from './components/science/DBmWattsCalculator'
 import DBmMilliwattsCalculator from './components/science/DBmMilliwattsCalculator'
+import CapacitanceCalculator from './components/science/CapacitanceCalculator'
+import ElectricFluxCalculator from './components/science/ElectricFluxCalculator'
+import AverageAtomicMassCalculator from './components/science/AverageAtomicMassCalculator'
 // import CurrencyCalculator from './components/finance/CurrencyCalculator'
 
 
@@ -82,34 +85,37 @@ const App = () => {
             <Route path="/math/calculators/percent-to-fraction-calculator" element={<PercentToFractionCalculator />} />
             <Route path="/math/calculators/sse-calculator" element={<SSECalculator />} />
         <Route path="/finance" element={<FinanceCalculator />} />
-        <Route path="/finance/calculators/currency-calculator" element={<CurrencyCalculator />} />
-        <Route path="/finance/calculators/loan-calculator" element={<LoanCalculator />} />
-        <Route path="/finance/calculators/mortgage-calculator" element={<MortgageCalculator />} />
-        <Route path="/finance/calculators/amortization-calculator" element={<AmortizationCalculator />} />
-        <Route path="/finance/calculators/house-affordability-calculator" element={<HouseAffordabilityCalculator />} />
-        <Route path="/finance/calculators/compound-interest-calculator" element={<CompoundInterestCalculator />} />
-        <Route path="/finance/calculators/roi-calculator" element={<ROICalculator />} />
-        <Route path="/finance/calculators/business-loan-calculator" element={<BusinessLoanCalculator />} />
-        <Route path="/finance/calculators/credit-card-calculator" element={<CreditCardCalculator />} />
-        <Route path="/finance/calculators/investment-calculator" element={<InvestmentCalculator />} />
-        <Route path="/finance/calculators/tax-calculator" element={<TaxCalculator />} />
-        <Route path="/finance/calculators/retirement-calculator" element={<RetirementCalculator />} />
-        <Route path="/finance/calculators/sales-tax-calculator" element={<SalesTaxCalculator />} />
-        <Route path="/finance/calculators/debt-payoff-calculator" element={<DebtPayoffCalculator />} />
-        <Route path="/finance/calculators/insurance-calculator" element={<InsuranceCalculator />} />
-        <Route path="/finance/calculators/budget-calculator" element={<BudgetCalculator />} />
-        <Route path="/finance/calculators/rental-property-calculator" element={<RentalPropertyCalculator />} />
-        <Route path="/finance/calculators/debt-income-calculator" element={<DebtIncomeCalculator />} />
-        <Route path="/finance/calculators/down-payment-calculator" element={<DownPaymentCalculator />} />
-        <Route path="/finance/calculators/present-value-calculator" element={<PresentValueCalculator />} />
-        <Route path="/finance/calculators/future-value-calculator" element={<FutureValueCalculator />} />
-        <Route path="/science/calculators/wave-speed-calculator" element={<WaveSpeedCalculator />} />
-        <Route path="/science/calculators/gravity-calculator" element={<GravityCalculator />} />
-        <Route path="/science/calculators/work-power-calculator" element={<WorkPowerCalculator />} />
-        <Route path="/science/calculators/dbm-watts-calculator" element={<DBmWattsCalculator />} />
-        <Route path="/science/calculators/dbm-milliwatts-calculator" element={<DBmMilliwattsCalculator />} />
-        
+            <Route path="/finance/calculators/currency-calculator" element={<CurrencyCalculator />} />
+            <Route path="/finance/calculators/loan-calculator" element={<LoanCalculator />} />
+            <Route path="/finance/calculators/mortgage-calculator" element={<MortgageCalculator />} />
+            <Route path="/finance/calculators/amortization-calculator" element={<AmortizationCalculator />} />
+            <Route path="/finance/calculators/house-affordability-calculator" element={<HouseAffordabilityCalculator />} />
+            <Route path="/finance/calculators/compound-interest-calculator" element={<CompoundInterestCalculator />} />
+            <Route path="/finance/calculators/roi-calculator" element={<ROICalculator />} />
+            <Route path="/finance/calculators/business-loan-calculator" element={<BusinessLoanCalculator />} />
+            <Route path="/finance/calculators/credit-card-calculator" element={<CreditCardCalculator />} />
+            <Route path="/finance/calculators/investment-calculator" element={<InvestmentCalculator />} />
+            <Route path="/finance/calculators/tax-calculator" element={<TaxCalculator />} />
+            <Route path="/finance/calculators/retirement-calculator" element={<RetirementCalculator />} />
+            <Route path="/finance/calculators/sales-tax-calculator" element={<SalesTaxCalculator />} />
+            <Route path="/finance/calculators/debt-payoff-calculator" element={<DebtPayoffCalculator />} />
+            <Route path="/finance/calculators/insurance-calculator" element={<InsuranceCalculator />} />
+            <Route path="/finance/calculators/budget-calculator" element={<BudgetCalculator />} />
+            <Route path="/finance/calculators/rental-property-calculator" element={<RentalPropertyCalculator />} />
+            <Route path="/finance/calculators/debt-income-calculator" element={<DebtIncomeCalculator />} />
+            <Route path="/finance/calculators/down-payment-calculator" element={<DownPaymentCalculator />} />
+            <Route path="/finance/calculators/present-value-calculator" element={<PresentValueCalculator />} />
+            <Route path="/finance/calculators/future-value-calculator" element={<FutureValueCalculator />} />
         <Route path="/science" element={<ScienceCalculator />} />
+            <Route path="/science/calculators/wave-speed-calculator" element={<WaveSpeedCalculator />} />
+            <Route path="/science/calculators/gravity-calculator" element={<GravityCalculator />} />
+            <Route path="/science/calculators/work-power-calculator" element={<WorkPowerCalculator />} />
+            <Route path="/science/calculators/dbm-watts-calculator" element={<DBmWattsCalculator />} />
+            <Route path="/science/calculators/dbm-milliwatts-calculator" element={<DBmMilliwattsCalculator />} />
+            <Route path="/science/calculators/capacitance-calculator" element={<CapacitanceCalculator />} />
+            <Route path="/science/calculators/electric-flux-calculator" element={<ElectricFluxCalculator />} />
+            <Route path="/science/calculators/average-atomic-mass-calculator" element={<AverageAtomicMassCalculator />} />
+        
         <Route path="/health" element={<HealthCalculator />} />
         <Route path="/utility-tools" element={<UtilityTools />} />
         <Route path="/knowledge" element={<KnowledgeCalculator />} />

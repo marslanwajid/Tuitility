@@ -41,7 +41,6 @@ const ToolsShowcase = () => {
         { name: 'Gravity Calculator', desc: 'Calculate gravitational force and acceleration between two masses', url: '/science/calculators/gravity-calculator', category: 'Science', icon: 'fas fa-globe' },
         { name: 'Work Power Calculator', desc: 'Calculate work and power using force, distance, angle, and time', url: '/science/calculators/work-power-calculator', category: 'Science', icon: 'fas fa-cogs' },
         { name: 'DBm Watts Calculator', desc: 'Convert between dBm and Watts for power measurements in telecommunications', url: '/science/calculators/dbm-watts-calculator', category: 'Science', icon: 'fas fa-bolt' },
-        { name: 'DBm Milliwatts Calculator', desc: 'Convert between dBm and milliwatts for precise RF power measurements', url: '/science/calculators/dbm-milliwatts-calculator', category: 'Science', icon: 'fas fa-bolt' },
       { name: 'BMI Calculator', desc: 'Calculate your body mass index', url: '/health/calculators/bmi-calculator', category: 'Health', icon: 'fas fa-weight' },
     
     { name: 'QR Code Generator', desc: 'Generate QR codes instantly', url: '/utility-tools/converter-tools/qr-code-generator', category: 'Utility', icon: 'fas fa-qrcode' },

@@ -1,7 +1,7 @@
-/* DBm to Milliwatts Calculator Styles - Individual Classes */
+/* Electric Flux Calculator Styles - Individual Classes */
 
 /* Form Container */
-.dbm-milliwatts-calculator-form {
+.electric-flux-calculator-form {
   background: #ffffff;
   border-radius: 12px;
   padding: 2rem;
@@ -11,7 +11,7 @@
 }
 
 /* Input Row Layout */
-.dbm-milliwatts-input-row {
+.electric-flux-input-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1.5rem;
@@ -19,14 +19,14 @@
 }
 
 /* Input Groups */
-.dbm-milliwatts-input-group {
+.electric-flux-input-group {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 }
 
 /* Labels */
-.dbm-milliwatts-input-label {
+.electric-flux-input-label {
   font-weight: 600;
   color: #374151;
   font-size: 0.95rem;
@@ -34,7 +34,7 @@
 }
 
 /* Input Fields */
-.dbm-milliwatts-input-field {
+.electric-flux-input-field {
   background: #ffffff;
   border: 2px solid #e5e7eb;
   border-radius: 8px;
@@ -45,19 +45,38 @@
   min-height: 44px;
 }
 
-.dbm-milliwatts-input-field:focus {
+.electric-flux-input-field:focus {
   outline: none;
-  border-color: #f59e0b;
-  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.1);
+  border-color:#3b82f6;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
 }
 
-.dbm-milliwatts-input-field::placeholder {
+.electric-flux-input-field::placeholder {
   color: #9ca3af;
   font-style: italic;
 }
 
+/* Select Fields */
+.electric-flux-select-field {
+  background: #ffffff;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 0.875rem 1rem;
+  font-size: 1rem;
+  color: #374151;
+  transition: all 0.2s ease;
+  min-height: 44px;
+  cursor: pointer;
+}
+
+.electric-flux-select-field:focus {
+  outline: none;
+  border-color:#3b82f6;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
 /* Help Text */
-.dbm-milliwatts-input-help {
+.electric-flux-input-help {
   color: #6b7280;
   font-size: 0.85rem;
   margin-top: 0.25rem;
@@ -65,7 +84,7 @@
 }
 
 /* Calculator Actions */
-.dbm-milliwatts-calculator-actions {
+.electric-flux-calculator-actions {
   display: flex;
   justify-content: flex-end;
   gap: 1rem;
@@ -75,7 +94,7 @@
 }
 
 /* Reset Button */
-.dbm-milliwatts-btn-reset {
+.electric-flux-btn-reset {
   background: #f3f4f6;
   color: #374151;
   border: 1px solid #d1d5db;
@@ -92,44 +111,44 @@
   min-width: 120px;
 }
 
-.dbm-milliwatts-btn-reset:hover {
+.electric-flux-btn-reset:hover {
   background: #e5e7eb;
   transform: translateY(-1px);
 }
 
-.dbm-milliwatts-btn-reset i {
+.electric-flux-btn-reset i {
   font-size: 0.9rem;
 }
 
 /* Result Section Styling - More specific to override tool-page.css */
-.dbm-milliwatts-calculator-result {
-    background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%) !important;
+.electric-flux-calculator-result {
+  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%) !important;
   border-radius: 15px;
   padding: 2rem;
   margin-top: 2rem;
   color: white;
-  box-shadow: 0 10px 30px rgba(245, 158, 11, 0.3);
+  box-shadow: 0 10px 30px rgba(239, 68, 68, 0.3);
   animation: resultSlideIn 0.6s ease-out;
   border: none !important;
 }
 
 /* Override any white background that might be coming from other CSS */
-.dbm-milliwatts-calculator-result .dbm-milliwatts-result-main,
-.dbm-milliwatts-calculator-result .dbm-milliwatts-result-breakdown,
-.dbm-milliwatts-calculator-result .dbm-milliwatts-result-summary,
-.dbm-milliwatts-calculator-result .dbm-milliwatts-result-item {
+.electric-flux-calculator-result .electric-flux-result-main,
+.electric-flux-calculator-result .electric-flux-result-breakdown,
+.electric-flux-calculator-result .electric-flux-result-summary,
+.electric-flux-calculator-result .electric-flux-result-item {
   background: transparent !important;
 }
 
 /* Ensure all result content has transparent background */
-.dbm-milliwatts-calculator-result .dbm-milliwatts-result-content,
-.dbm-milliwatts-calculator-result .dbm-milliwatts-breakdown-details,
-.dbm-milliwatts-calculator-result .dbm-milliwatts-summary-details {
+.electric-flux-calculator-result .electric-flux-result-content,
+.electric-flux-calculator-result .electric-flux-breakdown-details,
+.electric-flux-calculator-result .electric-flux-summary-details {
   background: transparent !important;
 }
 
 /* Result Title */
-.dbm-milliwatts-result-title {
+.electric-flux-result-title {
   color: white !important;
   font-size: 1.5rem;
   font-weight: 700;
@@ -139,7 +158,7 @@
 }
 
 /* Result Content */
-.dbm-milliwatts-result-content {
+.electric-flux-result-content {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -147,7 +166,7 @@
 }
 
 /* Main Results */
-.dbm-milliwatts-result-main {
+.electric-flux-result-main {
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -155,7 +174,7 @@
 }
 
 /* Result Items */
-.dbm-milliwatts-result-item {
+.electric-flux-result-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -166,27 +185,27 @@
   backdrop-filter: blur(10px);
 }
 
-.dbm-milliwatts-result-item strong {
+.electric-flux-result-item strong {
   color: rgba(255, 255, 255, 0.9) !important;
   font-weight: 600;
   background: transparent !important;
 }
 
-.dbm-milliwatts-result-value {
+.electric-flux-result-value {
   color: rgba(255, 255, 255, 0.9) !important;
   font-weight: 600;
   font-size: 1.1rem;
   background: transparent !important;
 }
 
-.dbm-milliwatts-result-final {
+.electric-flux-result-final {
   color: #fbbf24 !important;
   font-weight: 700 !important;
   font-size: 1.25rem;
 }
 
 /* Breakdown Section */
-.dbm-milliwatts-result-breakdown {
+.electric-flux-result-breakdown {
   background: rgba(255, 255, 255, 0.1) !important;
   border-radius: 8px;
   padding: 1.5rem;
@@ -194,21 +213,21 @@
   backdrop-filter: blur(10px);
 }
 
-.dbm-milliwatts-result-breakdown h4 {
+.electric-flux-result-breakdown h4 {
   color: white !important;
   font-size: 1.2rem;
   margin: 0 0 1rem 0;
   background: transparent !important;
 }
 
-.dbm-milliwatts-breakdown-details {
+.electric-flux-breakdown-details {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
   background: transparent !important;
 }
 
-.dbm-milliwatts-breakdown-item {
+.electric-flux-breakdown-item {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -219,13 +238,13 @@
   background: transparent !important;
 }
 
-.dbm-milliwatts-breakdown-item span:first-child {
+.electric-flux-breakdown-item span:first-child {
   color: rgba(255, 255, 255, 0.9) !important;
   font-weight: 500;
   background: transparent !important;
 }
 
-.dbm-milliwatts-breakdown-item span:last-child {
+.electric-flux-breakdown-item span:last-child {
   color: rgba(255, 255, 255, 0.9) !important;
   font-weight: 600;
   text-align: right;
@@ -233,7 +252,7 @@
 }
 
 /* Summary Section */
-.dbm-milliwatts-result-summary {
+.electric-flux-result-summary {
   background: rgba(255, 255, 255, 0.1) !important;
   border-radius: 8px;
   padding: 1.5rem;
@@ -241,21 +260,21 @@
   backdrop-filter: blur(10px);
 }
 
-.dbm-milliwatts-result-summary h4 {
+.electric-flux-result-summary h4 {
   color: white !important;
   font-size: 1.2rem;
   margin: 0 0 1rem 0;
   background: transparent !important;
 }
 
-.dbm-milliwatts-summary-details {
+.electric-flux-summary-details {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
   background: transparent !important;
 }
 
-.dbm-milliwatts-summary-item {
+.electric-flux-summary-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -266,20 +285,20 @@
   background: transparent !important;
 }
 
-.dbm-milliwatts-summary-item span:first-child {
+.electric-flux-summary-item span:first-child {
   color: rgba(255, 255, 255, 0.9) !important;
   font-weight: 500;
   background: transparent !important;
 }
 
-.dbm-milliwatts-summary-item span:last-child {
+.electric-flux-summary-item span:last-child {
   color: rgba(255, 255, 255, 0.9) !important;
   font-weight: 600;
   background: transparent !important;
 }
 
 /* Result Tip */
-.dbm-milliwatts-result-tip {
+.electric-flux-result-tip {
   background: rgba(255, 255, 255, 0.1) !important;
   border-radius: 8px;
   padding: 1rem;
@@ -290,14 +309,14 @@
   gap: 0.75rem;
 }
 
-.dbm-milliwatts-result-tip i {
+.electric-flux-result-tip i {
   color: #fbbf24 !important;
   font-size: 1.1rem;
   margin-top: 0.1rem;
   background: transparent !important;
 }
 
-.dbm-milliwatts-result-tip span {
+.electric-flux-result-tip span {
   color: rgba(255, 255, 255, 0.9) !important;
   font-size: 0.95rem;
   line-height: 1.5;
@@ -306,11 +325,11 @@
 
 /* KaTeX Formula Styling */
 .math-formula .katex {
-  color: #f59e0b !important;
+  color: #ef4444 !important;
 }
 
 .math-formula .katex * {
-  color: #f59e0b !important;
+  color: #ef4444 !important;
 }
 
 /* Applications Grid */
@@ -336,7 +355,7 @@
 }
 
 .application-item h4 {
-  color: #f59e0b;
+  color: #ef4444;
   font-size: 1.2rem;
   margin: 0 0 1rem 0;
   display: flex;
@@ -352,27 +371,27 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .dbm-milliwatts-calculator-form {
+  .electric-flux-calculator-form {
     padding: 1.5rem;
   }
 
-  .dbm-milliwatts-input-row {
+  .electric-flux-input-row {
     grid-template-columns: 1fr;
     gap: 1rem;
   }
 
-  .dbm-milliwatts-calculator-result {
+  .electric-flux-calculator-result {
     padding: 1.5rem;
   }
 
-  .dbm-milliwatts-result-item {
+  .electric-flux-result-item {
     flex-direction: column;
     align-items: flex-start;
     gap: 0.5rem;
   }
 
-  .dbm-milliwatts-breakdown-item,
-  .dbm-milliwatts-summary-item {
+  .electric-flux-breakdown-item,
+  .electric-flux-summary-item {
     flex-direction: column;
     align-items: flex-start;
     gap: 0.5rem;
@@ -384,51 +403,55 @@
 }
 
 @media (max-width: 480px) {
-  .dbm-milliwatts-calculator-form {
+  .electric-flux-calculator-form {
     padding: 1rem;
     gap: 1rem;
   }
 
-  .dbm-milliwatts-input-field {
+  .electric-flux-input-field,
+  .electric-flux-select-field {
     padding: 0.75rem 0.875rem;
     font-size: 0.95rem;
     min-height: 44px;
   }
 
-  .dbm-milliwatts-calculator-result {
+  .electric-flux-calculator-result {
     padding: 1rem;
   }
 
-  .dbm-milliwatts-result-item {
+  .electric-flux-result-item {
     padding: 1rem;
   }
 
-  .dbm-milliwatts-result-value {
+  .electric-flux-result-value {
     font-size: 1rem;
   }
 
-  .dbm-milliwatts-breakdown-item,
-  .dbm-milliwatts-summary-item {
+  .electric-flux-breakdown-item,
+  .electric-flux-summary-item {
     padding: 0.5rem 0.75rem;
     font-size: 0.9rem;
   }
 }
 
 /* Focus states for accessibility */
-.dbm-milliwatts-input-field:focus-visible {
-  outline: 2px solid #f59e0b;
+.electric-flux-input-field:focus-visible,
+.electric-flux-select-field:focus-visible {
+  /* outline: 2px solid #ef4444; */
   outline-offset: 2px;
 }
 
 /* High contrast mode support */
 @media (prefers-contrast: high) {
-  .dbm-milliwatts-input-field {
+  .electric-flux-input-field,
+  .electric-flux-select-field {
     border-color: #000;
   }
   
-  .dbm-milliwatts-input-field:focus {
-    border-color: #f59e0b;
-    box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.3);
+  .electric-flux-input-field:focus,
+  .electric-flux-select-field:focus {
+    /* border-color: #ef4444; */
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.3);
   }
 }
 

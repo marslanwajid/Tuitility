@@ -1,326 +1,248 @@
-/**
- * DBm to Milliwatts Calculator
- * Handles conversions between dBm and milliwatts with detailed step-by-step calculations
- */
-
 class DBmMilliwattsCalculator {
   constructor() {
-    this.initializeCalculator();
+    this.referencePower = 1; // 1 mW reference for dBm
   }
 
-  initializeCalculator() {
-    console.log('DBm to Milliwatts Calculator initialized');
-  }
+  validateInputs(dbm, milliwatts) {
+    const errors = [];
 
-  /**
-   * Validate input data
-   * @param {Object} data - Input data object
-   * @returns {Object} Validated data
-   */
-  validateInputs(data) {
-    const { conversionType, inputValue } = data;
-
-    if (!conversionType) {
-      throw new Error('Please select a conversion type.');
+    // Check if at least one input is provided
+    if ((!dbm || dbm === '') && (!milliwatts || milliwatts === '')) {
+      errors.push('Please enter either a DBm value or a milliwatts value.');
+      return errors;
     }
 
-    if (!inputValue || inputValue === '') {
-      throw new Error('Please enter a value to convert.');
-    }
-
-    const numericValue = parseFloat(inputValue);
-    if (isNaN(numericValue)) {
-      throw new Error('Please enter a valid number.');
-    }
-
-    if (conversionType === 'milliwatts-to-dbm' && numericValue <= 0) {
-      throw new Error('Milliwatts value must be greater than 0.');
-    }
-
-    return {
-      conversionType,
-      inputValue: numericValue
-    };
-  }
-
-  /**
-   * Convert dBm to milliwatts
-   * @param {number} dbm - Power in dBm
-   * @returns {Object} Calculation result with steps
-   */
-  dbmToMilliwatts(dbm) {
-    const step1 = dbm / 10;
-    const step2 = Math.pow(10, step1);
-    const result = step2;
-
-    return {
-      result: result,
-      steps: [
-        { description: 'Divide dBm by 10', value: step1 },
-        { description: 'Calculate 10 raised to power', value: step2 }
-      ]
-    };
-  }
-
-  /**
-   * Convert milliwatts to dBm
-   * @param {number} milliwatts - Power in milliwatts
-   * @returns {Object} Calculation result with steps
-   */
-  milliwattsToDbm(milliwatts) {
-    const step1 = Math.log10(milliwatts);
-    const step2 = 10 * step1;
-    const result = step2;
-
-    return {
-      result: result,
-      steps: [
-        { description: 'Calculate log₁₀ of milliwatts', value: step1 },
-        { description: 'Multiply by 10', value: step2 }
-      ]
-    };
-  }
-
-  /**
-   * Format number for display
-   * @param {number} num - Number to format
-   * @returns {string} Formatted number
-   */
-  formatNumber(num) {
-    if (num >= 1000000) {
-      return num.toExponential(4);
-    } else if (num >= 1000) {
-      return num.toLocaleString('en-US', { maximumFractionDigits: 2 });
-    } else if (num >= 1) {
-      return num.toFixed(4);
-    } else {
-      return num.toExponential(4);
-    }
-  }
-
-  /**
-   * Get example calculation
-   * @param {string} conversionType - Type of conversion
-   * @returns {Object} Example data
-   */
-  getExample(conversionType) {
-    if (conversionType === 'dbm-to-milliwatts') {
-      return {
-        inputValue: 20,
-        description: 'Convert 20 dBm to milliwatts'
-      };
-    } else {
-      return {
-        inputValue: 100,
-        description: 'Convert 100 mW to dBm'
-      };
-    }
-  }
-
-  /**
-   * Perform the main calculation
-   * @param {Object} data - Input data
-   * @returns {Object} Calculation result
-   */
-  performCalculation(data) {
-    try {
-      const validatedData = this.validateInputs(data);
-      let calculationResult;
-      let formattedResult;
-      let calculationSteps;
-
-      if (validatedData.conversionType === 'dbm-to-milliwatts') {
-        calculationResult = this.dbmToMilliwatts(validatedData.inputValue);
-        formattedResult = `${validatedData.inputValue} dBm = ${this.formatNumber(calculationResult.result)} mW`;
-        
-        calculationSteps = [
-          {
-            title: 'Given Values',
-            content: `
-              <ul>
-                <li>Input: ${validatedData.inputValue} dBm</li>
-                <li>Conversion Type: dBm to Milliwatts</li>
-              </ul>
-            `
-          },
-          {
-            title: 'Apply Formula',
-            content: `
-              <ul>
-                <li>Formula: <span class="math-formula">P(mW) = 10^{(\\frac{P(dBm)}{10})}</span></li>
-                <li>Substitution: <span class="math-formula">P(mW) = 10^{(\\frac{${validatedData.inputValue}}{10})}</span></li>
-              </ul>
-            `
-          },
-          {
-            title: 'Calculate Step by Step',
-            content: `
-              <ul>
-                <li>Step 1: <span class="math-formula">\\frac{${validatedData.inputValue}}{10} = ${calculationResult.steps[0].value.toFixed(4)}</span></li>
-                <li>Step 2: <span class="math-formula">10^{${calculationResult.steps[0].value.toFixed(4)}} = ${this.formatNumber(calculationResult.result)}</span> mW</li>
-              </ul>
-            `
-          },
-          {
-            title: 'Final Result',
-            content: `
-              <ul>
-                <li>Power = <span class="math-formula">${this.formatNumber(calculationResult.result)}</span> mW</li>
-              </ul>
-            `
-          }
-        ];
-      } else {
-        calculationResult = this.milliwattsToDbm(validatedData.inputValue);
-        formattedResult = `${this.formatNumber(validatedData.inputValue)} mW = ${calculationResult.result.toFixed(2)} dBm`;
-        
-        calculationSteps = [
-          {
-            title: 'Given Values',
-            content: `
-              <ul>
-                <li>Input: ${this.formatNumber(validatedData.inputValue)} mW</li>
-                <li>Conversion Type: Milliwatts to dBm</li>
-              </ul>
-            `
-          },
-          {
-            title: 'Apply Formula',
-            content: `
-              <ul>
-                <li>Formula: <span class="math-formula">P(dBm) = 10 \\times \\log_{10}(P(mW))</span></li>
-                <li>Substitution: <span class="math-formula">P(dBm) = 10 \\times \\log_{10}(${this.formatNumber(validatedData.inputValue)})</span></li>
-              </ul>
-            `
-          },
-          {
-            title: 'Calculate Step by Step',
-            content: `
-              <ul>
-                <li>Step 1: <span class="math-formula">\\log_{10}(${this.formatNumber(validatedData.inputValue)}) = ${calculationResult.steps[0].value.toFixed(4)}</span></li>
-                <li>Step 2: <span class="math-formula">10 \\times ${calculationResult.steps[0].value.toFixed(4)} = ${calculationResult.result.toFixed(2)}</span> dBm</li>
-              </ul>
-            `
-          },
-          {
-            title: 'Final Result',
-            content: `
-              <ul>
-                <li>Power = <span class="math-formula">${calculationResult.result.toFixed(2)}</span> dBm</li>
-              </ul>
-            `
-          }
-        ];
+    // Validate DBm input if provided
+    if (dbm && dbm !== '') {
+      const dbmNum = parseFloat(dbm);
+      if (isNaN(dbmNum)) {
+        errors.push('Please enter a valid DBm value.');
+      } else if (dbmNum < -200 || dbmNum > 200) {
+        errors.push('DBm value should be between -200 and 200 dBm.');
       }
-      
-      const result = {
-        formattedResult: formattedResult,
-        rawResult: calculationResult.result,
-        calculationSteps: calculationSteps,
-        inputData: validatedData
-      };
-
-      return result;
-
-    } catch (error) {
-      throw new Error(error.message);
     }
-  }
 
-  /**
-   * Get calculation steps for display
-   * @param {Object} data - Input data
-   * @returns {Array} Array of calculation steps
-   */
-  getCalculationSteps(data) {
-    try {
-      const validatedData = this.validateInputs(data);
-      let calculationResult;
-
-      if (validatedData.conversionType === 'dbm-to-milliwatts') {
-        calculationResult = this.dbmToMilliwatts(validatedData.inputValue);
-      } else {
-        calculationResult = this.milliwattsToDbm(validatedData.inputValue);
+    // Validate milliwatts input if provided
+    if (milliwatts && milliwatts !== '') {
+      const milliwattsNum = parseFloat(milliwatts);
+      if (isNaN(milliwattsNum)) {
+        errors.push('Please enter a valid milliwatts value.');
+      } else if (milliwattsNum <= 0) {
+        errors.push('Milliwatts value must be greater than 0.');
+      } else if (milliwattsNum > 1000000) {
+        errors.push('Milliwatts value should be less than 1,000,000 mW.');
       }
-
-      return calculationResult.steps;
-    } catch (error) {
-      throw new Error(error.message);
     }
+
+    return errors;
   }
 
-  /**
-   * Advanced RF calculations
-   * @param {number} power - Power value
-   * @param {string} unit - Unit of power (dBm or mW)
-   * @returns {Object} Advanced calculations
-   */
-  getAdvancedCalculations(power, unit) {
-    let powerInDbm, powerInMw;
+  calculateDBmToMilliwatts(dbm, milliwatts) {
+    let resultDBm, resultMilliwatts;
 
-    if (unit === 'dBm') {
-      powerInDbm = power;
-      powerInMw = Math.pow(10, power / 10);
-    } else {
-      powerInMw = power;
-      powerInDbm = 10 * Math.log10(power);
+    // If DBm is provided, calculate milliwatts
+    if (dbm && dbm !== '') {
+      resultDBm = parseFloat(dbm);
+      resultMilliwatts = Math.pow(10, resultDBm / 10);
+    }
+    // If milliwatts is provided, calculate DBm
+    else if (milliwatts && milliwatts !== '') {
+      resultMilliwatts = parseFloat(milliwatts);
+      resultDBm = 10 * Math.log10(resultMilliwatts);
     }
 
-    // Convert to other units
-    const powerInWatts = powerInMw / 1000;
-    const powerInMicroWatts = powerInMw * 1000;
+    // Calculate watts
+    const watts = resultMilliwatts / 1000;
+
+    // Determine power level category
+    const powerLevel = this.categorizePowerLevel(resultDBm);
+    const typicalUse = this.getTypicalUse(resultDBm);
+    const signalStrength = this.getSignalStrength(resultDBm);
+
+    // Create calculation steps
+    const calculationSteps = this.createCalculationSteps(resultDBm, resultMilliwatts);
 
     return {
-      dBm: powerInDbm.toFixed(2),
-      mW: this.formatNumber(powerInMw),
-      W: this.formatNumber(powerInWatts),
-      μW: this.formatNumber(powerInMicroWatts)
+      dbm: resultDBm,
+      milliwatts: resultMilliwatts,
+      watts: watts,
+      powerLevel: powerLevel,
+      typicalUse: typicalUse,
+      signalStrength: signalStrength,
+      calculationSteps: calculationSteps
     };
   }
 
-  /**
-   * Calculate power gain/loss
-   * @param {number} inputPower - Input power
-   * @param {number} outputPower - Output power
-   * @param {string} unit - Unit of power
-   * @returns {Object} Gain/loss calculation
-   */
-  calculatePowerGain(inputPower, outputPower, unit) {
-    let gain;
+  categorizePowerLevel(dbm) {
+    if (dbm >= 50) return 'Very High Power';
+    if (dbm >= 30) return 'High Power';
+    if (dbm >= 10) return 'Medium Power';
+    if (dbm >= 0) return 'Low Power';
+    if (dbm >= -30) return 'Very Low Power';
+    if (dbm >= -60) return 'Micro Power';
+    return 'Nano Power';
+  }
 
-    if (unit === 'dBm') {
-      gain = outputPower - inputPower;
+  getTypicalUse(dbm) {
+    if (dbm >= 50) return 'High-power RF transmitters, radar systems';
+    if (dbm >= 30) return 'Cell towers, broadcast transmitters';
+    if (dbm >= 20) return 'WiFi routers, wireless access points';
+    if (dbm >= 10) return 'Bluetooth devices, small transmitters';
+    if (dbm >= 0) return 'Portable devices, sensors';
+    if (dbm >= -30) return 'Received signals, low-power devices';
+    if (dbm >= -60) return 'Weak received signals, noise floor';
+    return 'Very weak signals, background noise';
+  }
+
+  getSignalStrength(dbm) {
+    if (dbm >= 30) return 'Excellent';
+    if (dbm >= 20) return 'Very Good';
+    if (dbm >= 10) return 'Good';
+    if (dbm >= 0) return 'Fair';
+    if (dbm >= -20) return 'Poor';
+    if (dbm >= -40) return 'Very Poor';
+    if (dbm >= -60) return 'Weak';
+    return 'Very Weak';
+  }
+
+  createCalculationSteps(dbm, milliwatts) {
+    const steps = [];
+
+    // Step 1: Given values
+    steps.push({
+      title: 'Given Values',
+      content: `<ul><li>Power in dBm: ${this.formatNumber(dbm, 2)} dBm</li><li>Power in milliwatts: ${this.formatNumber(milliwatts, 4)} mW</li></ul>`
+    });
+
+    // Step 2: Formula application
+    if (dbm !== undefined) {
+      steps.push({
+        title: 'DBm to Milliwatts Formula',
+        content: `<ul><li>Formula: <span class="math-formula">P(mW) = 10^{(\\text{dBm} / 10)}</span></li><li>Substitution: <span class="math-formula">P(mW) = 10^{(${this.formatNumber(dbm, 2)} / 10)}</span></li></ul>`
+      });
+
+      steps.push({
+        title: 'Calculation Steps',
+        content: `<ul><li>Divide dBm by 10: <span class="math-formula">${this.formatNumber(dbm, 2)} ÷ 10 = ${this.formatNumber(dbm / 10, 4)}</span></li><li>Calculate 10 raised to power: <span class="math-formula">10^{${this.formatNumber(dbm / 10, 4)}} = ${this.formatNumber(milliwatts, 4)}</span></li></ul>`
+      });
     } else {
-      const inputDbm = 10 * Math.log10(inputPower);
-      const outputDbm = 10 * Math.log10(outputPower);
-      gain = outputDbm - inputDbm;
+      steps.push({
+        title: 'Milliwatts to DBm Formula',
+        content: `<ul><li>Formula: <span class="math-formula">\\text{dBm} = 10 \\times \\log_{10}(P(mW))</span></li><li>Substitution: <span class="math-formula">\\text{dBm} = 10 \\times \\log_{10}(${this.formatNumber(milliwatts, 4)})</span></li></ul>`
+      });
+
+      steps.push({
+        title: 'Calculation Steps',
+        content: `<ul><li>Calculate log₁₀: <span class="math-formula">\\log_{10}(${this.formatNumber(milliwatts, 4)}) = ${this.formatNumber(Math.log10(milliwatts), 4)}</span></li><li>Multiply by 10: <span class="math-formula">10 \\times ${this.formatNumber(Math.log10(milliwatts), 4)} = ${this.formatNumber(dbm, 2)}</span></li></ul>`
+      });
     }
 
+    // Step 3: Final results
+    steps.push({
+      title: 'Final Results',
+      content: `<ul><li>Power in dBm: <span class="math-formula">${this.formatNumber(dbm, 2)} \\text{ dBm}</span></li><li>Power in milliwatts: <span class="math-formula">${this.formatNumber(milliwatts, 4)} \\text{ mW}</span></li><li>Power in watts: <span class="math-formula">${this.formatNumber(milliwatts / 1000, 6)} \\text{ W}</span></li></ul>`
+    });
+
+    return steps;
+  }
+
+  formatNumber(value, decimals = 4) {
+    if (value === undefined || value === null || isNaN(value)) {
+      return '0';
+    }
+    return parseFloat(value).toFixed(decimals);
+  }
+
+  formatCurrency(amount) {
+    return new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'USD',
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2
+    }).format(amount);
+  }
+
+  formatPercentage(value) {
+    return `${parseFloat(value).toFixed(2)}%`;
+  }
+
+  // Utility method to convert any power unit to dBm
+  convertToDBm(power, unit) {
+    let milliwatts;
+    
+    switch (unit.toLowerCase()) {
+      case 'mw':
+      case 'milliwatts':
+        milliwatts = power;
+        break;
+      case 'w':
+      case 'watts':
+        milliwatts = power * 1000;
+        break;
+      case 'uw':
+      case 'microwatts':
+        milliwatts = power / 1000;
+        break;
+      case 'nw':
+      case 'nanowatts':
+        milliwatts = power / 1000000;
+        break;
+      default:
+        throw new Error('Unsupported power unit');
+    }
+    
+    return 10 * Math.log10(milliwatts);
+  }
+
+  // Utility method to convert dBm to any power unit
+  convertFromDBm(dbm, unit) {
+    const milliwatts = Math.pow(10, dbm / 10);
+    
+    switch (unit.toLowerCase()) {
+      case 'mw':
+      case 'milliwatts':
+        return milliwatts;
+      case 'w':
+      case 'watts':
+        return milliwatts / 1000;
+      case 'uw':
+      case 'microwatts':
+        return milliwatts * 1000;
+      case 'nw':
+      case 'nanowatts':
+        return milliwatts * 1000000;
+      default:
+        throw new Error('Unsupported power unit');
+    }
+  }
+
+  // Get power level reference information
+  getPowerLevelReference() {
     return {
-      gain: gain.toFixed(2),
-      gainType: gain > 0 ? 'Gain' : 'Loss',
-      magnitude: Math.abs(gain).toFixed(2)
+      '0 dBm': '1 mW (reference point)',
+      '10 dBm': '10 mW',
+      '20 dBm': '100 mW',
+      '30 dBm': '1 W',
+      '-10 dBm': '0.1 mW',
+      '-20 dBm': '0.01 mW',
+      '-30 dBm': '0.001 mW (1 μW)',
+      '-60 dBm': '0.000001 mW (1 nW)'
     };
   }
 
-  /**
-   * Calculate effective radiated power (ERP)
-   * @param {number} transmitterPower - Transmitter power in dBm
-   * @param {number} antennaGain - Antenna gain in dBi
-   * @param {number} cableLoss - Cable loss in dB
-   * @returns {Object} ERP calculation
-   */
-  calculateERP(transmitterPower, antennaGain, cableLoss) {
-    const erp = transmitterPower + antennaGain - cableLoss;
-    const erpMw = Math.pow(10, erp / 10);
-
+  // Get typical power levels for different applications
+  getTypicalPowerLevels() {
     return {
-      erp: erp.toFixed(2),
-      erpMw: this.formatNumber(erpMw),
-      erpWatts: this.formatNumber(erpMw / 1000)
+      'WiFi Router': '15-20 dBm',
+      'Bluetooth Device': '0-10 dBm',
+      'Cell Phone (transmit)': '20-30 dBm',
+      'Cell Phone (receive)': '-50 to -100 dBm',
+      'FM Radio Station': '50-100 dBm',
+      'Satellite TV': '-60 to -80 dBm',
+      'GPS Signal': '-130 to -150 dBm',
+      'Noise Floor': '-90 to -100 dBm'
     };
   }
 }
 
-// Export for use in React component
-export { DBmMilliwattsCalculator };
+export default DBmMilliwattsCalculator;

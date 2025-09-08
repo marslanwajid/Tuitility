@@ -5,31 +5,27 @@ import ContentSection from '../tool/ContentSection'
 import FAQSection from '../tool/FAQSection'
 import TableOfContents from '../tool/TableOfContents'
 import FeedbackForm from '../tool/FeedbackForm'
-import 'katex/dist/katex.min.css';
-import '../../assets/css/science/dbm-milliwatts-calculator.css';
+import DBmMilliwattsCalculatorJS from '../../assets/js/science/dbm-milliwatts-calculator.js'
+import '../../assets/css/science/dbm-milliwatts-calculator.css'
+import 'katex/dist/katex.min.css'
 
 const DBmMilliwattsCalculator = () => {
   const [formData, setFormData] = useState({
-    conversionType: 'dbm-to-milliwatts',
-    inputValue: ''
+    dbm: '',
+    milliwatts: ''
   });
   const [result, setResult] = useState(null);
   const [error, setError] = useState('');
   const [calculator, setCalculator] = useState(null);
 
-  // Initialize calculator
+  // Initialize calculator on component mount
   useEffect(() => {
-    const initializeCalculator = async () => {
-      try {
-        const { DBmMilliwattsCalculatorJS } = await import('../../assets/js/science/dbm-milliwatts-calculator.js');
-        const calc = new DBmMilliwattsCalculatorJS();
-        setCalculator(calc);
-      } catch (error) {
-        console.error('Error initializing DBm Milliwatts calculator:', error);
-      }
-    };
-
-    initializeCalculator();
+    try {
+      const dbmMilliwattsCalc = new DBmMilliwattsCalculatorJS();
+      setCalculator(dbmMilliwattsCalc);
+    } catch (error) {
+      console.error('Error initializing DBm to Milliwatts calculator:', error);
+    }
   }, []);
 
   // Initialize KaTeX for mathematical formulas
@@ -56,7 +52,7 @@ const DBmMilliwattsCalculator = () => {
       }
     };
 
-    // Small delay to ensure DOM is updated
+    // Add a small delay to ensure DOM is updated
     setTimeout(() => {
       renderKaTeX();
     }, 100);
@@ -65,309 +61,469 @@ const DBmMilliwattsCalculator = () => {
   // Tool data
   const toolData = {
     name: 'DBm to Milliwatts Calculator',
-    description: 'Convert between dBm and milliwatts for precise power measurements in telecommunications and electronics.',
-    icon: 'fas fa-bolt',
+    description: 'Convert between dBm (decibel-milliwatts) and milliwatts with precise calculations. Essential for RF engineering, telecommunications, and signal analysis.',
+    icon: 'fas fa-broadcast-tower',
     category: 'Science',
     breadcrumb: ['Science', 'Calculators', 'DBm to Milliwatts Calculator']
   };
 
   // Categories for sidebar
   const categories = [
-    { name: 'Science', icon: 'fas fa-flask', link: '/science' },
-    { name: 'Math', icon: 'fas fa-calculator', link: '/math' },
-    { name: 'Finance', icon: 'fas fa-dollar-sign', link: '/finance' }
+    { name: 'Math', url: '/math', icon: 'fas fa-calculator' },
+    { name: 'Finance', url: '/finance', icon: 'fas fa-dollar-sign' },
+    { name: 'Health', url: '/health', icon: 'fas fa-heartbeat' },
+    { name: 'Science', url: '/science', icon: 'fas fa-flask' },
+    { name: 'Utility', url: '/utility', icon: 'fas fa-wrench' },
+    { name: 'Knowledge', url: '/knowledge', icon: 'fas fa-book' }
   ];
 
-  // Related tools
+  // Related tools for sidebar
   const relatedTools = [
-    { name: 'DBm Watts Calculator', icon: 'fas fa-bolt', link: '/science/calculators/dbm-watts-calculator' },
-    { name: 'Work Power Calculator', icon: 'fas fa-cogs', link: '/science/calculators/work-power-calculator' },
-    { name: 'Gravity Calculator', icon: 'fas fa-globe', link: '/science/calculators/gravity-calculator' },
-    { name: 'Wave Speed Calculator', icon: 'fas fa-wave-square', link: '/science/calculators/wave-speed-calculator' }
+    { name: 'DBm Watts Calculator', url: '/science/calculators/dbm-watts-calculator', icon: 'fas fa-bolt' },
+    { name: 'Wave Speed Calculator', url: '/science/calculators/wave-speed-calculator', icon: 'fas fa-wave-square' },
+    { name: 'Gravity Calculator', url: '/science/calculators/gravity-calculator', icon: 'fas fa-globe' },
+    { name: 'Work Power Calculator', url: '/science/calculators/work-power-calculator', icon: 'fas fa-cogs' },
+    { name: 'Capacitance Calculator', url: '/science/calculators/capacitance-calculator', icon: 'fas fa-microchip' }
   ];
 
   // Table of contents
   const tableOfContents = [
     { id: 'introduction', title: 'Introduction' },
-    { id: 'what-is-dbm', title: 'What is dBm?' },
-    { id: 'what-are-milliwatts', title: 'What are Milliwatts?' },
-    { id: 'formulas', title: 'Mathematical Formulas' },
-    { id: 'applications', title: 'Applications' },
+    { id: 'what-is-dbm', title: 'What is DBm?' },
+    { id: 'how-to-use', title: 'How to Use Calculator' },
+    { id: 'formulas', title: 'Formulas & Calculations' },
     { id: 'examples', title: 'Examples' },
-    { id: 'faq', title: 'FAQ' }
+    { id: 'applications', title: 'Applications' },
+    { id: 'significance', title: 'Significance' },
+    { id: 'functionality', title: 'Functionality' },
+    { id: 'faqs', title: 'FAQs' }
   ];
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
+  const handleInputChange = (field, value) => {
     setFormData(prev => ({
       ...prev,
-      [name]: value
+      [field]: value
     }));
     setError('');
-    setResult(null);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (!calculator) return;
+  const validateInputs = () => {
+    if (!calculator) return false;
+    
+    try {
+      const errors = calculator.validateInputs(
+        formData.dbm,
+        formData.milliwatts
+      );
+      
+      if (errors.length > 0) {
+        setError(errors[0]);
+        return false;
+      }
+      return true;
+    } catch (error) {
+      setError('Validation error occurred. Please check your inputs.');
+      return false;
+    }
+  };
+
+  const calculateDBmToMilliwatts = () => {
+    if (!validateInputs()) return;
 
     try {
-      const calculationResult = calculator.performCalculation(formData);
-      setResult(calculationResult);
+      const { dbm, milliwatts } = formData;
+
+      // Use calculation from JS file
+      const result = calculator.calculateDBmToMilliwatts(
+        parseFloat(dbm),
+        parseFloat(milliwatts)
+      );
+
+      setResult(result);
       setError('');
-    } catch (err) {
-      setError(err.message);
+    } catch (error) {
+      console.error('Calculation error:', error);
+      setError('An error occurred during calculation. Please check your inputs and try again.');
       setResult(null);
     }
   };
 
   const handleReset = () => {
     setFormData({
-      conversionType: 'dbm-to-milliwatts',
-      inputValue: ''
+      dbm: '',
+      milliwatts: ''
     });
     setResult(null);
     setError('');
   };
 
+  // Format numbers using the JS utility function
+  const formatNumber = (value, decimals = 4) => {
+    if (calculator && calculator.formatNumber) {
+      return calculator.formatNumber(value, decimals);
+    }
+    // Fallback formatting
+    return parseFloat(value).toFixed(decimals);
+  };
+
   return (
-    <ToolPageLayout
-      toolData={toolData}
+    <ToolPageLayout 
+      toolData={toolData} 
+      tableOfContents={tableOfContents}
       categories={categories}
       relatedTools={relatedTools}
-      tableOfContents={tableOfContents}
     >
-      <CalculatorSection
+      <CalculatorSection 
         title="DBm to Milliwatts Calculator"
-        onCalculate={handleSubmit}
+        onCalculate={calculateDBmToMilliwatts}
+        calculateButtonText="Calculate Conversion"
+        error={error}
+        result={null}
       >
-        <form className="dbm-milliwatts-calculator-form" onSubmit={handleSubmit}>
-          <div className="dbm-milliwatts-input-group">
-            <label htmlFor="conversionType" className="dbm-milliwatts-label">
-              Conversion Type
-            </label>
-            <select
-              id="conversionType"
-              name="conversionType"
-              value={formData.conversionType}
-              onChange={handleInputChange}
-              className="dbm-milliwatts-select-field"
-            >
-              <option value="dbm-to-milliwatts">dBm to Milliwatts</option>
-              <option value="milliwatts-to-dbm">Milliwatts to dBm</option>
-            </select>
+        <div className="dbm-milliwatts-calculator-form">
+          <div className="dbm-milliwatts-input-row">
+            <div className="dbm-milliwatts-input-group">
+              <label htmlFor="dbm-milliwatts-dbm" className="dbm-milliwatts-input-label">
+                DBm (decibel-milliwatts):
+              </label>
+              <input
+                type="number"
+                id="dbm-milliwatts-dbm"
+                className="dbm-milliwatts-input-field"
+                value={formData.dbm}
+                onChange={(e) => handleInputChange('dbm', e.target.value)}
+                placeholder="e.g., 20"
+                step="0.1"
+              />
+              <small className="dbm-milliwatts-input-help">
+                Power level in dBm
+              </small>
+            </div>
+
+            <div className="dbm-milliwatts-input-group">
+              <label htmlFor="dbm-milliwatts-milliwatts" className="dbm-milliwatts-input-label">
+                Milliwatts (mW):
+              </label>
+              <input
+                type="number"
+                id="dbm-milliwatts-milliwatts"
+                className="dbm-milliwatts-input-field"
+                value={formData.milliwatts}
+                onChange={(e) => handleInputChange('milliwatts', e.target.value)}
+                placeholder="e.g., 100"
+                min="0"
+                step="0.0001"
+              />
+              <small className="dbm-milliwatts-input-help">
+                Power level in milliwatts
+              </small>
+            </div>
           </div>
 
-          <div className="dbm-milliwatts-input-group">
-            <label htmlFor="inputValue" className="dbm-milliwatts-label">
-              {formData.conversionType === 'dbm-to-milliwatts' ? 'Power (dBm)' : 'Power (mW)'}
-            </label>
-            <input
-              type="number"
-              id="inputValue"
-              name="inputValue"
-              value={formData.inputValue}
-              onChange={handleInputChange}
-              className="dbm-milliwatts-input-field"
-              placeholder={formData.conversionType === 'dbm-to-milliwatts' ? 'Enter dBm value' : 'Enter milliwatts value'}
-              step="any"
-              required
-            />
-          </div>
-
-          <div className="dbm-milliwatts-actions">
-            <button type="button" onClick={handleReset} className="dbm-milliwatts-btn-reset">
-              <i className="fas fa-undo"></i> Reset
+          <div className="dbm-milliwatts-calculator-actions">
+            <button type="button" className="dbm-milliwatts-btn-reset" onClick={handleReset}>
+              <i className="fas fa-redo"></i>
+              Reset
             </button>
           </div>
-        </form>
+        </div>
 
-        {error && (
-          <div className="dbm-milliwatts-error">
-            <i className="fas fa-exclamation-triangle"></i>
-            {error}
-          </div>
-        )}
-
+        {/* Custom Results Section */}
         {result && (
-          <div className="dbm-milliwatts-result">
-            <div className="dbm-milliwatts-result-header">
-              <h4>Result</h4>
-              <p className="dbm-milliwatts-result-value">{result.formattedResult}</p>
-            </div>
-            
-            {result.calculationSteps && (
-              <div className="dbm-milliwatts-calculation-steps">
-                <h4>Calculation Steps</h4>
-                <div className="dbm-milliwatts-steps-content">
+          <div className="dbm-milliwatts-calculator-result">
+            <h3 className="dbm-milliwatts-result-title">DBm to Milliwatts Conversion Results</h3>
+            <div className="dbm-milliwatts-result-content">
+              <div className="dbm-milliwatts-result-main">
+                <div className="dbm-milliwatts-result-item">
+                  <strong>DBm Value:</strong>
+                  <span className="dbm-milliwatts-result-value">
+                    {formatNumber(result.dbm, 2)} dBm
+                  </span>
+                </div>
+                <div className="dbm-milliwatts-result-item">
+                  <strong>Milliwatts Value:</strong>
+                  <span className="dbm-milliwatts-result-value dbm-milliwatts-result-final">
+                    {formatNumber(result.milliwatts, 4)} mW
+                  </span>
+                </div>
+                <div className="dbm-milliwatts-result-item">
+                  <strong>Watts Value:</strong>
+                  <span className="dbm-milliwatts-result-value">
+                    {formatNumber(result.watts, 6)} W
+                  </span>
+                </div>
+              </div>
+
+              <div className="dbm-milliwatts-result-breakdown">
+                <h4>Calculation Process</h4>
+                <div className="dbm-milliwatts-breakdown-details">
                   {result.calculationSteps.map((step, index) => (
-                    <div key={index} className="dbm-milliwatts-step">
-                      <h5>{step.title}</h5>
-                      {step.content && (
-                        <div 
-                          className="dbm-milliwatts-step-content"
-                          dangerouslySetInnerHTML={{ __html: step.content }}
-                        />
-                      )}
+                    <div key={index} className="dbm-milliwatts-breakdown-item">
+                      <span>{step.title}:</span>
+                      <span dangerouslySetInnerHTML={{ __html: step.content }}></span>
                     </div>
                   ))}
                 </div>
               </div>
-            )}
+
+              <div className="dbm-milliwatts-result-summary">
+                <h4>Power Level Analysis</h4>
+                <div className="dbm-milliwatts-summary-details">
+                  <div className="dbm-milliwatts-summary-item">
+                    <span>Power Level:</span>
+                    <span>{result.powerLevel}</span>
+                  </div>
+                  <div className="dbm-milliwatts-summary-item">
+                    <span>Typical Use:</span>
+                    <span>{result.typicalUse}</span>
+                  </div>
+                  <div className="dbm-milliwatts-summary-item">
+                    <span>Signal Strength:</span>
+                    <span>{result.signalStrength}</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="dbm-milliwatts-result-tip">
+                <i className="fas fa-lightbulb"></i>
+                <span>💡 Tip: dBm is a logarithmic scale where 0 dBm = 1 mW. Positive dBm values represent power greater than 1 mW, while negative values represent power less than 1 mW.</span>
+              </div>
+            </div>
           </div>
         )}
       </CalculatorSection>
 
+      {/* TOC and Feedback Section - After Calculator, Before Content */}
+      <div className="tool-bottom-section">
+        <TableOfContents items={tableOfContents} />
+        <FeedbackForm toolName={toolData.name} />
+      </div>
+
+      {/* Content Sections */}
       <ContentSection id="introduction" title="Introduction">
         <p>
-          The DBm to Milliwatts Calculator is an essential tool for converting between dBm (decibels relative to milliwatts) 
-          and milliwatts in telecommunications, electronics, and RF engineering. This calculator provides precise conversions 
-          for power measurements in signal processing and communication systems.
+          The DBm to Milliwatts Calculator is an essential tool for RF engineers, telecommunications professionals, 
+          and anyone working with signal power measurements. It converts between dBm (decibel-milliwatts) and 
+          milliwatts, providing precise calculations for power level analysis.
         </p>
         <p>
-          Whether you're working with RF amplifiers, antenna systems, or signal analysis, this calculator provides 
-          accurate conversions with detailed step-by-step calculations to help you understand the conversion process.
+          This calculator is perfect for antenna design, signal analysis, wireless communication systems, 
+          and understanding power relationships in electronic circuits and RF systems.
         </p>
       </ContentSection>
 
-      <ContentSection id="what-is-dbm" title="What is dBm?">
+      <ContentSection id="what-is-dbm" title="What is DBm?">
         <p>
-          dBm (decibels relative to milliwatts) is a unit of power measurement commonly used in telecommunications 
-          and electronics. It expresses power levels relative to 1 milliwatt (mW) on a logarithmic scale.
-        </p>
-        <p>
-          Key characteristics of dBm:
+          DBm (decibel-milliwatts) is a unit of power measurement that expresses power levels relative to 1 milliwatt. 
+          It's commonly used in RF engineering, telecommunications, and signal processing because it provides a 
+          logarithmic scale that makes it easier to work with very large or very small power values.
         </p>
         <ul>
-          <li>dBm is a logarithmic unit, making it easier to work with large power ranges</li>
-          <li>0 dBm = 1 mW (1 milliwatt)</li>
-          <li>Positive dBm values indicate power greater than 1 mW</li>
-          <li>Negative dBm values indicate power less than 1 mW</li>
-          <li>Commonly used in RF, microwave, and optical communications</li>
-          <li>Allows easy addition and subtraction of power gains and losses</li>
+          <li>
+            <span><strong>Definition:</strong> Power level in decibels relative to 1 milliwatt</span>
+          </li>
+          <li>
+            <span><strong>Reference:</strong> 0 dBm = 1 mW (1 milliwatt)</span>
+          </li>
+          <li>
+            <span><strong>Scale:</strong> Logarithmic scale for easier power level comparison</span>
+          </li>
+          <li>
+            <span><strong>Applications:</strong> RF engineering, telecommunications, signal analysis</span>
+          </li>
         </ul>
       </ContentSection>
 
-      <ContentSection id="what-are-milliwatts" title="What are Milliwatts?">
-        <p>
-          Milliwatts (mW) are a unit of power equal to one-thousandth of a watt. They are commonly used in electronics 
-          and telecommunications for measuring small power levels, especially in RF and microwave applications.
-        </p>
-        <p>
-          Key characteristics of milliwatts:
-        </p>
-        <ul>
-          <li>1 mW = 0.001 W (one-thousandth of a watt)</li>
-          <li>Commonly used for measuring RF power levels</li>
-          <li>Standard reference point for dBm calculations</li>
-          <li>Used in antenna power measurements</li>
-          <li>Important in wireless communication systems</li>
-          <li>Used in optical power measurements</li>
+      <ContentSection id="how-to-use" title="How to Use DBm to Milliwatts Calculator">
+        <p>Using the DBm to Milliwatts calculator is straightforward and requires basic power level information:</p>
+        <ul className="usage-steps">
+          <li>
+            <span><strong>Enter DBm Value:</strong> Input the power level in dBm (can be positive or negative).</span>
+          </li>
+          <li>
+            <span><strong>Enter Milliwatts Value:</strong> Input the power level in milliwatts (must be positive).</span>
+          </li>
+          <li>
+            <span><strong>Calculate:</strong> Click "Calculate Conversion" to see your results.</span>
+          </li>
         </ul>
+        <p>
+          <strong>Pro Tip:</strong> You can enter either dBm or milliwatts value, and the calculator will compute 
+          the corresponding value. Both fields are provided for convenience and verification.
+        </p>
       </ContentSection>
 
-      <ContentSection id="formulas" title="Mathematical Formulas">
-        <h4>dBm to Milliwatts Conversion</h4>
-        <div className="math-formula">
-          {`P(mW) = 10^{(\\frac{P(dBm)}{10})}`}
+      <ContentSection id="formulas" title="Formulas & Calculations">
+        <div className="formula-section">
+          <h3>DBm to Milliwatts Conversion</h3>
+          <div className="math-formula">
+            {'P(mW) = 10^{(\\text{dBm} / 10)}'}
+          </div>
+          <p>Where P(mW) = power in milliwatts, dBm = power in decibel-milliwatts.</p>
         </div>
-        <p>Where:</p>
-        <ul>
-          <li><strong>P(mW)</strong> = power in milliwatts</li>
-          <li><strong>P(dBm)</strong> = power in dBm</li>
-        </ul>
-        
-        <h4>Milliwatts to dBm Conversion</h4>
-        <div className="math-formula">
-          {`P(dBm) = 10 \\times \\log_{10}(P(mW))`}
+
+        <div className="formula-section">
+          <h3>Milliwatts to DBm Conversion</h3>
+          <div className="math-formula">
+            {'\\text{dBm} = 10 \\times \\log_{10}(P(mW))'}
+          </div>
+          <p>Where dBm = power in decibel-milliwatts, P(mW) = power in milliwatts.</p>
         </div>
-        <p>Where:</p>
-        <ul>
-          <li><strong>P(dBm)</strong> = power in dBm</li>
-          <li><strong>P(mW)</strong> = power in milliwatts</li>
-        </ul>
+
+        <div className="formula-section">
+          <h3>Watts Conversion</h3>
+          <div className="math-formula">
+            {'P(W) = P(mW) / 1000'}
+          </div>
+          <p>Where P(W) = power in watts, P(mW) = power in milliwatts.</p>
+        </div>
+
+        <div className="formula-section">
+          <h3>Power Level Reference</h3>
+          <div className="math-formula">
+            {'0 \\text{ dBm} = 1 \\text{ mW} = 0.001 \\text{ W}'}
+          </div>
+          <p>This is the reference point for all dBm calculations.</p>
+        </div>
+      </ContentSection>
+
+      <ContentSection id="examples" title="Examples">
+        <div className="example-section">
+          <h3>Example 1: Common RF Power Levels</h3>
+          <div className="example-solution">
+            <p><strong>Input:</strong> 20 dBm</p>
+            <p><strong>Calculation:</strong> P(mW) = 10^(20/10) = 10^2 = 100 mW</p>
+            <p><strong>Result:</strong> 20 dBm = 100 mW = 0.1 W</p>
+            <p><strong>Application:</strong> Typical WiFi router output power</p>
+          </div>
+        </div>
+
+        <div className="example-section">
+          <h3>Example 2: Low Power Signal</h3>
+          <div className="example-solution">
+            <p><strong>Input:</strong> -30 dBm</p>
+            <p><strong>Calculation:</strong> P(mW) = 10^(-30/10) = 10^(-3) = 0.001 mW</p>
+            <p><strong>Result:</strong> -30 dBm = 0.001 mW = 1 μW</p>
+            <p><strong>Application:</strong> Received signal strength in wireless systems</p>
+          </div>
+        </div>
+
+        <div className="example-section">
+          <h3>Example 3: High Power Transmission</h3>
+          <div className="example-solution">
+            <p><strong>Input:</strong> 50 dBm</p>
+            <p><strong>Calculation:</strong> P(mW) = 10^(50/10) = 10^5 = 100,000 mW</p>
+            <p><strong>Result:</strong> 50 dBm = 100,000 mW = 100 W</p>
+            <p><strong>Application:</strong> High-power RF transmitter</p>
+          </div>
+        </div>
       </ContentSection>
 
       <ContentSection id="applications" title="Applications">
         <div className="applications-grid">
           <div className="application-item">
-            <h4><i className="fas fa-broadcast-tower"></i> Telecommunications</h4>
-            <p>RF power measurements, antenna gain calculations, and signal strength analysis in cellular networks</p>
+            <h4><i className="fas fa-wifi"></i> Wireless Communication</h4>
+            <p>Calculate power levels for WiFi, Bluetooth, and cellular networks</p>
           </div>
           <div className="application-item">
-            <h4><i className="fas fa-satellite"></i> Satellite Communications</h4>
-            <p>Transponder power calculations, link budget analysis, and ground station power measurements</p>
+            <h4><i className="fas fa-satellite"></i> RF Engineering</h4>
+            <p>Design and analyze RF circuits, antennas, and transmission systems</p>
           </div>
           <div className="application-item">
-            <h4><i className="fas fa-wifi"></i> Wireless Networks</h4>
-            <p>WiFi signal strength measurements, access point power settings, and network optimization</p>
+            <h4><i className="fas fa-broadcast-tower"></i> Broadcasting</h4>
+            <p>Calculate transmitter power and signal coverage for radio and TV</p>
           </div>
           <div className="application-item">
             <h4><i className="fas fa-microchip"></i> Electronics Testing</h4>
-            <p>RF amplifier testing, oscillator power measurements, and circuit analysis</p>
+            <p>Measure and analyze power consumption in electronic devices</p>
           </div>
           <div className="application-item">
             <h4><i className="fas fa-radar"></i> Radar Systems</h4>
-            <p>Transmit power calculations, receiver sensitivity analysis, and radar equation applications</p>
+            <p>Calculate radar transmitter power and received signal strength</p>
           </div>
           <div className="application-item">
-            <h4><i className="fas fa-lightbulb"></i> Optical Communications</h4>
-            <p>Laser power measurements, fiber optic link budgets, and optical amplifier analysis</p>
+            <h4><i className="fas fa-mobile-alt"></i> Mobile Networks</h4>
+            <p>Analyze cell tower power levels and signal propagation</p>
           </div>
         </div>
       </ContentSection>
 
-      <ContentSection id="examples" title="Examples">
-        <h4>Example 1: dBm to Milliwatts</h4>
-        <p>Convert 20 dBm to milliwatts:</p>
-        <div className="math-formula">
-          {`P(mW) = 10^{(\\frac{20}{10})} = 10^2 = 100 \\text{ mW}`}
-        </div>
-        
-        <h4>Example 2: Milliwatts to dBm</h4>
-        <p>Convert 50 mW to dBm:</p>
-        <div className="math-formula">
-          {`P(dBm) = 10 \\times \\log_{10}(50) = 10 \\times 1.699 = 16.99 \\text{ dBm}`}
-        </div>
-        
-        <h4>Example 3: Negative dBm</h4>
-        <p>Convert -10 dBm to milliwatts:</p>
-        <div className="math-formula">
-          {`P(mW) = 10^{(\\frac{-10}{10})} = 10^{-1} = 0.1 \\text{ mW}`}
-        </div>
+      <ContentSection id="significance" title="Significance">
+        <p>Understanding DBm to milliwatts conversion is crucial for several reasons:</p>
+        <ul>
+          <li>
+            <span>Essential for RF system design and analysis</span>
+          </li>
+          <li>
+            <span>Critical for understanding signal strength and power levels</span>
+          </li>
+          <li>
+            <span>Important for antenna design and optimization</span>
+          </li>
+          <li>
+            <span>Necessary for regulatory compliance in wireless systems</span>
+          </li>
+          <li>
+            <span>Fundamental for troubleshooting RF communication issues</span>
+          </li>
+        </ul>
       </ContentSection>
 
-      <FAQSection
+      <ContentSection id="functionality" title="Functionality">
+        <p>Our DBm to Milliwatts Calculator provides comprehensive functionality:</p>
+        <ul>
+          <li>
+            <span><strong>Bidirectional Conversion:</strong> Convert between dBm and milliwatts in both directions</span>
+          </li>
+          <li>
+            <span><strong>Step-by-Step Calculations:</strong> Detailed calculation process with formulas</span>
+          </li>
+          <li>
+            <span><strong>Power Level Analysis:</strong> Categorizes power levels and typical applications</span>
+          </li>
+          <li>
+            <span><strong>Multiple Units:</strong> Results in dBm, milliwatts, and watts</span>
+          </li>
+          <li>
+            <span><strong>Input Validation:</strong> Ensures all inputs are valid and reasonable</span>
+          </li>
+          <li>
+            <span><strong>Educational Content:</strong> Explains the significance of different power levels</span>
+          </li>
+        </ul>
+      </ContentSection>
+
+      <FAQSection 
         faqs={[
           {
             question: "What is the difference between dBm and milliwatts?",
-            answer: "dBm is a logarithmic unit expressing power relative to 1 milliwatt, while milliwatts are a linear unit of power. dBm makes it easier to work with large power ranges and allows simple addition/subtraction of gains and losses."
+            answer: "dBm is a logarithmic unit expressing power relative to 1 milliwatt, while milliwatts is a linear unit of power. dBm makes it easier to work with very large or very small power values."
           },
           {
             question: "Why is 0 dBm equal to 1 mW?",
-            answer: "0 dBm is defined as the reference point of 1 milliwatt. This provides a convenient reference for power measurements in telecommunications and electronics."
+            answer: "0 dBm is defined as the reference point where the power level equals 1 milliwatt. This provides a convenient reference for logarithmic power measurements."
+          },
+          {
+            question: "What are typical dBm values for different applications?",
+            answer: "WiFi routers: 15-20 dBm, Cell phones: -50 to -100 dBm (received), FM radio: 50-100 dBm (transmitted), Bluetooth: 0-10 dBm."
           },
           {
             question: "How do I convert negative dBm values?",
-            answer: "Negative dBm values represent power levels less than 1 mW. The conversion formula works the same way: P(mW) = 10^(dBm/10). For example, -10 dBm = 0.1 mW."
+            answer: "Negative dBm values represent power levels less than 1 mW. Use the same formula: P(mW) = 10^(dBm/10). For example, -10 dBm = 0.1 mW."
           },
           {
-            question: "What are common dBm values in practice?",
-            answer: "Common values include: 0 dBm (1 mW), 10 dBm (10 mW), 20 dBm (100 mW), 30 dBm (1 W), -10 dBm (0.1 mW), -20 dBm (0.01 mW)."
+            question: "What's the relationship between dBm and watts?",
+            answer: "To convert dBm to watts: first convert to milliwatts using P(mW) = 10^(dBm/10), then divide by 1000 to get watts."
           },
           {
-            question: "Can I use this calculator for optical power measurements?",
-            answer: "Yes, dBm is commonly used in optical communications. The same conversion formulas apply to optical power measurements in fiber optic systems."
+            question: "Why use dBm instead of watts for RF measurements?",
+            answer: "dBm provides a logarithmic scale that makes it easier to compare very different power levels and simplifies calculations in RF systems where power can vary over many orders of magnitude."
           }
         ]}
+        title="Frequently Asked Questions"
       />
-
-      <div className="tool-bottom-section">
-        <TableOfContents items={tableOfContents} />
-        <FeedbackForm toolName="DBm to Milliwatts Calculator" />
-      </div>
     </ToolPageLayout>
-  );
-};
+  )
+}
 
-export default DBmMilliwattsCalculator;
+export default DBmMilliwattsCalculator
