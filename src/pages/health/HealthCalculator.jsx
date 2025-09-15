@@ -8,7 +8,7 @@ const HealthCalculator = () => {
     { name: 'Water Intake Calculator', desc: 'Calculate optimal daily water intake based on weight, activity level, climate, and health factors with personalized hydration recommendations', url: '/health/calculators/water-intake-calculator', category: 'Nutrition', icon: 'fas fa-tint' },
     { name: 'Weight Loss Calculator', desc: 'Calculate your personalized weight loss plan with calorie targets, macronutrient distribution, and timeline projections for sustainable weight loss', url: '/health/calculators/weight-loss-calculator', category: 'Fitness', icon: 'fas fa-chart-line' },
     { name: 'Weight Gain Calculator', desc: 'Calculate your personalized weight gain plan with calorie targets, macronutrient distribution, and timeline projections for healthy weight gain', url: '/health/calculators/weight-gain-calculator', category: 'Fitness', icon: 'fas fa-chart-line' },
-    { name: 'Body Fat Calculator', desc: 'Calculate body fat percentage', url: '/health/calculators/body-fat-calculator', category: 'Fitness', icon: 'fas fa-user' },
+    { name: 'Body Fat Calculator', desc: 'Calculate body fat percentage using Navy Method or BMI-based estimation with comprehensive body composition analysis, health risk assessment, and personalized recommendations', url: '/health/calculators/body-fat-calculator', category: 'Fitness', icon: 'fas fa-user-circle' },
     { name: 'Ideal Weight Calculator', desc: 'Find your ideal body weight', url: '/health/calculators/ideal-body-weight-calculator', category: 'Fitness', icon: 'fas fa-balance-scale' },
     { name: 'Diabetes Risk Calculator', desc: 'Assess your diabetes risk', url: '/health/calculators/diabetes-risk-calculator', category: 'Health Assessment', icon: 'fas fa-chart-pie' }
   ]

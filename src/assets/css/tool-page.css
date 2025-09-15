@@ -1364,9 +1364,345 @@
   }
 }
 
-@media (min-width: 1600px) {
+@media (min-width: 1440px) {
   .content-section {
     max-width: 1000px;
+  }
+  
+  .tool-main {
+    max-width: 1500px;
+    padding: 2.5rem 1.5rem;
+  }
+  
+  .tool-hero {
+    padding: 4rem 0 3rem;
+    min-height: 35vh;
+  }
+  
+  .tool-hero-title {
+    font-size: 4rem;
+  }
+  
+  .tool-hero-description {
+    font-size: 1.3rem;
+    max-width: 700px;
+  }
+  
+  .tool-hero-icon {
+    font-size: 6rem;
+    width: 140px;
+    height: 140px;
+    margin-bottom: 2.5rem;
+  }
+  
+  .calculator-section {
+    padding: 2.5rem;
+  }
+  
+  .calculator-container {
+    padding: 2.5rem;
+  }
+  
+  .section-title {
+    font-size: 2.2rem;
+    margin-bottom: 2.5rem;
+  }
+  
+  .section-content {
+    font-size: 1.1rem;
+    line-height: 1.8;
+  }
+  
+  .section-content h3 {
+    font-size: 1.6rem;
+    margin: 3rem 0 2rem;
+  }
+  
+  .section-content h4 {
+    font-size: 1.4rem;
+    margin: 2.5rem 0 1.5rem;
+  }
+  
+  .tool-bottom-section {
+    padding: 2.5rem;
+    gap: 2.5rem;
+  }
+  
+  .table-of-contents,
+  .feedback-form {
+    padding: 2.5rem;
+  }
+  
+  .toc-title {
+    font-size: 1.4rem;
+    margin-bottom: 2rem;
+  }
+  
+  .toc-link {
+    padding: 1rem 1.25rem;
+    font-size: 1rem;
+  }
+  
+  .feedback-title {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .form-input,
+  .form-select {
+    padding: 1rem;
+    font-size: 1.05rem;
+  }
+  
+  .feedback-submit {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 1600px) {
+  .content-section {
+    max-width: 1100px;
+  }
+  
+  .tool-main {
+    max-width: 1700px;
+    padding: 3rem 2rem;
+  }
+  
+  .tool-hero {
+    padding: 5rem 0 4rem;
+    min-height: 40vh;
+  }
+  
+  .tool-hero-title {
+    font-size: 4.5rem;
+  }
+  
+  .tool-hero-description {
+    font-size: 1.4rem;
+    max-width: 800px;
+  }
+  
+  .tool-hero-icon {
+    font-size: 7rem;
+    width: 160px;
+    height: 160px;
+    margin-bottom: 3rem;
+  }
+  
+  .calculator-section {
+    padding: 3rem;
+  }
+  
+  .calculator-container {
+    padding: 3rem;
+  }
+  
+  .section-title {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+  }
+  
+  .section-content {
+    font-size: 1.15rem;
+    line-height: 1.8;
+  }
+  
+  .section-content h3 {
+    font-size: 1.8rem;
+    margin: 3.5rem 0 2.5rem;
+  }
+  
+  .section-content h4 {
+    font-size: 1.5rem;
+    margin: 3rem 0 2rem;
+  }
+  
+  .tool-bottom-section {
+    padding: 3rem;
+    gap: 3rem;
+  }
+  
+  .table-of-contents,
+  .feedback-form {
+    padding: 3rem;
+  }
+  
+  .toc-title {
+    font-size: 1.5rem;
+    margin-bottom: 2.5rem;
+  }
+  
+  .toc-link {
+    padding: 1.25rem 1.5rem;
+    font-size: 1.05rem;
+  }
+  
+  .feedback-title {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+  }
+  
+  .form-input,
+  .form-select {
+    padding: 1.25rem;
+    font-size: 1.1rem;
+  }
+  
+  .feedback-submit {
+    padding: 1.25rem 2.5rem;
+    font-size: 1.1rem;
+  }
+}
+
+@media (min-width: 1920px) {
+  .content-section {
+    max-width: 1200px;
+  }
+  
+  .tool-main {
+    max-width: 1900px;
+    padding: 3.5rem 2.5rem;
+  }
+  
+  .tool-hero {
+    padding: 6rem 0 5rem;
+    min-height: 45vh;
+  }
+  
+  .tool-hero-title {
+    font-size: 5rem;
+  }
+  
+  .tool-hero-description {
+    font-size: 1.5rem;
+    max-width: 900px;
+  }
+  
+  .tool-hero-icon {
+    font-size: 8rem;
+    width: 180px;
+    height: 180px;
+    margin-bottom: 3.5rem;
+  }
+  
+  .calculator-section {
+    padding: 3.5rem;
+  }
+  
+  .calculator-container {
+    padding: 3.5rem;
+  }
+  
+  .section-title {
+    font-size: 2.8rem;
+    margin-bottom: 3.5rem;
+  }
+  
+  .section-content {
+    font-size: 1.2rem;
+    line-height: 1.8;
+  }
+  
+  .section-content h3 {
+    font-size: 2rem;
+    margin: 4rem 0 3rem;
+  }
+  
+  .section-content h4 {
+    font-size: 1.6rem;
+    margin: 3.5rem 0 2.5rem;
+  }
+  
+  .tool-bottom-section {
+    padding: 3.5rem;
+    gap: 3.5rem;
+  }
+  
+  .table-of-contents,
+  .feedback-form {
+    padding: 3.5rem;
+  }
+  
+  .toc-title {
+    font-size: 1.6rem;
+    margin-bottom: 3rem;
+  }
+  
+  .toc-link {
+    padding: 1.5rem 1.75rem;
+    font-size: 1.1rem;
+  }
+  
+  .feedback-title {
+    font-size: 1.4rem;
+    margin-bottom: 2.5rem;
+  }
+  
+  .form-input,
+  .form-select {
+    padding: 1.5rem;
+    font-size: 1.15rem;
+  }
+  
+  .feedback-submit {
+    padding: 1.5rem 3rem;
+    font-size: 1.15rem;
+  }
+  
+  .applications-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+  }
+  
+  .application-item {
+    padding: 2.5rem;
+  }
+  
+  .application-item h4 {
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .application-item p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+  }
+  
+  .formula-section {
+    padding: 2.5rem;
+    margin: 2.5rem 0;
+  }
+  
+  .formula-section h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .math-formula {
+    font-size: 1.3rem;
+    padding: 1.5rem;
+  }
+  
+  .example-section {
+    padding: 2.5rem;
+    margin: 2.5rem 0;
+  }
+  
+  .example-section h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .example-solution {
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+  }
+  
+  .example-solution p {
+    margin-bottom: 0.75rem;
+    font-size: 1.05rem;
   }
 }
 

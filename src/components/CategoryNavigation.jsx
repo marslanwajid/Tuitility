@@ -132,6 +132,7 @@ const CategoryNavigation = () => {
     { name: 'Calorie Calculator', desc: 'Calculate daily calorie needs', url: '/health/calculators/calorie-calculator', category: 'Health', icon: 'fas fa-apple-alt' },
     { name: 'Water Intake Calculator', desc: 'Calculate daily water requirements', url: '/health/calculators/water-intake-calculator', category: 'Health', icon: 'fas fa-tint' },
     { name: 'Weight Loss Calculator', desc: 'Plan your weight loss journey', url: '/health/calculators/weight-loss-calculator', category: 'Health', icon: 'fas fa-chart-line' },
+    { name: 'Weight Gain Calculator', desc: 'Plan your weight gain journey', url: '/health/calculators/weight-gain-calculator', category: 'Health', icon: 'fas fa-chart-line' },
     { name: 'Body Fat Calculator', desc: 'Calculate body fat percentage', url: '/health/calculators/body-fat-calculator', category: 'Health', icon: 'fas fa-user' },
     { name: 'Ideal Weight Calculator', desc: 'Find your ideal body weight', url: '/health/calculators/ideal-body-weight-calculator', category: 'Health', icon: 'fas fa-balance-scale' },
     { name: 'Diabetes Risk Calculator', desc: 'Assess your diabetes risk', url: '/health/calculators/diabetes-risk-calculator', category: 'Health', icon: 'fas fa-chart-pie' },
