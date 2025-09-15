@@ -1,0 +1,528 @@
+/* Weight Loss Calculator Specific Styles - Completely Isolated */
+
+/* Weight Loss Calculator Form Styles */
+.weight-loss-calculator-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.weight-loss-calculator-form .weight-loss-input-row {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.weight-loss-calculator-form .weight-loss-input-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-width: 200px;
+}
+
+.weight-loss-calculator-form .weight-loss-input-label {
+  font-weight: 600;
+  color: #374151;
+  font-size: 1rem;
+}
+
+.weight-loss-calculator-form .weight-loss-input-field {
+  padding: 0.875rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  background: #f9fafb;
+  height: 50px;
+  color: #374151;
+  box-sizing: border-box;
+}
+
+.weight-loss-calculator-form .weight-loss-input-field:focus {
+  outline: none;
+  border-color: #3b82f6;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+.weight-loss-calculator-form .weight-loss-input-help {
+  font-size: 0.875rem;
+  color: #6b7280;
+  font-style: italic;
+}
+
+.weight-loss-calculator-form .weight-loss-calculator-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.weight-loss-calculator-form .weight-loss-btn-reset {
+  padding: 0.875rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  min-width: 120px;
+  background: #f3f4f6;
+  color: #374151;
+  border: 1px solid #d1d5db;
+}
+
+.weight-loss-calculator-form .weight-loss-btn-reset:hover {
+  background: #e5e7eb;
+  transform: translateY(-1px);
+}
+
+/* Weight Loss Calculator Result Section - Completely Isolated */
+.weight-loss-calculator-result {
+  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%) !important;
+  border-radius: 15px;
+  padding: 2rem;
+  margin-top: 2rem;
+  color: white;
+  box-shadow: 0 10px 30px rgba(239, 68, 68, 0.3);
+  animation: weightLossResultSlideIn 0.6s ease-out;
+  border: none !important;
+}
+
+/* Override any white background that might be coming from other CSS */
+.weight-loss-calculator-result .weight-loss-result-main,
+.weight-loss-calculator-result .weight-loss-result-steps,
+.weight-loss-calculator-result .weight-loss-result-item,
+.weight-loss-calculator-result .weight-loss-result-formula,
+.weight-loss-calculator-result .weight-loss-macronutrient-breakdown,
+.weight-loss-calculator-result .weight-loss-tips,
+.weight-loss-calculator-result .weight-loss-special-case {
+  background: transparent !important;
+}
+
+/* Ensure all result content has transparent background */
+.weight-loss-calculator-result .weight-loss-result-content,
+.weight-loss-calculator-result .weight-loss-result-main,
+.weight-loss-calculator-result .weight-loss-result-item {
+  background: transparent !important;
+}
+
+/* Weight Loss Calculator specific result styling */
+.weight-loss-calculator-result .weight-loss-result-main {
+  background: rgba(255, 255, 255, 0.1) !important;
+  padding: 1.5rem;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.weight-loss-calculator-result .weight-loss-result-title {
+  color: white;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0 0 1.5rem 0;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Weight Loss Calculator Result Items */
+.weight-loss-calculator-result .weight-loss-result-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  background: transparent !important;
+  padding: 0.75rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.weight-loss-calculator-result .weight-loss-result-item:last-child {
+  margin-bottom: 0;
+}
+
+.weight-loss-calculator-result .weight-loss-result-item strong {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.weight-loss-calculator-result .weight-loss-result-value {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.weight-loss-calculator-result .weight-loss-result-final {
+  color: #fbbf24 !important;
+  font-weight: 700 !important;
+  font-size: 1.2rem;
+}
+
+/* Macronutrient Breakdown */
+.weight-loss-calculator-result .weight-loss-macronutrient-breakdown {
+  background: rgba(255, 255, 255, 0.1) !important;
+  padding: 1.5rem;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  margin-top: 1rem;
+}
+
+.weight-loss-calculator-result .weight-loss-macro-title {
+  color: white;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 0 0 1rem 0;
+  text-align: center;
+}
+
+.weight-loss-calculator-result .weight-loss-macro-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.weight-loss-calculator-result .weight-loss-macro-item {
+  background: rgba(255, 255, 255, 0.05) !important;
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.weight-loss-calculator-result .weight-loss-macro-icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.weight-loss-calculator-result .weight-loss-macro-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.weight-loss-calculator-result .weight-loss-macro-name {
+  color: rgba(255, 255, 255, 0.8) !important;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.weight-loss-calculator-result .weight-loss-macro-amount {
+  color: #fbbf24 !important;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.weight-loss-calculator-result .weight-loss-macro-calories {
+  color: rgba(255, 255, 255, 0.7) !important;
+  font-size: 0.8rem;
+}
+
+/* Weight Loss Tips */
+.weight-loss-calculator-result .weight-loss-tips {
+  background: rgba(255, 255, 255, 0.1) !important;
+  padding: 1.5rem;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  margin-top: 1rem;
+}
+
+.weight-loss-calculator-result .weight-loss-tips-title {
+  color: white;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 0 0 1rem 0;
+  text-align: center;
+}
+
+.weight-loss-calculator-result .weight-loss-tips-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.weight-loss-calculator-result .weight-loss-tips-list li {
+  color: rgba(255, 255, 255, 0.9) !important;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.weight-loss-calculator-result .weight-loss-tips-list li:last-child {
+  border-bottom: none;
+}
+
+.weight-loss-calculator-result .weight-loss-tips-list li::before {
+  content: '💪';
+  position: absolute;
+  left: 0;
+  top: 0.5rem;
+  font-size: 1rem;
+}
+
+/* Formula Section */
+.formula-section {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.05), rgba(5, 150, 105, 0.05));
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  border: 1px solid rgba(16, 185, 129, 0.1);
+  text-align: center;
+}
+
+.formula-section h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 1rem;
+}
+
+.math-formula {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #ef4444;
+  margin: 1rem 0;
+  padding: 1rem;
+  background: rgba(239, 68, 68, 0.1);
+  border-radius: 8px;
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  font-family: 'Courier New', monospace;
+}
+
+/* Override KaTeX text color to match our theme */
+.math-formula .katex,
+.math-formula .katex * {
+  color: #ef4444 !important;
+}
+
+.math-formula .katex-display {
+  color: #ef4444 !important;
+}
+
+.math-formula .katex-html {
+  color: #ef4444 !important;
+}
+
+.formula-section p {
+  font-size: 0.95rem;
+  color: #64748b;
+  font-weight: 400;
+  text-align: center;
+  margin-top: 0.75rem;
+}
+
+.formula-section ul {
+  text-align: left;
+  margin: 1rem 0;
+}
+
+.formula-section li {
+  margin-bottom: 0.5rem;
+  color: #64748b;
+}
+
+/* Example Section */
+.example-section {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+  border-radius: 12px;
+  border: 1px solid #22c55e;
+}
+
+.example-section h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #166534;
+}
+
+.example-solution {
+  background: #ffffff;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-top: 1rem;
+}
+
+.example-solution p {
+  margin-bottom: 0.5rem;
+  color: #374151;
+}
+
+.example-solution strong {
+  color: #1e293b;
+}
+
+/* Usage Steps */
+.usage-steps li {
+  margin-bottom: 1.25rem;
+  font-size: 0.95rem;
+  font-weight: 400;
+}
+
+/* Applications Grid */
+.applications-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.application-item {
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  transition: all 0.2s ease;
+}
+
+.application-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.application-item h4 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: #1e293b;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.application-item h4 i {
+  color: #ef4444;
+}
+
+.application-item p {
+  color: #64748b;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Animations */
+@keyframes weightLossResultSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .weight-loss-calculator-form .weight-loss-input-row {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .weight-loss-calculator-form .weight-loss-input-group {
+    min-width: 100%;
+  }
+  
+  .weight-loss-calculator-form .weight-loss-calculator-actions {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+  
+  .weight-loss-calculator-form .weight-loss-btn-reset {
+    width: 100%;
+    max-width: 200px;
+  }
+  
+  .weight-loss-calculator-result {
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+  }
+  
+  .weight-loss-calculator-result .weight-loss-result-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .weight-loss-calculator-result .weight-loss-result-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .weight-loss-calculator-result .weight-loss-macro-grid {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
+  
+  .applications-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .application-item {
+    padding: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .weight-loss-calculator-form .weight-loss-calculator-actions {
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+  
+  .weight-loss-calculator-form .weight-loss-btn-reset {
+    width: 100%;
+    max-width: 180px;
+    padding: 0.7rem 1.5rem;
+    font-size: 1rem;
+  }
+  
+  .weight-loss-calculator-result {
+    padding: 1rem;
+    margin-top: 1rem;
+  }
+  
+  .weight-loss-calculator-result .weight-loss-result-title {
+    font-size: 1.3rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  .weight-loss-calculator-form .weight-loss-input-field {
+    padding: 0.75rem;
+    font-size: 0.95rem;
+  }
+  
+  .formula-section {
+    padding: 1rem;
+  }
+  
+  .math-formula {
+    font-size: 1.1rem;
+    padding: 0.75rem;
+  }
+}

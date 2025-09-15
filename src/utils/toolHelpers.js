@@ -55,6 +55,7 @@ export const getRelatedTools = (toolCategory) => {
     { name: "Body Fat Calculator", icon: "fas fa-user", link: "/health/calculators/body-fat-calculator" },
     { name: "Water Intake Calculator", icon: "fas fa-tint", link: "/health/calculators/water-intake-calculator" },
     { name: "Weight Loss Calculator", icon: "fas fa-chart-line", link: "/health/calculators/weight-loss-calculator" },
+    { name: "Weight Gain Calculator", icon: "fas fa-chart-line", link: "/health/calculators/weight-gain-calculator" },
     { name: "Ideal Weight Calculator", icon: "fas fa-balance-scale", link: "/health/calculators/ideal-body-weight-calculator" },
     { name: "Diabetes Risk Calculator", icon: "fas fa-chart-pie", link: "/health/calculators/diabetes-risk-calculator" }
   ];

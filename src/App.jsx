@@ -59,6 +59,9 @@ import ElectricFluxCalculator from './components/science/ElectricFluxCalculator'
 import AverageAtomicMassCalculator from './components/science/AverageAtomicMassCalculator'
 import BMICalculator from './components/health/BMICalculator'
 import CalorieCalculator from './components/health/CalorieCalculator'
+import WaterIntakeCalculator from './components/health/WaterIntakeCalculator'
+import WeightLossCalculator from './components/health/WeightLossCalculator'
+import WeightGainCalculator from './components/health/WeightGainCalculator'
 // import CurrencyCalculator from './components/finance/CurrencyCalculator'
 
 
@@ -121,6 +124,9 @@ const App = () => {
         <Route path="/health" element={<HealthCalculator />} />
             <Route path="/health/calculators/bmi-calculator" element={<BMICalculator />} />
             <Route path="/health/calculators/calorie-calculator" element={<CalorieCalculator />} />
+            <Route path="/health/calculators/water-intake-calculator" element={<WaterIntakeCalculator />} />
+            <Route path="/health/calculators/weight-loss-calculator" element={<WeightLossCalculator />} />
+            <Route path="/health/calculators/weight-gain-calculator" element={<WeightGainCalculator />} />
         <Route path="/utility-tools" element={<UtilityTools />} />
         <Route path="/knowledge" element={<KnowledgeCalculator />} />
       </Routes>
