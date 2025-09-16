@@ -13,6 +13,7 @@ import UtilityTools from './pages/utility/UtilityTools'
 import KnowledgeCalculator from './pages/knowledge/KnowledgeCalculator'
 import GPACalculator from './components/knowledge/GPACalculator'
 import AgeCalculator from './components/knowledge/AgeCalculator'
+import WPMCalculator from './components/knowledge/WPMCalculator'
 import FractionCalculator from './components/math/FractionCalculator'
 import FractionToPercentCalculator from './components/math/FractionToPercentCalculator'
 import BinaryCalculatorTool from './components/tool/BinaryCalculatorTool'
@@ -145,6 +146,7 @@ const App = () => {
         <Route path="/knowledge" element={<KnowledgeCalculator />} />
             <Route path="/knowledge/calculators/gpa-calculator" element={<GPACalculator />} />
             <Route path="/knowledge/calculators/age-calculator" element={<AgeCalculator />} />
+            <Route path="/knowledge/calculators/wpm-calculator" element={<WPMCalculator />} />
       </Routes>
       <Footer />
     </>
