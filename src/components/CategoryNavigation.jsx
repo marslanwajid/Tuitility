@@ -137,6 +137,7 @@ const CategoryNavigation = () => {
     { name: 'Ideal Weight Calculator', desc: 'Find your ideal body weight', url: '/health/calculators/ideal-body-weight-calculator', category: 'Health', icon: 'fas fa-balance-scale' },
     { name: 'Diabetes Risk Calculator', desc: 'Assess your diabetes risk', url: '/health/calculators/diabetes-risk-calculator', category: 'Health', icon: 'fas fa-chart-pie' },
     { name: 'DRICalculator', desc: 'Calculate your dietary reference intake', url: '/health/calculators/dri-calculator', category: 'Health', icon: 'fas fa-utensils' },
+    { name: 'BRI Calculator', desc: 'Calculate your body roundness index', url: '/health/calculators/bri-calculator', category: 'Health', icon: 'fas fa-circle-notch' },
     
     { name: 'QR Code Generator', desc: 'Generate QR codes instantly', url: '/utility-tools/converter-tools/qr-code-generator', category: 'Utility', icon: 'fas fa-qrcode' },
     { name: 'Password Generator', desc: 'Create secure passwords', url: '/utility-tools/converter-tools/password-generator', category: 'Utility', icon: 'fas fa-key' },
