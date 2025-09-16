@@ -11,6 +11,8 @@ import ScienceCalculator from './pages/science/ScienceCalculator'
 import HealthCalculator from './pages/health/HealthCalculator'
 import UtilityTools from './pages/utility/UtilityTools'
 import KnowledgeCalculator from './pages/knowledge/KnowledgeCalculator'
+import GPACalculator from './components/knowledge/GPACalculator'
+import AgeCalculator from './components/knowledge/AgeCalculator'
 import FractionCalculator from './components/math/FractionCalculator'
 import FractionToPercentCalculator from './components/math/FractionToPercentCalculator'
 import BinaryCalculatorTool from './components/tool/BinaryCalculatorTool'
@@ -141,6 +143,8 @@ const App = () => {
             <Route path="/health/calculators/weight-gain-calculator" element={<WeightGainCalculator />} />
         <Route path="/utility-tools" element={<UtilityTools />} />
         <Route path="/knowledge" element={<KnowledgeCalculator />} />
+            <Route path="/knowledge/calculators/gpa-calculator" element={<GPACalculator />} />
+            <Route path="/knowledge/calculators/age-calculator" element={<AgeCalculator />} />
       </Routes>
       <Footer />
     </>
