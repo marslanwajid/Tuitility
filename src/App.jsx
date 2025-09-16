@@ -62,6 +62,8 @@ import BodyFatCalculator from './components/health/BodyFatCalculator'
 import IdealWeightCalculator from './components/health/IdealWeightCalculator'
 import DiabetesRiskCalculator from './components/health/DiabetesRiskCalculator'
 import CalorieBurnCalculator from './components/health/CalorieBurnCalculator'
+import DRICalculator from './components/health/DRICalculator'
+import BRICalculator from './components/health/BRICalculator'
 import CalorieCalculator from './components/health/CalorieCalculator'
 import WaterIntakeCalculator from './components/health/WaterIntakeCalculator'
 import WeightLossCalculator from './components/health/WeightLossCalculator'
@@ -131,6 +133,8 @@ const App = () => {
             <Route path="/health/calculators/ideal-body-weight-calculator" element={<IdealWeightCalculator />} />
             <Route path="/health/calculators/diabetes-risk-calculator" element={<DiabetesRiskCalculator />} />
             <Route path="/health/calculators/calorie-burn-calculator" element={<CalorieBurnCalculator />} />
+            <Route path="/health/calculators/dri-calculator" element={<DRICalculator />} />
+            <Route path="/health/calculators/bri-calculator" element={<BRICalculator />} />
             <Route path="/health/calculators/calorie-calculator" element={<CalorieCalculator />} />
             <Route path="/health/calculators/water-intake-calculator" element={<WaterIntakeCalculator />} />
             <Route path="/health/calculators/weight-loss-calculator" element={<WeightLossCalculator />} />
