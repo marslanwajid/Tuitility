@@ -14,6 +14,8 @@ import KnowledgeCalculator from './pages/knowledge/KnowledgeCalculator'
 import GPACalculator from './components/knowledge/GPACalculator'
 import AgeCalculator from './components/knowledge/AgeCalculator'
 import WPMCalculator from './components/knowledge/WPMCalculator'
+import HabitFormationCalculator from './components/knowledge/HabitFormationCalculator'
+import MBTICalculator from './components/knowledge/MBTICalculator'
 import FractionCalculator from './components/math/FractionCalculator'
 import FractionToPercentCalculator from './components/math/FractionToPercentCalculator'
 import BinaryCalculatorTool from './components/tool/BinaryCalculatorTool'
@@ -147,6 +149,8 @@ const App = () => {
             <Route path="/knowledge/calculators/gpa-calculator" element={<GPACalculator />} />
             <Route path="/knowledge/calculators/age-calculator" element={<AgeCalculator />} />
             <Route path="/knowledge/calculators/wpm-calculator" element={<WPMCalculator />} />
+            <Route path="/knowledge/calculators/habit-formation-calculator" element={<HabitFormationCalculator />} />
+            <Route path="/knowledge/calculators/mbti-calculator" element={<MBTICalculator />} />
       </Routes>
       <Footer />
     </>

@@ -353,7 +353,7 @@ const WPMCalculator = () => {
      
        
         
-        <CalculatorSection>
+        <CalculatorSection title="WPM Calculator">
           <div className="wpm-calculator-form">
             <div className="wpm-form-group">
               <label className="wpm-input-label">Test Duration (seconds)</label>

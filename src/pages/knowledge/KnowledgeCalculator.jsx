@@ -6,6 +6,7 @@ const KnowledgeCalculator = () => {
     { name: 'GPA Calculator', desc: 'Calculate your grade point average', url: '/knowledge/calculators/gpa-calculator', category: 'Education', icon: 'fas fa-graduation-cap' },
     { name: 'Age Calculator', desc: 'Calculate age in years, months, days', url: '/knowledge/calculators/age-calculator', category: 'General', icon: 'fas fa-calendar-alt' },
     { name: 'WPM Calculator', desc: 'Test your typing speed', url: '/knowledge/calculators/word-per-minute', category: 'Skills', icon: 'fas fa-keyboard' },
+    { name: 'Habit Formation Calculator', desc: 'Calculate your habit formation', url: '/knowledge/calculators/habit-formation-calculator', category: 'Skills', icon: 'fas fa-check-circle' },
     { name: 'Love Calculator', desc: 'Calculate love compatibility', url: '/knowledge/calculators/love-calculator', category: 'Fun', icon: 'fas fa-heart' },
     { name: 'MBTI Personality', desc: 'Discover your personality type', url: '/knowledge/calculators/mbti-calculator', category: 'Psychology', icon: 'fas fa-user-friends' },
     { name: 'Carbon Footprint', desc: 'Calculate your environmental impact', url: '/knowledge/calculators/carbon-footprint-calculator', category: 'Environment', icon: 'fas fa-leaf' },

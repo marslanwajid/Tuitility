@@ -175,6 +175,7 @@ const CategoryNavigation = () => {
     { name: 'GPA Calculator', desc: 'Calculate your grade point average', url: '/knowledge/calculators/gpa-calculator', category: 'Knowledge', icon: 'fas fa-graduation-cap' },
     { name: 'Age Calculator', desc: 'Calculate age in years, months, days', url: '/knowledge/calculators/age-calculator', category: 'Knowledge', icon: 'fas fa-calendar-alt' },
     { name: 'WPM Calculator', desc: 'Test your typing speed', url: '/knowledge/calculators/word-per-minute', category: 'Knowledge', icon: 'fas fa-keyboard' },
+    { name: 'Habit Formation Calculator', desc: 'Calculate your habit formation', url: '/knowledge/calculators/habit-formation-calculator', category: 'Knowledge', icon: 'fas fa-check-circle' },
     { name: 'Love Calculator', desc: 'Calculate love compatibility', url: '/knowledge/calculators/love-calculator', category: 'Knowledge', icon: 'fas fa-heart' },
     { name: 'MBTI Personality', desc: 'Discover your personality type', url: '/knowledge/calculators/mbti-calculator', category: 'Knowledge', icon: 'fas fa-user-friends' },
     { name: 'Carbon Footprint', desc: 'Calculate your environmental impact', url: '/knowledge/calculators/carbon-footprint-calculator', category: 'Knowledge', icon: 'fas fa-leaf' },
