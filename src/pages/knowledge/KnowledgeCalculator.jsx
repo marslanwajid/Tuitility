@@ -7,6 +7,8 @@ const KnowledgeCalculator = () => {
     { name: 'Age Calculator', desc: 'Calculate age in years, months, days', url: '/knowledge/calculators/age-calculator', category: 'General', icon: 'fas fa-calendar-alt' },
     { name: 'WPM Calculator', desc: 'Test your typing speed', url: '/knowledge/calculators/word-per-minute', category: 'Skills', icon: 'fas fa-keyboard' },
     { name: 'Habit Formation Calculator', desc: 'Calculate your habit formation', url: '/knowledge/calculators/habit-formation-calculator', category: 'Skills', icon: 'fas fa-check-circle' },
+    { name: 'Language Level Calculator', desc: 'Calculate your language level', url: '/calculators/language-level-calculator', category: 'Skills', icon: 'fas fa-language' },
+    { name: 'Fuel Calculator', desc: 'Calculate fuel consumption', url: '/calculators/fuel-calculator', category: 'Skills', icon: 'fas fa-gas-pump' },
     { name: 'Love Calculator', desc: 'Calculate love compatibility', url: '/knowledge/calculators/love-calculator', category: 'Fun', icon: 'fas fa-heart' },
     { name: 'MBTI Personality', desc: 'Discover your personality type', url: '/knowledge/calculators/mbti-calculator', category: 'Psychology', icon: 'fas fa-user-friends' },
     { name: 'Carbon Footprint', desc: 'Calculate your environmental impact', url: '/knowledge/calculators/carbon-footprint-calculator', category: 'Environment', icon: 'fas fa-leaf' },

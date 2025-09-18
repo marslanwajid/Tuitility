@@ -16,6 +16,9 @@ import AgeCalculator from './components/knowledge/AgeCalculator'
 import WPMCalculator from './components/knowledge/WPMCalculator'
 import HabitFormationCalculator from './components/knowledge/HabitFormationCalculator'
 import MBTICalculator from './components/knowledge/MBTICalculator'
+import LanguageLevelCalculator from './components/knowledge/LanguageLevelCalculator'
+import ZakatCalculator from './components/knowledge/ZakatCalculator'
+import FuelCalculator from './components/knowledge/FuelCalculator'
 import FractionCalculator from './components/math/FractionCalculator'
 import FractionToPercentCalculator from './components/math/FractionToPercentCalculator'
 import BinaryCalculatorTool from './components/tool/BinaryCalculatorTool'
@@ -151,6 +154,9 @@ const App = () => {
             <Route path="/knowledge/calculators/wpm-calculator" element={<WPMCalculator />} />
             <Route path="/knowledge/calculators/habit-formation-calculator" element={<HabitFormationCalculator />} />
             <Route path="/knowledge/calculators/mbti-calculator" element={<MBTICalculator />} />
+            <Route path="/knowledge/calculators/language-level-calculator" element={<LanguageLevelCalculator />} />
+            <Route path="/knowledge/calculators/zakat-calculator" element={<ZakatCalculator />} />
+            <Route path="/knowledge/calculators/fuel-calculator" element={<FuelCalculator />} />
       </Routes>
       <Footer />
     </>
