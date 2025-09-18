@@ -1,12 +1,12 @@
-/* Fuel Calculator Styles */
-.fuel-calculator {
+/* Carbon Footprint Calculator Styles */
+.carbon-calculator {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   line-height: 1.6;
   color: #1e293b;
 }
 
 /* Form Styles */
-.fuel-calculator-form {
+.carbon-calculator-form {
   background: #f8fafc;
   padding: 2rem;
   border-radius: 12px;
@@ -14,32 +14,92 @@
   margin-bottom: 2rem;
 }
 
-.fuel-form-section {
+/* Tab Navigation */
+.carbon-tab-navigation {
+  display: flex;
+  background: white;
+  border-radius: 8px;
+  padding: 0.5rem;
   margin-bottom: 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow-x: auto;
 }
 
-.fuel-form-section h3 {
+.carbon-tab-button {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 0.5rem;
+  border: none;
+  background: transparent;
+  color: #64748b;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-radius: 6px;
+  min-width: 120px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.carbon-tab-button:hover {
+  background: #f1f5f9;
+  color: #475569;
+}
+
+.carbon-tab-button.active {
+  background: #10b981;
+  color: white;
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
+}
+
+.carbon-tab-button i {
+  font-size: 1.2rem;
+}
+
+.carbon-tab-button span {
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+/* Tab Content */
+.carbon-tab-content {
+  position: relative;
+  min-height: 400px;
+}
+
+.carbon-tab-panel {
+  display: none;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.carbon-tab-panel.active {
+  display: block;
+}
+
+.carbon-tab-panel h3 {
   color: #1e293b;
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   font-weight: 700;
   margin: 0 0 1.5rem 0;
   padding-bottom: 0.5rem;
-  border-bottom: 2px solid #3b82f6;
+  border-bottom: 2px solid #10b981;
 }
 
-.fuel-form-row {
+.carbon-form-row {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 3rem;
   margin-bottom: 2.5rem;
 }
 
-.fuel-form-group {
+.carbon-form-group {
   display: flex;
   flex-direction: column;
 }
 
-.fuel-form-label {
+.carbon-form-label {
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -49,14 +109,13 @@
   font-size: 0.95rem;
 }
 
-.fuel-form-label i {
-  color: #3b82f6;
+.carbon-form-label i {
+  color: #10b981;
   font-size: 1rem;
   width: 16px;
 }
 
-.fuel-form-input,
-.fuel-form-select {
+.carbon-form-input {
   width: 100%;
   padding: 0.875rem 1rem;
   border: 2px solid #d1d5db;
@@ -67,54 +126,114 @@
   transition: all 0.2s ease;
 }
 
-.fuel-form-input:focus,
-.fuel-form-select:focus {
+.carbon-form-input:focus {
   outline: none;
-  border-color: #3b82f6;
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  border-color: #10b981;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
 }
 
-.fuel-form-input:hover,
-.fuel-form-select:hover {
+.carbon-form-input:hover {
   border-color: #9ca3af;
 }
 
-.fuel-form-input::placeholder {
+.carbon-form-input::placeholder {
   color: #9ca3af;
 }
 
-/* Checkbox Styles */
-.fuel-checkbox-group {
+/* Radio Group Styles */
+.carbon-radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.carbon-radio-label {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  margin-top: 1.5rem;
+  padding: 0.75rem;
+  background: white;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
-.fuel-form-checkbox {
+.carbon-radio-label:hover {
+  border-color: #10b981;
+  background: #f0fdf4;
+}
+
+.carbon-radio-input {
   width: 18px;
   height: 18px;
-  accent-color: #3b82f6;
+  accent-color: #10b981;
   cursor: pointer;
 }
 
-.fuel-checkbox-label {
+.carbon-radio-text {
+  font-weight: 500;
+  color: #374151;
+  cursor: pointer;
+}
+
+.carbon-radio-label:has(.carbon-radio-input:checked) {
+  border-color: #10b981;
+  background: #f0fdf4;
+}
+
+/* Navigation Buttons */
+.carbon-navigation-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+.carbon-btn-prev,
+.carbon-btn-next {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-weight: 600;
-  color: #374151;
-  cursor: pointer;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
   font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  min-width: 120px;
+  justify-content: center;
 }
 
-.fuel-checkbox-label i {
-  color: #3b82f6;
-  font-size: 1rem;
+.carbon-btn-prev {
+  background: #6b7280;
+  color: white;
+}
+
+.carbon-btn-prev:hover {
+  background: #4b5563;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.carbon-btn-next {
+  background: #10b981;
+  color: white;
+}
+
+.carbon-btn-next:hover {
+  background: #059669;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
 }
 
 /* Error Message */
-.fuel-error-message {
+.carbon-error-message {
   background: #fef2f2;
   border: 1px solid #fecaca;
   color: #dc2626;
@@ -127,14 +246,14 @@
   font-weight: 500;
 }
 
-.fuel-error-message i {
+.carbon-error-message i {
   color: #dc2626;
   font-size: 1.1rem;
 }
 
 /* Result Section */
-.fuel-calculator-result {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+.carbon-calculator-result {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
   border-radius: 16px;
   padding: 2rem;
   margin: 2rem 0;
@@ -143,19 +262,19 @@
   color: white;
 }
 
-.fuel-result-header {
+.carbon-result-header {
   text-align: center;
   margin-bottom: 2rem;
 }
 
-.fuel-result-header h3 {
+.carbon-result-header h3 {
   color: white !important;
   font-size: 1.8rem;
   font-weight: 700;
   margin: 0;
 }
 
-.fuel-summary {
+.carbon-summary {
   background: rgba(255, 255, 255, 0.1);
   border-radius: 12px;
   padding: 2rem;
@@ -163,7 +282,7 @@
   backdrop-filter: blur(10px);
 }
 
-.fuel-main-result {
+.carbon-main-result {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -171,48 +290,48 @@
   gap: 1rem;
 }
 
-.fuel-amount {
+.carbon-amount {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
 }
 
-.fuel-amount-label {
+.carbon-amount-label {
   font-size: 1rem;
   color: rgba(255, 255, 255, 0.9);
   margin-bottom: 0.5rem;
   font-weight: 500;
 }
 
-.fuel-amount-value {
+.carbon-amount-value {
   font-size: 2.5rem;
   font-weight: 700;
   color: white;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-.fuel-per-person {
+.carbon-comparison {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
 }
 
-.fuel-per-person-label {
+.carbon-comparison-label {
   font-size: 1rem;
   color: rgba(255, 255, 255, 0.9);
   margin-bottom: 0.5rem;
   font-weight: 500;
 }
 
-.fuel-per-person-value {
+.carbon-comparison-value {
   font-size: 1.5rem;
   font-weight: 600;
   color: #fbbf24;
 }
 
-.fuel-breakdown {
+.carbon-breakdown {
   background: rgba(255, 255, 255, 0.1);
   border-radius: 12px;
   padding: 2rem;
@@ -220,7 +339,7 @@
   backdrop-filter: blur(10px);
 }
 
-.fuel-breakdown h4 {
+.carbon-breakdown h4 {
   color: white !important;
   font-size: 1.3rem;
   font-weight: 600;
@@ -228,20 +347,21 @@
   text-align: center;
 }
 
-.fuel-breakdown-grid {
+.carbon-breakdown-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1.5rem;
 }
 
-.fuel-breakdown-item {
+.carbon-breakdown-item {
   background: rgba(255, 255, 255, 0.1);
   padding: 1.5rem;
   border-radius: 8px;
   border: 1px solid rgba(255, 255, 255, 0.2);
+  text-align: center;
 }
 
-.fuel-breakdown-label {
+.carbon-breakdown-label {
   display: block;
   font-size: 0.9rem;
   color: rgba(255, 255, 255, 0.9);
@@ -249,14 +369,14 @@
   font-weight: 500;
 }
 
-.fuel-breakdown-value {
+.carbon-breakdown-value {
   display: block;
   font-size: 1.2rem;
   font-weight: 600;
   color: white;
 }
 
-.fuel-tips {
+.carbon-tips {
   background: rgba(255, 255, 255, 0.1);
   border-radius: 12px;
   padding: 2rem;
@@ -264,7 +384,7 @@
   backdrop-filter: blur(10px);
 }
 
-.fuel-tips h4 {
+.carbon-tips h4 {
   color: white !important;
   font-size: 1.3rem;
   font-weight: 600;
@@ -272,13 +392,13 @@
   text-align: center;
 }
 
-.fuel-tips-list {
+.carbon-tips-list {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.fuel-tips-list li {
+.carbon-tips-list li {
   background: rgba(255, 255, 255, 0.1);
   padding: 1rem;
   margin-bottom: 0.75rem;
@@ -288,12 +408,12 @@
   line-height: 1.6;
 }
 
-.fuel-tips-list li:last-child {
+.carbon-tips-list li:last-child {
   margin-bottom: 0;
 }
 
 /* Form Actions */
-.fuel-form-actions {
+.carbon-form-actions {
   display: flex;
   justify-content: flex-end;
   gap: 1rem;
@@ -302,7 +422,7 @@
   border-top: 1px solid #e5e7eb;
 }
 
-.fuel-btn-reset {
+.carbon-btn-reset {
   background: #6b7280;
   color: white;
   border: 1px solid #6b7280;
@@ -320,21 +440,21 @@
   justify-content: center;
 }
 
-.fuel-btn-reset:hover {
+.carbon-btn-reset:hover {
   background: #4b5563;
   transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 /* Content Section Styles */
-.fuel-efficiency-grid {
+.carbon-sources-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
   margin: 2rem 0;
 }
 
-.fuel-efficiency-item {
+.carbon-source-item {
   background: #f8fafc;
   padding: 2rem;
   border-radius: 12px;
@@ -342,13 +462,13 @@
   transition: all 0.3s ease;
 }
 
-.fuel-efficiency-item:hover {
+.carbon-source-item:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  border-color: #3b82f6;
+  border-color: #10b981;
 }
 
-.fuel-efficiency-item h4 {
+.carbon-source-item h4 {
   color: #1e293b;
   margin: 0 0 1rem 0;
   font-size: 1.2rem;
@@ -358,23 +478,23 @@
   gap: 0.5rem;
 }
 
-.fuel-efficiency-item h4 i {
-  color: #3b82f6;
+.carbon-source-item h4 i {
+  color: #10b981;
   font-size: 1.1rem;
 }
 
-.fuel-efficiency-item p {
+.carbon-source-item p {
   color: #64748b;
   margin: 0 0 1rem 0;
   line-height: 1.6;
 }
 
-.fuel-efficiency-item ul {
+.carbon-source-item ul {
   margin: 0;
   padding-left: 1.5rem;
 }
 
-.fuel-efficiency-item li {
+.carbon-source-item li {
   color: #475569;
   margin-bottom: 0.5rem;
   line-height: 1.5;
@@ -396,6 +516,12 @@
   font-weight: 700;
 }
 
+.calculation-method-section p {
+  color: #475569;
+  margin: 0 0 1rem 0;
+  line-height: 1.6;
+}
+
 .calculation-method-section ol {
   margin: 0 0 1.5rem 0;
   padding-left: 1.5rem;
@@ -412,7 +538,7 @@
   font-weight: 600;
 }
 
-.fuel-conversion-factors {
+.carbon-emission-factors {
   background: #1e293b;
   color: white;
   padding: 1.5rem;
@@ -420,40 +546,27 @@
   margin: 1.5rem 0;
 }
 
-.fuel-conversion-factors p {
-  margin: 0 0 0.5rem 0;
-  font-family: 'Courier New', monospace;
+.carbon-emission-factors h4 {
+  color: #10b981;
+  margin: 0 0 1rem 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.carbon-emission-factors ul {
+  margin: 0 0 1.5rem 0;
+  padding-left: 1.5rem;
+}
+
+.carbon-emission-factors li {
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
   font-size: 0.9rem;
 }
 
-.fuel-conversion-factors p:last-child {
+.carbon-emission-factors li:last-child {
   margin-bottom: 0;
-}
-
-.fuel-conversion-factors strong {
-  color: #fbbf24;
-}
-
-.fuel-formula {
-  background: #1e293b;
-  color: white;
-  padding: 1.5rem;
-  border-radius: 8px;
-  margin: 1.5rem 0;
-}
-
-.fuel-formula p {
-  margin: 0 0 0.5rem 0;
-  font-family: 'Courier New', monospace;
-  font-size: 0.9rem;
-}
-
-.fuel-formula p:last-child {
-  margin-bottom: 0;
-}
-
-.fuel-formula strong {
-  color: #fbbf24;
 }
 
 /* Example Section */
@@ -472,7 +585,7 @@
   background: #f8fafc;
   padding: 1.5rem;
   border-radius: 8px;
-  border-left: 4px solid #3b82f6;
+  border-left: 4px solid #10b981;
   margin: 1rem 0;
 }
 
@@ -499,7 +612,7 @@
   padding: 1rem;
   margin-bottom: 0.75rem;
   border-radius: 8px;
-  border-left: 4px solid #3b82f6;
+  border-left: 4px solid #10b981;
   line-height: 1.6;
   list-style: none !important;
 }
@@ -516,6 +629,17 @@
 }
 
 /* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @keyframes slideInUp {
   from {
     opacity: 0;
@@ -529,62 +653,89 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .fuel-calculator-form {
+  .carbon-calculator-form {
     padding: 1.5rem;
   }
 
-  .fuel-form-row {
+  .carbon-tab-navigation {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .carbon-tab-button {
+    flex-direction: row;
+    justify-content: center;
+    min-width: auto;
+    padding: 0.75rem 1rem;
+  }
+
+  .carbon-tab-button span {
+    font-size: 0.9rem;
+  }
+
+  .carbon-form-row {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
 
-  .fuel-form-section h3 {
+  .carbon-tab-panel h3 {
     font-size: 1.2rem;
   }
 
-  .fuel-calculator-result {
+  .carbon-calculator-result {
     padding: 1.5rem;
     margin: 1.5rem 0;
   }
 
-  .fuel-result-header h3 {
+  .carbon-result-header h3 {
     font-size: 1.5rem;
   }
 
-  .fuel-main-result {
+  .carbon-main-result {
     flex-direction: column;
     text-align: center;
   }
 
-  .fuel-amount-value {
+  .carbon-amount-value {
     font-size: 2rem;
   }
 
-  .fuel-breakdown-grid {
+  .carbon-breakdown-grid {
     grid-template-columns: 1fr;
   }
 
-  .fuel-breakdown,
-  .fuel-tips,
-  .fuel-summary {
+  .carbon-breakdown,
+  .carbon-tips,
+  .carbon-summary {
     padding: 1.5rem;
   }
 
-  .fuel-form-actions {
+  .carbon-navigation-buttons {
     flex-direction: column;
-    align-items: center;
+    gap: 1rem;
   }
 
-  .fuel-btn-reset {
+  .carbon-btn-prev,
+  .carbon-btn-next {
     width: 100%;
     max-width: 300px;
   }
 
-  .fuel-efficiency-grid {
+  .carbon-form-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .carbon-btn-reset {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .carbon-sources-grid {
     grid-template-columns: 1fr;
   }
 
-  .fuel-efficiency-item {
+  .carbon-source-item {
     padding: 1.5rem;
   }
 
@@ -598,34 +749,42 @@
 }
 
 @media (min-width: 768px) and (max-width: 1023px) {
-  .fuel-calculator-form {
+  .carbon-calculator-form {
     padding: 1.75rem;
   }
 
-  .fuel-form-row {
+  .carbon-tab-navigation {
+    flex-wrap: wrap;
+  }
+
+  .carbon-tab-button {
+    min-width: 140px;
+  }
+
+  .carbon-form-row {
     grid-template-columns: repeat(2, 1fr);
     gap: 2.5rem;
   }
 
-  .fuel-calculator-result {
+  .carbon-calculator-result {
     padding: 1.75rem;
   }
 
-  .fuel-result-header h3 {
+  .carbon-result-header h3 {
     font-size: 1.7rem;
   }
 
-  .fuel-breakdown,
-  .fuel-tips,
-  .fuel-summary {
+  .carbon-breakdown,
+  .carbon-tips,
+  .carbon-summary {
     padding: 1.75rem;
   }
 
-  .fuel-efficiency-grid {
+  .carbon-sources-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .fuel-efficiency-item {
+  .carbon-source-item {
     padding: 1.75rem;
   }
 
@@ -635,34 +794,34 @@
 }
 
 @media (min-width: 1024px) and (max-width: 1199px) {
-  .fuel-calculator-form {
+  .carbon-calculator-form {
     padding: 2rem;
   }
 
-  .fuel-form-row {
+  .carbon-form-row {
     grid-template-columns: repeat(2, 1fr);
     gap: 2.5rem;
   }
 
-  .fuel-calculator-result {
+  .carbon-calculator-result {
     padding: 2rem;
   }
 
-  .fuel-result-header h3 {
+  .carbon-result-header h3 {
     font-size: 1.8rem;
   }
 
-  .fuel-breakdown,
-  .fuel-tips,
-  .fuel-summary {
+  .carbon-breakdown,
+  .carbon-tips,
+  .carbon-summary {
     padding: 2rem;
   }
 
-  .fuel-efficiency-grid {
+  .carbon-sources-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .fuel-efficiency-item {
+  .carbon-source-item {
     padding: 2rem;
   }
 
@@ -672,42 +831,42 @@
 }
 
 @media (min-width: 1200px) {
-  .fuel-calculator-form {
+  .carbon-calculator-form {
     padding: 2.5rem;
   }
 
-  .fuel-form-row {
+  .carbon-form-row {
     grid-template-columns: repeat(2, 1fr);
     gap: 2.5rem;
   }
 
-  .fuel-calculator-result {
+  .carbon-calculator-result {
     padding: 2.5rem;
   }
 
-  .fuel-result-header h3 {
+  .carbon-result-header h3 {
     font-size: 2rem;
   }
 
-  .fuel-breakdown,
-  .fuel-tips,
-  .fuel-summary {
+  .carbon-breakdown,
+  .carbon-tips,
+  .carbon-summary {
     padding: 2.5rem;
   }
 
-  .fuel-form-actions {
+  .carbon-form-actions {
     justify-content: flex-end;
   }
 
-  .fuel-btn-reset {
+  .carbon-btn-reset {
     min-width: 140px;
   }
 
-  .fuel-efficiency-grid {
-    grid-template-columns: repeat(3, 1fr);
+  .carbon-sources-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 
-  .fuel-efficiency-item {
+  .carbon-source-item {
     padding: 2.5rem;
   }
 
@@ -715,4 +874,3 @@
     padding: 2.5rem;
   }
 }
-

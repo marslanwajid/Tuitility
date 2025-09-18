@@ -19,6 +19,8 @@ import MBTICalculator from './components/knowledge/MBTICalculator'
 import LanguageLevelCalculator from './components/knowledge/LanguageLevelCalculator'
 import ZakatCalculator from './components/knowledge/ZakatCalculator'
 import FuelCalculator from './components/knowledge/FuelCalculator'
+import AverageTimeCalculator from './components/knowledge/AverageTimeCalculator'
+import CarbonFootprintCalculator from './components/knowledge/CarbonFootprintCalculator'
 import FractionCalculator from './components/math/FractionCalculator'
 import FractionToPercentCalculator from './components/math/FractionToPercentCalculator'
 import BinaryCalculatorTool from './components/tool/BinaryCalculatorTool'
@@ -157,6 +159,8 @@ const App = () => {
             <Route path="/knowledge/calculators/language-level-calculator" element={<LanguageLevelCalculator />} />
             <Route path="/knowledge/calculators/zakat-calculator" element={<ZakatCalculator />} />
             <Route path="/knowledge/calculators/fuel-calculator" element={<FuelCalculator />} />
+            <Route path="/knowledge/calculators/average-time-calculator" element={<AverageTimeCalculator />} />
+            <Route path="/knowledge/calculators/carbon-footprint-calculator" element={<CarbonFootprintCalculator />} />
       </Routes>
       <Footer />
     </>
