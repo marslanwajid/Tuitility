@@ -1,0 +1,473 @@
+/* DBm Watts Calculator - Isolated Styling */
+
+/* Main calculator container */
+.dbm-watts-calculator-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+/* Input groups */
+.dbm-watts-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.dbm-watts-input-group label {
+  font-weight: 600;
+  color: #374151;
+  font-size: 0.95rem;
+  margin-bottom: 0.25rem;
+}
+
+/* Input fields */
+.dbm-watts-input-field {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  background: #f9fafb;
+  color: #374151;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  min-height: 48px;
+  box-sizing: border-box;
+}
+
+.dbm-watts-input-field::placeholder {
+  color: #9ca3af;
+}
+
+.dbm-watts-input-field:focus {
+  outline: none;
+  border-color: #3b82f6;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+.dbm-watts-input-field:hover {
+  border-color: #3b82f6;
+  background: #ffffff;
+}
+
+/* Select fields */
+.dbm-watts-select-field {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  background: #f9fafb;
+  color: #374151;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  min-height: 48px;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23374151' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+  background-position: right 0.75rem center;
+  background-repeat: no-repeat;
+  background-size: 1.25rem;
+  padding-right: 2.5rem;
+}
+
+.dbm-watts-select-field:focus {
+  outline: none;
+  border-color: #3b82f6;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+.dbm-watts-select-field:hover {
+  border-color: #d1d5db;
+  background-color: #ffffff;
+}
+
+.dbm-watts-select-field option {
+  background: #ffffff;
+  color: #374151;
+  padding: 0.5rem;
+}
+
+/* Calculator actions */
+.dbm-watts-calculator-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+.dbm-watts-btn-reset {
+  padding: 0.875rem 1.5rem;
+  background: #6b7280;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 48px;
+}
+
+.dbm-watts-btn-reset:hover {
+  background: #4b5563;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(107, 114, 128, 0.3);
+}
+
+.dbm-watts-btn-reset:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(107, 114, 128, 0.3);
+}
+
+.dbm-watts-btn-reset i {
+  font-size: 0.9rem;
+}
+
+/* Applications Grid */
+.applications-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.application-item {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.application-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.application-item h4 {
+  color: #10b981;
+  font-size: 1.2rem;
+  margin: 0 0 1rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.application-item p {
+  color: #666;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Result section */
+.dbm-watts-calculator-result {
+  margin-top: 2rem;
+  padding: 2rem;
+  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%) !important;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(16, 185, 129, 0.3);
+  color: #ffffff;
+  animation: slideInUp 0.6s ease-out;
+}
+
+.dbm-watts-calculator-result h3 {
+  margin: 0 0 1.5rem 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-align: center;
+}
+
+/* Result main section */
+.dbm-watts-result-main {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.dbm-watts-result-item {
+  text-align: center;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dbm-watts-result-item h4 {
+  margin: 0 0 0.75rem 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.dbm-watts-result-value {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ffffff;
+  word-break: break-all;
+}
+
+/* Calculation steps */
+.dbm-watts-calculation-steps {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dbm-watts-calculation-steps h4 {
+  margin: 0 0 1rem 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.dbm-watts-steps-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.dbm-watts-step {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dbm-watts-step h5 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.dbm-watts-step-content {
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
+}
+
+.dbm-watts-step-content ul {
+  margin: 0.5rem 0;
+  padding-left: 1.5rem;
+}
+
+.dbm-watts-step-content li {
+  margin: 0.25rem 0;
+}
+
+/* Override global styles for result section */
+.dbm-watts-calculator-result .result-main {
+  background: transparent !important;
+}
+
+.dbm-watts-calculator-result .result-content {
+  background: transparent !important;
+}
+
+.dbm-watts-calculator-result .result-grid {
+  background: transparent !important;
+}
+
+.dbm-watts-calculator-result .result-item {
+  background: transparent !important;
+}
+
+.dbm-watts-calculator-result .result-value {
+  background: transparent !important;
+}
+
+.dbm-watts-calculator-result .result-details {
+  background: transparent !important;
+}
+
+.dbm-watts-calculator-result .result-detail-item {
+  background: transparent !important;
+}
+
+/* KaTeX formula styling */
+.dbm-watts-calculator-result .math-formula {
+  background: transparent !important;
+  color: #ffffff !important;
+}
+
+.dbm-watts-calculator-result .katex {
+  color: #ffffff !important;
+  background: transparent !important;
+}
+
+.dbm-watts-calculator-result .katex-display {
+  background: transparent !important;
+}
+
+.dbm-watts-calculator-result .katex .base {
+  color: #ffffff !important;
+}
+
+.dbm-watts-calculator-result .katex .mord {
+  color: #ffffff !important;
+}
+
+.dbm-watts-calculator-result .katex .mrel {
+  color: #ffffff !important;
+}
+
+.dbm-watts-calculator-result .katex .mbin {
+  color: #ffffff !important;
+}
+
+.dbm-watts-calculator-result .katex .mopen {
+  color: #ffffff !important;
+}
+
+.dbm-watts-calculator-result .katex .mclose {
+  color: #ffffff !important;
+}
+
+.dbm-watts-calculator-result .katex .mpunct {
+  color: #ffffff !important;
+}
+
+.dbm-watts-calculator-result .katex .mord.mathdefault {
+  color: #ffffff !important;
+}
+
+/* Animations */
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .dbm-watts-calculator-form {
+    padding: 1.5rem;
+    gap: 1.25rem;
+  }
+
+  .dbm-watts-calculator-result {
+    padding: 1.5rem;
+  }
+
+  .dbm-watts-calculator-result h3 {
+    font-size: 1.25rem;
+  }
+
+  .dbm-watts-result-value {
+    font-size: 1.1rem;
+  }
+
+  .dbm-watts-step {
+    padding: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .dbm-watts-calculator-form {
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .dbm-watts-input-field,
+  .dbm-watts-select-field {
+    padding: 0.75rem 0.875rem;
+    font-size: 0.95rem;
+    min-height: 44px;
+  }
+
+  .dbm-watts-calculator-result {
+    padding: 1rem;
+  }
+
+  .dbm-watts-result-item {
+    padding: 1rem;
+  }
+
+  .dbm-watts-result-value {
+    font-size: 1rem;
+  }
+
+  .dbm-watts-step {
+    padding: 0.5rem;
+  }
+
+  .dbm-watts-step h5 {
+    font-size: 0.9rem;
+  }
+}
+
+/* Focus states for accessibility */
+.dbm-watts-input-field:focus-visible,
+.dbm-watts-select-field:focus-visible {
+  /* outline: 2px solid #3b82f6; */
+  outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .dbm-watts-input-field,
+  .dbm-watts-select-field {
+    border-color: #ffffff;
+    background: rgba(0, 0, 0, 0.8);
+  }
+
+  .dbm-watts-calculator-result {
+    background: linear-gradient(135deg, #000000 0%, #333333 100%);
+    border-color: #ffffff;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .dbm-watts-calculator-result {
+    animation: none;
+  }
+
+  .dbm-watts-input-field,
+  .dbm-watts-select-field {
+    transition: none;
+  }
+}
+
+/* Print styles */
+@media print {
+  .dbm-watts-calculator-form {
+    background: white;
+    color: black;
+    border: 1px solid #ccc;
+  }
+
+  .dbm-watts-input-field,
+  .dbm-watts-select-field {
+    background: white;
+    color: black;
+    border: 1px solid #ccc;
+  }
+
+  .dbm-watts-calculator-result {
+    background: white;
+    color: black;
+    border: 1px solid #ccc;
+  }
+}

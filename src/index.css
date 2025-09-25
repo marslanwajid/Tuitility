@@ -1,0 +1,21 @@
+/* Global styles */
+
+body {
+  margin: 0;
+  padding-top: 100px; /* Account for fixed header */
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.tool-content {
+  box-shadow: none !important;
+}
+
+/* Responsive padding for mobile */
+@media (max-width: 768px) {
+  body {
+    padding-top: 80px;
+  }
+}

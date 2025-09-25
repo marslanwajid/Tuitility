@@ -1,0 +1,445 @@
+/* DBm to Milliwatts Calculator Styles - Individual Classes */
+
+/* Form Container */
+.dbm-milliwatts-calculator-form {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e5e7eb;
+  margin-bottom: 1.5rem;
+}
+
+/* Input Row Layout */
+.dbm-milliwatts-input-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Input Groups */
+.dbm-milliwatts-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Labels */
+.dbm-milliwatts-input-label {
+  font-weight: 600;
+  color: #374151;
+  font-size: 0.95rem;
+  margin-bottom: 0.25rem;
+}
+
+/* Input Fields */
+.dbm-milliwatts-input-field {
+  background: #ffffff;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 0.875rem 1rem;
+  font-size: 1rem;
+  color: #374151;
+  transition: all 0.2s ease;
+  min-height: 44px;
+}
+
+.dbm-milliwatts-input-field:focus {
+  outline: none;
+  border-color: #f59e0b;
+  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.1);
+}
+
+.dbm-milliwatts-input-field::placeholder {
+  color: #9ca3af;
+  font-style: italic;
+}
+
+/* Help Text */
+.dbm-milliwatts-input-help {
+  color: #6b7280;
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+  font-style: italic;
+}
+
+/* Calculator Actions */
+.dbm-milliwatts-calculator-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+/* Reset Button */
+.dbm-milliwatts-btn-reset {
+  background: #f3f4f6;
+  color: #374151;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  min-width: 120px;
+}
+
+.dbm-milliwatts-btn-reset:hover {
+  background: #e5e7eb;
+  transform: translateY(-1px);
+}
+
+.dbm-milliwatts-btn-reset i {
+  font-size: 0.9rem;
+}
+
+/* Result Section Styling - More specific to override tool-page.css */
+.dbm-milliwatts-calculator-result {
+    background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%) !important;
+  border-radius: 15px;
+  padding: 2rem;
+  margin-top: 2rem;
+  color: white;
+  box-shadow: 0 10px 30px rgba(245, 158, 11, 0.3);
+  animation: resultSlideIn 0.6s ease-out;
+  border: none !important;
+}
+
+/* Override any white background that might be coming from other CSS */
+.dbm-milliwatts-calculator-result .dbm-milliwatts-result-main,
+.dbm-milliwatts-calculator-result .dbm-milliwatts-result-breakdown,
+.dbm-milliwatts-calculator-result .dbm-milliwatts-result-summary,
+.dbm-milliwatts-calculator-result .dbm-milliwatts-result-item {
+  background: transparent !important;
+}
+
+/* Ensure all result content has transparent background */
+.dbm-milliwatts-calculator-result .dbm-milliwatts-result-content,
+.dbm-milliwatts-calculator-result .dbm-milliwatts-breakdown-details,
+.dbm-milliwatts-calculator-result .dbm-milliwatts-summary-details {
+  background: transparent !important;
+}
+
+/* Result Title */
+.dbm-milliwatts-result-title {
+  color: white !important;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 1.5rem 0;
+  text-align: center;
+  background: transparent !important;
+}
+
+/* Result Content */
+.dbm-milliwatts-result-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  background: transparent !important;
+}
+
+/* Main Results */
+.dbm-milliwatts-result-main {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background: transparent !important;
+}
+
+/* Result Items */
+.dbm-milliwatts-result-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.dbm-milliwatts-result-item strong {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-weight: 600;
+  background: transparent !important;
+}
+
+.dbm-milliwatts-result-value {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-weight: 600;
+  font-size: 1.1rem;
+  background: transparent !important;
+}
+
+.dbm-milliwatts-result-final {
+  color: #fbbf24 !important;
+  font-weight: 700 !important;
+  font-size: 1.25rem;
+}
+
+/* Breakdown Section */
+.dbm-milliwatts-result-breakdown {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-radius: 8px;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.dbm-milliwatts-result-breakdown h4 {
+  color: white !important;
+  font-size: 1.2rem;
+  margin: 0 0 1rem 0;
+  background: transparent !important;
+}
+
+.dbm-milliwatts-breakdown-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  background: transparent !important;
+}
+
+.dbm-milliwatts-breakdown-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 0.75rem;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: transparent !important;
+}
+
+.dbm-milliwatts-breakdown-item span:first-child {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-weight: 500;
+  background: transparent !important;
+}
+
+.dbm-milliwatts-breakdown-item span:last-child {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-weight: 600;
+  text-align: right;
+  background: transparent !important;
+}
+
+/* Summary Section */
+.dbm-milliwatts-result-summary {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-radius: 8px;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.dbm-milliwatts-result-summary h4 {
+  color: white !important;
+  font-size: 1.2rem;
+  margin: 0 0 1rem 0;
+  background: transparent !important;
+}
+
+.dbm-milliwatts-summary-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  background: transparent !important;
+}
+
+.dbm-milliwatts-summary-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: transparent !important;
+}
+
+.dbm-milliwatts-summary-item span:first-child {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-weight: 500;
+  background: transparent !important;
+}
+
+.dbm-milliwatts-summary-item span:last-child {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-weight: 600;
+  background: transparent !important;
+}
+
+/* Result Tip */
+.dbm-milliwatts-result-tip {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-radius: 8px;
+  padding: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.dbm-milliwatts-result-tip i {
+  color: #fbbf24 !important;
+  font-size: 1.1rem;
+  margin-top: 0.1rem;
+  background: transparent !important;
+}
+
+.dbm-milliwatts-result-tip span {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  background: transparent !important;
+}
+
+/* KaTeX Formula Styling */
+.math-formula .katex {
+  color: #f59e0b !important;
+}
+
+.math-formula .katex * {
+  color: #f59e0b !important;
+}
+
+/* Applications Grid */
+.applications-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.application-item {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.application-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.application-item h4 {
+  color: #f59e0b;
+  font-size: 1.2rem;
+  margin: 0 0 1rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.application-item p {
+  color: #666;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .dbm-milliwatts-calculator-form {
+    padding: 1.5rem;
+  }
+
+  .dbm-milliwatts-input-row {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .dbm-milliwatts-calculator-result {
+    padding: 1.5rem;
+  }
+
+  .dbm-milliwatts-result-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .dbm-milliwatts-breakdown-item,
+  .dbm-milliwatts-summary-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .applications-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .dbm-milliwatts-calculator-form {
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .dbm-milliwatts-input-field {
+    padding: 0.75rem 0.875rem;
+    font-size: 0.95rem;
+    min-height: 44px;
+  }
+
+  .dbm-milliwatts-calculator-result {
+    padding: 1rem;
+  }
+
+  .dbm-milliwatts-result-item {
+    padding: 1rem;
+  }
+
+  .dbm-milliwatts-result-value {
+    font-size: 1rem;
+  }
+
+  .dbm-milliwatts-breakdown-item,
+  .dbm-milliwatts-summary-item {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Focus states for accessibility */
+.dbm-milliwatts-input-field:focus-visible {
+  outline: 2px solid #f59e0b;
+  outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .dbm-milliwatts-input-field {
+    border-color: #000;
+  }
+  
+  .dbm-milliwatts-input-field:focus {
+    border-color: #f59e0b;
+    box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.3);
+  }
+}
+
+/* Animation for result section */
+@keyframes resultSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,671 @@
+/* BRI Calculator Styles - Individual Classes */
+
+/* Form Container */
+.bri-calculator-form {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e5e7eb;
+  margin-bottom: 1.5rem;
+}
+
+/* Section Titles */
+.bri-section-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 2rem 0 1.5rem 0;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #10b981;
+  text-align: center;
+  position: relative;
+}
+
+.bri-section-title:first-child {
+  margin-top: 0;
+}
+
+.bri-section-title::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -2px;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, #10b981, #06b6d4);
+  border-radius: 1px;
+}
+
+/* Input Groups */
+.bri-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Labels */
+.bri-input-label {
+  font-weight: 600;
+  color: #374151;
+  font-size: 0.95rem;
+  margin-bottom: 0.25rem;
+}
+
+/* Input Fields */
+.bri-input-field {
+  background: #ffffff;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 0.875rem 1rem;
+  font-size: 1rem;
+  color: #374151;
+  transition: all 0.2s ease;
+  height: 48px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+}
+
+.bri-input-field:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+.bri-input-field::placeholder {
+  color: #9ca3af;
+  font-style: italic;
+}
+
+/* Select Fields */
+.bri-select-field {
+  background: #ffffff;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 0.875rem 1rem;
+  font-size: 1rem;
+  color: #374151;
+  transition: all 0.2s ease;
+  height: 48px;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.bri-select-field:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+/* Input Row Layout */
+.bri-input-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* Calculator Actions */
+.bri-calculator-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+/* Reset Button */
+.bri-btn-reset {
+  background: #f3f4f6;
+  color: #374151;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  min-width: 120px;
+}
+
+.bri-btn-reset:hover {
+  background: #e5e7eb;
+  transform: translateY(-1px);
+}
+
+.bri-btn-reset i {
+  font-size: 0.9rem;
+}
+
+/* Result Section Styling */
+.bri-calculator-result {
+  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%) !important;
+  border-radius: 15px;
+  padding: 2rem;
+  margin-top: 2rem;
+  color: white;
+  box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3);
+  animation: briResultSlideIn 0.6s ease-out;
+  border: none !important;
+}
+
+/* Override any white background that might be coming from other CSS */
+.bri-calculator-result .bri-result-section,
+.bri-calculator-result .bri-result-item,
+.bri-calculator-result .bri-recommendations {
+  background: transparent !important;
+}
+
+/* Result Title */
+.bri-result-title {
+  color: white !important;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 1.5rem 0;
+  text-align: center;
+  background: transparent !important;
+}
+
+/* Result Content */
+.bri-result-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  background: transparent !important;
+}
+
+/* Result Sections */
+.bri-result-section {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-radius: 12px;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.bri-result-section-title {
+  color: #fbbf24 !important;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 0 0 1rem 0;
+  background: transparent !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 0.5rem;
+}
+
+/* Result Items */
+.bri-result-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem;
+  background: rgba(255, 255, 255, 0.05) !important;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 0.5rem;
+}
+
+.bri-result-item:last-child {
+  margin-bottom: 0;
+}
+
+.bri-result-item strong {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-weight: 600;
+  background: transparent !important;
+}
+
+.bri-result-value {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-weight: 600;
+  font-size: 1.1rem;
+  background: transparent !important;
+}
+
+.bri-result-final {
+  color: #fbbf24 !important;
+  font-weight: 700 !important;
+  font-size: 1.25rem;
+}
+
+/* Risk Factors */
+.bri-risk-factors {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.bri-risk-factor-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  background: rgba(255, 255, 255, 0.05) !important;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.bri-risk-factor-item i {
+  color: #fbbf24;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+/* Recommendations */
+.bri-recommendations {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  background: transparent !important;
+}
+
+.bri-recommendation-category {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border-radius: 8px;
+  padding: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.bri-recommendation-title {
+  color: #fbbf24 !important;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0 0 0.75rem 0;
+  background: transparent !important;
+}
+
+.bri-recommendation-items {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.bri-recommendation-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  color: rgba(255, 255, 255, 0.9) !important;
+  line-height: 1.5;
+  background: transparent !important;
+}
+
+.bri-recommendation-item i {
+  color: #10b981;
+  font-size: 0.9rem;
+  margin-top: 0.1rem;
+  flex-shrink: 0;
+}
+
+/* Calculation Method Section */
+.calculation-method-section {
+  background: rgba(16, 185, 129, 0.05);
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin: 1.5rem 0;
+  border-left: 4px solid #10b981;
+  transition: all 0.3s ease;
+}
+
+.calculation-method-section:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.calculation-method-section h3 {
+  color: #10b981;
+  margin: 0 0 1rem 0;
+  font-size: 1.3rem;
+}
+
+.calculation-method-section ul {
+  margin: 0;
+  padding-left: 1.5rem;
+}
+
+.calculation-method-section li {
+  margin-bottom: 0.5rem;
+  color: #374151;
+}
+
+/* Applications Grid */
+.applications-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.application-item {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.application-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.application-item h4 {
+  color: #10b981;
+  font-size: 1.2rem;
+  margin: 0 0 1rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.application-item p {
+  color: #666;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Example Sections */
+.example-section {
+  background: rgba(16, 185, 129, 0.05);
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin: 1rem 0;
+  border-left: 4px solid #10b981;
+}
+
+.example-section h3 {
+  color: #10b981;
+  margin: 0 0 1rem 0;
+  font-size: 1.2rem;
+}
+
+.example-solution {
+  background: rgba(255, 255, 255, 0.7);
+  padding: 1rem;
+  border-radius: 8px;
+  margin-top: 1rem;
+}
+
+.example-solution p {
+  margin: 0.5rem 0;
+  color: #374151;
+}
+
+/* Usage Steps */
+.usage-steps {
+  background: rgba(16, 185, 129, 0.05);
+  padding: 1rem;
+  border-radius: 8px;
+  margin: 1rem 0;
+}
+
+.usage-steps li {
+  margin-bottom: 0.5rem;
+  color: #374151;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .bri-calculator-form {
+    padding: 1.5rem;
+  }
+
+  .bri-input-row {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .bri-calculator-result {
+    padding: 1.5rem;
+  }
+
+  .bri-result-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .applications-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .bri-recommendation-category {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .bri-calculator-form {
+    padding: 1rem;
+  }
+
+  .bri-input-field,
+  .bri-select-field {
+    padding: 0.75rem 0.875rem;
+    font-size: 0.95rem;
+    height: 44px;
+  }
+
+  .bri-calculator-result {
+    padding: 1rem;
+  }
+
+  .bri-result-section {
+    padding: 1rem;
+  }
+
+  .bri-result-value {
+    font-size: 1rem;
+  }
+
+  .bri-section-title {
+    font-size: 1.1rem;
+    margin: 1.5rem 0 1rem 0;
+  }
+
+  .bri-recommendation-category {
+    padding: 0.75rem;
+  }
+}
+
+/* Focus states for accessibility */
+.bri-input-field:focus-visible,
+.bri-select-field:focus-visible {
+  /* outline: 2px solid #3b82f6; */
+  outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .bri-input-field,
+  .bri-select-field {
+    border-color: #000;
+  }
+  
+  .bri-input-field:focus,
+  .bri-select-field:focus {
+    border-color: #10b981;
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.3);
+  }
+}
+
+/* Animation for result section */
+@keyframes briResultSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Enhanced responsiveness for larger screens */
+@media (min-width: 1440px) {
+  .bri-calculator-form {
+    padding: 2.5rem;
+  }
+
+  .bri-input-row {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .bri-section-title {
+    font-size: 1.3rem;
+    margin: 2.5rem 0 2rem 0;
+  }
+
+  .bri-calculator-result {
+    padding: 2.5rem;
+  }
+
+  .bri-result-title {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+  }
+
+  .bri-result-section {
+    padding: 2rem;
+  }
+
+  .bri-result-section-title {
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .bri-result-item {
+    padding: 1rem;
+  }
+
+  .bri-result-value {
+    font-size: 1.2rem;
+  }
+
+  .bri-input-field,
+  .bri-select-field {
+    height: 52px;
+    font-size: 1.05rem;
+  }
+
+  .bri-recommendation-category {
+    padding: 1.25rem;
+  }
+
+  .bri-recommendation-title {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+}
+
+@media (min-width: 1600px) {
+  .bri-input-field,
+  .bri-select-field {
+    height: 56px;
+    font-size: 1.1rem;
+  }
+
+  .bri-calculator-result {
+    padding: 2.5rem;
+  }
+
+  .bri-recommendation-category {
+    padding: 1.5rem;
+  }
+}
+
+@media (min-width: 1920px) {
+  .bri-calculator-form {
+    padding: 3rem;
+  }
+
+  .bri-input-row {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+  }
+
+  .bri-section-title {
+    font-size: 1.4rem;
+    margin: 3rem 0 2.5rem 0;
+  }
+
+  .bri-calculator-result {
+    padding: 3rem;
+  }
+
+  .bri-result-title {
+    font-size: 2rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .bri-result-section {
+    padding: 2.5rem;
+  }
+
+  .bri-result-section-title {
+    font-size: 1.4rem;
+    margin-bottom: 2rem;
+  }
+
+  .bri-result-item {
+    padding: 1.25rem;
+  }
+
+  .bri-result-value {
+    font-size: 1.3rem;
+  }
+
+  .bri-input-field,
+  .bri-select-field {
+    height: 60px;
+    font-size: 1.15rem;
+  }
+
+  .applications-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  .application-item {
+    padding: 2rem;
+  }
+
+  .application-item h4 {
+    font-size: 1.3rem;
+  }
+
+  .application-item p {
+    font-size: 1.05rem;
+  }
+
+  .bri-recommendation-category {
+    padding: 2rem;
+  }
+
+  .bri-recommendation-title {
+    font-size: 1.3rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .bri-recommendation-item {
+    font-size: 1.05rem;
+    gap: 1rem;
+  }
+
+  .bri-risk-factor-item {
+    padding: 1rem;
+    font-size: 1.05rem;
+  }
+}

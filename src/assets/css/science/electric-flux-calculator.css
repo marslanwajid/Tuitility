@@ -1,0 +1,468 @@
+/* Electric Flux Calculator Styles - Individual Classes */
+
+/* Form Container */
+.electric-flux-calculator-form {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e5e7eb;
+  margin-bottom: 1.5rem;
+}
+
+/* Input Row Layout */
+.electric-flux-input-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Input Groups */
+.electric-flux-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Labels */
+.electric-flux-input-label {
+  font-weight: 600;
+  color: #374151;
+  font-size: 0.95rem;
+  margin-bottom: 0.25rem;
+}
+
+/* Input Fields */
+.electric-flux-input-field {
+  background: #ffffff;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 0.875rem 1rem;
+  font-size: 1rem;
+  color: #374151;
+  transition: all 0.2s ease;
+  min-height: 44px;
+}
+
+.electric-flux-input-field:focus {
+  outline: none;
+  border-color:#3b82f6;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+.electric-flux-input-field::placeholder {
+  color: #9ca3af;
+  font-style: italic;
+}
+
+/* Select Fields */
+.electric-flux-select-field {
+  background: #ffffff;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 0.875rem 1rem;
+  font-size: 1rem;
+  color: #374151;
+  transition: all 0.2s ease;
+  min-height: 44px;
+  cursor: pointer;
+}
+
+.electric-flux-select-field:focus {
+  outline: none;
+  border-color:#3b82f6;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+/* Help Text */
+.electric-flux-input-help {
+  color: #6b7280;
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+  font-style: italic;
+}
+
+/* Calculator Actions */
+.electric-flux-calculator-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+/* Reset Button */
+.electric-flux-btn-reset {
+  background: #f3f4f6;
+  color: #374151;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  min-width: 120px;
+}
+
+.electric-flux-btn-reset:hover {
+  background: #e5e7eb;
+  transform: translateY(-1px);
+}
+
+.electric-flux-btn-reset i {
+  font-size: 0.9rem;
+}
+
+/* Result Section Styling - More specific to override tool-page.css */
+.electric-flux-calculator-result {
+  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%) !important;
+  border-radius: 15px;
+  padding: 2rem;
+  margin-top: 2rem;
+  color: white;
+  box-shadow: 0 10px 30px rgba(239, 68, 68, 0.3);
+  animation: resultSlideIn 0.6s ease-out;
+  border: none !important;
+}
+
+/* Override any white background that might be coming from other CSS */
+.electric-flux-calculator-result .electric-flux-result-main,
+.electric-flux-calculator-result .electric-flux-result-breakdown,
+.electric-flux-calculator-result .electric-flux-result-summary,
+.electric-flux-calculator-result .electric-flux-result-item {
+  background: transparent !important;
+}
+
+/* Ensure all result content has transparent background */
+.electric-flux-calculator-result .electric-flux-result-content,
+.electric-flux-calculator-result .electric-flux-breakdown-details,
+.electric-flux-calculator-result .electric-flux-summary-details {
+  background: transparent !important;
+}
+
+/* Result Title */
+.electric-flux-result-title {
+  color: white !important;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 1.5rem 0;
+  text-align: center;
+  background: transparent !important;
+}
+
+/* Result Content */
+.electric-flux-result-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  background: transparent !important;
+}
+
+/* Main Results */
+.electric-flux-result-main {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background: transparent !important;
+}
+
+/* Result Items */
+.electric-flux-result-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.electric-flux-result-item strong {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-weight: 600;
+  background: transparent !important;
+}
+
+.electric-flux-result-value {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-weight: 600;
+  font-size: 1.1rem;
+  background: transparent !important;
+}
+
+.electric-flux-result-final {
+  color: #fbbf24 !important;
+  font-weight: 700 !important;
+  font-size: 1.25rem;
+}
+
+/* Breakdown Section */
+.electric-flux-result-breakdown {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-radius: 8px;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.electric-flux-result-breakdown h4 {
+  color: white !important;
+  font-size: 1.2rem;
+  margin: 0 0 1rem 0;
+  background: transparent !important;
+}
+
+.electric-flux-breakdown-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  background: transparent !important;
+}
+
+.electric-flux-breakdown-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 0.75rem;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: transparent !important;
+}
+
+.electric-flux-breakdown-item span:first-child {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-weight: 500;
+  background: transparent !important;
+}
+
+.electric-flux-breakdown-item span:last-child {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-weight: 600;
+  text-align: right;
+  background: transparent !important;
+}
+
+/* Summary Section */
+.electric-flux-result-summary {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-radius: 8px;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.electric-flux-result-summary h4 {
+  color: white !important;
+  font-size: 1.2rem;
+  margin: 0 0 1rem 0;
+  background: transparent !important;
+}
+
+.electric-flux-summary-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  background: transparent !important;
+}
+
+.electric-flux-summary-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: transparent !important;
+}
+
+.electric-flux-summary-item span:first-child {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-weight: 500;
+  background: transparent !important;
+}
+
+.electric-flux-summary-item span:last-child {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-weight: 600;
+  background: transparent !important;
+}
+
+/* Result Tip */
+.electric-flux-result-tip {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-radius: 8px;
+  padding: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.electric-flux-result-tip i {
+  color: #fbbf24 !important;
+  font-size: 1.1rem;
+  margin-top: 0.1rem;
+  background: transparent !important;
+}
+
+.electric-flux-result-tip span {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  background: transparent !important;
+}
+
+/* KaTeX Formula Styling */
+.math-formula .katex {
+  color: #ef4444 !important;
+}
+
+.math-formula .katex * {
+  color: #ef4444 !important;
+}
+
+/* Applications Grid */
+.applications-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.application-item {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.application-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.application-item h4 {
+  color: #ef4444;
+  font-size: 1.2rem;
+  margin: 0 0 1rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.application-item p {
+  color: #666;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .electric-flux-calculator-form {
+    padding: 1.5rem;
+  }
+
+  .electric-flux-input-row {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .electric-flux-calculator-result {
+    padding: 1.5rem;
+  }
+
+  .electric-flux-result-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .electric-flux-breakdown-item,
+  .electric-flux-summary-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .applications-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .electric-flux-calculator-form {
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .electric-flux-input-field,
+  .electric-flux-select-field {
+    padding: 0.75rem 0.875rem;
+    font-size: 0.95rem;
+    min-height: 44px;
+  }
+
+  .electric-flux-calculator-result {
+    padding: 1rem;
+  }
+
+  .electric-flux-result-item {
+    padding: 1rem;
+  }
+
+  .electric-flux-result-value {
+    font-size: 1rem;
+  }
+
+  .electric-flux-breakdown-item,
+  .electric-flux-summary-item {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Focus states for accessibility */
+.electric-flux-input-field:focus-visible,
+.electric-flux-select-field:focus-visible {
+  /* outline: 2px solid #ef4444; */
+  outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .electric-flux-input-field,
+  .electric-flux-select-field {
+    border-color: #000;
+  }
+  
+  .electric-flux-input-field:focus,
+  .electric-flux-select-field:focus {
+    /* border-color: #ef4444; */
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.3);
+  }
+}
+
+/* Animation for result section */
+@keyframes resultSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

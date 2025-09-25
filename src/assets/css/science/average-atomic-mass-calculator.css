@@ -1,0 +1,498 @@
+/* Average Atomic Mass Calculator Styles - Individual Classes */
+
+/* Form Container */
+.atomic-mass-calculator-form {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e5e7eb;
+  margin-bottom: 1.5rem;
+}
+
+/* Input Groups */
+.atomic-mass-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Labels */
+.atomic-mass-input-label {
+  font-weight: 600;
+  color: #374151;
+  font-size: 0.95rem;
+  margin-bottom: 0.25rem;
+}
+
+/* Input Fields */
+.atomic-mass-input-field {
+  background: #ffffff;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 0.875rem 1rem;
+  font-size: 1rem;
+  color: #374151;
+  transition: all 0.2s ease;
+  min-height: 44px;
+}
+
+.atomic-mass-input-field:focus {
+  outline: none;
+  border-color: #10b981;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+.atomic-mass-input-field::placeholder {
+  color: #9ca3af;
+  font-style: italic;
+}
+
+/* Select Fields */
+.atomic-mass-select-field {
+  background: #ffffff;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 0.875rem 1rem;
+  font-size: 1rem;
+  color: #374151;
+  transition: all 0.2s ease;
+  min-height: 44px;
+  cursor: pointer;
+}
+
+.atomic-mass-select-field:focus {
+  outline: none;
+  border-color: #10b981;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+/* Help Text */
+.atomic-mass-input-help {
+  color: #6b7280;
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+  font-style: italic;
+}
+
+/* Isotope Inputs Container */
+.atomic-mass-isotope-inputs {
+  margin: 1.5rem 0;
+}
+
+/* Isotope Group */
+.atomic-mass-isotope-group {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.atomic-mass-isotope-title {
+  color: #374151;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0 0 1rem 0;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #10b981;
+}
+
+/* Input Row Layout */
+.atomic-mass-input-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+}
+
+/* Calculator Actions */
+.atomic-mass-calculator-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+/* Reset Button */
+.atomic-mass-btn-reset {
+  background: #f3f4f6;
+  color: #374151;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  min-width: 120px;
+}
+
+.atomic-mass-btn-reset:hover {
+  background: #e5e7eb;
+  transform: translateY(-1px);
+}
+
+.atomic-mass-btn-reset i {
+  font-size: 0.9rem;
+}
+
+/* Result Section Styling - More specific to override tool-page.css */
+.atomic-mass-calculator-result {
+  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%) !important;
+  border-radius: 15px;
+  padding: 2rem;
+  margin-top: 2rem;
+  color: white;
+  box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3);
+  animation: resultSlideIn 0.6s ease-out;
+  border: none !important;
+}
+
+/* Override any white background that might be coming from other CSS */
+.atomic-mass-calculator-result .atomic-mass-result-main,
+.atomic-mass-calculator-result .atomic-mass-result-breakdown,
+.atomic-mass-calculator-result .atomic-mass-result-summary,
+.atomic-mass-calculator-result .atomic-mass-result-item {
+  background: transparent !important;
+}
+
+/* Ensure all result content has transparent background */
+.atomic-mass-calculator-result .atomic-mass-result-content,
+.atomic-mass-calculator-result .atomic-mass-breakdown-details,
+.atomic-mass-calculator-result .atomic-mass-summary-details {
+  background: transparent !important;
+}
+
+/* Result Title */
+.atomic-mass-result-title {
+  color: white !important;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 1.5rem 0;
+  text-align: center;
+  background: transparent !important;
+}
+
+/* Result Content */
+.atomic-mass-result-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  background: transparent !important;
+}
+
+/* Main Results */
+.atomic-mass-result-main {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background: transparent !important;
+}
+
+/* Result Items */
+.atomic-mass-result-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.atomic-mass-result-item strong {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-weight: 600;
+  background: transparent !important;
+}
+
+.atomic-mass-result-value {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-weight: 600;
+  font-size: 1.1rem;
+  background: transparent !important;
+}
+
+.atomic-mass-result-final {
+  color: #fbbf24 !important;
+  font-weight: 700 !important;
+  font-size: 1.25rem;
+}
+
+/* Breakdown Section */
+.atomic-mass-result-breakdown {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-radius: 8px;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.atomic-mass-result-breakdown h4 {
+  color: white !important;
+  font-size: 1.2rem;
+  margin: 0 0 1rem 0;
+  background: transparent !important;
+}
+
+.atomic-mass-breakdown-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  background: transparent !important;
+}
+
+.atomic-mass-breakdown-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 0.75rem;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: transparent !important;
+}
+
+.atomic-mass-breakdown-item span:first-child {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-weight: 500;
+  background: transparent !important;
+}
+
+.atomic-mass-breakdown-item span:last-child {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-weight: 600;
+  text-align: right;
+  background: transparent !important;
+}
+
+/* Summary Section */
+.atomic-mass-result-summary {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-radius: 8px;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.atomic-mass-result-summary h4 {
+  color: white !important;
+  font-size: 1.2rem;
+  margin: 0 0 1rem 0;
+  background: transparent !important;
+}
+
+.atomic-mass-summary-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  background: transparent !important;
+}
+
+.atomic-mass-summary-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: transparent !important;
+}
+
+.atomic-mass-summary-item span:first-child {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-weight: 500;
+  background: transparent !important;
+}
+
+.atomic-mass-summary-item span:last-child {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-weight: 600;
+  background: transparent !important;
+}
+
+/* Result Tip */
+.atomic-mass-result-tip {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-radius: 8px;
+  padding: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.atomic-mass-result-tip i {
+  color: #fbbf24 !important;
+  font-size: 1.1rem;
+  margin-top: 0.1rem;
+  background: transparent !important;
+}
+
+.atomic-mass-result-tip span {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  background: transparent !important;
+}
+
+/* KaTeX Formula Styling */
+.math-formula .katex {
+  color: #10b981 !important;
+}
+
+.math-formula .katex * {
+  color: #10b981 !important;
+}
+
+/* Applications Grid */
+.applications-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.application-item {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.application-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.application-item h4 {
+  color: #10b981;
+  font-size: 1.2rem;
+  margin: 0 0 1rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.application-item p {
+  color: #666;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .atomic-mass-calculator-form {
+    padding: 1.5rem;
+  }
+
+  .atomic-mass-input-row {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .atomic-mass-isotope-group {
+    padding: 1rem;
+  }
+
+  .atomic-mass-calculator-result {
+    padding: 1.5rem;
+  }
+
+  .atomic-mass-result-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .atomic-mass-breakdown-item,
+  .atomic-mass-summary-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .applications-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .atomic-mass-calculator-form {
+    padding: 1rem;
+  }
+
+  .atomic-mass-input-field,
+  .atomic-mass-select-field {
+    padding: 0.75rem 0.875rem;
+    font-size: 0.95rem;
+    min-height: 44px;
+  }
+
+  .atomic-mass-isotope-group {
+    padding: 0.75rem;
+  }
+
+  .atomic-mass-calculator-result {
+    padding: 1rem;
+  }
+
+  .atomic-mass-result-item {
+    padding: 1rem;
+  }
+
+  .atomic-mass-result-value {
+    font-size: 1rem;
+  }
+
+  .atomic-mass-breakdown-item,
+  .atomic-mass-summary-item {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Focus states for accessibility */
+.atomic-mass-input-field:focus-visible,
+.atomic-mass-select-field:focus-visible {
+  outline: 2px solid #10b981;
+  outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .atomic-mass-input-field,
+  .atomic-mass-select-field {
+    border-color: #000;
+  }
+  
+  .atomic-mass-input-field:focus,
+  .atomic-mass-select-field:focus {
+    border-color: #10b981;
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.3);
+  }
+}
+
+/* Animation for result section */
+@keyframes resultSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

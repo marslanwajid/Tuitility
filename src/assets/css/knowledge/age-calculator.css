@@ -1,0 +1,713 @@
+/* Age Calculator Styles - Individual Classes */
+
+/* Form Container */
+.age-calculator-form {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e5e7eb;
+  margin-bottom: 1.5rem;
+}
+
+/* Section Titles */
+.age-section-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 2rem 0 1.5rem 0;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #3b82f6;
+  text-align: center;
+  position: relative;
+}
+
+.age-section-title:first-child {
+  margin-top: 0;
+}
+
+.age-section-title::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -2px;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+  border-radius: 1px;
+}
+
+/* Input Rows */
+.age-input-row {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+  align-items: end;
+  flex-wrap: wrap;
+}
+
+/* Input Groups */
+.age-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+  min-width: 200px;
+}
+
+/* Labels */
+.age-input-label {
+  font-weight: 600;
+  color: #374151;
+  font-size: 0.95rem;
+  margin-bottom: 0.25rem;
+}
+
+/* Input Fields */
+.age-input-field {
+  background: #ffffff;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 0.875rem 1rem;
+  font-size: 1rem;
+  color: #374151;
+  transition: all 0.2s ease;
+  height: 48px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+}
+
+.age-input-field:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.age-input-field::placeholder {
+  color: #9ca3af;
+  font-style: italic;
+}
+
+/* Form Actions */
+.age-form-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #e5e7eb;
+  flex-wrap: wrap;
+}
+
+/* Buttons */
+.age-reset-button {
+  background: #f3f4f6;
+  color: #374151;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  min-width: 120px;
+}
+
+.age-reset-button:hover {
+  background: #e5e7eb;
+  transform: translateY(-1px);
+}
+
+.age-reset-button i {
+  font-size: 0.9rem;
+}
+
+/* Results Section */
+.age-result-section {
+  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%) !important;
+  border-radius: 15px;
+  padding: 2rem;
+  margin-top: 2rem;
+  color: white;
+  box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+  animation: ageResultSlideIn 0.6s ease-out;
+  border: none !important;
+}
+
+@keyframes ageResultSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Override any white background that might be coming from other CSS */
+.age-result-section .age-result-main,
+.age-result-section .age-result-details,
+.age-result-section .age-result-item {
+  background: transparent !important;
+}
+
+.age-result-header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.age-result-header h3 {
+  color: white !important;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 1.5rem 0;
+  text-align: center;
+  background: transparent !important;
+}
+
+.age-result-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  background: transparent !important;
+}
+
+.age-result-main {
+  text-align: center;
+  padding: 1.5rem;
+  background: transparent !important;
+  border-radius: 12px;
+  border: none;
+}
+
+.age-result-value {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  line-height: 1.2;
+  color: white !important;
+}
+
+.age-result-category {
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #fbbf24 !important;
+}
+
+.age-result-details {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  background: transparent !important;
+}
+
+.age-result-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.age-result-label {
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.age-result-value-small {
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-size: 1.1rem;
+}
+
+/* Next Birthday Section */
+.age-next-birthday {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-radius: 12px;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.age-next-birthday h4 {
+  color: white !important;
+  margin-top: 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1rem;
+  background: transparent !important;
+}
+
+.age-birthday-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+}
+
+.age-birthday-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.age-birthday-label {
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.age-birthday-value {
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+/* Definition Grid */
+.age-definition-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.age-definition-item {
+  background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border-left: 4px solid #3b82f6;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.age-definition-item h4 {
+  color: #1e293b;
+  margin-top: 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.age-definition-item p {
+  color: #475569;
+  margin: 0.75rem 0 0 0;
+  line-height: 1.6;
+}
+
+/* Age Categories Grid */
+.age-categories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.age-category-item {
+  background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border-left: 4px solid #3b82f6;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.age-category-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.age-category-item h4 {
+  color: #1e293b;
+  margin-top: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.age-category-item p {
+  color: #475569;
+  margin: 0.75rem 0 0 0;
+  line-height: 1.6;
+  font-size: 0.9rem;
+}
+
+/* Usage Steps */
+.usage-steps {
+  list-style: none;
+  padding-left: 0;
+  margin: 1rem 0;
+}
+
+.usage-steps li {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #e2e8f0;
+  color: #374151;
+  line-height: 1.6;
+}
+
+.usage-steps li:last-child {
+  border-bottom: none;
+}
+
+.usage-steps strong {
+  color: #1e293b;
+  font-weight: 600;
+}
+
+/* Calculation Method Section */
+.calculation-method-section {
+  background: #f8fafc;
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  margin: 1.5rem 0;
+}
+
+.calculation-method-section h3 {
+  color: #1e293b;
+  margin-top: 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.calculation-method-section ol {
+  color: #374151;
+  line-height: 1.6;
+}
+
+.calculation-method-section li {
+  margin-bottom: 0.5rem;
+}
+
+/* Example Section */
+.example-section {
+  margin: 2rem 0;
+}
+
+.example-section h3 {
+  color: #1e293b;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #3b82f6;
+  padding-bottom: 0.5rem;
+}
+
+/* Examples */
+.age-example {
+  background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border-left: 4px solid #0ea5e9;
+  margin: 1.5rem 0;
+}
+
+.age-example h3 {
+  color: #0c4a6e;
+  margin-top: 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.age-example ul {
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+}
+
+.age-example li {
+  margin-bottom: 0.5rem;
+  color: #0c4a6e;
+}
+
+.age-example p {
+  color: #0c4a6e;
+  margin: 0.75rem 0;
+}
+
+.age-example strong {
+  color: #075985;
+}
+
+/* Applications Grid */
+.applications-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.application-item {
+  background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border-left: 4px solid #22c55e;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.application-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(34, 197, 94, 0.15);
+}
+
+.application-item h4 {
+  color: #14532d;
+  margin-top: 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.application-item p {
+  color: #166534;
+  margin: 0.75rem 0 0 0;
+  line-height: 1.6;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .age-calculator-form {
+    padding: 1.5rem;
+  }
+  
+  .age-input-row {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .age-input-group {
+    min-width: 100%;
+  }
+  
+  .age-result-section {
+    padding: 1.5rem;
+  }
+  
+  .age-result-value {
+    font-size: 2rem;
+  }
+  
+  .age-result-details {
+    grid-template-columns: 1fr;
+  }
+  
+  .age-birthday-info {
+    grid-template-columns: 1fr;
+  }
+  
+  .age-definition-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .age-categories-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .applications-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .usage-steps li {
+    padding: 0.5rem 0;
+  }
+  
+  .age-form-actions {
+    justify-content: flex-end;
+  }
+  
+  .age-reset-button {
+    min-width: 120px;
+  }
+}
+
+/* Large Screen Optimizations (1200px and above) */
+@media (min-width: 1200px) {
+  .age-calculator-form {
+    padding: 2.5rem;
+  }
+  
+  .age-section-title {
+    font-size: 1.4rem;
+    margin: 2.5rem 0 2rem 0;
+  }
+  
+  .age-input-field {
+    padding: 1rem 1.25rem;
+    font-size: 1.1rem;
+    height: 52px;
+  }
+  
+  .age-input-label {
+    font-size: 1rem;
+  }
+  
+  .age-reset-button {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+  }
+  
+  .age-result-section {
+    padding: 2.5rem;
+  }
+  
+  .age-result-value {
+    font-size: 3rem;
+  }
+  
+  .age-result-category {
+    font-size: 1.4rem;
+  }
+  
+  .age-categories-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .age-definition-item h4,
+  .age-category-item h4 {
+    font-size: 1.2rem;
+  }
+  
+  .age-example,
+  .age-next-birthday {
+    padding: 2rem;
+  }
+  
+  .age-example h3,
+  .age-next-birthday h4 {
+    font-size: 1.3rem;
+  }
+}
+
+/* Extra Large Screen Optimizations (1600px and above) */
+@media (min-width: 1600px) {
+  .age-calculator-form {
+    padding: 3rem;
+  }
+  
+  .age-section-title {
+    font-size: 1.6rem;
+    margin: 3rem 0 2.5rem 0;
+  }
+  
+  .age-input-field {
+    padding: 1.25rem 1.5rem;
+    font-size: 1.2rem;
+    height: 56px;
+  }
+  
+  .age-input-label {
+    font-size: 1.1rem;
+  }
+  
+  .age-reset-button {
+    padding: 1.25rem 2.5rem;
+    font-size: 1.1rem;
+  }
+  
+  .age-result-section {
+    padding: 3rem;
+  }
+  
+  .age-result-value {
+    font-size: 3.5rem;
+  }
+  
+  .age-result-category {
+    font-size: 1.6rem;
+  }
+  
+  .age-categories-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .age-definition-item h4,
+  .age-category-item h4 {
+    font-size: 1.3rem;
+  }
+  
+  .age-example,
+  .age-next-birthday {
+    padding: 2.5rem;
+  }
+  
+  .age-example h3,
+  .age-next-birthday h4 {
+    font-size: 1.4rem;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .age-reset-button {
+    display: none;
+  }
+  
+  .age-calculator-form {
+    box-shadow: none;
+    border: 1px solid #000;
+  }
+  
+  .age-result-section {
+    display: block !important;
+  }
+}
+
+/* Accessibility Improvements */
+.age-input-field:focus,
+.age-reset-button:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  .age-input-field {
+    border: 2px solid #000;
+  }
+  
+  .age-section-title {
+    border-bottom: 3px solid #000;
+  }
+  
+  .age-category-item {
+    border-left: 4px solid #000;
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .age-input-field,
+  .age-reset-button,
+  .age-category-item,
+  .application-item {
+    transition: none;
+  }
+  
+  .age-result-section {
+    animation: none;
+  }
+}

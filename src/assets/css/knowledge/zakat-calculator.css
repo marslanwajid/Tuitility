@@ -1,0 +1,778 @@
+/* Zakat Calculator Styles */
+.zakat-calculator {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.6;
+  color: #1e293b;
+}
+
+/* Form Styles */
+.zakat-calculator-form {
+  background: #f8fafc;
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  margin-bottom: 2rem;
+}
+
+.zakat-form-section {
+  margin-bottom: 2rem;
+}
+
+.zakat-form-section h3 {
+  color: #1e293b;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin: 0 0 1.5rem 0;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #3b82f6;
+}
+
+.zakat-form-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.zakat-form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.zakat-form-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 0.75rem;
+  font-size: 0.95rem;
+}
+
+.zakat-form-label i {
+  color: #3b82f6;
+  font-size: 1rem;
+  width: 16px;
+}
+
+.zakat-form-input,
+.zakat-form-select {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  border: 2px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 1rem;
+  background: white;
+  color: #374151;
+  transition: all 0.2s ease;
+}
+
+.zakat-form-input:focus,
+.zakat-form-select:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.zakat-form-input:hover,
+.zakat-form-select:hover {
+  border-color: #9ca3af;
+}
+
+.zakat-form-input::placeholder {
+  color: #9ca3af;
+}
+
+/* Error Message */
+.zakat-error-message {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #dc2626;
+  padding: 1rem;
+  border-radius: 8px;
+  margin: 1rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 500;
+}
+
+.zakat-error-message i {
+  color: #dc2626;
+  font-size: 1.1rem;
+}
+
+/* Result Section */
+.zakat-calculator-result {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 16px;
+  padding: 2rem;
+  margin: 2rem 0;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  animation: slideInUp 0.6s ease-out;
+  color: white;
+}
+
+.zakat-result-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.zakat-result-header h3 {
+  color: white !important;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.zakat-summary {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  backdrop-filter: blur(10px);
+}
+
+.zakat-main-result {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.zakat-amount {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.zakat-amount-label {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.zakat-amount-value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.zakat-nisab-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.zakat-nisab-label {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.zakat-nisab-value {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #fbbf24;
+}
+
+.zakat-breakdown {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  backdrop-filter: blur(10px);
+}
+
+.zakat-breakdown h4 {
+  color: white !important;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 0 0 1.5rem 0;
+  text-align: center;
+}
+
+.zakat-breakdown-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.zakat-breakdown-item {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.zakat-breakdown-label {
+  display: block;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.zakat-breakdown-value {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 0.5rem;
+}
+
+.zakat-breakdown-zakat {
+  display: block;
+  font-size: 0.9rem;
+  color: #fbbf24;
+  font-weight: 500;
+}
+
+.zakat-tips {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  backdrop-filter: blur(10px);
+}
+
+.zakat-tips h4 {
+  color: white !important;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 0 0 1.5rem 0;
+  text-align: center;
+}
+
+.zakat-tips-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.zakat-tips-list li {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+  margin-bottom: 0.75rem;
+  border-radius: 8px;
+  border-left: 4px solid #fbbf24;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+}
+
+.zakat-tips-list li:last-child {
+  margin-bottom: 0;
+}
+
+.zakat-disclaimer {
+  background: rgba(255, 193, 7, 0.2) !important;
+  border: 1px solid rgba(255, 193, 7, 0.3);
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  backdrop-filter: blur(10px);
+}
+
+.zakat-disclaimer p {
+  color: rgba(255, 255, 255, 0.9) !important;
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.zakat-disclaimer i {
+  color: #fbbf24 !important;
+  margin-top: 0.1rem;
+  flex-shrink: 0;
+}
+
+.zakat-disclaimer strong {
+  color: #fbbf24 !important;
+}
+
+/* Form Actions */
+.zakat-form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+.zakat-btn-reset {
+  background: #6b7280;
+  color: white;
+  border: 1px solid #6b7280;
+  border-radius: 8px;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  min-width: 120px;
+  justify-content: center;
+}
+
+.zakat-btn-reset:hover {
+  background: #4b5563;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Content Section Styles */
+.nisab-thresholds-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.nisab-threshold-item {
+  background: #f8fafc;
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  transition: all 0.3s ease;
+}
+
+.nisab-threshold-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  border-color: #3b82f6;
+}
+
+.nisab-threshold-item h4 {
+  color: #1e293b;
+  margin: 0 0 1rem 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nisab-threshold-item h4 i {
+  color: #3b82f6;
+  font-size: 1.1rem;
+}
+
+.nisab-threshold-item p {
+  color: #64748b;
+  margin: 0 0 0.5rem 0;
+  line-height: 1.6;
+}
+
+.nisab-threshold-item p strong {
+  color: #1e293b;
+  font-weight: 600;
+}
+
+.nisab-calculation-info {
+  background: #f8fafc;
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  margin: 2rem 0;
+}
+
+.nisab-calculation-info h4 {
+  color: #1e293b;
+  margin: 0 0 1.5rem 0;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.nisab-calculation-info ul {
+  margin: 0;
+  padding-left: 1.5rem;
+}
+
+.nisab-calculation-info li {
+  color: #475569;
+  margin-bottom: 0.75rem;
+  line-height: 1.6;
+}
+
+.zakatable-assets-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.zakatable-asset-item {
+  background: #f8fafc;
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  transition: all 0.3s ease;
+}
+
+.zakatable-asset-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  border-color: #3b82f6;
+}
+
+.zakatable-asset-item h4 {
+  color: #1e293b;
+  margin: 0 0 1rem 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.zakatable-asset-item h4 i {
+  color: #3b82f6;
+  font-size: 1.1rem;
+}
+
+.zakatable-asset-item ul {
+  margin: 0;
+  padding-left: 1.5rem;
+}
+
+.zakatable-asset-item li {
+  color: #475569;
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+
+/* Calculation Method Section */
+.calculation-method-section {
+  background: #f8fafc;
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  margin: 2rem 0;
+}
+
+.calculation-method-section h3 {
+  color: #1e293b;
+  margin: 0 0 1.5rem 0;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.calculation-method-section ol {
+  margin: 0 0 1.5rem 0;
+  padding-left: 1.5rem;
+}
+
+.calculation-method-section li {
+  color: #475569;
+  margin-bottom: 0.75rem;
+  line-height: 1.6;
+}
+
+.calculation-method-section li strong {
+  color: #1e293b;
+  font-weight: 600;
+}
+
+.zakat-formula {
+  background: #1e293b;
+  color: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin: 1.5rem 0;
+}
+
+.zakat-formula p {
+  margin: 0 0 0.5rem 0;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+}
+
+.zakat-formula p:last-child {
+  margin-bottom: 0;
+}
+
+.zakat-formula strong {
+  color: #fbbf24;
+}
+
+/* Example Section */
+.example-section {
+  margin: 2rem 0;
+}
+
+.example-section h3 {
+  color: #1e293b;
+  margin: 0 0 1rem 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.example-solution {
+  background: #f8fafc;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border-left: 4px solid #3b82f6;
+  margin: 1rem 0;
+}
+
+.example-solution p {
+  color: #475569;
+  margin: 0 0 0.5rem 0;
+  line-height: 1.6;
+}
+
+.example-solution p strong {
+  color: #1e293b;
+  font-weight: 600;
+}
+
+/* Usage Steps */
+.usage-steps {
+  list-style: none !important;
+  padding: 0;
+  margin: 0 0 2rem 0;
+}
+
+.usage-steps li {
+  background: #f8fafc;
+  padding: 1rem;
+  margin-bottom: 0.75rem;
+  border-radius: 8px;
+  border-left: 4px solid #3b82f6;
+  line-height: 1.6;
+  list-style: none !important;
+}
+
+.usage-steps li::before,
+.usage-steps li::after {
+  display: none !important;
+  content: none !important;
+}
+
+.usage-steps li strong {
+  color: #1e293b;
+  font-weight: 600;
+}
+
+/* Animations */
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .zakat-calculator-form {
+    padding: 1.5rem;
+  }
+
+  .zakat-form-row {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .zakat-form-section h3 {
+    font-size: 1.2rem;
+  }
+
+  .zakat-calculator-result {
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+  }
+
+  .zakat-result-header h3 {
+    font-size: 1.5rem;
+  }
+
+  .zakat-main-result {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .zakat-amount-value {
+    font-size: 2rem;
+  }
+
+  .zakat-breakdown-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .zakat-breakdown,
+  .zakat-tips,
+  .zakat-summary {
+    padding: 1.5rem;
+  }
+
+  .zakat-form-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .zakat-btn-reset {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .nisab-thresholds-grid,
+  .zakatable-assets-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .nisab-threshold-item,
+  .zakatable-asset-item {
+    padding: 1.5rem;
+  }
+
+  .calculation-method-section {
+    padding: 1.5rem;
+  }
+
+  .example-solution {
+    padding: 1.25rem;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .zakat-calculator-form {
+    padding: 1.75rem;
+  }
+
+  .zakat-form-row {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+  }
+
+  .zakat-calculator-result {
+    padding: 1.75rem;
+  }
+
+  .zakat-result-header h3 {
+    font-size: 1.7rem;
+  }
+
+  .zakat-breakdown,
+  .zakat-tips,
+  .zakat-summary {
+    padding: 1.75rem;
+  }
+
+  .nisab-thresholds-grid,
+  .zakatable-assets-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .nisab-threshold-item,
+  .zakatable-asset-item {
+    padding: 1.75rem;
+  }
+
+  .calculation-method-section {
+    padding: 1.75rem;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1199px) {
+  .zakat-calculator-form {
+    padding: 2rem;
+  }
+
+  .zakat-form-row {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+  }
+
+  .zakat-calculator-result {
+    padding: 2rem;
+  }
+
+  .zakat-result-header h3 {
+    font-size: 1.8rem;
+  }
+
+  .zakat-breakdown,
+  .zakat-tips,
+  .zakat-summary {
+    padding: 2rem;
+  }
+
+  .nisab-thresholds-grid,
+  .zakatable-assets-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .nisab-threshold-item,
+  .zakatable-asset-item {
+    padding: 2rem;
+  }
+
+  .calculation-method-section {
+    padding: 2rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .zakat-calculator-form {
+    padding: 2.5rem;
+  }
+
+  .zakat-form-row {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+  }
+
+  .zakat-calculator-result {
+    padding: 2.5rem;
+  }
+
+  .zakat-result-header h3 {
+    font-size: 2rem;
+  }
+
+  .zakat-breakdown,
+  .zakat-tips,
+  .zakat-summary {
+    padding: 2.5rem;
+  }
+
+  .zakat-form-actions {
+    justify-content: flex-end;
+  }
+
+  .zakat-btn-reset {
+    min-width: 140px;
+  }
+
+  .nisab-thresholds-grid,
+  .zakatable-assets-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .nisab-threshold-item,
+  .zakatable-asset-item {
+    padding: 2.5rem;
+  }
+
+  .calculation-method-section {
+    padding: 2.5rem;
+  }
+}
+

@@ -1,0 +1,541 @@
+/* Compound Interest Calculator Specific Styles - Completely Isolated */
+
+/* Compound Interest Calculator Form Styles */
+.compound-interest-calculator-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.compound-interest-calculator-form .compound-interest-input-row {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+
+.compound-interest-calculator-form .compound-interest-input-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-width: 200px;
+}
+
+.compound-interest-calculator-form .compound-interest-input-label {
+  font-weight: 600;
+  color: #374151;
+  font-size: 1rem;
+}
+
+.compound-interest-calculator-form .compound-interest-input-field {
+  padding: 0.875rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  background: #f9fafb;
+  min-height: 50px;
+}
+
+.compound-interest-calculator-form .compound-interest-input-field:focus {
+  outline: none;
+  border-color: #8b5cf6;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+}
+
+.compound-interest-calculator-form .compound-interest-input-help {
+  font-size: 0.875rem;
+  color: #6b7280;
+  font-style: italic;
+}
+
+.compound-interest-calculator-form .compound-interest-calculator-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.compound-interest-calculator-form .compound-interest-btn-reset {
+  padding: 0.875rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  min-width: 120px;
+  background: #f3f4f6;
+  color: #374151;
+  border: 1px solid #d1d5db;
+}
+
+.compound-interest-calculator-form .compound-interest-btn-reset:hover {
+  background: #e5e7eb;
+  transform: translateY(-1px);
+}
+
+/* Compound Interest Calculator Result Section - Completely Isolated */
+.compound-interest-calculator-result {
+  background: linear-gradient(135deg, #8b5cf6 0%, #a855f7 100%) !important;
+  border-radius: 15px;
+  padding: 2rem;
+  margin-top: 2rem;
+  color: white;
+  box-shadow: 0 10px 30px rgba(139, 92, 246, 0.3);
+  animation: compoundInterestResultSlideIn 0.6s ease-out;
+  border: none !important;
+}
+
+/* Override any white background that might be coming from other CSS */
+.compound-interest-calculator-result .compound-interest-result-main,
+.compound-interest-calculator-result .compound-interest-result-steps,
+.compound-interest-calculator-result .compound-interest-result-item,
+.compound-interest-calculator-result .compound-interest-result-formula,
+.compound-interest-calculator-result .compound-interest-summary,
+.compound-interest-calculator-result .compound-interest-table-container {
+  background: transparent !important;
+}
+
+/* Ensure all result content has transparent background */
+.compound-interest-calculator-result .compound-interest-result-content,
+.compound-interest-calculator-result .compound-interest-result-main,
+.compound-interest-calculator-result .compound-interest-result-item {
+  background: transparent !important;
+}
+
+/* Compound Interest Calculator specific result styling */
+.compound-interest-calculator-result .compound-interest-result-main {
+  background: rgba(255, 255, 255, 0.1) !important;
+  padding: 1.5rem;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.compound-interest-calculator-result .compound-interest-result-title {
+  color: white;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0 0 1.5rem 0;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Compound Interest Calculator Result Items */
+.compound-interest-calculator-result .compound-interest-result-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  background: transparent !important;
+  padding: 0.75rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.compound-interest-calculator-result .compound-interest-result-item:last-child {
+  margin-bottom: 0;
+}
+
+.compound-interest-calculator-result .compound-interest-result-item strong {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.compound-interest-calculator-result .compound-interest-result-value {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.compound-interest-calculator-result .compound-interest-result-final {
+  color: #fbbf24 !important;
+  font-weight: 700 !important;
+  font-size: 1.2rem;
+}
+
+/* Compound Interest Summary */
+.compound-interest-calculator-result .compound-interest-summary {
+  background: rgba(255, 255, 255, 0.1) !important;
+  padding: 1.5rem;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  margin-bottom: 1.5rem;
+}
+
+.compound-interest-calculator-result .compound-interest-summary-title {
+  color: white;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 0 0 1rem 0;
+  text-align: center;
+}
+
+.compound-interest-calculator-result .compound-interest-summary-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.compound-interest-calculator-result .compound-interest-summary-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: transparent !important;
+}
+
+.compound-interest-calculator-result .compound-interest-summary-item strong {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.compound-interest-calculator-result .compound-interest-summary-value {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+/* Compound Interest Table Container */
+.compound-interest-calculator-result .compound-interest-table-container {
+  background: rgba(255, 255, 255, 0.1) !important;
+  padding: 1.5rem;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.compound-interest-calculator-result .compound-interest-table-title {
+  color: white;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 0 0 1rem 0;
+  text-align: center;
+}
+
+.compound-interest-calculator-result .compound-interest-table-wrapper {
+  overflow-x: auto;
+  background: rgba(255, 255, 255, 0.05) !important;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.compound-interest-calculator-result .compound-interest-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: transparent !important;
+  min-width: 700px;
+}
+
+.compound-interest-calculator-result .compound-interest-table th {
+  background: rgba(255, 255, 255, 0.15) !important;
+  color: white;
+  font-weight: 600;
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.compound-interest-calculator-result .compound-interest-table td {
+  padding: 0.75rem;
+  color: rgba(255, 255, 255, 0.9) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.compound-interest-calculator-result .compound-interest-table tr:hover {
+  background: rgba(255, 255, 255, 0.05) !important;
+}
+
+.compound-interest-calculator-result .compound-interest-table-note {
+  margin-top: 1rem;
+  text-align: center;
+  padding: 0.75rem;
+  background: rgba(251, 191, 36, 0.2) !important;
+  border-radius: 8px;
+  border: 1px solid rgba(251, 191, 36, 0.3);
+}
+
+.compound-interest-calculator-result .compound-interest-table-note p {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* Formula Section */
+.formula-section {
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.05), rgba(168, 85, 247, 0.05));
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  border: 1px solid rgba(139, 92, 246, 0.1);
+  text-align: center;
+}
+
+.formula-section h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 1rem;
+}
+
+.math-formula {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #8b5cf6 !important;
+  margin: 1rem 0;
+  padding: 1rem;
+  background: rgba(139, 92, 246, 0.1);
+  border-radius: 8px;
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  font-family: 'Courier New', monospace;
+}
+
+/* Override KaTeX text color to match our theme */
+.math-formula .katex,
+.math-formula .katex * {
+  color: #8b5cf6 !important;
+}
+
+.math-formula .katex-display {
+  color: #8b5cf6 !important;
+}
+
+.math-formula .katex-html {
+  color: #8b5cf6 !important;
+}
+
+.formula-section p {
+  font-size: 0.95rem;
+  color: #64748b;
+  font-weight: 400;
+  text-align: center;
+  margin-top: 0.75rem;
+}
+
+.formula-section ul {
+  text-align: left;
+  margin: 1rem 0;
+}
+
+.formula-section li {
+  margin-bottom: 0.5rem;
+  color: #64748b;
+}
+
+/* Example Section */
+.example-section {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #faf5ff, #f3e8ff);
+  border-radius: 12px;
+  border: 1px solid #8b5cf6;
+}
+
+.example-section h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #581c87;
+}
+
+.example-solution {
+  background: #ffffff;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-top: 1rem;
+}
+
+.example-solution p {
+  margin-bottom: 0.5rem;
+  color: #374151;
+}
+
+.example-solution strong {
+  color: #1e293b;
+}
+
+/* Usage Steps */
+.usage-steps li {
+  margin-bottom: 1.25rem;
+  font-size: 0.95rem;
+  font-weight: 400;
+}
+
+/* Applications Grid */
+.applications-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.application-item {
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #faf5ff, #f3e8ff);
+  border-radius: 12px;
+  border: 1px solid #8b5cf6;
+  transition: all 0.2s ease;
+}
+
+.application-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px -5px rgba(139, 92, 246, 0.2);
+}
+
+.application-item h4 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: #581c87;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.application-item h4 i {
+  color: #8b5cf6;
+}
+
+.application-item p {
+  color: #581c87;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Animations */
+@keyframes compoundInterestResultSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .compound-interest-calculator-form .compound-interest-input-row {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .compound-interest-calculator-form .compound-interest-input-group {
+    min-width: 100%;
+  }
+  
+  .compound-interest-calculator-form .compound-interest-calculator-actions {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+  
+  .compound-interest-calculator-form .compound-interest-btn-reset {
+    width: 100%;
+    max-width: 200px;
+  }
+  
+  .compound-interest-calculator-result {
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+  }
+  
+  .compound-interest-calculator-result .compound-interest-result-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .compound-interest-calculator-result .compound-interest-result-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .compound-interest-calculator-result .compound-interest-table-wrapper {
+    overflow-x: auto;
+  }
+  
+  .compound-interest-calculator-result .compound-interest-table {
+    min-width: 600px;
+  }
+  
+  .applications-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .application-item {
+    padding: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .compound-interest-calculator-form .compound-interest-calculator-actions {
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+  
+  .compound-interest-calculator-form .compound-interest-btn-reset {
+    width: 100%;
+    max-width: 180px;
+    padding: 0.7rem 1.5rem;
+    font-size: 1rem;
+  }
+  
+  .compound-interest-calculator-result {
+    padding: 1rem;
+    margin-top: 1rem;
+  }
+  
+  .compound-interest-calculator-result .compound-interest-result-title {
+    font-size: 1.3rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  .compound-interest-calculator-form .compound-interest-input-field {
+    padding: 0.75rem;
+    font-size: 0.95rem;
+  }
+  
+  .formula-section {
+    padding: 1rem;
+  }
+  
+  .math-formula {
+    font-size: 1.1rem;
+    padding: 0.75rem;
+  }
+  
+  .compound-interest-calculator-result .compound-interest-table {
+    min-width: 500px;
+  }
+  
+  .compound-interest-calculator-result .compound-interest-table th,
+  .compound-interest-calculator-result .compound-interest-table td {
+    padding: 0.5rem;
+    font-size: 0.9rem;
+  }
+}

@@ -1,0 +1,826 @@
+/* Average Time Calculator Styles */
+.avg-time-calculator {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.6;
+  color: #1e293b;
+}
+
+/* Form Styles */
+.avg-time-calculator-form {
+  background: #f8fafc;
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  margin-bottom: 2rem;
+}
+
+.avg-time-form-section {
+  margin-bottom: 2rem;
+}
+
+.avg-time-form-section h3 {
+  color: #1e293b;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin: 0 0 1.5rem 0;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #3b82f6;
+}
+
+.avg-time-form-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.avg-time-form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.avg-time-form-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 0.75rem;
+  font-size: 0.95rem;
+}
+
+.avg-time-form-label i {
+  color: #3b82f6;
+  font-size: 1rem;
+  width: 16px;
+}
+
+.avg-time-form-input,
+.avg-time-form-select {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  border: 2px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 1rem;
+  background: white;
+  color: #374151;
+  transition: all 0.2s ease;
+}
+
+.avg-time-form-input:focus,
+.avg-time-form-select:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.avg-time-form-input:hover,
+.avg-time-form-select:hover {
+  border-color: #9ca3af;
+}
+
+.avg-time-form-input::placeholder {
+  color: #9ca3af;
+}
+
+/* Time Entries Container */
+.avg-time-entries-container {
+  margin-bottom: 1.5rem;
+}
+
+.avg-time-entry {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  transition: all 0.2s ease;
+}
+
+.avg-time-entry:hover {
+  border-color: #3b82f6;
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.1);
+}
+
+.avg-time-entry-number {
+  background: #3b82f6;
+  color: white;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+.avg-time-input-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.avg-time-part {
+  width: 60px;
+  padding: 0.5rem;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  text-align: center;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+.avg-time-part:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);
+}
+
+.avg-time-part::placeholder {
+  color: #9ca3af;
+  font-size: 0.8rem;
+}
+
+.avg-time-optional-ms {
+  transition: all 0.2s ease;
+}
+
+.avg-time-optional-ms.hidden {
+  display: none !important;
+}
+
+.avg-time-entry-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.avg-time-remove-entry {
+  background: #ef4444;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.9rem;
+}
+
+.avg-time-remove-entry:hover:not(:disabled) {
+  background: #dc2626;
+  transform: scale(1.05);
+}
+
+.avg-time-remove-entry:disabled {
+  background: #9ca3af;
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.avg-time-add-entry {
+  background: #10b981;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  justify-content: center;
+}
+
+.avg-time-add-entry:hover {
+  background: #059669;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+/* Checkbox Styles */
+.avg-time-checkbox-group {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.avg-time-form-checkbox {
+  width: 18px;
+  height: 18px;
+  accent-color: #3b82f6;
+  cursor: pointer;
+}
+
+.avg-time-checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  color: #374151;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+.avg-time-checkbox-label i {
+  color: #3b82f6;
+  font-size: 1rem;
+}
+
+/* Error Message */
+.avg-time-error-message {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #dc2626;
+  padding: 1rem;
+  border-radius: 8px;
+  margin: 1rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 500;
+}
+
+.avg-time-error-message i {
+  color: #dc2626;
+  font-size: 1.1rem;
+}
+
+/* Result Section */
+.avg-time-calculator-result {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 16px;
+  padding: 2rem;
+  margin: 2rem 0;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  animation: slideInUp 0.6s ease-out;
+  color: white;
+}
+
+.avg-time-result-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.avg-time-result-header h3 {
+  color: white !important;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.avg-time-summary {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  backdrop-filter: blur(10px);
+}
+
+.avg-time-main-result {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  text-align: center;
+}
+
+.avg-time-amount,
+.avg-time-median,
+.avg-time-mode {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.avg-time-amount-label,
+.avg-time-median-label,
+.avg-time-mode-label {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.avg-time-amount-value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.avg-time-median-value {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #fbbf24;
+}
+
+.avg-time-mode-value {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #10b981;
+}
+
+.avg-time-breakdown {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  backdrop-filter: blur(10px);
+}
+
+.avg-time-breakdown h4 {
+  color: white !important;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 0 0 1.5rem 0;
+  text-align: center;
+}
+
+.avg-time-breakdown-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.avg-time-breakdown-item {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  text-align: center;
+}
+
+.avg-time-breakdown-label {
+  display: block;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.avg-time-breakdown-value {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: white;
+}
+
+.avg-time-tips {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  backdrop-filter: blur(10px);
+}
+
+.avg-time-tips h4 {
+  color: white !important;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 0 0 1.5rem 0;
+  text-align: center;
+}
+
+.avg-time-tips-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.avg-time-tips-list li {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+  margin-bottom: 0.75rem;
+  border-radius: 8px;
+  border-left: 4px solid #fbbf24;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+}
+
+.avg-time-tips-list li:last-child {
+  margin-bottom: 0;
+}
+
+/* Form Actions */
+.avg-time-form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+.avg-time-btn-reset {
+  background: #6b7280;
+  color: white;
+  border: 1px solid #6b7280;
+  border-radius: 8px;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  min-width: 120px;
+  justify-content: center;
+}
+
+.avg-time-btn-reset:hover {
+  background: #4b5563;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Content Section Styles */
+.statistical-methods-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.statistical-method-item {
+  background: #f8fafc;
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  transition: all 0.3s ease;
+}
+
+.statistical-method-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  border-color: #3b82f6;
+}
+
+.statistical-method-item h4 {
+  color: #1e293b;
+  margin: 0 0 1rem 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.statistical-method-item h4 i {
+  color: #3b82f6;
+  font-size: 1.1rem;
+}
+
+.statistical-method-item p {
+  color: #64748b;
+  margin: 0 0 1rem 0;
+  line-height: 1.6;
+}
+
+.statistical-method-item ul {
+  margin: 0;
+  padding-left: 1.5rem;
+}
+
+.statistical-method-item li {
+  color: #475569;
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+
+/* Calculation Method Section */
+.calculation-method-section {
+  background: #f8fafc;
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  margin: 2rem 0;
+}
+
+.calculation-method-section h3 {
+  color: #1e293b;
+  margin: 0 0 1.5rem 0;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.calculation-method-section p {
+  color: #475569;
+  margin: 0 0 1rem 0;
+  line-height: 1.6;
+}
+
+.avg-time-formula {
+  background: #1e293b;
+  color: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin: 1.5rem 0;
+}
+
+.avg-time-formula p {
+  margin: 0 0 0.5rem 0;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+  color: white;
+}
+
+.avg-time-formula p:last-child {
+  margin-bottom: 0;
+}
+
+.avg-time-formula strong {
+  color: #fbbf24;
+}
+
+/* Example Section */
+.example-section {
+  margin: 2rem 0;
+}
+
+.example-section h3 {
+  color: #1e293b;
+  margin: 0 0 1rem 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.example-solution {
+  background: #f8fafc;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border-left: 4px solid #3b82f6;
+  margin: 1rem 0;
+}
+
+.example-solution p {
+  color: #475569;
+  margin: 0 0 0.5rem 0;
+  line-height: 1.6;
+}
+
+.example-solution p strong {
+  color: #1e293b;
+  font-weight: 600;
+}
+
+/* Usage Steps */
+.usage-steps {
+  list-style: none !important;
+  padding: 0;
+  margin: 0 0 2rem 0;
+}
+
+.usage-steps li {
+  background: #f8fafc;
+  padding: 1rem;
+  margin-bottom: 0.75rem;
+  border-radius: 8px;
+  border-left: 4px solid #3b82f6;
+  line-height: 1.6;
+  list-style: none !important;
+}
+
+.usage-steps li::before,
+.usage-steps li::after {
+  display: none !important;
+  content: none !important;
+}
+
+.usage-steps li strong {
+  color: #1e293b;
+  font-weight: 600;
+}
+
+/* Animations */
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .avg-time-calculator-form {
+    padding: 1.5rem;
+  }
+
+  .avg-time-form-row {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .avg-time-form-section h3 {
+    font-size: 1.2rem;
+  }
+
+  .avg-time-entry {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+
+  .avg-time-entry-number {
+    align-self: flex-start;
+  }
+
+  .avg-time-input-container {
+    justify-content: center;
+  }
+
+  .avg-time-part {
+    width: 50px;
+  }
+
+  .avg-time-calculator-result {
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+  }
+
+  .avg-time-result-header h3 {
+    font-size: 1.5rem;
+  }
+
+  .avg-time-main-result {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .avg-time-amount-value {
+    font-size: 2rem;
+  }
+
+  .avg-time-breakdown-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .avg-time-breakdown,
+  .avg-time-tips,
+  .avg-time-summary {
+    padding: 1.5rem;
+  }
+
+  .avg-time-form-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .avg-time-btn-reset {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .statistical-methods-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .statistical-method-item {
+    padding: 1.5rem;
+  }
+
+  .calculation-method-section {
+    padding: 1.5rem;
+  }
+
+  .example-solution {
+    padding: 1.25rem;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .avg-time-calculator-form {
+    padding: 1.75rem;
+  }
+
+  .avg-time-form-row {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+  }
+
+  .avg-time-calculator-result {
+    padding: 1.75rem;
+  }
+
+  .avg-time-result-header h3 {
+    font-size: 1.7rem;
+  }
+
+  .avg-time-breakdown,
+  .avg-time-tips,
+  .avg-time-summary {
+    padding: 1.75rem;
+  }
+
+  .statistical-methods-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .statistical-method-item {
+    padding: 1.75rem;
+  }
+
+  .calculation-method-section {
+    padding: 1.75rem;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1199px) {
+  .avg-time-calculator-form {
+    padding: 2rem;
+  }
+
+  .avg-time-form-row {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+  }
+
+  .avg-time-calculator-result {
+    padding: 2rem;
+  }
+
+  .avg-time-result-header h3 {
+    font-size: 1.8rem;
+  }
+
+  .avg-time-breakdown,
+  .avg-time-tips,
+  .avg-time-summary {
+    padding: 2rem;
+  }
+
+  .statistical-methods-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .statistical-method-item {
+    padding: 2rem;
+  }
+
+  .calculation-method-section {
+    padding: 2rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .avg-time-calculator-form {
+    padding: 2.5rem;
+  }
+
+  .avg-time-form-row {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+  }
+
+  .avg-time-calculator-result {
+    padding: 2.5rem;
+  }
+
+  .avg-time-result-header h3 {
+    font-size: 2rem;
+  }
+
+  .avg-time-breakdown,
+  .avg-time-tips,
+  .avg-time-summary {
+    padding: 2.5rem;
+  }
+
+  .avg-time-form-actions {
+    justify-content: flex-end;
+  }
+
+  .avg-time-btn-reset {
+    min-width: 140px;
+  }
+
+  .statistical-methods-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .statistical-method-item {
+    padding: 2.5rem;
+  }
+
+  .calculation-method-section {
+    padding: 2.5rem;
+  }
+}

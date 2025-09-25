@@ -1,0 +1,378 @@
+/* Present Value Calculator Specific Styles - Completely Isolated */
+
+/* Present Value Calculator Form Styles */
+.present-value-calculator-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.present-value-calculator-form .present-value-input-row {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+
+.present-value-calculator-form .present-value-input-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-width: 200px;
+}
+
+.present-value-calculator-form .present-value-input-label {
+  font-weight: 600;
+  color: #374151;
+  font-size: 1rem;
+}
+
+.present-value-calculator-form .present-value-input-field {
+  padding: 0.875rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  background: #f9fafb;
+  min-height: 50px;
+}
+
+.present-value-calculator-form .present-value-input-field:focus {
+  outline: none;
+  border-color: #3b82f6;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.present-value-calculator-form .present-value-select-field {
+  padding: 0.875rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  background: #f9fafb;
+  min-height: 50px;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+  background-position: right 0.5rem center;
+  background-repeat: no-repeat;
+  background-size: 1.5em 1.5em;
+  padding-right: 2.5rem;
+}
+
+.present-value-calculator-form .present-value-select-field:focus {
+  outline: none;
+  border-color: #3b82f6;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.present-value-calculator-form .present-value-calculator-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.present-value-calculator-form .present-value-btn-reset {
+  padding: 0.875rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  min-width: 120px;
+  background: #f3f4f6;
+  color: #374151;
+  border: 1px solid #d1d5db;
+}
+
+.present-value-calculator-form .present-value-btn-reset:hover {
+  background: #e5e7eb;
+  transform: translateY(-1px);
+}
+
+.present-value-input-help {
+  font-size: 0.875rem;
+  color: #6b7280;
+  font-style: italic;
+}
+
+/* Present Value Calculator Result Section - More specific to override tool-page.css */
+.present-value-calculator-result {
+  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%) !important;
+  border-radius: 15px;
+  padding: 2rem;
+  margin-top: 2rem;
+  color: white;
+  box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3);
+  animation: presentValueResultSlideIn 0.6s ease-out;
+  border: none !important;
+}
+
+/* Override any white background that might be coming from other CSS */
+.present-value-calculator-result .present-value-result-main,
+.present-value-calculator-result .present-value-result-breakdown,
+.present-value-calculator-result .present-value-result-summary,
+.present-value-calculator-result .present-value-result-item,
+.present-value-calculator-result .present-value-result-value,
+.present-value-calculator-result .present-value-breakdown-details,
+.present-value-calculator-result .present-value-breakdown-item,
+.present-value-calculator-result .present-value-summary-details,
+.present-value-calculator-result .present-value-summary-item,
+.present-value-calculator-result .present-value-result-tip {
+  background: transparent !important;
+}
+
+/* Present Value Result Content */
+.present-value-calculator-result .present-value-result-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.present-value-calculator-result .present-value-result-title {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.present-value-calculator-result .present-value-result-main {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1.5rem;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+}
+
+.present-value-calculator-result .present-value-result-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.present-value-calculator-result .present-value-result-item:last-child {
+  border-bottom: none;
+}
+
+.present-value-calculator-result .present-value-result-item strong {
+  color: white;
+  font-weight: 600;
+}
+
+.present-value-calculator-result .present-value-result-value {
+  color: white;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+/* Present Value Result Breakdown */
+.present-value-calculator-result .present-value-result-breakdown {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1.5rem;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+}
+
+.present-value-calculator-result .present-value-result-breakdown h4 {
+  color: white;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 0.5rem;
+}
+
+.present-value-calculator-result .present-value-breakdown-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.present-value-calculator-result .present-value-breakdown-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.present-value-calculator-result .present-value-breakdown-item:last-child {
+  border-bottom: none;
+}
+
+.present-value-calculator-result .present-value-breakdown-item span:first-child {
+  color: white;
+  font-weight: 500;
+}
+
+.present-value-calculator-result .present-value-breakdown-item span:last-child {
+  color: white;
+  font-weight: 600;
+}
+
+/* Present Value Result Summary */
+.present-value-calculator-result .present-value-result-summary {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1.5rem;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+}
+
+.present-value-calculator-result .present-value-result-summary h4 {
+  color: white;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 0.5rem;
+}
+
+.present-value-calculator-result .present-value-summary-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.present-value-calculator-result .present-value-summary-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.present-value-calculator-result .present-value-summary-item:last-child {
+  border-bottom: none;
+}
+
+.present-value-calculator-result .present-value-summary-item span:first-child {
+  color: white;
+  font-weight: 500;
+}
+
+.present-value-calculator-result .present-value-summary-item span:last-child {
+  color: white;
+  font-weight: 600;
+}
+
+/* Present Value Result Tip */
+.present-value-calculator-result .present-value-result-tip {
+  background: rgba(251, 191, 36, 0.2);
+  padding: 1rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border-left: 4px solid #fbbf24;
+}
+
+.present-value-calculator-result .present-value-result-tip i {
+  color: #fbbf24;
+  font-size: 1.25rem;
+}
+
+.present-value-calculator-result .present-value-result-tip span {
+  color: white;
+  font-weight: 500;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .present-value-calculator-form .present-value-input-row {
+    flex-direction: column;
+  }
+  
+  .present-value-calculator-form .present-value-input-group {
+    min-width: 100%;
+  }
+  
+  .present-value-calculator-result .present-value-result-item,
+  .present-value-calculator-result .present-value-breakdown-item,
+  .present-value-calculator-result .present-value-summary-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .present-value-calculator-result .present-value-result-title {
+    font-size: 1.25rem;
+  }
+  
+  .present-value-calculator-result {
+    padding: 1.5rem;
+  }
+  
+  .present-value-calculator-form .present-value-calculator-actions {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+  
+  .present-value-calculator-form .present-value-btn-reset {
+    width: 100%;
+    max-width: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .present-value-calculator-form .present-value-calculator-actions {
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+  
+  .present-value-calculator-form .present-value-btn-reset {
+    width: 100%;
+    max-width: 180px;
+    padding: 0.7rem 1.5rem;
+    font-size: 1rem;
+  }
+  
+  .present-value-calculator-result {
+    padding: 1rem;
+  }
+  
+  .present-value-calculator-result .present-value-result-main,
+  .present-value-calculator-result .present-value-result-breakdown,
+  .present-value-calculator-result .present-value-result-summary {
+    padding: 1rem;
+  }
+  
+  .present-value-calculator-form .present-value-input-field,
+  .present-value-calculator-form .present-value-select-field {
+    padding: 0.75rem;
+    font-size: 0.95rem;
+  }
+}
+
+/* Animation */
+@keyframes presentValueResultSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Override KaTeX text color to match our theme */
+.math-formula .katex,
+.math-formula .katex * {
+  color: #10b981 !important;
+}

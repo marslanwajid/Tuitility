@@ -1,0 +1,504 @@
+/* House Affordability Calculator Specific Styles - Completely Isolated */
+
+/* House Affordability Calculator Form Styles */
+.house-affordability-calculator-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.house-affordability-calculator-form .house-affordability-input-row {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+
+.house-affordability-calculator-form .house-affordability-input-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-width: 200px;
+}
+
+.house-affordability-calculator-form .house-affordability-input-label {
+  font-weight: 600;
+  color: #374151;
+  font-size: 1rem;
+}
+
+.house-affordability-calculator-form .house-affordability-input-field {
+  padding: 0.875rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  background: #f9fafb;
+  min-height: 50px;
+}
+
+.house-affordability-calculator-form .house-affordability-input-field:focus {
+  outline: none;
+  border-color: #f59e0b;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.1);
+}
+
+.house-affordability-calculator-form .house-affordability-input-help {
+  font-size: 0.875rem;
+  color: #6b7280;
+  font-style: italic;
+}
+
+.house-affordability-calculator-form .house-affordability-calculator-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.house-affordability-calculator-form .house-affordability-btn-reset {
+  padding: 0.875rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  min-width: 120px;
+  background: #f3f4f6;
+  color: #374151;
+  border: 1px solid #d1d5db;
+}
+
+.house-affordability-calculator-form .house-affordability-btn-reset:hover {
+  background: #e5e7eb;
+  transform: translateY(-1px);
+}
+
+/* House Affordability Calculator Result Section - Completely Isolated */
+.house-affordability-calculator-result {
+background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%) !important;
+  border-radius: 15px;
+  padding: 2rem;
+  margin-top: 2rem;
+  color: white;
+  box-shadow: 0 10px 30px rgba(245, 158, 11, 0.3);
+  animation: houseAffordabilityResultSlideIn 0.6s ease-out;
+  border: none !important;
+}
+
+/* Override any white background that might be coming from other CSS */
+.house-affordability-calculator-result .house-affordability-result-main,
+.house-affordability-calculator-result .house-affordability-result-steps,
+.house-affordability-calculator-result .house-affordability-result-item,
+.house-affordability-calculator-result .house-affordability-result-formula,
+.house-affordability-calculator-result .house-affordability-payment-breakdown,
+.house-affordability-calculator-result .house-affordability-income-summary {
+  background: transparent !important;
+}
+
+/* Ensure all result content has transparent background */
+.house-affordability-calculator-result .house-affordability-result-content,
+.house-affordability-calculator-result .house-affordability-result-main,
+.house-affordability-calculator-result .house-affordability-result-item {
+  background: transparent !important;
+}
+
+/* House Affordability Calculator specific result styling */
+.house-affordability-calculator-result .house-affordability-result-main {
+  background: rgba(255, 255, 255, 0.1) !important;
+  padding: 1.5rem;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.house-affordability-calculator-result .house-affordability-result-title {
+  color: white;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0 0 1.5rem 0;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* House Affordability Calculator Result Items */
+.house-affordability-calculator-result .house-affordability-result-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  background: transparent !important;
+  padding: 0.75rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.house-affordability-calculator-result .house-affordability-result-item:last-child {
+  margin-bottom: 0;
+}
+
+.house-affordability-calculator-result .house-affordability-result-item strong {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.house-affordability-calculator-result .house-affordability-result-value {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.house-affordability-calculator-result .house-affordability-result-final {
+  color: #fef3c7 !important;
+  font-weight: 700 !important;
+  font-size: 1.2rem;
+}
+
+/* House Affordability Payment Breakdown */
+.house-affordability-calculator-result .house-affordability-payment-breakdown {
+  background: rgba(255, 255, 255, 0.1) !important;
+  padding: 1.5rem;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  margin-bottom: 1.5rem;
+}
+
+.house-affordability-calculator-result .house-affordability-breakdown-title {
+  color: white;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 0 0 1rem 0;
+  text-align: center;
+}
+
+.house-affordability-calculator-result .house-affordability-breakdown-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.house-affordability-calculator-result .house-affordability-breakdown-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: transparent !important;
+}
+
+.house-affordability-calculator-result .house-affordability-breakdown-item strong {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.house-affordability-calculator-result .house-affordability-breakdown-value {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+/* House Affordability Income Summary */
+.house-affordability-calculator-result .house-affordability-income-summary {
+  background: rgba(255, 255, 255, 0.1) !important;
+  padding: 1.5rem;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.house-affordability-calculator-result .house-affordability-summary-title {
+  color: white;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 0 0 1rem 0;
+  text-align: center;
+}
+
+.house-affordability-calculator-result .house-affordability-summary-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.house-affordability-calculator-result .house-affordability-summary-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: transparent !important;
+}
+
+.house-affordability-calculator-result .house-affordability-summary-item strong {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.house-affordability-calculator-result .house-affordability-summary-value {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+/* Formula Section */
+.formula-section {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.05), rgba(217, 119, 6, 0.05));
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  border: 1px solid rgba(245, 158, 11, 0.1);
+  text-align: center;
+}
+
+.formula-section h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 1rem;
+}
+
+.math-formula {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #8b5cf6;
+  margin: 1rem 0;
+  padding: 1rem;
+  background: rgba(139, 92, 246, 0.1);
+  border-radius: 8px;
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  font-family: 'Courier New', monospace;
+}
+
+/* Override KaTeX text color to match our theme */
+.math-formula .katex,
+.math-formula .katex * {
+  color: #8b5cf6 !important;
+}
+
+.math-formula .katex-display {
+  color: #8b5cf6 !important;
+}
+
+.math-formula .katex-html {
+  color: #8b5cf6 !important;
+}
+
+.formula-section p {
+  font-size: 0.95rem;
+  color: #64748b;
+  font-weight: 400;
+  text-align: center;
+  margin-top: 0.75rem;
+}
+
+.formula-section ul {
+  text-align: left;
+  margin: 1rem 0;
+}
+
+.formula-section li {
+  margin-bottom: 0.5rem;
+  color: #64748b;
+}
+
+/* Example Section */
+.example-section {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #fffbeb, #fef3c7);
+  border-radius: 12px;
+  border: 1px solid #f59e0b;
+}
+
+.example-section h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #92400e;
+}
+
+.example-solution {
+  background: #ffffff;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-top: 1rem;
+}
+
+.example-solution p {
+  margin-bottom: 0.5rem;
+  color: #374151;
+}
+
+.example-solution strong {
+  color: #1e293b;
+}
+
+/* Usage Steps */
+.usage-steps li {
+  margin-bottom: 1.25rem;
+  font-size: 0.95rem;
+  font-weight: 400;
+}
+
+/* Applications Grid */
+.applications-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.application-item {
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #fffbeb, #fef3c7);
+  border-radius: 12px;
+  border: 1px solid #f59e0b;
+  transition: all 0.2s ease;
+}
+
+.application-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px -5px rgba(245, 158, 11, 0.2);
+}
+
+.application-item h4 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: #92400e;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.application-item h4 i {
+  color: #f59e0b;
+}
+
+.application-item p {
+  color: #92400e;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Animations */
+@keyframes houseAffordabilityResultSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .house-affordability-calculator-form .house-affordability-input-row {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .house-affordability-calculator-form .house-affordability-input-group {
+    min-width: 100%;
+  }
+  
+  .house-affordability-calculator-form .house-affordability-calculator-actions {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+  
+  .house-affordability-calculator-form .house-affordability-btn-reset {
+    width: 100%;
+    max-width: 200px;
+  }
+  
+  .house-affordability-calculator-result {
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+  }
+  
+  .house-affordability-calculator-result .house-affordability-result-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .house-affordability-calculator-result .house-affordability-result-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .applications-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .application-item {
+    padding: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .house-affordability-calculator-form .house-affordability-calculator-actions {
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+  
+  .house-affordability-calculator-form .house-affordability-btn-reset {
+    width: 100%;
+    max-width: 180px;
+    padding: 0.7rem 1.5rem;
+    font-size: 1rem;
+  }
+  
+  .house-affordability-calculator-result {
+    padding: 1rem;
+    margin-top: 1rem;
+  }
+  
+  .house-affordability-calculator-result .house-affordability-result-title {
+    font-size: 1.3rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  .house-affordability-calculator-form .house-affordability-input-field {
+    padding: 0.75rem;
+    font-size: 0.95rem;
+  }
+  
+  .formula-section {
+    padding: 1rem;
+  }
+  
+  .math-formula {
+    font-size: 1.1rem;
+    padding: 0.75rem;
+  }
+}

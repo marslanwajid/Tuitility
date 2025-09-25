@@ -1,0 +1,666 @@
+/* Calorie Burn Calculator Styles - Individual Classes */
+
+/* Form Container */
+.calorie-burn-calculator-form {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e5e7eb;
+  margin-bottom: 1.5rem;
+}
+
+/* Section Titles */
+.calorie-burn-section-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 2rem 0 1.5rem 0;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #f59e0b;
+  text-align: center;
+  position: relative;
+}
+
+.calorie-burn-section-title:first-child {
+  margin-top: 0;
+}
+
+.calorie-burn-section-title::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -2px;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, #f59e0b, #ef4444);
+  border-radius: 1px;
+}
+
+/* Input Groups */
+.calorie-burn-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Labels */
+.calorie-burn-input-label {
+  font-weight: 600;
+  color: #374151;
+  font-size: 0.95rem;
+  margin-bottom: 0.25rem;
+}
+
+/* Input Fields */
+.calorie-burn-input-field {
+  background: #ffffff;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 0.875rem 1rem;
+  font-size: 1rem;
+  color: #374151;
+  transition: all 0.2s ease;
+  height: 48px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+}
+
+.calorie-burn-input-field:focus {
+  outline: none;
+  border-color:#3b82f6;
+  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.1);
+}
+
+.calorie-burn-input-field::placeholder {
+  color: #9ca3af;
+  font-style: italic;
+}
+
+/* Select Fields */
+.calorie-burn-select-field {
+  background: #ffffff;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 0.875rem 1rem;
+  font-size: 1rem;
+  color: #374151;
+  transition: all 0.2s ease;
+  height: 48px;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.calorie-burn-select-field:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.1);
+}
+
+/* Input Row Layout */
+.calorie-burn-input-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* Calculator Actions */
+.calorie-burn-calculator-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+/* Reset Button */
+.calorie-burn-btn-reset {
+  background: #f3f4f6;
+  color: #374151;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  min-width: 120px;
+}
+
+.calorie-burn-btn-reset:hover {
+  background: #e5e7eb;
+  transform: translateY(-1px);
+}
+
+.calorie-burn-btn-reset i {
+  font-size: 0.9rem;
+}
+
+/* Result Section Styling */
+.calorie-burn-calculator-result {
+    background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%) !important;
+  border-radius: 15px;
+  padding: 2rem;
+  margin-top: 2rem;
+  color: white;
+  box-shadow: 0 10px 30px rgba(245, 158, 11, 0.3);
+  animation: calorieBurnResultSlideIn 0.6s ease-out;
+  border: none !important;
+}
+
+/* Override any white background that might be coming from other CSS */
+.calorie-burn-calculator-result .calorie-burn-result-main,
+.calorie-burn-calculator-result .calorie-burn-result-insights,
+.calorie-burn-calculator-result .calorie-burn-result-item {
+  background: transparent !important;
+}
+
+/* Result Title */
+.calorie-burn-result-title {
+  color: white !important;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 1.5rem 0;
+  text-align: center;
+  background: transparent !important;
+}
+
+/* Result Content */
+.calorie-burn-result-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  background: transparent !important;
+}
+
+/* Main Results */
+.calorie-burn-result-main {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background: transparent !important;
+}
+
+/* Result Items */
+.calorie-burn-result-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.calorie-burn-result-item strong {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-weight: 600;
+  background: transparent !important;
+}
+
+.calorie-burn-result-value {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-weight: 600;
+  font-size: 1.1rem;
+  background: transparent !important;
+}
+
+.calorie-burn-result-final {
+  color: #fbbf24 !important;
+  font-weight: 700 !important;
+  font-size: 1.25rem;
+}
+
+/* Food Equivalents */
+.calorie-burn-food-equivalents {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-radius: 8px;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.calorie-burn-food-equivalents-title {
+  color: white !important;
+  font-size: 1.2rem;
+  margin: 0 0 1rem 0;
+  background: transparent !important;
+}
+
+.calorie-burn-food-equivalents-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.calorie-burn-food-equivalent-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  background: rgba(255, 255, 255, 0.05) !important;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.calorie-burn-food-quantity {
+  color: #fbbf24 !important;
+  font-weight: 700;
+  font-size: 1.1rem;
+  background: transparent !important;
+}
+
+.calorie-burn-food-name {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-weight: 600;
+  background: transparent !important;
+}
+
+.calorie-burn-food-calories {
+  color: rgba(255, 255, 255, 0.7) !important;
+  font-size: 0.9rem;
+  background: transparent !important;
+}
+
+/* Explanation */
+.calorie-burn-explanation {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-radius: 8px;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.calorie-burn-explanation-title {
+  color: white !important;
+  font-size: 1.2rem;
+  margin: 0 0 1rem 0;
+  background: transparent !important;
+}
+
+.calorie-burn-explanation-text {
+  color: rgba(255, 255, 255, 0.9) !important;
+  line-height: 1.6;
+  margin: 0;
+  background: transparent !important;
+}
+
+/* MET Values Grid */
+.met-values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.met-category {
+  background: rgba(245, 158, 11, 0.05);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border-left: 4px solid #f59e0b;
+  transition: all 0.3s ease;
+}
+
+.met-category:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.met-category h4 {
+  color: #f59e0b;
+  margin: 0 0 1rem 0;
+  font-size: 1.1rem;
+}
+
+.met-category ul {
+  margin: 0;
+  padding-left: 1.5rem;
+}
+
+.met-category li {
+  margin-bottom: 0.5rem;
+  color: #374151;
+}
+
+/* Calculation Method Section */
+.calculation-method-section {
+  background: rgba(245, 158, 11, 0.05);
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin: 1.5rem 0;
+  border-left: 4px solid #f59e0b;
+  transition: all 0.3s ease;
+}
+
+.calculation-method-section:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.calculation-method-section h3 {
+  color: #f59e0b;
+  margin: 0 0 1rem 0;
+  font-size: 1.3rem;
+}
+
+.calculation-method-section ul {
+  margin: 0;
+  padding-left: 1.5rem;
+}
+
+.calculation-method-section li {
+  margin-bottom: 0.5rem;
+  color: #374151;
+}
+
+/* KaTeX Formula Styling */
+.math-formula .katex {
+  color: #f59e0b !important;
+}
+
+.math-formula .katex * {
+  color: #f59e0b !important;
+}
+
+/* Applications Grid */
+.applications-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.application-item {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.application-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.application-item h4 {
+  color: #f59e0b;
+  font-size: 1.2rem;
+  margin: 0 0 1rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.application-item p {
+  color: #666;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .calorie-burn-calculator-form {
+    padding: 1.5rem;
+  }
+
+  .calorie-burn-input-row {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .calorie-burn-calculator-result {
+    padding: 1.5rem;
+  }
+
+  .calorie-burn-result-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .met-values-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .applications-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .calorie-burn-calculator-form {
+    padding: 1rem;
+  }
+
+  .calorie-burn-input-field,
+  .calorie-burn-select-field {
+    padding: 0.75rem 0.875rem;
+    font-size: 0.95rem;
+    height: 44px;
+  }
+
+  .calorie-burn-calculator-result {
+    padding: 1rem;
+  }
+
+  .calorie-burn-result-item {
+    padding: 1rem;
+  }
+
+  .calorie-burn-result-value {
+    font-size: 1rem;
+  }
+
+  .calorie-burn-section-title {
+    font-size: 1.1rem;
+    margin: 1.5rem 0 1rem 0;
+  }
+}
+
+/* Focus states for accessibility */
+.calorie-burn-input-field:focus-visible,
+.calorie-burn-select-field:focus-visible {
+  /* outline: 2px solid #f59e0b; */
+  outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .calorie-burn-input-field,
+  .calorie-burn-select-field {
+    border-color: #000;
+  }
+  
+  .calorie-burn-input-field:focus,
+  .calorie-burn-select-field:focus {
+    border-color: #f59e0b;
+    box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.3);
+  }
+}
+
+/* Animation for result section */
+@keyframes calorieBurnResultSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Enhanced responsiveness for larger screens */
+@media (min-width: 1440px) {
+  .calorie-burn-calculator-form {
+    padding: 2.5rem;
+  }
+
+  .calorie-burn-input-row {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .calorie-burn-section-title {
+    font-size: 1.3rem;
+    margin: 2.5rem 0 2rem 0;
+  }
+
+  .calorie-burn-calculator-result {
+    padding: 2.5rem;
+  }
+
+  .calorie-burn-result-title {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+  }
+
+  .calorie-burn-result-item {
+    padding: 1.25rem;
+  }
+
+  .calorie-burn-result-value {
+    font-size: 1.2rem;
+  }
+
+  .calorie-burn-food-equivalents {
+    padding: 2rem;
+  }
+
+  .calorie-burn-food-equivalents-title {
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .calorie-burn-explanation {
+    padding: 2rem;
+  }
+
+  .calorie-burn-explanation-title {
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .calorie-burn-input-field,
+  .calorie-burn-select-field {
+    height: 52px;
+    font-size: 1.05rem;
+  }
+}
+
+@media (min-width: 1600px) {
+  .calorie-burn-input-field,
+  .calorie-burn-select-field {
+    height: 56px;
+    font-size: 1.1rem;
+  }
+
+  .calorie-burn-calculator-result {
+    padding: 2.5rem;
+  }
+}
+
+@media (min-width: 1920px) {
+  .calorie-burn-calculator-form {
+    padding: 3rem;
+  }
+
+  .calorie-burn-input-row {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+  }
+
+  .calorie-burn-section-title {
+    font-size: 1.4rem;
+    margin: 3rem 0 2.5rem 0;
+  }
+
+  .calorie-burn-calculator-result {
+    padding: 3rem;
+  }
+
+  .calorie-burn-result-title {
+    font-size: 2rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .calorie-burn-result-item {
+    padding: 1.5rem;
+  }
+
+  .calorie-burn-result-value {
+    font-size: 1.3rem;
+  }
+
+  .calorie-burn-food-equivalents {
+    padding: 2.5rem;
+  }
+
+  .calorie-burn-food-equivalents-title {
+    font-size: 1.4rem;
+    margin-bottom: 2rem;
+  }
+
+  .calorie-burn-explanation {
+    padding: 2.5rem;
+  }
+
+  .calorie-burn-explanation-title {
+    font-size: 1.4rem;
+    margin-bottom: 2rem;
+  }
+
+  .calorie-burn-input-field,
+  .calorie-burn-select-field {
+    height: 60px;
+    font-size: 1.15rem;
+  }
+
+  .met-values-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  .met-category {
+    padding: 2rem;
+  }
+
+  .met-category h4 {
+    font-size: 1.2rem;
+  }
+
+  .met-category li {
+    font-size: 1.05rem;
+  }
+
+  .applications-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  .application-item {
+    padding: 2rem;
+  }
+
+  .application-item h4 {
+    font-size: 1.3rem;
+  }
+
+  .application-item p {
+    font-size: 1.05rem;
+  }
+}
