@@ -17,7 +17,7 @@
   color: #1e293b;
   margin: 2rem 0 1.5rem 0;
   padding-bottom: 0.5rem;
-  border-bottom: 2px solid #3b82f6;
+  border-bottom: 2px solid #1a1a1a;
   text-align: center;
   position: relative;
 }
@@ -34,7 +34,7 @@
   transform: translateX(-50%);
   width: 60px;
   height: 2px;
-  background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+  background: #f0f0f0;
   border-radius: 1px;
 }
 
@@ -81,8 +81,8 @@
 
 .age-input-field:focus {
   outline: none;
-  border-color: #3b82f6;
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  border-color: #1a1a1a;
+  box-shadow: 0 0 0 3px rgba(26, 26, 26, 0.1);
 }
 
 .age-input-field::placeholder {
@@ -130,12 +130,12 @@
 
 /* Results Section */
 .age-result-section {
-  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%) !important;
+  background: linear-gradient(135deg, #1a1a1a 0%, #1a1a1a 100%) !important;
   border-radius: 15px;
   padding: 2rem;
   margin-top: 2rem;
   color: white;
-  box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+  box-shadow: 0 10px 30px rgba(26, 26, 26, 0.3);
   animation: ageResultSlideIn 0.6s ease-out;
   border: none !important;
 }
@@ -201,7 +201,7 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  color: #fbbf24 !important;
+  color: #ffffff !important;
 }
 
 .age-result-details {
@@ -291,10 +291,10 @@
 }
 
 .age-definition-item {
-  background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+  background: #f0f0f0;
   padding: 1.5rem;
   border-radius: 12px;
-  border-left: 4px solid #3b82f6;
+  border-left: 4px solid #1a1a1a;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
@@ -323,10 +323,10 @@
 }
 
 .age-category-item {
-  background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+  background: #f0f0f0;
   padding: 1.5rem;
   border-radius: 12px;
-  border-left: 4px solid #3b82f6;
+  border-left: 4px solid #1a1a1a;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
@@ -411,13 +411,13 @@
   font-size: 1.3rem;
   font-weight: 700;
   margin-bottom: 1rem;
-  border-bottom: 2px solid #3b82f6;
+  border-bottom: 2px solid #1a1a1a;
   padding-bottom: 0.5rem;
 }
 
 /* Examples */
 .age-example {
-  background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+  background: #f0f0f0;
   padding: 1.5rem;
   border-radius: 12px;
   border-left: 4px solid #0ea5e9;
@@ -459,10 +459,10 @@
 }
 
 .application-item {
-  background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+  background: #f0f0f0;
   padding: 1.5rem;
   border-radius: 12px;
-  border-left: 4px solid #22c55e;
+  border-left: 4px solid #1a1a1a;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
@@ -679,7 +679,7 @@
 /* Accessibility Improvements */
 .age-input-field:focus,
 .age-reset-button:focus {
-  outline: 2px solid #3b82f6;
+  outline: 2px solid #1a1a1a;
   outline-offset: 2px;
 }
 

@@ -40,9 +40,9 @@
 
 .present-value-calculator-form .present-value-input-field:focus {
   outline: none;
-  border-color: #3b82f6;
+  border-color: #1a1a1a;
   background: white;
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  box-shadow: 0 0 0 3px rgba(26, 26, 26, 0.1);
 }
 
 .present-value-calculator-form .present-value-select-field {
@@ -63,9 +63,9 @@
 
 .present-value-calculator-form .present-value-select-field:focus {
   outline: none;
-  border-color: #3b82f6;
+  border-color: #1a1a1a;
   background: white;
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  box-shadow: 0 0 0 3px rgba(26, 26, 26, 0.1);
 }
 
 .present-value-calculator-form .present-value-calculator-actions {
@@ -107,12 +107,12 @@
 
 /* Present Value Calculator Result Section - More specific to override tool-page.css */
 .present-value-calculator-result {
-  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%) !important;
+  background: linear-gradient(135deg, #1a1a1a 0%, #1a1a1a 100%) !important;
   border-radius: 15px;
   padding: 2rem;
   margin-top: 2rem;
   color: white;
-  box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3);
+  box-shadow: 0 10px 30px rgba(26, 26, 26, 0.3);
   animation: presentValueResultSlideIn 0.6s ease-out;
   border: none !important;
 }
@@ -279,11 +279,11 @@
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  border-left: 4px solid #fbbf24;
+  border-left: 4px solid #ffffff;
 }
 
 .present-value-calculator-result .present-value-result-tip i {
-  color: #fbbf24;
+  color: #ffffff;
   font-size: 1.25rem;
 }
 
@@ -374,5 +374,5 @@
 /* Override KaTeX text color to match our theme */
 .math-formula .katex,
 .math-formula .katex * {
-  color: #10b981 !important;
+  color: #1a1a1a !important;
 }

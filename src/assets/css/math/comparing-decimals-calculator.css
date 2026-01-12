@@ -1,7 +1,7 @@
 /* Tool Page Styles - Shared across all tools */
 .tool-page {
   min-height: 100vh;
-  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  background: #f0f0f0;
 }
 
 .container {
@@ -16,12 +16,12 @@
 /* Hero Section */
 .tool-hero {
   background: #ffffff;
-  color: #1e293b;
+  color: #1a1a1a;
   padding: 3rem 0;
   text-align: center;
   position: relative;
   overflow: hidden;
-  border-bottom: 1px solid #e2e8f0;
+  border-bottom: 1px solid #f0f0f0;
 }
 
 .tool-hero::before {
@@ -31,9 +31,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: 
-    linear-gradient(90deg, rgba(59, 130, 246, 0.03) 1px, transparent 1px),
-    linear-gradient(rgba(59, 130, 246, 0.03) 1px, transparent 1px);
+  background-image: none; background: #f0f0f0;
   background-size: 50px 50px;
   animation: slide 20s linear infinite;
   z-index: 1;
@@ -46,7 +44,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, rgba(59, 130, 246, 0.05) 0%, rgba(139, 92, 246, 0.05) 100%);
+  background: rgba(26, 26, 26, 0.03);
   z-index: 1;
 }
 
@@ -68,7 +66,7 @@
   align-items: center;
   justify-content: center;
   gap: 1rem;
-  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  background: #1a1a1a;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -78,7 +76,7 @@
 
 .hero-title i {
   font-size: 2rem;
-  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  background: #1a1a1a;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -123,7 +121,7 @@
 }
 
 .feature i {
-  color: #10b981;
+  color: #1a1a1a;
   font-size: 1rem;
 }
 
@@ -147,7 +145,7 @@
   border-radius: 16px;
   padding: 1.5rem;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  border: 1px solid #e2e8f0;
+  border: 1px solid #f0f0f0;
   height: fit-content;
   transition: all 0.3s ease;
 }
@@ -167,7 +165,7 @@
 .sidebar-title {
   font-size: 1.1rem;
   font-weight: 600;
-  color: #1e293b;
+  color: #1a1a1a;
   margin-bottom: 1rem;
   display: flex;
   align-items: center;
@@ -175,7 +173,7 @@
 }
 
 .sidebar-title i {
-  color: #3b82f6;
+  color: #1a1a1a;
   font-size: 1rem;
 }
 
@@ -199,16 +197,16 @@
 }
 
 .category-link:hover, .tool-link:hover {
-  background: linear-gradient(135deg, rgba(59, 130, 246, 0.05), rgba(139, 92, 246, 0.05));
-  color: #3b82f6;
-  border-color: rgba(59, 130, 246, 0.1);
+  background: rgba(26, 26, 26, 0.03);
+  color: #1a1a1a;
+  border-color: rgba(26, 26, 26, 0.08);
   transform: translateX(4px);
 }
 
 .category-link.active, .tool-link.active {
-  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  background: #1a1a1a;
   color: white;
-  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+  box-shadow: 0 4px 12px rgba(26, 26, 26, 0.15);
 }
 
 .category-link i, .tool-link i {
@@ -245,7 +243,7 @@
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
+  background: #1a1a1a;
   animation: gradientFlow 3s ease-in-out infinite;
 }
 
@@ -255,7 +253,7 @@
 }
 
 .calculator-title {
-  color: #1e293b;
+  color: #1a1a1a;
   font-size: 2.5rem;
   font-weight: 700;
   margin: 0 0 1rem 0;
@@ -267,7 +265,7 @@
 }
 
 .calculator-title i {
-  background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+  background: #1a1a1a;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -330,8 +328,8 @@
 
 .calculator-input:focus {
   outline: none;
-  border-color: #667eea;
-  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  border-color: #1a1a1a;
+  box-shadow: 0 0 0 3px rgba(26, 26, 26, 0.1);
   transform: translateY(-2px);
 }
 
@@ -363,14 +361,14 @@
 }
 
 .calculate-btn {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: #1a1a1a;
   color: white;
-  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+  box-shadow: 0 4px 15px rgba(26, 26, 26, 0.4);
 }
 
 .calculate-btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+  box-shadow: 0 8px 25px rgba(26, 26, 26, 0.6);
 }
 
 .calculate-btn:active {
@@ -378,7 +376,7 @@
 }
 
 .reset-btn {
-  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+  background: #1a1a1a;
   color: white;
   box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
 }
@@ -394,7 +392,7 @@
 
 /* Error Message Styling */
 .error-message {
-  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+  background: #1a1a1a;
   color: white;
   padding: 1rem 1.5rem;
   border-radius: 10px;
@@ -409,12 +407,12 @@
 
 /* Result Section Styling */
 .result-section {
-  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+  background: #1a1a1a;
   border-radius: 15px;
   padding: 2rem;
   margin-top: 2rem;
   color: white;
-  box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+  box-shadow: 0 10px 30px rgba(26, 26, 26, 0.15);
   animation: resultSlideIn 0.6s ease-out;
 }
 
@@ -477,7 +475,7 @@
 .symbol {
   font-size: 3rem;
   font-weight: 900;
-  color: #fbbf24;
+  color: #ffffff;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   animation: symbolPulse 1.5s ease-in-out infinite;
 }
@@ -495,7 +493,7 @@
   text-align: center;
   font-size: 1.1rem;
   font-weight: 600;
-  border-left: 4px solid #fbbf24;
+  border-left: 4px solid #ffffff;
 }
 
 .solution-steps {
@@ -527,7 +525,7 @@
 }
 
 .solution-steps li::marker {
-  color: #fbbf24;
+  color: #ffffff;
   font-weight: bold;
 }
 
@@ -585,13 +583,13 @@
   border-radius: 12px;
   padding: 1.5rem;
   margin-bottom: 1.5rem;
-  border: 1px solid #e2e8f0;
+  border: 1px solid #f0f0f0;
 }
 
 .result-table h4 {
   font-size: 1.1rem;
   font-weight: 600;
-  color: #1e293b;
+  color: #1a1a1a;
   margin-bottom: 1rem;
 }
 
@@ -604,8 +602,8 @@
 
 .styled-table th {
   padding: 12px 16px;
-  border: 1px solid #e2e8f0;
-  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  border: 1px solid #f0f0f0;
+  background: #1a1a1a;
   color: white;
   font-weight: 600;
   font-size: 0.9rem;
@@ -613,30 +611,30 @@
 
 .styled-table td {
   padding: 12px 16px;
-  border: 1px solid #e2e8f0;
+  border: 1px solid #f0f0f0;
   color: #64748b;
   font-size: 0.9rem;
 }
 
 .styled-table tr:nth-child(even) {
-  background: #f8fafc;
+  background: #f0f0f0;
 }
 
 .styled-table tr:hover {
-  background: rgba(59, 130, 246, 0.05);
+  background: rgba(26, 26, 26, 0.05);
 }
 
 .result-steps {
   background: white;
   border-radius: 12px;
   padding: 1.5rem;
-  border: 1px solid #e2e8f0;
+  border: 1px solid #f0f0f0;
 }
 
 .result-steps h4 {
   font-size: 1.1rem;
   font-weight: 600;
-  color: #1e293b;
+  color: #1a1a1a;
   margin-bottom: 1rem;
 }
 
@@ -648,13 +646,13 @@
 
 .step {
   padding: 1rem;
-  background: #f8fafc;
+  background: #f0f0f0;
   border-radius: 8px;
-  border-left: 4px solid #3b82f6;
+  border-left: 4px solid #1a1a1a;
 }
 
 .step strong {
-  color: #1e293b;
+  color: #1a1a1a;
   font-weight: 600;
 }
 
@@ -669,9 +667,9 @@
   text-align: center;
   margin: 1rem 0;
   padding: 1rem;
-  background: linear-gradient(135deg, rgba(139, 92, 246, 0.05), rgba(59, 130, 246, 0.05));
+  background: rgba(26, 26, 26, 0.03);
   border-radius: 8px;
-  border: 1px solid rgba(139, 92, 246, 0.1);
+  border: 1px solid rgba(26, 26, 26, 0.08);
 }
 
 .math-formula .katex {
@@ -700,13 +698,13 @@
   border-radius: 16px;
   padding: 1.5rem;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  border: 1px solid #e2e8f0;
+  border: 1px solid #f0f0f0;
 }
 
 .toc-title, .feedback-title {
   font-size: 1.1rem;
   font-weight: 600;
-  color: #1e293b;
+  color: #1a1a1a;
   margin-bottom: 1rem;
   display: flex;
   align-items: center;
@@ -714,7 +712,7 @@
 }
 
 .toc-title i, .feedback-title i {
-  color: #3b82f6;
+  color: #1a1a1a;
   font-size: 1rem;
 }
 
@@ -734,8 +732,8 @@
 }
 
 .toc-link:hover {
-  background: linear-gradient(135deg, rgba(59, 130, 246, 0.05), rgba(139, 92, 246, 0.05));
-  color: #3b82f6;
+  background: rgba(26, 26, 26, 0.03);
+  color: #1a1a1a;
 }
 
 .feedback-form {
@@ -752,24 +750,24 @@
 
 .form-group label {
   font-weight: 600;
-  color: #374151;
+  color: #1a1a1a;
   font-size: 0.9rem;
 }
 
 .form-group input, .form-group textarea {
   padding: 0.75rem;
-  border: 2px solid #e5e7eb;
+  border: 2px solid #f0f0f0;
   border-radius: 6px;
   font-size: 0.9rem;
   transition: all 0.2s ease;
-  background: #f9fafb;
+  background: #f0f0f0;
 }
 
 .form-group input:focus, .form-group textarea:focus {
   outline: none;
-  border-color: #3b82f6;
+  border-color: #1a1a1a;
   background: white;
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  box-shadow: 0 0 0 3px rgba(26, 26, 26, 0.08);
 }
 
 .btn-submit {
@@ -789,7 +787,7 @@
 
 .btn-submit:hover {
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+  box-shadow: 0 4px 12px rgba(26, 26, 26, 0.3);
 }
 
 /* Content Section */
@@ -798,7 +796,7 @@
   border-radius: 16px;
   padding: 2rem;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  border: 1px solid #e2e8f0;
+  border: 1px solid #f0f0f0;
 }
 
 .content-container {
@@ -814,9 +812,9 @@
 .content-title {
   font-size: 1.75rem;
   font-weight: 700;
-  color: #1e293b;
+  color: #1a1a1a;
   margin-bottom: 1.5rem;
-  background: linear-gradient(135deg, #1e293b, #3b82f6);
+  background: #1a1a1a;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -858,7 +856,7 @@
 }
 
 .content-block li i {
-  color: #10b981;
+  color: #1a1a1a;
   font-size: 1rem;
   margin-top: 0.1rem;
   flex-shrink: 0;
@@ -870,18 +868,18 @@
 
 /* Formula Sections */
 .formula-section {
-  background: linear-gradient(135deg, rgba(59, 130, 246, 0.05), rgba(139, 92, 246, 0.05));
+  background: rgba(26, 26, 26, 0.03);
   border-radius: 12px;
   padding: 1.5rem;
   margin: 1.5rem 0;
-  border: 1px solid rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(26, 26, 26, 0.08);
   text-align: center;
 }
 
 .formula-section h3 {
   font-size: 1.2rem;
   font-weight: 600;
-  color: #1e293b;
+  color: #1a1a1a;
   margin-bottom: 1rem;
 }
 
@@ -899,7 +897,7 @@
   border-radius: 12px;
   padding: 2rem;
   margin: 1.5rem 0;
-  border: 1px solid #e2e8f0;
+  border: 1px solid #f0f0f0;
   position: relative;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
@@ -911,7 +909,7 @@
   left: 0;
   right: 0;
   height: 3px;
-  background: linear-gradient(135deg, #8b5cf6, #3b82f6);
+  background: #1a1a1a;
 }
 
 .usage-steps li {
@@ -922,11 +920,11 @@
 
 /* Example Sections */
 .example-section {
-  background: linear-gradient(135deg, rgba(59, 130, 246, 0.05), rgba(139, 92, 246, 0.05));
+  background: rgba(26, 26, 26, 0.03);
   border-radius: 16px;
   padding: 2rem;
   margin: 2rem 0;
-  border: 1px solid rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(26, 26, 26, 0.08);
   position: relative;
   overflow: hidden;
 }
@@ -938,15 +936,15 @@
   left: 0;
   right: 0;
   height: 3px;
-  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  background: #1a1a1a;
 }
 
 .example-section h3 {
   font-size: 1.3rem;
   font-weight: 600;
-  color: #1e293b;
+  color: #1a1a1a;
   margin-bottom: 1.25rem;
-  background: linear-gradient(135deg, #1e293b, #3b82f6);
+  background: #1a1a1a;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -957,7 +955,7 @@
   border-radius: 12px;
   padding: 1.5rem;
   margin-top: 1.5rem;
-  border: 1px solid rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(26, 26, 26, 0.08);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
@@ -976,10 +974,10 @@
   display: inline-block;
   margin: 0 0.25rem;
   padding: 0.25rem 0.5rem;
-  background: rgba(59, 130, 246, 0.1);
+  background: rgba(26, 26, 26, 0.08);
   border-radius: 4px;
   font-weight: 600;
-  color: #3b82f6;
+  color: #1a1a1a;
 }
 
 /* Applications Grid */
@@ -991,10 +989,10 @@
 }
 
 .application-item {
-  background: linear-gradient(135deg, rgba(59, 130, 246, 0.05), rgba(139, 92, 246, 0.05));
+  background: rgba(26, 26, 26, 0.03);
   border-radius: 12px;
   padding: 1.5rem;
-  border: 1px solid rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(26, 26, 26, 0.08);
   transition: all 0.3s ease;
 }
 
@@ -1006,7 +1004,7 @@
 .application-item h4 {
   font-size: 1.1rem;
   font-weight: 600;
-  color: #1e293b;
+  color: #1a1a1a;
   margin-bottom: 0.75rem;
   display: flex;
   align-items: center;
@@ -1014,7 +1012,7 @@
 }
 
 .application-item h4 i {
-  color: #3b82f6;
+  color: #1a1a1a;
   font-size: 1rem;
 }
 

@@ -15,26 +15,26 @@
 
 .sse-calculator-form .sse-input-label {
   font-weight: 600;
-  color: #374151;
+  color: #1a1a1a;
   font-size: 1rem;
 }
 
 .sse-calculator-form .sse-input-field {
   padding: 0.75rem;
-  border: 2px solid #e5e7eb;
+  border: 2px solid #f0f0f0;
   border-radius: 8px;
   font-size: 1rem;
   transition: border-color 0.2s ease;
   resize: vertical;
   min-height: 80px;
-  background: #f9fafb;
+  background: #f0f0f0;
 }
 
 .sse-calculator-form .sse-input-field:focus {
   outline: none;
-  border-color: #3b82f6;
+  border-color: #1a1a1a;
   background: white;
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  box-shadow: 0 0 0 3px rgba(26, 26, 26, 0.08);
 }
 
 .sse-calculator-form .sse-input-help {
@@ -64,24 +64,24 @@
   gap: 0.5rem;
   text-decoration: none;
   min-width: 120px;
-  background: #f3f4f6;
-  color: #374151;
+  background: #f0f0f0;
+  color: #1a1a1a;
   border: 1px solid #d1d5db;
 }
 
 .sse-calculator-form .sse-btn-reset:hover {
-  background: #e5e7eb;
+  background: #f0f0f0;
   transform: translateY(-1px);
 }
 
 /* SSE Calculator Result Section - More specific to override tool-page.css */
 .sse-calculator-result {
-  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%) !important;
+  background: #1a1a1a !important;
   border-radius: 15px;
   padding: 2rem;
   margin-top: 2rem;
   color: white;
-  box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+  box-shadow: 0 10px 30px rgba(26, 26, 26, 0.15);
   animation: sseResultSlideIn 0.6s ease-out;
   border: none !important;
 }
@@ -133,7 +133,7 @@
 .sse-calculator-result .sse-result-formula {
   background: rgba(255, 255, 255, 0.1) !important;
   border: 1px solid rgba(255, 255, 255, 0.2) !important;
-  color: #fbbf24 !important;
+  color: #ffffff !important;
   padding: 1rem;
   border-radius: 8px;
   text-align: center;

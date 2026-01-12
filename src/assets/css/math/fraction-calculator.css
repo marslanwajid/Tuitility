@@ -18,7 +18,7 @@
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
+  background: #1a1a1a;
   animation: gradientFlow 3s ease-in-out infinite;
 }
 
@@ -60,9 +60,9 @@
 }
 
 .tab-button.active {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: #1a1a1a;
   color: white;
-  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+  box-shadow: 0 4px 15px rgba(26, 26, 26, 0.2);
 }
 
 /* Calculator Form Styling */
@@ -124,8 +124,8 @@
 
 .fraction-input .input-field:focus {
   outline: none;
-  border-color: #667eea;
-  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  border-color: #1a1a1a;
+  box-shadow: 0 0 0 3px rgba(26, 26, 26, 0.08);
   transform: translateY(-2px);
 }
 
@@ -143,7 +143,7 @@
   left: 0;
   right: 0;
   height: 2px;
-  background: #667eea;
+  background: #1a1a1a;
   transform: scaleX(0);
   transition: transform 0.3s ease;
 }
@@ -177,8 +177,8 @@
 
 .operator-select:focus {
   outline: none;
-  border-color: #667eea;
-  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  border-color: #1a1a1a;
+  box-shadow: 0 0 0 3px rgba(26, 26, 26, 0.08);
   transform: translateY(-2px);
 }
 
@@ -203,14 +203,14 @@
 }
 
 .btn-calculate {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: #1a1a1a;
   color: white;
-  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+  box-shadow: 0 4px 15px rgba(26, 26, 26, 0.2);
 }
 
 .btn-calculate:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+  box-shadow: 0 6px 20px rgba(26, 26, 26, 0.25);
 }
 
 .btn-reset {
@@ -226,12 +226,12 @@
 
 /* Result Section Styling - More specific to override tool-page.css */
 .fraction-calculator-result {
-  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%) !important;
+  background: #1a1a1a !important;
   border-radius: 15px;
   padding: 2rem;
   margin-top: 2rem;
   color: white;
-  box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+  box-shadow: 0 10px 30px rgba(26, 26, 26, 0.15);
   animation: resultSlideIn 0.6s ease-out;
   border: none !important;
 }
@@ -305,7 +305,7 @@
 }
 
 .result-formula {
-  color: #fbbf24;
+  color: #ffffff;
   font-size: 1.5rem;
   font-weight: 700;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
@@ -346,7 +346,7 @@
   padding: 0.8rem;
   background: rgba(255, 255, 255, 0.1);
   border-radius: 8px;
-  border-left: 3px solid #fbbf24;
+  border-left: 3px solid #ffffff;
   color: rgba(255, 255, 255, 0.9);
   font-size: 1rem;
   transition: all 0.3s ease;
@@ -360,11 +360,11 @@
 
 /* Example Sections */
 .example-section {
-  background: rgba(59, 130, 246, 0.05);
+  background: #f0f0f0;
   padding: 1.5rem;
   border-radius: 12px;
   margin: 1.5rem 0;
-  border-left: 4px solid #3b82f6;
+  border-left: 4px solid #1a1a1a;
   transition: all 0.3s ease;
 }
 
@@ -374,7 +374,7 @@
 }
 
 .example-section h3 {
-  color: #3b82f6;
+  color: #1a1a1a;
   margin: 0 0 1rem 0;
   font-size: 1.3rem;
 }
@@ -395,13 +395,13 @@
 .formula-section {
   margin: 1.5rem 0;
   padding: 1.5rem;
-  background: rgba(139, 92, 246, 0.05);
+  background: #f0f0f0;
   border-radius: 12px;
-  border-left: 4px solid #8b5cf6;
+  border-left: 4px solid #1a1a1a;
 }
 
 .formula-section h3 {
-  color: #8b5cf6;
+  color: #1a1a1a;
   margin: 0 0 1rem 0;
   font-size: 1.3rem;
 }
@@ -410,18 +410,18 @@
   text-align: center;
   margin: 1rem 0;
   padding: 1rem;
-  background: rgba(139, 92, 246, 0.1);
+  background: rgba(26, 26, 26, 0.08);
   border-radius: 8px;
-  border: 1px solid rgba(139, 92, 246, 0.2);
+  border: 1px solid rgba(26, 26, 26, 0.12);
 }
 
 .content-formula {
   display: inline-block;
   margin: 0 0.5rem;
   padding: 0.5rem;
-  background: rgba(139, 92, 246, 0.1);
+  background: rgba(26, 26, 26, 0.08);
   border-radius: 6px;
-  border: 1px solid rgba(139, 92, 246, 0.2);
+  border: 1px solid rgba(26, 26, 26, 0.12);
 }
 
 /* Applications Grid */
@@ -447,7 +447,7 @@
 }
 
 .application-item h4 {
-  color: #3b82f6;
+  color: #1a1a1a;
   font-size: 1.2rem;
   margin: 0 0 1rem 0;
   display: flex;

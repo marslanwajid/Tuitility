@@ -53,9 +53,9 @@
 
 .work-power-input-field:focus {
   outline: none;
-  border-color: #f59e0b;
+  border-color: #1a1a1a;
   background: #ffffff;
-  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.1);
+  box-shadow: 0 0 0 3px rgba(26, 26, 26, 0.1);
 }
 
 .work-power-input-field:hover {
@@ -85,9 +85,9 @@
 
 .work-power-select-field:focus {
   outline: none;
-  border-color: #f59e0b;
+  border-color: #1a1a1a;
   background-color: #ffffff;
-  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.1);
+  box-shadow: 0 0 0 3px rgba(26, 26, 26, 0.1);
 }
 
 .work-power-select-field:hover {
@@ -165,7 +165,7 @@
 }
 
 .application-item h4 {
-  color: #f59e0b;
+  color: #1a1a1a;
   font-size: 1.2rem;
   margin: 0 0 1rem 0;
   display: flex;
@@ -183,10 +183,10 @@
 .work-power-calculator-result {
   margin-top: 2rem;
   padding: 2rem;
-  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%) !important;
+  background: linear-gradient(135deg, #1a1a1a 0%, #1a1a1a 100%) !important;
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 8px 32px rgba(245, 158, 11, 0.3);
+  box-shadow: 0 8px 32px rgba(26, 26, 26, 0.3);
   color: #ffffff;
   animation: slideInUp 0.6s ease-out;
 }
@@ -439,7 +439,7 @@
 /* Focus states for accessibility */
 .work-power-input-field:focus-visible,
 .work-power-select-field:focus-visible {
-  outline: 2px solid #f59e0b;
+  outline: 2px solid #1a1a1a;
   outline-offset: 2px;
 }
 
@@ -452,7 +452,7 @@
   }
 
   .work-power-calculator-result {
-    background: linear-gradient(135deg, #000000 0%, #333333 100%);
+    background: #f0f0f0;
     border-color: #ffffff;
   }
 }

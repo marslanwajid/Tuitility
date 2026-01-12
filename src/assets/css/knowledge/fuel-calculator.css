@@ -24,7 +24,7 @@
   font-weight: 700;
   margin: 0 0 1.5rem 0;
   padding-bottom: 0.5rem;
-  border-bottom: 2px solid #3b82f6;
+  border-bottom: 2px solid #1a1a1a;
 }
 
 .fuel-form-row {
@@ -50,7 +50,7 @@
 }
 
 .fuel-form-label i {
-  color: #3b82f6;
+  color: #1a1a1a;
   font-size: 1rem;
   width: 16px;
 }
@@ -70,8 +70,8 @@
 .fuel-form-input:focus,
 .fuel-form-select:focus {
   outline: none;
-  border-color: #3b82f6;
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  border-color: #1a1a1a;
+  box-shadow: 0 0 0 3px rgba(26, 26, 26, 0.1);
 }
 
 .fuel-form-input:hover,
@@ -94,7 +94,7 @@
 .fuel-form-checkbox {
   width: 18px;
   height: 18px;
-  accent-color: #3b82f6;
+  accent-color: #1a1a1a;
   cursor: pointer;
 }
 
@@ -109,15 +109,15 @@
 }
 
 .fuel-checkbox-label i {
-  color: #3b82f6;
+  color: #1a1a1a;
   font-size: 1rem;
 }
 
 /* Error Message */
 .fuel-error-message {
-  background: #fef2f2;
+  background: #f0f0f0;
   border: 1px solid #fecaca;
-  color: #dc2626;
+  color: #1a1a1a;
   padding: 1rem;
   border-radius: 8px;
   margin: 1rem 0;
@@ -128,13 +128,13 @@
 }
 
 .fuel-error-message i {
-  color: #dc2626;
+  color: #1a1a1a;
   font-size: 1.1rem;
 }
 
 /* Result Section */
 .fuel-calculator-result {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: #f0f0f0;
   border-radius: 16px;
   padding: 2rem;
   margin: 2rem 0;
@@ -209,7 +209,7 @@
 .fuel-per-person-value {
   font-size: 1.5rem;
   font-weight: 600;
-  color: #fbbf24;
+  color: #ffffff;
 }
 
 .fuel-breakdown {
@@ -283,7 +283,7 @@
   padding: 1rem;
   margin-bottom: 0.75rem;
   border-radius: 8px;
-  border-left: 4px solid #fbbf24;
+  border-left: 4px solid #ffffff;
   color: rgba(255, 255, 255, 0.9);
   line-height: 1.6;
 }
@@ -345,7 +345,7 @@
 .fuel-efficiency-item:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  border-color: #3b82f6;
+  border-color: #1a1a1a;
 }
 
 .fuel-efficiency-item h4 {
@@ -359,7 +359,7 @@
 }
 
 .fuel-efficiency-item h4 i {
-  color: #3b82f6;
+  color: #1a1a1a;
   font-size: 1.1rem;
 }
 
@@ -431,7 +431,7 @@
 }
 
 .fuel-conversion-factors strong {
-  color: #fbbf24;
+  color: #ffffff;
 }
 
 .fuel-formula {
@@ -453,7 +453,7 @@
 }
 
 .fuel-formula strong {
-  color: #fbbf24;
+  color: #ffffff;
 }
 
 /* Example Section */
@@ -472,7 +472,7 @@
   background: #f8fafc;
   padding: 1.5rem;
   border-radius: 8px;
-  border-left: 4px solid #3b82f6;
+  border-left: 4px solid #1a1a1a;
   margin: 1rem 0;
 }
 
@@ -499,7 +499,7 @@
   padding: 1rem;
   margin-bottom: 0.75rem;
   border-radius: 8px;
-  border-left: 4px solid #3b82f6;
+  border-left: 4px solid #1a1a1a;
   line-height: 1.6;
   list-style: none !important;
 }

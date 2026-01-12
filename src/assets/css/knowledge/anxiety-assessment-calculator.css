@@ -11,7 +11,7 @@
 .anxiety-assessment-calculator-page .anxiety-assessment-container .anxiety-intro-section {
   text-align: center;
   padding: 40px 20px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: #f0f0f0;
   border-radius: 12px;
   color: white;
   margin-bottom: 30px;
@@ -94,7 +94,7 @@
 
 .anxiety-assessment-calculator-page .anxiety-assessment-container .anxiety-progress-fill {
   height: 100%;
-  background: linear-gradient(90deg, #667eea, #764ba2);
+  background: #f0f0f0;
   transition: width 0.3s ease;
 }
 
@@ -248,7 +248,7 @@
   text-align: center;
   margin-bottom: 40px;
   padding: 30px;
-  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  background: #f0f0f0;
   border-radius: 12px;
 }
 
@@ -315,7 +315,7 @@
 
 .anxiety-assessment-calculator-page .anxiety-assessment-container .anxiety-score-fill {
   height: 100%;
-  background: linear-gradient(90deg, #667eea, #764ba2);
+  background: #f0f0f0;
   transition: width 0.5s ease;
   border-radius: 10px;
 }

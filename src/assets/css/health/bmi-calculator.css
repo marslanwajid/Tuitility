@@ -32,9 +32,9 @@
 }
 
 .bmi-tab.active {
-  background: #3b82f6;
+  background: #1a1a1a;
   color: white;
-  border-color: #3b82f6;
+  border-color: #1a1a1a;
 }
 
 .bmi-tab i {
@@ -58,7 +58,7 @@
   color: #1e293b;
   margin: 2rem 0 1.5rem 0;
   padding-bottom: 0.5rem;
-  border-bottom: 2px solid #3b82f6;
+  border-bottom: 2px solid #1a1a1a;
   text-align: center;
 }
 
@@ -96,8 +96,8 @@
 
 .bmi-input-field:focus {
   outline: none;
-  border-color: #3b82f6;
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  border-color: #1a1a1a;
+  box-shadow: 0 0 0 3px rgba(26, 26, 26, 0.1);
 }
 
 .bmi-input-field::placeholder {
@@ -120,8 +120,8 @@
 
 .bmi-select-field:focus {
   outline: none;
-  border-color: #3b82f6;
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  border-color: #1a1a1a;
+  box-shadow: 0 0 0 3px rgba(26, 26, 26, 0.1);
 }
 
 /* Help Text */
@@ -179,12 +179,12 @@
 
 /* Result Section Styling - More specific to override tool-page.css */
 .bmi-calculator-result {
-  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%) !important;
+  background: linear-gradient(135deg, #1a1a1a 0%, #1a1a1a 100%) !important;
   border-radius: 15px;
   padding: 2rem;
   margin-top: 2rem;
   color: white;
-  box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+  box-shadow: 0 10px 30px rgba(26, 26, 26, 0.3);
   animation: bmiResultSlideIn 0.6s ease-out;
   border: none !important;
 }
@@ -255,7 +255,7 @@
 }
 
 .bmi-result-final {
-  color: #fbbf24 !important;
+  color: #ffffff !important;
   font-weight: 700 !important;
   font-size: 1.25rem;
 }
@@ -299,7 +299,7 @@
 }
 
 .bmi-recommendations h5 {
-  color: #fbbf24 !important;
+  color: #ffffff !important;
   font-size: 1.1rem;
   margin: 0 0 0.75rem 0;
   background: transparent !important;
@@ -320,11 +320,11 @@
 
 /* KaTeX Formula Styling */
 .math-formula .katex {
-  color: #3b82f6 !important;
+  color: #1a1a1a !important;
 }
 
 .math-formula .katex * {
-  color: #3b82f6 !important;
+  color: #1a1a1a !important;
 }
 
 /* Applications Grid */
@@ -350,7 +350,7 @@
 }
 
 .application-item h4 {
-  color: #3b82f6;
+  color: #1a1a1a;
   font-size: 1.2rem;
   margin: 0 0 1rem 0;
   display: flex;
@@ -433,7 +433,7 @@
 /* Focus states for accessibility */
 .bmi-input-field:focus-visible,
 .bmi-select-field:focus-visible {
-  outline: 2px solid #3b82f6;
+  outline: 2px solid #1a1a1a;
   outline-offset: 2px;
 }
 
@@ -446,8 +446,8 @@
   
   .bmi-input-field:focus,
   .bmi-select-field:focus {
-    border-color: #3b82f6;
-    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+    border-color: #1a1a1a;
+    box-shadow: 0 0 0 3px rgba(26, 26, 26, 0.3);
   }
 }
 

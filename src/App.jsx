@@ -10,6 +10,13 @@ import FinanceCalculator from './pages/finance/FinanceCalculator'
 import ScienceCalculator from './pages/science/ScienceCalculator'
 import HealthCalculator from './pages/health/HealthCalculator'
 import UtilityTools from './pages/utility/UtilityTools'
+import WordCounter from './components/utility/WordCounter'
+import PasswordGenerator from './components/utility/PasswordGenerator'
+import QRCodeGenerator from './components/utility/QRCodeGenerator'
+import OCRPDFGenerator from './components/utility/OCRPDFGenerator'
+import MorseCodeTranslator from './components/utility/MorseCodeTranslator'
+import HtmlToMarkdownConverter from './components/utility/HtmlToMarkdownConverter'
+import ImageToWebP from './components/utility/image-tools/ImageToWebP'
 import KnowledgeCalculator from './pages/knowledge/KnowledgeCalculator'
 import GPACalculator from './components/knowledge/GPACalculator'
 import AgeCalculator from './components/knowledge/AgeCalculator'
@@ -153,6 +160,13 @@ const App = () => {
             <Route path="/health/calculators/weight-loss-calculator" element={<WeightLossCalculator />} />
             <Route path="/health/calculators/weight-gain-calculator" element={<WeightGainCalculator />} />
         <Route path="/utility-tools" element={<UtilityTools />} />
+            <Route path="/utility-tools/image-tools/image-to-webp-converter" element={<ImageToWebP />} />
+            <Route path="/utility-tools/password-generator" element={<PasswordGenerator />} />
+            <Route path="/utility-tools/qr-code-generator" element={<QRCodeGenerator />} />
+            <Route path="/utility-tools/word-counter" element={<WordCounter />} />
+            <Route path="/utility-tools/ocr-pdf-generator" element={<OCRPDFGenerator />} />
+            <Route path="/utility-tools/morse-code-translator" element={<MorseCodeTranslator />} />
+            <Route path="/utility-tools/html-to-markdown-converter" element={<HtmlToMarkdownConverter />} />
         <Route path="/knowledge" element={<KnowledgeCalculator />} />
             <Route path="/knowledge/calculators/gpa-calculator" element={<GPACalculator />} />
             <Route path="/knowledge/calculators/age-calculator" element={<AgeCalculator />} />

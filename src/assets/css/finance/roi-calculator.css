@@ -40,9 +40,9 @@
 
 .roi-calculator-form .roi-calculator-input-field:focus {
   outline: none;
-  border-color: #8b5cf6;
+  border-color: #1a1a1a;
   background: white;
-  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+  box-shadow: 0 0 0 3px rgba(26, 26, 26, 0.1);
 }
 
 .roi-calculator-form .roi-calculator-input-help {
@@ -72,14 +72,14 @@
   gap: 0.5rem;
   text-decoration: none;
   min-width: 120px;
-  background: linear-gradient(135deg, #8b5cf6 0%, #a855f7 100%);
+  background: #f0f0f0;
   color: white;
-  box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+  box-shadow: 0 4px 15px rgba(26, 26, 26, 0.3);
 }
 
 .roi-calculator-form .roi-calculator-btn-calculate:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(139, 92, 246, 0.4);
+  box-shadow: 0 6px 20px rgba(26, 26, 26, 0.4);
 }
 
 .roi-calculator-form .roi-calculator-btn-reset {
@@ -107,12 +107,12 @@
 
 /* ROI Calculator Result Section - Completely Isolated */
 .roi-calculator-result {
-  background: linear-gradient(135deg, #8b5cf6 0%, #a855f7 100%) !important;
+  background: linear-gradient(135deg, #1a1a1a 0%, #a855f7 100%) !important;
   border-radius: 15px;
   padding: 2rem;
   margin-top: 2rem;
   color: white;
-  box-shadow: 0 10px 30px rgba(139, 92, 246, 0.3);
+  box-shadow: 0 10px 30px rgba(26, 26, 26, 0.3);
   animation: roiResultSlideIn 0.6s ease-out;
   border: none !important;
 }
@@ -190,18 +190,18 @@
 }
 
 .roi-calculator-result .roi-calculator-result-final {
-  color: #fbbf24 !important;
+  color: #ffffff !important;
   font-weight: 700 !important;
   font-size: 1.2rem;
 }
 
 /* Formula Section */
 .formula-section {
-  background: linear-gradient(135deg, rgba(139, 92, 246, 0.05), rgba(168, 85, 247, 0.05));
+  background: #f0f0f0;
   border-radius: 12px;
   padding: 1.5rem;
   margin: 1.5rem 0;
-  border: 1px solid rgba(139, 92, 246, 0.1);
+  border: 1px solid rgba(26, 26, 26, 0.1);
   text-align: center;
 }
 
@@ -215,27 +215,27 @@
 .math-formula {
   font-size: 1.3rem;
   font-weight: 600;
-  color: #8b5cf6 !important;
+  color: #1a1a1a !important;
   margin: 1rem 0;
   padding: 1rem;
-  background: rgba(139, 92, 246, 0.1);
+  background: rgba(26, 26, 26, 0.1);
   border-radius: 8px;
-  border: 1px solid rgba(139, 92, 246, 0.2);
+  border: 1px solid rgba(26, 26, 26, 0.2);
   font-family: 'Courier New', monospace;
 }
 
 /* Override KaTeX text color to match our theme */
 .math-formula .katex,
 .math-formula .katex * {
-  color: #8b5cf6 !important;
+  color: #1a1a1a !important;
 }
 
 .math-formula .katex-display {
-  color: #8b5cf6 !important;
+  color: #1a1a1a !important;
 }
 
 .math-formula .katex-html {
-  color: #8b5cf6 !important;
+  color: #1a1a1a !important;
 }
 
 .formula-section p {
@@ -260,9 +260,9 @@
 .example-section {
   margin-bottom: 2rem;
   padding: 1.5rem;
-  background: linear-gradient(135deg, #faf5ff, #f3e8ff);
+  background: #f0f0f0;
   border-radius: 12px;
-  border: 1px solid #8b5cf6;
+  border: 1px solid #1a1a1a;
 }
 
 .example-section h3 {
@@ -305,15 +305,15 @@
 
 .application-item {
   padding: 1.5rem;
-  background: linear-gradient(135deg, #faf5ff, #f3e8ff);
+  background: #f0f0f0;
   border-radius: 12px;
-  border: 1px solid #8b5cf6;
+  border: 1px solid #1a1a1a;
   transition: all 0.2s ease;
 }
 
 .application-item:hover {
   transform: translateY(-4px);
-  box-shadow: 0 10px 25px -5px rgba(139, 92, 246, 0.2);
+  box-shadow: 0 10px 25px -5px rgba(26, 26, 26, 0.2);
 }
 
 .application-item h4 {
@@ -327,7 +327,7 @@
 }
 
 .application-item h4 i {
-  color: #8b5cf6;
+  color: #1a1a1a;
 }
 
 .application-item p {

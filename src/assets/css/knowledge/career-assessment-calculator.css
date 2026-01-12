@@ -3,7 +3,7 @@
   max-width: 1000px;
   margin: 0 auto;
   padding: 2rem;
-  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+  background: #f0f0f0;
   border-radius: 20px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
@@ -19,7 +19,7 @@
   font-size: 2.5rem;
   font-weight: 700;
   margin-bottom: 1.5rem;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: #f0f0f0;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -61,7 +61,7 @@
 }
 
 .career-assessment-container .career-start-btn {
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: #f0f0f0;
   color: white;
   border: none;
   padding: 1.2rem 3rem;
@@ -108,7 +108,7 @@
 
 .career-assessment-container .progress-fill {
   height: 100%;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: #f0f0f0;
   border-radius: 10px;
   transition: width 0.5s ease;
 }
@@ -246,7 +246,7 @@
 }
 
 .career-assessment-container .career-download-btn {
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: #f0f0f0;
   color: white;
   box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
 }
@@ -318,7 +318,7 @@
 
 .career-assessment-container .score-fill {
   height: 100%;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: #f0f0f0;
   border-radius: 10px;
   transition: width 1s ease;
 }
@@ -382,7 +382,7 @@
 }
 
 .career-assessment-container .match-score {
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: #f0f0f0;
   color: white;
   padding: 0.4rem 0.8rem;
   border-radius: 15px;
@@ -417,7 +417,7 @@
 }
 
 .career-assessment-container .career-summary {
-  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+  background: #f0f0f0;
   padding: 2rem;
   border-radius: 12px;
   margin-top: 2rem;
@@ -505,7 +505,7 @@
 .career-assessment-container .category-icon {
   width: 60px;
   height: 60px;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: #f0f0f0;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -539,7 +539,7 @@
   padding: 1rem;
   margin-bottom: 0.75rem;
   border-radius: 8px;
-  border-left: 4px solid #3b82f6;
+  border-left: 4px solid #1a1a1a;
   line-height: 1.6;
   list-style: none !important;
 }
@@ -567,7 +567,7 @@
   padding: 1rem;
   margin-bottom: 0.75rem;
   border-radius: 8px;
-  border-left: 4px solid #3b82f6;
+  border-left: 4px solid #1a1a1a;
   line-height: 1.6;
   list-style: none !important;
 }
@@ -636,7 +636,7 @@
 }
 
 .career-assessment-container .interest-category.selected {
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: #f0f0f0;
   color: white;
   border-color: #667eea;
   transform: translateY(-2px);
@@ -646,7 +646,7 @@
 .career-assessment-container .interest-icon {
   width: 60px;
   height: 60px;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: #f0f0f0;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -689,7 +689,7 @@
 }
 
 .career-assessment-container .career-proceed-btn {
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: #f0f0f0;
   color: white;
   border: none;
   padding: 1rem 2rem;

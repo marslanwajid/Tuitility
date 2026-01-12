@@ -40,9 +40,9 @@
 
 .debt-income-calculator-form .debt-income-input-field:focus {
   outline: none;
-  border-color: #3b82f6;
+  border-color: #1a1a1a;
   background: white;
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  box-shadow: 0 0 0 3px rgba(26, 26, 26, 0.1);
 }
 
 .debt-income-calculator-form .debt-income-select-field {
@@ -58,9 +58,9 @@
 
 .debt-income-calculator-form .debt-income-select-field:focus {
   outline: none;
-  border-color: #3b82f6;
+  border-color: #1a1a1a;
   background: white;
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  box-shadow: 0 0 0 3px rgba(26, 26, 26, 0.1);
 }
 
 .debt-income-input-with-period {
@@ -112,12 +112,12 @@
 
 /* Debt Income Calculator Result Section - More specific to override tool-page.css */
 .debt-income-calculator-result {
-  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%) !important;
+  background: linear-gradient(135deg, #1a1a1a 0%, #1a1a1a 100%) !important;
   border-radius: 15px;
   padding: 2rem;
   margin-top: 2rem;
   color: white;
-  box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+  box-shadow: 0 10px 30px rgba(26, 26, 26, 0.3);
   animation: debtIncomeResultSlideIn 0.6s ease-out;
   border: none !important;
 }
@@ -185,13 +185,13 @@
 }
 
 .debt-income-calculator-result .debt-income-dti-ratio {
-  color: #fbbf24;
+  color: #ffffff;
   font-size: 1.2rem;
   font-weight: 700;
 }
 
 .debt-income-calculator-result .debt-income-health-status {
-  color: #10b981;
+  color: #1a1a1a;
   font-size: 1.1rem;
   font-weight: 700;
 }
@@ -250,13 +250,13 @@
 }
 
 .debt-income-calculator-result .debt-income-total span:first-child {
-  color: #fbbf24;
+  color: #ffffff;
   font-weight: 600;
   font-size: 1.1rem;
 }
 
 .debt-income-calculator-result .debt-income-total span:last-child {
-  color: #fbbf24;
+  color: #ffffff;
   font-weight: 700;
   font-size: 1.25rem;
 }
@@ -315,11 +315,11 @@
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  border-left: 4px solid #fbbf24;
+  border-left: 4px solid #ffffff;
 }
 
 .debt-income-calculator-result .debt-income-result-tip i {
-  color: #fbbf24;
+  color: #ffffff;
   font-size: 1.25rem;
 }
 
@@ -362,13 +362,13 @@
 }
 
 .dti-excellent {
-  background: #f0fdf4;
-  border-left-color: #10b981;
+  background: #f0f0f0;
+  border-left-color: #1a1a1a;
   color: #065f46;
 }
 
 .dti-excellent h4 {
-  color: #10b981;
+  color: #1a1a1a;
 }
 
 .dti-good {
@@ -383,22 +383,22 @@
 
 .dti-caution {
   background: #fef3c7;
-  border-left-color: #f59e0b;
+  border-left-color: #1a1a1a;
   color: #92400e;
 }
 
 .dti-caution h4 {
-  color: #f59e0b;
+  color: #1a1a1a;
 }
 
 .dti-warning {
-  background: #fef2f2;
-  border-left-color: #ef4444;
+  background: #f0f0f0;
+  border-left-color: #1a1a1a;
   color: #991b1b;
 }
 
 .dti-warning h4 {
-  color: #ef4444;
+  color: #1a1a1a;
 }
 
 /* Responsive Design */
@@ -495,5 +495,5 @@
 /* Override KaTeX text color to match our theme */
 .math-formula .katex,
 .math-formula .katex * {
-  color: #3b82f6 !important;
+  color: #1a1a1a !important;
 }

@@ -46,8 +46,8 @@
 .wpm-select-field:focus,
 .wpm-textarea-field:focus {
   outline: none;
-  border-color: #3b82f6;
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  border-color: #1a1a1a;
+  box-shadow: 0 0 0 3px rgba(26, 26, 26, 0.1);
 }
 
 .wpm-textarea-field {
@@ -82,7 +82,7 @@
 }
 
 .wpm-text-display .correct {
-  background: #d1fae5;
+  background: #f0f0f0;
   color: #065f46;
   padding: 0 2px;
   border-radius: 2px;
@@ -120,8 +120,8 @@
 
 .wpm-typing-input:focus {
   outline: none;
-  border-color: #3b82f6;
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  border-color: #1a1a1a;
+  box-shadow: 0 0 0 3px rgba(26, 26, 26, 0.1);
 }
 
 .wpm-typing-input:disabled {
@@ -166,7 +166,7 @@
 
 /* Buttons */
 .wpm-start-button {
-  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  background: #f0f0f0;
   color: #ffffff;
   border: none;
   border-radius: 8px;
@@ -181,9 +181,9 @@
 }
 
 .wpm-start-button:hover:not(:disabled) {
-  background: linear-gradient(135deg, #1d4ed8, #1e40af);
+  background: #f0f0f0;
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+  box-shadow: 0 4px 12px rgba(26, 26, 26, 0.3);
 }
 
 .wpm-start-button:disabled {
@@ -233,12 +233,12 @@
 
 /* Results Section */
 .wpm-result-section {
-  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%) !important;
+  background: linear-gradient(135deg, #1a1a1a 0%, #1a1a1a 100%) !important;
   border-radius: 15px;
   padding: 2rem;
   margin-top: 2rem;
   color: white;
-  box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+  box-shadow: 0 10px 30px rgba(26, 26, 26, 0.3);
   animation: wpmResultSlideIn 0.6s ease-out;
   border: none !important;
 }
@@ -303,7 +303,7 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  color: #fbbf24 !important;
+  color: #ffffff !important;
 }
 
 .wpm-result-details {
@@ -379,7 +379,7 @@
 }
 
 .wpm-definition-item h3 i {
-  color: #3b82f6;
+  color: #1a1a1a;
   font-size: 1.2rem;
 }
 
@@ -405,25 +405,25 @@
 }
 
 .wpm-category-item.beginner {
-  background: #fef2f2;
+  background: #f0f0f0;
   border-color: #fecaca;
   color: #991b1b;
 }
 
 .wpm-category-item.average {
-  background: #fffbeb;
+  background: #f0f0f0;
   border-color: #fed7aa;
   color: #92400e;
 }
 
 .wpm-category-item.good {
-  background: #f0fdf4;
-  border-color: #bbf7d0;
+  background: #f0f0f0;
+  border-color: #f0f0f0;
   color: #166534;
 }
 
 .wpm-category-item.excellent {
-  background: #eff6ff;
+  background: #f0f0f0;
   border-color: #bfdbfe;
   color: #1e40af;
 }
@@ -431,7 +431,7 @@
 .wpm-category-item.professional {
   background: #faf5ff;
   border-color: #d8b4fe;
-  color: #7c3aed;
+  color: #1a1a1a;
 }
 
 .wpm-category-item.expert {
@@ -474,7 +474,7 @@
   padding: 1rem;
   margin-bottom: 0.75rem;
   border-radius: 8px;
-  border-left: 4px solid #3b82f6;
+  border-left: 4px solid #1a1a1a;
   line-height: 1.6;
 }
 
@@ -550,7 +550,7 @@
 }
 
 .wpm-example-item strong {
-  color: #3b82f6;
+  color: #1a1a1a;
   font-weight: 600;
 }
 
@@ -581,7 +581,7 @@
 }
 
 .wpm-significance-item h3 i {
-  color: #3b82f6;
+  color: #1a1a1a;
   font-size: 1.2rem;
 }
 
@@ -617,7 +617,7 @@
 }
 
 .wpm-functionality-item h3 i {
-  color: #3b82f6;
+  color: #1a1a1a;
   font-size: 1.2rem;
 }
 
@@ -654,7 +654,7 @@
 }
 
 .wpm-application-item h3 i {
-  color: #3b82f6;
+  color: #1a1a1a;
   font-size: 1.2rem;
 }
 
@@ -846,7 +846,7 @@
 .wpm-select-field:focus-visible,
 .wpm-textarea-field:focus-visible,
 .wpm-typing-input:focus-visible {
-  outline: 2px solid #3b82f6;
+  outline: 2px solid #1a1a1a;
   outline-offset: 2px;
 }
 

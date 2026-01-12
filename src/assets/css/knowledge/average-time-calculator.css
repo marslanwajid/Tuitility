@@ -24,7 +24,7 @@
   font-weight: 700;
   margin: 0 0 1.5rem 0;
   padding-bottom: 0.5rem;
-  border-bottom: 2px solid #3b82f6;
+  border-bottom: 2px solid #1a1a1a;
 }
 
 .avg-time-form-row {
@@ -50,7 +50,7 @@
 }
 
 .avg-time-form-label i {
-  color: #3b82f6;
+  color: #1a1a1a;
   font-size: 1rem;
   width: 16px;
 }
@@ -70,8 +70,8 @@
 .avg-time-form-input:focus,
 .avg-time-form-select:focus {
   outline: none;
-  border-color: #3b82f6;
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  border-color: #1a1a1a;
+  box-shadow: 0 0 0 3px rgba(26, 26, 26, 0.1);
 }
 
 .avg-time-form-input:hover,
@@ -101,12 +101,12 @@
 }
 
 .avg-time-entry:hover {
-  border-color: #3b82f6;
-  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.1);
+  border-color: #1a1a1a;
+  box-shadow: 0 2px 8px rgba(26, 26, 26, 0.1);
 }
 
 .avg-time-entry-number {
-  background: #3b82f6;
+  background: #1a1a1a;
   color: white;
   width: 32px;
   height: 32px;
@@ -138,8 +138,8 @@
 
 .avg-time-part:focus {
   outline: none;
-  border-color: #3b82f6;
-  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);
+  border-color: #1a1a1a;
+  box-shadow: 0 0 0 2px rgba(26, 26, 26, 0.1);
 }
 
 .avg-time-part::placeholder {
@@ -162,7 +162,7 @@
 }
 
 .avg-time-remove-entry {
-  background: #ef4444;
+  background: #1a1a1a;
   color: white;
   border: none;
   border-radius: 4px;
@@ -177,7 +177,7 @@
 }
 
 .avg-time-remove-entry:hover:not(:disabled) {
-  background: #dc2626;
+  background: #1a1a1a;
   transform: scale(1.05);
 }
 
@@ -188,7 +188,7 @@
 }
 
 .avg-time-add-entry {
-  background: #10b981;
+  background: #1a1a1a;
   color: white;
   border: none;
   border-radius: 8px;
@@ -205,9 +205,9 @@
 }
 
 .avg-time-add-entry:hover {
-  background: #059669;
+  background: #1a1a1a;
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+  box-shadow: 0 4px 12px rgba(26, 26, 26, 0.3);
 }
 
 /* Checkbox Styles */
@@ -221,7 +221,7 @@
 .avg-time-form-checkbox {
   width: 18px;
   height: 18px;
-  accent-color: #3b82f6;
+  accent-color: #1a1a1a;
   cursor: pointer;
 }
 
@@ -236,15 +236,15 @@
 }
 
 .avg-time-checkbox-label i {
-  color: #3b82f6;
+  color: #1a1a1a;
   font-size: 1rem;
 }
 
 /* Error Message */
 .avg-time-error-message {
-  background: #fef2f2;
+  background: #f0f0f0;
   border: 1px solid #fecaca;
-  color: #dc2626;
+  color: #1a1a1a;
   padding: 1rem;
   border-radius: 8px;
   margin: 1rem 0;
@@ -255,13 +255,13 @@
 }
 
 .avg-time-error-message i {
-  color: #dc2626;
+  color: #1a1a1a;
   font-size: 1.1rem;
 }
 
 /* Result Section */
 .avg-time-calculator-result {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: #f0f0f0;
   border-radius: 16px;
   padding: 2rem;
   margin: 2rem 0;
@@ -324,13 +324,13 @@
 .avg-time-median-value {
   font-size: 2rem;
   font-weight: 600;
-  color: #fbbf24;
+  color: #ffffff;
 }
 
 .avg-time-mode-value {
   font-size: 2rem;
   font-weight: 600;
-  color: #10b981;
+  color: #1a1a1a;
 }
 
 .avg-time-breakdown {
@@ -405,7 +405,7 @@
   padding: 1rem;
   margin-bottom: 0.75rem;
   border-radius: 8px;
-  border-left: 4px solid #fbbf24;
+  border-left: 4px solid #ffffff;
   color: rgba(255, 255, 255, 0.9);
   line-height: 1.6;
 }
@@ -467,7 +467,7 @@
 .statistical-method-item:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  border-color: #3b82f6;
+  border-color: #1a1a1a;
 }
 
 .statistical-method-item h4 {
@@ -481,7 +481,7 @@
 }
 
 .statistical-method-item h4 i {
-  color: #3b82f6;
+  color: #1a1a1a;
   font-size: 1.1rem;
 }
 
@@ -544,7 +544,7 @@
 }
 
 .avg-time-formula strong {
-  color: #fbbf24;
+  color: #ffffff;
 }
 
 /* Example Section */
@@ -563,7 +563,7 @@
   background: #f8fafc;
   padding: 1.5rem;
   border-radius: 8px;
-  border-left: 4px solid #3b82f6;
+  border-left: 4px solid #1a1a1a;
   margin: 1rem 0;
 }
 
@@ -590,7 +590,7 @@
   padding: 1rem;
   margin-bottom: 0.75rem;
   border-radius: 8px;
-  border-left: 4px solid #3b82f6;
+  border-left: 4px solid #1a1a1a;
   line-height: 1.6;
   list-style: none !important;
 }

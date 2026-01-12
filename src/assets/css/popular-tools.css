@@ -18,7 +18,7 @@
 .popular-tools .section-title {
   font-size: 2.5rem;
   font-weight: 800;
-  color: #1e293b;
+  color: #1a1a1a;
   margin-bottom: 1rem;
 }
 
@@ -39,7 +39,7 @@
 
 .popular-tools .tool-card {
   background: white;
-  border: 1px solid #f1f5f9;
+  border: 1px solid #f0f0f0;
   border-radius: 16px;
   padding: 1.5rem;
   text-decoration: none;
@@ -93,7 +93,7 @@
 .popular-tools .tool-title {
   font-size: 1rem;
   font-weight: 600;
-  color: #1e293b;
+  color: #1a1a1a;
   margin-bottom: 0.5rem;
   line-height: 1.3;
   transition: all 0.3s ease;
@@ -154,12 +154,12 @@
 }
 
 .popular-tools .star {
-  color: #fbbf24;
+  color: #ffffff;
   font-size: 0.875rem;
 }
 
 .popular-tools .star.empty {
-  color: #e5e7eb;
+  color: #f0f0f0;
 }
 
 .popular-tools .rating-text {
@@ -174,7 +174,7 @@
   align-items: center;
   margin-top: auto;
   padding-top: 0.75rem;
-  border-top: 1px solid #f1f5f9;
+  border-top: 1px solid #f0f0f0;
 }
 
 .popular-tools .usage-count {

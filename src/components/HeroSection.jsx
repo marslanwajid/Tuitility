@@ -20,7 +20,7 @@ const HeroSection = () => {
               <i className="fas fa-calculator"></i>
               Explore Calculators
             </Link>
-            <Link to="/utility-tools/conversion-tools" className="hero-btn secondary">
+            <Link to="/utility-tools" className="hero-btn secondary">
               <i className="fas fa-tools"></i>
               Browse Tools
             </Link>

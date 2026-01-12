@@ -40,9 +40,9 @@
 
 .credit-card-calculator-form .credit-card-input-field:focus {
   outline: none;
-  border-color: #3b82f6;
+  border-color: #1a1a1a;
   background: white;
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  box-shadow: 0 0 0 3px rgba(26, 26, 26, 0.1);
 }
 
 .credit-card-calculator-form .credit-card-input-help {
@@ -84,12 +84,12 @@
 
 /* Credit Card Calculator Result Section - More specific to override tool-page.css */
 .credit-card-calculator-result {
-  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%) !important;
+  background: linear-gradient(135deg, #1a1a1a 0%, #1a1a1a 100%) !important;
   border-radius: 15px;
   padding: 2rem;
   margin-top: 2rem;
   color: white;
-  box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+  box-shadow: 0 10px 30px rgba(26, 26, 26, 0.3);
   animation: creditCardResultSlideIn 0.6s ease-out;
   border: none !important;
 }
@@ -154,7 +154,7 @@
 }
 
 .credit-card-calculator-result .credit-card-result-final {
-  color: #fbbf24;
+  color: #ffffff;
   font-size: 1.25rem;
   font-weight: 700;
 }
@@ -211,13 +211,13 @@
 }
 
 .credit-card-calculator-result .credit-card-total span:first-child {
-  color: #fbbf24;
+  color: #ffffff;
   font-weight: 600;
   font-size: 1.1rem;
 }
 
 .credit-card-calculator-result .credit-card-total span:last-child {
-  color: #fbbf24;
+  color: #ffffff;
   font-weight: 700;
   font-size: 1.25rem;
 }
@@ -230,11 +230,11 @@
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  border-left: 4px solid #fbbf24;
+  border-left: 4px solid #ffffff;
 }
 
 .credit-card-calculator-result .credit-card-result-tip i {
-  color: #fbbf24;
+  color: #ffffff;
   font-size: 1.25rem;
 }
 
@@ -295,5 +295,5 @@
 /* Override KaTeX text color to match our theme */
 .math-formula .katex,
 .math-formula .katex * {
-  color: #8b5cf6 !important;
+  color: #1a1a1a !important;
 }

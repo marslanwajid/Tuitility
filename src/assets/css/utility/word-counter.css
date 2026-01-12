@@ -1,0 +1,434 @@
+/* Word Counter Styles - Unique Classes */
+
+.word-counter-container {
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+/* Input Section */
+.word-counter-input-section {
+  margin-bottom: 2rem;
+}
+
+.word-counter-input-wrapper {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e5e7eb;
+  margin-bottom: 1.5rem;
+}
+
+.word-counter-input-field {
+  width: 100%;
+  min-height: 150px;
+  padding: 1rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+  resize: vertical;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.word-counter-input-field:focus {
+  outline: none;
+  border-color: #1a1a1a;
+  box-shadow: 0 0 0 3px rgba(26, 26, 26, 0.1);
+}
+
+.word-counter-input-field.has-content {
+  border-color: #1a1a1a;
+}
+
+.word-counter-input-field::placeholder {
+  color: #9ca3af;
+  font-style: italic;
+}
+
+.word-counter-input-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+  margin-top: 1rem;
+}
+
+/* Buttons */
+.word-counter-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.word-counter-copy-btn {
+  background: #1a1a1a;
+  color: white;
+}
+
+.word-counter-copy-btn:hover {
+  background: #1a1a1a;
+}
+
+.word-counter-copy-btn.success {
+  background: #1a1a1a;
+}
+
+.word-counter-clear-btn {
+  background: #1a1a1a;
+  color: white;
+}
+
+.word-counter-clear-btn:hover {
+  background: #1a1a1a;
+}
+
+/* Upload Section */
+.word-counter-upload-section {
+  margin-top: 1.5rem;
+}
+
+.word-counter-upload-area {
+  position: relative;
+  border: 2px dashed #d1d5db;
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: #fafafa;
+}
+
+.word-counter-upload-area:hover {
+  border-color: #1a1a1a;
+  background: #f0f0f0;
+}
+
+.word-counter-upload-area.processing {
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.word-counter-file-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.word-counter-upload-content {
+  pointer-events: none;
+}
+
+.word-counter-upload-icon {
+  font-size: 3rem;
+  color: #6b7280;
+  margin-bottom: 1rem;
+}
+
+.word-counter-upload-text {
+  font-size: 1.1rem;
+  color: #374151;
+  margin-bottom: 0.5rem;
+}
+
+.word-counter-upload-hint {
+  font-size: 0.9rem;
+  color: #6b7280;
+}
+
+.word-counter-processing-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.9);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+}
+
+.word-counter-processing-overlay i {
+  font-size: 2rem;
+  color: #1a1a1a;
+  margin-bottom: 0.5rem;
+}
+
+.word-counter-file-info {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  background: #f0f0f0;
+  border: 1px solid #f0f0f0;
+  border-radius: 6px;
+  color: #065f46;
+  font-size: 0.9rem;
+  display: none;
+}
+
+.word-counter-file-info.show {
+  display: block;
+}
+
+/* Stats Section */
+.word-counter-stats-section {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e5e7eb;
+}
+
+.word-counter-stats-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.word-counter-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.word-counter-stat-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: #f8fafc;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+  transition: all 0.2s ease;
+}
+
+.word-counter-stat-item:hover {
+  background: #f1f5f9;
+  transform: translateY(-2px);
+}
+
+.word-counter-stat-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  background: #1a1a1a;
+  border-radius: 50%;
+  color: white;
+  font-size: 1.2rem;
+}
+
+.word-counter-stat-content {
+  flex: 1;
+}
+
+.word-counter-stat-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1e293b;
+  line-height: 1;
+  margin-bottom: 0.25rem;
+}
+
+.word-counter-stat-label {
+  font-size: 0.9rem;
+  color: #64748b;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Animations */
+.word-counter-stat-value {
+  transition: all 0.3s ease;
+}
+
+.word-counter-stat-value.updating {
+  color: #1a1a1a;
+  transform: scale(1.1);
+}
+
+.word-counter-btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.word-counter-btn.clicked {
+  transform: scale(0.95);
+}
+
+/* Features Grid */
+.word-counter-features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.word-counter-feature-item {
+  padding: 1.5rem;
+  background: #f8fafc;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+  text-align: center;
+}
+
+.word-counter-feature-item h4 {
+  color: #1e293b;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.word-counter-feature-item p {
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+/* File Types */
+.word-counter-file-types {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.word-counter-file-type {
+  padding: 1.5rem;
+  background: #f8fafc;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+}
+
+.word-counter-file-type h4 {
+  color: #1e293b;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.word-counter-file-type p {
+  color: #64748b;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Usage Steps */
+.word-counter-usage-steps {
+  margin: 1.5rem 0;
+  padding-left: 1.5rem;
+}
+
+.word-counter-usage-steps li {
+  margin-bottom: 0.75rem;
+  color: #374151;
+}
+
+/* Example */
+.word-counter-example {
+  background: #f8fafc;
+  padding: 1.5rem;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+  margin-top: 1.5rem;
+}
+
+.word-counter-example-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.word-counter-example-stats div {
+  background: white;
+  padding: 0.75rem;
+  border-radius: 6px;
+  text-align: center;
+  border: 1px solid #e2e8f0;
+}
+
+/* Applications Grid */
+.word-counter-applications-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.word-counter-application-item {
+  padding: 1.5rem;
+  background: #f8fafc;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+  text-align: center;
+}
+
+.word-counter-application-item h4 {
+  color: #1e293b;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.word-counter-application-item p {
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .word-counter-input-actions {
+    flex-direction: column;
+  }
+
+  .word-counter-stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .word-counter-features-grid,
+  .word-counter-file-types,
+  .word-counter-applications-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .word-counter-upload-area {
+    padding: 1.5rem;
+  }
+
+  .word-counter-upload-icon {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .word-counter-container {
+    padding: 0 1rem;
+  }
+
+  .word-counter-input-wrapper,
+  .word-counter-stats-section {
+    padding: 1rem;
+  }
+
+  .word-counter-stat-item {
+    padding: 1rem;
+  }
+
+  .word-counter-stat-value {
+    font-size: 1.5rem;
+  }
+}

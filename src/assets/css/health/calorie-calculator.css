@@ -40,8 +40,8 @@
 
 .calorie-input-field:focus {
   outline: none;
-  border-color: #f59e0b;
-  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.1);
+  border-color: #1a1a1a;
+  box-shadow: 0 0 0 3px rgba(26, 26, 26, 0.1);
 }
 
 .calorie-input-field::placeholder {
@@ -64,8 +64,8 @@
 
 .calorie-select-field:focus {
   outline: none;
-  border-color: #f59e0b;
-  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.1);
+  border-color: #1a1a1a;
+  box-shadow: 0 0 0 3px rgba(26, 26, 26, 0.1);
 }
 
 /* Help Text */
@@ -128,12 +128,12 @@
 
 /* Result Section Styling - More specific to override tool-page.css */
 .calorie-calculator-result {
-  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%) !important;
+  background: linear-gradient(135deg, #1a1a1a 0%, #1a1a1a 100%) !important;
   border-radius: 15px;
   padding: 2rem;
   margin-top: 2rem;
   color: white;
-  box-shadow: 0 10px 30px rgba(245, 158, 11, 0.3);
+  box-shadow: 0 10px 30px rgba(26, 26, 26, 0.3);
   animation: calorieResultSlideIn 0.6s ease-out;
   border: none !important;
 }
@@ -208,7 +208,7 @@
 }
 
 .calorie-result-final {
-  color: #fbbf24 !important;
+  color: #ffffff !important;
   font-weight: 700 !important;
   font-size: 1.25rem;
 }
@@ -261,7 +261,7 @@
 }
 
 .calorie-macro-header i {
-  color: #fbbf24 !important;
+  color: #ffffff !important;
   font-size: 1.2rem;
   background: transparent !important;
 }
@@ -279,7 +279,7 @@
 }
 
 .calorie-macro-grams {
-  color: #fbbf24 !important;
+  color: #ffffff !important;
   font-size: 1.5rem;
   font-weight: 700;
   margin-bottom: 0.25rem;
@@ -367,11 +367,11 @@
 
 /* KaTeX Formula Styling */
 .math-formula .katex {
-  color: #f59e0b !important;
+  color: #1a1a1a !important;
 }
 
 .math-formula .katex * {
-  color: #f59e0b !important;
+  color: #1a1a1a !important;
 }
 
 /* Applications Grid */
@@ -397,7 +397,7 @@
 }
 
 .application-item h4 {
-  color: #f59e0b;
+  color: #1a1a1a;
   font-size: 1.2rem;
   margin: 0 0 1rem 0;
   display: flex;
@@ -483,7 +483,7 @@
 /* Focus states for accessibility */
 .calorie-input-field:focus-visible,
 .calorie-select-field:focus-visible {
-  outline: 2px solid #f59e0b;
+  outline: 2px solid #1a1a1a;
   outline-offset: 2px;
 }
 
@@ -496,8 +496,8 @@
   
   .calorie-input-field:focus,
   .calorie-select-field:focus {
-    border-color: #f59e0b;
-    box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.3);
+    border-color: #1a1a1a;
+    box-shadow: 0 0 0 3px rgba(26, 26, 26, 0.3);
   }
 }
 

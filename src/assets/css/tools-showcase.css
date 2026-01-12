@@ -146,20 +146,20 @@
   align-items: center;
   gap: 0.5rem;
   padding: 1rem 2rem;
-  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  background: #f0f0f0;
   color: white;
   text-decoration: none;
   border-radius: 12px;
   font-weight: 600;
   font-size: 1rem;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+  box-shadow: 0 4px 15px rgba(26, 26, 26, 0.3);
   margin: 0 auto;
 }
 
 .tools-showcase .cta-button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+  box-shadow: 0 8px 25px rgba(26, 26, 26, 0.4);
 }
 
 .tools-showcase .cta-button i {

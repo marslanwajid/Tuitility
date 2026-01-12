@@ -11,7 +11,7 @@
   background: #f8fafc;
   padding: 1.5rem;
   border-radius: 10px;
-  border-left: 4px solid #3b82f6;
+  border-left: 4px solid #1a1a1a;
 }
 
 .rental-property-section-title {
@@ -66,9 +66,9 @@
 
 .rental-property-input-field:focus {
   outline: none;
-  border-color: #3b82f6;
+  border-color: #1a1a1a;
   background: white;
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  box-shadow: 0 0 0 3px rgba(26, 26, 26, 0.1);
 }
 
 .rental-property-input-help {
@@ -94,7 +94,7 @@
 .rental-property-checkbox {
   width: 18px;
   height: 18px;
-  accent-color: #3b82f6;
+  accent-color: #1a1a1a;
   cursor: pointer;
 }
 
@@ -109,9 +109,9 @@
 .rental-property-sell-price-unknown {
   margin-top: 1rem;
   padding: 1rem;
-  background: rgba(59, 130, 246, 0.05);
+  background: rgba(26, 26, 26, 0.05);
   border-radius: 8px;
-  border: 1px solid rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(26, 26, 26, 0.1);
 }
 
 .rental-property-calculator-actions {
@@ -147,12 +147,12 @@
 
 /* Rental Property Calculator Result Section - More specific to override tool-page.css */
 .rental-property-calculator-result {
-  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%) !important;
+  background: linear-gradient(135deg, #1a1a1a 0%, #1a1a1a 100%) !important;
   border-radius: 15px;
   padding: 2rem;
   margin-top: 2rem;
   color: white;
-  box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+  box-shadow: 0 10px 30px rgba(26, 26, 26, 0.3);
   animation: rentalPropertyResultSlideIn 0.6s ease-out;
   border: none !important;
 }
@@ -242,11 +242,11 @@
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  border-left: 4px solid #fbbf24;
+  border-left: 4px solid #ffffff;
 }
 
 .rental-property-calculator-result .rental-property-result-tip i {
-  color: #fbbf24;
+  color: #ffffff;
   font-size: 1.25rem;
 }
 
@@ -267,7 +267,7 @@
   background: #f8fafc;
   padding: 1.5rem;
   border-radius: 10px;
-  border-left: 4px solid #3b82f6;
+  border-left: 4px solid #1a1a1a;
   transition: transform 0.2s ease;
 }
 
@@ -286,7 +286,7 @@
 }
 
 .metric-item h4 i {
-  color: #3b82f6;
+  color: #1a1a1a;
 }
 
 .metric-item p {
@@ -364,5 +364,5 @@
 /* Override KaTeX text color to match our theme */
 .math-formula .katex,
 .math-formula .katex * {
-  color: #3b82f6 !important;
+  color: #1a1a1a !important;
 }

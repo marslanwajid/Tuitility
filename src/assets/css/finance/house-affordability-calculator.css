@@ -40,9 +40,9 @@
 
 .house-affordability-calculator-form .house-affordability-input-field:focus {
   outline: none;
-  border-color: #f59e0b;
+  border-color: #1a1a1a;
   background: white;
-  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.1);
+  box-shadow: 0 0 0 3px rgba(26, 26, 26, 0.1);
 }
 
 .house-affordability-calculator-form .house-affordability-input-help {
@@ -84,12 +84,12 @@
 
 /* House Affordability Calculator Result Section - Completely Isolated */
 .house-affordability-calculator-result {
-background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%) !important;
+background: linear-gradient(135deg, #1a1a1a 0%, #1a1a1a 100%) !important;
   border-radius: 15px;
   padding: 2rem;
   margin-top: 2rem;
   color: white;
-  box-shadow: 0 10px 30px rgba(245, 158, 11, 0.3);
+  box-shadow: 0 10px 30px rgba(26, 26, 26, 0.3);
   animation: houseAffordabilityResultSlideIn 0.6s ease-out;
   border: none !important;
 }
@@ -267,11 +267,11 @@ background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%) !important;
 
 /* Formula Section */
 .formula-section {
-  background: linear-gradient(135deg, rgba(245, 158, 11, 0.05), rgba(217, 119, 6, 0.05));
+  background: #f0f0f0;
   border-radius: 12px;
   padding: 1.5rem;
   margin: 1.5rem 0;
-  border: 1px solid rgba(245, 158, 11, 0.1);
+  border: 1px solid rgba(26, 26, 26, 0.1);
   text-align: center;
 }
 
@@ -285,27 +285,27 @@ background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%) !important;
 .math-formula {
   font-size: 1.3rem;
   font-weight: 600;
-  color: #8b5cf6;
+  color: #1a1a1a;
   margin: 1rem 0;
   padding: 1rem;
-  background: rgba(139, 92, 246, 0.1);
+  background: rgba(26, 26, 26, 0.1);
   border-radius: 8px;
-  border: 1px solid rgba(139, 92, 246, 0.2);
+  border: 1px solid rgba(26, 26, 26, 0.2);
   font-family: 'Courier New', monospace;
 }
 
 /* Override KaTeX text color to match our theme */
 .math-formula .katex,
 .math-formula .katex * {
-  color: #8b5cf6 !important;
+  color: #1a1a1a !important;
 }
 
 .math-formula .katex-display {
-  color: #8b5cf6 !important;
+  color: #1a1a1a !important;
 }
 
 .math-formula .katex-html {
-  color: #8b5cf6 !important;
+  color: #1a1a1a !important;
 }
 
 .formula-section p {
@@ -330,9 +330,9 @@ background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%) !important;
 .example-section {
   margin-bottom: 2rem;
   padding: 1.5rem;
-  background: linear-gradient(135deg, #fffbeb, #fef3c7);
+  background: #f0f0f0;
   border-radius: 12px;
-  border: 1px solid #f59e0b;
+  border: 1px solid #1a1a1a;
 }
 
 .example-section h3 {
@@ -375,15 +375,15 @@ background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%) !important;
 
 .application-item {
   padding: 1.5rem;
-  background: linear-gradient(135deg, #fffbeb, #fef3c7);
+  background: #f0f0f0;
   border-radius: 12px;
-  border: 1px solid #f59e0b;
+  border: 1px solid #1a1a1a;
   transition: all 0.2s ease;
 }
 
 .application-item:hover {
   transform: translateY(-4px);
-  box-shadow: 0 10px 25px -5px rgba(245, 158, 11, 0.2);
+  box-shadow: 0 10px 25px -5px rgba(26, 26, 26, 0.2);
 }
 
 .application-item h4 {
@@ -397,7 +397,7 @@ background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%) !important;
 }
 
 .application-item h4 i {
-  color: #f59e0b;
+  color: #1a1a1a;
 }
 
 .application-item p {

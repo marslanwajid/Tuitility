@@ -40,8 +40,8 @@
 
 .atomic-mass-input-field:focus {
   outline: none;
-  border-color: #10b981;
-  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+  border-color: #1a1a1a;
+  box-shadow: 0 0 0 3px rgba(26, 26, 26, 0.1);
 }
 
 .atomic-mass-input-field::placeholder {
@@ -64,8 +64,8 @@
 
 .atomic-mass-select-field:focus {
   outline: none;
-  border-color: #10b981;
-  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+  border-color: #1a1a1a;
+  box-shadow: 0 0 0 3px rgba(26, 26, 26, 0.1);
 }
 
 /* Help Text */
@@ -96,7 +96,7 @@
   font-weight: 600;
   margin: 0 0 1rem 0;
   padding-bottom: 0.5rem;
-  border-bottom: 2px solid #10b981;
+  border-bottom: 2px solid #1a1a1a;
 }
 
 /* Input Row Layout */
@@ -145,12 +145,12 @@
 
 /* Result Section Styling - More specific to override tool-page.css */
 .atomic-mass-calculator-result {
-  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%) !important;
+  background: linear-gradient(135deg, #1a1a1a 0%, #1a1a1a 100%) !important;
   border-radius: 15px;
   padding: 2rem;
   margin-top: 2rem;
   color: white;
-  box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3);
+  box-shadow: 0 10px 30px rgba(26, 26, 26, 0.3);
   animation: resultSlideIn 0.6s ease-out;
   border: none !important;
 }
@@ -222,7 +222,7 @@
 }
 
 .atomic-mass-result-final {
-  color: #fbbf24 !important;
+  color: #ffffff !important;
   font-weight: 700 !important;
   font-size: 1.25rem;
 }
@@ -333,7 +333,7 @@
 }
 
 .atomic-mass-result-tip i {
-  color: #fbbf24 !important;
+  color: #ffffff !important;
   font-size: 1.1rem;
   margin-top: 0.1rem;
   background: transparent !important;
@@ -348,11 +348,11 @@
 
 /* KaTeX Formula Styling */
 .math-formula .katex {
-  color: #10b981 !important;
+  color: #1a1a1a !important;
 }
 
 .math-formula .katex * {
-  color: #10b981 !important;
+  color: #1a1a1a !important;
 }
 
 /* Applications Grid */
@@ -378,7 +378,7 @@
 }
 
 .application-item h4 {
-  color: #10b981;
+  color: #1a1a1a;
   font-size: 1.2rem;
   margin: 0 0 1rem 0;
   display: flex;
@@ -467,7 +467,7 @@
 /* Focus states for accessibility */
 .atomic-mass-input-field:focus-visible,
 .atomic-mass-select-field:focus-visible {
-  outline: 2px solid #10b981;
+  outline: 2px solid #1a1a1a;
   outline-offset: 2px;
 }
 
@@ -480,8 +480,8 @@
   
   .atomic-mass-input-field:focus,
   .atomic-mass-select-field:focus {
-    border-color: #10b981;
-    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.3);
+    border-color: #1a1a1a;
+    box-shadow: 0 0 0 3px rgba(26, 26, 26, 0.3);
   }
 }
 

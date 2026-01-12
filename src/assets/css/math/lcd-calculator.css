@@ -18,7 +18,7 @@
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
+  background: #1a1a1a;
   animation: gradientFlow 3s ease-in-out infinite;
 }
 
@@ -45,24 +45,24 @@
 
 .input-label {
   font-weight: 600;
-  color: #374151;
+  color: #1a1a1a;
   font-size: 0.95rem;
 }
 
 .input-field {
   padding: 0.875rem 1rem;
-  border: 2px solid #e5e7eb;
+  border: 2px solid #f0f0f0;
   border-radius: 8px;
   font-size: 1rem;
   transition: all 0.2s ease;
-  background: #f9fafb;
+  background: #f0f0f0;
 }
 
 .input-field:focus {
   outline: none;
-  border-color: #3b82f6;
+  border-color: #1a1a1a;
   background: white;
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  box-shadow: 0 0 0 3px rgba(26, 26, 26, 0.08);
 }
 
 .input-help {
@@ -93,24 +93,24 @@
   gap: 0.5rem;
   text-decoration: none;
   min-width: 120px;
-  background: #f3f4f6;
-  color: #374151;
+  background: #f0f0f0;
+  color: #1a1a1a;
   border: 1px solid #d1d5db;
 }
 
 .btn-reset:hover {
-  background: #e5e7eb;
+  background: #f0f0f0;
   transform: translateY(-1px);
 }
 
 /* Result Section Styling - More specific to override tool-page.css */
 .lcd-calculator-result {
-  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%) !important;
+  background: #1a1a1a !important;
   border-radius: 15px;
   padding: 2rem;
   margin-top: 2rem;
   color: white;
-  box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+  box-shadow: 0 10px 30px rgba(26, 26, 26, 0.15);
   animation: resultSlideIn 0.6s ease-out;
   border: none !important;
 }
@@ -261,7 +261,7 @@
   padding: 0.8rem;
   background: rgba(255, 255, 255, 0.1);
   border-radius: 8px;
-  border-left: 3px solid #fbbf24;
+  border-left: 3px solid #ffffff;
   color: rgba(255, 255, 255, 0.9);
   font-size: 1rem;
   transition: all 0.3s ease;
@@ -278,7 +278,7 @@
 }
 
 .step strong {
-  color: #fbbf24;
+  color: #ffffff;
   font-weight: 600;
 }
 
@@ -309,9 +309,9 @@
   text-align: center;
   margin: 0.5rem 0;
   padding: 0.5rem;
-  background: rgba(59, 130, 246, 0.1);
+  background: rgba(26, 26, 26, 0.08);
   border-radius: 6px;
-  border: 1px solid rgba(59, 130, 246, 0.2);
+  border: 1px solid rgba(26, 26, 26, 0.12);
 }
 
 .content-formula .katex {
@@ -321,18 +321,18 @@
 
 /* Formula Sections */
 .formula-section {
-  background: linear-gradient(135deg, rgba(59, 130, 246, 0.05), rgba(139, 92, 246, 0.05));
+  background: rgba(26, 26, 26, 0.03);
   border-radius: 12px;
   padding: 1.5rem;
   margin: 1.5rem 0;
-  border: 1px solid rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(26, 26, 26, 0.08);
   text-align: center;
 }
 
 .formula-section h3 {
   font-size: 1.2rem;
   font-weight: 600;
-  color: #1e293b;
+  color: #1a1a1a;
   margin-bottom: 1rem;
 }
 
@@ -350,7 +350,7 @@
   border-radius: 12px;
   padding: 2rem;
   margin: 1.5rem 0;
-  border: 1px solid #e2e8f0;
+  border: 1px solid #f0f0f0;
   position: relative;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
@@ -362,7 +362,7 @@
   left: 0;
   right: 0;
   height: 3px;
-  background: linear-gradient(135deg, #8b5cf6, #3b82f6);
+  background: #1a1a1a;
 }
 
 .usage-steps li {
@@ -373,11 +373,11 @@
 
 /* Example Sections */
 .example-section {
-  background: linear-gradient(135deg, rgba(59, 130, 246, 0.05), rgba(139, 92, 246, 0.05));
+  background: rgba(26, 26, 26, 0.03);
   border-radius: 16px;
   padding: 2rem;
   margin: 2rem 0;
-  border: 1px solid rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(26, 26, 26, 0.08);
   position: relative;
   overflow: hidden;
 }
@@ -389,15 +389,15 @@
   left: 0;
   right: 0;
   height: 3px;
-  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  background: #1a1a1a;
 }
 
 .example-section h3 {
   font-size: 1.3rem;
   font-weight: 600;
-  color: #1e293b;
+  color: #1a1a1a;
   margin-bottom: 1.25rem;
-  background: linear-gradient(135deg, #1e293b, #3b82f6);
+  background: #1a1a1a;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -408,7 +408,7 @@
   border-radius: 12px;
   padding: 1.5rem;
   margin-top: 1.5rem;
-  border: 1px solid rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(26, 26, 26, 0.08);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
@@ -432,10 +432,10 @@
 }
 
 .application-item {
-  background: linear-gradient(135deg, rgba(59, 130, 246, 0.05), rgba(139, 92, 246, 0.05));
+  background: rgba(26, 26, 26, 0.03);
   border-radius: 12px;
   padding: 1.5rem;
-  border: 1px solid rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(26, 26, 26, 0.08);
   transition: all 0.3s ease;
 }
 
@@ -447,7 +447,7 @@
 .application-item h4 {
   font-size: 1.1rem;
   font-weight: 600;
-  color: #1e293b;
+  color: #1a1a1a;
   margin-bottom: 0.75rem;
   display: flex;
   align-items: center;
@@ -455,7 +455,7 @@
 }
 
 .application-item h4 i {
-  color: #3b82f6;
+  color: #1a1a1a;
   font-size: 1rem;
 }
 

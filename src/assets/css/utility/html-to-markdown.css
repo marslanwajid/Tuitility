@@ -1,0 +1,176 @@
+/* HTML to Markdown Converter Styles */
+
+.converter-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.converter-controls {
+  background: white;
+  padding: 24px;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.converter-toggles {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.mode-toggle-btn {
+  background: white;
+  border: 2px solid #e5e7eb;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  color: #6b7280;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.mode-toggle-btn.active {
+  border-color: #1a1a1a;
+  background: #f0f0f0;
+  color: #1a1a1a;
+}
+
+.mode-toggle-btn:hover:not(.active) {
+  background: #f8fafc;
+  color: #1a1a1a;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.action-btn {
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: 1px solid transparent;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.action-btn.primary {
+  background: #1a1a1a;
+  color: white;
+}
+
+.action-btn.primary:hover {
+  background: #000000;
+  transform: translateY(-1px);
+}
+
+.action-btn.secondary {
+  background: white;
+  border-color: #e5e7eb;
+  color: #374151;
+}
+
+.action-btn.secondary:hover {
+  border-color: #d1d5db;
+  background: #f9fafb;
+}
+
+.action-btn.danger {
+  background: white;
+  border-color: #e5e7eb;
+  color: #ef4444;
+}
+
+.action-btn.danger:hover {
+  background: #fef2f2;
+  border-color: #fecaca;
+}
+
+.editor-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  min-height: 500px;
+}
+
+@media (min-width: 768px) {
+  .editor-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.editor-pane {
+  background: white;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+
+.editor-pane:focus-within {
+  border-color: #1a1a1a;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.pane-header {
+  padding: 16px 20px;
+  border-bottom: 1px solid #e5e7eb;
+  background: #f8fafc;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pane-title {
+  font-weight: 600;
+  color: #1a1a1a;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pane-actions button {
+  background: transparent;
+  border: none;
+  color: #6b7280;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.pane-actions button:hover {
+  color: #1a1a1a;
+  background: #e5e7eb;
+}
+
+.editor-textarea {
+  flex: 1;
+  width: 100%;
+  border: none;
+  padding: 20px;
+  resize: none;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #374151;
+  outline: none;
+  background: white;
+}
+
+.editor-textarea::placeholder {
+  color: #9ca3af;
+}

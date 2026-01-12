@@ -10,7 +10,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@pdf-lib/fontkit": "^1.1.1",
+    "browser-image-compression": "^2.0.2",
+    "jszip": "^3.10.1",
     "katex": "^0.16.22",
+    "pdf-lib": "^1.17.1",
+    "pdfjs-dist": "^5.4.530",
+    "qrcode.react": "^4.2.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-katex": "^3.1.0",

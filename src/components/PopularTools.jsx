@@ -7,7 +7,7 @@ const PopularTools = () => {
     { name: 'Fraction Calculator', desc: 'Add, subtract, multiply and divide fractions', url: '/math/calculators/fraction-calculator', category: 'Math', icon: 'fas fa-divide', rating: 4.8, usage: '50K+' },
     { name: 'BMI Calculator', desc: 'Calculate your body mass index', url: '/health/calculators/bmi-calculator', category: 'Health', icon: 'fas fa-weight', rating: 4.9, usage: '75K+' },
     
-    { name: 'Password Generator', desc: 'Create secure passwords', url: '/utility-tools/converter-tools/password-generator', category: 'Utility', icon: 'fas fa-key', rating: 4.6, usage: '25K+' },
+    { name: 'Password Generator', desc: 'Create secure passwords', url: '/utility-tools/password-generator', category: 'Utility', icon: 'fas fa-key', rating: 4.6, usage: '25K+' },
     { name: 'Percentage Calculator', desc: 'Calculate percentages quickly and easily', url: '/math/calculators/percentage-calculator', category: 'Math', icon: 'fas fa-percentage', rating: 4.8, usage: '45K+' },
     { name: 'Decimal Calculator', desc: 'Perform precise arithmetic operations on decimal numbers', url: '/math/calculators/decimal-calculator', category: 'Math', icon: 'fas fa-calculator', rating: 4.7, usage: '40K+' },
     { name: 'Decimal to Fraction', desc: 'Convert decimals to fractions with step-by-step solutions', url: '/math/calculators/decimal-to-fraction-calculator', category: 'Math', icon: 'fas fa-exchange-alt', rating: 4.6, usage: '35K+' },
@@ -45,7 +45,7 @@ const PopularTools = () => {
         { name: 'Work Power Calculator', desc: 'Calculate work and power using force, distance, angle, and time', url: '/science/calculators/work-power-calculator', category: 'Science', icon: 'fas fa-cogs', rating: 4.7, usage: '25K+' },
         { name: 'DBm Watts Calculator', desc: 'Convert between dBm and Watts for power measurements in telecommunications', url: '/science/calculators/dbm-watts-calculator', category: 'Science', icon: 'fas fa-bolt', rating: 4.6, usage: '20K+' },
       { name: 'Age Calculator', desc: 'Calculate age in years, months, days', url: '/knowledge/calculators/age-calculator', category: 'Knowledge', icon: 'fas fa-calendar-alt', rating: 4.5, usage: '20K+' },
-    { name: 'QR Code Generator', desc: 'Generate QR codes instantly', url: '/utility-tools/converter-tools/qr-code-generator', category: 'Utility', icon: 'fas fa-qrcode', rating: 4.7, usage: '35K+' },
+    { name: 'QR Code Generator', desc: 'Generate QR codes instantly', url: '/utility-tools/qr-code-generator', category: 'Utility', icon: 'fas fa-qrcode', rating: 4.7, usage: '35K+' },
     { name: 'PDF Merger', desc: 'Combine multiple PDF files into one', url: '/utility-tools/converter-tools/merge-pdf', category: 'Utility', icon: 'fas fa-object-group', rating: 4.6, usage: '28K+' }
   ]
 

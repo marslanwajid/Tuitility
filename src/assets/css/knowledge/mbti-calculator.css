@@ -42,7 +42,7 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  color: #3b82f6;
+  color: #1a1a1a;
   font-weight: 600;
 }
 
@@ -70,7 +70,7 @@
 
 .mbti-progress-fill {
   height: 100%;
-  background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+  background: #f0f0f0;
   border-radius: 10px;
   transition: width 0.3s ease;
 }
@@ -93,7 +93,7 @@
   padding: 1rem;
   background: #f8fafc;
   border-radius: 8px;
-  border-left: 4px solid #3b82f6;
+  border-left: 4px solid #1a1a1a;
 }
 
 .mbti-answer-options {
@@ -115,7 +115,7 @@
 }
 
 .mbti-radio-label:hover {
-  border-color: #3b82f6;
+  border-color: #1a1a1a;
   background: #f8fafc;
 }
 
@@ -123,7 +123,7 @@
   margin: 0;
   width: 20px;
   height: 20px;
-  accent-color: #3b82f6;
+  accent-color: #1a1a1a;
 }
 
 .mbti-radio-label input[type="radio"]:checked + .mbti-radio-text {
@@ -132,8 +132,8 @@
 }
 
 .mbti-radio-label:has(input[type="radio"]:checked) {
-  border-color: #3b82f6;
-  background: #eff6ff;
+  border-color: #1a1a1a;
+  background: #f0f0f0;
 }
 
 .mbti-radio-text {
@@ -145,12 +145,12 @@
 
 /* Results Section */
 .mbti-formation-calculator-result {
-  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%) !important;
+  background: linear-gradient(135deg, #1a1a1a 0%, #1a1a1a 100%) !important;
   border-radius: 15px;
   padding: 2rem;
   margin-top: 2rem;
   color: white;
-  box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+  box-shadow: 0 10px 30px rgba(26, 26, 26, 0.3);
   animation: mbtiResultSlideIn 0.6s ease-out;
   border: none !important;
 }
@@ -202,13 +202,13 @@
 }
 
 .mbti-disclaimer i {
-  color: #fbbf24 !important;
+  color: #ffffff !important;
   margin-top: 0.1rem;
   flex-shrink: 0;
 }
 
 .mbti-disclaimer strong {
-  color: #fbbf24 !important;
+  color: #ffffff !important;
 }
 
 .mbti-result-content {
@@ -249,7 +249,7 @@
 
 .mbti-result-final {
   font-size: 1.1rem !important;
-  color: #fbbf24 !important;
+  color: #ffffff !important;
 }
 
 /* Type Description */
@@ -299,7 +299,7 @@
 }
 
 .mbti-function-stack strong {
-  color: #fbbf24 !important;
+  color: #ffffff !important;
   font-weight: 600;
 }
 
@@ -351,16 +351,16 @@
 .mbti-opportunities li::before,
 .mbti-careers li::before {
   content: "•";
-  color: #fbbf24;
+  color: #ffffff;
   font-weight: bold;
   margin-right: 0.5rem;
 }
 
 /* Download Button */
 .mbti-btn-download {
-  background: #10b981;
+  background: #1a1a1a;
   color: white;
-  border: 1px solid #10b981;
+  border: 1px solid #1a1a1a;
   border-radius: 8px;
   padding: 0.75rem 1.5rem;
   font-size: 0.95rem;
@@ -375,7 +375,7 @@
 }
 
 .mbti-btn-download:hover:not(:disabled) {
-  background: #059669;
+  background: #1a1a1a;
   transform: translateY(-1px);
 }
 
@@ -463,13 +463,13 @@
 }
 
 .mbti-btn-next {
-  background: #3b82f6;
+  background: #1a1a1a;
   color: white;
-  border: 1px solid #3b82f6;
+  border: 1px solid #1a1a1a;
 }
 
 .mbti-btn-next:hover:not(:disabled) {
-  background: #2563eb;
+  background: #1a1a1a;
   transform: translateY(-1px);
 }
 
@@ -535,7 +535,7 @@
 }
 
 .mbti-definition-item h3 i {
-  color: #3b82f6;
+  color: #1a1a1a;
   font-size: 1.2rem;
 }
 
@@ -571,7 +571,7 @@
 }
 
 .mbti-factor-item h3 i {
-  color: #3b82f6;
+  color: #1a1a1a;
   font-size: 1.2rem;
 }
 
@@ -604,7 +604,7 @@
   padding: 1rem;
   margin-bottom: 0.75rem;
   border-radius: 8px;
-  border-left: 4px solid #3b82f6;
+  border-left: 4px solid #1a1a1a;
   line-height: 1.6;
   list-style: none !important;
 }
@@ -680,13 +680,13 @@
 .mbti-type-item:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-  border-color: rgba(59, 130, 246, 0.5);
+  border-color: rgba(26, 26, 26, 0.5);
 }
 
 .mbti-type-code {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #3b82f6;
+  color: #1a1a1a;
   margin-bottom: 0.5rem;
 }
 
@@ -726,7 +726,7 @@
 }
 
 .application-item h4 {
-  color: #3b82f6;
+  color: #1a1a1a;
   font-size: 1.2rem;
   margin: 0 0 1rem 0;
   display: flex;
@@ -922,7 +922,7 @@
 
 /* Accessibility Improvements */
 .mbti-radio-label:focus-visible {
-  outline: 2px solid #3b82f6;
+  outline: 2px solid #1a1a1a;
   outline-offset: 2px;
 }
 

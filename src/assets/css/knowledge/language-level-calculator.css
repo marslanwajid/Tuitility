@@ -29,7 +29,7 @@
 }
 
 .language-form-label i {
-  color: #3b82f6;
+  color: #1a1a1a;
   font-size: 1.1rem;
 }
 
@@ -47,8 +47,8 @@
 
 .language-form-select:focus {
   outline: none;
-  border-color: #3b82f6;
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  border-color: #1a1a1a;
+  box-shadow: 0 0 0 3px rgba(26, 26, 26, 0.1);
 }
 
 .language-form-select:hover {
@@ -86,7 +86,7 @@
 
 .language-progress-fill {
   height: 100%;
-  background: linear-gradient(90deg, #3b82f6, #1d4ed8);
+  background: #f0f0f0;
   border-radius: 4px;
   transition: width 0.3s ease;
 }
@@ -121,14 +121,14 @@
 }
 
 .language-option-container:hover {
-  border-color: #3b82f6;
+  border-color: #1a1a1a;
   background: #f0f9ff;
 }
 
 .language-option-container input[type="radio"] {
   width: 18px;
   height: 18px;
-  accent-color: #3b82f6;
+  accent-color: #1a1a1a;
   cursor: pointer;
 }
 
@@ -149,9 +149,9 @@
 }
 
 .language-btn-next {
-  background: #3b82f6;
+  background: #1a1a1a;
   color: white;
-  border: 1px solid #3b82f6;
+  border: 1px solid #1a1a1a;
   border-radius: 8px;
   padding: 0.875rem 2rem;
   font-size: 1rem;
@@ -166,9 +166,9 @@
 }
 
 .language-btn-next:hover:not(:disabled) {
-  background: #2563eb;
+  background: #1a1a1a;
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+  box-shadow: 0 4px 12px rgba(26, 26, 26, 0.3);
 }
 
 .language-btn-next:disabled {
@@ -182,9 +182,9 @@
 
 /* Error Message */
 .language-error-message {
-  background: #fef2f2;
+  background: #f0f0f0;
   border: 1px solid #fecaca;
-  color: #dc2626;
+  color: #1a1a1a;
   padding: 1rem;
   border-radius: 8px;
   margin: 1rem 0;
@@ -195,13 +195,13 @@
 }
 
 .language-error-message i {
-  color: #dc2626;
+  color: #1a1a1a;
   font-size: 1.1rem;
 }
 
 /* Result Section */
 .language-level-calculator-result {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: #f0f0f0;
   border-radius: 16px;
   padding: 2rem;
   margin: 2rem 0;
@@ -238,17 +238,17 @@
 }
 
 .language-level.beginner {
-  background: #10b981;
+  background: #1a1a1a;
   color: white;
 }
 
 .language-level.intermediate {
-  background: #f59e0b;
+  background: #1a1a1a;
   color: white;
 }
 
 .language-level.advanced {
-  background: #ef4444;
+  background: #1a1a1a;
   color: white;
 }
 
@@ -340,13 +340,13 @@
 }
 
 .language-disclaimer i {
-  color: #fbbf24 !important;
+  color: #ffffff !important;
   margin-top: 0.1rem;
   flex-shrink: 0;
 }
 
 .language-disclaimer strong {
-  color: #fbbf24 !important;
+  color: #ffffff !important;
 }
 
 /* Form Actions */
@@ -379,8 +379,8 @@
 }
 
 .language-btn-restart {
-  background: #10b981;
-  border-color: #10b981;
+  background: #1a1a1a;
+  border-color: #1a1a1a;
 }
 
 .language-btn-reset:hover,
@@ -394,7 +394,7 @@
 }
 
 .language-btn-restart:hover {
-  background: #059669;
+  background: #1a1a1a;
 }
 
 /* Proficiency Levels Grid */
@@ -416,7 +416,7 @@
 .proficiency-level-item:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  border-color: #3b82f6;
+  border-color: #1a1a1a;
 }
 
 .proficiency-level-item h4 {
@@ -430,7 +430,7 @@
 }
 
 .proficiency-level-item h4 i {
-  color: #3b82f6;
+  color: #1a1a1a;
   font-size: 1.1rem;
 }
 
@@ -499,7 +499,7 @@
   background: #f8fafc;
   padding: 1.5rem;
   border-radius: 8px;
-  border-left: 4px solid #3b82f6;
+  border-left: 4px solid #1a1a1a;
   margin: 1rem 0;
 }
 
@@ -533,7 +533,7 @@
   padding: 1rem;
   margin-bottom: 0.75rem;
   border-radius: 8px;
-  border-left: 4px solid #3b82f6;
+  border-left: 4px solid #1a1a1a;
   line-height: 1.6;
   list-style: none !important;
 }

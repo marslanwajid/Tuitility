@@ -31,14 +31,14 @@
 }
 
 .water-intake-tab:hover {
-  color: #3b82f6;
-  background: rgba(59, 130, 246, 0.05);
+  color: #1a1a1a;
+  background: rgba(26, 26, 26, 0.05);
 }
 
 .water-intake-tab.active {
-  color: #3b82f6;
-  border-bottom-color: #3b82f6;
-  background: rgba(59, 130, 246, 0.1);
+  color: #1a1a1a;
+  border-bottom-color: #1a1a1a;
+  background: rgba(26, 26, 26, 0.1);
 }
 
 .water-intake-tab i {
@@ -88,9 +88,9 @@
 
 .water-intake-calculator-form .water-intake-input-field:focus {
   outline: none;
-  border-color: #10b981;
+  border-color: #1a1a1a;
   background: white;
-  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+  box-shadow: 0 0 0 3px rgba(26, 26, 26, 0.1);
 }
 
 .water-intake-calculator-form .water-intake-select-field {
@@ -107,9 +107,9 @@
 
 .water-intake-calculator-form .water-intake-select-field:focus {
   outline: none;
-  border-color: #10b981;
+  border-color: #1a1a1a;
   background: white;
-  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+  box-shadow: 0 0 0 3px rgba(26, 26, 26, 0.1);
 }
 
 .water-intake-calculator-form .water-intake-input-help {
@@ -168,7 +168,7 @@
 
 /* Water Intake Calculator Result Section - Completely Isolated */
 .water-intake-calculator-result {
-  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%) !important;
+  background: linear-gradient(135deg, #1a1a1a 0%, #1a1a1a 100%) !important;
   border-radius: 15px;
   padding: 2rem;
   margin-top: 2rem;
@@ -252,7 +252,7 @@
 }
 
 .water-intake-calculator-result .water-intake-result-final {
-  color: #fbbf24 !important;
+  color: #ffffff !important;
   font-weight: 700 !important;
   font-size: 1.2rem;
 }
@@ -322,7 +322,7 @@
 }
 
 .water-intake-calculator-result .water-intake-schedule-amount {
-  color: #fbbf24 !important;
+  color: #ffffff !important;
   font-size: 1.2rem;
   font-weight: 700;
   margin-bottom: 0.75rem;
@@ -338,7 +338,7 @@
 
 .water-intake-calculator-result .water-intake-progress {
   height: 100%;
-  background: linear-gradient(90deg, #fbbf24, #f59e0b) !important;
+  background: linear-gradient(90deg, #ffffff, #1a1a1a) !important;
   border-radius: 4px;
   transition: width 0.3s ease;
 }
@@ -389,11 +389,11 @@
 
 /* Formula Section */
 .formula-section {
-  background: linear-gradient(135deg, rgba(16, 185, 129, 0.05), rgba(5, 150, 105, 0.05));
+  background: #f0f0f0;
   border-radius: 12px;
   padding: 1.5rem;
   margin: 1.5rem 0;
-  border: 1px solid rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(26, 26, 26, 0.1);
   text-align: center;
 }
 
@@ -452,9 +452,9 @@
 .example-section {
   margin-bottom: 2rem;
   padding: 1.5rem;
-  background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+  background: #f0f0f0;
   border-radius: 12px;
-  border: 1px solid #22c55e;
+  border: 1px solid #1a1a1a;
 }
 
 .example-section h3 {
@@ -497,7 +497,7 @@
 
 .application-item {
   padding: 1.5rem;
-  background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+  background: #f0f0f0;
   border-radius: 12px;
   border: 1px solid #e2e8f0;
   transition: all 0.2s ease;
@@ -553,7 +553,7 @@
   }
   
   .water-intake-tab.active {
-    border-bottom-color: #3b82f6;
+    border-bottom-color: #1a1a1a;
   }
   
   .water-intake-calculator-form .water-intake-input-row {

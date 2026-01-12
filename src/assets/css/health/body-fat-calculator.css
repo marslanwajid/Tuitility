@@ -17,7 +17,7 @@
   color: #1e293b;
   margin: 2rem 0 1.5rem 0;
   padding-bottom: 0.5rem;
-  border-bottom: 2px solid #3b82f6;
+  border-bottom: 2px solid #1a1a1a;
   text-align: center;
   position: relative;
 }
@@ -34,7 +34,7 @@
   transform: translateX(-50%);
   width: 60px;
   height: 2px;
-  background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+  background: #f0f0f0;
   border-radius: 1px;
 }
 
@@ -71,8 +71,8 @@
 
 .body-fat-input-field:focus {
   outline: none;
-  border-color: #3b82f6;
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  border-color: #1a1a1a;
+  box-shadow: 0 0 0 3px rgba(26, 26, 26, 0.1);
 }
 
 .body-fat-input-field::placeholder {
@@ -98,8 +98,8 @@
 
 .body-fat-select-field:focus {
   outline: none;
-  border-color: #3b82f6;
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  border-color: #1a1a1a;
+  box-shadow: 0 0 0 3px rgba(26, 26, 26, 0.1);
 }
 
 /* Help Text */
@@ -157,12 +157,12 @@
 
 /* Result Section Styling - More specific to override tool-page.css */
 .body-fat-calculator-result {
-  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%) !important;
+  background: linear-gradient(135deg, #1a1a1a 0%, #1a1a1a 100%) !important;
   border-radius: 15px;
   padding: 2rem;
   margin-top: 2rem;
   color: white;
-  box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+  box-shadow: 0 10px 30px rgba(26, 26, 26, 0.3);
   animation: bodyFatResultSlideIn 0.6s ease-out;
   border: none !important;
 }
@@ -234,7 +234,7 @@
 }
 
 .body-fat-result-final {
-  color: #fbbf24 !important;
+  color: #ffffff !important;
   font-weight: 700 !important;
   font-size: 1.25rem;
 }
@@ -260,7 +260,7 @@
 .body-fat-category-scale {
   position: relative;
   height: 30px;
-  background: linear-gradient(to right, #3498db, #2ecc71, #f1c40f, #e67e22, #e74c3c);
+  background: #f0f0f0;
   border-radius: 15px;
   margin-bottom: 1rem;
   overflow: hidden;
@@ -273,12 +273,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(90deg, 
-    rgba(52, 152, 219, 0.8) 0%, 
-    rgba(46, 204, 113, 0.8) 20%, 
-    rgba(241, 196, 15, 0.8) 40%, 
-    rgba(230, 126, 34, 0.8) 60%, 
-    rgba(231, 76, 60, 0.8) 100%);
+  background: #f0f0f0;
   border-radius: 15px;
 }
 
@@ -362,7 +357,7 @@
 }
 
 .body-fat-recommendations h5 {
-  color: #fbbf24 !important;
+  color: #ffffff !important;
   font-size: 1.1rem;
   margin: 0 0 0.75rem 0;
   background: transparent !important;
@@ -383,11 +378,11 @@
 
 /* Method Section Styling */
 .method-section {
-  background: rgba(59, 130, 246, 0.05);
+  background: rgba(26, 26, 26, 0.05);
   padding: 1.5rem;
   border-radius: 12px;
   margin: 1.5rem 0;
-  border-left: 4px solid #3b82f6;
+  border-left: 4px solid #1a1a1a;
   transition: all 0.3s ease;
 }
 
@@ -397,7 +392,7 @@
 }
 
 .method-section h3 {
-  color: #3b82f6;
+  color: #1a1a1a;
   margin: 0 0 1rem 0;
   font-size: 1.3rem;
 }
@@ -420,11 +415,11 @@
 
 /* KaTeX Formula Styling */
 .math-formula .katex {
-  color: #3b82f6 !important;
+  color: #1a1a1a !important;
 }
 
 .math-formula .katex * {
-  color: #3b82f6 !important;
+  color: #1a1a1a !important;
 }
 
 /* Applications Grid */
@@ -450,7 +445,7 @@
 }
 
 .application-item h4 {
-  color: #3b82f6;
+  color: #1a1a1a;
   font-size: 1.2rem;
   margin: 0 0 1rem 0;
   display: flex;
@@ -544,7 +539,7 @@
 /* Focus states for accessibility */
 .body-fat-input-field:focus-visible,
 .body-fat-select-field:focus-visible {
-  outline: 2px solid #3b82f6;
+  outline: 2px solid #1a1a1a;
   outline-offset: 2px;
 }
 
@@ -557,8 +552,8 @@
   
   .body-fat-input-field:focus,
   .body-fat-select-field:focus {
-    border-color: #3b82f6;
-    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+    border-color: #1a1a1a;
+    box-shadow: 0 0 0 3px rgba(26, 26, 26, 0.3);
   }
 }
 

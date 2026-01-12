@@ -1,0 +1,238 @@
+/* QR Code Generator Styles - Strict Black & White Theme */
+
+.qr-generator-container {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .qr-generator-container {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}
+
+/* Controls Section (Left Side) */
+.qr-controls {
+  flex: 1;
+  background: white;
+  padding: 24px;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.qr-section-title {
+  display: block;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+}
+
+.qr-input-group label {
+  display: block;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+}
+
+.qr-input-text {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 1rem;
+  min-height: 100px;
+  resize: vertical;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.qr-input-text:focus {
+  outline: none;
+  border-color: #1a1a1a;
+  box-shadow: 0 0 0 3px rgba(26, 26, 26, 0.05);
+}
+
+.qr-input-number {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.qr-input-number:focus {
+  outline: none;
+  border-color: #1a1a1a;
+}
+
+.qr-options-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 16px;
+}
+
+/* Color Picker */
+.color-picker-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  background: #f9fafb;
+}
+
+.color-picker-wrapper input[type="color"] {
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.color-picker-wrapper span {
+  font-size: 0.9rem;
+  color: #4b5563;
+  font-family: monospace;
+}
+
+/* Checkboxes */
+.qr-toggles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.qr-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  color: #1a1a1a;
+}
+
+.qr-checkbox input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #1a1a1a;
+}
+
+/* File Input */
+.qr-file-input {
+  width: 100%;
+  padding: 10px;
+  background: #f8fafc;
+  border: 1px dashed #cbd5e1;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.qr-file-input:hover {
+  background: #f0f0f0;
+  border-color: #1a1a1a;
+}
+
+/* Preview Section (Right Side) */
+.qr-preview-section {
+  flex: 1;
+  background: #f8fafc; /* Slight grey background to separate */
+  padding: 24px;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  min-height: 400px;
+}
+
+.qr-canvas-wrapper {
+  background: #ff000000; /* Transparent base */
+  padding: 0;
+  border-radius: 4px; /* No radius on the QR itself if no bg */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* If user sets transparent background, we want to see the underlying pattern if any, but clean white usually best for contrast check */
+}
+
+/* Placeholder State */
+.qr-placeholder {
+  text-align: center;
+  color: #9ca3af;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.qr-placeholder i {
+  font-size: 4rem;
+  opacity: 0.5;
+}
+
+.qr-placeholder p {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+/* Action Buttons */
+.qr-actions {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+  max-width: 300px;
+}
+
+.qr-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 1rem;
+}
+
+.qr-btn.primary {
+  background: #1a1a1a;
+  color: white;
+  border: none;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.qr-btn.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.qr-btn.secondary {
+  background: white;
+  color: #1a1a1a;
+  border: 2px solid #e5e7eb;
+}
+
+.qr-btn.secondary:hover {
+  border-color: #1a1a1a;
+  background: #f8fafc;
+}
+
+.qr-btn i {
+  font-size: 1.1rem;
+}

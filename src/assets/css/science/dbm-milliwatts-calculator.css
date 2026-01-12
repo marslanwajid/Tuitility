@@ -47,8 +47,8 @@
 
 .dbm-milliwatts-input-field:focus {
   outline: none;
-  border-color: #f59e0b;
-  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.1);
+  border-color: #1a1a1a;
+  box-shadow: 0 0 0 3px rgba(26, 26, 26, 0.1);
 }
 
 .dbm-milliwatts-input-field::placeholder {
@@ -103,12 +103,12 @@
 
 /* Result Section Styling - More specific to override tool-page.css */
 .dbm-milliwatts-calculator-result {
-    background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%) !important;
+    background: linear-gradient(135deg, #1a1a1a 0%, #1a1a1a 100%) !important;
   border-radius: 15px;
   padding: 2rem;
   margin-top: 2rem;
   color: white;
-  box-shadow: 0 10px 30px rgba(245, 158, 11, 0.3);
+  box-shadow: 0 10px 30px rgba(26, 26, 26, 0.3);
   animation: resultSlideIn 0.6s ease-out;
   border: none !important;
 }
@@ -180,7 +180,7 @@
 }
 
 .dbm-milliwatts-result-final {
-  color: #fbbf24 !important;
+  color: #ffffff !important;
   font-weight: 700 !important;
   font-size: 1.25rem;
 }
@@ -291,7 +291,7 @@
 }
 
 .dbm-milliwatts-result-tip i {
-  color: #fbbf24 !important;
+  color: #ffffff !important;
   font-size: 1.1rem;
   margin-top: 0.1rem;
   background: transparent !important;
@@ -306,11 +306,11 @@
 
 /* KaTeX Formula Styling */
 .math-formula .katex {
-  color: #f59e0b !important;
+  color: #1a1a1a !important;
 }
 
 .math-formula .katex * {
-  color: #f59e0b !important;
+  color: #1a1a1a !important;
 }
 
 /* Applications Grid */
@@ -336,7 +336,7 @@
 }
 
 .application-item h4 {
-  color: #f59e0b;
+  color: #1a1a1a;
   font-size: 1.2rem;
   margin: 0 0 1rem 0;
   display: flex;
@@ -416,7 +416,7 @@
 
 /* Focus states for accessibility */
 .dbm-milliwatts-input-field:focus-visible {
-  outline: 2px solid #f59e0b;
+  outline: 2px solid #1a1a1a;
   outline-offset: 2px;
 }
 
@@ -427,8 +427,8 @@
   }
   
   .dbm-milliwatts-input-field:focus {
-    border-color: #f59e0b;
-    box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.3);
+    border-color: #1a1a1a;
+    box-shadow: 0 0 0 3px rgba(26, 26, 26, 0.3);
   }
 }
 

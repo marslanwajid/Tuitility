@@ -24,7 +24,7 @@
   font-weight: 700;
   margin: 0 0 1.5rem 0;
   padding-bottom: 0.5rem;
-  border-bottom: 2px solid #3b82f6;
+  border-bottom: 2px solid #1a1a1a;
 }
 
 .zakat-form-row {
@@ -50,7 +50,7 @@
 }
 
 .zakat-form-label i {
-  color: #3b82f6;
+  color: #1a1a1a;
   font-size: 1rem;
   width: 16px;
 }
@@ -70,8 +70,8 @@
 .zakat-form-input:focus,
 .zakat-form-select:focus {
   outline: none;
-  border-color: #3b82f6;
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  border-color: #1a1a1a;
+  box-shadow: 0 0 0 3px rgba(26, 26, 26, 0.1);
 }
 
 .zakat-form-input:hover,
@@ -85,9 +85,9 @@
 
 /* Error Message */
 .zakat-error-message {
-  background: #fef2f2;
+  background: #f0f0f0;
   border: 1px solid #fecaca;
-  color: #dc2626;
+  color: #1a1a1a;
   padding: 1rem;
   border-radius: 8px;
   margin: 1rem 0;
@@ -98,13 +98,13 @@
 }
 
 .zakat-error-message i {
-  color: #dc2626;
+  color: #1a1a1a;
   font-size: 1.1rem;
 }
 
 /* Result Section */
 .zakat-calculator-result {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: #f0f0f0;
   border-radius: 16px;
   padding: 2rem;
   margin: 2rem 0;
@@ -179,7 +179,7 @@
 .zakat-nisab-value {
   font-size: 1.5rem;
   font-weight: 600;
-  color: #fbbf24;
+  color: #ffffff;
 }
 
 .zakat-breakdown {
@@ -230,7 +230,7 @@
 .zakat-breakdown-zakat {
   display: block;
   font-size: 0.9rem;
-  color: #fbbf24;
+  color: #ffffff;
   font-weight: 500;
 }
 
@@ -261,7 +261,7 @@
   padding: 1rem;
   margin-bottom: 0.75rem;
   border-radius: 8px;
-  border-left: 4px solid #fbbf24;
+  border-left: 4px solid #ffffff;
   color: rgba(255, 255, 255, 0.9);
   line-height: 1.6;
 }
@@ -290,13 +290,13 @@
 }
 
 .zakat-disclaimer i {
-  color: #fbbf24 !important;
+  color: #ffffff !important;
   margin-top: 0.1rem;
   flex-shrink: 0;
 }
 
 .zakat-disclaimer strong {
-  color: #fbbf24 !important;
+  color: #ffffff !important;
 }
 
 /* Form Actions */
@@ -352,7 +352,7 @@
 .nisab-threshold-item:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  border-color: #3b82f6;
+  border-color: #1a1a1a;
 }
 
 .nisab-threshold-item h4 {
@@ -366,7 +366,7 @@
 }
 
 .nisab-threshold-item h4 i {
-  color: #3b82f6;
+  color: #1a1a1a;
   font-size: 1.1rem;
 }
 
@@ -425,7 +425,7 @@
 .zakatable-asset-item:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  border-color: #3b82f6;
+  border-color: #1a1a1a;
 }
 
 .zakatable-asset-item h4 {
@@ -439,7 +439,7 @@
 }
 
 .zakatable-asset-item h4 i {
-  color: #3b82f6;
+  color: #1a1a1a;
   font-size: 1.1rem;
 }
 
@@ -505,7 +505,7 @@
 }
 
 .zakat-formula strong {
-  color: #fbbf24;
+  color: #ffffff;
 }
 
 /* Example Section */
@@ -524,7 +524,7 @@
   background: #f8fafc;
   padding: 1.5rem;
   border-radius: 8px;
-  border-left: 4px solid #3b82f6;
+  border-left: 4px solid #1a1a1a;
   margin: 1rem 0;
 }
 
@@ -551,7 +551,7 @@
   padding: 1rem;
   margin-bottom: 0.75rem;
   border-radius: 8px;
-  border-left: 4px solid #3b82f6;
+  border-left: 4px solid #1a1a1a;
   line-height: 1.6;
   list-style: none !important;
 }

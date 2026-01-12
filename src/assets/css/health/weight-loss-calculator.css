@@ -42,9 +42,9 @@
 
 .weight-loss-calculator-form .weight-loss-input-field:focus {
   outline: none;
-  border-color: #3b82f6;
+  border-color: #1a1a1a;
   background: white;
-  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+  box-shadow: 0 0 0 3px rgba(26, 26, 26, 0.1);
 }
 
 .weight-loss-calculator-form .weight-loss-input-help {
@@ -86,12 +86,12 @@
 
 /* Weight Loss Calculator Result Section - Completely Isolated */
 .weight-loss-calculator-result {
-  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%) !important;
+  background: linear-gradient(135deg, #1a1a1a 0%, #1a1a1a 100%) !important;
   border-radius: 15px;
   padding: 2rem;
   margin-top: 2rem;
   color: white;
-  box-shadow: 0 10px 30px rgba(239, 68, 68, 0.3);
+  box-shadow: 0 10px 30px rgba(26, 26, 26, 0.3);
   animation: weightLossResultSlideIn 0.6s ease-out;
   border: none !important;
 }
@@ -170,7 +170,7 @@
 }
 
 .weight-loss-calculator-result .weight-loss-result-final {
-  color: #fbbf24 !important;
+  color: #ffffff !important;
   font-weight: 700 !important;
   font-size: 1.2rem;
 }
@@ -230,7 +230,7 @@
 }
 
 .weight-loss-calculator-result .weight-loss-macro-amount {
-  color: #fbbf24 !important;
+  color: #ffffff !important;
   font-size: 1.2rem;
   font-weight: 700;
 }
@@ -286,11 +286,11 @@
 
 /* Formula Section */
 .formula-section {
-  background: linear-gradient(135deg, rgba(16, 185, 129, 0.05), rgba(5, 150, 105, 0.05));
+  background: #f0f0f0;
   border-radius: 12px;
   padding: 1.5rem;
   margin: 1.5rem 0;
-  border: 1px solid rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(26, 26, 26, 0.1);
   text-align: center;
 }
 
@@ -304,27 +304,27 @@
 .math-formula {
   font-size: 1.3rem;
   font-weight: 600;
-  color: #ef4444;
+  color: #1a1a1a;
   margin: 1rem 0;
   padding: 1rem;
-  background: rgba(239, 68, 68, 0.1);
+  background: rgba(26, 26, 26, 0.1);
   border-radius: 8px;
-  border: 1px solid rgba(239, 68, 68, 0.2);
+  border: 1px solid rgba(26, 26, 26, 0.2);
   font-family: 'Courier New', monospace;
 }
 
 /* Override KaTeX text color to match our theme */
 .math-formula .katex,
 .math-formula .katex * {
-  color: #ef4444 !important;
+  color: #1a1a1a !important;
 }
 
 .math-formula .katex-display {
-  color: #ef4444 !important;
+  color: #1a1a1a !important;
 }
 
 .math-formula .katex-html {
-  color: #ef4444 !important;
+  color: #1a1a1a !important;
 }
 
 .formula-section p {
@@ -349,9 +349,9 @@
 .example-section {
   margin-bottom: 2rem;
   padding: 1.5rem;
-  background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+  background: #f0f0f0;
   border-radius: 12px;
-  border: 1px solid #22c55e;
+  border: 1px solid #1a1a1a;
 }
 
 .example-section h3 {
@@ -394,7 +394,7 @@
 
 .application-item {
   padding: 1.5rem;
-  background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+  background: #f0f0f0;
   border-radius: 12px;
   border: 1px solid #e2e8f0;
   transition: all 0.2s ease;
@@ -416,7 +416,7 @@
 }
 
 .application-item h4 i {
-  color: #ef4444;
+  color: #1a1a1a;
 }
 
 .application-item p {
