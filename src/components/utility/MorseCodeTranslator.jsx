@@ -6,6 +6,8 @@ import FAQSection from '../tool/FAQSection';
 import TableOfContents from '../tool/TableOfContents';
 import FeedbackForm from '../tool/FeedbackForm';
 import '../../assets/css/utility/morse-code-translator.css';
+import { toolCategories } from '../../data/toolCategories';
+
 
 const MorseCodeTranslator = () => {
   const [inputText, setInputText] = useState('');
@@ -183,14 +185,6 @@ const MorseCodeTranslator = () => {
     tags: ["morse", "code", "translator", "audio", "flash", "telegraph", "sos", "signal"]
   };
 
-  const categories = [
-    { name: 'Utility', url: '/utility-tools', icon: 'fas fa-tools' },
-    { name: 'Math', url: '/math', icon: 'fas fa-calculator' },
-    { name: 'Finance', url: '/finance', icon: 'fas fa-dollar-sign' },
-    { name: 'Health', url: '/health', icon: 'fas fa-heartbeat' },
-    { name: 'Science', url: '/science', icon: 'fas fa-flask' },
-    { name: 'Knowledge', url: '/knowledge', icon: 'fas fa-book' }
-  ];
 
   const relatedTools = [
       { name: "QR Code Generator", url: "/utility-tools/qr-code-generator", icon: "fas fa-qrcode" },
@@ -237,7 +231,7 @@ const MorseCodeTranslator = () => {
   return (
     <ToolPageLayout
       toolData={toolData}
-      categories={categories}
+      categories={toolCategories}
       relatedTools={relatedTools}
       tableOfContents={tableOfContents}
     >

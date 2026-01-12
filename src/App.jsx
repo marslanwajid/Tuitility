@@ -20,7 +20,11 @@ import GenZTranslator from './components/utility/GenZTranslator'
 import EnglishToIPATranslator from './components/utility/EnglishToIPATranslator'
 import AudioBitrateConverter from './components/utility/AudioBitrateConverter'
 import InstagramReelsDownloader from './components/utility/InstagramReelsDownloader'
+import TikTokDownloader from './components/utility/TikTokDownloader'
+import QRCodeScanner from './components/utility/QRCodeScanner'
 import ImageToWebP from './components/utility/image-tools/ImageToWebP'
+import RgbToPantoneConverter from './components/utility/RgbToPantoneConverter'
+import GoldWeightConverter from './components/utility/GoldWeightConverter'
 import KnowledgeCalculator from './pages/knowledge/KnowledgeCalculator'
 import GPACalculator from './components/knowledge/GPACalculator'
 import AgeCalculator from './components/knowledge/AgeCalculator'
@@ -176,6 +180,10 @@ const App = () => {
             <Route path="/utility-tools/english-to-ipa-translator" element={<EnglishToIPATranslator />} />
             <Route path="/utility-tools/audio-bitrate-converter" element={<AudioBitrateConverter />} />
           <Route path="/utility-tools/converter-tools/reels-downloader" element={<InstagramReelsDownloader />} />
+          <Route path="/utility-tools/converter-tools/tiktok-downloader" element={<TikTokDownloader />} />
+          <Route path="/utility-tools/converter-tools/qr-code-scanner" element={<QRCodeScanner />} />
+          <Route path="/utility-tools/converter-tools/rgb-to-pantone-converter" element={<RgbToPantoneConverter />} />
+          <Route path="/utility-tools/converter-tools/gold-precious-metal-weight-converter" element={<GoldWeightConverter />} />
         <Route path="/knowledge" element={<KnowledgeCalculator />} />
             <Route path="/knowledge/calculators/gpa-calculator" element={<GPACalculator />} />
             <Route path="/knowledge/calculators/age-calculator" element={<AgeCalculator />} />

@@ -6,6 +6,8 @@ import FAQSection from '../tool/FAQSection';
 import FeedbackForm from '../tool/FeedbackForm';
 import TableOfContents from '../tool/TableOfContents';
 import '../../assets/css/utility/instagram-reels-downloader.css';
+import { toolCategories } from '../../data/toolCategories';
+
 
 const InstagramReelsDownloader = () => {
   const [url, setUrl] = useState('');
@@ -127,19 +129,14 @@ const InstagramReelsDownloader = () => {
     tags: ["instagram", "reels", "downloader", "video", "social", "HD", "no watermark"]
   };
 
-  const categories = [
-    { name: 'Utility', url: '/utility-tools', icon: 'fas fa-tools' },
-    { name: 'Math', url: '/math', icon: 'fas fa-calculator' },
-    { name: 'Finance', url: '/finance', icon: 'fas fa-dollar-sign' },
-    { name: 'Health', url: '/health', icon: 'fas fa-heartbeat' },
-    { name: 'Science', url: '/science', icon: 'fas fa-flask' },
-    { name: 'Knowledge', url: '/knowledge', icon: 'fas fa-book' }
-  ];
 
   const relatedTools = [
+      { name: "TikTok Downloader", url: "/utility-tools/converter-tools/tiktok-downloader", icon: "fab fa-tiktok" },
       { name: "Audio Bitrate Converter", url: "/utility-tools/audio-bitrate-converter", icon: "fas fa-music" },
       { name: "Image to WebP", url: "/utility-tools/image-tools/image-to-webp-converter", icon: "fas fa-image" },
-       { name: "QR Code Generator", url: "/utility-tools/generator-tools/qr-code-generator", icon: "fas fa-qrcode" }
+      { name: "QR Code Generator", url: "/utility-tools/generator-tools/qr-code-generator", icon: "fas fa-qrcode" },
+      { name: "QR Code Scanner", url: "/utility-tools/converter-tools/qr-code-scanner", icon: "fas fa-qrcode" },
+      { name: "Gold Weight Converter", url: "/converter-tools/gold-precious-metal-weight-converter", icon: "fas fa-coins" }
   ];
 
   const tableOfContents = [
@@ -192,7 +189,7 @@ const InstagramReelsDownloader = () => {
   return (
     <ToolPageLayout
       toolData={toolData}
-      categories={categories}
+      categories={toolCategories}
       relatedTools={relatedTools}
       tableOfContents={tableOfContents}
     >

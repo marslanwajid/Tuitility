@@ -3,6 +3,7 @@ import { QRCodeCanvas } from 'qrcode.react';
 import ToolPageLayout from '../tool/ToolPageLayout';
 import CalculatorSection from '../tool/CalculatorSection';
 import '../../assets/css/utility/qr-code-generator.css';
+import { toolCategories } from '../../data/toolCategories';
 
 const QRCodeGenerator = () => {
   const [inputText, setInputText] = useState('');
@@ -48,10 +49,6 @@ const QRCodeGenerator = () => {
     lastUpdated: "2024-01-20"
   };
 
-  const categories = [
-    { name: "Utility Tools", url: "/utility-tools", icon: "fas fa-tools" }
-  ];
-
   const relatedTools = [
      { name: "Password Generator", url: "/utility-tools/password-generator", icon: "fas fa-key" },
      { name: "Word Counter", url: "/utility-tools/word-counter", icon: "fas fa-font" }
@@ -60,7 +57,7 @@ const QRCodeGenerator = () => {
   return (
     <ToolPageLayout
       toolData={toolData}
-      categories={categories}
+      categories={toolCategories}
       relatedTools={relatedTools}
       tableOfContents={[]}
     >

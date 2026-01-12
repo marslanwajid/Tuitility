@@ -1,0 +1,149 @@
+/* QR Code Scanner Styles */
+.qr-scanner-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.scanner-wrapper {
+    background-color: #f8f9fa;
+    border: 2px dashed #e2e8f0;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.video-preview {
+    width: 100%;
+    max-width: 640px;
+    border-radius: 8px;
+    display: none; /* Hidden by default */
+    background: #000;
+}
+
+.scanner-controls {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.scan-btn {
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: none;
+    font-size: 1rem;
+}
+
+.scan-btn.camera-btn {
+    background-color: #1a1a1a;
+    color: white;
+}
+
+.scan-btn.camera-btn:hover {
+    background-color: #333;
+    transform: translateY(-2px);
+}
+
+.scan-btn.camera-btn.active {
+    background-color: #ef4444;
+}
+
+.file-upload-wrapper {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.file-input {
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+}
+
+.file-btn {
+    background-color: #ffffff;
+    color: #1a1a1a;
+    border: 2px solid #e2e8f0;
+}
+
+.file-btn:hover {
+    border-color: #1a1a1a;
+    background-color: #f8f9fa;
+}
+
+.qr-result-area {
+    margin-top: 25px;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    width: 100%;
+    text-align: left;
+    word-break: break-all;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.result-label {
+    font-size: 0.875rem;
+    color: #64748b;
+    margin-bottom: 8px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.result-content {
+    font-size: 1.125rem;
+    color: #1a1a1a;
+    font-family: 'Monaco', 'Consolas', monospace;
+    padding: 10px;
+    background: #f1f5f9;
+    border-radius: 4px;
+}
+
+.result-content a {
+    color: #3b82f6;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+}
+
+.result-content a:hover {
+    border-bottom-color: #3b82f6;
+}
+
+.loading-indicator {
+    color: #64748b;
+    margin-top: 10px;
+    font-style: italic;
+}
+
+@media (max-width: 640px) {
+    .scanner-controls {
+        flex-direction: column;
+    }
+    
+    .scan-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}

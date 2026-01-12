@@ -6,6 +6,8 @@ import FAQSection from '../tool/FAQSection';
 import TableOfContents from '../tool/TableOfContents';
 import FeedbackForm from '../tool/FeedbackForm';
 import '../../assets/css/utility/english-to-ipa-translator.css';
+import { toolCategories } from '../../data/toolCategories';
+
 
 const EnglishToIPATranslator = () => {
   const [conversionType, setConversionType] = useState('to-ipa'); // 'to-ipa' or 'to-english'
@@ -253,14 +255,6 @@ const EnglishToIPATranslator = () => {
     tags: ["english", "ipa", "phonetic", "transcription", "pronunciation", "accent"]
   };
 
-  const categories = [
-    { name: 'Utility', url: '/utility-tools', icon: 'fas fa-tools' },
-    { name: 'Math', url: '/math', icon: 'fas fa-calculator' },
-    { name: 'Finance', url: '/finance', icon: 'fas fa-dollar-sign' },
-    { name: 'Health', url: '/health', icon: 'fas fa-heartbeat' },
-    { name: 'Science', url: '/science', icon: 'fas fa-flask' },
-    { name: 'Knowledge', url: '/knowledge', icon: 'fas fa-book' }
-  ];
 
   const relatedTools = [
       { name: "Gen Z Translator", url: "/utility-tools/genz-translator", icon: "fas fa-language" },
@@ -299,7 +293,7 @@ const EnglishToIPATranslator = () => {
   return (
     <ToolPageLayout
       toolData={toolData}
-      categories={categories}
+      categories={toolCategories}
       relatedTools={relatedTools}
       tableOfContents={tableOfContents}
     >

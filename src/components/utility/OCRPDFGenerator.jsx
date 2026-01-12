@@ -6,6 +6,7 @@ import FAQSection from '../tool/FAQSection';
 import TableOfContents from '../tool/TableOfContents';
 import FeedbackForm from '../tool/FeedbackForm';
 import '../../assets/css/utility/ocr-pdf-generator.css';
+import { toolCategories } from '../../data/toolCategories';
 
 const OCRPDFGenerator = () => {
   const [selectedFile, setSelectedFile] = useState(null);
@@ -41,15 +42,6 @@ const OCRPDFGenerator = () => {
     tags: ["ocr", "pdf", "text extraction", "document processing", "ai", "multilingual"],
     lastUpdated: "2024-01-15"
   };
-
-  const categories = [
-    { name: "Math Calculators", url: "/math", icon: "fas fa-calculator" },
-    { name: "Finance Calculators", url: "/finance", icon: "fas fa-dollar-sign" },
-    { name: "Health Calculators", url: "/health", icon: "fas fa-heartbeat" },
-    { name: "Knowledge Tools", url: "/knowledge", icon: "fas fa-brain" },
-    { name: "Science Calculators", url: "/science", icon: "fas fa-flask" },
-    { name: "Utility Tools", url: "/utility", icon: "fas fa-tools" }
-  ];
 
   const relatedTools = [
     { name: "QR Code Generator", url: "/utility-tools/qr-code-generator", icon: "fas fa-qrcode" },
@@ -362,7 +354,7 @@ You can now copy this text to your clipboard or download it in various formats i
     <ToolPageLayout
       toolData={toolData}
       tableOfContents={tableOfContents}
-      categories={categories}
+      categories={toolCategories}
       relatedTools={relatedTools}
     >
       <CalculatorSection>

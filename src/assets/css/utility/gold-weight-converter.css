@@ -1,0 +1,461 @@
+/* Gold Weight Converter Styles */
+.gold-converter-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.gw-converter-box {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.gw-metal-selector {
+    margin-bottom: 25px;
+}
+
+.gw-metal-selector label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #1a1a1a;
+}
+
+.gw-metal-select-wrapper {
+    position: relative;
+}
+
+.gw-metal-select-wrapper select {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 1rem;
+    appearance: none;
+    background-color: white;
+    cursor: pointer;
+    transition: border-color 0.2s;
+    height: 50px;
+}
+
+.gw-metal-select-wrapper::after {
+    content: '\f0d7';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #64748b;
+    pointer-events: none;
+}
+
+.gw-input-group-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 15px;
+    margin-bottom: 20px;
+    align-items: end;
+}
+
+.gw-input-group-full {
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.gw-input-wrapper input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: all 0.2s;
+    height: 50px;
+    appearance: none;
+}
+
+.gw-input-wrapper input:focus {
+    border-color: #1a1a1a;
+    outline: none;
+}
+
+.gw-unit-select select {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: white;
+    cursor: pointer;
+    height: 50px;
+    appearance: none;
+}
+
+.gw-unit-select {
+    position: relative;
+    width: 100%; /* Ensure container is full width */
+}
+
+.gw-unit-select::after {
+    content: '\f0d7';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    position: absolute;
+    right: 15px;
+    top: 42px;
+    color: #64748b;
+    pointer-events: none;
+}
+
+.gw-converter-arrow {
+    text-align: center;
+    margin: 10px 0;
+    color: #64748b;
+}
+
+.gw-result-display {
+    background: #f8fafc;
+    border: 2px dashed #cbd5e1;
+    border-radius: 8px;
+    padding: 25px;
+    text-align: center;
+    margin: 25px 0;
+    position: relative;
+}
+
+.gw-result-value {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #1a1a1a;
+    margin-bottom: 5px;
+    word-break: break-all;
+}
+
+.gw-result-unit {
+    font-size: 1rem;
+    color: #64748b;
+    font-weight: 500;
+}
+
+.gw-copy-result-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: #475569;
+}
+
+.gw-copy-result-btn:hover {
+    background: #f1f5f9;
+    color: #1a1a1a;
+}
+
+.gw-action-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.gw-reset-btn {
+    flex: 1;
+    background: #f1f5f9;
+    color: #475569;
+    border: 1px solid #e2e8f0;
+    padding: 14px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    width: 100%;
+}
+
+.gw-reset-btn:hover {
+    background: #e2e8f0;
+    color: #1a1a1a;
+}
+
+/* Comprehensive Table */
+.gw-all-conversions-container {
+    margin-top: 30px;
+    border-top: 1px solid #e2e8f0;
+    padding-top: 20px;
+}
+
+.gw-all-conversions-container h4 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #1a1a1a;
+}
+
+.gw-conversions-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+}
+
+.gw-conversions-table td {
+    padding: 10px 15px;
+    border-bottom: 1px solid #f1f5f9;
+    color: #1a1a1a;
+}
+
+.gw-conversions-table td:first-child {
+    font-weight: 600;
+    color: #475569;
+    width: 50%;
+}
+
+.gw-conversions-table td:last-child {
+    font-family: monospace;
+    font-size: 1rem;
+    text-align: right;
+}
+
+.gw-conversions-table tr:last-child td {
+    border-bottom: none;
+}
+
+@media (max-width: 600px) {
+    .gw-input-group-row {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+}
+
+.metal-select-wrapper {
+    position: relative;
+}
+
+.metal-select-wrapper select {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 1rem;
+    appearance: none;
+    background-color: white;
+    cursor: pointer;
+    transition: border-color 0.2s;
+    height: 50px; /* Fixed height for alignment */
+}
+
+.metal-select-wrapper::after {
+    content: '\f0d7';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #64748b;
+    pointer-events: none;
+}
+
+.input-group-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 15px;
+    margin-bottom: 20px;
+    align-items: end; /* Aligns label bottoms or input bottoms */
+}
+
+/* New class for full width rows */
+.input-group-full {
+    margin-bottom: 20px;
+}
+
+.input-wrapper input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: all 0.2s;
+    height: 50px; /* Fixed height for alignment */
+    appearance: none; /* Removes default styling */
+}
+
+.input-wrapper input:focus {
+    border-color: #1a1a1a;
+    outline: none;
+}
+
+.unit-select select {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: white;
+    cursor: pointer;
+    height: 50px; /* Fixed height for alignment */
+    appearance: none;
+}
+
+/* Custom arrow for unit select since we removed appearance */
+.unit-select {
+    position: relative;
+}
+
+.unit-select::after {
+    content: '\f0d7';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    position: absolute;
+    right: 15px;
+    top: 42px; /* Adjusted for label height */
+    color: #64748b;
+    pointer-events: none;
+}
+
+.converter-arrow {
+    text-align: center;
+    margin: 10px 0;
+    color: #64748b;
+}
+
+.result-display {
+    background: #f8fafc;
+    border: 2px dashed #cbd5e1;
+    border-radius: 8px;
+    padding: 25px;
+    text-align: center;
+    margin: 25px 0;
+    position: relative;
+}
+
+.result-value {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #1a1a1a;
+    margin-bottom: 5px;
+    word-break: break-all;
+}
+
+.result-unit {
+    font-size: 1rem;
+    color: #64748b;
+    font-weight: 500;
+}
+
+.copy-result-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: #475569;
+}
+
+.copy-result-btn:hover {
+    background: #f1f5f9;
+    color: #1a1a1a;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.convert-btn {
+    flex: 2;
+    background: #1a1a1a;
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.convert-btn:hover {
+    background: #333;
+}
+
+.reset-btn {
+    flex: 1;
+    background: #f1f5f9;
+    color: #475569;
+    border: 1px solid #e2e8f0;
+    padding: 14px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.reset-btn:hover {
+    background: #e2e8f0;
+    color: #1a1a1a;
+}
+
+/* Comprehensive Table */
+.all-conversions-container {
+    margin-top: 30px;
+    border-top: 1px solid #e2e8f0;
+    padding-top: 20px;
+}
+
+.all-conversions-container h4 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #1a1a1a;
+}
+
+.conversions-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+}
+
+.conversions-table td {
+    padding: 10px 15px;
+    border-bottom: 1px solid #f1f5f9;
+    color: #1a1a1a;
+}
+
+.conversions-table td:first-child {
+    font-weight: 600;
+    color: #475569;
+    width: 50%;
+}
+
+.conversions-table td:last-child {
+    font-family: monospace;
+    font-size: 1rem;
+    text-align: right;
+}
+
+.conversions-table tr:last-child td {
+    border-bottom: none;
+}
+
+@media (max-width: 600px) {
+    .input-group-row {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+    
+    .action-buttons {
+        flex-direction: column;
+    }
+}

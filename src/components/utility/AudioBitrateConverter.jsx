@@ -7,6 +7,8 @@ import FAQSection from '../tool/FAQSection';
 import TableOfContents from '../tool/TableOfContents';
 import FeedbackForm from '../tool/FeedbackForm';
 import '../../assets/css/utility/audio-bitrate-converter.css';
+import { toolCategories } from '../../data/toolCategories';
+
 
 const AudioBitrateConverter = () => {
   const [activeTab, setActiveTab] = useState('bitrate'); // 'bitrate', 'format', 'video'
@@ -322,14 +324,6 @@ const AudioBitrateConverter = () => {
     tags: ["audio", "bitrate", "converter", "wav", "video", "extractor", "mp3"]
   };
 
-  const categories = [
-    { name: 'Utility', url: '/utility-tools', icon: 'fas fa-tools' },
-    { name: 'Math', url: '/math', icon: 'fas fa-calculator' },
-    { name: 'Finance', url: '/finance', icon: 'fas fa-dollar-sign' },
-    { name: 'Health', url: '/health', icon: 'fas fa-heartbeat' },
-    { name: 'Science', url: '/science', icon: 'fas fa-flask' },
-    { name: 'Knowledge', url: '/knowledge', icon: 'fas fa-book' }
-  ];
 
   const relatedTools = [
       { name: "Text to Speech", url: "/utility-tools/converter-tools/text-to-speech-converter", icon: "fas fa-volume-up" },
@@ -377,7 +371,7 @@ const AudioBitrateConverter = () => {
   return (
     <ToolPageLayout
       toolData={toolData}
-      categories={categories}
+      categories={toolCategories}
       relatedTools={relatedTools}
       tableOfContents={tableOfContents}
     >

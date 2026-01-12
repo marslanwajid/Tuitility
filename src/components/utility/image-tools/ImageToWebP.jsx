@@ -7,7 +7,9 @@ import ContentSection from '../../tool/ContentSection'
 import FAQSection from '../../tool/FAQSection'
 import TableOfContents from '../../tool/TableOfContents'
 import FeedbackForm from '../../tool/FeedbackForm'
-import '../../../assets/css/utility/image-to-webp.css'
+import '../../../assets/css/utility/image-to-webp.css';
+import { toolCategories } from '../../../data/toolCategories';
+
 
 const ImageToWebP = () => {
   // State for converter logic
@@ -197,14 +199,6 @@ const ImageToWebP = () => {
     breadcrumb: ['Utility', 'Tools', 'Image to WebP Converter']
   }
 
-  const categories = [
-    { name: 'Utility', url: '/utility-tools', icon: 'fas fa-tools' },
-    { name: 'Math', url: '/math', icon: 'fas fa-calculator' },
-    { name: 'Finance', url: '/finance', icon: 'fas fa-dollar-sign' },
-    { name: 'Health', url: '/health', icon: 'fas fa-heartbeat' },
-    { name: 'Science', url: '/science', icon: 'fas fa-flask' }
-  ]
-
   const relatedTools = [
     { name: 'Word Counter', url: '/utility-tools/word-counter', icon: 'fas fa-font' },
     { name: 'Password Generator', url: '/utility-tools/password-generator', icon: 'fas fa-key' },
@@ -262,7 +256,7 @@ const ImageToWebP = () => {
     <ToolPageLayout
       toolData={toolData}
       tableOfContents={tableOfContents}
-      categories={categories}
+      categories={toolCategories}
       relatedTools={relatedTools}
     >
       <CalculatorSection

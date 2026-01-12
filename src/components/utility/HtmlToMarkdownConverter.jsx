@@ -6,6 +6,8 @@ import FAQSection from '../tool/FAQSection';
 import TableOfContents from '../tool/TableOfContents';
 import FeedbackForm from '../tool/FeedbackForm';
 import '../../assets/css/utility/html-to-markdown.css';
+import { toolCategories } from '../../data/toolCategories';
+
 
 const HtmlToMarkdownConverter = () => {
   const [conversionType, setConversionType] = useState('to-markdown');
@@ -188,14 +190,6 @@ const HtmlToMarkdownConverter = () => {
     tags: ["html", "markdown", "converter", "syntax", "developer"]
   };
 
-  const categories = [
-    { name: 'Utility', url: '/utility-tools', icon: 'fas fa-tools' },
-    { name: 'Math', url: '/math', icon: 'fas fa-calculator' },
-    { name: 'Finance', url: '/finance', icon: 'fas fa-dollar-sign' },
-    { name: 'Health', url: '/health', icon: 'fas fa-heartbeat' },
-    { name: 'Science', url: '/science', icon: 'fas fa-flask' },
-    { name: 'Knowledge', url: '/knowledge', icon: 'fas fa-book' }
-  ];
 
   const relatedTools = [
       { name: "Word Counter", url: "/utility-tools/word-counter", icon: "fas fa-font" },
@@ -238,7 +232,7 @@ const HtmlToMarkdownConverter = () => {
   return (
     <ToolPageLayout
       toolData={toolData}
-      categories={categories}
+      categories={toolCategories}
       relatedTools={relatedTools}
       tableOfContents={tableOfContents}
     >

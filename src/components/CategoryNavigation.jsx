@@ -613,7 +613,21 @@ const CategoryNavigation = () => {
       icon: "fab fa-instagram",
     },
     {
+      name: "TikTok Downloader",
+      desc: "Download TikTok videos",
+      url: "/utility-tools/converter-tools/tiktok-downloader",
+      category: "Utility",
+      icon: "fab fa-tiktok",
+    },
+    {
       name: "QR Code Scanner",
+      desc: "Scan and decode QR codes",
+      url: "/utility-tools/converter-tools/qr-code-scanner",
+      category: "Utility",
+      icon: "fas fa-qrcode",
+    },
+    {
+      name: "QR Code Generator",
       desc: "Scan and decode QR codes",
       url: "/utility-tools/converter-tools/qr-code-scanner",
       category: "Utility",
@@ -624,7 +638,7 @@ const CategoryNavigation = () => {
       desc: "Convert RGB to Pantone colors",
       url: "/utility-tools/converter-tools/rgb-to-pantone-converter",
       category: "Utility",
-      icon: "fas fa-swatches",
+      icon: "fas fa-palette",
     },
     {
       name: "Gold Weight Converter",
