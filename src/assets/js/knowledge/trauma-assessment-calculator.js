@@ -2,7 +2,7 @@
 // This file contains the core logic for the trauma assessment functionality
 
 // Gemini API configuration
-const GEMINI_API_KEY = process.env.REACT_APP_GEMINI_API_KEY;
+const GEMINI_API_KEY = process.env.GEMINI_API;
 const API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent';
 
 // Assessment questions

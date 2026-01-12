@@ -16,7 +16,7 @@ const GenZTranslator = () => {
   
   const typingTimerRef = useRef(null);
 
-  const API_KEY = import.meta.env.REACT_APP_GEMINI_API_KEY;
+  const API_KEY = import.meta.env.GEMINI_API;
   const API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent';
 
   const translateWithGemini = async (text, toGenZ) => {

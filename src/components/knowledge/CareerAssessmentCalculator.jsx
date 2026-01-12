@@ -237,7 +237,7 @@ Format the response as JSON with the following structure:
 
 IMPORTANT: Return ONLY valid JSON, no additional text or formatting.`;
 
-      const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${process.env.REACT_APP_GEMINI_API_KEY}`, {
+      const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${process.env.GEMINI_API}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

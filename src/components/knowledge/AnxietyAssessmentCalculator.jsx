@@ -197,7 +197,7 @@ Please provide:
 Format your response with clear sections: "Understanding Your Results", "Personalized Self-Care Strategies", and "Moving Forward".
 Keep your response under 500 words and use a warm, supportive tone.`;
 
-      const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${process.env.REACT_APP_GEMINI_API_KEY}`, {
+      const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${process.env.GEMINI_API}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

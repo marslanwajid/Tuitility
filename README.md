@@ -5,6 +5,7 @@ A comprehensive collection of free online calculators and tools for math, financ
 ## 🚀 Features
 
 ### 📊 **100+ Free Tools**
+
 - **Math Calculators**: Fraction, percentage, decimal, binary, LCM, LCD, and more
 - **Finance Tools**: Mortgage, loan, currency converter, ROI, compound interest
 - **Science Calculators**: Wave speed, gravity, work/power, capacitance, atomic mass
@@ -14,6 +15,7 @@ A comprehensive collection of free online calculators and tools for math, financ
 - **Knowledge Tools**: GPA, age, WPM, love calculator, personality tests
 
 ### 🎯 **Key Highlights**
+
 - **100% Free**: All tools available without any cost
 - **24/7 Available**: Access anytime, anywhere
 - **User-Friendly**: Clean, modern interface with intuitive navigation
@@ -55,6 +57,7 @@ tuitility/
 ## 🚀 Getting Started
 
 ### Prerequisites
+
 - Node.js (version 16 or higher)
 - npm or yarn package manager
 - Google Gemini API key (for AI-powered calculators)
@@ -62,24 +65,28 @@ tuitility/
 ### Installation
 
 1. **Clone the repository**
+
    ```bash
    git clone https://github.com/yourusername/tuitility.git
    cd tuitility
    ```
 
 2. **Install dependencies**
+
    ```bash
    npm install
    ```
 
 3. **Set up environment variables**
+
    ```bash
    # Create .env file and add your Google Gemini API key
    # Get your API key from: https://makersuite.google.com/app/apikey
-   echo "REACT_APP_GEMINI_API_KEY=your_gemini_api_key_here" > .env
+   echo "GEMINI_API=your_gemini_api_key_here" > .env
    ```
 
 4. **Start the development server**
+
    ```bash
    npm run dev
    ```
@@ -88,7 +95,8 @@ tuitility/
    Navigate to `http://localhost:5173` to view the application
 
 ### Environment Variables
-- `REACT_APP_GEMINI_API_KEY`: Required for AI-powered analysis in Career and Trauma Assessment calculators. Get your free API key from [Google AI Studio](https://makersuite.google.com/app/apikey).
+
+- `GEMINI_API`: Required for AI-powered analysis in Career and Trauma Assessment calculators. Get your free API key from [Google AI Studio](https://makersuite.google.com/app/apikey).
 
 ### Available Scripts
 
@@ -100,6 +108,7 @@ tuitility/
 ## 🎨 Design Features
 
 ### Home Page Components
+
 - **Hero Section**: Eye-catching introduction with call-to-action buttons
 - **Category Navigation**: Organized tool categories with visual cards
 - **Tools Showcase**: Featured tools with descriptions
@@ -107,6 +116,7 @@ tuitility/
 - **Search Functionality**: Find tools quickly with intelligent search
 
 ### User Experience
+
 - **Intuitive Navigation**: Easy-to-use category system
 - **Visual Hierarchy**: Clear organization with color-coded categories
 - **Responsive Design**: Optimized for desktop, tablet, and mobile
@@ -115,6 +125,7 @@ tuitility/
 ## 📊 Tool Categories
 
 ### 🧮 Math Calculators
+
 - Fraction Calculator
 - Percentage Calculator
 - Decimal to Fraction Converter
@@ -124,6 +135,7 @@ tuitility/
 - Decimal Calculator
 
 ### 💰 Finance Tools
+
 - Mortgage Calculator
 - Loan Calculator
 - Currency Converter
@@ -134,6 +146,7 @@ tuitility/
 - Business Loan Calculator
 
 ### 🔬 Science Calculators
+
 - Wave Speed Calculator
 - Gravity Calculator
 - Work Power Calculator
@@ -143,6 +156,7 @@ tuitility/
 - Atomic Mass Calculator
 
 ### 💪 Health Calculators
+
 - BMI Calculator
 - Calorie Calculator
 - Water Intake Calculator
@@ -152,6 +166,7 @@ tuitility/
 - Diabetes Risk Calculator
 
 ### 🛠️ Utility Tools
+
 - QR Code Generator/Scanner
 - Password Generator
 - Word Counter
@@ -167,6 +182,7 @@ tuitility/
 - Instagram Reels Downloader
 
 ### 📄 PDF Tools
+
 - PDF Compressor
 - PDF Merger
 - PDF Splitter
@@ -177,6 +193,7 @@ tuitility/
 - PDF to Word/Excel/Image
 
 ### 🧠 Knowledge Tools
+
 - GPA Calculator
 - Age Calculator
 - WPM Calculator
@@ -190,6 +207,7 @@ tuitility/
 We welcome contributions! Please feel free to submit a Pull Request. For major changes, please open an issue first to discuss what you would like to change.
 
 ### How to Contribute
+
 1. Fork the repository
 2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
 3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
@@ -210,6 +228,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 📞 Support
 
 If you have any questions or need support, please:
+
 - Open an issue on GitHub
 - Check our documentation
 - Contact our support team
