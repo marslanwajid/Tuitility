@@ -601,7 +601,7 @@ const CategoryNavigation = () => {
     {
       name: "Audio Bitrate Converter",
       desc: "Convert audio between different bitrates",
-      url: "/utility-tools/converter-tools/audio-bitrate-converter",
+      url: "/utility-tools/audio-bitrate-converter",
       category: "Utility",
       icon: "fas fa-music",
     },

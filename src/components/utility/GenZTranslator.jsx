@@ -20,7 +20,7 @@ const GenZTranslator = () => {
   const API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent';
 
   const translateWithGemini = async (text, toGenZ) => {
-    if (!API_KEY) {
+    if (!API_KEY) { 
       return "Error: API Key not found. Please check your .env file.";
     }
 
