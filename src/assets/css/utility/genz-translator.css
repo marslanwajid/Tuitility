@@ -1,0 +1,241 @@
+/* Gen Z Translator Styles */
+
+.genz-translator-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.translator-controls {
+  background: white;
+  padding: 24px;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+@media (min-width: 768px) {
+  .translator-controls {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.translator-toggles {
+  display: flex;
+  gap: 12px;
+  background: #f8fafc;
+  padding: 6px;
+  border-radius: 10px;
+  width: fit-content;
+}
+
+.lang-toggle-btn {
+  background: transparent;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  color: #6b7280;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 0.95rem;
+}
+
+.lang-toggle-btn.active {
+  background: white;
+  color: #1a1a1a;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.translator-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (min-width: 768px) {
+  .translator-grid {
+    grid-template-columns: 1fr 48px 1fr;
+    align-items: center;
+  }
+}
+
+.translation-box {
+  background: white;
+  border-radius: 16px;
+  border: 1px solid #e5e7eb;
+  display: flex;
+  flex-direction: column;
+  height: 400px;
+  transition: all 0.2s;
+}
+
+.translation-box:focus-within {
+  border-color: #1a1a1a;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.box-header {
+  padding: 16px 20px;
+  border-bottom: 1px solid #f1f5f9;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.box-label {
+  font-weight: 700;
+  color: #1a1a1a;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+}
+
+.box-actions button {
+  background: transparent;
+  border: none;
+  color: #9ca3af;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+
+.box-actions button:hover {
+  color: #1a1a1a;
+  background: #f3f4f6;
+}
+
+.translation-textarea {
+  flex: 1;
+  width: 100%;
+  border: none;
+  padding: 20px;
+  resize: none;
+  font-family: inherit;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #1f2937;
+  outline: none;
+  background: transparent;
+}
+
+.translation-textarea::placeholder {
+  color: #d1d5db;
+}
+
+.swap-btn-container {
+  display: flex;
+  justify-content: center;
+}
+
+.swap-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: white;
+  border: 1px solid #e5e7eb;
+  color: #4b5563;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  font-size: 1.2rem;
+}
+
+.swap-btn:hover {
+  transform: rotate(180deg);
+  border-color: #1a1a1a;
+  color: #1a1a1a;
+}
+
+.genz-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  background: #000;
+  color: #fff;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+/* Loading State */
+.translation-box.relative {
+  position: relative;
+}
+
+.loading-blur {
+  filter: blur(2px);
+  opacity: 0.5;
+  transition: all 0.3s;
+}
+
+.translator-loader-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(1px);
+  z-index: 10;
+  border-radius: 0 0 16px 16px;
+  gap: 12px;
+}
+
+.loader-text {
+  font-weight: 600;
+  color: #1a1a1a;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.typing-indicator {
+  display: flex;
+  gap: 6px;
+}
+
+.typing-indicator span {
+  width: 8px;
+  height: 8px;
+  background: #1a1a1a;
+  border-radius: 50%;
+  animation: typing 1.4s infinite ease-in-out both;
+}
+
+.typing-indicator span:nth-child(1) {
+  animation-delay: -0.32s;
+}
+
+.typing-indicator span:nth-child(2) {
+  animation-delay: -0.16s;
+}
+
+@keyframes typing {
+  0%, 80%, 100% { 
+    transform: scale(0);
+  } 
+  40% { 
+    transform: scale(1);
+  }
+}
+
+.api-status-valid {
+  color: #10b981;
+  font-size: 0.8rem;
+  margin-left: 8px;
+}

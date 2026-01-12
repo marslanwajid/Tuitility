@@ -519,6 +519,13 @@ const CategoryNavigation = () => {
       category: "Utility",
       icon: "fas fa-file-alt",
     },
+    {
+      name: "Gen Z Translator",
+      desc: "Translate modern slang and expressions",
+      url: "/utility-tools/genz-translator",
+      category: "Utility",
+      icon: "fas fa-font",
+    },
     /* Placeholder tools - Files not yet implemented
     {
       name: "RGB to HEX",
@@ -573,14 +580,14 @@ const CategoryNavigation = () => {
     {
       name: "Gen Z Translator",
       desc: "Translate modern slang and expressions",
-      url: "/utility-tools/converter-tools/genz-translator",
-      category: "Utility",
+      url: "/utility-tools/genz-translator",
+      category: "Language",
       icon: "fas fa-language",
     },
     {
       name: "English to IPA",
       desc: "Convert text to phonetic notation",
-      url: "/utility-tools/converter-tools/english-to-ipa-translator",
+      url: "/utility-tools/english-to-ipa-translator",
       category: "Utility",
       icon: "fas fa-microphone-alt",
     },

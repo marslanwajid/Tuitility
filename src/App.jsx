@@ -16,6 +16,8 @@ import QRCodeGenerator from './components/utility/QRCodeGenerator'
 import OCRPDFGenerator from './components/utility/OCRPDFGenerator'
 import MorseCodeTranslator from './components/utility/MorseCodeTranslator'
 import HtmlToMarkdownConverter from './components/utility/HtmlToMarkdownConverter'
+import GenZTranslator from './components/utility/GenZTranslator'
+import EnglishToIPATranslator from './components/utility/EnglishToIPATranslator'
 import ImageToWebP from './components/utility/image-tools/ImageToWebP'
 import KnowledgeCalculator from './pages/knowledge/KnowledgeCalculator'
 import GPACalculator from './components/knowledge/GPACalculator'
@@ -167,6 +169,9 @@ const App = () => {
             <Route path="/utility-tools/ocr-pdf-generator" element={<OCRPDFGenerator />} />
             <Route path="/utility-tools/morse-code-translator" element={<MorseCodeTranslator />} />
             <Route path="/utility-tools/html-to-markdown-converter" element={<HtmlToMarkdownConverter />} />
+            <Route path="/utility-tools/html-to-markdown-converter" element={<HtmlToMarkdownConverter />} />
+            <Route path="/utility-tools/genz-translator" element={<GenZTranslator />} />
+            <Route path="/utility-tools/english-to-ipa-translator" element={<EnglishToIPATranslator />} />
         <Route path="/knowledge" element={<KnowledgeCalculator />} />
             <Route path="/knowledge/calculators/gpa-calculator" element={<GPACalculator />} />
             <Route path="/knowledge/calculators/age-calculator" element={<AgeCalculator />} />

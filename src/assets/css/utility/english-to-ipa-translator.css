@@ -1,0 +1,174 @@
+/* English to IPA Translator Styles */
+
+.ipa-translator-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.translator-controls {
+  background: white;
+  padding: 24px;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.control-group {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.mode-toggle-btn {
+  background: white;
+  border: 2px solid #e5e7eb;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  color: #6b7280;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.mode-toggle-btn.active {
+  border-color: #1a1a1a;
+  background: #f0f0f0;
+  color: #1a1a1a;
+}
+
+.accent-select {
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: 2px solid #e5e7eb;
+  font-weight: 600;
+  color: #374151;
+  background: white;
+  cursor: pointer;
+  outline: none;
+  font-size: 0.95rem;
+}
+
+.accent-select:focus {
+  border-color: #1a1a1a;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.action-btn {
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: 1px solid transparent;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.action-btn.primary {
+  background: #1a1a1a;
+  color: white;
+}
+
+.action-btn.primary:hover {
+  background: #000000;
+  transform: translateY(-1px);
+}
+
+.action-btn.secondary {
+  background: white;
+  border-color: #e5e7eb;
+  color: #374151;
+}
+
+.action-btn.secondary:hover {
+  border-color: #d1d5db;
+  background: #f9fafb;
+}
+
+.action-btn.danger {
+  background: white;
+  border-color: #e5e7eb;
+  color: #ef4444;
+}
+
+.action-btn.danger:hover {
+  background: #fef2f2;
+  border-color: #fecaca;
+}
+
+.editor-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (min-width: 768px) {
+  .editor-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.editor-pane {
+  background: white;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  display: flex;
+  flex-direction: column;
+  height: 400px;
+  transition: border-color 0.2s;
+}
+
+.editor-pane:focus-within {
+  border-color: #1a1a1a;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.pane-header {
+  padding: 16px 20px;
+  border-bottom: 1px solid #f1f5f9;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f8fafc;
+  border-radius: 12px 12px 0 0;
+}
+
+.pane-title {
+  font-weight: 600;
+  color: #1a1a1a;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.editor-textarea {
+  flex: 1;
+  width: 100%;
+  border: none;
+  padding: 20px;
+  resize: none;
+  font-family: 'Times New Roman', Times, serif; /* Serifs are often better for IPA symbols */
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #374151;
+  outline: none;
+  background: white;
+  border-radius: 0 0 12px 12px;
+}
+
+.editor-textarea::placeholder {
+  color: #9ca3af;
+  font-family: inherit;
+}
