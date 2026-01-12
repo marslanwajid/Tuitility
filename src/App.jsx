@@ -23,6 +23,9 @@ import InstagramReelsDownloader from './components/utility/InstagramReelsDownloa
 import TikTokDownloader from './components/utility/TikTokDownloader'
 import QRCodeScanner from './components/utility/QRCodeScanner'
 import ImageToWebP from './components/utility/image-tools/ImageToWebP'
+import AspectRatioConverter from './components/utility/image-tools/AspectRatioConverter'
+import ColorBlindnessSimulator from './components/utility/image-tools/ColorBlindnessSimulator'
+import RgbToHexConverter from './components/utility/RgbToHexConverter'
 import RgbToPantoneConverter from './components/utility/RgbToPantoneConverter'
 import GoldWeightConverter from './components/utility/GoldWeightConverter'
 import KnowledgeCalculator from './pages/knowledge/KnowledgeCalculator'
@@ -182,6 +185,9 @@ const App = () => {
           <Route path="/utility-tools/converter-tools/reels-downloader" element={<InstagramReelsDownloader />} />
           <Route path="/utility-tools/converter-tools/tiktok-downloader" element={<TikTokDownloader />} />
           <Route path="/utility-tools/converter-tools/qr-code-scanner" element={<QRCodeScanner />} />
+          <Route path="/utility-tools/image-tools/aspect-ratio-converter" element={<AspectRatioConverter />} />
+        <Route path="/utility-tools/rgb-to-hex-converter" element={<RgbToHexConverter />} />
+          <Route path="/utility-tools/image-tools/color-blindness-simulator" element={<ColorBlindnessSimulator />} />
           <Route path="/utility-tools/converter-tools/rgb-to-pantone-converter" element={<RgbToPantoneConverter />} />
           <Route path="/utility-tools/converter-tools/gold-precious-metal-weight-converter" element={<GoldWeightConverter />} />
         <Route path="/knowledge" element={<KnowledgeCalculator />} />

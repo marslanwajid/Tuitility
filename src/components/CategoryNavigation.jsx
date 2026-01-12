@@ -3,11 +3,7 @@ import { Link } from "react-router-dom";
 import SearchBar from "./SearchBar";
 import "../assets/css/category-navigation.css";
 
-const CategoryNavigation = () => {
-  const [activeFilter, setActiveFilter] = useState("all");
-  const [searchQuery, setSearchQuery] = useState("");
-
-  const categories = [
+export const toolCategories = [
     {
       id: 1,
       title: "Math Calculators",
@@ -57,6 +53,12 @@ const CategoryNavigation = () => {
       link: "/knowledge",
     },
   ];
+
+const CategoryNavigation = () => {
+  const [activeFilter, setActiveFilter] = useState("all");
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const categories = toolCategories;
 
   const filterTabs = [
     {
@@ -526,7 +528,7 @@ const CategoryNavigation = () => {
       category: "Utility",
       icon: "fas fa-font",
     },
-    /* Placeholder tools - Files not yet implemented
+    
     {
       name: "RGB to HEX",
       desc: "Convert color formats",
@@ -534,6 +536,7 @@ const CategoryNavigation = () => {
       category: "Utility",
       icon: "fas fa-palette",
     },
+    /* Placeholder tools - Files not yet implemented
     {
       name: "Text Case Converter",
       desc: "Change text case formats",
@@ -634,6 +637,20 @@ const CategoryNavigation = () => {
       icon: "fas fa-search",
     },
     {
+      name: "Aspect Ratio Converter",
+      desc: "Calculate and convert aspect ratios",
+      url: "/utility-tools/image-tools/aspect-ratio-converter",
+      category: "Utility",
+      icon: "fas fa-expand-arrows-alt",
+    },
+    {
+      name: "Color Blindness Simulator",
+      desc: "Simulate color vision deficiencies",
+      url: "/utility-tools/image-tools/color-blindness-simulator",
+      category: "Utility",
+      icon: "fas fa-eye",
+    },
+    {
       name: "RGB to Pantone",
       desc: "Convert RGB to Pantone colors",
       url: "/utility-tools/converter-tools/rgb-to-pantone-converter",
@@ -647,13 +664,13 @@ const CategoryNavigation = () => {
       category: "Utility",
       icon: "fas fa-coins",
     },
-    {
-      name: "Image to WebP Converter",
-      desc: "Convert images to WebP format",
-      url: "/utility-tools/image-tools/image-to-webp-converter",
-      category: "Utility",
-      icon: "fas fa-image",
-    },
+    // {
+    //   name: "Image to WebP Converter",
+    //   desc: "Convert images to WebP format",
+    //   url: "/utility-tools/image-tools/image-to-webp-converter",
+    //   category: "Utility",
+    //   icon: "fas fa-image",
+    // },
     {
       name: "Aspect Ratio Converter",
       desc: "Calculate and convert aspect ratios",

@@ -1,0 +1,445 @@
+/* Aspect Ratio Converter Styles */
+
+/* Tabs */
+.arc-tabs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    /* margin-bottom: 30px; */
+    margin-top: 50px;
+    width: 100%;
+}
+
+.arc-tab {
+    padding: 12px 30px;
+    background: #f1f5f9;
+    border: 2px solid transparent;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #64748b;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.arc-tab.active {
+    background: #1a1a1a;
+    color: white;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.arc-tab:hover:not(.active) {
+    background: #e2e8f0;
+    color: #1e293b;
+}
+
+/* Calculator Section */
+.arc-calculator-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+}
+
+@media (max-width: 900px) {
+    .arc-calculator-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+.arc-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    justify-content: center;
+}
+
+.arc-group label {
+    display: block;
+    margin-bottom: 12px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: #334155;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.arc-presets {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.arc-preset-btn {
+    padding: 8px 16px;
+    background: white;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-weight: 500;
+}
+
+.arc-preset-btn:hover {
+    border-color: #1a1a1a;
+    background: #f8fafc;
+    color: #1a1a1a;
+}
+
+.arc-inputs-row {
+    display: flex;
+    align-items: center; /* Vertically align items */
+    gap: 15px;
+}
+
+.arc-input-group {
+    flex: 1;
+}
+
+.arc-input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    color: #64748b;
+    font-weight: 600;
+}
+
+.arc-input-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #1e293b;
+    transition: border-color 0.2s;
+}
+
+.arc-input-group input:focus {
+    outline: none;
+    border-color: #3b82f6;
+}
+
+.arc-ratio-display, .arc-ratio-symbol {
+    padding-top: 24px; /* Compensate for label height to center with input */
+    font-size: 1.2rem;
+    color: #94a3b8;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 30px;
+}
+
+/* Preview Area */
+.arc-preview-area {
+    background: #f8fafc;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    border: 2px dashed #cbd5e1;
+}
+
+.arc-visual-box {
+    background: #1a1a1a;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    border-radius: 4px;
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.arc-visual-box span {
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.arc-visual-box small {
+    opacity: 0.7;
+}
+
+/* Converter Section */
+.arc-converter-container {
+    padding: 20px;
+}
+
+.arc-upload-zone {
+    border: 3px dashed #cbd5e1;
+    border-radius: 12px;
+    padding: 60px;
+    text-align: center;
+    background: #f8fafc;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s;
+}
+
+.arc-upload-zone:hover, .arc-upload-zone.drag-over {
+    border-color: #1a1a1a;
+    background: #f1f5f9;
+}
+
+.arc-upload-zone i {
+    color: #94a3b8;
+    margin-bottom: 20px;
+}
+
+.arc-file-input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.arc-editor {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 30px;
+}
+
+@media (max-width: 850px) {
+    .arc-editor {
+        grid-template-columns: 1fr;
+    }
+}
+
+.arc-editor-sidebar {
+    background: #f8fafc;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+}
+
+.arc-control-group {
+    margin-bottom: 20px;
+}
+
+.arc-dual-inputs {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.arc-dual-inputs input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    text-align: center;
+}
+
+.arc-mini-presets {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.arc-custom-ratio-group {
+    background: #f1f5f9;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.arc-custom-ratio-group label {
+    font-size: 0.8rem;
+    margin-bottom: 5px;
+    display: block;
+    color: #64748b;
+}
+
+.arc-dual-inputs.small input {
+    width: 60px;
+    font-size: 0.9rem;
+    padding: 6px;
+}
+
+.arc-apply-btn {
+    background: #1a1a1a;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 6px 12px;
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+
+/* Anchor Grid */
+.arc-anchor-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 120px;
+    gap: 5px;
+}
+
+.arc-anchor-btn {
+    width: 36px;
+    height: 36px;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+    background: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.arc-anchor-btn:hover {
+    border-color: #94a3b8;
+    background: #f8fafc;
+}
+
+.arc-anchor-btn.active {
+    background: #1a1a1a;
+    border-color: #1a1a1a;
+}
+
+.arc-anchor-btn .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #cbd5e1;
+    transition: all 0.2s;
+}
+
+.arc-anchor-btn.active .dot {
+    background: white;
+}
+
+.arc-mode-toggles {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.arc-mode-toggles button {
+    padding: 10px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    background: white;
+    cursor: pointer;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.arc-mode-toggles button.active {
+    background: #e2e8f0;
+    border-color: #64748b;
+    font-weight: 600;
+}
+
+.arc-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 30px;
+}
+
+.arc-btn-primary {
+    background: #1a1a1a;
+    color: white;
+    padding: 12px;
+    border-radius: 6px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.arc-btn-secondary {
+    background: transparent;
+    border: 1px solid #ef4444;
+    color: #ef4444;
+    padding: 10px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.arc-canvas {
+    max-width: 100%;
+    max-height: 500px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    background: white; /* Actual canvas bg */
+    touch-action: none;
+}
+
+.arc-canvas.grabbable {
+    cursor: grab;
+}
+
+.arc-canvas.grabbing {
+    cursor: grabbing;
+}
+
+.arc-canvas-wrapper {
+    background: #1a1a1a;
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    min-height: 400px;
+    position: relative;
+    flex-direction: column;
+}
+
+.arc-drag-hint {
+    margin-top: 15px;
+    color: #94a3b8;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Ratio Guide Grid */
+.arc-ratio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.arc-ratio-card {
+    background: #f8fafc;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+}
+
+.arc-ratio-card h4 {
+    margin: 0 0 10px 0;
+    color: #1a1a1a;
+}
+
+.arc-ratio-card p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #64748b;
+    line-height: 1.5;
+}
