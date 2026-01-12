@@ -16,7 +16,7 @@ const UtilityTools = () => {
     { name: 'HTML to Markdown', desc: 'Convert HTML markup to Markdown', url: '/html-to-markdown-converter', category: 'Converters', icon: 'fab fa-html5' },
     { name: 'English to IPA', desc: 'Convert text to phonetic notation', url: '/utility-tools/english-to-ipa-translator', category: 'Language', icon: 'fas fa-microphone-alt' },
     { name: 'Audio Bitrate Converter', desc: 'Convert audio between different bitrates', url: '/utility-tools/audio-bitrate-converter', category: 'Audio', icon: 'fas fa-music' },
-    { name: 'Instagram Reels Downloader', desc: 'Download Instagram Reels videos', url: '/converter-tools/reels-downloader', category: 'Social Media', icon: 'fab fa-instagram' },
+    { name: 'Instagram Reels Downloader', desc: 'Download Instagram Reels videos', url: '/utility-tools/converter-tools/reels-downloader', category: 'Social Media', icon: 'fab fa-instagram' },
     { name: 'QR Code Scanner', desc: 'Scan and decode QR codes', url: '/converter-tools/qr-code-scanner', category: 'Generators', icon: 'fas fa-search' },
     { name: 'RGB to Pantone', desc: 'Convert RGB to Pantone colors', url: '/converter-tools/rgb-to-pantone-converter', category: 'Converters', icon: 'fas fa-swatches' },
     { name: 'Gold Weight Converter', desc: 'Convert precious metal weights', url: '/converter-tools/gold-precious-metal-weight-converter', category: 'Converters', icon: 'fas fa-coins' },
