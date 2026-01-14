@@ -3,7 +3,11 @@ import { Link } from "react-router-dom";
 import SearchBar from "./SearchBar";
 import "../assets/css/category-navigation.css";
 
-export const toolCategories = [
+const CategoryNavigation = () => {
+  const [activeFilter, setActiveFilter] = useState("all");
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const categories = [
     {
       id: 1,
       title: "Math Calculators",
@@ -53,12 +57,6 @@ export const toolCategories = [
       link: "/knowledge",
     },
   ];
-
-const CategoryNavigation = () => {
-  const [activeFilter, setActiveFilter] = useState("all");
-  const [searchQuery, setSearchQuery] = useState("");
-
-  const categories = toolCategories;
 
   const filterTabs = [
     {
@@ -532,7 +530,7 @@ const CategoryNavigation = () => {
     {
       name: "RGB to HEX",
       desc: "Convert color formats",
-      url: "/utility-tools/rgb-to-hex",
+      url: "/utility-tools/converter-tools/rgb-to-hex-converter",
       category: "Utility",
       icon: "fas fa-palette",
     },

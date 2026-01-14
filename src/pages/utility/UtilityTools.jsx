@@ -23,6 +23,7 @@ const UtilityTools = () => {
     { name: 'Aspect Ratio Converter', desc: 'Calculate and convert aspect ratios', url: '/utility-tools/image-tools/aspect-ratio-converter', category: 'Image Tools', icon: 'fas fa-expand-arrows-alt' },
     { name: 'Color Blindness Simulator', desc: 'Simulate color vision deficiencies', url: '/utility-tools/image-tools/color-blindness-simulator', category: 'Image Tools', icon: 'fas fa-eye' },
     { name: 'RGB to Pantone', desc: 'Convert RGB to Pantone colors', url: '/utility-tools/converter-tools/rgb-to-pantone-converter', category: 'Converters', icon: 'fas fa-palette' },
+    { name: 'RGB to HEX Converter', desc: 'Convert RGB to HEX codes', url: '/utility-tools/converter-tools/rgb-to-hex-converter', category: 'Converters', icon: 'fas fa-palette' },
     { name: 'Gold Weight Converter', desc: 'Convert precious metal weights', url: '/converter-tools/gold-precious-metal-weight-converter', category: 'Converters', icon: 'fas fa-coins' },
     { name: 'Image to WebP Converter', desc: 'Convert images to WebP format', url: '/image-tools/image-to-webp-converter', category: 'Image Tools', icon: 'fas fa-image' },
     { name: 'Aspect Ratio Converter', desc: 'Calculate and convert aspect ratios', url: '/image-tools/aspect-ratio-converter', category: 'Image Tools', icon: 'fas fa-expand-arrows-alt' },

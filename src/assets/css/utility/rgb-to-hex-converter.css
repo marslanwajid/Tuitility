@@ -1,27 +1,69 @@
-/* RGB To Hex Converter CSS */
+/* RGB to Hex Converter Styles */
 
-.rgb-converter-container {
-    display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
-    gap: 40px;
+.r2h-container {
     background: white;
     padding: 30px;
     border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
 }
 
-@media (max-width: 768px) {
-    .rgb-converter-container {
+/* Tabs */
+.r2h-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+.r2h-tab {
+    background: #f1f5f9;
+    color: #64748b;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.r2h-tab:hover {
+    background: #e2e8f0;
+    color: #475569;
+}
+
+.r2h-tab.active {
+    background: #3b82f6;
+    color: white;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+/* Grid Layout */
+.r2h-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: start;
+}
+
+@media (max-width: 900px) {
+    .r2h-grid {
         grid-template-columns: 1fr;
     }
 }
 
-.rgb-controls {
+/* Left Column: Controls */
+.r2h-controls {
     display: flex;
     flex-direction: column;
     gap: 30px;
 }
 
-.rgb-group label {
+.r2h-group label {
     display: block;
     margin-bottom: 15px;
     font-weight: 600;
@@ -29,162 +71,248 @@
     color: #334155;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-}
-
-/* RGB Inputs */
-.rgb-inputs {
     display: flex;
-    gap: 15px;
-    margin-bottom: 15px;
-}
-
-.rgb-input-wrapper {
-    flex: 1;
-    position: relative;
-}
-
-.rgb-input-wrapper label {
-    position: absolute;
-    top: -24px; /* Move label outside or use simpler layout */
-    left: 0;
-    font-size: 0.8rem;
-    color: #64748b;
-    margin: 0;
-    display: none; /* Hiding individual labels for cleaner look, relying on group */
-}
-
-.rgb-input-wrapper input {
-    width: 100%;
-    padding: 15px;
-    padding-left: 40px;
-    border: 2px solid #e2e8f0;
-    border-radius: 8px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    text-align: center;
-}
-
-.rgb-input-wrapper::before {
-    content: attr(label); /* Can't use attr on custom el, so doing manual */
-}
-
-/* Custom labels inside inputs */
-.rgb-input-wrapper::after {
-    content: 'R';
-    position: absolute;
-    left: 15px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-weight: bold;
-    color: #cbd5e1;
-}
-
-.rgb-input-wrapper:nth-child(2)::after { content: 'G'; }
-.rgb-input-wrapper:nth-child(3)::after { content: 'B'; }
-
-/* Hex Input */
-.hex-input-wrapper {
-    position: relative;
-    margin-bottom: 15px;
-}
-
-.hex-hash {
-    position: absolute;
-    left: 15px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #cbd5e1;
-}
-
-.hex-input-wrapper input {
-    width: 100%;
-    padding: 15px;
-    padding-left: 45px;
-    border: 2px solid #e2e8f0;
-    border-radius: 8px;
-    font-size: 1.3rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
-
-/* Copy Buttons */
-.rgb-copy-btn {
-    width: 100%;
-    padding: 12px;
-    background: #f1f5f9;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: 600;
-    color: #475569;
-    transition: all 0.2s;
-    display: flex;
-    justify-content: center;
     align-items: center;
     gap: 8px;
 }
 
-.rgb-copy-btn:hover {
-    background: #e2e8f0;
-    color: #1e293b;
+.r2h-group label i {
+    color: #64748b;
 }
 
-.rgb-copy-btn.active {
-    background: #1a1a1a;
-    color: white;
-}
-
-/* Preview Box */
-.rgb-preview-section {
-    display: flex;
-    flex-direction: column;
-}
-
-.rgb-color-preview {
-    width: 100%;
-    height: 100%;
-    min-height: 250px;
-    border-radius: 12px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+/* Hex Input */
+.r2h-hex-wrapper {
     position: relative;
-    overflow: hidden;
-    cursor: pointer;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-    transition: transform 0.2s;
+    display: flex;
+    align-items: center;
 }
 
-.rgb-color-preview:hover {
-    transform: scale(1.02);
+.r2h-hex-prefix {
+    position: absolute;
+    left: 16px;
+    font-size: 1.2rem;
+    color: #94a3b8;
+    font-weight: 600;
 }
 
-.rgb-preview-text {
-    text-align: center;
-    z-index: 2;
-    pointer-events: none; /* Let clicks pass to input */
-}
-
-.rgb-preview-text span {
-    display: block;
-    font-size: 2.5rem;
-    font-weight: 800;
-    letter-spacing: 2px;
-    margin-bottom: 5px;
+.r2h-input-hex {
+    width: 100%;
+    padding: 15px 15px 15px 35px; /* Space for # */
+    font-size: 1.25rem;
+    background: #f8fafc;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    font-family: 'Monaco', 'Courier New', monospace;
+    font-weight: 600;
+    color: #0f172a;
+    transition: all 0.2s;
     text-transform: uppercase;
 }
 
-.rgb-preview-text small {
+.r2h-input-hex:focus {
+    background: white;
+    border-color: #3b82f6;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* RGB Inputs */
+.r2h-rgb-inputs {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.r2h-rgb-field {
+    position: relative;
+}
+
+.r2h-input-rgb {
+    width: 100%;
+    padding: 12px 12px 12px 35px; /* Space for Label */
     font-size: 1.1rem;
+    background: #f8fafc;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    font-weight: 600;
+    color: #0f172a;
+    transition: all 0.2s;
+}
+
+.r2h-input-rgb:focus {
+    background: white;
+    border-color: #3b82f6;
+    outline: none;
+}
+
+.r2h-rgb-label {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #94a3b8;
+}
+
+/* Copy Buttons */
+.r2h-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.r2h-btn-copy {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px;
+    border: 1px solid #cbd5e1;
+    background: white;
+    border-radius: 8px;
+    font-weight: 600;
+    color: #475569;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.r2h-btn-copy:hover {
+    background: #f1f5f9;
+    color: #0f172a;
+    border-color: #94a3b8;
+}
+
+.r2h-btn-copy i {
+    font-size: 1rem;
+}
+
+.r2h-btn-copy.copied {
+    background: #dcfce7;
+    border-color: #86efac;
+    color: #166534;
+}
+
+/* Right Column: Preview */
+.r2h-preview-container {
+    height: 100%;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+}
+
+.r2h-color-preview {
+    flex: 1;
+    border-radius: 12px;
+    box-shadow: inset 0 0 0 1px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 250px;
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.2s;
+}
+
+.r2h-preview-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+    font-family: monospace;
+}
+
+.r2h-preview-sub {
+    font-size: 1rem;
     opacity: 0.8;
+}
+
+.r2h-picker-wrapper {
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+}
+
+.r2h-native-picker {
+    width: 60px;
+    height: 40px;
+    padding: 0;
+    border: none;
+    border-radius: 6px;
+    overflow: hidden;
+    cursor: pointer;
+    background: none;
+}
+
+.r2h-native-picker::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+.r2h-native-picker::-webkit-color-swatch {
+    border: 2px solid #e2e8f0;
+    border-radius: 6px;
+}
+
+.r2h-picker-label {
+    font-size: 0.9rem;
+    color: #64748b;
     font-weight: 500;
 }
 
-.rgb-hidden-picker {
+/* EyeDropper Button */
+.r2h-eyedropper-wrapper {
+    margin-top: 10px;
+    width: 100%;
+}
+
+.r2h-btn-eyedropper {
+    width: 100%;
+    padding: 10px;
+    background: #e0f2fe;
+    color: #0284c7;
+    border: 1px solid #bae6fd;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.2s;
+}
+
+.r2h-btn-eyedropper:hover {
+    background: #bae6fd;
+    transform: translateY(-1px);
+}
+
+/* Image Picker Tab */
+.r2h-upload-zone {
+    width: 100%;
+    height: 300px;
+    border: 3px dashed #cbd5e1;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #64748b;
+    cursor: pointer;
+    transition: all 0.2s;
+    background: #f8fafc;
+    position: relative;
+    overflow: hidden;
+}
+
+.r2h-upload-zone:hover, .r2h-upload-zone.drag-over {
+    border-color: #3b82f6;
+    background: #eff6ff;
+    color: #3b82f6;
+}
+
+.r2h-file-input {
     position: absolute;
     top: 0;
     left: 0;
@@ -194,11 +322,41 @@
     cursor: pointer;
 }
 
-.rgb-picker-hint {
-    position: absolute;
-    bottom: 20px;
-    font-size: 0.85rem;
-    opacity: 0.6;
-    font-weight: 500;
-    pointer-events: none;
+.r2h-canvas-wrapper {
+    width: 100%;
+    max-height: 500px;
+    overflow: hidden;
+    border-radius: 12px;
+    border: 2px solid #e2e8f0;
+    position: relative;
+    background: #f1f5f9;
+    display: flex;
+    justify-content: center;
+}
+
+.r2h-canvas {
+    max-width: 100%;
+    cursor: crosshair;
+    display: block;
+}
+
+.r2h-image-controls {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.r2h-btn-reset {
+    padding: 8px 16px;
+    background: #fee2e2;
+    color: #ef4444;
+    border: 1px solid #fecaca;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.r2h-btn-reset:hover {
+    background: #fecaca;
 }
