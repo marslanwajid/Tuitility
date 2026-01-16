@@ -6,6 +6,7 @@ import FAQSection from '../tool/FAQSection'
 import TableOfContents from '../tool/TableOfContents'
 import FeedbackForm from '../tool/FeedbackForm'
 import '../../assets/css/health/body-fat-calculator.css'
+import Seo from '../Seo'
 // Import the logic class - we'll define it inline for now
 // import BodyFatCalculatorLogic from '../../assets/js/health/body-fat-calculator.js'
 
@@ -13,7 +14,7 @@ import '../../assets/css/health/body-fat-calculator.css'
 class BodyFatCalculatorLogic {
   constructor() {
     this.bodyFatCategories = {
-      male: {
+      male: { 
         essential: { min: 0, max: 5, label: 'Essential Fat', color: '#3498db' },
         athletic: { min: 5, max: 14, label: 'Athletic', color: '#2ecc71' },
         fitness: { min: 14, max: 18, label: 'Fitness', color: '#f1c40f' },
@@ -271,6 +272,12 @@ const BodyFatCalculator = () => {
     breadcrumb: ['Health', 'Calculators', 'Body Fat Calculator']
   };
 
+  // SEO data
+  const seoTitle = `${toolData.name} - ${toolData.category} | Tuitility`;
+  const seoDescription = toolData.description;
+  const seoKeywords = `${toolData.name.toLowerCase()}, ${toolData.category.toLowerCase()} calculator, body fat percentage, navy method, BMI method, body composition`;
+  const canonicalUrl = `https://tuitility.vercel.app/health/calculators/body-fat-calculator`;
+
   // Categories for sidebar
   const categories = [
     { name: 'Math', url: '/math', icon: 'fas fa-calculator' },
@@ -411,680 +418,688 @@ const BodyFatCalculator = () => {
   }, [result]);
 
   return (
-    <ToolPageLayout 
-      toolData={toolData} 
-      tableOfContents={tableOfContents}
-      categories={categories}
-      relatedTools={relatedTools}
-    >
-      <CalculatorSection 
-        title="Body Fat Calculator"
-        onCalculate={calculateBodyFat}
-        calculateButtonText="Calculate Body Fat"
-        error={error}
-        result={null}
+    <>
+      <Seo
+        title={seoTitle}
+        description={seoDescription}
+        keywords={seoKeywords}
+        canonicalUrl={canonicalUrl}
+      />
+      <ToolPageLayout 
+        toolData={toolData} 
+        tableOfContents={tableOfContents}
+        categories={categories}
+        relatedTools={relatedTools}
       >
-        <div className="body-fat-calculator-form">
-          {/* Basic Information Section */}
-          <div className="body-fat-section-title">Basic Information</div>
-          <div className="body-fat-input-row">
-            <div className="body-fat-input-group">
-              <label htmlFor="body-fat-age" className="body-fat-input-label">
-                Age (years):
-              </label>
-              <input
-                type="number"
-                id="body-fat-age"
-                className="body-fat-input-field"
-                value={formData.age}
-                onChange={(e) => handleInputChange('age', e.target.value)}
-                placeholder="e.g., 30"
-                min="15"
-                max="80"
-                step="1"
-              />
-            </div>
-
-            <div className="body-fat-input-group">
-              <label htmlFor="body-fat-gender" className="body-fat-input-label">
-                Gender:
-              </label>
-              <select
-                id="body-fat-gender"
-                className="body-fat-select-field"
-                value={formData.gender}
-                onChange={(e) => handleInputChange('gender', e.target.value)}
-              >
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-              </select>
-            </div>
-
-            <div className="body-fat-input-group">
-              <label htmlFor="body-fat-calculation-method" className="body-fat-input-label">
-                Calculation Method:
-              </label>
-              <select
-                id="body-fat-calculation-method"
-                className="body-fat-select-field"
-                value={formData.calculationMethod}
-                onChange={(e) => handleInputChange('calculationMethod', e.target.value)}
-              >
-                <option value="navy">Navy Method</option>
-                <option value="bmi">BMI Method</option>
-                <option value="both">Both Methods</option>
-              </select>
-            </div>
-          </div>
-
-          {/* Height and Weight Section */}
-          <div className="body-fat-section-title">Height and Weight</div>
-          <div className="body-fat-input-row">
-            <div className="body-fat-input-group">
-              <label htmlFor="body-fat-height-unit" className="body-fat-input-label">
-                Height Unit:
-              </label>
-              <select
-                id="body-fat-height-unit"
-                className="body-fat-select-field"
-                value={formData.heightUnit}
-                onChange={(e) => handleInputChange('heightUnit', e.target.value)}
-              >
-                <option value="cm">Centimeters (cm)</option>
-                <option value="ft">Feet & Inches</option>
-              </select>
-            </div>
-
-            <div className="body-fat-input-group">
-              <label htmlFor="body-fat-weight-unit" className="body-fat-input-label">
-                Weight Unit:
-              </label>
-              <select
-                id="body-fat-weight-unit"
-                className="body-fat-select-field"
-                value={formData.weightUnit}
-                onChange={(e) => handleInputChange('weightUnit', e.target.value)}
-              >
-                <option value="kg">Kilograms (kg)</option>
-                <option value="lb">Pounds (lb)</option>
-              </select>
-            </div>
-          </div>
-
-          <div className="body-fat-input-row">
-            {formData.heightUnit === 'cm' ? (
+        <CalculatorSection 
+          title="Body Fat Calculator"
+          onCalculate={calculateBodyFat}
+          calculateButtonText="Calculate Body Fat"
+          error={error}
+          result={null}
+        >
+          <div className="body-fat-calculator-form">
+            {/* Basic Information Section */}
+            <div className="body-fat-section-title">Basic Information</div>
+            <div className="body-fat-input-row">
               <div className="body-fat-input-group">
-                <label htmlFor="body-fat-height-cm" className="body-fat-input-label">
-                  Height (cm):
+                <label htmlFor="body-fat-age" className="body-fat-input-label">
+                  Age (years):
                 </label>
                 <input
                   type="number"
-                  id="body-fat-height-cm"
+                  id="body-fat-age"
                   className="body-fat-input-field"
-                  value={formData.height}
-                  onChange={(e) => handleInputChange('height', e.target.value)}
-                  placeholder="e.g., 175"
-                  min="130"
-                  max="230"
-                  step="0.1"
+                  value={formData.age}
+                  onChange={(e) => handleInputChange('age', e.target.value)}
+                  placeholder="e.g., 30"
+                  min="15"
+                  max="80"
+                  step="1"
                 />
               </div>
-            ) : (
-              <>
+
+              <div className="body-fat-input-group">
+                <label htmlFor="body-fat-gender" className="body-fat-input-label">
+                  Gender:
+                </label>
+                <select
+                  id="body-fat-gender"
+                  className="body-fat-select-field"
+                  value={formData.gender}
+                  onChange={(e) => handleInputChange('gender', e.target.value)}
+                >
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                </select>
+              </div>
+
+              <div className="body-fat-input-group">
+                <label htmlFor="body-fat-calculation-method" className="body-fat-input-label">
+                  Calculation Method:
+                </label>
+                <select
+                  id="body-fat-calculation-method"
+                  className="body-fat-select-field"
+                  value={formData.calculationMethod}
+                  onChange={(e) => handleInputChange('calculationMethod', e.target.value)}
+                >
+                  <option value="navy">Navy Method</option>
+                  <option value="bmi">BMI Method</option>
+                  <option value="both">Both Methods</option>
+                </select>
+              </div>
+            </div>
+
+            {/* Height and Weight Section */}
+            <div className="body-fat-section-title">Height and Weight</div>
+            <div className="body-fat-input-row">
+              <div className="body-fat-input-group">
+                <label htmlFor="body-fat-height-unit" className="body-fat-input-label">
+                  Height Unit:
+                </label>
+                <select
+                  id="body-fat-height-unit"
+                  className="body-fat-select-field"
+                  value={formData.heightUnit}
+                  onChange={(e) => handleInputChange('heightUnit', e.target.value)}
+                >
+                  <option value="cm">Centimeters (cm)</option>
+                  <option value="ft">Feet & Inches</option>
+                </select>
+              </div>
+
+              <div className="body-fat-input-group">
+                <label htmlFor="body-fat-weight-unit" className="body-fat-input-label">
+                  Weight Unit:
+                </label>
+                <select
+                  id="body-fat-weight-unit"
+                  className="body-fat-select-field"
+                  value={formData.weightUnit}
+                  onChange={(e) => handleInputChange('weightUnit', e.target.value)}
+                >
+                  <option value="kg">Kilograms (kg)</option>
+                  <option value="lb">Pounds (lb)</option>
+                </select>
+              </div>
+            </div>
+
+            <div className="body-fat-input-row">
+              {formData.heightUnit === 'cm' ? (
                 <div className="body-fat-input-group">
-                  <label htmlFor="body-fat-height-ft" className="body-fat-input-label">
-                    Height (feet):
+                  <label htmlFor="body-fat-height-cm" className="body-fat-input-label">
+                    Height (cm):
                   </label>
                   <input
                     type="number"
-                    id="body-fat-height-ft"
+                    id="body-fat-height-cm"
                     className="body-fat-input-field"
                     value={formData.height}
                     onChange={(e) => handleInputChange('height', e.target.value)}
-                    placeholder="e.g., 5"
-                    min="4"
-                    max="8"
-                    step="1"
-                  />
-                </div>
-                <div className="body-fat-input-group">
-                  <label htmlFor="body-fat-height-in" className="body-fat-input-label">
-                    Height (inches):
-                  </label>
-                  <input
-                    type="number"
-                    id="body-fat-height-in"
-                    className="body-fat-input-field"
-                    value={formData.heightInches}
-                    onChange={(e) => handleInputChange('heightInches', e.target.value)}
-                    placeholder="e.g., 9"
-                    min="0"
-                    max="11"
+                    placeholder="e.g., 175"
+                    min="130"
+                    max="230"
                     step="0.1"
                   />
                 </div>
-              </>
-            )}
-
-            <div className="body-fat-input-group">
-              <label htmlFor="body-fat-weight" className="body-fat-input-label">
-                Weight ({formData.weightUnit}):
-              </label>
-              <input
-                type="number"
-                id="body-fat-weight"
-                className="body-fat-input-field"
-                value={formData.weight}
-                onChange={(e) => handleInputChange('weight', e.target.value)}
-                placeholder={formData.weightUnit === 'kg' ? 'e.g., 70' : 'e.g., 154'}
-                min="40"
-                max="300"
-                step="0.1"
-              />
-            </div>
-          </div>
-
-          {/* Navy Method Measurements */}
-          {(formData.calculationMethod === 'navy' || formData.calculationMethod === 'both') && (
-            <>
-              <div className="body-fat-section-title">Body Measurements (Navy Method)</div>
-              <div className="body-fat-input-row">
-                <div className="body-fat-input-group">
-                  <label htmlFor="body-fat-measurement-unit" className="body-fat-input-label">
-                    Measurement Unit:
-                  </label>
-                  <select
-                    id="body-fat-measurement-unit"
-                    className="body-fat-select-field"
-                    value={formData.measurementUnit}
-                    onChange={(e) => handleInputChange('measurementUnit', e.target.value)}
-                  >
-                    <option value="cm">Centimeters (cm)</option>
-                    <option value="in">Inches (in)</option>
-                  </select>
-                </div>
-              </div>
-
-              <div className="body-fat-input-row">
-                <div className="body-fat-input-group">
-                  <label htmlFor="body-fat-neck" className="body-fat-input-label">
-                    Neck ({formData.measurementUnit}):
-                  </label>
-                  <input
-                    type="number"
-                    id="body-fat-neck"
-                    className="body-fat-input-field"
-                    value={formData.neck}
-                    onChange={(e) => handleInputChange('neck', e.target.value)}
-                    placeholder="e.g., 35"
-                    min="20"
-                    max="60"
-                    step="0.1"
-                  />
-                  <small className="body-fat-input-help">
-                    Measure around the narrowest part of your neck
-                  </small>
-                </div>
-
-                <div className="body-fat-input-group">
-                  <label htmlFor="body-fat-waist" className="body-fat-input-label">
-                    Waist ({formData.measurementUnit}):
-                  </label>
-                  <input
-                    type="number"
-                    id="body-fat-waist"
-                    className="body-fat-input-field"
-                    value={formData.waist}
-                    onChange={(e) => handleInputChange('waist', e.target.value)}
-                    placeholder="e.g., 80"
-                    min="50"
-                    max="150"
-                    step="0.1"
-                  />
-                  <small className="body-fat-input-help">
-                    Measure around the narrowest part of your waist
-                  </small>
-                </div>
-
-                {formData.gender === 'female' && (
+              ) : (
+                <>
                   <div className="body-fat-input-group">
-                    <label htmlFor="body-fat-hip" className="body-fat-input-label">
-                      Hip ({formData.measurementUnit}):
+                    <label htmlFor="body-fat-height-ft" className="body-fat-input-label">
+                      Height (feet):
                     </label>
                     <input
                       type="number"
-                      id="body-fat-hip"
+                      id="body-fat-height-ft"
                       className="body-fat-input-field"
-                      value={formData.hip}
-                      onChange={(e) => handleInputChange('hip', e.target.value)}
-                      placeholder="e.g., 95"
-                      min="60"
+                      value={formData.height}
+                      onChange={(e) => handleInputChange('height', e.target.value)}
+                      placeholder="e.g., 5"
+                      min="4"
+                      max="8"
+                      step="1"
+                    />
+                  </div>
+                  <div className="body-fat-input-group">
+                    <label htmlFor="body-fat-height-in" className="body-fat-input-label">
+                      Height (inches):
+                    </label>
+                    <input
+                      type="number"
+                      id="body-fat-height-in"
+                      className="body-fat-input-field"
+                      value={formData.heightInches}
+                      onChange={(e) => handleInputChange('heightInches', e.target.value)}
+                      placeholder="e.g., 9"
+                      min="0"
+                      max="11"
+                      step="0.1"
+                    />
+                  </div>
+                </>
+              )}
+
+              <div className="body-fat-input-group">
+                <label htmlFor="body-fat-weight" className="body-fat-input-label">
+                  Weight ({formData.weightUnit}):
+                </label>
+                <input
+                  type="number"
+                  id="body-fat-weight"
+                  className="body-fat-input-field"
+                  value={formData.weight}
+                  onChange={(e) => handleInputChange('weight', e.target.value)}
+                  placeholder={formData.weightUnit === 'kg' ? 'e.g., 70' : 'e.g., 154'}
+                  min="40"
+                  max="300"
+                  step="0.1"
+                />
+              </div>
+            </div>
+
+            {/* Navy Method Measurements */}
+            {(formData.calculationMethod === 'navy' || formData.calculationMethod === 'both') && (
+              <>
+                <div className="body-fat-section-title">Body Measurements (Navy Method)</div>
+                <div className="body-fat-input-row">
+                  <div className="body-fat-input-group">
+                    <label htmlFor="body-fat-measurement-unit" className="body-fat-input-label">
+                      Measurement Unit:
+                    </label>
+                    <select
+                      id="body-fat-measurement-unit"
+                      className="body-fat-select-field"
+                      value={formData.measurementUnit}
+                      onChange={(e) => handleInputChange('measurementUnit', e.target.value)}
+                    >
+                      <option value="cm">Centimeters (cm)</option>
+                      <option value="in">Inches (in)</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div className="body-fat-input-row">
+                  <div className="body-fat-input-group">
+                    <label htmlFor="body-fat-neck" className="body-fat-input-label">
+                      Neck ({formData.measurementUnit}):
+                    </label>
+                    <input
+                      type="number"
+                      id="body-fat-neck"
+                      className="body-fat-input-field"
+                      value={formData.neck}
+                      onChange={(e) => handleInputChange('neck', e.target.value)}
+                      placeholder="e.g., 35"
+                      min="20"
+                      max="60"
+                      step="0.1"
+                    />
+                    <small className="body-fat-input-help">
+                      Measure around the narrowest part of your neck
+                    </small>
+                  </div>
+
+                  <div className="body-fat-input-group">
+                    <label htmlFor="body-fat-waist" className="body-fat-input-label">
+                      Waist ({formData.measurementUnit}):
+                    </label>
+                    <input
+                      type="number"
+                      id="body-fat-waist"
+                      className="body-fat-input-field"
+                      value={formData.waist}
+                      onChange={(e) => handleInputChange('waist', e.target.value)}
+                      placeholder="e.g., 80"
+                      min="50"
                       max="150"
                       step="0.1"
                     />
                     <small className="body-fat-input-help">
-                      Measure around the widest part of your hips
+                      Measure around the narrowest part of your waist
                     </small>
                   </div>
-                )}
-              </div>
-            </>
-          )}
 
-          <div className="body-fat-calculator-actions">
-            <button type="button" className="body-fat-btn-reset" onClick={handleReset}>
-              <i className="fas fa-redo"></i>
-              Reset
-            </button>
-          </div>
-        </div>
-
-        {/* Custom Results Section */}
-        {result && (
-          <div className="body-fat-calculator-result">
-            <h3 className="body-fat-result-title">Body Fat Calculation Results</h3>
-            <div className="body-fat-result-content">
-              <div className="body-fat-result-main">
-                <div className="body-fat-result-item">
-                  <strong>Body Fat Percentage:</strong>
-                  <span className="body-fat-result-value body-fat-result-final">
-                    {result.selectedBfPercent}%
-                  </span>
-                </div>
-                <div className="body-fat-result-item">
-                  <strong>Category:</strong>
-                  <span className="body-fat-result-value" style={{ color: result.category.color }}>
-                    {result.category.name}
-                  </span>
-                </div>
-                <div className="body-fat-result-item">
-                  <strong>Health Risk:</strong>
-                  <span className="body-fat-result-value">
-                    {result.healthRisk}
-                  </span>
-                </div>
-                <div className="body-fat-result-item">
-                  <strong>Fat Mass:</strong>
-                  <span className="body-fat-result-value">
-                    {formatWeight(result.fatMass)}
-                  </span>
-                </div>
-                <div className="body-fat-result-item">
-                  <strong>Lean Mass:</strong>
-                  <span className="body-fat-result-value">
-                    {formatWeight(result.leanMass)}
-                  </span>
-                </div>
-                <div className="body-fat-result-item">
-                  <strong>BMI:</strong>
-                  <span className="body-fat-result-value">
-                    {result.bmi}
-                  </span>
-                </div>
-                
-                {(result.calculationMethod === 'navy' || result.calculationMethod === 'both') && (
-                  <div className="body-fat-result-item">
-                    <strong>Navy Method:</strong>
-                    <span className="body-fat-result-value">
-                      {result.navyBfPercent}%
-                    </span>
-                  </div>
-                )}
-                
-                {(result.calculationMethod === 'bmi' || result.calculationMethod === 'both') && (
-                  <div className="body-fat-result-item">
-                    <strong>BMI Method:</strong>
-                    <span className="body-fat-result-value">
-                      {result.bmiBfPercent}%
-                    </span>
-                  </div>
-                )}
-              </div>
-
-              {/* Body Fat Category Scale */}
-              <div className="body-fat-category-container">
-                <div className="body-fat-category-label">{result.category.name}</div>
-                <div className="body-fat-category-scale">
-                  <div 
-                    className="body-fat-category-marker"
-                    style={{ 
-                      left: `${getCategoryPosition(result.selectedBfPercent, formData.gender)}%`,
-                      backgroundColor: result.category.color
-                    }}
-                  ></div>
-                </div>
-                <div className="body-fat-category-labels">
-                  <span>Essential</span>
-                  <span>Athletic</span>
-                  <span>Fitness</span>
-                  <span>Average</span>
-                  <span>Obese</span>
-                </div>
-              </div>
-
-              {/* Health Insights */}
-              <div className="body-fat-result-insights">
-                <h4 className="body-fat-insights-title">Health Insights</h4>
-                <div className="body-fat-insights-content">
-                  <p><strong>Body Fat Range:</strong> {result.category.range}</p>
-                  {result.recommendations && (
-                    <div className="body-fat-recommendations">
-                      <h5>Recommendations:</h5>
-                      <ul>
-                        {result.recommendations.map((rec, index) => (
-                          <li key={index}>{rec}</li>
-                        ))}
-                      </ul>
+                  {formData.gender === 'female' && (
+                    <div className="body-fat-input-group">
+                      <label htmlFor="body-fat-hip" className="body-fat-input-label">
+                        Hip ({formData.measurementUnit}):
+                      </label>
+                      <input
+                        type="number"
+                        id="body-fat-hip"
+                        className="body-fat-input-field"
+                        value={formData.hip}
+                        onChange={(e) => handleInputChange('hip', e.target.value)}
+                        placeholder="e.g., 95"
+                        min="60"
+                        max="150"
+                        step="0.1"
+                      />
+                      <small className="body-fat-input-help">
+                        Measure around the widest part of your hips
+                      </small>
                     </div>
                   )}
                 </div>
-              </div>
+              </>
+            )}
+
+            <div className="body-fat-calculator-actions">
+              <button type="button" className="body-fat-btn-reset" onClick={handleReset}>
+                <i className="fas fa-redo"></i>
+                Reset
+              </button>
             </div>
           </div>
-        )}
-      </CalculatorSection>
 
-      {/* TOC and Feedback Section */}
-      <div className="tool-bottom-section">
-        <TableOfContents items={tableOfContents} />
-        <FeedbackForm toolName={toolData.name} />
-      </div>
+          {/* Custom Results Section */}
+          {result && (
+            <div className="body-fat-calculator-result">
+              <h3 className="body-fat-result-title">Body Fat Calculation Results</h3>
+              <div className="body-fat-result-content">
+                <div className="body-fat-result-main">
+                  <div className="body-fat-result-item">
+                    <strong>Body Fat Percentage:</strong>
+                    <span className="body-fat-result-value body-fat-result-final">
+                      {result.selectedBfPercent}%
+                    </span>
+                  </div>
+                  <div className="body-fat-result-item">
+                    <strong>Category:</strong>
+                    <span className="body-fat-result-value" style={{ color: result.category.color }}>
+                      {result.category.name}
+                    </span>
+                  </div>
+                  <div className="body-fat-result-item">
+                    <strong>Health Risk:</strong>
+                    <span className="body-fat-result-value">
+                      {result.healthRisk}
+                    </span>
+                  </div>
+                  <div className="body-fat-result-item">
+                    <strong>Fat Mass:</strong>
+                    <span className="body-fat-result-value">
+                      {formatWeight(result.fatMass)}
+                    </span>
+                  </div>
+                  <div className="body-fat-result-item">
+                    <strong>Lean Mass:</strong>
+                    <span className="body-fat-result-value">
+                      {formatWeight(result.leanMass)}
+                    </span>
+                  </div>
+                  <div className="body-fat-result-item">
+                    <strong>BMI:</strong>
+                    <span className="body-fat-result-value">
+                      {result.bmi}
+                    </span>
+                  </div>
+                  
+                  {(result.calculationMethod === 'navy' || result.calculationMethod === 'both') && (
+                    <div className="body-fat-result-item">
+                      <strong>Navy Method:</strong>
+                      <span className="body-fat-result-value">
+                        {result.navyBfPercent}%
+                      </span>
+                    </div>
+                  )}
+                  
+                  {(result.calculationMethod === 'bmi' || result.calculationMethod === 'both') && (
+                    <div className="body-fat-result-item">
+                      <strong>BMI Method:</strong>
+                      <span className="body-fat-result-value">
+                        {result.bmiBfPercent}%
+                      </span>
+                    </div>
+                  )}
+                </div>
 
-      {/* Content Sections */}
-      <ContentSection id="introduction" title="Introduction">
-        <p>
-          The Body Fat Calculator is a comprehensive tool that estimates your body fat percentage 
-          using scientifically validated methods. Understanding your body fat percentage is crucial 
-          for assessing your overall health, fitness level, and body composition beyond just weight.
-        </p>
-        <p>
-          Our calculator offers multiple calculation methods including the Navy Method (circumference-based) 
-          and BMI-based estimation, providing you with accurate insights into your body composition 
-          and personalized health recommendations.
-        </p>
-      </ContentSection>
+                {/* Body Fat Category Scale */}
+                <div className="body-fat-category-container">
+                  <div className="body-fat-category-label">{result.category.name}</div>
+                  <div className="body-fat-category-scale">
+                    <div 
+                      className="body-fat-category-marker"
+                      style={{ 
+                        left: `${getCategoryPosition(result.selectedBfPercent, formData.gender)}%`,
+                        backgroundColor: result.category.color
+                      }}
+                    ></div>
+                  </div>
+                  <div className="body-fat-category-labels">
+                    <span>Essential</span>
+                    <span>Athletic</span>
+                    <span>Fitness</span>
+                    <span>Average</span>
+                    <span>Obese</span>
+                  </div>
+                </div>
 
-      <ContentSection id="what-is-body-fat" title="What is Body Fat?">
-        <p>
-          Body fat percentage is the proportion of fat in your body compared to your total body weight. 
-          It's a more accurate indicator of health and fitness than BMI alone, as it distinguishes 
-          between fat mass and lean mass (muscle, bone, organs, water).
-        </p>
-        <ul>
-          <li>
-            <span><strong>Essential Fat:</strong> Minimum fat required for normal physiological function</span>
-          </li>
-          <li>
-            <span><strong>Storage Fat:</strong> Additional fat stored for energy reserves</span>
-          </li>
-          <li>
-            <span><strong>Subcutaneous Fat:</strong> Fat stored under the skin</span>
-          </li>
-          <li>
-            <span><strong>Visceral Fat:</strong> Fat stored around internal organs</span>
-          </li>
-        </ul>
-        <p>
-          <strong>Healthy Ranges:</strong> Men: 6-24%, Women: 16-30% (varies by age and fitness level)
-        </p>
-      </ContentSection>
+                {/* Health Insights */}
+                <div className="body-fat-result-insights">
+                  <h4 className="body-fat-insights-title">Health Insights</h4>
+                  <div className="body-fat-insights-content">
+                    <p><strong>Body Fat Range:</strong> {result.category.range}</p>
+                    {result.recommendations && (
+                      <div className="body-fat-recommendations">
+                        <h5>Recommendations:</h5>
+                        <ul>
+                          {result.recommendations.map((rec, index) => (
+                            <li key={index}>{rec}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+        </CalculatorSection>
 
-      <ContentSection id="calculation-methods" title="Calculation Methods">
-        <div className="method-section">
-          <h3>Navy Method</h3>
+        {/* TOC and Feedback Section */}
+        <div className="tool-bottom-section">
+          <TableOfContents items={tableOfContents} />
+          <FeedbackForm toolName={toolData.name} />
+        </div>
+
+        {/* Content Sections */}
+        <ContentSection id="introduction" title="Introduction">
           <p>
-            The Navy Method uses body circumference measurements to estimate body fat percentage. 
-            It's considered one of the most accurate non-invasive methods and is used by the 
-            U.S. Navy for fitness assessments.
+            The Body Fat Calculator is a comprehensive tool that estimates your body fat percentage 
+            using scientifically validated methods. Understanding your body fat percentage is crucial 
+            for assessing your overall health, fitness level, and body composition beyond just weight.
+          </p>
+          <p>
+            Our calculator offers multiple calculation methods including the Navy Method (circumference-based) 
+            and BMI-based estimation, providing you with accurate insights into your body composition 
+            and personalized health recommendations.
+          </p>
+        </ContentSection>
+
+        <ContentSection id="what-is-body-fat" title="What is Body Fat?">
+          <p>
+            Body fat percentage is the proportion of fat in your body compared to your total body weight. 
+            It's a more accurate indicator of health and fitness than BMI alone, as it distinguishes 
+            between fat mass and lean mass (muscle, bone, organs, water).
           </p>
           <ul>
-            <li>Requires: Height, weight, neck, waist, and hip (females) measurements</li>
-            <li>Accuracy: High for most populations</li>
-            <li>Best for: General population, fitness enthusiasts</li>
+            <li>
+              <span><strong>Essential Fat:</strong> Minimum fat required for normal physiological function</span>
+            </li>
+            <li>
+              <span><strong>Storage Fat:</strong> Additional fat stored for energy reserves</span>
+            </li>
+            <li>
+              <span><strong>Subcutaneous Fat:</strong> Fat stored under the skin</span>
+            </li>
+            <li>
+              <span><strong>Visceral Fat:</strong> Fat stored around internal organs</span>
+            </li>
           </ul>
-        </div>
-
-        <div className="method-section">
-          <h3>BMI Method</h3>
           <p>
-            The BMI Method estimates body fat percentage using BMI, age, and gender. 
-            While less accurate than the Navy Method, it's useful when circumference 
-            measurements aren't available.
+            <strong>Healthy Ranges:</strong> Men: 6-24%, Women: 16-30% (varies by age and fitness level)
           </p>
-          <ul>
-            <li>Requires: Height, weight, age, and gender</li>
-            <li>Accuracy: Moderate</li>
-            <li>Best for: Quick estimates, population studies</li>
+        </ContentSection>
+
+        <ContentSection id="calculation-methods" title="Calculation Methods">
+          <div className="method-section">
+            <h3>Navy Method</h3>
+            <p>
+              The Navy Method uses body circumference measurements to estimate body fat percentage. 
+              It's considered one of the most accurate non-invasive methods and is used by the 
+              U.S. Navy for fitness assessments.
+            </p>
+            <ul>
+              <li>Requires: Height, weight, neck, waist, and hip (females) measurements</li>
+              <li>Accuracy: High for most populations</li>
+              <li>Best for: General population, fitness enthusiasts</li>
+            </ul>
+          </div>
+
+          <div className="method-section">
+            <h3>BMI Method</h3>
+            <p>
+              The BMI Method estimates body fat percentage using BMI, age, and gender. 
+              While less accurate than the Navy Method, it's useful when circumference 
+              measurements aren't available.
+            </p>
+            <ul>
+              <li>Requires: Height, weight, age, and gender</li>
+              <li>Accuracy: Moderate</li>
+              <li>Best for: Quick estimates, population studies</li>
+            </ul>
+          </div>
+        </ContentSection>
+
+        <ContentSection id="how-to-use" title="How to Use Body Fat Calculator">
+          <p>Follow these steps to get accurate body fat percentage results:</p>
+          
+          <h3>Step 1: Enter Basic Information</h3>
+          <ul className="usage-steps">
+            <li>
+              <span><strong>Age:</strong> Enter your age (15-80 years)</span>
+            </li>
+            <li>
+              <span><strong>Gender:</strong> Select male or female</span>
+            </li>
+            <li>
+              <span><strong>Calculation Method:</strong> Choose Navy Method, BMI Method, or Both</span>
+            </li>
           </ul>
-        </div>
-      </ContentSection>
 
-      <ContentSection id="how-to-use" title="How to Use Body Fat Calculator">
-        <p>Follow these steps to get accurate body fat percentage results:</p>
-        
-        <h3>Step 1: Enter Basic Information</h3>
-        <ul className="usage-steps">
-          <li>
-            <span><strong>Age:</strong> Enter your age (15-80 years)</span>
-          </li>
-          <li>
-            <span><strong>Gender:</strong> Select male or female</span>
-          </li>
-          <li>
-            <span><strong>Calculation Method:</strong> Choose Navy Method, BMI Method, or Both</span>
-          </li>
-        </ul>
+          <h3>Step 2: Enter Height and Weight</h3>
+          <ul className="usage-steps">
+            <li>
+              <span><strong>Height:</strong> Enter in centimeters or feet/inches</span>
+            </li>
+            <li>
+              <span><strong>Weight:</strong> Enter in kilograms or pounds</span>
+            </li>
+          </ul>
 
-        <h3>Step 2: Enter Height and Weight</h3>
-        <ul className="usage-steps">
-          <li>
-            <span><strong>Height:</strong> Enter in centimeters or feet/inches</span>
-          </li>
-          <li>
-            <span><strong>Weight:</strong> Enter in kilograms or pounds</span>
-          </li>
-        </ul>
+          <h3>Step 3: Body Measurements (Navy Method)</h3>
+          <ul className="usage-steps">
+            <li>
+              <span><strong>Neck:</strong> Measure around the narrowest part of your neck</span>
+            </li>
+            <li>
+              <span><strong>Waist:</strong> Measure around the narrowest part of your waist</span>
+            </li>
+            <li>
+              <span><strong>Hip (Females):</strong> Measure around the widest part of your hips</span>
+            </li>
+          </ul>
 
-        <h3>Step 3: Body Measurements (Navy Method)</h3>
-        <ul className="usage-steps">
-          <li>
-            <span><strong>Neck:</strong> Measure around the narrowest part of your neck</span>
-          </li>
-          <li>
-            <span><strong>Waist:</strong> Measure around the narrowest part of your waist</span>
-          </li>
-          <li>
-            <span><strong>Hip (Females):</strong> Measure around the widest part of your hips</span>
-          </li>
-        </ul>
+          <h3>Step 4: Calculate and Review Results</h3>
+          <ul className="usage-steps">
+            <li>
+              <span><strong>Calculate:</strong> Click "Calculate Body Fat" to get your results</span>
+            </li>
+            <li>
+              <span><strong>Review:</strong> Check your body fat percentage, category, and recommendations</span>
+            </li>
+          </ul>
+        </ContentSection>
 
-        <h3>Step 4: Calculate and Review Results</h3>
-        <ul className="usage-steps">
-          <li>
-            <span><strong>Calculate:</strong> Click "Calculate Body Fat" to get your results</span>
-          </li>
-          <li>
-            <span><strong>Review:</strong> Check your body fat percentage, category, and recommendations</span>
-          </li>
-        </ul>
-      </ContentSection>
+        <ContentSection id="formulas" title="Formulas & Methods">
+          <div className="formula-section">
+            <h3>Navy Method Formula</h3>
+            <div className="math-formula">
+              {'\text{For Men: } BF\% = \frac{495}{1.0324 - 0.19077 \times \log_{10}(\text{waist} - \text{neck}) + 0.15456 \times \log_{10}(\text{height})} - 450'}
+            </div>
+            <div className="math-formula">
+              {'\text{For Women: } BF\% = \frac{495}{1.29579 - 0.35004 \times \log_{10}(\text{waist} + \text{hip} - \text{neck}) + 0.22100 \times \log_{10}(\text{height})} - 450'}
+            </div>
+          </div>
 
-      <ContentSection id="formulas" title="Formulas & Methods">
-        <div className="formula-section">
-          <h3>Navy Method Formula</h3>
-          <div className="math-formula">
-            {'\\text{For Men: } BF\\% = \\frac{495}{1.0324 - 0.19077 \\times \\log_{10}(\\text{waist} - \\text{neck}) + 0.15456 \\times \\log_{10}(\\text{height})} - 450'}
+          <div className="formula-section">
+            <h3>BMI Method Formula</h3>
+            <div className="math-formula">
+              {'\text{For Men: } BF\% = (1.20 \times BMI) + (0.23 \times \text{Age}) - 16.2'}
+            </div>
+            <div className="math-formula">
+              {'\text{For Women: } BF\% = (1.20 \times BMI) + (0.23 \times \text{Age}) - 5.4'}
+            </div>
           </div>
-          <div className="math-formula">
-            {'\\text{For Women: } BF\\% = \\frac{495}{1.29579 - 0.35004 \\times \\log_{10}(\\text{waist} + \\text{hip} - \\text{neck}) + 0.22100 \\times \\log_{10}(\\text{height})} - 450'}
-          </div>
-        </div>
 
-        <div className="formula-section">
-          <h3>BMI Method Formula</h3>
-          <div className="math-formula">
-            {'\\text{For Men: } BF\\% = (1.20 \\times BMI) + (0.23 \\times \\text{Age}) - 16.2'}
+          <div className="formula-section">
+            <h3>Body Composition Calculations</h3>
+            <div className="math-formula">
+              {'\text{Fat Mass} = \frac{\text{Body Fat \%}}{100} \times \text{Total Weight}'}
+            </div>
+            <div className="math-formula">
+              {'\text{Lean Mass} = \text{Total Weight} - \text{Fat Mass}'}
+            </div>
           </div>
-          <div className="math-formula">
-            {'\\text{For Women: } BF\\% = (1.20 \\times BMI) + (0.23 \\times \\text{Age}) - 5.4'}
-          </div>
-        </div>
+        </ContentSection>
 
-        <div className="formula-section">
-          <h3>Body Composition Calculations</h3>
-          <div className="math-formula">
-            {'\\text{Fat Mass} = \\frac{\\text{Body Fat \\%}}{100} \\times \\text{Total Weight}'}
+        <ContentSection id="examples" title="Examples">
+          <div className="example-section">
+            <h3>Example 1: Navy Method (Male)</h3>
+            <div className="example-solution">
+              <p><strong>Age:</strong> 30 years</p>
+              <p><strong>Height:</strong> 175 cm</p>
+              <p><strong>Weight:</strong> 80 kg</p>
+              <p><strong>Neck:</strong> 38 cm</p>
+              <p><strong>Waist:</strong> 90 cm</p>
+              <p><strong>Result:</strong> 18.5% body fat (Fitness category)</p>
+              <p><strong>Fat Mass:</strong> 14.8 kg</p>
+              <p><strong>Lean Mass:</strong> 65.2 kg</p>
           </div>
-          <div className="math-formula">
-            {'\\text{Lean Mass} = \\text{Total Weight} - \\text{Fat Mass}'}
           </div>
-        </div>
-      </ContentSection>
 
-      <ContentSection id="examples" title="Examples">
-        <div className="example-section">
-          <h3>Example 1: Navy Method (Male)</h3>
-          <div className="example-solution">
-            <p><strong>Age:</strong> 30 years</p>
-            <p><strong>Height:</strong> 175 cm</p>
-            <p><strong>Weight:</strong> 80 kg</p>
-            <p><strong>Neck:</strong> 38 cm</p>
-            <p><strong>Waist:</strong> 90 cm</p>
-            <p><strong>Result:</strong> 18.5% body fat (Fitness category)</p>
-            <p><strong>Fat Mass:</strong> 14.8 kg</p>
-            <p><strong>Lean Mass:</strong> 65.2 kg</p>
+          <div className="example-section">
+            <h3>Example 2: Navy Method (Female)</h3>
+            <div className="example-solution">
+              <p><strong>Age:</strong> 25 years</p>
+              <p><strong>Height:</strong> 165 cm</p>
+              <p><strong>Weight:</strong> 60 kg</p>
+              <p><strong>Neck:</strong> 32 cm</p>
+              <p><strong>Waist:</strong> 70 cm</p>
+              <p><strong>Hip:</strong> 95 cm</p>
+              <p><strong>Result:</strong> 22.3% body fat (Fitness category)</p>
+              <p><strong>Fat Mass:</strong> 13.4 kg</p>
+              <p><strong>Lean Mass:</strong> 46.6 kg</p>
+            </div>
           </div>
-        </div>
+        </ContentSection>
 
-        <div className="example-section">
-          <h3>Example 2: Navy Method (Female)</h3>
-          <div className="example-solution">
-            <p><strong>Age:</strong> 25 years</p>
-            <p><strong>Height:</strong> 165 cm</p>
-            <p><strong>Weight:</strong> 60 kg</p>
-            <p><strong>Neck:</strong> 32 cm</p>
-            <p><strong>Waist:</strong> 70 cm</p>
-            <p><strong>Hip:</strong> 95 cm</p>
-            <p><strong>Result:</strong> 22.3% body fat (Fitness category)</p>
-            <p><strong>Fat Mass:</strong> 13.4 kg</p>
-            <p><strong>Lean Mass:</strong> 46.6 kg</p>
-          </div>
-        </div>
-      </ContentSection>
+        <ContentSection id="significance" title="Significance">
+          <p>Understanding your body fat percentage is crucial for several reasons:</p>
+          <ul>
+            <li>
+              <span>Provides a more accurate health assessment than weight alone</span>
+            </li>
+            <li>
+              <span>Helps track fitness progress and body composition changes</span>
+            </li>
+            <li>
+              <span>Identifies health risks associated with high or low body fat</span>
+            </li>
+            <li>
+              <span>Guides nutrition and exercise program design</span>
+            </li>
+            <li>
+              <span>Helps set realistic fitness and health goals</span>
+            </li>
+            <li>
+              <span>Important for athletes and fitness enthusiasts</span>
+            </li>
+          </ul>
+        </ContentSection>
 
-      <ContentSection id="significance" title="Significance">
-        <p>Understanding your body fat percentage is crucial for several reasons:</p>
-        <ul>
-          <li>
-            <span>Provides a more accurate health assessment than weight alone</span>
-          </li>
-          <li>
-            <span>Helps track fitness progress and body composition changes</span>
-          </li>
-          <li>
-            <span>Identifies health risks associated with high or low body fat</span>
-          </li>
-          <li>
-            <span>Guides nutrition and exercise program design</span>
-          </li>
-          <li>
-            <span>Helps set realistic fitness and health goals</span>
-          </li>
-          <li>
-            <span>Important for athletes and fitness enthusiasts</span>
-          </li>
-        </ul>
-      </ContentSection>
+        <ContentSection id="functionality" title="Functionality">
+          <p>Our Body Fat Calculator provides comprehensive functionality:</p>
+          <ul>
+            <li>
+              <span><strong>Multiple Methods:</strong> Navy Method and BMI-based estimation</span>
+            </li>
+            <li>
+              <span><strong>Accurate Calculations:</strong> Scientifically validated formulas</span>
+            </li>
+            <li>
+              <span><strong>Body Composition:</strong> Fat mass and lean mass breakdown</span>
+            </li>
+            <li>
+              <span><strong>Category Classification:</strong> Essential, Athletic, Fitness, Average, Obese</span>
+            </li>
+            <li>
+              <span><strong>Health Risk Assessment:</strong> Risk level evaluation</span>
+            </li>
+            <li>
+              <span><strong>Personalized Recommendations:</strong> Tailored health and fitness advice</span>
+            </li>
+            <li>
+              <span><strong>Multiple Units:</strong> Metric and imperial unit support</span>
+            </li>
+            <li>
+              <span><strong>Visual Indicators:</strong> Category scale and color coding</span>
+            </li>
+          </ul>
+        </ContentSection>
 
-      <ContentSection id="functionality" title="Functionality">
-        <p>Our Body Fat Calculator provides comprehensive functionality:</p>
-        <ul>
-          <li>
-            <span><strong>Multiple Methods:</strong> Navy Method and BMI-based estimation</span>
-          </li>
-          <li>
-            <span><strong>Accurate Calculations:</strong> Scientifically validated formulas</span>
-          </li>
-          <li>
-            <span><strong>Body Composition:</strong> Fat mass and lean mass breakdown</span>
-          </li>
-          <li>
-            <span><strong>Category Classification:</strong> Essential, Athletic, Fitness, Average, Obese</span>
-          </li>
-          <li>
-            <span><strong>Health Risk Assessment:</strong> Risk level evaluation</span>
-          </li>
-          <li>
-            <span><strong>Personalized Recommendations:</strong> Tailored health and fitness advice</span>
-          </li>
-          <li>
-            <span><strong>Multiple Units:</strong> Metric and imperial unit support</span>
-          </li>
-          <li>
-            <span><strong>Visual Indicators:</strong> Category scale and color coding</span>
-          </li>
-        </ul>
-      </ContentSection>
+        <ContentSection id="applications" title="Applications">
+          <div className="applications-grid">
+            <div className="application-item">
+              <h4><i className="fas fa-dumbbell"></i> Fitness Assessment</h4>
+              <p>Evaluate your fitness level and body composition for training programs</p>
+            </div>
+            <div className="application-item">
+              <h4><i className="fas fa-chart-line"></i> Progress Tracking</h4>
+              <p>Monitor changes in body composition over time</p>
+            </div>
+            <div className="application-item">
+              <h4><i className="fas fa-heartbeat"></i> Health Monitoring</h4>
+              <p>Assess health risks and overall wellness</p>
+            </div>
+            <div className="application-item">
+              <h4><i className="fas fa-apple-alt"></i> Nutrition Planning</h4>
+              <p>Design personalized nutrition programs based on body composition</p>
+            </div>
+            <div className="application-item">
+              <h4><i className="fas fa-running"></i> Athletic Performance</h4>
+              <p>Optimize body composition for sports performance</p>
+            </div>
+            <div className="application-item">
+              <h4><i className="fas fa-user-md"></i> Medical Consultation</h4>
+              <p>Provide data for healthcare provider discussions</p>
+            </div>
+          </div>
+        </ContentSection>
 
-      <ContentSection id="applications" title="Applications">
-        <div className="applications-grid">
-          <div className="application-item">
-            <h4><i className="fas fa-dumbbell"></i> Fitness Assessment</h4>
-            <p>Evaluate your fitness level and body composition for training programs</p>
-          </div>
-          <div className="application-item">
-            <h4><i className="fas fa-chart-line"></i> Progress Tracking</h4>
-            <p>Monitor changes in body composition over time</p>
-          </div>
-          <div className="application-item">
-            <h4><i className="fas fa-heartbeat"></i> Health Monitoring</h4>
-            <p>Assess health risks and overall wellness</p>
-          </div>
-          <div className="application-item">
-            <h4><i className="fas fa-apple-alt"></i> Nutrition Planning</h4>
-            <p>Design personalized nutrition programs based on body composition</p>
-          </div>
-          <div className="application-item">
-            <h4><i className="fas fa-running"></i> Athletic Performance</h4>
-            <p>Optimize body composition for sports performance</p>
-          </div>
-          <div className="application-item">
-            <h4><i className="fas fa-user-md"></i> Medical Consultation</h4>
-            <p>Provide data for healthcare provider discussions</p>
-          </div>
-        </div>
-      </ContentSection>
-
-      <FAQSection 
-        faqs={[
-          {
-            question: "Which method is more accurate - Navy Method or BMI Method?",
-            answer: "The Navy Method is generally more accurate as it uses actual body measurements. The BMI Method is a good alternative when circumference measurements aren't available, but it's less precise for individuals with high muscle mass."
-          },
-          {
-            question: "How often should I measure my body fat percentage?",
-            answer: "For most people, measuring every 2-4 weeks is sufficient. More frequent measurements (weekly) can be useful when actively trying to change body composition, but remember that body fat percentage can fluctuate daily due to hydration and other factors."
-          },
-          {
-            question: "What's the difference between body fat percentage and BMI?",
-            answer: "BMI only considers height and weight, while body fat percentage distinguishes between fat mass and lean mass. A person with high muscle mass might have a high BMI but low body fat percentage."
-          },
-          {
-            question: "Are the results accurate for athletes?",
-            answer: "The Navy Method is reasonably accurate for most populations including athletes. However, extremely muscular individuals or those with very low body fat may get less accurate results. For precise measurements, consider professional body composition testing."
-          },
-          {
-            question: "What's considered a healthy body fat percentage?",
-            answer: "Healthy ranges vary by gender and age. Generally: Men: 6-24%, Women: 16-30%. Athletes typically have lower percentages, while older adults may have slightly higher healthy ranges."
-          },
-          {
-            question: "Can I use this calculator if I'm pregnant?",
-            answer: "Body fat calculators are not recommended during pregnancy as body composition changes significantly. Consult with your healthcare provider for appropriate health monitoring during pregnancy."
-          }
-        ]}
-        title="Frequently Asked Questions"
-      />
-    </ToolPageLayout>
+        <FAQSection 
+          faqs={[
+            {
+              question: "Which method is more accurate - Navy Method or BMI Method?",
+              answer: "The Navy Method is generally more accurate as it uses actual body measurements. The BMI Method is a good alternative when circumference measurements aren't available, but it's less precise for individuals with high muscle mass."
+            },
+            {
+              question: "How often should I measure my body fat percentage?",
+              answer: "For most people, measuring every 2-4 weeks is sufficient. More frequent measurements (weekly) can be useful when actively trying to change body composition, but remember that body fat percentage can fluctuate daily due to hydration and other factors."
+            },
+            {
+              question: "What's the difference between body fat percentage and BMI?",
+              answer: "BMI only considers height and weight, while body fat percentage distinguishes between fat mass and lean mass. A person with high muscle mass might have a high BMI but low body fat percentage."
+            },
+            {
+              question: "Are the results accurate for athletes?",
+              answer: "The Navy Method is reasonably accurate for most populations including athletes. However, extremely muscular individuals or those with very low body fat may get less accurate results. For precise measurements, consider professional body composition testing."
+            },
+            {
+              question: "What's considered a healthy body fat percentage?",
+              answer: "Healthy ranges vary by gender and age. Generally: Men: 6-24%, Women: 16-30%. Athletes typically have lower percentages, while older adults may have slightly higher healthy ranges."
+            },
+            {
+              question: "Can I use this calculator if I'm pregnant?",
+              answer: "Body fat calculators are not recommended during pregnancy as body composition changes significantly. Consult with your healthcare provider for appropriate health monitoring during pregnancy."
+            }
+          ]}
+          title="Frequently Asked Questions"
+        />
+      </ToolPageLayout>
+    </>
   )
 }
 

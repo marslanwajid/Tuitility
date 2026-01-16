@@ -6,6 +6,7 @@ import FAQSection from '../tool/FAQSection'
 import TableOfContents from '../tool/TableOfContents'
 import FeedbackForm from '../tool/FeedbackForm'
 import '../../assets/css/health/dri-calculator.css'
+import Seo from '../Seo'
 
 // DRI Calculator Logic Class
 class DRICalculatorLogic {
@@ -359,6 +360,12 @@ const DRICalculator = () => {
     breadcrumb: ['Health', 'Calculators', 'DRI Calculator']
   };
 
+  // SEO data
+  const seoTitle = `${toolData.name} - ${toolData.category} | Tuitility`;
+  const seoDescription = toolData.description;
+  const seoKeywords = `${toolData.name.toLowerCase()}, ${toolData.category.toLowerCase()} calculator, dietary reference intakes, nutrition calculator, vitamins, minerals, macronutrients`;
+  const canonicalUrl = `https://tuitility.vercel.app/health/calculators/dri-calculator`;
+
   const categories = [
     { name: 'Math', url: '/math', icon: 'fas fa-calculator' },
     { name: 'Finance', url: '/finance', icon: 'fas fa-dollar-sign' },
@@ -450,604 +457,612 @@ const DRICalculator = () => {
   };
 
   return (
-    <ToolPageLayout
-      toolData={toolData}
-      tableOfContents={tableOfContents}
-      categories={categories}
-      relatedTools={relatedTools}
-    >
-        {/* Tab Navigation */}
-      <div className="dri-calculator-tabs">
-          <button
-          className={`dri-tab-button ${activeTab === 'basic' ? 'active' : ''}`}
-          onClick={() => setActiveTab('basic')}
-          >
-          Basic Information
-          </button>
-          <button
-          className={`dri-tab-button ${activeTab === 'advanced' ? 'active' : ''}`}
-          onClick={() => setActiveTab('advanced')}
-        >
-          Advanced Options
-          </button>
-        </div>
-
-      <CalculatorSection 
-        title="DRI Calculator"
-        onCalculate={calculateDRI}
-        calculateButtonText="Calculate DRI"
-        error={error}
-        result={null}
+    <>
+      <Seo
+        title={seoTitle}
+        description={seoDescription}
+        keywords={seoKeywords}
+        canonicalUrl={canonicalUrl}
+      />
+      <ToolPageLayout
+        toolData={toolData}
+        tableOfContents={tableOfContents}
+        categories={categories}
+        relatedTools={relatedTools}
       >
-        <div className="dri-calculator-form">
-        {/* Basic Tab */}
-        {activeTab === 'basic' && (
-            <div className="dri-tab-content">
-              <div className="dri-section-title">Personal Information</div>
-              
-              <div className="dri-input-row">
-                <div className="dri-input-group">
-                  <label htmlFor="dri-gender" className="dri-input-label">Gender:</label>
-                  <select
-                    id="dri-gender"
-                    className="dri-select-field"
-                    value={formData.gender}
-                    onChange={(e) => handleInputChange('gender', e.target.value)}
-                  >
-                    <option value="">Select Gender</option>
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                  </select>
-                </div>
-
-                <div className="dri-input-group">
-                  <label htmlFor="dri-age" className="dri-input-label">Age (years):</label>
-                  <input
-                    type="number"
-                    id="dri-age"
-                    className="dri-input-field"
-                    value={formData.age}
-                    onChange={(e) => handleInputChange('age', e.target.value)}
-                    placeholder="e.g., 30"
-                    min="1"
-                    max="120"
-                  />
-                </div>
-              </div>
-
-              <div className="dri-input-row">
-                <div className="dri-input-group">
-                  <label htmlFor="dri-height-unit" className="dri-input-label">Height Unit:</label>
-                  <select
-                    id="dri-height-unit"
-                    className="dri-select-field"
-                    value={formData.heightUnit}
-                    onChange={(e) => handleInputChange('heightUnit', e.target.value)}
-                  >
-                    <option value="cm">Centimeters (cm)</option>
-                    <option value="ft">Feet & Inches</option>
-                  </select>
-                </div>
-
-                {formData.heightUnit === 'cm' ? (
-                  <div className="dri-input-group">
-                    <label htmlFor="dri-height" className="dri-input-label">Height (cm):</label>
-                    <input
-                      type="number"
-                      id="dri-height"
-                      className="dri-input-field"
-                      value={formData.height}
-                      onChange={(e) => handleInputChange('height', e.target.value)}
-                      placeholder="e.g., 175"
-                      min="50"
-                      max="250"
-                    />
-                  </div>
-                ) : (
-                  <>
-                    <div className="dri-input-group">
-                      <label htmlFor="dri-height-feet" className="dri-input-label">Height (feet):</label>
-                      <input
-                        type="number"
-                        id="dri-height-feet"
-                        className="dri-input-field"
-                        value={formData.heightFeet}
-                        onChange={(e) => handleInputChange('heightFeet', e.target.value)}
-                        placeholder="e.g., 5"
-                        min="2"
-                        max="8"
-                      />
-                    </div>
-                    <div className="dri-input-group">
-                      <label htmlFor="dri-height-inches" className="dri-input-label">Height (inches):</label>
-                      <input
-                        type="number"
-                        id="dri-height-inches"
-                        className="dri-input-field"
-                        value={formData.heightInches}
-                        onChange={(e) => handleInputChange('heightInches', e.target.value)}
-                        placeholder="e.g., 9"
-                        min="0"
-                        max="11"
-                      />
-                    </div>
-                  </>
-                )}
-              </div>
-
-              <div className="dri-input-row">
-                <div className="dri-input-group">
-                  <label htmlFor="dri-weight-unit" className="dri-input-label">Weight Unit:</label>
-                  <select
-                    id="dri-weight-unit"
-                    className="dri-select-field"
-                    value={formData.weightUnit}
-                    onChange={(e) => handleInputChange('weightUnit', e.target.value)}
-                  >
-                    <option value="kg">Kilograms (kg)</option>
-                    <option value="lb">Pounds (lb)</option>
-                  </select>
-                </div>
-
-                <div className="dri-input-group">
-                  <label htmlFor="dri-weight" className="dri-input-label">Weight:</label>
-                  <input
-                    type="number"
-                    id="dri-weight"
-                    className="dri-input-field"
-                    value={formData.weight}
-                    onChange={(e) => handleInputChange('weight', e.target.value)}
-                    placeholder="e.g., 70"
-                    min="1"
-                    step="0.1"
-                  />
-              </div>
-
-                <div className="dri-input-group">
-                  <label htmlFor="dri-activity-level" className="dri-input-label">Activity Level:</label>
-                  <select
-                    id="dri-activity-level"
-                    className="dri-select-field"
-                    value={formData.activityLevel}
-                    onChange={(e) => handleInputChange('activityLevel', e.target.value)}
-                  >
-                    <option value="">Select Activity Level</option>
-                    <option value="sedentary">Sedentary</option>
-                    <option value="light">Lightly Active</option>
-                    <option value="moderate">Moderately Active</option>
-                    <option value="active">Very Active</option>
-                    <option value="extra">Extra Active</option>
-                  </select>
-              </div>
-            </div>
+          {/* Tab Navigation */}
+        <div className="dri-calculator-tabs">
+            <button
+            className={`dri-tab-button ${activeTab === 'basic' ? 'active' : ''}`}
+            onClick={() => setActiveTab('basic')}
+            >
+            Basic Information
+            </button>
+            <button
+            className={`dri-tab-button ${activeTab === 'advanced' ? 'active' : ''}`}
+            onClick={() => setActiveTab('advanced')}
+          >
+            Advanced Options
+            </button>
           </div>
-        )}
 
-        {/* Advanced Tab */}
-        {activeTab === 'advanced' && (
-            <div className="dri-tab-content">
-              <div className="dri-section-title">Advanced Options</div>
-              
+        <CalculatorSection 
+          title="DRI Calculator"
+          onCalculate={calculateDRI}
+          calculateButtonText="Calculate DRI"
+          error={error}
+          result={null}
+        >
+          <div className="dri-calculator-form">
+          {/* Basic Tab */}
+          {activeTab === 'basic' && (
+              <div className="dri-tab-content">
+                <div className="dri-section-title">Personal Information</div>
+                
                 <div className="dri-input-row">
                   <div className="dri-input-group">
-                  <label htmlFor="dri-pregnancy" className="dri-input-label">Pregnancy Status:</label>
+                    <label htmlFor="dri-gender" className="dri-input-label">Gender:</label>
                     <select
-                    id="dri-pregnancy"
+                      id="dri-gender"
                       className="dri-select-field"
-                      value={formData.pregnancy}
-                      onChange={(e) => handleInputChange('pregnancy', e.target.value)}
+                      value={formData.gender}
+                      onChange={(e) => handleInputChange('gender', e.target.value)}
                     >
-                    <option value="none">Not Pregnant</option>
-                    <option value="first">First Trimester</option>
-                    <option value="second">Second Trimester</option>
-                    <option value="third">Third Trimester</option>
+                      <option value="">Select Gender</option>
+                      <option value="male">Male</option>
+                      <option value="female">Female</option>
                     </select>
                   </div>
 
                   <div className="dri-input-group">
-                  <label htmlFor="dri-lactation" className="dri-input-label">Lactation Status:</label>
+                    <label htmlFor="dri-age" className="dri-input-label">Age (years):</label>
+                    <input
+                      type="number"
+                      id="dri-age"
+                      className="dri-input-field"
+                      value={formData.age}
+                      onChange={(e) => handleInputChange('age', e.target.value)}
+                      placeholder="e.g., 30"
+                      min="1"
+                      max="120"
+                    />
+                  </div>
+                </div>
+
+                <div className="dri-input-row">
+                  <div className="dri-input-group">
+                    <label htmlFor="dri-height-unit" className="dri-input-label">Height Unit:</label>
                     <select
-                    id="dri-lactation"
+                      id="dri-height-unit"
                       className="dri-select-field"
-                      value={formData.lactation}
-                      onChange={(e) => handleInputChange('lactation', e.target.value)}
+                      value={formData.heightUnit}
+                      onChange={(e) => handleInputChange('heightUnit', e.target.value)}
                     >
-                    <option value="none">Not Breastfeeding</option>
-                    <option value="exclusive">Exclusive Breastfeeding</option>
-                    <option value="partial">Partial Breastfeeding</option>
+                      <option value="cm">Centimeters (cm)</option>
+                      <option value="ft">Feet & Inches</option>
                     </select>
+                  </div>
+
+                  {formData.heightUnit === 'cm' ? (
+                    <div className="dri-input-group">
+                      <label htmlFor="dri-height" className="dri-input-label">Height (cm):</label>
+                      <input
+                        type="number"
+                        id="dri-height"
+                        className="dri-input-field"
+                        value={formData.height}
+                        onChange={(e) => handleInputChange('height', e.target.value)}
+                        placeholder="e.g., 175"
+                        min="50"
+                        max="250"
+                      />
+                    </div>
+                  ) : (
+                    <>
+                      <div className="dri-input-group">
+                        <label htmlFor="dri-height-feet" className="dri-input-label">Height (feet):</label>
+                        <input
+                          type="number"
+                          id="dri-height-feet"
+                          className="dri-input-field"
+                          value={formData.heightFeet}
+                          onChange={(e) => handleInputChange('heightFeet', e.target.value)}
+                          placeholder="e.g., 5"
+                          min="2"
+                          max="8"
+                        />
+                      </div>
+                      <div className="dri-input-group">
+                        <label htmlFor="dri-height-inches" className="dri-input-label">Height (inches):</label>
+                        <input
+                          type="number"
+                          id="dri-height-inches"
+                          className="dri-input-field"
+                          value={formData.heightInches}
+                          onChange={(e) => handleInputChange('heightInches', e.target.value)}
+                          placeholder="e.g., 9"
+                          min="0"
+                          max="11"
+                        />
+                      </div>
+                    </>
+                  )}
+                </div>
+
+                <div className="dri-input-row">
+                  <div className="dri-input-group">
+                    <label htmlFor="dri-weight-unit" className="dri-input-label">Weight Unit:</label>
+                    <select
+                      id="dri-weight-unit"
+                      className="dri-select-field"
+                      value={formData.weightUnit}
+                      onChange={(e) => handleInputChange('weightUnit', e.target.value)}
+                    >
+                      <option value="kg">Kilograms (kg)</option>
+                      <option value="lb">Pounds (lb)</option>
+                    </select>
+                  </div>
+
+                  <div className="dri-input-group">
+                    <label htmlFor="dri-weight" className="dri-input-label">Weight:</label>
+                    <input
+                      type="number"
+                      id="dri-weight"
+                      className="dri-input-field"
+                      value={formData.weight}
+                      onChange={(e) => handleInputChange('weight', e.target.value)}
+                      placeholder="e.g., 70"
+                      min="1"
+                      step="0.1"
+                    />
+                </div>
+
+                  <div className="dri-input-group">
+                    <label htmlFor="dri-activity-level" className="dri-input-label">Activity Level:</label>
+                    <select
+                      id="dri-activity-level"
+                      className="dri-select-field"
+                      value={formData.activityLevel}
+                      onChange={(e) => handleInputChange('activityLevel', e.target.value)}
+                    >
+                      <option value="">Select Activity Level</option>
+                      <option value="sedentary">Sedentary</option>
+                      <option value="light">Lightly Active</option>
+                      <option value="moderate">Moderately Active</option>
+                      <option value="active">Very Active</option>
+                      <option value="extra">Extra Active</option>
+                    </select>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Advanced Tab */}
+          {activeTab === 'advanced' && (
+              <div className="dri-tab-content">
+                <div className="dri-section-title">Advanced Options</div>
+                
+                  <div className="dri-input-row">
+                    <div className="dri-input-group">
+                    <label htmlFor="dri-pregnancy" className="dri-input-label">Pregnancy Status:</label>
+                      <select
+                      id="dri-pregnancy"
+                        className="dri-select-field"
+                        value={formData.pregnancy}
+                        onChange={(e) => handleInputChange('pregnancy', e.target.value)}
+                      >
+                      <option value="none">Not Pregnant</option>
+                      <option value="first">First Trimester</option>
+                      <option value="second">Second Trimester</option>
+                      <option value="third">Third Trimester</option>
+                      </select>
+                    </div>
+
+                    <div className="dri-input-group">
+                    <label htmlFor="dri-lactation" className="dri-input-label">Lactation Status:</label>
+                      <select
+                      id="dri-lactation"
+                        className="dri-select-field"
+                        value={formData.lactation}
+                        onChange={(e) => handleInputChange('lactation', e.target.value)}
+                      >
+                      <option value="none">Not Breastfeeding</option>
+                      <option value="exclusive">Exclusive Breastfeeding</option>
+                      <option value="partial">Partial Breastfeeding</option>
+                      </select>
+                  </div>
+
+                  <div className="dri-input-group">
+                    <label htmlFor="dri-diet-type" className="dri-input-label">Diet Type:</label>
+                    <select
+                      id="dri-diet-type"
+                      className="dri-select-field"
+                      value={formData.dietType}
+                      onChange={(e) => handleInputChange('dietType', e.target.value)}
+                    >
+                      <option value="omnivore">Omnivore</option>
+                      <option value="vegetarian">Vegetarian</option>
+                      <option value="vegan">Vegan</option>
+                      <option value="keto">Ketogenic</option>
+                      <option value="mediterranean">Mediterranean</option>
+                      <option value="paleo">Paleo</option>
+                    </select>
+                  </div>
                 </div>
 
                 <div className="dri-input-group">
-                  <label htmlFor="dri-diet-type" className="dri-input-label">Diet Type:</label>
-                  <select
-                    id="dri-diet-type"
-                    className="dri-select-field"
-                    value={formData.dietType}
-                    onChange={(e) => handleInputChange('dietType', e.target.value)}
-                  >
-                    <option value="omnivore">Omnivore</option>
-                    <option value="vegetarian">Vegetarian</option>
-                    <option value="vegan">Vegan</option>
-                    <option value="keto">Ketogenic</option>
-                    <option value="mediterranean">Mediterranean</option>
-                    <option value="paleo">Paleo</option>
-                  </select>
-                </div>
-              </div>
-
-              <div className="dri-input-group">
-                <label className="dri-input-label">Health Conditions (select all that apply):</label>
-                <div className="dri-checkbox-group">
-                  {[
-                    { value: 'diabetes', label: 'Diabetes' },
-                    { value: 'hypertension', label: 'High Blood Pressure' },
-                    { value: 'heart_disease', label: 'Heart Disease' },
-                    { value: 'kidney_disease', label: 'Kidney Disease' },
-                    { value: 'osteoporosis', label: 'Osteoporosis' }
-                  ].map(condition => (
-                    <label key={condition.value} className="dri-checkbox-label">
-                      <input
-                        type="checkbox"
-                        className="dri-checkbox"
-                        checked={formData.healthConditions.includes(condition.value)}
-                        onChange={(e) => handleHealthConditionsChange(condition.value, e.target.checked)}
-                      />
-                      {condition.label}
-                    </label>
-                  ))}
-              </div>
-            </div>
-          </div>
-        )}
-
-        <div className="dri-calculator-actions">
-            <button type="button" className="dri-btn-reset" onClick={handleReset}>
-              <i className="fas fa-redo"></i>
-            Reset
-          </button>
-          </div>
-        </div>
-
-        {/* Results Section */}
-        {result && (
-          <div className="dri-calculator-result">
-            <h3 className="dri-result-title">Your Dietary Reference Intakes (DRI)</h3>
-            <div className="dri-result-content">
-              
-              {/* Energy Needs */}
-              <div className="dri-result-section">
-                <h4 className="dri-result-section-title">Energy Needs</h4>
-                <div className="dri-result-item">
-                  <strong>Daily Calories:</strong>
-                  <span className="dri-result-value dri-result-final">{result.energy} kcal</span>
-                </div>
-                <div className="dri-result-item">
-                  <strong>Daily Water:</strong>
-                  <span className="dri-result-value">{result.water} ml ({Math.round(result.water / 240)} cups)</span>
-                </div>
-              </div>
-
-              {/* Macronutrients */}
-              <div className="dri-result-section">
-                <h4 className="dri-result-section-title">Macronutrients</h4>
-                <div className="dri-result-item">
-                  <strong>Protein:</strong>
-                  <span className="dri-result-value">{result.macros.protein.grams}g ({result.macros.protein.percent}%)</span>
-                </div>
-                <div className="dri-result-item">
-                  <strong>Carbohydrates:</strong>
-                  <span className="dri-result-value">{result.macros.carbs.grams}g ({result.macros.carbs.percent}%)</span>
-                </div>
-                <div className="dri-result-item">
-                  <strong>Fat:</strong>
-                  <span className="dri-result-value">{result.macros.fat.grams}g ({result.macros.fat.percent}%)</span>
-                </div>
-                <div className="dri-result-item">
-                  <strong>Fiber:</strong>
-                  <span className="dri-result-value">{result.macros.fiber}g</span>
-                </div>
-              </div>
-
-              {/* Vitamins */}
-              <div className="dri-result-section">
-                <h4 className="dri-result-section-title">Vitamins</h4>
-                <div className="dri-result-grid">
-                <div className="dri-result-item">
-                  <strong>Vitamin A:</strong>
-                    <span className="dri-result-value">{result.vitamins.vitaminA} μg RAE</span>
-                </div>
-                <div className="dri-result-item">
-                  <strong>Vitamin C:</strong>
-                    <span className="dri-result-value">{result.vitamins.vitaminC} mg</span>
-                </div>
-                <div className="dri-result-item">
-                  <strong>Vitamin D:</strong>
-                    <span className="dri-result-value">{result.vitamins.vitaminD} μg</span>
-                </div>
-                <div className="dri-result-item">
-                  <strong>Vitamin E:</strong>
-                    <span className="dri-result-value">{result.vitamins.vitaminE} mg</span>
-                </div>
-                <div className="dri-result-item">
-                    <strong>Folate:</strong>
-                    <span className="dri-result-value">{result.vitamins.folate} μg</span>
-                </div>
-                <div className="dri-result-item">
-                    <strong>Vitamin B12:</strong>
-                    <span className="dri-result-value">{result.vitamins.vitaminB12} μg</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Minerals */}
-              <div className="dri-result-section">
-                <h4 className="dri-result-section-title">Minerals</h4>
-                <div className="dri-result-grid">
-                <div className="dri-result-item">
-                  <strong>Calcium:</strong>
-                    <span className="dri-result-value">{result.minerals.calcium} mg</span>
-                </div>
-                <div className="dri-result-item">
-                  <strong>Iron:</strong>
-                    <span className="dri-result-value">{result.minerals.iron} mg</span>
-                </div>
-                <div className="dri-result-item">
-                  <strong>Magnesium:</strong>
-                    <span className="dri-result-value">{result.minerals.magnesium} mg</span>
-                </div>
-                <div className="dri-result-item">
-                  <strong>Zinc:</strong>
-                    <span className="dri-result-value">{result.minerals.zinc} mg</span>
-                </div>
-                <div className="dri-result-item">
-                  <strong>Potassium:</strong>
-                    <span className="dri-result-value">{result.minerals.potassium} mg</span>
-                </div>
-                <div className="dri-result-item">
-                  <strong>Sodium:</strong>
-                    <span className="dri-result-value">{result.minerals.sodium} mg</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Recommendations */}
-              {result.recommendations.length > 0 && (
-                <div className="dri-result-section">
-                  <h4 className="dri-result-section-title">Personalized Recommendations</h4>
-                  <div className="dri-recommendations">
-                    {result.recommendations.map((rec, index) => (
-                      <div key={index} className="dri-recommendation-item">
-                        <i className="fas fa-check-circle"></i>
-                        {rec}
-                      </div>
+                  <label className="dri-input-label">Health Conditions (select all that apply):</label>
+                  <div className="dri-checkbox-group">
+                    {[
+                      { value: 'diabetes', label: 'Diabetes' },
+                      { value: 'hypertension', label: 'High Blood Pressure' },
+                      { value: 'heart_disease', label: 'Heart Disease' },
+                      { value: 'kidney_disease', label: 'Kidney Disease' },
+                      { value: 'osteoporosis', label: 'Osteoporosis' }
+                    ].map(condition => (
+                      <label key={condition.value} className="dri-checkbox-label">
+                        <input
+                          type="checkbox"
+                          className="dri-checkbox"
+                          checked={formData.healthConditions.includes(condition.value)}
+                          onChange={(e) => handleHealthConditionsChange(condition.value, e.target.checked)}
+                        />
+                        {condition.label}
+                      </label>
                     ))}
-                  </div>
                 </div>
-              )}
+              </div>
+            </div>
+          )}
+
+          <div className="dri-calculator-actions">
+              <button type="button" className="dri-btn-reset" onClick={handleReset}>
+                <i className="fas fa-redo"></i>
+              Reset
+            </button>
             </div>
           </div>
-        )}
-      </CalculatorSection>
 
-      {/* TOC and Feedback Section */}
-      <div className="tool-bottom-section">
-        <TableOfContents items={tableOfContents} />
-        <FeedbackForm toolName={toolData.name} />
-      </div>
+          {/* Results Section */}
+          {result && (
+            <div className="dri-calculator-result">
+              <h3 className="dri-result-title">Your Dietary Reference Intakes (DRI)</h3>
+              <div className="dri-result-content">
+                
+                {/* Energy Needs */}
+                <div className="dri-result-section">
+                  <h4 className="dri-result-section-title">Energy Needs</h4>
+                  <div className="dri-result-item">
+                    <strong>Daily Calories:</strong>
+                    <span className="dri-result-value dri-result-final">{result.energy} kcal</span>
+                  </div>
+                  <div className="dri-result-item">
+                    <strong>Daily Water:</strong>
+                    <span className="dri-result-value">{result.water} ml ({Math.round(result.water / 240)} cups)</span>
+                  </div>
+                </div>
 
-      {/* Content Sections */}
-      <ContentSection id="introduction" title="Introduction">
-        <p>
-          The DRI (Dietary Reference Intakes) Calculator is a comprehensive tool that helps you determine 
-          your personalized nutritional needs based on scientific guidelines established by health authorities. 
-          It calculates your daily requirements for energy, macronutrients, vitamins, and minerals.
-        </p>
-        <p>
-          Our calculator considers your individual characteristics including age, gender, height, weight, 
-          activity level, pregnancy status, lactation, health conditions, and dietary preferences to 
-          provide accurate and personalized recommendations.
-        </p>
-      </ContentSection>
+                {/* Macronutrients */}
+                <div className="dri-result-section">
+                  <h4 className="dri-result-section-title">Macronutrients</h4>
+                  <div className="dri-result-item">
+                    <strong>Protein:</strong>
+                    <span className="dri-result-value">{result.macros.protein.grams}g ({result.macros.protein.percent}%)</span>
+                  </div>
+                  <div className="dri-result-item">
+                    <strong>Carbohydrates:</strong>
+                    <span className="dri-result-value">{result.macros.carbs.grams}g ({result.macros.carbs.percent}%)</span>
+                  </div>
+                  <div className="dri-result-item">
+                    <strong>Fat:</strong>
+                    <span className="dri-result-value">{result.macros.fat.grams}g ({result.macros.fat.percent}%)</span>
+                  </div>
+                  <div className="dri-result-item">
+                    <strong>Fiber:</strong>
+                    <span className="dri-result-value">{result.macros.fiber}g</span>
+                  </div>
+                </div>
 
-      <ContentSection id="what-is-dri" title="What is DRI?">
-        <p>
-          Dietary Reference Intakes (DRIs) are a set of reference values used to plan and assess 
-          nutrient intakes of healthy people. They are developed by expert committees and represent 
-          the most current scientific knowledge on nutrient needs.
-        </p>
-        <ul>
-          <li><strong>RDA (Recommended Dietary Allowance):</strong> Average daily intake sufficient for 97-98% of healthy individuals</li>
-          <li><strong>AI (Adequate Intake):</strong> Used when RDA cannot be determined</li>
-          <li><strong>EAR (Estimated Average Requirement):</strong> Intake that meets needs of 50% of individuals</li>
-          <li><strong>UL (Tolerable Upper Intake Level):</strong> Maximum daily intake unlikely to cause adverse effects</li>
-        </ul>
-      </ContentSection>
+                {/* Vitamins */}
+                <div className="dri-result-section">
+                  <h4 className="dri-result-section-title">Vitamins</h4>
+                  <div className="dri-result-grid">
+                  <div className="dri-result-item">
+                    <strong>Vitamin A:</strong>
+                      <span className="dri-result-value">{result.vitamins.vitaminA} μg RAE</span>
+                  </div>
+                  <div className="dri-result-item">
+                    <strong>Vitamin C:</strong>
+                      <span className="dri-result-value">{result.vitamins.vitaminC} mg</span>
+                  </div>
+                  <div className="dri-result-item">
+                    <strong>Vitamin D:</strong>
+                      <span className="dri-result-value">{result.vitamins.vitaminD} μg</span>
+                  </div>
+                  <div className="dri-result-item">
+                    <strong>Vitamin E:</strong>
+                      <span className="dri-result-value">{result.vitamins.vitaminE} mg</span>
+                  </div>
+                  <div className="dri-result-item">
+                      <strong>Folate:</strong>
+                      <span className="dri-result-value">{result.vitamins.folate} μg</span>
+                  </div>
+                  <div className="dri-result-item">
+                      <strong>Vitamin B12:</strong>
+                      <span className="dri-result-value">{result.vitamins.vitaminB12} μg</span>
+                    </div>
+                  </div>
+                </div>
 
-      <ContentSection id="components" title="DRI Components">
-        <div className="dri-components-grid">
-          <div className="dri-component">
-            <h4>Energy Needs</h4>
-            <p>Daily calorie requirements based on BMR and activity level, with adjustments for pregnancy and lactation.</p>
-          </div>
-          <div className="dri-component">
-            <h4>Macronutrients</h4>
-            <p>Protein, carbohydrates, and fat distribution based on dietary preferences and health conditions.</p>
-          </div>
-          <div className="dri-component">
-            <h4>Vitamins</h4>
-            <p>Fat-soluble (A, D, E, K) and water-soluble (B-complex, C) vitamin requirements.</p>
-          </div>
-          <div className="dri-component">
-            <h4>Minerals</h4>
-            <p>Essential minerals including calcium, iron, magnesium, zinc, and electrolytes.</p>
-          </div>
-          <div className="dri-component">
-            <h4>Water Needs</h4>
-            <p>Daily fluid requirements based on body weight, activity level, and physiological status.</p>
-          </div>
-          <div className="dri-component">
-            <h4>Fiber</h4>
-            <p>Daily fiber intake recommendations for digestive health and disease prevention.</p>
-          </div>
+                {/* Minerals */}
+                <div className="dri-result-section">
+                  <h4 className="dri-result-section-title">Minerals</h4>
+                  <div className="dri-result-grid">
+                  <div className="dri-result-item">
+                    <strong>Calcium:</strong>
+                      <span className="dri-result-value">{result.minerals.calcium} mg</span>
+                  </div>
+                  <div className="dri-result-item">
+                    <strong>Iron:</strong>
+                      <span className="dri-result-value">{result.minerals.iron} mg</span>
+                  </div>
+                  <div className="dri-result-item">
+                    <strong>Magnesium:</strong>
+                      <span className="dri-result-value">{result.minerals.magnesium} mg</span>
+                  </div>
+                  <div className="dri-result-item">
+                    <strong>Zinc:</strong>
+                      <span className="dri-result-value">{result.minerals.zinc} mg</span>
+                  </div>
+                  <div className="dri-result-item">
+                    <strong>Potassium:</strong>
+                      <span className="dri-result-value">{result.minerals.potassium} mg</span>
+                  </div>
+                  <div className="dri-result-item">
+                    <strong>Sodium:</strong>
+                      <span className="dri-result-value">{result.minerals.sodium} mg</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Recommendations */}
+                {result.recommendations.length > 0 && (
+                  <div className="dri-result-section">
+                    <h4 className="dri-result-section-title">Personalized Recommendations</h4>
+                    <div className="dri-recommendations">
+                      {result.recommendations.map((rec, index) => (
+                        <div key={index} className="dri-recommendation-item">
+                          <i className="fas fa-check-circle"></i>
+                          {rec}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
+        </CalculatorSection>
+
+        {/* TOC and Feedback Section */}
+        <div className="tool-bottom-section">
+          <TableOfContents items={tableOfContents} />
+          <FeedbackForm toolName={toolData.name} />
         </div>
-      </ContentSection>
 
-      <ContentSection id="how-to-use" title="How to Use Calculator">
-        <p>Follow these steps to calculate your personalized DRI:</p>
-        
-        <h3>Step 1: Basic Information</h3>
-        <ul className="usage-steps">
-          <li><strong>Personal Details:</strong> Enter your gender, age, height, and weight</li>
-          <li><strong>Activity Level:</strong> Select your physical activity level</li>
-        </ul>
+        {/* Content Sections */}
+        <ContentSection id="introduction" title="Introduction">
+          <p>
+            The DRI (Dietary Reference Intakes) Calculator is a comprehensive tool that helps you determine 
+            your personalized nutritional needs based on scientific guidelines established by health authorities. 
+            It calculates your daily requirements for energy, macronutrients, vitamins, and minerals.
+          </p>
+          <p>
+            Our calculator considers your individual characteristics including age, gender, height, weight, 
+            activity level, pregnancy status, lactation, health conditions, and dietary preferences to 
+            provide accurate and personalized recommendations.
+          </p>
+        </ContentSection>
 
-        <h3>Step 2: Advanced Options (Optional)</h3>
-        <ul className="usage-steps">
-          <li><strong>Pregnancy/Lactation:</strong> Select current status if applicable</li>
-          <li><strong>Diet Type:</strong> Choose your dietary pattern</li>
-          <li><strong>Health Conditions:</strong> Select any relevant health conditions</li>
-        </ul>
-
-        <h3>Step 3: Calculate and Review</h3>
-        <ul className="usage-steps">
-          <li><strong>Calculate:</strong> Click "Calculate DRI" to get your results</li>
-          <li><strong>Review:</strong> Check all nutrient requirements and recommendations</li>
-        </ul>
-      </ContentSection>
-
-      <ContentSection id="calculation-method" title="Calculation Method">
-        <p>
-          The DRI calculation uses established scientific formulas and guidelines:
-        </p>
-        
-        <div className="calculation-method-section">
-          <h3>Energy Calculation</h3>
+        <ContentSection id="what-is-dri" title="What is DRI?">
+          <p>
+            Dietary Reference Intakes (DRIs) are a set of reference values used to plan and assess 
+            nutrient intakes of healthy people. They are developed by expert committees and represent 
+            the most current scientific knowledge on nutrient needs.
+          </p>
           <ul>
-            <li><strong>BMR:</strong> Mifflin-St Jeor equation based on gender, age, weight, and height</li>
-            <li><strong>Activity Factor:</strong> Multiplier based on physical activity level</li>
-            <li><strong>Adjustments:</strong> Additional calories for pregnancy and lactation</li>
+            <li><strong>RDA (Recommended Dietary Allowance):</strong> Average daily intake sufficient for 97-98% of healthy individuals</li>
+            <li><strong>AI (Adequate Intake):</strong> Used when RDA cannot be determined</li>
+            <li><strong>EAR (Estimated Average Requirement):</strong> Intake that meets needs of 50% of individuals</li>
+            <li><strong>UL (Tolerable Upper Intake Level):</strong> Maximum daily intake unlikely to cause adverse effects</li>
           </ul>
-        </div>
+        </ContentSection>
 
-        <div className="calculation-method-section">
-          <h3>Nutrient Requirements</h3>
+        <ContentSection id="components" title="DRI Components">
+          <div className="dri-components-grid">
+            <div className="dri-component">
+              <h4>Energy Needs</h4>
+              <p>Daily calorie requirements based on BMR and activity level, with adjustments for pregnancy and lactation.</p>
+            </div>
+            <div className="dri-component">
+              <h4>Macronutrients</h4>
+              <p>Protein, carbohydrates, and fat distribution based on dietary preferences and health conditions.</p>
+            </div>
+            <div className="dri-component">
+              <h4>Vitamins</h4>
+              <p>Fat-soluble (A, D, E, K) and water-soluble (B-complex, C) vitamin requirements.</p>
+            </div>
+            <div className="dri-component">
+              <h4>Minerals</h4>
+              <p>Essential minerals including calcium, iron, magnesium, zinc, and electrolytes.</p>
+            </div>
+            <div className="dri-component">
+              <h4>Water Needs</h4>
+              <p>Daily fluid requirements based on body weight, activity level, and physiological status.</p>
+            </div>
+            <div className="dri-component">
+              <h4>Fiber</h4>
+              <p>Daily fiber intake recommendations for digestive health and disease prevention.</p>
+            </div>
+          </div>
+        </ContentSection>
+
+        <ContentSection id="how-to-use" title="How to Use Calculator">
+          <p>Follow these steps to calculate your personalized DRI:</p>
+          
+          <h3>Step 1: Basic Information</h3>
+          <ul className="usage-steps">
+            <li><strong>Personal Details:</strong> Enter your gender, age, height, and weight</li>
+            <li><strong>Activity Level:</strong> Select your physical activity level</li>
+          </ul>
+
+          <h3>Step 2: Advanced Options (Optional)</h3>
+          <ul className="usage-steps">
+            <li><strong>Pregnancy/Lactation:</strong> Select current status if applicable</li>
+            <li><strong>Diet Type:</strong> Choose your dietary pattern</li>
+            <li><strong>Health Conditions:</strong> Select any relevant health conditions</li>
+          </ul>
+
+          <h3>Step 3: Calculate and Review</h3>
+          <ul className="usage-steps">
+            <li><strong>Calculate:</strong> Click "Calculate DRI" to get your results</li>
+            <li><strong>Review:</strong> Check all nutrient requirements and recommendations</li>
+          </ul>
+        </ContentSection>
+
+        <ContentSection id="calculation-method" title="Calculation Method">
+          <p>
+            The DRI calculation uses established scientific formulas and guidelines:
+          </p>
+          
+          <div className="calculation-method-section">
+            <h3>Energy Calculation</h3>
+            <ul>
+              <li><strong>BMR:</strong> Mifflin-St Jeor equation based on gender, age, weight, and height</li>
+              <li><strong>Activity Factor:</strong> Multiplier based on physical activity level</li>
+              <li><strong>Adjustments:</strong> Additional calories for pregnancy and lactation</li>
+            </ul>
+          </div>
+
+          <div className="calculation-method-section">
+            <h3>Nutrient Requirements</h3>
+            <ul>
+              <li><strong>Age & Gender:</strong> Primary factors determining nutrient needs</li>
+              <li><strong>Physiological Status:</strong> Pregnancy and lactation adjustments</li>
+              <li><strong>Health Conditions:</strong> Modifications based on medical conditions</li>
+              <li><strong>Diet Type:</strong> Adjustments for different dietary patterns</li>
+            </ul>
+          </div>
+        </ContentSection>
+
+        <ContentSection id="examples" title="Examples">
+          <div className="example-section">
+            <h3>Example 1: Adult Female</h3>
+            <div className="example-solution">
+              <p><strong>Profile:</strong> 30-year-old female, 165 cm, 60 kg, moderately active</p>
+              <p><strong>Energy:</strong> ~2000 calories/day</p>
+              <p><strong>Protein:</strong> ~75g (15%)</p>
+              <p><strong>Iron:</strong> 18 mg (higher due to menstruation)</p>
+              <p><strong>Folate:</strong> 400 μg (important for reproductive age)</p>
+            </div>
+          </div>
+
+          <div className="example-section">
+            <h3>Example 2: Pregnant Female</h3>
+            <div className="example-solution">
+              <p><strong>Profile:</strong> Same female, second trimester pregnancy</p>
+              <p><strong>Energy:</strong> ~2340 calories/day (+340 for pregnancy)</p>
+              <p><strong>Protein:</strong> ~85g (increased needs)</p>
+              <p><strong>Iron:</strong> 27 mg (significantly increased)</p>
+              <p><strong>Folate:</strong> 600 μg (critical for fetal development)</p>
+            </div>
+          </div>
+        </ContentSection>
+
+        <ContentSection id="significance" title="Significance">
+          <p>Understanding your DRI is important for:</p>
           <ul>
-            <li><strong>Age & Gender:</strong> Primary factors determining nutrient needs</li>
-            <li><strong>Physiological Status:</strong> Pregnancy and lactation adjustments</li>
-            <li><strong>Health Conditions:</strong> Modifications based on medical conditions</li>
-            <li><strong>Diet Type:</strong> Adjustments for different dietary patterns</li>
+            <li>Optimal health and disease prevention</li>
+            <li>Proper growth and development</li>
+            <li>Supporting pregnancy and lactation</li>
+            <li>Managing chronic health conditions</li>
+            <li>Planning balanced meals and supplementation</li>
+            <li>Achieving fitness and performance goals</li>
           </ul>
+        </ContentSection>
+
+        <ContentSection id="functionality" title="Functionality">
+          <p>Our DRI Calculator provides comprehensive functionality:</p>
+          <ul>
+            <li><strong>Complete Nutrient Profile:</strong> Energy, macros, vitamins, minerals, and water</li>
+            <li><strong>Life Stage Adjustments:</strong> Pregnancy and lactation considerations</li>
+            <li><strong>Health Condition Modifications:</strong> Adjustments for diabetes, hypertension, etc.</li>
+            <li><strong>Diet Type Adaptations:</strong> Accommodates various dietary patterns</li>
+            <li><strong>Personalized Recommendations:</strong> Specific advice based on your profile</li>
+            <li><strong>Scientific Accuracy:</strong> Based on official DRI guidelines</li>
+          </ul>
+        </ContentSection>
+
+        <ContentSection id="applications" title="Applications">
+          <div className="applications-grid">
+            <div className="application-item">
+              <h4><i className="fas fa-utensils"></i> Meal Planning</h4>
+              <p>Plan balanced meals meeting nutrient needs</p>
+            </div>
+            <div className="application-item">
+              <h4><i className="fas fa-pills"></i> Supplementation</h4>
+              <p>Identify potential nutrient gaps</p>
+            </div>
+            <div className="application-item">
+              <h4><i className="fas fa-baby"></i> Pregnancy Nutrition</h4>
+              <p>Ensure adequate nutrition during pregnancy</p>
+            </div>
+            <div className="application-item">
+              <h4><i className="fas fa-heartbeat"></i> Health Management</h4>
+              <p>Support chronic disease management</p>
+            </div>
+            <div className="application-item">
+              <h4><i className="fas fa-chart-line"></i> Performance</h4>
+              <p>Optimize nutrition for athletic performance</p>
+            </div>
+            <div className="application-item">
+              <h4><i className="fas fa-user-md"></i> Clinical Use</h4>
+              <p>Support healthcare professionals</p>
+            </div>
         </div>
-      </ContentSection>
+        </ContentSection>
 
-      <ContentSection id="examples" title="Examples">
-        <div className="example-section">
-          <h3>Example 1: Adult Female</h3>
-          <div className="example-solution">
-            <p><strong>Profile:</strong> 30-year-old female, 165 cm, 60 kg, moderately active</p>
-            <p><strong>Energy:</strong> ~2000 calories/day</p>
-            <p><strong>Protein:</strong> ~75g (15%)</p>
-            <p><strong>Iron:</strong> 18 mg (higher due to menstruation)</p>
-            <p><strong>Folate:</strong> 400 μg (important for reproductive age)</p>
-          </div>
-        </div>
-
-        <div className="example-section">
-          <h3>Example 2: Pregnant Female</h3>
-          <div className="example-solution">
-            <p><strong>Profile:</strong> Same female, second trimester pregnancy</p>
-            <p><strong>Energy:</strong> ~2340 calories/day (+340 for pregnancy)</p>
-            <p><strong>Protein:</strong> ~85g (increased needs)</p>
-            <p><strong>Iron:</strong> 27 mg (significantly increased)</p>
-            <p><strong>Folate:</strong> 600 μg (critical for fetal development)</p>
-          </div>
-        </div>
-      </ContentSection>
-
-      <ContentSection id="significance" title="Significance">
-        <p>Understanding your DRI is important for:</p>
-        <ul>
-          <li>Optimal health and disease prevention</li>
-          <li>Proper growth and development</li>
-          <li>Supporting pregnancy and lactation</li>
-          <li>Managing chronic health conditions</li>
-          <li>Planning balanced meals and supplementation</li>
-          <li>Achieving fitness and performance goals</li>
-        </ul>
-      </ContentSection>
-
-      <ContentSection id="functionality" title="Functionality">
-        <p>Our DRI Calculator provides comprehensive functionality:</p>
-        <ul>
-          <li><strong>Complete Nutrient Profile:</strong> Energy, macros, vitamins, minerals, and water</li>
-          <li><strong>Life Stage Adjustments:</strong> Pregnancy and lactation considerations</li>
-          <li><strong>Health Condition Modifications:</strong> Adjustments for diabetes, hypertension, etc.</li>
-          <li><strong>Diet Type Adaptations:</strong> Accommodates various dietary patterns</li>
-          <li><strong>Personalized Recommendations:</strong> Specific advice based on your profile</li>
-          <li><strong>Scientific Accuracy:</strong> Based on official DRI guidelines</li>
-        </ul>
-      </ContentSection>
-
-      <ContentSection id="applications" title="Applications">
-        <div className="applications-grid">
-          <div className="application-item">
-            <h4><i className="fas fa-utensils"></i> Meal Planning</h4>
-            <p>Plan balanced meals meeting nutrient needs</p>
-          </div>
-          <div className="application-item">
-            <h4><i className="fas fa-pills"></i> Supplementation</h4>
-            <p>Identify potential nutrient gaps</p>
-          </div>
-          <div className="application-item">
-            <h4><i className="fas fa-baby"></i> Pregnancy Nutrition</h4>
-            <p>Ensure adequate nutrition during pregnancy</p>
-          </div>
-          <div className="application-item">
-            <h4><i className="fas fa-heartbeat"></i> Health Management</h4>
-            <p>Support chronic disease management</p>
-          </div>
-          <div className="application-item">
-            <h4><i className="fas fa-chart-line"></i> Performance</h4>
-            <p>Optimize nutrition for athletic performance</p>
-          </div>
-          <div className="application-item">
-            <h4><i className="fas fa-user-md"></i> Clinical Use</h4>
-            <p>Support healthcare professionals</p>
-          </div>
-      </div>
-      </ContentSection>
-
-      <FAQSection 
-        faqs={[
-          {
-            question: "How accurate are these DRI calculations?",
-            answer: "Our calculations are based on official DRI guidelines from the Institute of Medicine and are highly accurate for the general population. However, individual needs may vary based on genetics, metabolism, and other factors not captured in the standard formulas."
-          },
-          {
-            question: "Should I take supplements to meet my DRI?",
-            answer: "It's best to meet nutrient needs through a balanced diet first. Supplements may be helpful for specific nutrients that are difficult to obtain from food alone (like vitamin D or B12 for vegans), but consult with a healthcare provider before starting any supplements."
-          },
-          {
-            question: "How do health conditions affect my DRI?",
-            answer: "Certain health conditions can significantly alter nutrient needs. For example, diabetes may require modified carbohydrate intake, while kidney disease may require protein restriction. Always work with healthcare professionals for condition-specific guidance."
-          },
-          {
-            question: "Are DRIs different for athletes?",
-            answer: "Athletes may have higher needs for certain nutrients, particularly protein, carbohydrates, and some vitamins and minerals. The calculator's 'extra active' setting accounts for some of these increased needs, but elite athletes may require specialized nutrition planning."
-          },
-          {
-            question: "How often should I recalculate my DRI?",
-            answer: "Recalculate your DRI when there are significant changes in your age, weight, activity level, health status, or life circumstances (like pregnancy). Generally, annual reviews are sufficient for most people."
-          },
-          {
-            question: "Can children use this calculator?",
-            answer: "This calculator is designed for adults. Children and adolescents have different nutrient needs and growth patterns that require specialized pediatric DRI guidelines. Consult with a pediatric healthcare provider for children's nutritional needs."
-          }
-        ]}
-        title="Frequently Asked Questions"
-      />
-    </ToolPageLayout>
+        <FAQSection 
+          faqs={[
+            {
+              question: "How accurate are these DRI calculations?",
+              answer: "Our calculations are based on official DRI guidelines from the Institute of Medicine and are highly accurate for the general population. However, individual needs may vary based on genetics, metabolism, and other factors not captured in the standard formulas."
+            },
+            {
+              question: "Should I take supplements to meet my DRI?",
+              answer: "It's best to meet nutrient needs through a balanced diet first. Supplements may be helpful for specific nutrients that are difficult to obtain from food alone (like vitamin D or B12 for vegans), but consult with a healthcare provider before starting any supplements."
+            },
+            {
+              question: "How do health conditions affect my DRI?",
+              answer: "Certain health conditions can significantly alter nutrient needs. For example, diabetes may require modified carbohydrate intake, while kidney disease may require protein restriction. Always work with healthcare professionals for condition-specific guidance."
+            },
+            {
+              question: "Are DRIs different for athletes?",
+              answer: "Athletes may have higher needs for certain nutrients, particularly protein, carbohydrates, and some vitamins and minerals. The calculator's 'extra active' setting accounts for some of these increased needs, but elite athletes may require specialized nutrition planning."
+            },
+            {
+              question: "How often should I recalculate my DRI?",
+              answer: "Recalculate your DRI when there are significant changes in your age, weight, activity level, health status, or life circumstances (like pregnancy). Generally, annual reviews are sufficient for most people."
+            },
+            {
+              question: "Can children use this calculator?",
+              answer: "This calculator is designed for adults. Children and adolescents have different nutrient needs and growth patterns that require specialized pediatric DRI guidelines. Consult with a pediatric healthcare provider for children's nutritional needs."
+            }
+          ]}
+          title="Frequently Asked Questions"
+        />
+      </ToolPageLayout>
+    </>
   )
 }
 
