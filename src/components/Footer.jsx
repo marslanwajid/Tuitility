@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import { Link } from 'react-router-dom'
 import "../assets/css/footer.css"
 
@@ -11,7 +11,7 @@ const Footer = () => {
           {/* Company Info Section */}
           <div className="footer-brand">
             <div className="footer-logo">
-              <img src="/images/logo.png" alt="Tuitility" />
+              <img src="/images/logo.png" alt="Tuitility" loading="lazy" />
             </div>
             <p className="footer-description">
               Your ultimate destination for free online calculators and tools. 
@@ -102,7 +102,7 @@ const Footer = () => {
       <div className="footer-bottom">
         <div className="footer-bottom-container">
           <div className="footer-copyright">
-            <p>&copy; 2025 Tuitility. All rights reserved.</p>
+            <p>&copy; 2026 Tuitility. All rights reserved.</p>
           </div>
           <div className="footer-credits">
             <span>Developed by <a href="https://www.linkedin.com/in/arslan-wajid/" target="_blank" rel="noopener noreferrer">Arslan Wajid</a></span>
@@ -113,4 +113,4 @@ const Footer = () => {
   )
 }
 
-export default Footer
+export default memo(Footer)

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, memo } from 'react'
 import { Link } from 'react-router-dom'
 import "../assets/css/header.css"
 
@@ -32,7 +32,7 @@ const Header = () => {
       <nav className="navbar">
         <div className="logo">
           <Link to="/">
-            <img src="/images/logo.png" alt="Tuitility" />
+            <img src="/images/logo.png" alt="Tuitility" loading="lazy" />
            
           </Link>
         </div>
@@ -112,4 +112,4 @@ const Header = () => {
   )
 }
 
-export default Header
+export default memo(Header)
