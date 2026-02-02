@@ -526,7 +526,7 @@ const CategoryNavigation = () => {
       category: "Utility",
       icon: "fas fa-font",
     },
-    
+
     {
       name: "RGB to HEX",
       desc: "Convert color formats",
@@ -561,6 +561,13 @@ const CategoryNavigation = () => {
       url: "/utility-tools/ocr-pdf-generator",
       category: "PDF",
       icon: "fas fa-eye",
+    },
+    {
+      name: "PDF to Image Converter",
+      desc: "Convert PDF pages to images (PNG/JPG)",
+      url: "/utility-tools/converter-tools/pdf-to-image-converter",
+      category: "PDF",
+      icon: "fas fa-file-image",
     },
 
 
@@ -780,14 +787,14 @@ const CategoryNavigation = () => {
   // Filter tools based on search query or active filter
   const filteredTools = searchQuery
     ? allTools.filter(
-        (tool) =>
-          tool.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-          tool.desc.toLowerCase().includes(searchQuery.toLowerCase()) ||
-          tool.category.toLowerCase().includes(searchQuery.toLowerCase())
-      )
+      (tool) =>
+        tool.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        tool.desc.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        tool.category.toLowerCase().includes(searchQuery.toLowerCase())
+    )
     : activeFilter === "all"
-    ? allTools
-    : allTools.filter((tool) => tool.category.toLowerCase() === activeFilter);
+      ? allTools
+      : allTools.filter((tool) => tool.category.toLowerCase() === activeFilter);
 
   const getCategoryColor = (category) => {
     const categoryMap = {
@@ -872,9 +879,8 @@ const CategoryNavigation = () => {
               {filterTabs.map((tab) => (
                 <button
                   key={tab.id}
-                  className={`filter-tab ${
-                    activeFilter === tab.id ? "active" : ""
-                  }`}
+                  className={`filter-tab ${activeFilter === tab.id ? "active" : ""
+                    }`}
                   onClick={() => handleFilterClick(tab.id)}
                   style={{ "--tab-color": tab.color }}
                 >
@@ -883,9 +889,8 @@ const CategoryNavigation = () => {
                     style={{
                       backgroundColor:
                         activeFilter === tab.id ? tab.color : `${tab.color}15`,
-                      border: `1px solid ${
-                        activeFilter === tab.id ? tab.color : `${tab.color}30`
-                      }`,
+                      border: `1px solid ${activeFilter === tab.id ? tab.color : `${tab.color}30`
+                        }`,
                     }}
                   >
                     <i
@@ -909,9 +914,8 @@ const CategoryNavigation = () => {
               {searchQuery
                 ? `Search Results for "${searchQuery}"`
                 : activeFilter === "all"
-                ? "All Tools"
-                : `${
-                    activeFilter.charAt(0).toUpperCase() + activeFilter.slice(1)
+                  ? "All Tools"
+                  : `${activeFilter.charAt(0).toUpperCase() + activeFilter.slice(1)
                   } Tools`}
             </h3>
             <p className="tools-count">
