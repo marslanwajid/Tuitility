@@ -73,8 +73,13 @@ const PdfToImageConverter = () => {
 
     const tableOfContents = [
         { id: 'converter', title: 'Converter' },
-        { id: 'how-to', title: 'How to Use' },
+        { id: 'introduction', title: 'Introduction' },
+        { id: 'how-it-works', title: 'How It Works' },
+        { id: 'supported-formats', title: 'Supported Formats' },
+        { id: 'quality-options', title: 'Quality Options' },
+        { id: 'why-convert', title: 'Why Convert' },
         { id: 'features', title: 'Features' },
+        { id: 'applications', title: 'Applications' },
         { id: 'faqs', title: 'FAQs' }
     ];
 
@@ -454,121 +459,180 @@ const PdfToImageConverter = () => {
                 </div>
 
                 <div className="pdf-converter-content">
-                    <ContentSection id="how-to" title="How to Convert PDF to Image">
-                        <ul className="usage-steps">
-                            <li><strong>Upload:</strong> Drag and drop your PDF file into the upload box or click to select from your device.</li>
-                            <li><strong>Select Page:</strong> Use the navigation controls to find the specific page you want to convert.</li>
-                            <li><strong>Adjust Settings:</strong> Choose between PNG (better quality) or JPG (smaller file size) and adjust resolution.</li>
-                            <li><strong>Background Features:</strong> Use 'Simple' mode for instant white background removal, or 'AI Removal' for complex images.</li>
-                            <li><strong>Download:</strong> Click the "Download Image" button to save the current page to your device.</li>
-                        </ul>
+                    <ContentSection id="introduction" title="What is PDF to Image Conversion?">
+                        <p>
+                            PDF to Image conversion is the process of transforming PDF document pages into image files (PNG, JPG, WebP).
+                            This conversion allows you to extract individual pages from PDF documents and save them as standalone images
+                            that can be easily shared, edited, or embedded in other documents and websites.
+                        </p>
+                        <p>
+                            Our online converter provides a fast, secure, and high-quality solution for converting PDFs to images without
+                            requiring any software installation. All processing happens directly in your browser, ensuring complete privacy
+                            and security.
+                        </p>
                     </ContentSection>
 
-                    <ContentSection id="formats-guide" title="Image Formats Guide: PNG vs JPG vs WebP">
-                        <p>Choosing the right format is crucial for your needs. Here is a quick guide:</p>
+                    <ContentSection id="how-it-works" title="How Our PDF to Image Converter Works">
+                        <p>Our converter uses advanced algorithms to process PDF pages and generate high-quality image output:</p>
+                        <ol className="usage-steps">
+                            <li><strong>PDF Analysis:</strong> The system analyzes your PDF document's structure, fonts, and graphics</li>
+                            <li><strong>Page Rendering:</strong> Each page is rendered at your selected resolution using PDF.js technology</li>
+                            <li><strong>Quality Preservation:</strong> Maintains original document quality, colors, and details</li>
+                            <li><strong>Format Conversion:</strong> Converts the rendered page to your chosen image format (PNG/JPG/WebP)</li>
+                            <li><strong>Download Ready:</strong> Generates a high-quality image file ready for download</li>
+                        </ol>
+                    </ContentSection>
+
+                    <ContentSection id="supported-formats" title="Supported Image Formats">
+                        <p>Our converter supports all major image formats for maximum flexibility:</p>
                         <div className="applications-grid">
                             <div className="application-item">
-                                <h3>PNG (Portable Network Graphics)</h3>
-                                <p><strong>Best for:</strong> Text-heavy documents, diagrams, and images requiring transparency.</p>
-                                <p>PNG is a lossless format, meaning no quality is lost during conversion. It supports transparent backgrounds, making it ideal for logos and design assets.</p>
+                                <h3><i className="fas fa-file-image"></i> PNG Format</h3>
+                                <p>Portable Network Graphics with lossless compression and transparency support. Best for text-heavy documents, diagrams, and images requiring transparency.</p>
                             </div>
                             <div className="application-item">
-                                <h3>JPG (JPEG)</h3>
-                                <p><strong>Best for:</strong> Photographs and full-color scanned documents.</p>
-                                <p>JPG offers smaller file sizes through compression. While it doesn't support transparency, it's widely compatible and great for sharing photos or documents via email.</p>
+                                <h3><i className="fas fa-image"></i> JPEG/JPG Format</h3>
+                                <p>Joint Photographic Experts Group format with efficient compression. Ideal for photographs and full-color scanned documents with smaller file sizes.</p>
                             </div>
                             <div className="application-item">
-                                <h3>WebP (Modern Web Format)</h3>
-                                <p><strong>Best for:</strong> Websites and web applications.</p>
-                                <p>WebP provides superior compression and quality compared to both PNG and JPG. It supports transparency and is favored by Google for faster website loading speeds.</p>
+                                <h3><i className="fas fa-globe"></i> WebP Format</h3>
+                                <p>Modern web image format with excellent compression and quality. Perfect for websites with superior compression compared to PNG and JPG.</p>
                             </div>
                         </div>
                     </ContentSection>
 
-                    <ContentSection id="features" title="Why Use This Tool?">
+                    <ContentSection id="quality-options" title="Conversion Quality Options">
+                        <p>Choose the right quality level based on your specific needs:</p>
                         <div className="applications-grid">
                             <div className="application-item">
-                                <h3><i className="fas fa-shield-alt"></i> 100% Secure</h3>
-                                <p>Your files never leave your browser. All processing happens locally on your device.</p>
+                                <h3><i className="fas fa-star"></i> High Quality (3x Scale)</h3>
+                                <p>Best output with maximum resolution preservation. Ideal for professional documents, presentations, and printing. Larger file sizes but crystal-clear results.</p>
                             </div>
                             <div className="application-item">
-                                <h3><i className="fas fa-bolt"></i> High Quality</h3>
-                                <p>Render PDFs at high resolution (up to 3x scale) for crisp, clear images.</p>
+                                <h3><i className="fas fa-balance-scale"></i> Standard Quality (1.5x Scale)</h3>
+                                <p>Balanced quality and file size, suitable for most use cases. Perfect for web use, email sharing, and general document conversion.</p>
                             </div>
                             <div className="application-item">
-                                <h3><i className="fas fa-money-bill-wave"></i> Completely Free</h3>
-                                <p>No daily limits, no watermarks, and no registration required.</p>
+                                <h3><i className="fas fa-compress"></i> Compressed (1x Scale)</h3>
+                                <p>Smaller file size with standard resolution. Great for quick sharing, storage optimization, and mobile viewing.</p>
                             </div>
                         </div>
                     </ContentSection>
 
-                    <ContentSection id="advanced-features" title="Advanced Features">
+                    <ContentSection id="why-convert" title="Why Convert PDF to Images?">
+                        <p>Converting PDFs to images offers several important benefits:</p>
                         <div className="applications-grid">
                             <div className="application-item">
-                                <h3><i className="fas fa-magic"></i> Transparent Background</h3>
-                                <p>Automatically remove white backgrounds from your PDF pages, making them perfect for logos, signatures, and overlay graphics.</p>
+                                <h3><i className="fas fa-share-alt"></i> Easy Sharing</h3>
+                                <p>Share specific pages as images via social media, messaging apps, or email without sending the entire PDF document.</p>
                             </div>
                             <div className="application-item">
-                                <h3><i className="fas fa-adjust"></i> Dark Mode (Invert)</h3>
-                                <p>Invert colors to create a "dark mode" version of your document, ideal for comfortable reading at night or creating distinct visual styles.</p>
+                                <h3><i className="fas fa-edit"></i> Simple Editing</h3>
+                                <p>Edit PDF content using standard image editing tools like Photoshop, GIMP, or online editors.</p>
                             </div>
                             <div className="application-item">
-                                <h3><i className="fas fa-layer-group"></i> WebP Support</h3>
-                                <p>Export to the modern WebP format for superior compression and web performance, significantly smaller than PNG without quality loss.</p>
+                                <h3><i className="fas fa-globe-americas"></i> Universal Compatibility</h3>
+                                <p>Images can be viewed on any device without requiring a PDF reader application.</p>
+                            </div>
+                            <div className="application-item">
+                                <h3><i className="fas fa-code"></i> Web Integration</h3>
+                                <p>Embed PDF pages directly into websites, blogs, and presentations as images.</p>
+                            </div>
+                            <div className="application-item">
+                                <h3><i className="fas fa-mobile-alt"></i> Mobile Friendly</h3>
+                                <p>Images load faster and display better on mobile devices compared to PDF documents.</p>
+                            </div>
+                            <div className="application-item">
+                                <h3><i className="fas fa-archive"></i> Archival Quality</h3>
+                                <p>Preserve important document pages as images for long-term storage and easy access.</p>
                             </div>
                         </div>
                     </ContentSection>
 
-                    <ContentSection id="use-cases" title="Common Use Cases">
-                        <ul className="usage-steps">
-                            <li><strong>Social Media Content:</strong> Convert PDF flyers or infographics into images for Instagram, LinkedIn, or Twitter posts.</li>
-                            <li><strong>Web Development:</strong> Extract assets from design PDFs with transparency for use in websites.</li>
-                            <li><strong>E-Signature:</strong> Extract your signature from a scanned PDF to use in other digital documents.</li>
-                            <li><strong>Presentation:</strong> Turn PDF slides into individual images for PowerPoint or Keynote presentations.</li>
-                            <li><strong>Archiving:</strong> Save important document pages as images for easy viewing on mobile devices without a PDF reader.</li>
-                        </ul>
+                    <ContentSection id="features" title="Key Features & Functionality">
+                        <p>Our PDF to Image converter includes advanced features for professional results:</p>
+                        <div className="applications-grid">
+                            <div className="application-item">
+                                <h3><i className="fas fa-sliders-h"></i> Resolution Control</h3>
+                                <p>Adjust output resolution from 1x to 3x scale for perfect balance between quality and file size.</p>
+                            </div>
+                            <div className="application-item">
+                                <h3><i className="fas fa-palette"></i> Format Options</h3>
+                                <p>Choose between PNG, JPG, and WebP formats based on your specific requirements.</p>
+                            </div>
+                            <div className="application-item">
+                                <h3><i className="fas fa-magic"></i> Background Removal</h3>
+                                <p>Simple and AI-powered background removal options for creating transparent images.</p>
+                            </div>
+                            <div className="application-item">
+                                <h3><i className="fas fa-adjust"></i> Color Inversion</h3>
+                                <p>Invert colors to create dark mode versions or achieve special visual effects.</p>
+                            </div>
+                            <div className="application-item">
+                                <h3><i className="fas fa-file-alt"></i> Page Selection</h3>
+                                <p>Navigate through multi-page PDFs and convert specific pages individually.</p>
+                            </div>
+                            <div className="application-item">
+                                <h3><i className="fas fa-shield-alt"></i> Privacy First</h3>
+                                <p>100% client-side processing ensures your documents never leave your device.</p>
+                            </div>
+                        </div>
                     </ContentSection>
 
-                    <ContentSection id="troubleshooting" title="Troubleshooting Common Issues">
-                        <ul className="usage-steps">
-                            <li><strong>File Not Loading?</strong> Ensure your PDF is not password-protected. Try removing the password and uploading again.</li>
-                            <li><strong>Blurry Images?</strong> unexpected blurry results usually mean the resolution is too low. Increase the "Resolution" slider to 2x or 3x for sharper text.</li>
-                            <li><strong>Background Removal Failed?</strong> The 'Simple' mode works best on pure white backgrounds. For scanned papers or complex scenes, switch to 'AI Removal' mode.</li>
-                            <li><strong>Browser Slow?</strong> Very large PDF files (over 50MB) can tax your browser's memory. Try converting one page at a time.</li>
-                        </ul>
-                    </ContentSection>
-
-                    <ContentSection id="privacy" title="Privacy & Security Assurance">
-                        <p>In an era of data breaches, we prioritize your security above all else. Unlike other "free" converters that upload your sensitive documents to cloud servers, <strong>Tuitility performs all conversions locally on your device.</strong></p>
-                        <p>This means:</p>
-                        <ul>
-                            <li>Your PDF never leaves your computer.</li>
-                            <li>No temporary files are stored on our servers.</li>
-                            <li>No employees or bots can access your content.</li>
-                            <li>You can even use this tool while offline!</li>
-                        </ul>
-                    </ContentSection>
-
-                    <ContentSection id="technical-details" title="Technical Accuracy">
-                        <p>Our tool uses the same rendering engine as Mozilla Firefox's built-in PDF viewer (PDF.js). This ensures that fonts, vectors, and complex layouts are rendered exactly as they appear in the original document. By processing files on your device (Client-Side Rendering), we eliminate network latency and server-side risks.</p>
+                    <ContentSection id="applications" title="Common Applications">
+                        <p>PDF to Image conversion is essential for various professional and personal uses:</p>
+                        <div className="applications-grid">
+                            <div className="application-item">
+                                <h3><i className="fas fa-hashtag"></i> Social Media</h3>
+                                <p>Convert PDF flyers, infographics, or presentations into images for Instagram, LinkedIn, Twitter, and Facebook posts.</p>
+                            </div>
+                            <div className="application-item">
+                                <h3><i className="fas fa-laptop-code"></i> Web Development</h3>
+                                <p>Extract design assets, diagrams, and graphics from PDFs for use in websites and applications.</p>
+                            </div>
+                            <div className="application-item">
+                                <h3><i className="fas fa-signature"></i> Digital Signatures</h3>
+                                <p>Extract signatures from scanned PDFs to use in other digital documents and forms.</p>
+                            </div>
+                            <div className="application-item">
+                                <h3><i className="fas fa-presentation"></i> Presentations</h3>
+                                <p>Convert PDF slides into individual images for PowerPoint, Keynote, or Google Slides presentations.</p>
+                            </div>
+                            <div className="application-item">
+                                <h3><i className="fas fa-envelope"></i> Email Marketing</h3>
+                                <p>Create email-friendly images from PDF marketing materials and newsletters.</p>
+                            </div>
+                            <div className="application-item">
+                                <h3><i className="fas fa-book"></i> Documentation</h3>
+                                <p>Extract specific pages from manuals, reports, or ebooks for easy reference and sharing.</p>
+                            </div>
+                        </div>
                     </ContentSection>
 
                     <FAQSection faqs={[
                         {
-                            question: "Is it safe to use this converter?",
-                            answer: "Yes, absolutely! Since the conversion happens entirely within your web browser, your files are never uploaded to any server. Your privacy is guaranteed."
+                            question: "Is the conversion process secure?",
+                            answer: "Yes, all files are processed securely in your browser. Your PDFs never leave your device, and we don't store any files on our servers."
                         },
                         {
-                            question: "Can I convert all pages at once?",
-                            answer: "Currently, this tool is designed to preview and download pages one by one to ensure the highest quality. We are working on a bulk download feature."
+                            question: "What image formats are supported?",
+                            answer: "We support PNG (best quality with transparency), JPG (smaller file size), and WebP (modern format with superior compression)."
                         },
                         {
-                            question: "What is the difference between PNG and JPG?",
-                            answer: "PNG is a lossless format, meaning it preserves all image quality and transparency, but results in larger file sizes. JPG is compressed, which creates smaller files but may slightly reduce quality. Use PNG for text and screenshots, and JPG for photos."
+                            question: "Will my image quality be preserved?",
+                            answer: "Yes, our converter maintains the original document quality. You can adjust the resolution scale (1x to 3x) to control the output quality and file size."
                         },
                         {
-                            question: "Why is the file size limit 50MB?",
-                            answer: "To ensure the browser remains responsive while processing the PDF file. Larger files might crash the browser tab during rendering."
+                            question: "Can I convert multiple pages at once?",
+                            answer: "Currently, you can navigate through pages and download them individually. This ensures the highest quality for each converted page."
+                        },
+                        {
+                            question: "How long does conversion take?",
+                            answer: "Most conversions complete instantly (under 2 seconds per page), depending on the PDF complexity and your selected resolution."
+                        },
+                        {
+                            question: "What if the conversion fails?",
+                            answer: "Ensure your PDF isn't password-protected and is under 50MB. Try refreshing the page and uploading again. For very large files, try reducing the resolution scale."
                         }
                     ]} />
                 </div>

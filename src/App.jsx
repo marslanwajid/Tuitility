@@ -34,6 +34,7 @@ const RgbToPantoneConverter = lazy(() => import('./components/utility/RgbToPanto
 const RgbToHexConverter = lazy(() => import('./components/utility/converter-tools/RgbToHexConverter'))
 const GoldWeightConverter = lazy(() => import('./components/utility/GoldWeightConverter'))
 const PdfToImageConverter = lazy(() => import('./components/utility/converter-tools/PdfToImageConverter'))
+const PdfMerger = lazy(() => import('./components/utility/converter-tools/PdfMerger'))
 
 // Lazily import knowledge calculators
 const GPACalculator = lazy(() => import('./components/knowledge/GPACalculator'))
@@ -205,6 +206,7 @@ const App = () => {
 
           <Route path="/utility-tools/converter-tools/gold-precious-metal-weight-converter" element={<GoldWeightConverter />} />
           <Route path="/utility-tools/converter-tools/pdf-to-image-converter" element={<PdfToImageConverter />} />
+          <Route path="/utility-tools/converter-tools/merge-pdf" element={<PdfMerger />} />
           <Route path="/knowledge" element={<KnowledgeCalculator />} />
           <Route path="/knowledge/calculators/gpa-calculator" element={<GPACalculator />} />
           <Route path="/knowledge/calculators/age-calculator" element={<AgeCalculator />} />

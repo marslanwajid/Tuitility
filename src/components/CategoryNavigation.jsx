@@ -569,6 +569,13 @@ const CategoryNavigation = () => {
       category: "PDF",
       icon: "fas fa-file-image",
     },
+    {
+      name: "PDF Merger",
+      desc: "Combine multiple PDF files into one",
+      url: "/utility-tools/converter-tools/merge-pdf",
+      category: "PDF",
+      icon: "fas fa-object-group",
+    },
 
 
     {
