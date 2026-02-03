@@ -5,6 +5,7 @@ import ContentSection from '../tool/ContentSection';
 import FAQSection from '../tool/FAQSection';
 import TableOfContents from '../tool/TableOfContents';
 import FeedbackForm from '../tool/FeedbackForm';
+import Seo from '../Seo';
 import '../../assets/css/utility/ocr-pdf-generator.css';
 import { toolCategories } from '../../data/toolCategories';
 
@@ -139,7 +140,7 @@ const OCRPDFGenerator = () => {
       setSelectedFile(file);
       setShowResults(false);
       setExtractedText('');
-      
+
       // Update page count display
       setTimeout(() => {
         const pageCountEl = document.getElementById('ocrPageCount');
@@ -193,10 +194,10 @@ const OCRPDFGenerator = () => {
     const processStep = () => {
       if (currentStep < steps.length) {
         const { step, progress, text } = steps[currentStep];
-        
+
         setProcessingProgress(progress);
         setProcessingStep(text);
-        
+
         // Update processing step visual
         document.querySelectorAll('.ocr-step-item').forEach((el, index) => {
           el.classList.remove('active', 'completed');
@@ -213,7 +214,7 @@ const OCRPDFGenerator = () => {
         // Processing complete
         setIsProcessing(false);
         setShowResults(true);
-        
+
         // Mock extracted text
         const mockText = `This is a sample of extracted text from your PDF document. The OCR processing has been completed successfully.
 
@@ -268,7 +269,7 @@ You can now copy this text to your clipboard or download it in various formats i
     }
 
     const fileName = selectedFile ? selectedFile.name.replace('.pdf', '') : 'extracted_text';
-    
+
     switch (format) {
       case 'text':
         downloadTextFile(fileName);
@@ -350,455 +351,465 @@ You can now copy this text to your clipboard or download it in various formats i
     URL.revokeObjectURL(url);
   };
 
+  const seoData = {
+    title: 'OCR PDF Generator - Extract Text from PDF | Tuitility',
+    description: 'Free OCR PDF tool to extract text from scanned PDFs. Supports 14+ languages, multiple quality settings, and various output formats. Process locally for privacy.',
+    keywords: 'ocr pdf, pdf text extraction, scan to text, optical character recognition, pdf converter, document digitization',
+    canonicalUrl: 'https://tuitility.vercel.app/utility-tools/ocr-pdf-generator'
+  };
+
   return (
-    <ToolPageLayout
-      toolData={toolData}
-      tableOfContents={tableOfContents}
-      categories={toolCategories}
-      relatedTools={relatedTools}
-    >
-      <CalculatorSection>
-        <div className="ocr-pdf-generator-page">
-          <div className="ocr-pdf-container">
-            
-            {/* File Upload Section */}
-            <div className="ocr-upload-section">
-              <div 
-                className="ocr-drop-zone"
-                onDrop={handleDrop}
-                onDragOver={handleDragOver}
-                id="ocrDropZone"
-              >
-                <div className="ocr-upload-content">
-                  <i className="fas fa-cloud-upload-alt ocr-upload-icon"></i>
-                  <h3>Upload PDF Document</h3>
-                  <p>Drag and drop your PDF file here, or click to browse</p>
-                  <button className="ocr-upload-btn" onClick={() => document.getElementById('ocrFileInput').click()}>
-                    <i className="fas fa-folder-open"></i>
-                    Choose File
-                  </button>
-                  <input 
-                    type="file" 
-                    id="ocrFileInput"
-                    accept=".pdf"
-                    style={{ display: 'none' }}
-                    onChange={(e) => handleFileSelect(e.target.files[0])}
-                  />
+    <>
+      <Seo {...seoData} />
+      <ToolPageLayout
+        toolData={toolData}
+        tableOfContents={tableOfContents}
+        categories={toolCategories}
+        relatedTools={relatedTools}
+      >
+        <CalculatorSection>
+          <div className="ocr-pdf-generator-page">
+            <div className="ocr-pdf-container">
+
+              {/* File Upload Section */}
+              <div className="ocr-upload-section">
+                <div
+                  className="ocr-drop-zone"
+                  onDrop={handleDrop}
+                  onDragOver={handleDragOver}
+                  id="ocrDropZone"
+                >
+                  <div className="ocr-upload-content">
+                    <i className="fas fa-cloud-upload-alt ocr-upload-icon"></i>
+                    <h3>Upload PDF Document</h3>
+                    <p>Drag and drop your PDF file here, or click to browse</p>
+                    <button className="ocr-upload-btn" onClick={() => document.getElementById('ocrFileInput').click()}>
+                      <i className="fas fa-folder-open"></i>
+                      Choose File
+                    </button>
+                    <input
+                      type="file"
+                      id="ocrFileInput"
+                      accept=".pdf"
+                      style={{ display: 'none' }}
+                      onChange={(e) => handleFileSelect(e.target.files[0])}
+                    />
+                  </div>
                 </div>
+
+                {/* File Info */}
+                {selectedFile && (
+                  <div className="ocr-file-info" id="ocrPdfInfo">
+                    <div className="ocr-info-item">
+                      <i className="fas fa-file-pdf"></i>
+                      <span id="ocrFileName">{selectedFile.name}</span>
+                    </div>
+                    <div className="ocr-info-item">
+                      <i className="fas fa-file-alt"></i>
+                      <span id="ocrPageCount">Loading...</span>
+                    </div>
+                    <div className="ocr-info-item">
+                      <i className="fas fa-weight"></i>
+                      <span id="ocrFileSize">{(selectedFile.size / (1024 * 1024)).toFixed(2)} MB</span>
+                    </div>
+                  </div>
+                )}
               </div>
 
-              {/* File Info */}
+              {/* OCR Options */}
               {selectedFile && (
-                <div className="ocr-file-info" id="ocrPdfInfo">
-                  <div className="ocr-info-item">
-                    <i className="fas fa-file-pdf"></i>
-                    <span id="ocrFileName">{selectedFile.name}</span>
+                <div className="ocr-options-section" id="ocrOptions">
+                  <h3>OCR Settings</h3>
+
+                  {/* Language Selection */}
+                  <div className="ocr-language-section">
+                    <h4>Select Language</h4>
+                    <div className="ocr-language-tabs">
+                      {Object.entries(languages).slice(0, 6).map(([code, lang]) => (
+                        <button
+                          key={code}
+                          className={`ocr-language-tab ${currentLanguage === code ? 'active' : ''}`}
+                          data-lang={code}
+                          onClick={() => setCurrentLanguage(code)}
+                        >
+                          <span className="ocr-flag">{lang.flag}</span>
+                          <span>{lang.name}</span>
+                        </button>
+                      ))}
+                    </div>
+                    <select
+                      id="ocrCustomLanguage"
+                      className="ocr-custom-language"
+                      value={currentLanguage}
+                      onChange={(e) => setCurrentLanguage(e.target.value)}
+                    >
+                      {Object.entries(languages).map(([code, lang]) => (
+                        <option key={code} value={code}>
+                          {lang.flag} {lang.name}
+                        </option>
+                      ))}
+                    </select>
                   </div>
-                  <div className="ocr-info-item">
-                    <i className="fas fa-file-alt"></i>
-                    <span id="ocrPageCount">Loading...</span>
+
+                  {/* Quality Settings */}
+                  <div className="ocr-quality-section">
+                    <h4>Processing Quality</h4>
+                    <div className="ocr-quality-tabs">
+                      {Object.entries(qualityPresets).map(([key, preset]) => (
+                        <button
+                          key={key}
+                          className={`ocr-quality-tab ${processingQuality === key ? 'active' : ''}`}
+                          data-quality={key}
+                          onClick={() => setProcessingQuality(key)}
+                        >
+                          <i className={preset.icon}></i>
+                          <span>{preset.name}</span>
+                          <small>{preset.description}</small>
+                        </button>
+                      ))}
+                    </div>
                   </div>
-                  <div className="ocr-info-item">
-                    <i className="fas fa-weight"></i>
-                    <span id="ocrFileSize">{(selectedFile.size / (1024 * 1024)).toFixed(2)} MB</span>
+
+                  {/* Advanced Settings */}
+                  <div className="ocr-advanced-settings">
+                    <h4>Advanced Settings</h4>
+                    <div className="ocr-settings-grid">
+                      <label className="ocr-setting-item">
+                        <input
+                          type="checkbox"
+                          id="ocrPreserveLayout"
+                          checked={settings.preserveLayout}
+                          onChange={(e) => setSettings(prev => ({ ...prev, preserveLayout: e.target.checked }))}
+                        />
+                        <span>Preserve Layout</span>
+                      </label>
+                      <label className="ocr-setting-item">
+                        <input
+                          type="checkbox"
+                          id="ocrDetectTables"
+                          checked={settings.detectTables}
+                          onChange={(e) => setSettings(prev => ({ ...prev, detectTables: e.target.checked }))}
+                        />
+                        <span>Detect Tables</span>
+                      </label>
+                      <label className="ocr-setting-item">
+                        <input
+                          type="checkbox"
+                          id="ocrEnhanceImage"
+                          checked={settings.enhanceImage}
+                          onChange={(e) => setSettings(prev => ({ ...prev, enhanceImage: e.target.checked }))}
+                        />
+                        <span>Enhance Image</span>
+                      </label>
+                      <label className="ocr-setting-item">
+                        <input
+                          type="checkbox"
+                          id="ocrIgnoreImages"
+                          checked={settings.ignoreImages}
+                          onChange={(e) => setSettings(prev => ({ ...prev, ignoreImages: e.target.checked }))}
+                        />
+                        <span>Ignore Images</span>
+                      </label>
+                    </div>
+                  </div>
+
+                  {/* Process Button */}
+                  <button
+                    className="ocr-process-btn"
+                    id="ocrProcessBtn"
+                    onClick={startOCRProcessing}
+                    disabled={isProcessing}
+                  >
+                    <i className="fas fa-magic"></i>
+                    {isProcessing ? 'Processing...' : 'Start OCR Processing'}
+                  </button>
+                </div>
+              )}
+
+              {/* Processing Section */}
+              {isProcessing && (
+                <div className="ocr-processing-section" id="ocrProcessing">
+                  <div className="ocr-processing-header">
+                    <i className="fas fa-cog fa-spin"></i>
+                    <h3>Processing Document</h3>
+                    <p id="ocrProcessingText">{processingStep}</p>
+                  </div>
+
+                  <div className="ocr-processing-progress">
+                    <div className="ocr-progress-bar">
+                      <div
+                        className="ocr-progress-fill"
+                        id="ocrProgressFill"
+                        style={{ width: `${processingProgress}%` }}
+                      ></div>
+                    </div>
+                    <div className="ocr-progress-text">
+                      <span id="ocrProgressText">{processingProgress}%</span>
+                    </div>
+                  </div>
+
+                  <div className="ocr-processing-steps">
+                    <div className="ocr-step-item" id="ocrStep1">
+                      <i className="fas fa-language"></i>
+                      <span>Initialize Language</span>
+                    </div>
+                    <div className="ocr-step-item" id="ocrStep2">
+                      <i className="fas fa-file-alt"></i>
+                      <span>Process Pages</span>
+                    </div>
+                    <div className="ocr-step-item" id="ocrStep3">
+                      <i className="fas fa-eye"></i>
+                      <span>OCR Recognition</span>
+                    </div>
+                    <div className="ocr-step-item" id="ocrStep4">
+                      <i className="fas fa-check-circle"></i>
+                      <span>Combine Results</span>
+                    </div>
                   </div>
                 </div>
               )}
+
+              {/* Results Section */}
+              {showResults && extractedText && (
+                <div className="ocr-results-section" id="ocrResultsContainer">
+                  <div className="ocr-results-header">
+                    <h3>Extraction Complete</h3>
+                    <div className="ocr-stats">
+                      <div className="ocr-stat-card">
+                        <i className="fas fa-file-alt ocr-stat-icon"></i>
+                        <div className="ocr-stat-info">
+                          <div className="ocr-stat-number" id="ocrTotalPages">{processingStats.totalPages}</div>
+                          <div className="ocr-stat-label">Pages</div>
+                        </div>
+                      </div>
+                      <div className="ocr-stat-card">
+                        <i className="fas fa-font ocr-stat-icon"></i>
+                        <div className="ocr-stat-info">
+                          <div className="ocr-stat-number" id="ocrTotalWords">{processingStats.totalWords.toLocaleString()}</div>
+                          <div className="ocr-stat-label">Words</div>
+                        </div>
+                      </div>
+                      <div className="ocr-stat-card">
+                        <i className="fas fa-bullseye ocr-stat-icon"></i>
+                        <div className="ocr-stat-info">
+                          <div className="ocr-stat-number" id="ocrConfidence">{processingStats.confidence}%</div>
+                          <div className="ocr-stat-label">Confidence</div>
+                        </div>
+                      </div>
+                      <div className="ocr-stat-card">
+                        <i className="fas fa-clock ocr-stat-icon"></i>
+                        <div className="ocr-stat-info">
+                          <div className="ocr-stat-number" id="ocrProcessingTime">{processingStats.processingTime}s</div>
+                          <div className="ocr-stat-label">Time</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="ocr-text-preview">
+                    <h4>Extracted Text Preview</h4>
+                    <div className="ocr-text-content" id="ocrTextPreview">
+                      <p>{extractedText.slice(0, 500)}{extractedText.length > 500 ? '...' : ''}</p>
+                    </div>
+                    <div className="ocr-preview-controls">
+                      <button
+                        className="ocr-preview-btn"
+                        id="ocrExpandText"
+                        onClick={() => {/* Show full text modal */ }}
+                      >
+                        <i className="fas fa-expand"></i>
+                        View Full Text
+                      </button>
+                      <button
+                        className="ocr-preview-btn"
+                        id="ocrCopyText"
+                        onClick={copyTextToClipboard}
+                      >
+                        <i className="fas fa-copy"></i>
+                        Copy Text
+                      </button>
+                    </div>
+                  </div>
+
+                  <div className="ocr-download-section">
+                    <h4>Download Options</h4>
+                    <div className="ocr-download-options">
+                      <button
+                        className="ocr-download-btn primary"
+                        id="ocrDownloadText"
+                        onClick={() => downloadAs('text')}
+                      >
+                        <i className="fas fa-file-alt"></i>
+                        Text File
+                      </button>
+                      <button
+                        className="ocr-download-btn"
+                        id="ocrDownloadWord"
+                        onClick={() => downloadAs('word')}
+                      >
+                        <i className="fas fa-file-word"></i>
+                        Word Doc
+                      </button>
+                      <button
+                        className="ocr-download-btn"
+                        id="ocrDownloadHTML"
+                        onClick={() => downloadAs('html')}
+                      >
+                        <i className="fas fa-file-code"></i>
+                        HTML
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              )}
+
             </div>
-
-            {/* OCR Options */}
-            {selectedFile && (
-              <div className="ocr-options-section" id="ocrOptions">
-                <h3>OCR Settings</h3>
-                
-                {/* Language Selection */}
-                <div className="ocr-language-section">
-                  <h4>Select Language</h4>
-                  <div className="ocr-language-tabs">
-                    {Object.entries(languages).slice(0, 6).map(([code, lang]) => (
-                      <button
-                        key={code}
-                        className={`ocr-language-tab ${currentLanguage === code ? 'active' : ''}`}
-                        data-lang={code}
-                        onClick={() => setCurrentLanguage(code)}
-                      >
-                        <span className="ocr-flag">{lang.flag}</span>
-                        <span>{lang.name}</span>
-                      </button>
-                    ))}
-                  </div>
-                  <select 
-                    id="ocrCustomLanguage"
-                    className="ocr-custom-language"
-                    value={currentLanguage}
-                    onChange={(e) => setCurrentLanguage(e.target.value)}
-                  >
-                    {Object.entries(languages).map(([code, lang]) => (
-                      <option key={code} value={code}>
-                        {lang.flag} {lang.name}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-
-                {/* Quality Settings */}
-                <div className="ocr-quality-section">
-                  <h4>Processing Quality</h4>
-                  <div className="ocr-quality-tabs">
-                    {Object.entries(qualityPresets).map(([key, preset]) => (
-                      <button
-                        key={key}
-                        className={`ocr-quality-tab ${processingQuality === key ? 'active' : ''}`}
-                        data-quality={key}
-                        onClick={() => setProcessingQuality(key)}
-                      >
-                        <i className={preset.icon}></i>
-                        <span>{preset.name}</span>
-                        <small>{preset.description}</small>
-                      </button>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Advanced Settings */}
-                <div className="ocr-advanced-settings">
-                  <h4>Advanced Settings</h4>
-                  <div className="ocr-settings-grid">
-                    <label className="ocr-setting-item">
-                      <input 
-                        type="checkbox" 
-                        id="ocrPreserveLayout"
-                        checked={settings.preserveLayout}
-                        onChange={(e) => setSettings(prev => ({ ...prev, preserveLayout: e.target.checked }))}
-                      />
-                      <span>Preserve Layout</span>
-                    </label>
-                    <label className="ocr-setting-item">
-                      <input 
-                        type="checkbox" 
-                        id="ocrDetectTables"
-                        checked={settings.detectTables}
-                        onChange={(e) => setSettings(prev => ({ ...prev, detectTables: e.target.checked }))}
-                      />
-                      <span>Detect Tables</span>
-                    </label>
-                    <label className="ocr-setting-item">
-                      <input 
-                        type="checkbox" 
-                        id="ocrEnhanceImage"
-                        checked={settings.enhanceImage}
-                        onChange={(e) => setSettings(prev => ({ ...prev, enhanceImage: e.target.checked }))}
-                      />
-                      <span>Enhance Image</span>
-                    </label>
-                    <label className="ocr-setting-item">
-                      <input 
-                        type="checkbox" 
-                        id="ocrIgnoreImages"
-                        checked={settings.ignoreImages}
-                        onChange={(e) => setSettings(prev => ({ ...prev, ignoreImages: e.target.checked }))}
-                      />
-                      <span>Ignore Images</span>
-                    </label>
-                  </div>
-                </div>
-
-                {/* Process Button */}
-                <button 
-                  className="ocr-process-btn"
-                  id="ocrProcessBtn"
-                  onClick={startOCRProcessing}
-                  disabled={isProcessing}
-                >
-                  <i className="fas fa-magic"></i>
-                  {isProcessing ? 'Processing...' : 'Start OCR Processing'}
-                </button>
-              </div>
-            )}
-
-            {/* Processing Section */}
-            {isProcessing && (
-              <div className="ocr-processing-section" id="ocrProcessing">
-                <div className="ocr-processing-header">
-                  <i className="fas fa-cog fa-spin"></i>
-                  <h3>Processing Document</h3>
-                  <p id="ocrProcessingText">{processingStep}</p>
-                </div>
-
-                <div className="ocr-processing-progress">
-                  <div className="ocr-progress-bar">
-                    <div 
-                      className="ocr-progress-fill" 
-                      id="ocrProgressFill"
-                      style={{ width: `${processingProgress}%` }}
-                    ></div>
-                  </div>
-                  <div className="ocr-progress-text">
-                    <span id="ocrProgressText">{processingProgress}%</span>
-                  </div>
-                </div>
-
-                <div className="ocr-processing-steps">
-                  <div className="ocr-step-item" id="ocrStep1">
-                    <i className="fas fa-language"></i>
-                    <span>Initialize Language</span>
-                  </div>
-                  <div className="ocr-step-item" id="ocrStep2">
-                    <i className="fas fa-file-alt"></i>
-                    <span>Process Pages</span>
-                  </div>
-                  <div className="ocr-step-item" id="ocrStep3">
-                    <i className="fas fa-eye"></i>
-                    <span>OCR Recognition</span>
-                  </div>
-                  <div className="ocr-step-item" id="ocrStep4">
-                    <i className="fas fa-check-circle"></i>
-                    <span>Combine Results</span>
-                  </div>
-                </div>
-              </div>
-            )}
-
-            {/* Results Section */}
-            {showResults && extractedText && (
-              <div className="ocr-results-section" id="ocrResultsContainer">
-                <div className="ocr-results-header">
-                  <h3>Extraction Complete</h3>
-                  <div className="ocr-stats">
-                    <div className="ocr-stat-card">
-                      <i className="fas fa-file-alt ocr-stat-icon"></i>
-                      <div className="ocr-stat-info">
-                        <div className="ocr-stat-number" id="ocrTotalPages">{processingStats.totalPages}</div>
-                        <div className="ocr-stat-label">Pages</div>
-                      </div>
-                    </div>
-                    <div className="ocr-stat-card">
-                      <i className="fas fa-font ocr-stat-icon"></i>
-                      <div className="ocr-stat-info">
-                        <div className="ocr-stat-number" id="ocrTotalWords">{processingStats.totalWords.toLocaleString()}</div>
-                        <div className="ocr-stat-label">Words</div>
-                      </div>
-                    </div>
-                    <div className="ocr-stat-card">
-                      <i className="fas fa-bullseye ocr-stat-icon"></i>
-                      <div className="ocr-stat-info">
-                        <div className="ocr-stat-number" id="ocrConfidence">{processingStats.confidence}%</div>
-                        <div className="ocr-stat-label">Confidence</div>
-                      </div>
-                    </div>
-                    <div className="ocr-stat-card">
-                      <i className="fas fa-clock ocr-stat-icon"></i>
-                      <div className="ocr-stat-info">
-                        <div className="ocr-stat-number" id="ocrProcessingTime">{processingStats.processingTime}s</div>
-                        <div className="ocr-stat-label">Time</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="ocr-text-preview">
-                  <h4>Extracted Text Preview</h4>
-                  <div className="ocr-text-content" id="ocrTextPreview">
-                    <p>{extractedText.slice(0, 500)}{extractedText.length > 500 ? '...' : ''}</p>
-                  </div>
-                  <div className="ocr-preview-controls">
-                    <button 
-                      className="ocr-preview-btn"
-                      id="ocrExpandText"
-                      onClick={() => {/* Show full text modal */}}
-                    >
-                      <i className="fas fa-expand"></i>
-                      View Full Text
-                    </button>
-                    <button 
-                      className="ocr-preview-btn"
-                      id="ocrCopyText"
-                      onClick={copyTextToClipboard}
-                    >
-                      <i className="fas fa-copy"></i>
-                      Copy Text
-                    </button>
-                  </div>
-                </div>
-
-                <div className="ocr-download-section">
-                  <h4>Download Options</h4>
-                  <div className="ocr-download-options">
-                    <button 
-                      className="ocr-download-btn primary"
-                      id="ocrDownloadText"
-                      onClick={() => downloadAs('text')}
-                    >
-                      <i className="fas fa-file-alt"></i>
-                      Text File
-                    </button>
-                    <button 
-                      className="ocr-download-btn"
-                      id="ocrDownloadWord"
-                      onClick={() => downloadAs('word')}
-                    >
-                      <i className="fas fa-file-word"></i>
-                      Word Doc
-                    </button>
-                    <button 
-                      className="ocr-download-btn"
-                      id="ocrDownloadHTML"
-                      onClick={() => downloadAs('html')}
-                    >
-                      <i className="fas fa-file-code"></i>
-                      HTML
-                    </button>
-                  </div>
-                </div>
-              </div>
-            )}
-
           </div>
+        </CalculatorSection>
+
+        <div className="tool-bottom-section">
+          <TableOfContents items={tableOfContents} />
+          <FeedbackForm toolName={toolData.name} />
         </div>
-      </CalculatorSection>
 
-      <div className="tool-bottom-section">
-        <TableOfContents items={tableOfContents} />
-        <FeedbackForm toolName={toolData.name} />
-      </div>
+        <ContentSection id="introduction">
+          <h2>OCR PDF Text Extraction</h2>
+          <p>Extract text from PDF documents with high accuracy using advanced OCR (Optical Character Recognition) technology. Our tool supports multiple languages, various quality settings, and multiple output formats to meet your document processing needs.</p>
+          <p>Perfect for digitizing scanned documents, extracting text from image-based PDFs, or converting printed materials into editable text formats.</p>
+        </ContentSection>
 
-      <ContentSection id="introduction">
-        <h2>OCR PDF Text Extraction</h2>
-        <p>Extract text from PDF documents with high accuracy using advanced OCR (Optical Character Recognition) technology. Our tool supports multiple languages, various quality settings, and multiple output formats to meet your document processing needs.</p>
-        <p>Perfect for digitizing scanned documents, extracting text from image-based PDFs, or converting printed materials into editable text formats.</p>
-      </ContentSection>
+        <ContentSection id="what-is-ocr">
+          <h2>What is OCR?</h2>
+          <p>OCR (Optical Character Recognition) is a technology that converts different types of documents, such as scanned paper documents, PDF files, or images captured by a digital camera, into editable and searchable text data.</p>
+          <p>Our advanced OCR engine uses machine learning algorithms to accurately recognize text in various languages and formats, making it possible to extract text from documents that were previously only available as images.</p>
+        </ContentSection>
 
-      <ContentSection id="what-is-ocr">
-        <h2>What is OCR?</h2>
-        <p>OCR (Optical Character Recognition) is a technology that converts different types of documents, such as scanned paper documents, PDF files, or images captured by a digital camera, into editable and searchable text data.</p>
-        <p>Our advanced OCR engine uses machine learning algorithms to accurately recognize text in various languages and formats, making it possible to extract text from documents that were previously only available as images.</p>
-      </ContentSection>
-
-      <ContentSection id="features">
-        <h2>Key Features</h2>
-        <ul className="usage-steps">
-          <li><strong>Multi-language Support:</strong> Extract text from documents in 14+ languages including English, Spanish, French, German, Arabic, Chinese, Japanese, Korean, and more.</li>
-          <li><strong>Quality Settings:</strong> Choose between Fast, Balanced, or Accurate processing modes to optimize speed vs. accuracy based on your needs.</li>
-          <li><strong>Advanced Options:</strong> Configure layout preservation, table detection, image enhancement, and confidence thresholds for optimal results.</li>
-          <li><strong>Multiple Output Formats:</strong> Download extracted text as plain text, Word document, HTML, or formatted PDF.</li>
-          <li><strong>Privacy & Security:</strong> All processing happens locally in your browser - your documents never leave your device.</li>
-          <li><strong>Progress Tracking:</strong> Real-time progress updates and detailed statistics about the extraction process.</li>
-        </ul>
-      </ContentSection>
-
-      <ContentSection id="how-to-use">
-        <h2>How to Use the OCR PDF Generator</h2>
-        <ul className="usage-steps">
-          <li><strong>Upload PDF:</strong> Drag and drop your PDF file or click to browse and select a document (up to 50MB).</li>
-          <li><strong>Select Language:</strong> Choose the primary language of your document from the available options or use the custom language selector.</li>
-          <li><strong>Configure Settings:</strong> Select processing quality (Fast/Balanced/Accurate) and adjust advanced settings as needed.</li>
-          <li><strong>Start Processing:</strong> Click "Start OCR Processing" and wait for the text extraction to complete.</li>
-          <li><strong>Review Results:</strong> Check the extracted text preview and processing statistics.</li>
-          <li><strong>Download:</strong> Choose your preferred output format and download the extracted text.</li>
-        </ul>
-      </ContentSection>
-
-      <ContentSection id="supported-languages">
-        <h2>Supported Languages</h2>
-        <p>Our OCR engine supports text recognition in the following languages:</p>
-        <div className="ocr-languages-grid">
-          {Object.entries(languages).map(([code, lang]) => (
-            <div key={code} className="ocr-language-item">
-              <span className="ocr-language-flag">{lang.flag}</span>
-              <span className="ocr-language-name">{lang.name}</span>
-            </div>
-          ))}
-        </div>
-      </ContentSection>
-
-      <ContentSection id="quality-settings">
-        <h2>Quality Settings</h2>
-        <ul className="usage-steps">
-          <li><strong>Fast Mode:</strong> Quick processing with basic accuracy. Best for simple documents with clear text. Processing time: 1-2 minutes per 10 pages.</li>
-          <li><strong>Balanced Mode:</strong> Good balance of speed and accuracy. Recommended for most documents. Processing time: 2-3 minutes per 10 pages.</li>
-          <li><strong>Accurate Mode:</strong> Highest accuracy with slower processing. Best for complex layouts, poor quality scans, or when accuracy is critical. Processing time: 3-5 minutes per 10 pages.</li>
-        </ul>
-      </ContentSection>
-
-      <ContentSection id="output-formats">
-        <h2>Output Formats</h2>
-        <ul className="usage-steps">
-          <li><strong>Plain Text (.txt):</strong> Simple text file with extracted content, preserving line breaks and basic formatting.</li>
-          <li><strong>Word Document (.doc):</strong> Formatted Word document that maintains text structure and can be edited in Microsoft Word or similar applications.</li>
-          <li><strong>HTML (.html):</strong> Web-friendly format with preserved formatting, suitable for web pages or further editing.</li>
-          <li><strong>Formatted PDF:</strong> New PDF with searchable text layer, maintaining original layout and adding text searchability.</li>
-        </ul>
-      </ContentSection>
-
-      <ContentSection id="examples">
-        <h2>Examples</h2>
-        <ul className="example-steps">
-          <li>
-            <strong>Business Document Processing:</strong> Extract text from scanned contracts, invoices, or reports for digital archiving and searchability. 
-            <strong>Best Settings:</strong> Balanced quality, preserve layout enabled, detect tables enabled.
-            <strong>Result:</strong> Structured text ready for database import or document management systems.
-          </li>
-          <li>
-            <strong>Academic Paper Digitization:</strong> Convert scanned research papers, books, or handwritten notes into editable text for analysis and citation.
-            <strong>Best Settings:</strong> Accurate quality, enhance image enabled, custom language selection.
-            <strong>Result:</strong> High-accuracy text extraction suitable for academic research and analysis.
-          </li>
-          <li>
-            <strong>Multi-language Documents:</strong> Process documents containing multiple languages or mixed content.
-            <strong>Best Settings:</strong> Balanced quality, preserve layout enabled, confidence threshold at 70%.
-            <strong>Result:</strong> Accurate text extraction maintaining original document structure and formatting.
-          </li>
-        </ul>
-      </ContentSection>
-
-      <ContentSection id="functionality">
-        <h2>How OCR Processing Works</h2>
-        <div className="assessment-method-section">
-          <h3>Processing Steps</h3>
-          <ul>
-            <li><strong>PDF Analysis:</strong> The tool analyzes the PDF structure and identifies text and image elements.</li>
-            <li><strong>Page Rendering:</strong> Each page is rendered as a high-resolution image for optimal OCR processing.</li>
-            <li><strong>Image Enhancement:</strong> Optional image enhancement improves text clarity and recognition accuracy.</li>
-            <li><strong>OCR Recognition:</strong> Advanced machine learning algorithms identify and extract text characters.</li>
-            <li><strong>Text Processing:</strong> Extracted text is cleaned, formatted, and structured according to your settings.</li>
-            <li><strong>Quality Validation:</strong> Confidence scores are calculated for each page to indicate extraction quality.</li>
-            <li><strong>Output Generation:</strong> Final text is formatted and prepared for download in your chosen format.</li>
+        <ContentSection id="features">
+          <h2>Key Features</h2>
+          <ul className="usage-steps">
+            <li><strong>Multi-language Support:</strong> Extract text from documents in 14+ languages including English, Spanish, French, German, Arabic, Chinese, Japanese, Korean, and more.</li>
+            <li><strong>Quality Settings:</strong> Choose between Fast, Balanced, or Accurate processing modes to optimize speed vs. accuracy based on your needs.</li>
+            <li><strong>Advanced Options:</strong> Configure layout preservation, table detection, image enhancement, and confidence thresholds for optimal results.</li>
+            <li><strong>Multiple Output Formats:</strong> Download extracted text as plain text, Word document, HTML, or formatted PDF.</li>
+            <li><strong>Privacy & Security:</strong> All processing happens locally in your browser - your documents never leave your device.</li>
+            <li><strong>Progress Tracking:</strong> Real-time progress updates and detailed statistics about the extraction process.</li>
           </ul>
-        </div>
-      </ContentSection>
+        </ContentSection>
 
-      <ContentSection id="applications">
-        <h2>Applications</h2>
-        <div className="applications-grid">
-          <div className="application-item">
-            <h3>Document Digitization</h3>
-            <p>Convert physical documents, books, and papers into digital, searchable text formats for archives and databases.</p>
-          </div>
-          <div className="application-item">
-            <h3>Business Process Automation</h3>
-            <p>Extract data from invoices, forms, and contracts to automate data entry and document processing workflows.</p>
-          </div>
-          <div className="application-item">
-            <h3>Academic Research</h3>
-            <p>Digitize historical documents, research papers, and books for analysis, citation, and digital preservation.</p>
-          </div>
-          <div className="application-item">
-            <h3>Legal Document Processing</h3>
-            <p>Extract text from scanned legal documents, contracts, and case files for searchable digital archives.</p>
-          </div>
-          <div className="application-item">
-            <h3>Content Creation</h3>
-            <p>Extract text from printed materials, magazines, and books for content repurposing and digital publishing.</p>
-          </div>
-          <div className="application-item">
-            <h3>Accessibility</h3>
-            <p>Make scanned documents accessible to screen readers and assistive technologies by converting them to readable text.</p>
-          </div>
-        </div>
-      </ContentSection>
+        <ContentSection id="how-to-use">
+          <h2>How to Use the OCR PDF Generator</h2>
+          <ul className="usage-steps">
+            <li><strong>Upload PDF:</strong> Drag and drop your PDF file or click to browse and select a document (up to 50MB).</li>
+            <li><strong>Select Language:</strong> Choose the primary language of your document from the available options or use the custom language selector.</li>
+            <li><strong>Configure Settings:</strong> Select processing quality (Fast/Balanced/Accurate) and adjust advanced settings as needed.</li>
+            <li><strong>Start Processing:</strong> Click "Start OCR Processing" and wait for the text extraction to complete.</li>
+            <li><strong>Review Results:</strong> Check the extracted text preview and processing statistics.</li>
+            <li><strong>Download:</strong> Choose your preferred output format and download the extracted text.</li>
+          </ul>
+        </ContentSection>
 
-      <FAQSection faqs={faqs} />
-    </ToolPageLayout>
+        <ContentSection id="supported-languages">
+          <h2>Supported Languages</h2>
+          <p>Our OCR engine supports text recognition in the following languages:</p>
+          <div className="ocr-languages-grid">
+            {Object.entries(languages).map(([code, lang]) => (
+              <div key={code} className="ocr-language-item">
+                <span className="ocr-language-flag">{lang.flag}</span>
+                <span className="ocr-language-name">{lang.name}</span>
+              </div>
+            ))}
+          </div>
+        </ContentSection>
+
+        <ContentSection id="quality-settings">
+          <h2>Quality Settings</h2>
+          <ul className="usage-steps">
+            <li><strong>Fast Mode:</strong> Quick processing with basic accuracy. Best for simple documents with clear text. Processing time: 1-2 minutes per 10 pages.</li>
+            <li><strong>Balanced Mode:</strong> Good balance of speed and accuracy. Recommended for most documents. Processing time: 2-3 minutes per 10 pages.</li>
+            <li><strong>Accurate Mode:</strong> Highest accuracy with slower processing. Best for complex layouts, poor quality scans, or when accuracy is critical. Processing time: 3-5 minutes per 10 pages.</li>
+          </ul>
+        </ContentSection>
+
+        <ContentSection id="output-formats">
+          <h2>Output Formats</h2>
+          <ul className="usage-steps">
+            <li><strong>Plain Text (.txt):</strong> Simple text file with extracted content, preserving line breaks and basic formatting.</li>
+            <li><strong>Word Document (.doc):</strong> Formatted Word document that maintains text structure and can be edited in Microsoft Word or similar applications.</li>
+            <li><strong>HTML (.html):</strong> Web-friendly format with preserved formatting, suitable for web pages or further editing.</li>
+            <li><strong>Formatted PDF:</strong> New PDF with searchable text layer, maintaining original layout and adding text searchability.</li>
+          </ul>
+        </ContentSection>
+
+        <ContentSection id="examples">
+          <h2>Examples</h2>
+          <ul className="example-steps">
+            <li>
+              <strong>Business Document Processing:</strong> Extract text from scanned contracts, invoices, or reports for digital archiving and searchability.
+              <strong>Best Settings:</strong> Balanced quality, preserve layout enabled, detect tables enabled.
+              <strong>Result:</strong> Structured text ready for database import or document management systems.
+            </li>
+            <li>
+              <strong>Academic Paper Digitization:</strong> Convert scanned research papers, books, or handwritten notes into editable text for analysis and citation.
+              <strong>Best Settings:</strong> Accurate quality, enhance image enabled, custom language selection.
+              <strong>Result:</strong> High-accuracy text extraction suitable for academic research and analysis.
+            </li>
+            <li>
+              <strong>Multi-language Documents:</strong> Process documents containing multiple languages or mixed content.
+              <strong>Best Settings:</strong> Balanced quality, preserve layout enabled, confidence threshold at 70%.
+              <strong>Result:</strong> Accurate text extraction maintaining original document structure and formatting.
+            </li>
+          </ul>
+        </ContentSection>
+
+        <ContentSection id="functionality">
+          <h2>How OCR Processing Works</h2>
+          <div className="assessment-method-section">
+            <h3>Processing Steps</h3>
+            <ul>
+              <li><strong>PDF Analysis:</strong> The tool analyzes the PDF structure and identifies text and image elements.</li>
+              <li><strong>Page Rendering:</strong> Each page is rendered as a high-resolution image for optimal OCR processing.</li>
+              <li><strong>Image Enhancement:</strong> Optional image enhancement improves text clarity and recognition accuracy.</li>
+              <li><strong>OCR Recognition:</strong> Advanced machine learning algorithms identify and extract text characters.</li>
+              <li><strong>Text Processing:</strong> Extracted text is cleaned, formatted, and structured according to your settings.</li>
+              <li><strong>Quality Validation:</strong> Confidence scores are calculated for each page to indicate extraction quality.</li>
+              <li><strong>Output Generation:</strong> Final text is formatted and prepared for download in your chosen format.</li>
+            </ul>
+          </div>
+        </ContentSection>
+
+        <ContentSection id="applications">
+          <h2>Applications</h2>
+          <div className="applications-grid">
+            <div className="application-item">
+              <h3>Document Digitization</h3>
+              <p>Convert physical documents, books, and papers into digital, searchable text formats for archives and databases.</p>
+            </div>
+            <div className="application-item">
+              <h3>Business Process Automation</h3>
+              <p>Extract data from invoices, forms, and contracts to automate data entry and document processing workflows.</p>
+            </div>
+            <div className="application-item">
+              <h3>Academic Research</h3>
+              <p>Digitize historical documents, research papers, and books for analysis, citation, and digital preservation.</p>
+            </div>
+            <div className="application-item">
+              <h3>Legal Document Processing</h3>
+              <p>Extract text from scanned legal documents, contracts, and case files for searchable digital archives.</p>
+            </div>
+            <div className="application-item">
+              <h3>Content Creation</h3>
+              <p>Extract text from printed materials, magazines, and books for content repurposing and digital publishing.</p>
+            </div>
+            <div className="application-item">
+              <h3>Accessibility</h3>
+              <p>Make scanned documents accessible to screen readers and assistive technologies by converting them to readable text.</p>
+            </div>
+          </div>
+        </ContentSection>
+
+        <FAQSection faqs={faqs} />
+      </ToolPageLayout>
+    </>
   );
 };
 

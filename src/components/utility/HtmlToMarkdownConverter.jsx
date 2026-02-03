@@ -5,6 +5,7 @@ import ContentSection from '../tool/ContentSection';
 import FAQSection from '../tool/FAQSection';
 import TableOfContents from '../tool/TableOfContents';
 import FeedbackForm from '../tool/FeedbackForm';
+import Seo from '../Seo';
 import '../../assets/css/utility/html-to-markdown.css';
 import { toolCategories } from '../../data/toolCategories';
 
@@ -73,10 +74,10 @@ const HtmlToMarkdownConverter = () => {
 
     // Clean up
     markdown = markdown.replace(/&nbsp;/g, ' ');
-    markdown = markdown.replace(/\n\s*\n\s*\n/g, '\n\n'); 
-    markdown = markdown.replace(/^\s+|\s+$/g, ''); 
-    markdown = markdown.replace(/<[^>]*>/g, ''); 
-    
+    markdown = markdown.replace(/\n\s*\n\s*\n/g, '\n\n');
+    markdown = markdown.replace(/^\s+|\s+$/g, '');
+    markdown = markdown.replace(/<[^>]*>/g, '');
+
     return markdown;
   };
 
@@ -85,8 +86,8 @@ const HtmlToMarkdownConverter = () => {
 
     // Escape HTML special chars
     html = html.replace(/&/g, '&amp;')
-               .replace(/</g, '&lt;')
-               .replace(/>/g, '&gt;');
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;');
 
     // Headers
     html = html.replace(/^# (.*$)/gm, '\n<h1>$1</h1>\n');
@@ -130,8 +131,8 @@ const HtmlToMarkdownConverter = () => {
     // Paragraphs - catch remaining lines that aren't tags
     html = html.replace(/\n\s*\n/g, '\n\n');
     html = html.replace(/^(?!<[a-z])(.*[^>\n]$)/gm, (match) => {
-       if (match.trim()) return '<p>' + match + '</p>';
-       return match;
+      if (match.trim()) return '<p>' + match + '</p>';
+      return match;
     });
 
     // Cleanup
@@ -145,7 +146,7 @@ const HtmlToMarkdownConverter = () => {
 
   const handleConvert = () => {
     if (!inputText.trim()) return;
-    
+
     if (conversionType === 'to-markdown') {
       setOutputText(convertHtmlToMarkdown(inputText));
     } else {
@@ -192,11 +193,11 @@ const HtmlToMarkdownConverter = () => {
 
 
   const relatedTools = [
-      { name: "Word Counter", url: "/utility-tools/word-counter", icon: "fas fa-font" },
-      { name: "QR Code Generator", url: "/utility-tools/qr-code-generator", icon: "fas fa-qrcode" },
-      { name: "Text Case Converter", url: "/utility-tools/converter-tools/text-case-converter", icon: "fas fa-font" },
-      { name: "Morse Code Translator", url: "/utility-tools/morse-code-translator", icon: "fas fa-signal" },
-      { name: "Image to WebP", url: "/utility-tools/image-tools/image-to-webp-converter", icon: "fas fa-image" }
+    { name: "Word Counter", url: "/utility-tools/word-counter", icon: "fas fa-font" },
+    { name: "QR Code Generator", url: "/utility-tools/qr-code-generator", icon: "fas fa-qrcode" },
+    { name: "Text Case Converter", url: "/utility-tools/converter-tools/text-case-converter", icon: "fas fa-font" },
+    { name: "Morse Code Translator", url: "/utility-tools/morse-code-translator", icon: "fas fa-signal" },
+    { name: "Image to WebP", url: "/utility-tools/image-tools/image-to-webp-converter", icon: "fas fa-image" }
   ];
 
   const tableOfContents = [
@@ -229,146 +230,156 @@ const HtmlToMarkdownConverter = () => {
   const sourceLabel = conversionType === 'to-markdown' ? 'HTML Input' : 'Markdown Input';
   const targetLabel = conversionType === 'to-markdown' ? 'Markdown Output' : 'HTML Output';
 
+  const seoData = {
+    title: 'HTML to Markdown Converter - Free Online Tool | Tuitility',
+    description: 'Convert HTML to Markdown and vice versa instantly. Free online tool for developers, writers, and content creators. Clean, accurate conversion.',
+    keywords: 'html to markdown, markdown to html, html converter, markdown converter, content migration, developer tools',
+    canonicalUrl: 'https://tuitility.vercel.app/utility-tools/html-to-markdown-converter'
+  };
+
   return (
-    <ToolPageLayout
-      toolData={toolData}
-      categories={toolCategories}
-      relatedTools={relatedTools}
-      tableOfContents={tableOfContents}
-    >
-      <CalculatorSection title="Converter" icon="fas fa-exchange-alt">
-        <div className="converter-container">
-          
-          <div className="converter-controls">
-            <div className="converter-toggles">
-              <button 
-                className={`mode-toggle-btn ${conversionType === 'to-markdown' ? 'active' : ''}`}
-                onClick={() => setConversionType('to-markdown')}
-              >
-                HTML to Markdown
-              </button>
-              <button 
-                className={`mode-toggle-btn ${conversionType === 'to-html' ? 'active' : ''}`}
-                onClick={() => setConversionType('to-html')}
-              >
-                Markdown to HTML
-              </button>
-            </div>
+    <>
+      <Seo {...seoData} />
+      <ToolPageLayout
+        toolData={toolData}
+        categories={toolCategories}
+        relatedTools={relatedTools}
+        tableOfContents={tableOfContents}
+      >
+        <CalculatorSection title="Converter" icon="fas fa-exchange-alt">
+          <div className="converter-container">
 
-            <div className="action-buttons">
-               <button className="action-btn danger" onClick={handleClear}>
-                <i className="fas fa-trash"></i> Clear
-              </button>
-              <button className="action-btn secondary" onClick={handleConvert}>
-                <i className="fas fa-sync"></i> Convert
-              </button>
-            </div>
-          </div>
-
-          <div className="editor-grid">
-            <div className="editor-pane">
-              <div className="pane-header">
-                <span className="pane-title"><i className="fab fa-html5"></i> {sourceLabel}</span>
+            <div className="converter-controls">
+              <div className="converter-toggles">
+                <button
+                  className={`mode-toggle-btn ${conversionType === 'to-markdown' ? 'active' : ''}`}
+                  onClick={() => setConversionType('to-markdown')}
+                >
+                  HTML to Markdown
+                </button>
+                <button
+                  className={`mode-toggle-btn ${conversionType === 'to-html' ? 'active' : ''}`}
+                  onClick={() => setConversionType('to-html')}
+                >
+                  Markdown to HTML
+                </button>
               </div>
-              <textarea 
-                className="editor-textarea" 
-                placeholder={`Paste your ${conversionType === 'to-markdown' ? 'HTML' : 'Markdown'} here...`}
-                value={inputText}
-                onChange={(e) => setInputText(e.target.value)}
-              />
+
+              <div className="action-buttons">
+                <button className="action-btn danger" onClick={handleClear}>
+                  <i className="fas fa-trash"></i> Clear
+                </button>
+                <button className="action-btn secondary" onClick={handleConvert}>
+                  <i className="fas fa-sync"></i> Convert
+                </button>
+              </div>
             </div>
 
-            <div className="editor-pane">
-              <div className="pane-header">
-                <span className="pane-title"><i className="fab fa-markdown"></i> {targetLabel}</span>
-                <div className="pane-actions">
-                  <button onClick={handleCopy} title="Copy to Clipboard">
-                    <i className="fas fa-copy"></i>
-                  </button>
-                  <button onClick={handleDownload} title="Download File">
-                    <i className="fas fa-download"></i>
-                  </button>
+            <div className="editor-grid">
+              <div className="editor-pane">
+                <div className="pane-header">
+                  <span className="pane-title"><i className="fab fa-html5"></i> {sourceLabel}</span>
                 </div>
+                <textarea
+                  className="editor-textarea"
+                  placeholder={`Paste your ${conversionType === 'to-markdown' ? 'HTML' : 'Markdown'} here...`}
+                  value={inputText}
+                  onChange={(e) => setInputText(e.target.value)}
+                />
               </div>
-               <textarea 
-                className="editor-textarea" 
-                placeholder="Result will appear here..."
-                value={outputText}
-                readOnly
-              />
+
+              <div className="editor-pane">
+                <div className="pane-header">
+                  <span className="pane-title"><i className="fab fa-markdown"></i> {targetLabel}</span>
+                  <div className="pane-actions">
+                    <button onClick={handleCopy} title="Copy to Clipboard">
+                      <i className="fas fa-copy"></i>
+                    </button>
+                    <button onClick={handleDownload} title="Download File">
+                      <i className="fas fa-download"></i>
+                    </button>
+                  </div>
+                </div>
+                <textarea
+                  className="editor-textarea"
+                  placeholder="Result will appear here..."
+                  value={outputText}
+                  readOnly
+                />
+              </div>
+            </div>
+
+          </div>
+        </CalculatorSection>
+
+        <div className="tool-bottom-section">
+          <TableOfContents items={tableOfContents} />
+          <FeedbackForm toolName={toolData.name} />
+        </div>
+
+        <ContentSection id="introduction" title="Introduction">
+          <p>
+            The <strong>HTML to Markdown Converter</strong> is an essential tool for developers, writers, and content managers.
+            Markdown has become the de-facto standard for documentation and web writing due to its simplicity and readability.
+            However, much of the web's legacy content exists as HTML.
+          </p>
+          <p>
+            This utility enables seamless bi-directional conversion. Whether you are migrating a WordPress site to a static site generator
+            like Jekyll or Hugo, or you simply want to turn a complex web page into extensive, readable notes, this tool automates the process instantly.
+          </p>
+        </ContentSection>
+
+        <ContentSection id="how-to-use" title="How to Use">
+          <ol className="list-decimal pl-6 space-y-2 mt-4">
+            <li><strong>Select Mode:</strong> Choose "HTML to Markdown" or "Markdown to HTML" using the toggle buttons at the top.</li>
+            <li><strong>Input Content:</strong> Paste your source code into the left-hand editor pane.</li>
+            <li><strong>Convert:</strong> Click the "Convert" button (or it can be triggered manually depending on preference, though the button ensures clarity).</li>
+            <li><strong>Copy or Download:</strong> Use the icons in the right-hand header to copy the result to your clipboard or download it as a <code>.md</code> or <code>.html</code> file.</li>
+          </ol>
+        </ContentSection>
+
+        <ContentSection id="markdown-basics" title="Markdown Syntax Basics">
+          <p>If you are new to Markdown, here is a quick reference for the syntax generated by this tool:</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+            <div className="bg-gray-50 p-4 border rounded">
+              <h4 className="font-bold border-b pb-2 mb-2">Headers</h4>
+              <code># Heading 1</code><br />
+              <code>## Heading 2</code><br />
+              <code>### Heading 3</code>
+            </div>
+            <div className="bg-gray-50 p-4 border rounded">
+              <h4 className="font-bold border-b pb-2 mb-2">Emphasis</h4>
+              <code>**Bold Text**</code><br />
+              <code>*Italic Text*</code><br />
+              <code>~~Strikethrough~~</code>
+            </div>
+            <div className="bg-gray-50 p-4 border rounded">
+              <h4 className="font-bold border-b pb-2 mb-2">Lists</h4>
+              <code>- Item 1</code><br />
+              <code>- Item 2</code><br />
+              <code>1. Numbered Item</code>
+            </div>
+            <div className="bg-gray-50 p-4 border rounded">
+              <h4 className="font-bold border-b pb-2 mb-2">Links & Images</h4>
+              <code>[Link Text](url)</code><br />
+              <code>![Alt Text](image-url)</code>
             </div>
           </div>
+        </ContentSection>
 
-        </div>
-      </CalculatorSection>
-
-      <div className="tool-bottom-section">
-        <TableOfContents items={tableOfContents} />
-        <FeedbackForm toolName={toolData.name} />
-      </div>
-
-      <ContentSection id="introduction" title="Introduction">
-        <p>
-            The <strong>HTML to Markdown Converter</strong> is an essential tool for developers, writers, and content managers. 
-            Markdown has become the de-facto standard for documentation and web writing due to its simplicity and readability. 
-            However, much of the web's legacy content exists as HTML.
-        </p>
-        <p>
-            This utility enables seamless bi-directional conversion. Whether you are migrating a WordPress site to a static site generator 
-            like Jekyll or Hugo, or you simply want to turn a complex web page into extensive, readable notes, this tool automates the process instantly.
-        </p>
-      </ContentSection>
-
-      <ContentSection id="how-to-use" title="How to Use">
-        <ol className="list-decimal pl-6 space-y-2 mt-4">
-             <li><strong>Select Mode:</strong> Choose "HTML to Markdown" or "Markdown to HTML" using the toggle buttons at the top.</li>
-             <li><strong>Input Content:</strong> Paste your source code into the left-hand editor pane.</li>
-             <li><strong>Convert:</strong> Click the "Convert" button (or it can be triggered manually depending on preference, though the button ensures clarity).</li>
-             <li><strong>Copy or Download:</strong> Use the icons in the right-hand header to copy the result to your clipboard or download it as a <code>.md</code> or <code>.html</code> file.</li>
-        </ol>
-      </ContentSection>
-
-      <ContentSection id="markdown-basics" title="Markdown Syntax Basics">
-        <p>If you are new to Markdown, here is a quick reference for the syntax generated by this tool:</p>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-            <div className="bg-gray-50 p-4 border rounded">
-                <h4 className="font-bold border-b pb-2 mb-2">Headers</h4>
-                <code># Heading 1</code><br/>
-                <code>## Heading 2</code><br/>
-                <code>### Heading 3</code>
-            </div>
-            <div className="bg-gray-50 p-4 border rounded">
-                <h4 className="font-bold border-b pb-2 mb-2">Emphasis</h4>
-                <code>**Bold Text**</code><br/>
-                <code>*Italic Text*</code><br/>
-                <code>~~Strikethrough~~</code>
-            </div>
-             <div className="bg-gray-50 p-4 border rounded">
-                <h4 className="font-bold border-b pb-2 mb-2">Lists</h4>
-                <code>- Item 1</code><br/>
-                <code>- Item 2</code><br/>
-                <code>1. Numbered Item</code>
-            </div>
-             <div className="bg-gray-50 p-4 border rounded">
-                <h4 className="font-bold border-b pb-2 mb-2">Links & Images</h4>
-                <code>[Link Text](url)</code><br/>
-                <code>![Alt Text](image-url)</code>
-            </div>
-        </div>
-      </ContentSection>
-
-      <ContentSection id="use-cases" title="Common Use Cases">
-         <ul className="list-disc pl-6 space-y-2">
+        <ContentSection id="use-cases" title="Common Use Cases">
+          <ul className="list-disc pl-6 space-y-2">
             <li><strong>Content Migration:</strong> Moving from a CMS like WordPress or Drupal to a Markdown-based system like Gatsby, Next.js, or Obsidian.</li>
             <li><strong>Documentation:</strong> Converting API responses or HTML specs into readable README.md files for GitHub repositories.</li>
             <li><strong>Email Templates:</strong> drafting emails in Markdown for simplicity and converting them to HTML for sending.</li>
             <li><strong>Data Cleaning:</strong> Stripping styling tags from copied web content to get pure text content.</li>
-         </ul>
-      </ContentSection>
+          </ul>
+        </ContentSection>
 
-      <FAQSection faqs={faqData} />
+        <FAQSection faqs={faqData} />
 
-    </ToolPageLayout>
+      </ToolPageLayout>
+    </>
   );
 };
 

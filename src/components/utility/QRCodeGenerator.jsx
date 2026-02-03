@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react';
 import { QRCodeCanvas } from 'qrcode.react';
 import ToolPageLayout from '../tool/ToolPageLayout';
 import CalculatorSection from '../tool/CalculatorSection';
+import Seo from '../Seo';
 import '../../assets/css/utility/qr-code-generator.css';
 import { toolCategories } from '../../data/toolCategories';
 
@@ -50,70 +51,79 @@ const QRCodeGenerator = () => {
   };
 
   const relatedTools = [
-     { name: "Password Generator", url: "/utility-tools/password-generator", icon: "fas fa-key" },
-     { name: "Word Counter", url: "/utility-tools/word-counter", icon: "fas fa-font" }
+    { name: "Password Generator", url: "/utility-tools/password-generator", icon: "fas fa-key" },
+    { name: "Word Counter", url: "/utility-tools/word-counter", icon: "fas fa-font" }
   ];
 
-  return (
-    <ToolPageLayout
-      toolData={toolData}
-      categories={toolCategories}
-      relatedTools={relatedTools}
-      tableOfContents={[]}
-    >
-      <CalculatorSection title="QR Code Generator" icon="fas fa-qrcode">
-        <div className="qr-generator-container">
-          <div className="qr-controls">
-            <div className="qr-input-group">
-              <label>Content</label>
-              <textarea
-                placeholder="Enter URL or text..."
-                value={inputText}
-                onChange={(e) => setInputText(e.target.value)}
-                className="qr-input-text"
-              />
-            </div>
+  const seoData = {
+    title: 'QR Code Generator - Create Custom QR Codes Free | Tuitility',
+    description: 'Create professional QR codes instantly. Customize colors, add logos, and download in PNG or WebP. Free online QR code generator with transparent background support.',
+    keywords: 'qr code generator, create qr code, custom qr code, qr code with logo, free qr code maker, download qr code',
+    canonicalUrl: 'https://tuitility.vercel.app/utility-tools/qr-code-generator'
+  };
 
-            <div className="qr-options-grid">
-               <div className="qr-input-group">
-                <label>Size (px)</label>
-                <input
-                  type="number"
-                  value={size}
-                  onChange={(e) => setSize(Number(e.target.value))}
-                  min={128}
-                  max={2048}
-                  className="qr-input-number"
+  return (
+    <>
+      <Seo {...seoData} />
+      <ToolPageLayout
+        toolData={toolData}
+        categories={toolCategories}
+        relatedTools={relatedTools}
+        tableOfContents={[]}
+      >
+        <CalculatorSection title="QR Code Generator" icon="fas fa-qrcode">
+          <div className="qr-generator-container">
+            <div className="qr-controls">
+              <div className="qr-input-group">
+                <label>Content</label>
+                <textarea
+                  placeholder="Enter URL or text..."
+                  value={inputText}
+                  onChange={(e) => setInputText(e.target.value)}
+                  className="qr-input-text"
                 />
               </div>
-              
-              <div className="qr-input-group">
-                 <label>Foreground</label>
-                 <div className="color-picker-wrapper">
-                   <input 
-                     type="color" 
-                     value={fgColor} 
-                     onChange={(e) => setFgColor(e.target.value)} 
-                   />
-                   <span>{fgColor}</span>
-                 </div>
-              </div>
 
-              <div className="qr-input-group">
-                 <label>Background</label>
-                 <div className="color-picker-wrapper">
-                    <input 
-                      type="color" 
-                      value={bgColor} 
+              <div className="qr-options-grid">
+                <div className="qr-input-group">
+                  <label>Size (px)</label>
+                  <input
+                    type="number"
+                    value={size}
+                    onChange={(e) => setSize(Number(e.target.value))}
+                    min={128}
+                    max={2048}
+                    className="qr-input-number"
+                  />
+                </div>
+
+                <div className="qr-input-group">
+                  <label>Foreground</label>
+                  <div className="color-picker-wrapper">
+                    <input
+                      type="color"
+                      value={fgColor}
+                      onChange={(e) => setFgColor(e.target.value)}
+                    />
+                    <span>{fgColor}</span>
+                  </div>
+                </div>
+
+                <div className="qr-input-group">
+                  <label>Background</label>
+                  <div className="color-picker-wrapper">
+                    <input
+                      type="color"
+                      value={bgColor}
                       onChange={(e) => setBgColor(e.target.value)}
                       disabled={transparentBg}
                     />
                     <span>{transparentBg ? 'Transparent' : bgColor}</span>
-                 </div>
+                  </div>
+                </div>
               </div>
-            </div>
-            
-            <div className="qr-toggles">
+
+              <div className="qr-toggles">
                 <label className="qr-checkbox">
                   <input
                     type="checkbox"
@@ -122,17 +132,17 @@ const QRCodeGenerator = () => {
                   />
                   Transparent Background
                 </label>
+              </div>
+
+              <div className="qr-logo-upload">
+                <label className="qr-section-title">Logo Overlay (Optional)</label>
+                <input type="file" accept="image/*" onChange={handleLogoUpload} className="qr-file-input" />
+              </div>
             </div>
 
-            <div className="qr-logo-upload">
-               <label className="qr-section-title">Logo Overlay (Optional)</label>
-               <input type="file" accept="image/*" onChange={handleLogoUpload} className="qr-file-input"/>
-            </div>
-          </div>
-
-          <div className="qr-preview-section">
-            <div className="qr-canvas-wrapper" ref={qrRef}>
-               {inputText ? (
+            <div className="qr-preview-section">
+              <div className="qr-canvas-wrapper" ref={qrRef}>
+                {inputText ? (
                   <QRCodeCanvas
                     value={inputText}
                     size={size}
@@ -149,28 +159,29 @@ const QRCodeGenerator = () => {
                       excavate: true,
                     } : undefined}
                   />
-               ) : (
-                 <div className="qr-placeholder">
+                ) : (
+                  <div className="qr-placeholder">
                     <i className="fas fa-qrcode"></i>
                     <p>Enter text to generate</p>
-                 </div>
-               )}
-            </div>
-            
-            {inputText && (
-              <div className="qr-actions">
-                <button onClick={() => handleDownload('png')} className="qr-btn primary">
-                  <i className="fas fa-download"></i> PNG
-                </button>
-                <button onClick={() => handleDownload('webp')} className="qr-btn secondary">
-                  <i className="fas fa-download"></i> WebP
-                </button>
+                  </div>
+                )}
               </div>
-            )}
+
+              {inputText && (
+                <div className="qr-actions">
+                  <button onClick={() => handleDownload('png')} className="qr-btn primary">
+                    <i className="fas fa-download"></i> PNG
+                  </button>
+                  <button onClick={() => handleDownload('webp')} className="qr-btn secondary">
+                    <i className="fas fa-download"></i> WebP
+                  </button>
+                </div>
+              )}
+            </div>
           </div>
-        </div>
-      </CalculatorSection>
-    </ToolPageLayout>
+        </CalculatorSection>
+      </ToolPageLayout>
+    </>
   );
 };
 

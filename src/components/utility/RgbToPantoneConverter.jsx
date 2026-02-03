@@ -5,6 +5,7 @@ import ContentSection from '../tool/ContentSection';
 import FAQSection from '../tool/FAQSection';
 import FeedbackForm from '../tool/FeedbackForm';
 import TableOfContents from '../tool/TableOfContents';
+import Seo from '../Seo';
 import '../../assets/css/utility/rgb-to-pantone.css';
 import { toolCategories } from '../../data/toolCategories';
 
@@ -61,7 +62,7 @@ const RgbToPantoneConverter = () => {
     });
 
     distances.sort((a, b) => a.distance - b.distance);
-    
+
     // 441 is approx max distance in RGB space (sqrt(255^2 * 3))
     const accuracy = Math.max(0, 100 - (closestDistance / 4.41));
 
@@ -91,10 +92,10 @@ const RgbToPantoneConverter = () => {
     setHex(val);
     setRgb(hexToRgb(val));
   };
-  
+
   const copyToClipboard = (text, btnId) => {
-     navigator.clipboard.writeText(text);
-     // In a real app, use toast/notification
+    navigator.clipboard.writeText(text);
+    // In a real app, use toast/notification
   };
 
   // Content Data
@@ -104,18 +105,18 @@ const RgbToPantoneConverter = () => {
     description: "Convert RGB or Hex color values to the closest Pantone Matching System (PMS) color code. Ideal for designers transitioning from digital to print.",
     icon: "fas fa-swatchbook",
     category: "Converters",
-    breadcrumb: ["Utility", "Tools", "Converters"], 
+    breadcrumb: ["Utility", "Tools", "Converters"],
     tags: ["rgb", "pantone", "pms", "color", "converter", "print", "design"]
   };
-  
+
 
 
   const relatedTools = [
-      { name: "RGB to HEX", url: "/converter-tools/rgb-to-hex-converter", icon: "fas fa-palette" },
-      { name: "Color Blindness Simulator", url: "/image-tools/color-blindness-simulator", icon: "fas fa-low-vision" },
-      { name: "Image to WebP", url: "/utility-tools/image-tools/image-to-webp-converter", icon: "fas fa-image" },
-      { name: "QR Code Scanner", url: "/utility-tools/converter-tools/qr-code-scanner", icon: "fas fa-qrcode" },
-      { name: "TikTok Downloader", url: "/utility-tools/converter-tools/tiktok-downloader", icon: "fab fa-tiktok" }
+    { name: "RGB to HEX", url: "/converter-tools/rgb-to-hex-converter", icon: "fas fa-palette" },
+    { name: "Color Blindness Simulator", url: "/image-tools/color-blindness-simulator", icon: "fas fa-low-vision" },
+    { name: "Image to WebP", url: "/utility-tools/image-tools/image-to-webp-converter", icon: "fas fa-image" },
+    { name: "QR Code Scanner", url: "/utility-tools/converter-tools/qr-code-scanner", icon: "fas fa-qrcode" },
+    { name: "TikTok Downloader", url: "/utility-tools/converter-tools/tiktok-downloader", icon: "fab fa-tiktok" }
   ];
 
   const tableOfContents = [
@@ -138,160 +139,170 @@ const RgbToPantoneConverter = () => {
     { question: "What is the 'Accuracy' score?", answer: "It represents how close the RGB equivalent of the Pantone color is to your input color in the color spectrum." }
   ];
 
+  const seoData = {
+    title: 'RGB to Pantone Converter - Find PMS Color Match | Tuitility',
+    description: 'Free RGB to Pantone converter. Find the closest Pantone Matching System (PMS) color for any RGB or HEX value. Ideal for print designers and brand managers.',
+    keywords: 'rgb to pantone, pantone converter, pms color, color matching, print colors, hex to pantone',
+    canonicalUrl: 'https://tuitility.vercel.app/utility-tools/rgb-to-pantone-converter'
+  };
+
   return (
-    <ToolPageLayout
-      toolData={toolData}
-      categories={toolCategories}
-      relatedTools={relatedTools}
-      tableOfContents={tableOfContents}
-    >
-      <CalculatorSection title="RGB to Pantone" icon="fas fa-swatchbook">
-        <div className="pantone-converter-container">
+    <>
+      <Seo {...seoData} />
+      <ToolPageLayout
+        toolData={toolData}
+        categories={toolCategories}
+        relatedTools={relatedTools}
+        tableOfContents={tableOfContents}
+      >
+        <CalculatorSection title="RGB to Pantone" icon="fas fa-swatchbook">
+          <div className="pantone-converter-container">
             <div className="converter-grid">
-                
-                {/* Input Panel */}
-                <div className="input-panel">
-                    <div className="color-preview-large" style={{ backgroundColor: hex, color: (rgb.r*0.299 + rgb.g*0.587 + rgb.b*0.114) > 186 ? '#000' : '#fff' }}>
-                        <input type="color" className="color-picker-input" value={hex} onChange={(e) => handleColorPicker(e.target.value)} />
-                        {hex}
-                    </div>
 
-                    <div className="input-group">
-                        <label>Hex Code</label>
-                        <div className="hex-input-wrapper">
-                            <input type="text" value={hex} onChange={(e) => handleHexChange(e.target.value)} maxLength={7} />
-                            <button className="copy-btn" onClick={() => copyToClipboard(hex)}><i className="fas fa-copy"></i></button>
-                        </div>
-                    </div>
-
-                    <div className="input-group">
-                         <label>RGB Values</label>
-                         <div className="rgb-inputs">
-                             <div className="number-input-wrapper">
-                                 <input type="number" min="0" max="255" value={rgb.r} onChange={(e) => handleRgbChange('r', e.target.value)} />
-                                 <span className="number-input-label">R</span>
-                             </div>
-                             <div className="number-input-wrapper">
-                                 <input type="number" min="0" max="255" value={rgb.g} onChange={(e) => handleRgbChange('g', e.target.value)} />
-                                 <span className="number-input-label">G</span>
-                             </div>
-                             <div className="number-input-wrapper">
-                                 <input type="number" min="0" max="255" value={rgb.b} onChange={(e) => handleRgbChange('b', e.target.value)} />
-                                 <span className="number-input-label">B</span>
-                             </div>
-                         </div>
-                    </div>
+              {/* Input Panel */}
+              <div className="input-panel">
+                <div className="color-preview-large" style={{ backgroundColor: hex, color: (rgb.r * 0.299 + rgb.g * 0.587 + rgb.b * 0.114) > 186 ? '#000' : '#fff' }}>
+                  <input type="color" className="color-picker-input" value={hex} onChange={(e) => handleColorPicker(e.target.value)} />
+                  {hex}
                 </div>
 
-                {/* Result Panel */}
-                <div className="result-panel">
-                    <h3 className="text-lg font-bold mb-3">Closest Match</h3>
-                    <div className="pantone-card">
-                        <div className="pantone-swatch" style={{ backgroundColor: match.closest.hex }}></div>
-                        <div className="pantone-details">
-                            <div className="pantone-header">
-                                <span className="pantone-name">{match.closest.name}</span>
-                                <span className="match-accuracy">{Math.round(match.accuracy)}% Match</span>
-                            </div>
-                            <div className="pantone-code">{match.closest.code}</div>
-                        </div>
-                    </div>
-
-                    <div className="alternatives-section">
-                        <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-2">Alternative Matches</h4>
-                        <div className="alternatives-grid">
-                            {match.alternatives.map((alt, idx) => (
-                                <div key={idx} className="alt-card" onClick={() => handleHexChange(alt.pantone.hex)}>
-                                    <div className="alt-swatch" style={{ backgroundColor: alt.pantone.hex }}></div>
-                                    <div className="alt-info">
-                                        <div className="alt-code">{alt.pantone.code}</div>
-                                        <div className="alt-match">{Math.round(Math.max(0, 100 - (alt.distance / 4.41)))}%</div>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
+                <div className="input-group">
+                  <label>Hex Code</label>
+                  <div className="hex-input-wrapper">
+                    <input type="text" value={hex} onChange={(e) => handleHexChange(e.target.value)} maxLength={7} />
+                    <button className="copy-btn" onClick={() => copyToClipboard(hex)}><i className="fas fa-copy"></i></button>
+                  </div>
                 </div>
+
+                <div className="input-group">
+                  <label>RGB Values</label>
+                  <div className="rgb-inputs">
+                    <div className="number-input-wrapper">
+                      <input type="number" min="0" max="255" value={rgb.r} onChange={(e) => handleRgbChange('r', e.target.value)} />
+                      <span className="number-input-label">R</span>
+                    </div>
+                    <div className="number-input-wrapper">
+                      <input type="number" min="0" max="255" value={rgb.g} onChange={(e) => handleRgbChange('g', e.target.value)} />
+                      <span className="number-input-label">G</span>
+                    </div>
+                    <div className="number-input-wrapper">
+                      <input type="number" min="0" max="255" value={rgb.b} onChange={(e) => handleRgbChange('b', e.target.value)} />
+                      <span className="number-input-label">B</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Result Panel */}
+              <div className="result-panel">
+                <h3 className="text-lg font-bold mb-3">Closest Match</h3>
+                <div className="pantone-card">
+                  <div className="pantone-swatch" style={{ backgroundColor: match.closest.hex }}></div>
+                  <div className="pantone-details">
+                    <div className="pantone-header">
+                      <span className="pantone-name">{match.closest.name}</span>
+                      <span className="match-accuracy">{Math.round(match.accuracy)}% Match</span>
+                    </div>
+                    <div className="pantone-code">{match.closest.code}</div>
+                  </div>
+                </div>
+
+                <div className="alternatives-section">
+                  <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-2">Alternative Matches</h4>
+                  <div className="alternatives-grid">
+                    {match.alternatives.map((alt, idx) => (
+                      <div key={idx} className="alt-card" onClick={() => handleHexChange(alt.pantone.hex)}>
+                        <div className="alt-swatch" style={{ backgroundColor: alt.pantone.hex }}></div>
+                        <div className="alt-info">
+                          <div className="alt-code">{alt.pantone.code}</div>
+                          <div className="alt-match">{Math.round(Math.max(0, 100 - (alt.distance / 4.41)))}%</div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
 
             </div>
+          </div>
+        </CalculatorSection>
+
+        <div className="tool-bottom-section">
+          <TableOfContents items={tableOfContents} />
+          <FeedbackForm toolName={toolData.name} />
         </div>
-      </CalculatorSection>
 
-      <div className="tool-bottom-section">
-        <TableOfContents items={tableOfContents} />
-        <FeedbackForm toolName={toolData.name} />
-      </div>
-
-       <ContentSection id="introduction" title="Introduction">
-            <div className="content-block">
-                <p>Bridging the gap between digital design and physical production, our RGB to Pantone Converter is an essential tool for designers, brand managers, and print professionals. It provides an instant, algorithmic approximation of the closest Pantone Matching System (PMS) color for any given RGB or Hex value.</p>
-            </div>
-       </ContentSection>
-
-       <ContentSection id="features" title="Key Features">
-           <div className="content-block">
-               <ul>
-                   <li><strong>Instant Conversion:</strong> Real-time calculation of Pantone equivalents as you adjust RGB sliders or pick colors.</li>
-                   <li><strong>Accuracy Metrics:</strong> Transparent "Match Accuracy" percentage helps you understand how close the conversion really is.</li>
-                   <li><strong>Alternative Matches:</strong> Suggests top 5 surrounding Pantone colors to give you options.</li>
-                   <li><strong>Visual Comparison:</strong> Side-by-side display of your digital color and the physical ink approximation.</li>
-               </ul>
-           </div>
-       </ContentSection>
-
-       <ContentSection id="how-to-use" title="How to Use">
-           <div className="content-block">
-               <ol>
-                   <li><strong>Select Color:</strong> Use the color picker visuals, paste a Hex code, or enter specific Red, Green, Blue values.</li>
-                   <li><strong>View Result:</strong> The tool instantly displays the primary Pantone match.</li>
-                   <li><strong>Explore Options:</strong> Check the "Alternative Matches" grid below if the primary match feels slightly off.</li>
-                   <li><strong>Copy & Save:</strong> Click the copy icon to grab the PMS code for your design specifications.</li>
-               </ol>
-           </div>
-       </ContentSection>
-
-       <ContentSection id="color-theory" title="RGB vs CMYK/Pantone">
-             <div className="content-block">
-                <p>Understanding the difference is key. <strong>RGB</strong> (Red, Green, Blue) is an additive color model used for screens, creating color by adding light. <strong>Pantone</strong> is a standardized spot color ink system used in printing. Converting between light and ink is never perfect, but our tool uses advanced distance algorithms in 3D color space to find the nearest geometric neighbor.</p>
-             </div>
-       </ContentSection>
-
-       <ContentSection id="standards" title="Industry Standards">
-            <div className="content-block">
-                <p>We utilize a database of <strong>Pantone Solid Coated</strong> colors, the most common standard for coated paper stock used in branding, packaging, and marketing materials. This ensures your conversions are relevant to standard professional workflows.</p>
-            </div>
-       </ContentSection>
-
-       <ContentSection id="limitations" title="Limitations">
-            <div className="content-block">
-                <p>Please note: Monitors vary in calibration. The color you see on screen may not match the printed ink exactly. This tool is a reference guide. For final production, always verify with a physical Pantone book under standard lighting conditions.</p>
-            </div>
-       </ContentSection>
-
-       <ContentSection id="applications" title="Common Applications">
-           <div className="content-block">
-               <ul>
-                   <li><strong>Brand Identity:</strong> Defining physical collateral colors based on a digital-first logo.</li>
-                   <li><strong>Packaging:</strong> Selecting 2-3 spot colors to reduce printing costs compared to full CMYK.</li>
-                   <li><strong>Merchandise:</strong> Specifying fabric or plastic colors for t-shirts, mugs, and more.</li>
-               </ul>
-           </div>
-       </ContentSection>
-
-        <ContentSection id="best-practices" title="Best Practices">
-            <div className="content-block">
-                <p>To get the best results:</p>
-                <ul>
-                    <li>Work in a controlled lighting environment.</li>
-                    <li>Calibrate your monitor regularly.</li>
-                    <li>Use the "Match Accuracy" score to gauge risk; scores below 90% may look significantly different.</li>
-                </ul>
-            </div>
+        <ContentSection id="introduction" title="Introduction">
+          <div className="content-block">
+            <p>Bridging the gap between digital design and physical production, our RGB to Pantone Converter is an essential tool for designers, brand managers, and print professionals. It provides an instant, algorithmic approximation of the closest Pantone Matching System (PMS) color for any given RGB or Hex value.</p>
+          </div>
         </ContentSection>
 
-       <FAQSection id="faqs" faqs={faqs} />
+        <ContentSection id="features" title="Key Features">
+          <div className="content-block">
+            <ul>
+              <li><strong>Instant Conversion:</strong> Real-time calculation of Pantone equivalents as you adjust RGB sliders or pick colors.</li>
+              <li><strong>Accuracy Metrics:</strong> Transparent "Match Accuracy" percentage helps you understand how close the conversion really is.</li>
+              <li><strong>Alternative Matches:</strong> Suggests top 5 surrounding Pantone colors to give you options.</li>
+              <li><strong>Visual Comparison:</strong> Side-by-side display of your digital color and the physical ink approximation.</li>
+            </ul>
+          </div>
+        </ContentSection>
 
-    </ToolPageLayout>
+        <ContentSection id="how-to-use" title="How to Use">
+          <div className="content-block">
+            <ol>
+              <li><strong>Select Color:</strong> Use the color picker visuals, paste a Hex code, or enter specific Red, Green, Blue values.</li>
+              <li><strong>View Result:</strong> The tool instantly displays the primary Pantone match.</li>
+              <li><strong>Explore Options:</strong> Check the "Alternative Matches" grid below if the primary match feels slightly off.</li>
+              <li><strong>Copy & Save:</strong> Click the copy icon to grab the PMS code for your design specifications.</li>
+            </ol>
+          </div>
+        </ContentSection>
+
+        <ContentSection id="color-theory" title="RGB vs CMYK/Pantone">
+          <div className="content-block">
+            <p>Understanding the difference is key. <strong>RGB</strong> (Red, Green, Blue) is an additive color model used for screens, creating color by adding light. <strong>Pantone</strong> is a standardized spot color ink system used in printing. Converting between light and ink is never perfect, but our tool uses advanced distance algorithms in 3D color space to find the nearest geometric neighbor.</p>
+          </div>
+        </ContentSection>
+
+        <ContentSection id="standards" title="Industry Standards">
+          <div className="content-block">
+            <p>We utilize a database of <strong>Pantone Solid Coated</strong> colors, the most common standard for coated paper stock used in branding, packaging, and marketing materials. This ensures your conversions are relevant to standard professional workflows.</p>
+          </div>
+        </ContentSection>
+
+        <ContentSection id="limitations" title="Limitations">
+          <div className="content-block">
+            <p>Please note: Monitors vary in calibration. The color you see on screen may not match the printed ink exactly. This tool is a reference guide. For final production, always verify with a physical Pantone book under standard lighting conditions.</p>
+          </div>
+        </ContentSection>
+
+        <ContentSection id="applications" title="Common Applications">
+          <div className="content-block">
+            <ul>
+              <li><strong>Brand Identity:</strong> Defining physical collateral colors based on a digital-first logo.</li>
+              <li><strong>Packaging:</strong> Selecting 2-3 spot colors to reduce printing costs compared to full CMYK.</li>
+              <li><strong>Merchandise:</strong> Specifying fabric or plastic colors for t-shirts, mugs, and more.</li>
+            </ul>
+          </div>
+        </ContentSection>
+
+        <ContentSection id="best-practices" title="Best Practices">
+          <div className="content-block">
+            <p>To get the best results:</p>
+            <ul>
+              <li>Work in a controlled lighting environment.</li>
+              <li>Calibrate your monitor regularly.</li>
+              <li>Use the "Match Accuracy" score to gauge risk; scores below 90% may look significantly different.</li>
+            </ul>
+          </div>
+        </ContentSection>
+
+        <FAQSection id="faqs" faqs={faqs} />
+
+      </ToolPageLayout>
+    </>
   );
 };
 

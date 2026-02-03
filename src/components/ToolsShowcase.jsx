@@ -47,6 +47,8 @@ const ToolsShowcase = () => {
     { name: 'PDF to Image Converter', desc: 'Convert PDF pages to images (PNG/JPG)', url: '/utility-tools/converter-tools/pdf-to-image-converter', category: 'Utility', icon: 'fas fa-file-image' },
     { name: 'Password Generator', desc: 'Create secure passwords', url: '/utility-tools/converter-tools/password-generator', category: 'Utility', icon: 'fas fa-key' },
     { name: 'PDF Merger', desc: 'Combine multiple PDF files into one', url: '/utility-tools/converter-tools/merge-pdf', category: 'Utility', icon: 'fas fa-object-group' },
+    { name: 'Delete PDF Pages', desc: 'Remove unwanted pages from PDF files', url: '/utility-tools/converter-tools/delete-pdf-pages', category: 'Utility', icon: 'fas fa-trash-alt' },
+    { name: 'Text Case Converter', desc: 'Convert text between different cases', url: '/utility-tools/converter-tools/text-case-converter', category: 'Utility', icon: 'fas fa-font' },
     { name: 'Age Calculator', desc: 'Calculate age in years, months, days', url: '/knowledge/calculators/age-calculator', category: 'Knowledge', icon: 'fas fa-calendar-alt' }
   ]
 

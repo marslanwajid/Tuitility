@@ -2063,3 +2063,21 @@
 .text-warning {
   color: var(--warning-color);
 }
+
+/* ===== RESPONSIVE LAYOUT ===== */
+@media (max-width: 900px) {
+  .tool-main {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .tool-sidebar {
+    order: 2;
+    position: static;
+    margin-top: 1rem;
+  }
+
+  .tool-content {
+    order: 1;
+  }
+}

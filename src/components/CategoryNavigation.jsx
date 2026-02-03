@@ -534,15 +534,13 @@ const CategoryNavigation = () => {
       category: "Utility",
       icon: "fas fa-palette",
     },
-    /* Placeholder tools - Files not yet implemented
     {
       name: "Text Case Converter",
       desc: "Change text case formats",
-      url: "/utility-tools/text-case-converter",
+      url: "/utility-tools/converter-tools/text-case-converter",
       category: "Utility",
       icon: "fas fa-font",
     },
-    */
 
     /* PDF Tools - Pointing to OCR for now or placeholders */
     /*
@@ -575,6 +573,13 @@ const CategoryNavigation = () => {
       url: "/utility-tools/converter-tools/merge-pdf",
       category: "PDF",
       icon: "fas fa-object-group",
+    },
+    {
+      name: "Delete PDF Pages",
+      desc: "Remove unwanted pages from PDF files",
+      url: "/utility-tools/converter-tools/delete-pdf-pages",
+      category: "PDF",
+      icon: "fas fa-trash-alt",
     },
 
 

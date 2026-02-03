@@ -1,0 +1,377 @@
+/* Text Case Converter Styles */
+
+/* Notifications */
+.tcc-notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+    max-width: 350px;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    animation: tcc-slideIn 0.3s ease-out;
+}
+
+.tcc-notification.error {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    color: white;
+}
+
+.tcc-notification.success {
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: white;
+}
+
+.tcc-notification.info {
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    color: white;
+}
+
+@keyframes tcc-slideIn {
+    from {
+        transform: translateX(400px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Container */
+.tcc-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Labels */
+.tcc-label {
+    display: block;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+}
+
+/* Textarea Styles */
+.tcc-textarea {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: 1rem;
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-family: inherit;
+    resize: vertical;
+    transition: all 0.2s ease;
+    background: #f9fafb;
+    min-height: 150px;
+}
+
+.tcc-textarea:focus {
+    outline: none;
+    border-color: #1a1a1a;
+    box-shadow: 0 0 0 3px rgba(26, 26, 26, 0.1);
+    background: white;
+}
+
+.tcc-textarea.tcc-output {
+    background: #f3f4f6;
+    cursor: default;
+}
+
+/* Stats */
+.tcc-stats {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 0.5rem;
+    color: #6b7280;
+    font-size: 0.875rem;
+}
+
+.tcc-stats span {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.tcc-stats i {
+    color: #1a1a1a;
+}
+
+/* Buttons Section */
+.tcc-buttons-section {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 1.5rem;
+}
+
+.tcc-buttons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 0.75rem;
+}
+
+.tcc-case-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem;
+    background: #f9fafb;
+    border: 2px solid #e5e7eb;
+    border-radius: 10px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #374151;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.tcc-case-btn:hover {
+    border-color: #1a1a1a;
+    background: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.tcc-case-btn.active {
+    border-color: #1a1a1a;
+    background: #1a1a1a;
+    color: white;
+}
+
+.tcc-case-btn i {
+    font-size: 1.25rem;
+}
+
+/* Actions Section */
+.tcc-actions {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.tcc-filename-input {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex: 1;
+    min-width: 250px;
+}
+
+.tcc-filename-input label {
+    font-weight: 500;
+    color: #374151;
+    white-space: nowrap;
+}
+
+.tcc-filename-input input {
+    flex: 1;
+    padding: 0.625rem 0.75rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    max-width: 200px;
+}
+
+.tcc-filename-input input:focus {
+    outline: none;
+    border-color: #1a1a1a;
+    box-shadow: 0 0 0 2px rgba(26, 26, 26, 0.1);
+}
+
+.tcc-filename-input span {
+    color: #6b7280;
+    font-weight: 500;
+}
+
+.tcc-action-buttons {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.tcc-action-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.25rem;
+    border-radius: 8px;
+    border: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.tcc-copy-btn {
+    background: #1a1a1a;
+    color: white;
+}
+
+.tcc-copy-btn:hover {
+    background: #374151;
+    transform: translateY(-1px);
+}
+
+.tcc-download-btn {
+    background: #10b981;
+    color: white;
+}
+
+.tcc-download-btn:hover {
+    background: #059669;
+    transform: translateY(-1px);
+}
+
+.tcc-clear-btn {
+    background: #ef4444;
+    color: white;
+}
+
+.tcc-clear-btn:hover {
+    background: #dc2626;
+    transform: translateY(-1px);
+}
+
+/* Content Styles */
+.tcc-steps-list {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+}
+
+.tcc-steps-list li {
+    margin-bottom: 0.75rem;
+    line-height: 1.6;
+}
+
+/* Applications Grid */
+.applications-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.application-item {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.application-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    border-color: #1a1a1a;
+}
+
+.application-item h3 {
+    color: #1f2937;
+    font-size: 1.125rem;
+    margin: 0 0 0.75rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+}
+
+.application-item h3 i {
+    color: #1a1a1a;
+    font-size: 1.25rem;
+}
+
+.application-item p {
+    color: #6b7280;
+    margin: 0 0 0.5rem 0;
+    line-height: 1.6;
+    font-size: 0.9375rem;
+}
+
+.application-item p:last-child {
+    margin: 0;
+}
+
+.application-item em {
+    color: #9ca3af;
+    font-size: 0.85rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .tcc-buttons-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .tcc-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .tcc-filename-input {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .tcc-filename-input input {
+        max-width: none;
+    }
+
+    .tcc-action-buttons {
+        justify-content: center;
+    }
+
+    .tcc-notification {
+        left: 20px;
+        right: 20px;
+        max-width: none;
+    }
+
+    .applications-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .application-item {
+        padding: 1.25rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .tcc-buttons-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .tcc-action-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .tcc-action-btn {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .tcc-textarea {
+        padding: 0.75rem;
+        font-size: 0.95rem;
+    }
+}
