@@ -9,6 +9,7 @@ const UtilityTools = () => {
     { name: 'PDF to Image Converter', desc: 'Convert PDF pages to images (PNG/JPG)', url: '/converter-tools/pdf-to-image-converter', category: 'PDF Tools', icon: 'fas fa-file-image' },
     { name: 'OCR PDF Generator', desc: 'Extract text from PDF documents using OCR', url: '/ocr-pdf-generator', category: 'PDF Tools', icon: 'fas fa-file-alt' },
     { name: 'PDF Merger', desc: 'Combine multiple PDFs into one document', url: '/converter-tools/merge-pdf', category: 'PDF Tools', icon: 'fas fa-file-pdf' },
+    { name: 'PDF Splitter', desc: 'Split PDF files into multiple documents', url: '/converter-tools/split-pdf', category: 'PDF Tools', icon: 'fas fa-cut' },
     { name: 'Delete PDF Pages', desc: 'Remove unwanted pages from PDF files', url: '/converter-tools/delete-pdf-pages', category: 'PDF Tools', icon: 'fas fa-trash-alt' },
     { name: 'Word Counter', desc: 'Count words, characters, and paragraphs', url: '/word-counter', category: 'Text Tools', icon: 'fas fa-font' },
     { name: 'Password Generator', desc: 'Create secure passwords', url: '/password-generator', category: 'Security', icon: 'fas fa-key' },

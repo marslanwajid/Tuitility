@@ -50,6 +50,7 @@ const PopularTools = () => {
     { name: 'Age Calculator', desc: 'Calculate age in years, months, days', url: '/knowledge/calculators/age-calculator', category: 'Knowledge', icon: 'fas fa-calendar-alt', rating: 4.5, usage: '20K+' },
     { name: 'QR Code Generator', desc: 'Generate QR codes instantly', url: '/utility-tools/qr-code-generator', category: 'Utility', icon: 'fas fa-qrcode', rating: 4.7, usage: '35K+' },
     { name: 'PDF Merger', desc: 'Combine multiple PDF files into one', url: '/utility-tools/converter-tools/merge-pdf', category: 'Utility', icon: 'fas fa-object-group', rating: 4.8, usage: '42K+' },
+    { name: 'PDF Splitter', desc: 'Split PDF files into multiple documents', url: '/utility-tools/converter-tools/split-pdf', category: 'Utility', icon: 'fas fa-cut', rating: 4.8, usage: '10K+' },
     { name: 'Gen Z Translator', desc: 'Translate modern slang and expressions', url: '/utility-tools/genz-translator', category: 'Language', icon: 'fas fa-language', rating: 4.9, usage: '50K+' }
   ]
 
