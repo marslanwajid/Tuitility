@@ -36,6 +36,7 @@ const GoldWeightConverter = lazy(() => import('./components/utility/GoldWeightCo
 const PdfToImageConverter = lazy(() => import('./components/utility/converter-tools/PdfToImageConverter'))
 const PdfMerger = lazy(() => import('./components/utility/converter-tools/PdfMerger'))
 const DeletePdfPages = lazy(() => import('./components/utility/converter-tools/DeletePdfPages'))
+const PdfSplitter = lazy(() => import('./components/utility/converter-tools/PdfSplitter'))
 const TextCaseConverter = lazy(() => import('./components/utility/converter-tools/TextCaseConverter'))
 
 // Lazily import knowledge calculators
@@ -210,6 +211,7 @@ const App = () => {
           <Route path="/utility-tools/converter-tools/pdf-to-image-converter" element={<PdfToImageConverter />} />
           <Route path="/utility-tools/converter-tools/merge-pdf" element={<PdfMerger />} />
           <Route path="/utility-tools/converter-tools/delete-pdf-pages" element={<DeletePdfPages />} />
+          <Route path="/utility-tools/converter-tools/split-pdf" element={<PdfSplitter />} />
           <Route path="/utility-tools/converter-tools/text-case-converter" element={<TextCaseConverter />} />
           <Route path="/knowledge" element={<KnowledgeCalculator />} />
           <Route path="/knowledge/calculators/gpa-calculator" element={<GPACalculator />} />
