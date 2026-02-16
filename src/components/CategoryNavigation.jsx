@@ -575,9 +575,23 @@ const CategoryNavigation = () => {
       icon: "fas fa-object-group",
     },
     {
+      name: "PDF Splitter",
+      desc: "Split PDF files into multiple pages",
+      url: "/utility-tools/converter-tools/split-pdf",
+      category: "PDF",
+      icon: "fas fa-object-group",
+    },
+    {
       name: "Delete PDF Pages",
       desc: "Remove unwanted pages from PDF files",
       url: "/utility-tools/converter-tools/delete-pdf-pages",
+      category: "PDF",
+      icon: "fas fa-trash-alt",
+    },
+    {
+      name: "Organize PDF Pages",
+      desc: "Organize PDF pages in a specific order",
+      url: "/utility-tools/converter-tools/organize-pdf-pages",
       category: "PDF",
       icon: "fas fa-trash-alt",
     },
@@ -611,13 +625,7 @@ const CategoryNavigation = () => {
       category: "Utility",
       icon: "fas fa-microphone-alt",
     },
-    {
-      name: "Calories to Exercise",
-      desc: "Convert calories to exercise activities",
-      url: "/utility-tools/converter-tools/calories-to-exercise-converter",
-      category: "Utility",
-      icon: "fas fa-running",
-    },
+
     {
       name: "Audio Bitrate Converter",
       desc: "Convert audio between different bitrates",
@@ -646,13 +654,7 @@ const CategoryNavigation = () => {
       category: "Utility",
       icon: "fas fa-qrcode",
     },
-    {
-      name: "QR Code Generator",
-      desc: "Scan and decode QR codes",
-      url: "/utility-tools/converter-tools/qr-code-scanner",
-      category: "Utility",
-      icon: "fas fa-search",
-    },
+
     {
       name: "Aspect Ratio Converter",
       desc: "Calculate and convert aspect ratios",
@@ -688,20 +690,8 @@ const CategoryNavigation = () => {
     //   category: "Utility",
     //   icon: "fas fa-image",
     // },
-    {
-      name: "Aspect Ratio Converter",
-      desc: "Calculate and convert aspect ratios",
-      url: "/utility-tools/image-tools/aspect-ratio-converter",
-      category: "Utility",
-      icon: "fas fa-expand-arrows-alt",
-    },
-    {
-      name: "Color Blindness Simulator",
-      desc: "Simulate color vision deficiencies",
-      url: "/utility-tools/image-tools/color-blindness-simulator",
-      category: "Utility",
-      icon: "fas fa-low-vision",
-    },
+
+
 
     {
       name: "GPA Calculator",

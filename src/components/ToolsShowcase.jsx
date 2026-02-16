@@ -49,6 +49,7 @@ const ToolsShowcase = () => {
     { name: 'PDF Merger', desc: 'Combine multiple PDF files into one', url: '/utility-tools/converter-tools/merge-pdf', category: 'Utility', icon: 'fas fa-object-group' },
     { name: 'PDF Splitter', desc: 'Split PDF files into multiple documents', url: '/utility-tools/converter-tools/split-pdf', category: 'Utility', icon: 'fas fa-cut' },
     { name: 'Delete PDF Pages', desc: 'Remove unwanted pages from PDF files', url: '/utility-tools/converter-tools/delete-pdf-pages', category: 'Utility', icon: 'fas fa-trash-alt' },
+    { name: 'PDF Organizer', desc: 'Reorder PDF pages visually', url: '/utility-tools/converter-tools/organize-pdf-pages', category: 'Utility', icon: 'fas fa-sort-amount-down' },
     { name: 'Text Case Converter', desc: 'Convert text between different cases', url: '/utility-tools/converter-tools/text-case-converter', category: 'Utility', icon: 'fas fa-font' },
     { name: 'Age Calculator', desc: 'Calculate age in years, months, days', url: '/knowledge/calculators/age-calculator', category: 'Knowledge', icon: 'fas fa-calendar-alt' }
   ]

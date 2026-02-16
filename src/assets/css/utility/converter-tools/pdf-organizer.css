@@ -1,0 +1,337 @@
+/* PDF Organizer Tool Styles */
+
+.pdf-organizer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+/* Upload Section */
+.pdf-organizer-upload {
+    border: 2px dashed #d1d5db;
+    border-radius: 12px;
+    padding: 3rem 2rem;
+    text-align: center;
+    background: #f9fafb;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 2rem;
+}
+
+.pdf-organizer-upload:hover {
+    border-color: #1a1a1a;
+    background: #f3f4f6;
+    transform: translateY(-2px);
+}
+
+.pdf-organizer-upload i {
+    font-size: 3rem;
+    color: #1a1a1a;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+/* Main Interface */
+.organizer-workspace {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    overflow: hidden;
+}
+
+.organizer-header {
+    background: #f8fafc;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid #e2e8f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.file-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.file-info i {
+    font-size: 1.5rem;
+    color: #ef4444;
+}
+
+.file-details h3 {
+    margin: 0;
+    font-size: 1rem;
+    color: #1e293b;
+}
+
+.file-details p {
+    margin: 0;
+    font-size: 0.875rem;
+    color: #64748b;
+}
+
+.organizer-controls {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.control-btn {
+    padding: 0.5rem 1rem;
+    border: 1px solid #e2e8f0;
+    background: white;
+    color: #475569;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.2s;
+}
+
+.control-btn:hover {
+    background: #f1f5f9;
+    color: #1e293b;
+    border-color: #cbd5e1;
+}
+
+.control-btn.primary {
+    background: #1a1a1a;
+    color: white;
+    border-color: #1a1a1a;
+}
+
+.control-btn.primary:hover {
+    background: #000000;
+    border-color: #000000;
+}
+
+/* Page Grid */
+.pages-grid {
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 1.5rem;
+    min-height: 400px;
+    max-height: 70vh;
+    overflow-y: auto;
+    background: #f1f5f9;
+    /* Light background for contrast */
+}
+
+.page-card {
+    background: white;
+    border-radius: 8px;
+    padding: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    cursor: grab;
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative;
+    user-select: none;
+    border: 1px solid #e5e7eb;
+}
+
+.page-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    border-color: #cbd5e1;
+}
+
+.page-card.dragging {
+    opacity: 0.5;
+    cursor: grabbing;
+}
+
+.page-card.drag-over {
+    border: 2px dashed #1a1a1a;
+    transform: scale(1.02);
+}
+
+.page-preview {
+    width: 100%;
+    aspect-ratio: 1/1.4;
+    background: #f8fafc;
+    border-radius: 4px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.5rem;
+    border: 1px solid #e2e8f0;
+}
+
+.page-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.page-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 0.25rem;
+}
+
+.page-number {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #64748b;
+    background: #f1f5f9;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+/* Loading State */
+.loading-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.9);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 50;
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #e2e8f0;
+    border-top-color: #1a1a1a;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 1rem;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Action Bar */
+.action-bar {
+    padding: 1rem 1.5rem;
+    background: white;
+    border-top: 1px solid #e2e8f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.filename-input {
+    padding: 0.5rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    width: 250px;
+}
+
+.filename-input:focus {
+    outline: none;
+    border-color: #1a1a1a;
+}
+
+/* Ghost Element for Touch Drag */
+.ghost-element {
+    position: fixed;
+    width: 120px;
+    height: 160px;
+    opacity: 0.8;
+    transform: scale(0.9) rotate(5deg);
+    z-index: 10000;
+    pointer-events: none;
+    border: 2px solid #1a1a1a;
+    border-radius: 8px;
+    box-shadow: 0 8px 25px rgba(26, 26, 26, 0.4);
+    background: white;
+    overflow: hidden;
+}
+
+.ghost-element img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Notification Toast */
+.toast-notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    color: white;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+    animation: slideIn 0.3s ease-out;
+    max-width: 300px;
+}
+
+.toast-success {
+    background: #1a1a1a;
+}
+
+.toast-error {
+    background: #ef4444;
+}
+
+.toast-info {
+    background: #3b82f6;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+    .organizer-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .pages-grid {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 1rem;
+    }
+
+    .action-bar {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .filename-input {
+        width: 100%;
+    }
+
+    .control-btn {
+        flex: 1;
+        justify-content: center;
+    }
+}
