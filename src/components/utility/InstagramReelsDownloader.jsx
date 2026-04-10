@@ -40,14 +40,13 @@ const InstagramReelsDownloader = () => {
     };
 
     const fetchReelsVideo = async (reelUrl) => {
-        // Normalize logic
+        // We validate the reel format, but we must keep the original URL (reelUrl)
+        // because modern Instagram links use query parameters like 'igsh' as share tokens
+        // to bypass login walls. Removing them causes API failures.
         const reelMatch = reelUrl.match(/reel\/([A-Za-z0-9_-]+)/);
         if (!reelMatch) {
             return { success: false, error: 'Invalid Instagram Reel URL format' };
         }
-
-        const reelId = reelMatch[1];
-        const cleanUrl = `https://www.instagram.com/reel/${reelId}/`;
 
         const apiUrl = 'https://instagram-downloader-download-instagram-videos-stories1.p.rapidapi.com/get-info-rapidapi';
         const apiKey = import.meta.env.RAPID_KEY;
@@ -65,7 +64,7 @@ const InstagramReelsDownloader = () => {
         };
 
         try {
-            const fullUrl = `${apiUrl}?url=${encodeURIComponent(cleanUrl)}`;
+            const fullUrl = `${apiUrl}?url=${encodeURIComponent(reelUrl)}`;
             const response = await fetch(fullUrl, options);
             const result = await response.json();
 
