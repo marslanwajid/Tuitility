@@ -168,114 +168,118 @@
 
 /* Responsive Design */
 @media (max-width: 1200px) {
-  .tools-grid {
+  .tools-showcase .tools-grid {
     grid-template-columns: repeat(3, 1fr);
     gap: 1.25rem;
   }
 }
 
 @media (max-width: 1024px) {
-  .tools-grid {
+  .tools-showcase .tools-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
   }
   
-  .tool-card {
+  .tools-showcase .tool-card {
     padding: 1.25rem;
   }
   
-  .tool-icon {
+  .tools-showcase .tool-icon {
     width: 48px;
     height: 48px;
     margin-bottom: 1rem;
   }
   
-  .tool-icon i {
+  .tools-showcase .tool-icon i {
     font-size: 1.1rem;
   }
   
-  .tool-title {
+  .tools-showcase .tool-title {
     font-size: 1rem;
     margin-bottom: 0.5rem;
   }
   
-  .tool-description {
+  .tools-showcase .tool-description {
     font-size: 0.85rem;
     margin-bottom: 1rem;
   }
 }
 
 @media (max-width: 768px) {
-  .tools-grid {
+  .tools-showcase .tools-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 0.875rem;
   }
   
-  .tool-card {
+  .tools-showcase .tool-card {
     padding: 1rem;
     min-height: 160px;
   }
   
-  .tool-icon {
+  .tools-showcase .tool-icon {
     width: 40px;
     height: 40px;
     margin-bottom: 0.75rem;
   }
   
-  .tool-icon i {
+  .tools-showcase .tool-icon i {
     font-size: 1rem;
   }
   
-  .tool-title {
+  .tools-showcase .tool-title {
     font-size: 0.9rem;
     margin-bottom: 0.375rem;
   }
   
-  .tool-description {
+  .tools-showcase .tool-description {
     font-size: 0.8rem;
     margin-bottom: 0.75rem;
     -webkit-line-clamp: 2;
   }
   
-  .tool-category-badge {
+  .tools-showcase .tool-category-badge {
     padding: 0.25rem 0.5rem;
     font-size: 0.7rem;
   }
 }
 
 @media (max-width: 480px) {
-  .tools-grid {
+  .tools-showcase .container {
+    padding: 0 1rem;
+  }
+
+  .tools-showcase .tools-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 0.75rem;
   }
   
-  .tool-card {
+  .tools-showcase .tool-card {
     padding: 0.875rem;
     min-height: 140px;
   }
   
-  .tool-icon {
+  .tools-showcase .tool-icon {
     width: 36px;
     height: 36px;
     margin-bottom: 0.625rem;
   }
   
-  .tool-icon i {
+  .tools-showcase .tool-icon i {
     font-size: 0.9rem;
   }
   
-  .tool-title {
+  .tools-showcase .tool-title {
     font-size: 0.85rem;
     margin-bottom: 0.25rem;
   }
   
-  .tool-description {
+  .tools-showcase .tool-description {
     font-size: 0.75rem;
     margin-bottom: 0.625rem;
     -webkit-line-clamp: 2;
   }
   
-  .tool-category-badge {
+  .tools-showcase .tool-category-badge {
     padding: 0.2rem 0.4rem;
     font-size: 0.65rem;
   }

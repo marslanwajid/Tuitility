@@ -1,5 +1,6 @@
 import React, { useState, useEffect, memo } from 'react'
 import { Link } from 'react-router-dom'
+import HeaderSearch from './HeaderSearch'
 import "../assets/css/header.css"
 
 const Header = () => {
@@ -38,29 +39,11 @@ const Header = () => {
         </div>
         
         {/* Desktop search container */}
-        <div className="search-container desktop">
-          <div className="search-wrapper">
-            {/* <i className="fas fa-search search-icon"></i> */}
-            <input type="text" id="searchInputDesktop" name="q" placeholder="Search calculators..." className="search-input" />
-            <button type="button" className="search-btn" aria-label="Search">
-              <i className="fas fa-search"></i>
-            </button>
-          </div>
-          <div id="searchResultsDesktop" className="search-results"></div>
-        </div>
+        <HeaderSearch idPrefix="desktopSearch" isMobile={false} />
         
         <ul className={`nav-menu ${isMenuActive ? 'active' : ''}`}>
           {/* Mobile search container */}
-          <div className="search-container mobile">
-            <div className="search-wrapper">
-              <i className="fas fa-search search-icon"></i>
-              <input type="text" id="searchInputMobile" name="q" placeholder="Search calculators..." className="search-input" />
-              <button type="button" className="search-btn" aria-label="Search">
-                <i className="fas fa-search"></i>
-              </button>
-            </div>
-            <div id="searchResultsMobile" className="search-results"></div>
-          </div>
+          <HeaderSearch idPrefix="mobileSearch" isMobile={true} />
           
           <li><Link to="/" onClick={closeMenu}> Home</Link></li>
           <li className="nav-category">
