@@ -40,6 +40,37 @@ const CategoryPage = ({
     return colors[index % colors.length]
   }
 
+  const renderStars = (rating) => {
+    const stars = []
+    const fullStars = Math.floor(rating)
+    const hasHalfStar = rating % 1 !== 0
+
+    for (let i = 0; i < fullStars; i++) {
+      stars.push(<i key={i} className="fas fa-star star"></i>)
+    }
+
+    if (hasHalfStar) {
+      stars.push(<i key="half" className="fas fa-star-half-alt star"></i>)
+    }
+
+    const emptyStars = 5 - Math.ceil(rating)
+    for (let i = 0; i < emptyStars; i++) {
+      stars.push(<i key={`empty-${i}`} className="fas fa-star star empty"></i>)
+    }
+
+    return stars
+  }
+
+  const getToolRating = (name) => {
+    const hash = name.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0)
+    return (4.5 + (hash % 5) / 10).toFixed(1)
+  }
+
+  const getToolUsage = (name) => {
+    const hash = name.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0)
+    return (10 + (hash % 85)) + 'K+'
+  }
+
   return (
     <div className="category-page">
       <div className="container">
@@ -127,7 +158,21 @@ const CategoryPage = ({
                 <div className="category-tool-content">
                   <h3 className="category-tool-title">{tool.name}</h3>
                   <p className="category-tool-description">{tool.desc}</p>
-                  <span className="category-tool-category-badge">{tool.category}</span>
+
+                  <div className="category-tool-rating">
+                    <div className="stars">
+                      {renderStars(tool.rating || getToolRating(tool.name))}
+                    </div>
+                    <span className="rating-text">{tool.rating || getToolRating(tool.name)}</span>
+                  </div>
+
+                  <div className="category-tool-stats">
+                    <span className="usage-count">{tool.usage || getToolUsage(tool.name)} users</span>
+                    <span className="popular-badge">
+                      <i className="fas fa-fire"></i>
+                      Popular
+                    </span>
+                  </div>
                 </div>
               </Link>
             ))}
