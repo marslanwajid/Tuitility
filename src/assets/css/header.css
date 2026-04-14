@@ -1,14 +1,15 @@
 /* Header styles */
 header {
-  background: rgba(255, 255, 255, 0.98);
-  backdrop-filter: blur(20px);
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+  background: var(--glass-bg, rgba(255, 255, 255, 0.85));
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  box-shadow: var(--shadow-sm);
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 1000;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  border-bottom: 1px solid var(--color-border);
 }
 
 .navbar {
@@ -61,11 +62,11 @@ header {
 
 .nav-menu a {
   text-decoration: none;
-  color: #1a1a1a;
+  color: var(--color-text-main);
   font-weight: 500;
-  transition: all 0.3s ease;
-  padding: 0.75rem 1rem;
-  border-radius: 12px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 0.75rem 1.25rem;
+  border-radius: 9999px;
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -82,18 +83,18 @@ header {
 }
 
 .nav-category a {
-  background: rgba(249, 250, 251, 0.8);
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  background: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
   font-size: 0.85rem;
-  padding: 0.5rem 0.75rem;
+  padding: 0.6rem 1rem;
 }
 
 .nav-category a:hover {
-  background: rgba(255, 255, 255, 0.9);
-  border-color: rgba(26, 26, 26, 0.2);
-  color: #1a1a1a;
+  background: var(--color-bg-main);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
   transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(26, 26, 26, 0.1);
+  box-shadow: var(--shadow-card);
 }
 
 .nav-category a i {
@@ -349,16 +350,19 @@ header {
   .nav-menu {
     position: fixed;
     left: -100%;
-    top: 55px; /* Position right below the header border */
+    top: 60px; /* Position right below the header border */
     flex-direction: column;
-    background-color: rgba(255, 255, 255, 0.98);
-    backdrop-filter: blur(20px);
+    background-color: var(--glass-bg);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
     width: 100%;
+    height: calc(100vh - 60px);
     text-align: center;
-    transition: 0.3s;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: var(--shadow-card);
     padding: 2rem 0;
-    gap: 1rem;
+    gap: 1.5rem;
+    overflow-y: auto;
   }
   
   .nav-menu.active {

@@ -1,7 +1,7 @@
 /* Popular Tools Styles */
 .popular-tools {
-  background: white;
-  padding: 5rem 0;
+  background: var(--color-bg-alt);
+  padding: 6rem 0;
 }
 
 .popular-tools .container {
@@ -16,15 +16,16 @@
 }
 
 .popular-tools .section-title {
-  font-size: 2.5rem;
+  font-size: 3rem;
   font-weight: 800;
-  color: #1a1a1a;
+  color: var(--color-text-main);
   margin-bottom: 1rem;
+  letter-spacing: -0.02em;
 }
 
 .popular-tools .section-description {
-  font-size: 1.125rem;
-  color: #64748b;
+  font-size: 1.15rem;
+  color: var(--color-text-muted);
   max-width: 600px;
   margin: 0 auto;
   line-height: 1.6;
@@ -33,52 +34,53 @@
 .popular-tools .tools-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 1.5rem;
+  gap: 2rem;
   margin-bottom: 3rem;
 }
 
 .popular-tools .tool-card {
-  background: white;
-  border: 1px solid #f0f0f0;
-  border-radius: 16px;
-  padding: 1.5rem;
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  padding: 1.75rem;
   text-decoration: none;
   color: inherit;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  min-height: 200px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  min-height: 220px;
+  box-shadow: var(--shadow-sm);
 }
 
 .popular-tools .tool-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
-  border-color: var(--tool-color);
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--color-primary-light);
+  background: white;
 }
 
 .popular-tools .tool-icon {
-  width: 50px;
-  height: 50px;
-  border-radius: 12px;
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1rem;
-  transition: all 0.3s ease;
+  margin-bottom: 1.25rem;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   background: var(--tool-color);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 8px 16px -4px var(--tool-color);
 }
 
 .popular-tools .tool-card:hover .tool-icon {
-  transform: scale(1.1);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  transform: scale(1.1) rotate(5deg);
 }
 
 .popular-tools .tool-icon i {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   color: white;
   transition: all 0.3s ease;
 }
@@ -88,12 +90,13 @@
   display: flex;
   flex-direction: column;
   position: relative;
+  box-shadow: none !important;
 }
 
 .popular-tools .tool-title {
-  font-size: 1rem;
-  font-weight: 600;
-  color: #1a1a1a;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-text-main);
   margin-bottom: 0.5rem;
   line-height: 1.3;
   transition: all 0.3s ease;
@@ -104,10 +107,10 @@
 }
 
 .popular-tools .tool-description {
-  font-size: 0.8rem;
-  color: #64748b;
-  line-height: 1.4;
-  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+  margin-bottom: 1.25rem;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
@@ -124,28 +127,29 @@
 
 .popular-tools .tool-category-badge {
   display: inline-block;
-  padding: 0.25rem 0.75rem;
-  background: var(--tool-color);
-  color: white;
-  font-size: 0.7rem;
-  font-weight: 600;
-  border-radius: 20px;
+  padding: 0.4rem 0.8rem;
+  background: var(--color-bg-alt);
+  color: var(--tool-color);
+  font-size: 0.75rem;
+  font-weight: 700;
+  border-radius: 9999px; /* pill shape */
   text-transform: uppercase;
-  letter-spacing: 0.5px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  letter-spacing: 0.05em;
+  border: 1px solid rgba(0,0,0,0.05); /* very soft border */
   transition: all 0.3s ease;
 }
 
 .popular-tools .tool-card:hover .tool-category-badge {
+  background: var(--tool-color);
+  color: white;
   transform: scale(1.05);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .popular-tools .tool-rating {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  margin-bottom: 0.75rem;
+  margin-bottom: 1rem;
 }
 
 .popular-tools .stars {
@@ -154,18 +158,18 @@
 }
 
 .popular-tools .star {
-  color: #ffffff;
+  color: #F59E0B;
   font-size: 0.875rem;
 }
 
 .popular-tools .star.empty {
-  color: #f0f0f0;
+  color: #E2E8F0;
 }
 
 .popular-tools .rating-text {
-  font-size: 0.75rem;
-  color: #64748b;
-  font-weight: 500;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  font-weight: 600;
 }
 
 .popular-tools .tool-stats {
@@ -173,80 +177,60 @@
   justify-content: space-between;
   align-items: center;
   margin-top: auto;
-  padding-top: 0.75rem;
-  border-top: 1px solid #f0f0f0;
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-border);
 }
 
 .popular-tools .usage-count {
-  font-size: 0.75rem;
-  color: #64748b;
-  font-weight: 500;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  font-weight: 600;
 }
 
 .popular-tools .popular-badge {
   display: inline-flex;
   align-items: center;
-  gap: 0.25rem;
-  padding: 0.25rem 0.5rem;
-  background: #fef3c7;
-  color: #92400e;
-  font-size: 0.7rem;
-  font-weight: 600;
-  border-radius: 12px;
+  gap: 0.35rem;
+  padding: 0.35rem 0.75rem;
+  background: #FEF3C7;
+  color: #92400E;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border-radius: 9999px;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.05em;
 }
 
 .popular-tools .popular-badge i {
-  font-size: 0.625rem;
+  font-size: 0.7rem;
 }
 
 /* Responsive Design */
 @media (max-width: 1200px) {
   .popular-tools .tools-grid {
     grid-template-columns: repeat(3, 1fr);
-    gap: 1.25rem;
+    gap: 1.5rem;
   }
 }
 
 @media (max-width: 1024px) {
   .popular-tools .tools-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
+    gap: 1.5rem;
   }
   
   .popular-tools .tool-card {
-    padding: 1.25rem;
-  }
-  
-  .popular-tools .tool-icon {
-    width: 48px;
-    height: 48px;
-    margin-bottom: 1rem;
-  }
-  
-  .popular-tools .tool-icon i {
-    font-size: 1.1rem;
-  }
-  
-  .popular-tools .tool-title {
-    font-size: 1rem;
-    margin-bottom: 0.5rem;
-  }
-  
-  .popular-tools .tool-description {
-    font-size: 0.85rem;
-    margin-bottom: 1rem;
+    padding: 1.5rem;
   }
 }
 
 @media (max-width: 768px) {
   .popular-tools {
-    padding: 3rem 0;
+    padding: 4rem 0;
   }
   
   .popular-tools .section-title {
-    font-size: 2rem;
+    font-size: 2.25rem;
   }
   
   .popular-tools .section-description {
@@ -254,93 +238,34 @@
   }
   
   .popular-tools .tools-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.875rem;
+    grid-template-columns: repeat(2, 1fr); /* Stay 2 columns on tablet */
+    gap: 1.25rem;
   }
 
   .popular-tools .tool-card {
-    padding: 1rem;
-    min-height: 160px;
-  }
-
-  .popular-tools .tool-icon {
-    width: 40px;
-    height: 40px;
-    margin-bottom: 0.75rem;
-  }
-
-  .popular-tools .tool-icon i {
-    font-size: 1rem;
-  }
-
-  .popular-tools .tool-title {
-    font-size: 0.9rem;
-    margin-bottom: 0.375rem;
-  }
-
-  .popular-tools .tool-description {
-    font-size: 0.8rem;
-    margin-bottom: 0.75rem;
-    -webkit-line-clamp: 2;
-  }
-
-  .popular-tools .tool-category-badge {
-    padding: 0.25rem 0.5rem;
-    font-size: 0.7rem;
+    padding: 1.25rem;
+    min-height: 200px;
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 580px) {
   .popular-tools .container {
-    padding: 0 1rem;
+    padding: 0 1.25rem;
   }
 
+  /* Reverted to 2 columns based on user feedback */
   .popular-tools .tools-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 0.75rem;
+    gap: 1.25rem;
   }
 
   .popular-tools .tool-card {
-    padding: 0.875rem;
-    min-height: 140px;
+    padding: 1.5rem;
+    min-height: auto;
   }
-
-  .popular-tools .tool-icon {
-    width: 36px;
-    height: 36px;
-    margin-bottom: 0.625rem;
-  }
-
-  .popular-tools .tool-icon i {
-    font-size: 0.9rem;
-  }
-
-  .popular-tools .tool-title {
-    font-size: 0.85rem;
-    margin-bottom: 0.25rem;
-  }
-
-  .popular-tools .tool-description {
-    font-size: 0.75rem;
-    margin-bottom: 0.625rem;
-    -webkit-line-clamp: 2;
-  }
-
+  
   .popular-tools .tool-category-badge {
-    padding: 0.2rem 0.4rem;
-    font-size: 0.65rem;
-  }
-
-  .popular-tools .tool-stats {
-    padding-top: 0.5rem;
-  }
-
-  .popular-tools .usage-count {
+    padding: 0.3rem 0.6rem;
     font-size: 0.7rem;
-  }
-
-  .popular-tools .popular-badge {
-    font-size: 0.65rem;
-    padding: 0.2rem 0.4rem;
   }
 }

@@ -1,7 +1,7 @@
 /* Category Navigation Styles */
 .category-navigation {
-  background: white;
-  padding: 5rem 0;
+  background: var(--color-bg-alt);
+  padding: 6rem 0;
 }
 
 .container {
@@ -16,15 +16,16 @@
 }
 
 .section-title {
-  font-size: 2.5rem;
+  font-size: 3rem;
   font-weight: 800;
-  color: #1a1a1a;
+  color: var(--color-text-main);
   margin-bottom: 1rem;
+  letter-spacing: -0.02em;
 }
 
 .section-description {
-  font-size: 1.125rem;
-  color: #64748b;
+  font-size: 1.15rem;
+  color: var(--color-text-muted);
   max-width: 600px;
   margin: 0 auto;
   line-height: 1.6;
@@ -33,23 +34,25 @@
 .categories-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 2rem;
+  gap: 2.5rem;
   margin-bottom: 4rem;
 }
 
 .category-card {
-  background: white;
-  border: 1px solid #f0f0f0;
-  border-radius: 16px;
-  padding: 2rem;
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  padding: 2.5rem;
   text-decoration: none;
   color: inherit;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
   display: flex;
   align-items: center;
-  gap: 1.5rem;
+  gap: 1.75rem;
+  box-shadow: var(--shadow-sm);
 }
 
 .category-card::before {
@@ -61,13 +64,15 @@
   height: 4px;
   background: var(--category-color);
   transform: scaleX(0);
-  transition: transform 0.3s ease;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: left;
 }
 
 .category-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-  border-color: var(--category-color);
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--color-primary-light);
+  background: white;
 }
 
 .category-card:hover::before {
@@ -75,23 +80,26 @@
 }
 
 .category-icon {
-  width: 60px;
-  height: 60px;
-  border-radius: 12px;
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
   position: relative;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  background: var(--category-color);
+  box-shadow: 0 8px 16px -4px var(--category-color);
 }
 
 .category-card:hover .category-icon {
-  transform: scale(1.1);
+  transform: scale(1.1) rotate(5deg);
 }
 
 .category-icon i {
-  font-size: 1.5rem;
+  font-size: 1.75rem;
+  color: white;
   z-index: 2;
   position: relative;
 }
@@ -103,80 +111,86 @@
 .category-title {
   font-size: 1.25rem;
   font-weight: 700;
-  color: #1a1a1a;
+  color: var(--color-text-main);
   margin-bottom: 0.5rem;
+  letter-spacing: -0.01em;
 }
 
 .category-description {
-  font-size: 0.875rem;
-  color: #64748b;
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
   line-height: 1.5;
   margin: 0;
 }
 
 .category-arrow {
-  color: #cbd5e1;
-  transition: all 0.3s ease;
+  color: var(--color-text-muted);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   flex-shrink: 0;
 }
 
 .category-card:hover .category-arrow {
   color: var(--category-color);
-  transform: translateX(4px);
+  transform: translateX(8px);
 }
 
 /* Filter Tabs Styles */
 .filter-section {
   margin-top: 3rem;
   padding-top: 3rem;
-  border-top: 1px solid #f0f0f0;
+  border-top: 1px solid var(--color-border);
 }
 
 .filter-tabs {
   display: flex;
   gap: 1rem;
   justify-content: center;
-  flex-wrap: wrap;
-  max-width: 1000px;
+  flex-wrap: nowrap; /* Force 1 line on desktop */
+  max-width: 1200px;
   margin: 0 auto;
+  overflow-x: auto; /* Just in case screen is tight */
+  padding-bottom: 1rem;
 }
 
 .filter-tab {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.5rem;
-  padding: 1rem 1.5rem;
+  gap: 0.75rem;
+  padding: 1.25rem 1.5rem;
   background: white;
-  border: 2px solid #f0f0f0;
-  border-radius: 16px;
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   min-width: 100px;
   text-decoration: none;
   color: inherit;
+  box-shadow: var(--shadow-sm);
+  flex: 1; /* Stretch to fill evenly if possible */
 }
 
 .filter-tab:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 25px -5px rgba(0,0,0,0.1);
   border-color: var(--tab-color);
 }
 
 .filter-tab.active {
   border-color: var(--tab-color);
   background: var(--tab-color);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 12px 25px -5px rgba(0,0,0,0.2);
 }
 
 .filter-tab-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
+  background: rgba(0,0,0,0.03);
 }
 
 .filter-tab.active .filter-tab-icon {
@@ -189,14 +203,15 @@
 }
 
 .filter-tab-icon i {
-  font-size: 1.125rem;
+  font-size: 1.25rem;
   transition: all 0.3s ease;
+  color: var(--color-text-main);
 }
 
 .filter-tab-title {
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: #64748b;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-text-muted);
   text-align: center;
   transition: all 0.3s ease;
 }
@@ -211,9 +226,9 @@
 
 /* Tools Section Styles */
 .tools-section {
-  margin-top: 4rem;
-  padding-top: 3rem;
-  border-top: 1px solid #f0f0f0;
+  margin-top: 5rem;
+  padding-top: 4rem;
+  border-top: 1px solid var(--color-border);
 }
 
 .tools-header {
@@ -222,68 +237,69 @@
 }
 
 .tools-title {
-  font-size: 2rem;
-  font-weight: 700;
-  color: #1a1a1a;
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: var(--color-text-main);
   margin-bottom: 0.5rem;
 }
 
 .tools-count {
-  font-size: 1rem;
-  color: #64748b;
+  font-size: 1.1rem;
+  color: var(--color-text-muted);
   font-weight: 500;
 }
 
 .tools-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 1.5rem;
+  gap: 2rem;
   max-width: 1200px;
   margin: 0 auto;
 }
 
 .tool-card {
-  background: white;
-  border: 1px solid #f0f0f0;
-  border-radius: 16px;
-  padding: 1.5rem;
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  padding: 1.75rem;
   text-decoration: none;
   color: inherit;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  min-height: 180px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  min-height: 220px;
+  box-shadow: var(--shadow-sm);
 }
 
 .tool-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
-  border-color: var(--tool-color);
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--color-primary-light);
+  background: white;
 }
 
 .tool-icon {
-  width: 50px;
-  height: 50px;
-  border-radius: 12px;
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1rem;
-  transition: all 0.3s ease;
+  margin-bottom: 1.25rem;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   background: var(--tool-color);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 8px 16px -4px var(--tool-color);
 }
 
 .tool-card:hover .tool-icon {
-  transform: scale(1.1);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  transform: scale(1.1) rotate(5deg);
 }
 
 .tool-icon i {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   color: white;
   transition: all 0.3s ease;
 }
@@ -293,12 +309,13 @@
   display: flex;
   flex-direction: column;
   position: relative;
+  box-shadow: none !important;
 }
 
 .tool-title {
-  font-size: 1rem;
-  font-weight: 600;
-  color: #1a1a1a;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-text-main);
   margin-bottom: 0.5rem;
   line-height: 1.3;
   transition: all 0.3s ease;
@@ -309,10 +326,10 @@
 }
 
 .tool-description {
-  font-size: 0.8rem;
-  color: #64748b;
-  line-height: 1.4;
-  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+  margin-bottom: 1.25rem;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
@@ -329,69 +346,50 @@
 
 .tool-category-badge {
   display: inline-block;
-  padding: 0.25rem 0.75rem;
-  background: var(--tool-color);
-  color: white;
-  font-size: 0.7rem;
-  font-weight: 600;
-  border-radius: 20px;
+  padding: 0.4rem 0.8rem;
+  background: var(--color-bg-alt);
+  color: var(--tool-color);
+  font-size: 0.75rem;
+  font-weight: 700;
+  border-radius: 9999px;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  letter-spacing: 0.05em;
+  border: 1px solid rgba(0,0,0,0.05);
   transition: all 0.3s ease;
 }
 
 .tool-card:hover .tool-category-badge {
+  background: var(--tool-color);
+  color: white;
   transform: scale(1.05);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 /* Responsive Design */
 @media (max-width: 1200px) {
   .tools-grid {
     grid-template-columns: repeat(3, 1fr);
-    gap: 1.25rem;
+    gap: 1.5rem;
   }
 }
 
 @media (max-width: 1024px) {
   .tools-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
+    gap: 1.5rem;
   }
   
-  .tool-card {
-    padding: 1.25rem;
-  }
-  
-  .tool-icon {
-    width: 48px;
-    height: 48px;
-    margin-bottom: 1rem;
-  }
-  
-  .tool-icon i {
-    font-size: 1.1rem;
-  }
-  
-  .tool-title {
-    font-size: 1rem;
-    margin-bottom: 0.5rem;
-  }
-  
-  .tool-description {
-    font-size: 0.85rem;
-    margin-bottom: 1rem;
+  .tool-card, .category-card {
+    padding: 1.5rem;
   }
 }
 
 @media (max-width: 768px) {
   .category-navigation {
-    padding: 3rem 0;
+    padding: 4rem 0;
   }
   
   .section-title {
-    font-size: 2rem;
+    font-size: 2.25rem;
   }
   
   .section-description {
@@ -406,20 +404,20 @@
   
   .category-card {
     padding: 1.5rem;
-    gap: 1rem;
+    gap: 1.25rem;
   }
   
   .category-icon {
-    width: 50px;
-    height: 50px;
+    width: 56px;
+    height: 56px;
   }
   
   .category-icon i {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
   }
   
   .category-title {
-    font-size: 1.125rem;
+    font-size: 1.15rem;
   }
 
   .filter-section {
@@ -428,30 +426,36 @@
   }
 
   .filter-tabs {
+    /* MOBILE FIX: Enable wrapping instead of scrolling */
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow-x: visible;
+    padding-bottom: 0;
     gap: 0.75rem;
   }
 
   .filter-tab {
     padding: 0.75rem 1rem;
-    min-width: 80px;
+    min-width: 0; /* Remove min-width to allow tight packing */
+    flex: 0 1 auto; /* Don't force stretch on mobile */
   }
 
   .filter-tab-icon {
-    width: 35px;
-    height: 35px;
+    width: 36px;
+    height: 36px;
   }
-
+  
   .filter-tab-icon i {
     font-size: 1rem;
   }
-
+  
   .filter-tab-title {
-    font-size: 0.75rem;
+    font-size: 0.85rem;
   }
 
   .tools-section {
     margin-top: 3rem;
-    padding-top: 2rem;
+    padding-top: 2.5rem;
   }
 
   .tools-title {
@@ -459,44 +463,14 @@
   }
 
   .tools-grid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-
-  .tool-card {
-    padding: 1.25rem;
-    min-height: 160px;
-  }
-
-  .tool-icon {
-    width: 45px;
-    height: 45px;
-    margin-bottom: 0.75rem;
-  }
-
-  .tool-icon i {
-    font-size: 1.125rem;
-  }
-
-  .tool-title {
-    font-size: 0.95rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .tool-description {
-    font-size: 0.75rem;
-    margin-bottom: 0.75rem;
-  }
-
-  .tool-category-badge {
-    padding: 0.25rem 0.5rem;
-    font-size: 0.7rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 580px) {
   .container {
-    padding: 0 1rem;
+    padding: 0 1.25rem;
   }
   
   .category-card {
@@ -510,60 +484,36 @@
   }
 
   .filter-tabs {
-    gap: 0.5rem;
+    gap: 0.75rem; /* Restored gap */
   }
-
+  
   .filter-tab {
-    padding: 0.5rem 0.75rem;
-    min-width: 70px;
+    padding: 0.875rem 1rem;
+    gap: 0.6rem;
   }
-
+  
   .filter-tab-icon {
-    width: 30px;
-    height: 30px;
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
   }
-
+  
   .filter-tab-icon i {
-    font-size: 0.875rem;
+    font-size: 1rem;
   }
-
+  
   .filter-tab-title {
-    font-size: 0.7rem;
+    font-size: 0.8rem;
   }
 
+  /* Reverted to 2 columns based on user feedback */
   .tools-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 0.75rem;
+    gap: 1.25rem;
   }
 
   .tool-card {
-    padding: 0.875rem;
-    min-height: 140px;
-  }
-
-  .tool-icon {
-    width: 36px;
-    height: 36px;
-    margin-bottom: 0.625rem;
-  }
-
-  .tool-icon i {
-    font-size: 0.9rem;
-  }
-
-  .tool-title {
-    font-size: 0.85rem;
-    margin-bottom: 0.25rem;
-  }
-
-  .tool-description {
-    font-size: 0.75rem;
-    margin-bottom: 0.625rem;
-    -webkit-line-clamp: 2;
-  }
-
-  .tool-category-badge {
-    padding: 0.2rem 0.4rem;
-    font-size: 0.65rem;
+    padding: 1.5rem;
+    min-height: auto;
   }
 }
