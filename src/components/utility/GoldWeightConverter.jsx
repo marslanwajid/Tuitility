@@ -8,6 +8,7 @@ import TableOfContents from '../tool/TableOfContents';
 import Seo from '../Seo';
 import { toolCategories } from '../../data/toolCategories';
 import '../../assets/css/utility/gold-weight-converter.css';
+import ToolDynamicSections from '../tool/ToolDynamicSections'
 
 const GoldWeightConverter = () => {
     // Conversion Factors (as provided in user logic)
@@ -317,6 +318,7 @@ const GoldWeightConverter = () => {
                         <p>Always check if a price quote is per "Ounce" or "Troy Ounce". If you buy an "ounce" of gold on eBay that turns out to be an avoirdupois ounce (28g), you are losing about 10% of the value compared to a troy ounce (31g).</p>
                     </div>
                 </ContentSection>
+
 
                 <FAQSection id="faqs" faqs={faqs} />
             </ToolPageLayout>

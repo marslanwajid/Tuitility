@@ -1,4 +1,156 @@
 // Enhanced Integral Calculator utility functions
+const SUPPORTED_FUNCTIONS = {
+  'Math.sin': Math.sin,
+  'Math.cos': Math.cos,
+  'Math.tan': Math.tan,
+  'Math.log': Math.log,
+  'Math.atan': Math.atan,
+  'Math.exp': Math.exp,
+}
+
+const tokenizeExpression = (expression) => {
+  const tokens = []
+  let index = 0
+
+  while (index < expression.length) {
+    const char = expression[index]
+
+    if (/\s/.test(char)) {
+      index += 1
+      continue
+    }
+
+    if (/[0-9.]/.test(char)) {
+      let value = char
+      index += 1
+      while (index < expression.length && /[0-9.]/.test(expression[index])) {
+        value += expression[index]
+        index += 1
+      }
+      tokens.push({ type: 'number', value: Number(value) })
+      continue
+    }
+
+    if (/[A-Za-z_]/.test(char)) {
+      let value = char
+      index += 1
+      while (index < expression.length && /[A-Za-z0-9_.]/.test(expression[index])) {
+        value += expression[index]
+        index += 1
+      }
+      tokens.push({ type: 'identifier', value })
+      continue
+    }
+
+    const nextTwo = expression.slice(index, index + 2)
+    if (nextTwo === '**') {
+      tokens.push({ type: 'operator', value: '**' })
+      index += 2
+      continue
+    }
+
+    if ('+-*/(),'.includes(char)) {
+      tokens.push({ type: char === '(' || char === ')' || char === ',' ? char : 'operator', value: char })
+      index += 1
+      continue
+    }
+
+    throw new Error('Unsupported expression')
+  }
+
+  return tokens
+}
+
+const evaluateMathExpression = (expression) => {
+  const tokens = tokenizeExpression(expression)
+  let current = 0
+
+  const peek = () => tokens[current]
+  const consume = () => tokens[current++]
+  const matchOperator = (...values) => {
+    const token = peek()
+    if (token?.type === 'operator' && values.includes(token.value)) {
+      consume()
+      return token.value
+    }
+    return null
+  }
+
+  const parsePrimary = () => {
+    const token = consume()
+
+    if (!token) {
+      throw new Error('Unexpected end of expression')
+    }
+
+    if (token.type === 'number') {
+      return token.value
+    }
+
+    if (token.type === 'operator' && token.value === '-') {
+      return -parsePrimary()
+    }
+
+    if (token.type === '(') {
+      const value = parseExpression()
+      if (consume()?.type !== ')') {
+        throw new Error('Missing closing parenthesis')
+      }
+      return value
+    }
+
+    if (token.type === 'identifier') {
+      const fn = SUPPORTED_FUNCTIONS[token.value]
+      if (!fn || consume()?.type !== '(') {
+        throw new Error('Unsupported function call')
+      }
+      const value = parseExpression()
+      if (consume()?.type !== ')') {
+        throw new Error('Missing closing parenthesis')
+      }
+      return fn(value)
+    }
+
+    throw new Error('Unsupported token')
+  }
+
+  const parsePower = () => {
+    let left = parsePrimary()
+    while (matchOperator('**')) {
+      left = left ** parsePrimary()
+    }
+    return left
+  }
+
+  const parseTerm = () => {
+    let left = parsePower()
+    while (true) {
+      const operator = matchOperator('*', '/')
+      if (!operator) break
+      const right = parsePower()
+      left = operator === '*' ? left * right : left / right
+    }
+    return left
+  }
+
+  const parseExpression = () => {
+    let left = parseTerm()
+    while (true) {
+      const operator = matchOperator('+', '-')
+      if (!operator) break
+      const right = parseTerm()
+      left = operator === '+' ? left + right : left - right
+    }
+    return left
+  }
+
+  const result = parseExpression()
+  if (current !== tokens.length) {
+    throw new Error('Unexpected trailing tokens')
+  }
+  return result
+}
+
 export class IntegralCalculator {
   constructor() {
     this.steps = [];
@@ -296,7 +448,7 @@ export class IntegralCalculator {
             .replace(/ln/g, 'Math.log')
             .replace(/arctan/g, 'Math.atan')
             .replace(/e\*\*/g, 'Math.exp');
-          return eval(expr);
+          return evaluateMathExpression(expr);
         } catch (e) {
           return 0;
         }

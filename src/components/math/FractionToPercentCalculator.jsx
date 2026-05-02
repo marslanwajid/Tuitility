@@ -29,7 +29,7 @@ const FractionToPercentCalculator = () => {
     { name: 'Finance', url: '/finance', icon: 'fas fa-dollar-sign' },
     { name: 'Health', url: '/health', icon: 'fas fa-heartbeat' },
     { name: 'Science', url: '/science', icon: 'fas fa-flask' },
-    { name: 'Utility', url: '/utility', icon: 'fas fa-wrench' },
+    { name: 'Utility', url: '/utility-tools', icon: 'fas fa-wrench' },
     { name: 'Knowledge', url: '/knowledge', icon: 'fas fa-book' }
   ];
 
@@ -591,6 +591,51 @@ const FractionToPercentCalculator = () => {
                       </div>
                     </div>
       </ContentSection>
+
+      <ContentSection id="why-convert-to-percent" title="Why Convert a Fraction to a Percentage">
+        <p>
+          Percentages are often easier to read and compare than raw fractions because they place every
+          value on the same scale out of 100. That is why test scores, discounts, survey results,
+          financial returns, and probability summaries are usually shown as percentages even when the
+          original data began as fractions.
+        </p>
+        <p>
+          This calculator helps bridge that gap by turning a simple fraction or mixed number into both a
+          decimal and a percent. That is especially useful when you need to compare one ratio against
+          another or explain the same value in a more familiar format.
+        </p>
+      </ContentSection>
+
+      <ContentSection id="simple-vs-mixed" title="Simple Fractions vs Mixed Numbers in Percentage Conversion">
+        <p>
+          Simple fractions can be converted directly by dividing the numerator by the denominator and
+          multiplying by 100. Mixed numbers require one extra step because the whole number and fraction
+          must first be rewritten as a single improper fraction. Once that conversion is done, the rest
+          of the process is the same.
+        </p>
+        <ul>
+          <li><strong>Simple fraction:</strong> 3/4 becomes 0.75, then 75%.</li>
+          <li><strong>Mixed number:</strong> 1 2/3 becomes 5/3, then 166.67%.</li>
+          <li><strong>Values over 100%:</strong> are normal when the input is greater than 1 whole.</li>
+          <li><strong>Decimal output:</strong> helps verify the percentage conversion.</li>
+        </ul>
+      </ContentSection>
+
+      <ContentSection id="fraction-percent-mistakes" title="Common Fraction to Percent Mistakes">
+        <p>
+          The most frequent mistake is multiplying by 100 before converting the fraction to a decimal.
+          Another is forgetting to convert a mixed number into an improper fraction first. Some learners
+          also assume every valid percentage must be less than 100, which is not true when the fraction
+          represents more than one whole.
+        </p>
+        <ul>
+          <li>Always divide numerator by denominator before converting to percent.</li>
+          <li>Convert mixed numbers into improper fractions first.</li>
+          <li>Do not treat 125% or 166.67% as errors if the original value exceeds 1.</li>
+          <li>Check that the denominator is not zero before solving.</li>
+        </ul>
+      </ContentSection>
+
 
                     <FAQSection 
                       faqs={[

@@ -8,6 +8,7 @@ import FeedbackForm from '../tool/FeedbackForm';
 import Seo from '../Seo';
 import '../../assets/css/utility/genz-translator.css';
 import { toolCategories } from '../../data/toolCategories';
+import ToolDynamicSections from '../tool/ToolDynamicSections'
 
 
 const GenZTranslator = () => {
@@ -19,7 +20,7 @@ const GenZTranslator = () => {
 
   const typingTimerRef = useRef(null);
 
-  const API_KEY = import.meta.env.GEMINI_API;
+  const API_KEY = import.meta.env.VITE_GEMINI_API || import.meta.env.GEMINI_API;
   const API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent';
 
   const translateWithGemini = async (text, toGenZ) => {
@@ -114,7 +115,7 @@ const GenZTranslator = () => {
   const relatedTools = [
     { name: "Word Counter", url: "/utility-tools/word-counter", icon: "fas fa-font" },
     { name: "Morse Code Translator", url: "/utility-tools/morse-code-translator", icon: "fas fa-signal" },
-    { name: "English to IPA", url: "/utility-tools/converter-tools/english-to-ipa-translator", icon: "fas fa-microphone-alt" },
+    { name: "English to IPA", url: "/utility-tools/english-to-ipa-translator", icon: "fas fa-microphone-alt" },
     { name: "Text Case Converter", url: "/utility-tools/converter-tools/text-case-converter", icon: "fas fa-font" },
     { name: "HTML to Markdown", url: "/utility-tools/html-to-markdown-converter", icon: "fab fa-html5" }
   ];
@@ -305,6 +306,7 @@ const GenZTranslator = () => {
             </div>
           </div>
         </ContentSection>
+
 
         <FAQSection faqs={faqData} />
 

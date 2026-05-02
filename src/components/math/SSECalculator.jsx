@@ -28,7 +28,7 @@ const SSECalculator = () => {
     { name: 'Finance', url: '/finance', icon: 'fas fa-dollar-sign' },
     { name: 'Health', url: '/health', icon: 'fas fa-heartbeat' },
     { name: 'Science', url: '/science', icon: 'fas fa-flask' },
-    { name: 'Utility', url: '/utility', icon: 'fas fa-wrench' },
+    { name: 'Utility', url: '/utility-tools', icon: 'fas fa-wrench' },
     { name: 'Knowledge', url: '/knowledge', icon: 'fas fa-book' }
   ];
 
@@ -531,6 +531,50 @@ const SSECalculator = () => {
           </div>
         </div>
       </ContentSection>
+
+      <ContentSection id="how-to-read-sse" title="How to Interpret SSE Correctly">
+        <p>
+          SSE is not just a number to calculate; it is a way to judge how far predictions are from real
+          outcomes. Lower SSE values mean the predicted points stay closer to the observed data overall.
+          Higher SSE values mean the model or estimate is missing the actual pattern by a larger margin.
+        </p>
+        <p>
+          The important detail is context. An SSE of 10 might be excellent for very large values and poor
+          for very small ones. This is why SSE is most useful when you compare models on the same dataset
+          or evaluate improvements to the same prediction task over time.
+        </p>
+      </ContentSection>
+
+      <ContentSection id="sse-in-model-evaluation" title="Why SSE Matters in Statistics and Machine Learning">
+        <p>
+          SSE plays a central role in regression, forecasting, and machine learning because it punishes
+          larger errors more strongly than smaller ones. Squaring each error removes negative signs and
+          makes large misses count more, which helps highlight models that occasionally fail badly even if
+          their average performance looks acceptable.
+        </p>
+        <ul>
+          <li><strong>Regression analysis:</strong> measures fit between a line or curve and the data.</li>
+          <li><strong>Forecasting:</strong> checks how close predicted values are to actual outcomes.</li>
+          <li><strong>Model comparison:</strong> helps rank alternatives on the same dataset.</li>
+          <li><strong>Error diagnosis:</strong> shows when large deviations are dominating performance.</li>
+        </ul>
+      </ContentSection>
+
+      <ContentSection id="sse-mistakes" title="Common SSE Mistakes to Avoid">
+        <p>
+          The most common SSE mistake is comparing values from datasets with very different scales as if
+          the raw totals were directly comparable. Another is mismatching the actual and predicted lists,
+          which breaks the one-to-one pairing that SSE depends on. In practice, data alignment matters as
+          much as the formula itself.
+        </p>
+        <ul>
+          <li>Make sure actual and predicted values are aligned in the same order.</li>
+          <li>Use the same number of observations in both lists.</li>
+          <li>Do not compare SSE across very different datasets without normalization.</li>
+          <li>Remember that a single large error can raise SSE sharply because of squaring.</li>
+        </ul>
+      </ContentSection>
+
 
       <FAQSection 
         faqs={[

@@ -6,6 +6,7 @@ import FAQSection from '../tool/FAQSection';
 import TableOfContents from '../tool/TableOfContents';
 import FeedbackForm from '../tool/FeedbackForm';
 import '../../assets/css/knowledge/zakat-calculator.css';
+import ToolDynamicSections from '../tool/ToolDynamicSections'
 
 const ZakatCalculator = () => {
   const [formData, setFormData] = useState({
@@ -930,6 +931,7 @@ const ZakatCalculator = () => {
           </div>
         </div>
       </ContentSection>
+
 
       <FAQSection faqs={faqData} />
     </ToolPageLayout>

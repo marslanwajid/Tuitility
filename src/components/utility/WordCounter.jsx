@@ -8,6 +8,7 @@ import FeedbackForm from '../tool/FeedbackForm'
 import Seo from '../Seo'
 import '../../assets/css/utility/word-counter.css'
 import { toolCategories } from '../../data/toolCategories';
+import ToolDynamicSections from '../tool/ToolDynamicSections'
 
 // Word Counter Logic Class
 class WordCounterLogic {
@@ -224,7 +225,7 @@ const WordCounter = () => {
     { name: 'Password Generator', url: '/utility-tools/password-generator', icon: 'fas fa-key' },
     { name: 'QR Code Generator', url: '/utility-tools/qr-code-generator', icon: 'fas fa-qrcode' },
     { name: 'Text Case Converter', url: '/utility-tools/converter-tools/text-case-converter', icon: 'fas fa-font' },
-    { name: 'Morse Code Translator', url: '/utility-tools/converter-tools/morse-code-translator', icon: 'fas fa-signal' }
+    { name: 'Morse Code Translator', url: '/utility-tools/morse-code-translator', icon: 'fas fa-signal' }
   ]
 
   const tableOfContents = [
@@ -576,6 +577,7 @@ const WordCounter = () => {
             </div>
           </div>
         </ContentSection>
+
 
         <FAQSection faqs={faqData} />
       </ToolPageLayout>

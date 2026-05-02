@@ -6,6 +6,7 @@ import FAQSection from '../tool/FAQSection';
 import TableOfContents from '../tool/TableOfContents';
 import FeedbackForm from '../tool/FeedbackForm';
 import '../../assets/css/knowledge/career-assessment-calculator.css';
+import ToolDynamicSections from '../tool/ToolDynamicSections'
 
 const CareerAssessmentCalculator = () => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -35,7 +36,7 @@ const CareerAssessmentCalculator = () => {
     { name: "Health Calculators", url: "/health", icon: "fas fa-heartbeat" },
     { name: "Knowledge Tools", url: "/knowledge", icon: "fas fa-brain" },
     { name: "Science Calculators", url: "/science", icon: "fas fa-flask" },
-    { name: "Utility Tools", url: "/utility", icon: "fas fa-tools" }
+    { name: "Utility Tools", url: "/utility-tools", icon: "fas fa-tools" }
   ];
 
   const relatedTools = [
@@ -237,7 +238,13 @@ Format the response as JSON with the following structure:
 
 IMPORTANT: Return ONLY valid JSON, no additional text or formatting.`;
 
-      const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${process.env.GEMINI_API}`, {
+      const apiKey = import.meta.env.VITE_GEMINI_API || import.meta.env.GEMINI_API;
+
+      if (!apiKey) {
+        throw new Error('Gemini API key is not configured');
+      }
+
+      const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -1003,6 +1010,7 @@ IMPORTANT: Return ONLY valid JSON, no additional text or formatting.`;
           </div>
         </div>
       </ContentSection>
+
 
       <FAQSection faqs={faqs} />
      

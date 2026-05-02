@@ -3,61 +3,20 @@ import { Link } from "react-router-dom";
 import SearchBar from "./SearchBar";
 import "../assets/css/category-navigation.css";
 import { allTools } from "../data/allTools";
+import { toolCategories } from "../data/toolCategories";
 
 const CategoryNavigation = () => {
   const [activeFilter, setActiveFilter] = useState("all");
   const [searchQuery, setSearchQuery] = useState("");
 
-  const categories = [
-    {
-      id: 1,
-      title: "Math Calculators",
-      description: "Basic and advanced mathematical calculations",
-      icon: "fas fa-calculator",
-      color: "#1a1a1a",
-      link: "/math",
-    },
-    {
-      id: 2,
-      title: "Finance Calculators",
-      description: "Financial planning and investment tools",
-      icon: "fas fa-dollar-sign",
-      color: "#1a1a1a",
-      link: "/finance",
-    },
-    {
-      id: 3,
-      title: "Science Calculators",
-      description: "Scientific and engineering calculations",
-      icon: "fas fa-atom",
-      color: "#1a1a1a",
-      link: "/science",
-    },
-    {
-      id: 4,
-      title: "Health Calculators",
-      description: "Health and fitness calculations",
-      icon: "fas fa-heartbeat",
-      color: "#1a1a1a",
-      link: "/health",
-    },
-    {
-      id: 5,
-      title: "Utility Tools",
-      description: "Conversion and utility tools",
-      icon: "fas fa-tools",
-      color: "#1a1a1a",
-      link: "/utility-tools",
-    },
-    {
-      id: 6,
-      title: "Knowledge Calculators",
-      description: "Educational and knowledge-based tools",
-      icon: "fas fa-brain",
-      color: "#1a1a1a",
-      link: "/knowledge",
-    },
-  ];
+  const categories = toolCategories.map((category, index) => ({
+    id: index + 1,
+    title: `${category.name} Tools`,
+    description: category.description,
+    icon: category.icon,
+    color: "#1a1a1a",
+    link: category.url,
+  }));
 
   const filterTabs = [
     {
@@ -113,19 +72,6 @@ const CategoryNavigation = () => {
     : activeFilter === "all"
       ? allTools
       : allTools.filter((tool) => tool.category.toLowerCase() === activeFilter);
-
-  const getCategoryColor = (category) => {
-    const categoryMap = {
-      Math: "#3b82f6",
-      Finance: "#10b981",
-      Science: "#f59e0b",
-      Health: "#ec4899",
-      Utility: "#8b5cf6",
-      PDF: "#ef4444",
-      Knowledge: "#f59e0b",
-    };
-    return categoryMap[category] || "#64748b";
-  };
 
   const getToolColor = (index) => {
     const colors = [

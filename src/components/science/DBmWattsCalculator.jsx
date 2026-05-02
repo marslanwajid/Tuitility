@@ -8,6 +8,7 @@ import FeedbackForm from '../tool/FeedbackForm'
 import DBmWattsCalculatorJS from '../../assets/js/science/dbm-watts-calculator.js'
 import '../../assets/css/science/dbm-watts-calculator.css'
 import 'katex/dist/katex.min.css'
+import ToolDynamicSections from '../tool/ToolDynamicSections'
 
 const DBmWattsCalculator = () => {
   const [formData, setFormData] = useState({
@@ -73,7 +74,7 @@ const DBmWattsCalculator = () => {
     { name: 'Finance', url: '/finance', icon: 'fas fa-dollar-sign' },
     { name: 'Health', url: '/health', icon: 'fas fa-heartbeat' },
     { name: 'Science', url: '/science', icon: 'fas fa-flask' },
-    { name: 'Utility', url: '/utility', icon: 'fas fa-wrench' },
+    { name: 'Utility', url: '/utility-tools', icon: 'fas fa-wrench' },
     { name: 'Knowledge', url: '/knowledge', icon: 'fas fa-book' }
   ];
 
@@ -363,6 +364,7 @@ const DBmWattsCalculator = () => {
           </div>
         </div>
       </ContentSection>
+
 
       <FAQSection
         faqs={[

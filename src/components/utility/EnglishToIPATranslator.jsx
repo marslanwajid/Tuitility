@@ -8,6 +8,7 @@ import FeedbackForm from '../tool/FeedbackForm';
 import Seo from '../Seo';
 import '../../assets/css/utility/english-to-ipa-translator.css';
 import { toolCategories } from '../../data/toolCategories';
+import ToolDynamicSections from '../tool/ToolDynamicSections'
 
 
 const EnglishToIPATranslator = () => {
@@ -416,6 +417,7 @@ const EnglishToIPATranslator = () => {
             </div>
           </div>
         </ContentSection>
+
 
         <FAQSection faqs={faqData} />
 

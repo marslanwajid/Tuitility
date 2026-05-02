@@ -7,6 +7,7 @@ import TableOfContents from '../../tool/TableOfContents';
 import FeedbackForm from '../../tool/FeedbackForm';
 import Seo from '../../Seo';
 import '../../../assets/css/utility/converter-tools/delete-pdf-pages.css';
+import ToolDynamicSections from '../../tool/ToolDynamicSections'
 
 // Import PDF.js
 import * as pdfjsLib from 'pdfjs-dist';
@@ -650,6 +651,7 @@ const DeletePdfPages = () => {
                         </div>
                         <p style={{ marginTop: '1rem' }}>The versatility of PDF page deletion makes it valuable for anyone who needs to create focused, streamlined documents.</p>
                     </ContentSection>
+
 
                     <FAQSection faqs={[
                         {

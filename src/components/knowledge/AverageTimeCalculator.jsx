@@ -6,6 +6,7 @@ import FAQSection from '../tool/FAQSection';
 import TableOfContents from '../tool/TableOfContents';
 import FeedbackForm from '../tool/FeedbackForm';
 import '../../assets/css/knowledge/average-time-calculator.css';
+import ToolDynamicSections from '../tool/ToolDynamicSections'
 
 const AverageTimeCalculator = () => {
   const [timeEntries, setTimeEntries] = useState([
@@ -822,6 +823,7 @@ const AverageTimeCalculator = () => {
           </div>
         </div>
       </ContentSection>
+
 
       <FAQSection faqs={faqData} />
     </ToolPageLayout>

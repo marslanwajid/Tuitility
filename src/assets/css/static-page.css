@@ -1,0 +1,51 @@
+.static-page {
+  padding: 3rem 1.25rem 5rem;
+}
+
+.static-page__container {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.static-page__hero {
+  padding: 2rem 0 1.5rem;
+}
+
+.static-page__eyebrow {
+  margin: 0 0 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--color-accent);
+}
+
+.static-page__hero h1 {
+  margin-bottom: 1rem;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+}
+
+.static-page__hero p,
+.static-page__content p,
+.static-page__content li,
+.static-page__content a {
+  color: var(--color-text-muted);
+  line-height: 1.7;
+}
+
+.static-page__content {
+  padding: 2rem;
+  border: 1px solid var(--color-border);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: var(--shadow-card);
+}
+
+.static-page__content h2 {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+}
+
+.static-page__content + .static-page__content {
+  margin-top: 1.5rem;
+}

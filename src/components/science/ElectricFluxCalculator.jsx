@@ -8,6 +8,7 @@ import FeedbackForm from '../tool/FeedbackForm'
 import ElectricFluxCalculatorJS from '../../assets/js/science/electric-flux-calculator.js'
 import '../../assets/css/science/electric-flux-calculator.css'
 import 'katex/dist/katex.min.css'
+import ToolDynamicSections from '../tool/ToolDynamicSections'
 
 const ElectricFluxCalculator = () => {
   const [formData, setFormData] = useState({
@@ -77,7 +78,7 @@ const ElectricFluxCalculator = () => {
     { name: 'Finance', url: '/finance', icon: 'fas fa-dollar-sign' },
     { name: 'Health', url: '/health', icon: 'fas fa-heartbeat' },
     { name: 'Science', url: '/science', icon: 'fas fa-flask' },
-    { name: 'Utility', url: '/utility', icon: 'fas fa-wrench' },
+    { name: 'Utility', url: '/utility-tools', icon: 'fas fa-wrench' },
     { name: 'Knowledge', url: '/knowledge', icon: 'fas fa-book' }
   ];
 
@@ -616,6 +617,7 @@ const ElectricFluxCalculator = () => {
           </li>
         </ul>
       </ContentSection>
+
 
       <FAQSection 
         faqs={[

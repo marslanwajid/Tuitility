@@ -28,7 +28,7 @@ const DecimalCalculator = () => {
     { name: 'Finance', url: '/finance', icon: 'fas fa-dollar-sign' },
     { name: 'Health', url: '/health', icon: 'fas fa-heartbeat' },
     { name: 'Science', url: '/science', icon: 'fas fa-flask' },
-    { name: 'Utility', url: '/utility', icon: 'fas fa-wrench' },
+    { name: 'Utility', url: '/utility-tools', icon: 'fas fa-wrench' },
     { name: 'Knowledge', url: '/knowledge', icon: 'fas fa-book' }
   ];
 
@@ -432,6 +432,51 @@ const DecimalCalculator = () => {
           </div>
     </div>
       </ContentSection>
+
+      <ContentSection id="when-to-use-decimal-math" title="When Decimal Arithmetic Is the Best Choice">
+        <p>
+          Decimal math is often the clearest choice when you are working with money, measurements,
+          average values, or scientific data. Decimals map naturally to base-10 place value, which makes
+          them easier to add, subtract, multiply, and round in practical situations. This calculator is
+          designed for exactly those cases, including advanced operations like exponents, roots, and
+          logarithms.
+        </p>
+        <p>
+          Compared with fractions, decimals are usually faster to interpret in business and technical
+          settings. Compared with mental math, a dedicated decimal calculator reduces rounding mistakes
+          and gives you a visible record of the steps behind the result.
+        </p>
+      </ContentSection>
+
+      <ContentSection id="rounding-and-precision" title="How to Think About Precision and Rounding">
+        <p>
+          Exact results are valuable when you plan to reuse a number in later calculations. Rounded
+          results are better when you need readability, reporting clarity, or a fixed display format.
+          This tool supports both approaches so you can choose whether to keep the full decimal output or
+          round to a specific place value.
+        </p>
+        <ul>
+          <li><strong>Use exact mode:</strong> for multi-step calculations and internal checking.</li>
+          <li><strong>Use 0.01 rounding:</strong> for currency-style outputs and common reports.</li>
+          <li><strong>Use 0.001 or 0.0001:</strong> for technical work that needs more precision.</li>
+          <li><strong>Use whole-number rounding:</strong> when estimates or broad planning are enough.</li>
+        </ul>
+      </ContentSection>
+
+      <ContentSection id="decimal-calculator-mistakes" title="Common Decimal Calculator Mistakes">
+        <p>
+          Decimal errors often come from entering the wrong operation, rounding too early, or forgetting
+          that division, roots, and logarithms have domain limits. For example, dividing by zero is
+          undefined, and many logarithm and root operations require valid positive inputs depending on the
+          selected base and exponent.
+        </p>
+        <p>
+          If a result looks off, double-check the operation selector first, then review whether you meant
+          to round the answer. In finance and science, a small rounding change can materially affect the
+          next step, so keeping the exact value until the end is often safer.
+        </p>
+      </ContentSection>
+
 
       <FAQSection 
         faqs={[

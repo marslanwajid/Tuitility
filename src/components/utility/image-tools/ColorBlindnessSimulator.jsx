@@ -8,6 +8,7 @@ import TableOfContents from '../../tool/TableOfContents';
 import Seo from '../../Seo';
 import { toolCategories } from '../../../data/toolCategories';
 import '../../../assets/css/utility/color-blindness-simulator.css';
+import ToolDynamicSections from '../../tool/ToolDynamicSections'
 
 const ColorBlindnessSimulator = () => {
     const [selectedImage, setSelectedImage] = useState(null);
@@ -432,6 +433,7 @@ const ColorBlindnessSimulator = () => {
                         </ul>
                     </div>
                 </ContentSection>
+
 
                 <FAQSection id="faq" faqs={faqs} />
             </ToolPageLayout>

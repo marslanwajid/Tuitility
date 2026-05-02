@@ -32,7 +32,7 @@ const DerivativeCalculator = () => {
     { name: 'Finance', url: '/finance', icon: 'fas fa-dollar-sign' },
     { name: 'Health', url: '/health', icon: 'fas fa-heartbeat' },
     { name: 'Science', url: '/science', icon: 'fas fa-flask' },
-    { name: 'Utility', url: '/utility', icon: 'fas fa-wrench' },
+    { name: 'Utility', url: '/utility-tools', icon: 'fas fa-wrench' },
     { name: 'Knowledge', url: '/knowledge', icon: 'fas fa-book' }
   ];
 
@@ -513,6 +513,50 @@ const DerivativeCalculator = () => {
                       </div>
                     </div>
       </ContentSection>
+
+      <ContentSection id="how-to-read-a-derivative" title="How to Read a Derivative Result">
+        <p>
+          A derivative tells you how fast a function is changing at a given point. If the derivative is
+          positive, the function is increasing there. If it is negative, the function is decreasing. If
+          the derivative equals zero, the point may be a turning point or another type of critical point
+          depending on the surrounding behavior.
+        </p>
+        <p>
+          This calculator is useful not only for finding the symbolic derivative, but also for checking
+          the value of that derivative at a chosen input. That helps connect the algebra to slope, motion,
+          growth rate, and optimization problems.
+        </p>
+      </ContentSection>
+
+      <ContentSection id="when-derivative-rules-apply" title="When to Use Power, Product, and Chain Rules">
+        <p>
+          Different function shapes call for different differentiation rules. Polynomials usually rely on
+          the power rule. Products of two changing functions need the product rule. Composite functions,
+          where one expression is nested inside another, require the chain rule. Recognizing the function
+          structure is often the hardest part of differentiation.
+        </p>
+        <ul>
+          <li><strong>Power rule:</strong> best for terms like x^n.</li>
+          <li><strong>Product rule:</strong> use when two variable expressions are multiplied.</li>
+          <li><strong>Chain rule:</strong> use when one function sits inside another.</li>
+          <li><strong>Trig and exponential rules:</strong> apply to sin, cos, e^x, ln(x), and related forms.</li>
+        </ul>
+      </ContentSection>
+
+      <ContentSection id="derivative-mistakes" title="Common Differentiation Mistakes to Avoid">
+        <p>
+          A frequent mistake is differentiating term by term correctly but forgetting the chain rule on a
+          nested expression. Another is treating multiplication like a simple term instead of using the
+          product rule. Sign errors also appear often with cosine, negative powers, and logarithmic forms.
+        </p>
+        <ul>
+          <li>Check whether the function is a sum, product, quotient, or composition.</li>
+          <li>Do not forget to multiply by the inner derivative in chain-rule problems.</li>
+          <li>Review trig derivatives carefully, especially the negative sign for d/dx[cos(x)].</li>
+          <li>Use point evaluation only after the symbolic derivative is correct.</li>
+        </ul>
+      </ContentSection>
+
 
                     <FAQSection 
                       faqs={[

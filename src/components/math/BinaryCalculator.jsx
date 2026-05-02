@@ -175,18 +175,59 @@ const BinaryCalculator = () => {
         }
       ]
     },
-    {
-      id: "significance",
-      title: "Significance",
-      list: [
-        "Essential for computer programming and digital electronics",
-        "Used in cryptography and data encoding",
-        "Fundamental for understanding computer architecture",
-        "Important in network protocols and data transmission",
-        "Used in image processing and multimedia applications"
-      ]
-    },
-         {
+     {
+       id: "significance",
+       title: "Significance",
+       list: [
+         "Essential for computer programming and digital electronics",
+         "Used in cryptography and data encoding",
+         "Fundamental for understanding computer architecture",
+         "Important in network protocols and data transmission",
+         "Used in image processing and multimedia applications"
+       ]
+     },
+     {
+       id: "conversion-logic",
+       title: "How Binary Conversion Logic Works",
+       intro: [
+         "This binary calculator works by interpreting each input according to its selected base, converting it into a decimal value for the calculation, and then expressing the result back in binary, decimal, hexadecimal, and octal.",
+         "That approach makes it easier to validate cross-system arithmetic and to see how one number maps across multiple numeral systems."
+       ],
+       list: [
+         "Binary uses base 2 with digits 0 and 1",
+         "Octal uses base 8 with digits 0 through 7",
+         "Decimal uses base 10 with digits 0 through 9",
+         "Hexadecimal uses base 16 with digits 0 through 9 and A through F"
+       ]
+     },
+     {
+       id: "binary-use-cases",
+       title: "Where Binary Operations Are Used",
+       intro: [
+         "Binary arithmetic and bitwise logic are used in far more than computer science homework. They appear in low-level programming, digital circuits, networking, data compression, permissions systems, and embedded devices."
+       ],
+       list: [
+         "Bit masks and flags in software",
+         "Logic gate behavior in digital electronics",
+         "Memory addressing and machine instructions",
+         "Encoding, transmission, and protocol analysis",
+         "Hex dumps and debugging tools"
+       ]
+     },
+     {
+       id: "binary-common-mistakes",
+       title: "Common Binary Mistakes",
+       intro: [
+         "Most binary calculation mistakes happen before the arithmetic even starts. Users often choose the wrong base, enter invalid digits for the selected number system, or expect fractional division behavior from an integer-oriented operation."
+       ],
+       list: [
+         "Entering digits that do not belong to the selected base",
+         "Mixing binary-looking values with decimal expectations",
+         "Forgetting that hexadecimal letters A-F represent values 10-15",
+         "Using division without checking for zero or remainder behavior"
+       ]
+     },
+     {
        id: "applications",
        title: "Applications",
        list: [

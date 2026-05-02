@@ -6,6 +6,7 @@ import FAQSection from '../tool/FAQSection'
 import TableOfContents from '../tool/TableOfContents'
 import FeedbackForm from '../tool/FeedbackForm'
 import '../../assets/css/knowledge/age-calculator.css'
+import ToolDynamicSections from '../tool/ToolDynamicSections'
 
 // Age Calculator Logic Class
 class AgeCalculatorLogic {
@@ -730,6 +731,7 @@ const AgeCalculator = () => {
           </div>
         </div>
       </ContentSection>
+
 
       <FAQSection faqs={faqData} />
     </ToolPageLayout>

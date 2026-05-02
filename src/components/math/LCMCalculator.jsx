@@ -28,7 +28,7 @@ const LCMCalculator = () => {
     { name: 'Finance', url: '/finance', icon: 'fas fa-dollar-sign' },
     { name: 'Health', url: '/health', icon: 'fas fa-heartbeat' },
     { name: 'Science', url: '/science', icon: 'fas fa-flask' },
-    { name: 'Utility', url: '/utility', icon: 'fas fa-wrench' },
+    { name: 'Utility', url: '/utility-tools', icon: 'fas fa-wrench' },
     { name: 'Knowledge', url: '/knowledge', icon: 'fas fa-book' }
   ];
 
@@ -499,6 +499,54 @@ const LCMCalculator = () => {
           </div>
     </div>
       </ContentSection>
+
+      <ContentSection id="lcm-vs-gcd" title="LCM vs GCD: Which One Do You Need?">
+        <p>
+          LCM and GCD are closely related, but they solve different problems. The least common multiple
+          is used when you need a shared multiple, such as a common denominator or the first time two
+          repeating events line up again. The greatest common divisor is used when you want to simplify,
+          group, or divide numbers into the largest equal parts.
+        </p>
+        <p>
+          If your problem asks when cycles will match, which denominator fractions can share, or what
+          number every input divides into evenly, LCM is the right tool. That is why this calculator is
+          useful for fractions, schedules, gear rotations, and many school number theory exercises.
+        </p>
+      </ContentSection>
+
+      <ContentSection id="best-lcm-method" title="Best LCM Method for Different Types of Numbers">
+        <p>
+          Different LCM methods work better in different situations. Listing multiples is easy for small
+          numbers because you can see the first match quickly. Prime factorization is often better for
+          larger values because it keeps the work organized. The GCD-based formula is efficient when you
+          already know or can quickly compute the greatest common divisor.
+        </p>
+        <ul>
+          <li><strong>Small numbers:</strong> listing multiples is often easiest to understand.</li>
+          <li><strong>Several numbers together:</strong> prime factorization usually stays cleaner.</li>
+          <li><strong>Two larger integers:</strong> the LCM and GCD relationship is often fastest.</li>
+          <li><strong>Teaching or review:</strong> ladder and division methods help visualize the process.</li>
+        </ul>
+        <p>
+          This calculator lets you compare methods against the same answer, which is useful for both
+          learning and checking work.
+        </p>
+      </ContentSection>
+
+      <ContentSection id="real-life-lcm" title="Real-Life Situations Where LCM Matters">
+        <p>
+          LCM is not just a classroom topic. It appears whenever repeating intervals need to be aligned.
+          For example, if one light flashes every 6 seconds and another every 8 seconds, the LCM tells
+          you when they will flash together again. The same idea shows up in maintenance schedules,
+          route timing, music patterns, and digital signal cycles.
+        </p>
+        <p>
+          In fraction arithmetic, LCM is also the fastest path to a least common denominator, which is
+          why it is foundational for addition and subtraction of unlike fractions. That makes this tool
+          especially useful alongside fraction and LCD calculators.
+        </p>
+      </ContentSection>
+
 
       <FAQSection 
         faqs={[

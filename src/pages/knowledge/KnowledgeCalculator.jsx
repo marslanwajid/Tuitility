@@ -5,7 +5,7 @@ const KnowledgeCalculator = () => {
   const knowledgeTools = [
     { name: 'GPA Calculator', desc: 'Calculate your grade point average', url: '/calculators/gpa-calculator', category: 'Education', icon: 'fas fa-graduation-cap' },
     { name: 'Age Calculator', desc: 'Calculate age in years, months, days', url: '/calculators/age-calculator', category: 'General', icon: 'fas fa-calendar-alt' },
-    { name: 'WPM Calculator', desc: 'Test your typing speed', url: '/calculators/word-per-minute', category: 'Skills', icon: 'fas fa-keyboard' },
+    { name: 'WPM Calculator', desc: 'Test your typing speed', url: '/calculators/wpm-calculator', category: 'Skills', icon: 'fas fa-keyboard' },
     { name: 'Habit Formation Calculator', desc: 'Calculate your habit formation', url: '/calculators/habit-formation-calculator', category: 'Skills', icon: 'fas fa-check-circle' },
     { name: 'Language Level Calculator', desc: 'Calculate your language level', url: '/calculators/language-level-calculator', category: 'Skills', icon: 'fas fa-language' },
     { name: 'Fuel Calculator', desc: 'Calculate fuel consumption', url: '/calculators/fuel-calculator', category: 'Skills', icon: 'fas fa-gas-pump' },

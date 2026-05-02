@@ -27,7 +27,7 @@ const FractionCalculator = () => {
     { name: 'Finance', url: '/finance', icon: 'fas fa-dollar-sign' },
     { name: 'Health', url: '/health', icon: 'fas fa-heartbeat' },
     { name: 'Science', url: '/science', icon: 'fas fa-flask' },
-    { name: 'Utility', url: '/utility', icon: 'fas fa-wrench' },
+    { name: 'Utility', url: '/utility-tools', icon: 'fas fa-wrench' },
     { name: 'Knowledge', url: '/knowledge', icon: 'fas fa-book' }
   ];
 
@@ -662,6 +662,64 @@ const FractionCalculator = () => {
                       </div>
                     </div>
       </ContentSection>
+
+      <ContentSection id="fraction-strategy" title="How to Choose the Right Fraction Operation">
+        <p>
+          A fraction problem becomes much easier when you identify what the numbers are describing.
+          If you are combining pieces of the same whole, addition is usually the right choice. If you
+          are taking one portion away from another, subtraction fits. Multiplication is used when you
+          need a fraction of a fraction, and division is used when you want to know how many times one
+          fraction fits into another.
+        </p>
+        <p>
+          This fraction calculator supports all four operations, so it helps whether you are solving
+          classroom exercises, scaling recipes, comparing measurements, or simplifying multi-step
+          arithmetic expressions. The step list is especially useful for checking where a common
+          denominator was needed and where simplification happened.
+        </p>
+        <ul>
+          <li><strong>Add fractions:</strong> use when combining quantities such as 1/4 cup plus 1/2 cup.</li>
+          <li><strong>Subtract fractions:</strong> use when finding what remains after a portion is removed.</li>
+          <li><strong>Multiply fractions:</strong> use when finding part of a part, such as 2/3 of 3/4.</li>
+          <li><strong>Divide fractions:</strong> use when comparing sizes or splitting a quantity into smaller portions.</li>
+        </ul>
+      </ContentSection>
+
+      <ContentSection id="fraction-mistakes" title="Common Fraction Mistakes to Avoid">
+        <p>
+          Students often know the correct operation but still miss the right answer because of setup
+          errors. The most common issue is trying to add or subtract numerators and denominators
+          directly without first finding a common denominator. Another frequent mistake is forgetting
+          to flip the second fraction when dividing.
+        </p>
+        <p>
+          This calculator reduces the final answer automatically, but it is still a good idea to review
+          the steps so you can build confidence in the method. If your answer looks larger or smaller
+          than expected, check the sign, the operation, and whether the denominator should have been
+          matched before combining the fractions.
+        </p>
+        <ul>
+          <li>Do not add denominators when adding or subtracting fractions.</li>
+          <li>Always check for zero in the denominator before solving.</li>
+          <li>When dividing, multiply by the reciprocal of the second fraction.</li>
+          <li>Simplify at the end so the result is easier to read and compare.</li>
+        </ul>
+      </ContentSection>
+
+      <ContentSection id="real-life-fractions" title="Real-Life Uses for Fraction Calculations">
+        <p>
+          Fraction arithmetic appears in more places than school math. Builders use fractions while
+          reading tape measures, cooks adjust ingredient portions, designers scale layouts, and
+          students work with ratios in science labs. A fast fraction solver is useful when you need a
+          correct result and a clear trail of steps.
+        </p>
+        <p>
+          Because this calculator also shows decimal and mixed-number forms, it helps bridge the way
+          fractions appear in textbooks and the way values are often read in practical situations. That
+          makes it easier to move from exact mathematical notation to measurements you can actually use.
+        </p>
+      </ContentSection>
+
 
                     <FAQSection 
                       faqs={[

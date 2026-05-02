@@ -6,6 +6,7 @@ import FAQSection from '../tool/FAQSection';
 import TableOfContents from '../tool/TableOfContents';
 import FeedbackForm from '../tool/FeedbackForm';
 import '../../assets/css/knowledge/language-level-calculator.css';
+import ToolDynamicSections from '../tool/ToolDynamicSections'
 
 const LanguageLevelCalculator = () => {
   const [selectedLanguage, setSelectedLanguage] = useState('');
@@ -1290,6 +1291,7 @@ const LanguageLevelCalculator = () => {
           </div>
         </div>
       </ContentSection>
+
 
       <FAQSection faqs={faqData} />
     </ToolPageLayout>

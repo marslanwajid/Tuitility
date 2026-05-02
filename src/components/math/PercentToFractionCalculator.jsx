@@ -27,7 +27,7 @@ const PercentToFractionCalculator = () => {
     { name: 'Finance', url: '/finance', icon: 'fas fa-dollar-sign' },
     { name: 'Health', url: '/health', icon: 'fas fa-heartbeat' },
     { name: 'Science', url: '/science', icon: 'fas fa-flask' },
-    { name: 'Utility', url: '/utility', icon: 'fas fa-wrench' },
+    { name: 'Utility', url: '/utility-tools', icon: 'fas fa-wrench' },
     { name: 'Knowledge', url: '/knowledge', icon: 'fas fa-book' }
   ];
 
@@ -540,6 +540,50 @@ const PercentToFractionCalculator = () => {
                       </div>
                     </div>
       </ContentSection>
+
+      <ContentSection id="why-fractions-help" title="Why Convert Percentages Back Into Fractions">
+        <p>
+          Percentages are easy to read, but fractions are often easier to use in exact math. In algebra,
+          ratio problems, probability, and symbolic work, a simplified fraction keeps the value precise
+          without introducing rounding. That is why converting a percentage back into a fraction matters
+          in both classroom math and practical calculations.
+        </p>
+        <p>
+          This calculator is especially useful when you need the exact form behind a percent value, such
+          as converting 12.5% into 1/8 or turning 66.67% into an approximate fraction for comparison.
+        </p>
+      </ContentSection>
+
+      <ContentSection id="decimal-percent-fraction-flow" title="The Decimal to Fraction Flow Behind the Conversion">
+        <p>
+          Every percent value is based on 100, so the first idea is simple: percent means “per hundred.”
+          After dividing by 100, the result becomes a decimal, and that decimal can be rewritten as a
+          fraction and simplified. The simplification step is what turns a long fraction into the cleanest
+          possible answer.
+        </p>
+        <ul>
+          <li><strong>25%:</strong> 25/100, which simplifies to 1/4.</li>
+          <li><strong>50%:</strong> 50/100, which simplifies to 1/2.</li>
+          <li><strong>12.5%:</strong> 0.125, which simplifies to 1/8.</li>
+          <li><strong>Negative percentages:</strong> keep the negative sign in the final fraction.</li>
+        </ul>
+      </ContentSection>
+
+      <ContentSection id="percent-fraction-mistakes" title="Common Percent to Fraction Mistakes">
+        <p>
+          One common mistake is to stop at p/100 even when the fraction can still be reduced. Another is
+          misreading decimal percentages, such as treating 2.5% like 2.5/10 instead of 2.5/100. These
+          errors create fractions that are technically related to the input but not fully simplified or
+          not actually equivalent.
+        </p>
+        <ul>
+          <li>Always simplify after writing the percentage over 100.</li>
+          <li>Be careful with decimal percentages and place value.</li>
+          <li>Keep the sign when working with negative percentages.</li>
+          <li>Use the greatest common divisor to reduce the result fully.</li>
+        </ul>
+      </ContentSection>
+
 
                     <FAQSection 
                       faqs={[

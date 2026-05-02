@@ -8,6 +8,7 @@ import TableOfContents from '../tool/TableOfContents';
 import Seo from '../Seo';
 import '../../assets/css/utility/instagram-reels-downloader.css';
 import { toolCategories } from '../../data/toolCategories';
+import ToolDynamicSections from '../tool/ToolDynamicSections'
 
 
 const InstagramReelsDownloader = () => {
@@ -49,7 +50,7 @@ const InstagramReelsDownloader = () => {
         }
 
         const apiUrl = 'https://instagram-downloader-download-instagram-videos-stories1.p.rapidapi.com/get-info-rapidapi';
-        const apiKey = import.meta.env.RAPID_KEY;
+        const apiKey = import.meta.env.VITE_RAPID_KEY || import.meta.env.RAPID_KEY;
 
         if (!apiKey) {
             return { success: false, error: 'API Key not configured. Please check .env settings.' };
@@ -134,9 +135,9 @@ const InstagramReelsDownloader = () => {
         { name: "TikTok Downloader", url: "/utility-tools/converter-tools/tiktok-downloader", icon: "fab fa-tiktok" },
         { name: "Audio Bitrate Converter", url: "/utility-tools/audio-bitrate-converter", icon: "fas fa-music" },
         { name: "Image to WebP", url: "/utility-tools/image-tools/image-to-webp-converter", icon: "fas fa-image" },
-        { name: "QR Code Generator", url: "/utility-tools/generator-tools/qr-code-generator", icon: "fas fa-qrcode" },
+        { name: "QR Code Generator", url: "/utility-tools/qr-code-generator", icon: "fas fa-qrcode" },
         { name: "QR Code Scanner", url: "/utility-tools/converter-tools/qr-code-scanner", icon: "fas fa-qrcode" },
-        { name: "Gold Weight Converter", url: "/converter-tools/gold-precious-metal-weight-converter", icon: "fas fa-coins" }
+        { name: "Gold Weight Converter", url: "/utility-tools/converter-tools/gold-precious-metal-weight-converter", icon: "fas fa-coins" }
     ];
 
     const tableOfContents = [
@@ -451,6 +452,7 @@ const InstagramReelsDownloader = () => {
                         </ul>
                     </div>
                 </ContentSection>
+
 
                 <FAQSection id="faqs" faqs={faqs} />
 

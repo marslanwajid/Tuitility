@@ -8,6 +8,7 @@ import FeedbackForm from '../tool/FeedbackForm'
 import WaveSpeedCalculatorJS from '../../assets/js/science/wave-speed-calculator.js'
 import '../../assets/css/science/wave-speed-calculator.css'
 import 'katex/dist/katex.min.css'
+import ToolDynamicSections from '../tool/ToolDynamicSections'
 
 const WaveSpeedCalculator = () => {
   const [formData, setFormData] = useState({
@@ -70,7 +71,7 @@ const WaveSpeedCalculator = () => {
     { name: 'Finance', url: '/finance', icon: 'fas fa-dollar-sign' },
     { name: 'Health', url: '/health', icon: 'fas fa-heartbeat' },
     { name: 'Science', url: '/science', icon: 'fas fa-flask' },
-    { name: 'Utility', url: '/utility', icon: 'fas fa-wrench' },
+    { name: 'Utility', url: '/utility-tools', icon: 'fas fa-wrench' },
     { name: 'Knowledge', url: '/knowledge', icon: 'fas fa-book' }
   ];
 
@@ -499,6 +500,7 @@ const WaveSpeedCalculator = () => {
           </li>
         </ul>
       </ContentSection>
+
 
       <FAQSection 
         faqs={[

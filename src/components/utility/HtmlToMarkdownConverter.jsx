@@ -8,6 +8,7 @@ import FeedbackForm from '../tool/FeedbackForm';
 import Seo from '../Seo';
 import '../../assets/css/utility/html-to-markdown.css';
 import { toolCategories } from '../../data/toolCategories';
+import ToolDynamicSections from '../tool/ToolDynamicSections'
 
 
 const HtmlToMarkdownConverter = () => {
@@ -375,6 +376,7 @@ const HtmlToMarkdownConverter = () => {
             <li><strong>Data Cleaning:</strong> Stripping styling tags from copied web content to get pure text content.</li>
           </ul>
         </ContentSection>
+
 
         <FAQSection faqs={faqData} />
 

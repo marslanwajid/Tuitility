@@ -9,6 +9,7 @@ import TableOfContents from '../tool/TableOfContents';
 import Seo from '../Seo';
 import '../../assets/css/utility/qr-code-scanner.css';
 import { toolCategories } from '../../data/toolCategories';
+import ToolDynamicSections from '../tool/ToolDynamicSections'
 
 
 const QRCodeScanner = () => {
@@ -260,7 +261,7 @@ const QRCodeScanner = () => {
 
 
     const relatedTools = [
-        { name: "QR Code Generator", url: "/utility-tools/generator-tools/qr-code-generator", icon: "fas fa-qrcode" },
+        { name: "QR Code Generator", url: "/utility-tools/qr-code-generator", icon: "fas fa-qrcode" },
         { name: "Image to WebP", url: "/utility-tools/image-tools/image-to-webp-converter", icon: "fas fa-image" },
         { name: "TikTok Downloader", url: "/utility-tools/converter-tools/tiktok-downloader", icon: "fab fa-tiktok" },
         { name: "Instagram Reels Downloader", url: "/utility-tools/converter-tools/reels-downloader", icon: "fab fa-instagram" },
@@ -515,6 +516,7 @@ const QRCodeScanner = () => {
                         </ul>
                     </div>
                 </ContentSection>
+
 
                 <FAQSection id="faqs" faqs={faqs} />
 

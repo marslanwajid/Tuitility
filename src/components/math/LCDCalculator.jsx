@@ -27,7 +27,7 @@ const LCDCalculator = () => {
     { name: 'Finance', url: '/finance', icon: 'fas fa-dollar-sign' },
     { name: 'Health', url: '/health', icon: 'fas fa-heartbeat' },
     { name: 'Science', url: '/science', icon: 'fas fa-flask' },
-    { name: 'Utility', url: '/utility', icon: 'fas fa-wrench' },
+    { name: 'Utility', url: '/utility-tools', icon: 'fas fa-wrench' },
     { name: 'Knowledge', url: '/knowledge', icon: 'fas fa-book' }
   ];
 
@@ -590,6 +590,50 @@ const LCDCalculator = () => {
                       </div>
                     </div>
       </ContentSection>
+
+      <ContentSection id="lcd-vs-common-denominator" title="Least Common Denominator vs Any Common Denominator">
+        <p>
+          Any common denominator can make fractions compatible, but the least common denominator is the
+          most efficient choice because it keeps the numbers smaller and easier to simplify later. If you
+          use a larger common denominator than necessary, the answer is still valid, but the arithmetic
+          becomes harder to read and more likely to produce mistakes.
+        </p>
+        <p>
+          This LCD calculator focuses on the smallest shared denominator, which is why it is so useful
+          before adding, subtracting, or comparing unlike fractions.
+        </p>
+      </ContentSection>
+
+      <ContentSection id="when-lcd-is-needed" title="When You Need the LCD in Real Fraction Problems">
+        <p>
+          LCD matters whenever fractions do not already share the same denominator. In that case, you
+          cannot directly add, subtract, or compare them accurately. By converting each fraction into an
+          equivalent one with the same denominator, the relationship between values becomes much easier to
+          see and the next operation becomes valid.
+        </p>
+        <ul>
+          <li><strong>Addition and subtraction:</strong> required before combining unlike fractions.</li>
+          <li><strong>Comparison:</strong> helps determine which fraction is greater.</li>
+          <li><strong>Measurement work:</strong> useful when combining partial units.</li>
+          <li><strong>Classroom practice:</strong> reinforces the link between LCD and LCM.</li>
+        </ul>
+      </ContentSection>
+
+      <ContentSection id="lcd-mistakes" title="Common LCD Mistakes to Avoid">
+        <p>
+          Students often confuse the least common denominator with the least common multiple of the whole
+          fractions instead of the denominators only. Another common mistake is changing the denominator
+          without multiplying the numerator by the same factor. That creates a new fraction that is not
+          equivalent to the original.
+        </p>
+        <ul>
+          <li>Use the denominators only when finding the LCD.</li>
+          <li>Multiply both numerator and denominator by the same value.</li>
+          <li>Do not simplify one fraction in a way that changes the intended comparison step.</li>
+          <li>Check that every converted fraction ends with the same denominator.</li>
+        </ul>
+      </ContentSection>
+
 
                     <FAQSection 
                       faqs={[

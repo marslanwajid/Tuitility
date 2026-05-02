@@ -28,7 +28,7 @@ const PercentageCalculator = () => {
     { name: 'Finance', url: '/finance', icon: 'fas fa-dollar-sign' },
     { name: 'Health', url: '/health', icon: 'fas fa-heartbeat' },
     { name: 'Science', url: '/science', icon: 'fas fa-flask' },
-    { name: 'Utility', url: '/utility', icon: 'fas fa-wrench' },
+    { name: 'Utility', url: '/utility-tools', icon: 'fas fa-wrench' },
     { name: 'Knowledge', url: '/knowledge', icon: 'fas fa-book' }
   ];
 
@@ -756,6 +756,65 @@ const PercentageCalculator = () => {
           </div>
     </div>
       </ContentSection>
+
+      <ContentSection id="choosing-a-percentage-mode" title="How to Choose the Right Percentage Calculation Type">
+        <p>
+          Percentage questions can look similar even when they require different formulas. Sometimes
+          you already know the percentage and need the amount. In other cases, you know the part and
+          the total and need the percentage itself. This percentage calculator is designed to solve all
+          of those cases without forcing you to rewrite the problem by hand.
+        </p>
+        <p>
+          A good rule is to look for the unknown. If the missing value is the result amount, choose a
+          mode such as <strong>what is P% of X</strong>. If the missing value is the rate, choose a mode
+          like <strong>Y is what percent of X</strong>. If the missing value is the original number,
+          choose one of the reverse percentage options. That makes this tool useful for homework,
+          pricing, taxes, commissions, test scores, and growth analysis.
+        </p>
+        <ul>
+          <li><strong>Need the amount:</strong> use percentage of a number.</li>
+          <li><strong>Need the rate:</strong> use part-versus-total percentage modes.</li>
+          <li><strong>Need the starting value:</strong> use reverse percentage calculations.</li>
+          <li><strong>Need a new total after change:</strong> use increase or decrease modes.</li>
+        </ul>
+      </ContentSection>
+
+      <ContentSection id="real-world-percentage-uses" title="Where Percentage Calculations Matter Most">
+        <p>
+          Percentages are one of the most practical math skills because they appear in discounts,
+          salary raises, exam marks, loan terms, conversion rates, analytics dashboards, and
+          year-over-year business reports. A single calculator that handles percentage increase,
+          decrease, reverse percentage, and part-of-total math saves time and avoids switching between
+          multiple tools.
+        </p>
+        <p>
+          This tool is especially helpful when you want to compare results quickly. For example, you
+          can calculate a sale price, check how much a bill increased, work backward from a tax-included
+          total, or find what share of a budget one expense category uses. Because the calculator shows
+          the working steps, it also doubles as a learning aid for students and teachers.
+        </p>
+      </ContentSection>
+
+      <ContentSection id="percentage-errors" title="Common Percentage Mistakes That Cause Wrong Answers">
+        <p>
+          Most percentage mistakes come from mixing up the base number and the part number. Another
+          common issue is converting a percent incorrectly, such as using 25 instead of 0.25 in a
+          multiplication step. Reverse percentage problems also trip people up because they require
+          undoing a change rather than applying it directly.
+        </p>
+        <ul>
+          <li>Use the original value as the base when calculating percentage change.</li>
+          <li>Convert percentages to decimals correctly before multiplying.</li>
+          <li>Do not use the final value as the starting value in reverse-percentage questions.</li>
+          <li>Check whether the question asks for the amount, the percentage, or the original total.</li>
+        </ul>
+        <p>
+          When the result looks surprising, compare the answer against the original number. A 10%
+          increase should not be larger than the base value itself, and a small part of a large total
+          should not produce an unusually high percentage.
+        </p>
+      </ContentSection>
+
 
       <FAQSection 
         faqs={[

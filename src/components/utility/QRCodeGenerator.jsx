@@ -5,6 +5,7 @@ import CalculatorSection from '../tool/CalculatorSection';
 import Seo from '../Seo';
 import '../../assets/css/utility/qr-code-generator.css';
 import { toolCategories } from '../../data/toolCategories';
+import ToolDynamicSections from '../tool/ToolDynamicSections'
 
 const QRCodeGenerator = () => {
   const [inputText, setInputText] = useState('');
@@ -180,6 +181,7 @@ const QRCodeGenerator = () => {
             </div>
           </div>
         </CalculatorSection>
+
       </ToolPageLayout>
     </>
   );

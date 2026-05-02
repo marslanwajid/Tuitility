@@ -1,5 +1,6 @@
 import React, { memo } from 'react'
 import { Link } from 'react-router-dom'
+import { toolCategories } from '../data/toolCategories'
 import "../assets/css/footer.css"
 
 const Footer = () => {
@@ -35,30 +36,12 @@ const Footer = () => {
             <div className="footer-links-section">
               <h3>Categories</h3>
               <div className="links-grid">
-                <Link to="/math" className="footer-link">
-                  <i className="fas fa-calculator"></i>
-                  <span>Math</span>
-                </Link>
-                <Link to="/finance" className="footer-link">
-                  <i className="fas fa-dollar-sign"></i>
-                  <span>Finance</span>
-                </Link>
-                <Link to="/science" className="footer-link">
-                  <i className="fas fa-atom"></i>
-                  <span>Science</span>
-                </Link>
-                <Link to="/health" className="footer-link">
-                  <i className="fas fa-heartbeat"></i>
-                  <span>Health</span>
-                </Link>
-                <Link to="/utility-tools" className="footer-link">
-                  <i className="fas fa-tools"></i>
-                  <span>Utility</span>
-                </Link>
-                <Link to="/knowledge" className="footer-link">
-                  <i className="fas fa-brain"></i>
-                  <span>Knowledge</span>
-                </Link>
+                {toolCategories.map((category) => (
+                  <Link to={category.url} className="footer-link" key={category.url}>
+                    <i className={category.icon}></i>
+                    <span>{category.name}</span>
+                  </Link>
+                ))}
               </div>
             </div>
 
@@ -69,7 +52,7 @@ const Footer = () => {
                 <Link to="/finance/calculators/mortgage-calculator">Mortgage Calculator</Link>
                 <Link to="/health/calculators/bmi-calculator">BMI Calculator</Link>
                 <Link to="/math/calculators/fraction-calculator">Fraction Calculator</Link>
-                <Link to="/utility-tools/converter-tools/password-generator">Password Generator</Link>
+                <Link to="/utility-tools/password-generator">Password Generator</Link>
                 <Link to="/knowledge/calculators/age-calculator">Age Calculator</Link>
               </div>
             </div>

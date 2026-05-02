@@ -30,7 +30,7 @@ const ComparingDecimalsCalculator = () => {
     { name: 'Finance', url: '/finance', icon: 'fas fa-dollar-sign' },
     { name: 'Health', url: '/health', icon: 'fas fa-heartbeat' },
     { name: 'Science', url: '/science', icon: 'fas fa-flask' },
-    { name: 'Utility', url: '/utility', icon: 'fas fa-wrench' },
+    { name: 'Utility', url: '/utility-tools', icon: 'fas fa-wrench' },
     { name: 'Knowledge', url: '/knowledge', icon: 'fas fa-book' }
   ];
 
@@ -418,6 +418,49 @@ const ComparingDecimalsCalculator = () => {
           <li><strong>Statistics:</strong> Comparing data points, averages, and statistical measures</li>
                     </ul>
       </ContentSection>
+
+      <ContentSection id="decimal-comparison-strategy" title="Best Way to Compare Decimals Quickly">
+        <p>
+          The fastest reliable way to compare decimals is to line up the decimal points and compare
+          digits from left to right. Whole numbers decide the comparison first. If those match, move to
+          tenths, then hundredths, then thousandths until you find the first place where the numbers
+          differ. That first unmatched digit tells you which value is larger.
+        </p>
+        <p>
+          This calculator follows that same logic, but it also helps when the numbers have different
+          lengths, negative signs, or extra trailing zeros. That makes it useful for schoolwork, price
+          checks, measurement comparisons, and any situation where a tiny place-value difference matters.
+        </p>
+      </ContentSection>
+
+      <ContentSection id="trailing-zeros-and-signs" title="Trailing Zeros, Negative Values, and Precision">
+        <p>
+          Many learners get confused by decimals such as 4.5 and 4.500. These are equal because trailing
+          zeros to the right of the decimal point do not change the value. Negative decimals work
+          differently because a number farther left on the number line is smaller, so -2.3 is less than
+          -2.1 even though 3 is larger than 1 in the tenths place.
+        </p>
+        <ul>
+          <li><strong>Trailing zeros:</strong> 3.2 = 3.20 = 3.200</li>
+          <li><strong>Negative numbers:</strong> the value closer to zero is greater</li>
+          <li><strong>Precision checks:</strong> small differences often appear in later decimal places</li>
+          <li><strong>Ordering data:</strong> consistent decimal formatting helps prevent mistakes</li>
+        </ul>
+      </ContentSection>
+
+      <ContentSection id="where-decimal-comparison-is-used" title="Where Decimal Comparison Matters">
+        <p>
+          Decimal comparison is common in finance, science, engineering, and statistics. You might use it
+          to compare fuel prices, lab measurements, exchange rates, averages, tolerances, or product
+          weights. In all of those cases, a seemingly tiny decimal difference can change the right choice.
+        </p>
+        <p>
+          Because this tool shows both the relationship and the absolute difference, it is helpful when
+          you need more than a simple greater-than or less-than symbol. It gives context for how far apart
+          two values really are.
+        </p>
+      </ContentSection>
+
 
                     <FAQSection 
                       faqs={[

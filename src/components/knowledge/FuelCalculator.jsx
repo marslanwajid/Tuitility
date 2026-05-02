@@ -6,6 +6,7 @@ import FAQSection from '../tool/FAQSection';
 import TableOfContents from '../tool/TableOfContents';
 import FeedbackForm from '../tool/FeedbackForm';
 import '../../assets/css/knowledge/fuel-calculator.css';
+import ToolDynamicSections from '../tool/ToolDynamicSections'
 
 const FuelCalculator = () => {
   const [formData, setFormData] = useState({
@@ -740,6 +741,7 @@ const FuelCalculator = () => {
           </div>
         </div>
       </ContentSection>
+
 
       <FAQSection faqs={faqData} />
     </ToolPageLayout>

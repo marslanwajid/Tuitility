@@ -8,6 +8,7 @@ import FeedbackForm from '../tool/FeedbackForm';
 import Seo from '../Seo';
 import '../../assets/css/utility/ocr-pdf-generator.css';
 import { toolCategories } from '../../data/toolCategories';
+import ToolDynamicSections from '../tool/ToolDynamicSections'
 
 const OCRPDFGenerator = () => {
   const [selectedFile, setSelectedFile] = useState(null);
@@ -47,10 +48,10 @@ const OCRPDFGenerator = () => {
   const relatedTools = [
     { name: "QR Code Generator", url: "/utility-tools/qr-code-generator", icon: "fas fa-qrcode" },
     { name: "Password Generator", url: "/utility-tools/password-generator", icon: "fas fa-key" },
-    { name: "Text Converter", url: "/utility-tools/text-converter", icon: "fas fa-font" },
-    { name: "Image Optimizer", url: "/utility-tools/image-optimizer", icon: "fas fa-image" },
-    { name: "File Compressor", url: "/utility-tools/file-compressor", icon: "fas fa-compress" },
-    { name: "Hash Generator", url: "/utility-tools/hash-generator", icon: "fas fa-hashtag" }
+    { name: "Word Counter", url: "/utility-tools/word-counter", icon: "fas fa-font" },
+    { name: "Image to WebP", url: "/utility-tools/image-tools/image-to-webp-converter", icon: "fas fa-image" },
+    { name: "PDF to Image", url: "/utility-tools/converter-tools/pdf-to-image-converter", icon: "fas fa-compress" },
+    { name: "Text Case Converter", url: "/utility-tools/converter-tools/text-case-converter", icon: "fas fa-hashtag" }
   ];
 
   const tableOfContents = [
@@ -806,6 +807,7 @@ You can now copy this text to your clipboard or download it in various formats i
             </div>
           </div>
         </ContentSection>
+
 
         <FAQSection faqs={faqs} />
       </ToolPageLayout>

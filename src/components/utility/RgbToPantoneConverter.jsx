@@ -8,6 +8,7 @@ import TableOfContents from '../tool/TableOfContents';
 import Seo from '../Seo';
 import '../../assets/css/utility/rgb-to-pantone.css';
 import { toolCategories } from '../../data/toolCategories';
+import ToolDynamicSections from '../tool/ToolDynamicSections'
 
 
 const RgbToPantoneConverter = () => {
@@ -143,7 +144,7 @@ const RgbToPantoneConverter = () => {
     title: 'RGB to Pantone Converter - Find PMS Color Match | Tuitility',
     description: 'Free RGB to Pantone converter. Find the closest Pantone Matching System (PMS) color for any RGB or HEX value. Ideal for print designers and brand managers.',
     keywords: 'rgb to pantone, pantone converter, pms color, color matching, print colors, hex to pantone',
-    canonicalUrl: 'https://tuitility.vercel.app/utility-tools/rgb-to-pantone-converter'
+    canonicalUrl: 'https://tuitility.vercel.app/utility-tools/converter-tools/rgb-to-pantone-converter'
   };
 
   return (
@@ -298,6 +299,7 @@ const RgbToPantoneConverter = () => {
             </ul>
           </div>
         </ContentSection>
+
 
         <FAQSection id="faqs" faqs={faqs} />
 

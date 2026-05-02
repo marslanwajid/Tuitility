@@ -7,6 +7,7 @@ import TableOfContents from '../tool/TableOfContents';
 import FeedbackForm from '../tool/FeedbackForm';
 import Seo from '../Seo';
 import '../../assets/css/utility/password-generator.css';
+import ToolDynamicSections from '../tool/ToolDynamicSections'
 
 const PasswordGenerator = () => {
   // Form state (scoped IDs and classes)
@@ -187,7 +188,7 @@ const PasswordGenerator = () => {
     { name: 'QR Code Generator', url: '/utility-tools/qr-code-generator', icon: 'fas fa-qrcode' },
     { name: 'Text Case Converter', url: '/utility-tools/converter-tools/text-case-converter', icon: 'fas fa-font' },
     { name: 'Binary Converter', url: '/math/calculators/binary-calculator', icon: 'fas fa-exchange-alt' },
-    { name: 'Hash Generator', url: '/utility-tools/hash-generator', icon: 'fas fa-fingerprint' }
+    { name: 'Word Counter', url: '/utility-tools/word-counter', icon: 'fas fa-font' }
   ];
 
   const faqs = [
@@ -477,6 +478,7 @@ const PasswordGenerator = () => {
               </div>
             </div>
           </ContentSection>
+
 
           <FAQSection faqs={faqs} />
         </div>

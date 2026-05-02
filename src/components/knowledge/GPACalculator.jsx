@@ -6,6 +6,7 @@ import FAQSection from '../tool/FAQSection'
 import TableOfContents from '../tool/TableOfContents'
 import FeedbackForm from '../tool/FeedbackForm'
 import '../../assets/css/knowledge/gpa-calculator.css'
+import ToolDynamicSections from '../tool/ToolDynamicSections'
 
 // GPA Calculator Logic Class
 class GPACalculatorLogic {
@@ -756,6 +757,7 @@ const GPACalculator = () => {
           </div>
         </div>
       </ContentSection>
+
 
       <FAQSection faqs={faqData} />
     </ToolPageLayout>

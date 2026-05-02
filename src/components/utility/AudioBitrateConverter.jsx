@@ -9,6 +9,7 @@ import FeedbackForm from '../tool/FeedbackForm';
 import Seo from '../Seo';
 import '../../assets/css/utility/audio-bitrate-converter.css';
 import { toolCategories } from '../../data/toolCategories';
+import ToolDynamicSections from '../tool/ToolDynamicSections'
 
 
 const AudioBitrateConverter = () => {
@@ -373,7 +374,7 @@ const AudioBitrateConverter = () => {
     title: 'Audio Bitrate Converter - Calculate & Convert Audio | Tuitility',
     description: 'Free audio bitrate calculator and converter. Convert between kbps, bps, mbps. Extract audio from video files as MP3 or WAV. All processing happens locally.',
     keywords: 'audio bitrate converter, bitrate calculator, audio converter, video to audio, extract audio, mp3 converter',
-    canonicalUrl: 'https://tuitility.vercel.app/utility-tools/converter-tools/audio-bitrate-converter'
+    canonicalUrl: 'https://tuitility.vercel.app/utility-tools/audio-bitrate-converter'
   };
 
   return (
@@ -868,6 +869,7 @@ const AudioBitrateConverter = () => {
             <strong>Today:</strong> We are entering the age of "Lossless Streaming" where internet speeds are fast enough to stream uncompressed audio (FLAC/ALAC) effortlessly.
           </p>
         </ContentSection>
+
 
         <FAQSection faqs={[
           {

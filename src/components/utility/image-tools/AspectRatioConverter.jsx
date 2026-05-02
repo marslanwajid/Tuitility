@@ -8,6 +8,7 @@ import TableOfContents from '../../tool/TableOfContents';
 import Seo from '../../Seo';
 import { toolCategories } from '../../../data/toolCategories';
 import '../../../assets/css/utility/aspect-ratio-converter.css';
+import ToolDynamicSections from '../../tool/ToolDynamicSections'
 
 const AspectRatioConverter = () => {
     // --- Calculator Logic ---
@@ -557,6 +558,7 @@ const AspectRatioConverter = () => {
                         </ul>
                     </div>
                 </ContentSection>
+
 
                 <FAQSection id="faq" faqs={faqs} />
 

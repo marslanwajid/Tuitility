@@ -8,6 +8,7 @@ import TableOfContents from '../tool/TableOfContents';
 import MathFormula from '../tool/MathFormula';
 import FeedbackForm from '../tool/FeedbackForm';
 import '../../assets/css/knowledge/habit-formation-calculator.css';
+import ToolDynamicSections from '../tool/ToolDynamicSections'
 
 const HabitFormationCalculator = () => {
   const [formData, setFormData] = useState({
@@ -731,6 +732,7 @@ const HabitFormationCalculator = () => {
           </div>
         </div>
       </ContentSection>
+
 
       <FAQSection faqs={faqData} />
       <FeedbackForm />

@@ -8,6 +8,7 @@ import TableOfContents from '../../tool/TableOfContents';
 import Seo from '../../Seo';
 import { toolCategories } from '../../../data/toolCategories';
 import '../../../assets/css/utility/rgb-to-hex-converter.css';
+import ToolDynamicSections from '../../tool/ToolDynamicSections'
 
 const RgbToHexConverter = () => {
     const [rgb, setRgb] = useState({ r: 0, g: 123, b: 255 }); // Default blueish
@@ -416,6 +417,7 @@ const RgbToHexConverter = () => {
                         </ul>
                     </div>
                 </ContentSection>
+
 
                 <FAQSection id="faq" faqs={faqs} />
 

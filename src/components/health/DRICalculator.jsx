@@ -7,6 +7,7 @@ import TableOfContents from '../tool/TableOfContents'
 import FeedbackForm from '../tool/FeedbackForm'
 import '../../assets/css/health/dri-calculator.css'
 import Seo from '../Seo'
+import ToolDynamicSections from '../tool/ToolDynamicSections'
 
 // DRI Calculator Logic Class
 class DRICalculatorLogic {
@@ -371,7 +372,7 @@ const DRICalculator = () => {
     { name: 'Finance', url: '/finance', icon: 'fas fa-dollar-sign' },
     { name: 'Health', url: '/health', icon: 'fas fa-heartbeat' },
     { name: 'Science', url: '/science', icon: 'fas fa-flask' },
-    { name: 'Utility', url: '/utility', icon: 'fas fa-wrench' },
+    { name: 'Utility', url: '/utility-tools', icon: 'fas fa-wrench' },
     { name: 'Knowledge', url: '/knowledge', icon: 'fas fa-book' }
   ];
 
@@ -1031,6 +1032,7 @@ const DRICalculator = () => {
             </div>
         </div>
         </ContentSection>
+
 
         <FAQSection 
           faqs={[

@@ -8,6 +8,7 @@ import FeedbackForm from '../tool/FeedbackForm'
 import { LoanCalculator as LoanCalculatorJS } from '../../assets/js/finance/loan-calculator.js'
 import '../../assets/css/finance/loan-calculator.css'
 import Seo from '../Seo'
+import ToolDynamicSections from '../tool/ToolDynamicSections'
 
 const LoanCalculator = () => {
   const [principal, setPrincipal] = useState('250000')
@@ -40,7 +41,7 @@ const LoanCalculator = () => {
     { name: 'Finance', url: '/finance', icon: 'fas fa-dollar-sign' },
     { name: 'Health', url: '/health', icon: 'fas fa-heartbeat' },
     { name: 'Science', url: '/science', icon: 'fas fa-flask' },
-    { name: 'Utility', url: '/utility', icon: 'fas fa-wrench' },
+    { name: 'Utility', url: '/utility-tools', icon: 'fas fa-wrench' },
     { name: 'Knowledge', url: '/knowledge', icon: 'fas fa-book' }
   ];
 
@@ -571,6 +572,7 @@ const LoanCalculator = () => {
             </div>
           </div>
         </ContentSection>
+
 
         <FAQSection 
           faqs={[

@@ -8,6 +8,7 @@ import FeedbackForm from '../tool/FeedbackForm';
 import Seo from '../Seo';
 import '../../assets/css/utility/morse-code-translator.css';
 import { toolCategories } from '../../data/toolCategories';
+import ToolDynamicSections from '../tool/ToolDynamicSections'
 
 
 const MorseCodeTranslator = () => {
@@ -465,6 +466,7 @@ const MorseCodeTranslator = () => {
             <li><strong>Practice Daily:</strong> 10-15 minutes of daily practice is far better than a once-a-week marathon session.</li>
           </ul>
         </ContentSection>
+
 
         <FAQSection faqs={faqData} />
 

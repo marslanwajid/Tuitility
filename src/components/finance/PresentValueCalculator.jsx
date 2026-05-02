@@ -8,6 +8,7 @@ import FeedbackForm from '../tool/FeedbackForm'
 import PresentValueCalculatorJS from '../../assets/js/finance/present-value-calculator.js'
 import '../../assets/css/finance/present-value-calculator.css'
 import Seo from '../Seo'
+import ToolDynamicSections from '../tool/ToolDynamicSections'
 
 const PresentValueCalculator = () => {
   const [formData, setFormData] = useState({
@@ -52,7 +53,7 @@ const PresentValueCalculator = () => {
     { name: 'Finance', url: '/finance', icon: 'fas fa-dollar-sign' },
     { name: 'Health', url: '/health', icon: 'fas fa-heartbeat' },
     { name: 'Science', url: '/science', icon: 'fas fa-flask' },
-    { name: 'Utility', url: '/utility', icon: 'fas fa-wrench' },
+    { name: 'Utility', url: '/utility-tools', icon: 'fas fa-wrench' },
     { name: 'Knowledge', url: '/knowledge', icon: 'fas fa-book' }
   ];
 
@@ -629,6 +630,7 @@ const PresentValueCalculator = () => {
             </li>
           </ul>
         </ContentSection>
+
 
         <FAQSection 
           faqs={[

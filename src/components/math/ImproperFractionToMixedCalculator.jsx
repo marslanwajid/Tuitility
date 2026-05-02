@@ -27,7 +27,7 @@ const ImproperFractionToMixedCalculator = () => {
     { name: 'Finance', url: '/finance', icon: 'fas fa-dollar-sign' },
     { name: 'Health', url: '/health', icon: 'fas fa-heartbeat' },
     { name: 'Science', url: '/science', icon: 'fas fa-flask' },
-    { name: 'Utility', url: '/utility', icon: 'fas fa-wrench' },
+    { name: 'Utility', url: '/utility-tools', icon: 'fas fa-wrench' },
     { name: 'Knowledge', url: '/knowledge', icon: 'fas fa-book' }
   ];
 
@@ -531,6 +531,50 @@ const ImproperFractionToMixedCalculator = () => {
                       </div>
                     </div>
       </ContentSection>
+
+      <ContentSection id="why-mixed-numbers-help" title="Why Mixed Numbers Are Easier to Read">
+        <p>
+          Improper fractions are mathematically correct, but mixed numbers are often easier to picture.
+          A value such as 11/4 describes the quantity exactly, yet 2 3/4 is usually more intuitive for
+          students, builders, cooks, and anyone working with parts of a whole. Mixed numbers separate the
+          full units from the leftover fraction, which makes interpretation faster.
+        </p>
+        <p>
+          This calculator is helpful when you want both the exact fraction and a more readable form that
+          can be used in measurement, recipes, or textbook explanations.
+        </p>
+      </ContentSection>
+
+      <ContentSection id="quotient-and-remainder" title="How Quotient and Remainder Create the Mixed Number">
+        <p>
+          The conversion works because division tells you how many full groups fit into the numerator.
+          The quotient becomes the whole-number part, and the remainder becomes the new numerator over the
+          same denominator. That remainder must always be smaller than the denominator for the result to
+          be a proper mixed number.
+        </p>
+        <ul>
+          <li><strong>Quotient:</strong> the number of whole units.</li>
+          <li><strong>Remainder:</strong> the leftover part of the whole.</li>
+          <li><strong>Original denominator:</strong> stays unchanged in the mixed number.</li>
+          <li><strong>Zero remainder:</strong> means the result is a whole number only.</li>
+        </ul>
+      </ContentSection>
+
+      <ContentSection id="improper-fraction-mistakes" title="Common Conversion Mistakes to Avoid">
+        <p>
+          A common mistake is changing the denominator during conversion. Another is writing the remainder
+          as a decimal or forgetting that only improper fractions should be converted with this method.
+          If the numerator is already smaller than the denominator, the input is a proper fraction and
+          does not produce a mixed number with a whole part greater than zero.
+        </p>
+        <ul>
+          <li>Keep the original denominator in the final mixed number.</li>
+          <li>Use the remainder, not the quotient, as the new numerator.</li>
+          <li>Check that the remainder is smaller than the denominator.</li>
+          <li>If the remainder is 0, write the result as a whole number.</li>
+        </ul>
+      </ContentSection>
+
 
                     <FAQSection 
                       faqs={[

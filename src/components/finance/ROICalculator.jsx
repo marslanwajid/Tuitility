@@ -7,6 +7,7 @@ import TableOfContents from '../tool/TableOfContents'
 import FeedbackForm from '../tool/FeedbackForm'
 import '../../assets/css/finance/roi-calculator.css'
 import Seo from '../Seo'
+import ToolDynamicSections from '../tool/ToolDynamicSections'
 
 const ROICalculator = () => {
   const [formData, setFormData] = useState({
@@ -156,7 +157,7 @@ const ROICalculator = () => {
     { name: "House Affordability Calculator", url: "/finance/calculators/house-affordability-calculator", icon: "fas fa-home" },
     { name: "Mortgage Calculator", url: "/finance/calculators/mortgage-calculator", icon: "fas fa-calculator" },
     { name: "Amortization Calculator", url: "/finance/calculators/amortization-calculator", icon: "fas fa-chart-line" },
-    { name: "Percentage Calculator", url: "/utility-tools/calculators/percentage-calculator", icon: "fas fa-percentage" }
+    { name: "Percentage Calculator", url: "/math/calculators/percentage-calculator", icon: "fas fa-percentage" }
   ];
 
   const tableOfContents = [
@@ -519,6 +520,7 @@ const ROICalculator = () => {
             </div>
           </div>
         </ContentSection>
+
 
         <FAQSection
           title="Frequently Asked Questions"

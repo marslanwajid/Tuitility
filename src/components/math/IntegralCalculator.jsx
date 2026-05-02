@@ -35,7 +35,7 @@ const IntegralCalculatorComponent = () => {
     { name: 'Finance', url: '/finance', icon: 'fas fa-dollar-sign' },
     { name: 'Health', url: '/health', icon: 'fas fa-heartbeat' },
     { name: 'Science', url: '/science', icon: 'fas fa-flask' },
-    { name: 'Utility', url: '/utility', icon: 'fas fa-wrench' },
+    { name: 'Utility', url: '/utility-tools', icon: 'fas fa-wrench' },
     { name: 'Knowledge', url: '/knowledge', icon: 'fas fa-book' }
   ];
 
@@ -590,6 +590,51 @@ const IntegralCalculatorComponent = () => {
           </div>
         </div>
       </ContentSection>
+
+      <ContentSection id="when-to-use-definite-vs-indefinite" title="When to Use a Definite vs Indefinite Integral">
+        <p>
+          An indefinite integral is the right choice when you want the full antiderivative family of a
+          function. It answers the question, “What function differentiates back to this expression?” A
+          definite integral is used when you need a specific accumulated amount or net area between two
+          limits.
+        </p>
+        <p>
+          This calculator supports both modes, which is useful because many calculus problems move from an
+          antiderivative step to a numerical answer. The indefinite result gives the general form, while
+          the definite result evaluates that form across a chosen interval.
+        </p>
+      </ContentSection>
+
+      <ContentSection id="how-to-interpret-integrals" title="How to Interpret an Integral Result">
+        <p>
+          The meaning of an integral depends on context. In geometry, it often represents area. In
+          physics, it may represent displacement, work, or accumulated change. In economics, it can
+          represent total revenue or surplus. The key idea is accumulation: integration adds together
+          infinitely many small contributions.
+        </p>
+        <ul>
+          <li><strong>Indefinite integral:</strong> a general antiderivative plus the constant C.</li>
+          <li><strong>Definite integral:</strong> a single accumulated value over an interval.</li>
+          <li><strong>Positive and negative areas:</strong> values below the axis affect the net result.</li>
+          <li><strong>Sample value:</strong> helps interpret an antiderivative numerically.</li>
+        </ul>
+      </ContentSection>
+
+      <ContentSection id="integration-mistakes" title="Common Integration Mistakes to Avoid">
+        <p>
+          The most common integration error is using the power rule incorrectly, especially forgetting that
+          the rule changes for 1/x. Another frequent issue is dropping the constant of integration in
+          indefinite problems or evaluating definite limits before finding the antiderivative. Trigonometric
+          sign mistakes also show up often with sine and cosine.
+        </p>
+        <ul>
+          <li>Always add +C for indefinite integrals.</li>
+          <li>Use ln|x| + C for the integral of 1/x, not the standard power rule.</li>
+          <li>Find the antiderivative first, then apply definite limits.</li>
+          <li>Recheck signs on trig integrals like integral of sin(x) and cos(x).</li>
+        </ul>
+      </ContentSection>
+
 
             <FAQSection
               faqs={[

@@ -5,6 +5,8 @@ import Home from './components/Home'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import ScrollToTop from './components/ScrollToTop'
+import SeoManager from './components/SeoManager'
+import StaticPage from './components/StaticPage'
 
 // Lazily import pages
 const MathCalculator = lazy(() => import('./pages/math/MathCalculator'))
@@ -123,10 +125,85 @@ const App = () => {
   return (
     <>
       <ScrollToTop />
+      <SeoManager />
       <Header />
       <Suspense fallback={<div>Loading...</div>}>
         <Routes>
-          <Route path="/" element={<Home />} />
+            <Route path="/" element={<Home />} />
+          <Route
+            path="/about"
+            element={
+              <StaticPage
+                title="About Tuitility"
+                description="Tuitility brings practical calculators, converters, PDF utilities, and smart online tools together in one fast, searchable platform."
+                canonicalPath="/about"
+              >
+                <h2>What We Build</h2>
+                <p>
+                  Tuitility is designed to make everyday calculations and digital tasks simpler. We
+                  focus on free tools that are fast to open, easy to understand, and useful on both
+                  desktop and mobile.
+                </p>
+                <h2>Our Focus</h2>
+                <p>
+                  We organize tools across math, finance, science, health, knowledge, and utility
+                  workflows so users can find the right calculator without jumping between multiple
+                  websites.
+                </p>
+              </StaticPage>
+            }
+          />
+          <Route
+            path="/contact"
+            element={
+              <StaticPage
+                title="Contact Tuitility"
+                description="Reach out to Tuitility for support, correction requests, tool ideas, SEO suggestions, and partnership discussions."
+                canonicalPath="/contact"
+              >
+                <h2>Support and Feedback</h2>
+                <p>
+                  Questions, bug reports, correction requests, and feature ideas are always welcome.
+                  The fastest way to reach us is by email at
+                  {' '}
+                  <a href="mailto:wajidmarslan@gmail.com">wajidmarslan@gmail.com</a>.
+                </p>
+                <h2>Partnerships</h2>
+                <p>
+                  If you want to collaborate on tool growth, content, or product improvements, send
+                  a short overview and we will review it.
+                </p>
+              </StaticPage>
+            }
+          />
+          <Route
+            path="/privacy-policy"
+            element={
+              <StaticPage
+                title="Privacy Policy"
+                description="Review how Tuitility handles privacy, in-browser processing, and limited data collection across our online calculator platform."
+                canonicalPath="/privacy-policy"
+              >
+                <h2>Browser-First Tools</h2>
+                <p>
+                  Many Tuitility tools process data directly in your browser. That means uploaded
+                  files and calculator inputs often stay on your device unless a specific feature
+                  clearly requires an external API.
+                </p>
+                <h2>Third-Party Services</h2>
+                <p>
+                  Some features may call trusted external APIs for exchange rates or AI-assisted
+                  transformations. When they do, only the data needed for that feature is sent.
+                </p>
+                <h2>Contact</h2>
+                <p>
+                  If you have privacy questions, email
+                  {' '}
+                  <a href="mailto:wajidmarslan@gmail.com">wajidmarslan@gmail.com</a>.
+                </p>
+              </StaticPage>
+            }
+          />
           {/* Add more routes here as needed */}
           <Route path="/math" element={<MathCalculator />} />
           <Route path="/math/calculators/binary-calculator" element={<BinaryCalculatorTool />} />
@@ -196,7 +273,6 @@ const App = () => {
           <Route path="/utility-tools/ocr-pdf-generator" element={<OCRPDFGenerator />} />
           <Route path="/utility-tools/morse-code-translator" element={<MorseCodeTranslator />} />
           <Route path="/utility-tools/html-to-markdown-converter" element={<HtmlToMarkdownConverter />} />
-          <Route path="/utility-tools/html-to-markdown-converter" element={<HtmlToMarkdownConverter />} />
           <Route path="/utility-tools/genz-translator" element={<GenZTranslator />} />
           <Route path="/utility-tools/english-to-ipa-translator" element={<EnglishToIPATranslator />} />
           <Route path="/utility-tools/audio-bitrate-converter" element={<AudioBitrateConverter />} />
@@ -229,6 +305,22 @@ const App = () => {
           <Route path="/knowledge/calculators/career-assessment-calculator" element={<CareerAssessmentCalculator />} />
           <Route path="/knowledge/calculators/trauma-assessment-calculator" element={<TraumaAssessmentCalculator />} />
           <Route path="/knowledge/calculators/anxiety-assessment-calculator" element={<AnxietyAssessmentCalculator />} />
+          <Route
+            path="*"
+            element={
+              <StaticPage
+                title="Page Not Found"
+                description="The page you requested could not be found. Browse Tuitility categories to discover calculators and tools."
+                canonicalPath="/404"
+              >
+                <h2>Try one of these sections</h2>
+                <p>
+                  Visit Math, Finance, Health, Science, Utility Tools, or Knowledge to continue
+                  exploring the site.
+                </p>
+              </StaticPage>
+            }
+          />
         </Routes>
       </Suspense>
       <Footer />

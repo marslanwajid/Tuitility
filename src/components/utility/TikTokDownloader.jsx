@@ -8,6 +8,7 @@ import TableOfContents from '../tool/TableOfContents';
 import Seo from '../Seo';
 import '../../assets/css/utility/tiktok-downloader.css';
 import { toolCategories } from '../../data/toolCategories';
+import ToolDynamicSections from '../tool/ToolDynamicSections'
 
 
 const TikTokDownloader = () => {
@@ -43,7 +44,7 @@ const TikTokDownloader = () => {
     const fetchTikTokVideo = async (tikTokUrl) => {
 
         const apiUrl = 'https://instagram-downloader-download-instagram-videos-stories1.p.rapidapi.com/get-info-rapidapi';
-        const apiKey = import.meta.env.RAPID_KEY;
+        const apiKey = import.meta.env.VITE_RAPID_KEY || import.meta.env.RAPID_KEY;
 
         if (!apiKey) {
             return { success: false, error: 'API Key not configured. Please check .env settings.' };
@@ -389,6 +390,7 @@ const TikTokDownloader = () => {
                         <p><strong>Note:</strong> Respect the intellectual property rights of content creators. Do not repost downloaded content as your own without permission or proper credit.</p>
                     </div>
                 </ContentSection>
+
 
                 <FAQSection id="faqs" faqs={faqs} />
 

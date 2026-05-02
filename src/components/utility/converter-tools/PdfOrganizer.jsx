@@ -10,6 +10,7 @@ import TableOfContents from '../../tool/TableOfContents';
 import FeedbackForm from '../../tool/FeedbackForm';
 import Seo from '../../Seo';
 import '../../../assets/css/utility/converter-tools/pdf-organizer.css';
+import ToolDynamicSections from '../../tool/ToolDynamicSections'
 
 // Initialize PDF.js worker
 pdfjsLib.GlobalWorkerOptions.workerSrc = pdfWorker;
@@ -519,6 +520,7 @@ const PdfOrganizer = () => {
                             </div>
                         </div>
                     </ContentSection>
+
 
                     <FAQSection faqs={[
                         {

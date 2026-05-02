@@ -8,6 +8,7 @@ import FeedbackForm from '../tool/FeedbackForm'
 import SalesTaxCalculatorJS from '../../assets/js/finance/sales-tax-calculator.js'
 import '../../assets/css/finance/sales-tax-calculator.css'
 import Seo from '../Seo'
+import ToolDynamicSections from '../tool/ToolDynamicSections'
 
 const SalesTaxCalculator = () => {
   const [formData, setFormData] = useState({
@@ -50,7 +51,7 @@ const SalesTaxCalculator = () => {
     { name: 'Finance', url: '/finance', icon: 'fas fa-dollar-sign' },
     { name: 'Health', url: '/health', icon: 'fas fa-heartbeat' },
     { name: 'Science', url: '/science', icon: 'fas fa-flask' },
-    { name: 'Utility', url: '/utility', icon: 'fas fa-wrench' },
+    { name: 'Utility', url: '/utility-tools', icon: 'fas fa-wrench' },
     { name: 'Knowledge', url: '/knowledge', icon: 'fas fa-book' }
   ];
 
@@ -584,6 +585,7 @@ const SalesTaxCalculator = () => {
             </div>
           </div>
         </ContentSection>
+
 
         <FAQSection 
           faqs={[

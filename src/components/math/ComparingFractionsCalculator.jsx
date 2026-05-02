@@ -28,7 +28,7 @@ const ComparingFractionsCalculator = () => {
     { name: 'Finance', url: '/finance', icon: 'fas fa-dollar-sign' },
     { name: 'Health', url: '/health', icon: 'fas fa-heartbeat' },
     { name: 'Science', url: '/science', icon: 'fas fa-flask' },
-    { name: 'Utility', url: '/utility', icon: 'fas fa-wrench' },
+    { name: 'Utility', url: '/utility-tools', icon: 'fas fa-wrench' },
     { name: 'Knowledge', url: '/knowledge', icon: 'fas fa-book' }
   ];
 
@@ -528,6 +528,50 @@ const ComparingFractionsCalculator = () => {
                       </div>
                     </div>
       </ContentSection>
+
+      <ContentSection id="cross-format-comparison" title="Why Comparing Fractions, Decimals, and Percentages Matters">
+        <p>
+          Many real problems do not present values in the same format. One quantity may be written as a
+          fraction, another as a decimal, and another as a percentage. To compare them fairly, they need
+          to be translated into a common value. This calculator does that by converting each input into a
+          decimal before evaluating which one is greater, smaller, or equal.
+        </p>
+        <p>
+          That makes the tool especially useful for classroom exercises, discounts, recipe adjustments,
+          measurement checks, and finance tasks where the same ratio may appear in different forms.
+        </p>
+      </ContentSection>
+
+      <ContentSection id="best-comparison-method" title="Best Method for Comparing Mixed Number Formats">
+        <p>
+          There are several valid ways to compare fractions and related formats. You can convert
+          everything to decimals, convert everything to fractions with a common denominator, or convert
+          percentages into decimals first. This calculator uses decimal comparison because it works well
+          across all supported input types and gives a consistent basis for the final answer.
+        </p>
+        <ul>
+          <li><strong>Fractions:</strong> divide numerator by denominator.</li>
+          <li><strong>Mixed numbers:</strong> convert to improper fractions, then to decimals.</li>
+          <li><strong>Percentages:</strong> divide by 100.</li>
+          <li><strong>Decimals:</strong> compare directly after formatting.</li>
+        </ul>
+      </ContentSection>
+
+      <ContentSection id="comparison-mistakes" title="Common Comparison Mistakes to Avoid">
+        <p>
+          A common error is comparing only the numerators of fractions without checking denominators.
+          Another is assuming that a larger-looking percentage or mixed number must always be greater
+          without converting it properly. Even small formatting mistakes, such as entering an invalid
+          mixed number or leaving out the percent sign, can change the meaning of the input.
+        </p>
+        <ul>
+          <li>Do not compare fractions by numerator alone unless denominators already match.</li>
+          <li>Convert mixed numbers completely before making a judgment.</li>
+          <li>Remember that 75% means 0.75, not 75.</li>
+          <li>Use a shared form before deciding which value is larger.</li>
+        </ul>
+      </ContentSection>
+
 
                     <FAQSection 
                       faqs={[

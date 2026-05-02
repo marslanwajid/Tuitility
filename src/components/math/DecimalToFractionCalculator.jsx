@@ -28,7 +28,7 @@ const DecimalToFractionCalculator = () => {
     { name: 'Finance', url: '/finance', icon: 'fas fa-dollar-sign' },
     { name: 'Health', url: '/health', icon: 'fas fa-heartbeat' },
     { name: 'Science', url: '/science', icon: 'fas fa-flask' },
-    { name: 'Utility', url: '/utility', icon: 'fas fa-wrench' },
+    { name: 'Utility', url: '/utility-tools', icon: 'fas fa-wrench' },
     { name: 'Knowledge', url: '/knowledge', icon: 'fas fa-book' }
   ];
 
@@ -347,6 +347,57 @@ const DecimalToFractionCalculator = () => {
           </div>
     </div>
       </ContentSection>
+
+      <ContentSection id="terminating-vs-repeating" title="Terminating Decimals vs Repeating Decimals">
+        <p>
+          Not every decimal behaves the same way during conversion. A terminating decimal, such as
+          0.25 or 1.875, has a fixed number of digits after the decimal point, so it can be converted
+          by writing it over a power of 10 and simplifying. A repeating decimal, such as 0.333...,
+          follows a repeating pattern and usually requires an algebra-based method.
+        </p>
+        <p>
+          This calculator is best for standard decimal values entered directly into the field, especially
+          when you need to turn measurement values, price values, or worksheet answers into reduced
+          fractions. It also helps explain why some decimals become simple fractions while others reduce
+          to mixed numbers.
+        </p>
+        <ul>
+          <li><strong>Terminating decimal:</strong> ends after a fixed number of places.</li>
+          <li><strong>Repeating decimal:</strong> continues in a repeating pattern such as 0.666...</li>
+          <li><strong>Improper fraction result:</strong> happens when the decimal is greater than 1.</li>
+          <li><strong>Mixed number result:</strong> makes large fractions easier to read in practice.</li>
+        </ul>
+      </ContentSection>
+
+      <ContentSection id="when-fractions-are-better" title="When a Fraction Is Better Than a Decimal">
+        <p>
+          Fractions are often more useful when you need an exact value rather than an approximation.
+          In carpentry, cooking, classroom arithmetic, and algebra, a clean fraction like 3/8 is easier
+          to compare and combine than a rounded decimal such as 0.375 written from memory. This is why
+          decimal-to-fraction conversion matters well beyond basic school exercises.
+        </p>
+        <p>
+          The calculator shows the original fraction form, the simplified fraction, and a mixed number
+          when applicable. That makes it easier to choose the format that fits your task, whether you
+          are simplifying a worksheet answer, reading a ruler, or preparing an exact ratio for another
+          calculation.
+        </p>
+      </ContentSection>
+
+      <ContentSection id="decimal-conversion-mistakes" title="Common Decimal to Fraction Mistakes">
+        <p>
+          One of the most frequent mistakes is choosing the wrong denominator. For example, 0.75 should
+          become 75/100 because there are two decimal places, not 75/10. Another common issue is stopping
+          before simplifying, which leaves answers in a correct but less useful form.
+        </p>
+        <ul>
+          <li>Match the denominator to the number of decimal places: 10, 100, 1000, and so on.</li>
+          <li>Simplify the fraction using the greatest common divisor.</li>
+          <li>Convert values greater than 1 into mixed numbers when that format is easier to read.</li>
+          <li>Keep track of negative signs so the final fraction preserves the original value.</li>
+        </ul>
+      </ContentSection>
+
 
       <FAQSection 
         faqs={[

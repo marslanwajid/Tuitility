@@ -376,6 +376,48 @@ const BinaryCalculatorTool = () => {
         </ul>
       </ContentSection>
 
+      <ContentSection id="how-number-system-conversion-works" title="How Binary, Decimal, Octal, and Hex Conversion Works">
+        <p>
+          Every number system represents the same quantities with a different base. Binary uses base 2,
+          octal uses base 8, decimal uses base 10, and hexadecimal uses base 16. This calculator first
+          translates each input into a decimal value internally, performs the selected arithmetic, and
+          then converts the result back into each supported number system.
+        </p>
+        <p>
+          That approach makes it easy to compare results across formats and understand how the same value
+          can look very different depending on the numbering system being used.
+        </p>
+      </ContentSection>
+
+      <ContentSection id="binary-operations-in-computing" title="Why Binary Operations Matter in Computing">
+        <p>
+          Binary arithmetic is more than a classroom topic. It is how processors, memory, digital logic,
+          and low-level communication systems represent information. Even when developers work in decimal
+          or hexadecimal, the hardware still relies on binary states underneath.
+        </p>
+        <ul>
+          <li><strong>Arithmetic:</strong> supports machine-level calculation and data transformation.</li>
+          <li><strong>Hexadecimal:</strong> provides a compact readable view of binary values.</li>
+          <li><strong>Octal:</strong> groups binary digits in threes for another compact form.</li>
+          <li><strong>Bitwise logic:</strong> powers flags, masks, permissions, and hardware operations.</li>
+        </ul>
+      </ContentSection>
+
+      <ContentSection id="binary-mistakes" title="Common Binary Calculator Mistakes">
+        <p>
+          The most common error is entering digits that do not belong to the selected number system, such
+          as using 2 in a binary value or 8 in an octal value. Another is forgetting that some operations,
+          such as integer division, do not preserve fractional remainders in this tool's output.
+        </p>
+        <ul>
+          <li>Match the input digits to the chosen base.</li>
+          <li>Be careful with division by zero and empty fields.</li>
+          <li>Remember that hexadecimal accepts digits and letters A through F.</li>
+          <li>Check whether you need an exact arithmetic result or an integer-style system conversion.</li>
+        </ul>
+      </ContentSection>
+
+
       <FAQSection faqs={faqs} />
     </ToolPageLayout>
   );

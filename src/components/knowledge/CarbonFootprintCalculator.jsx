@@ -6,6 +6,7 @@ import FAQSection from '../tool/FAQSection';
 import TableOfContents from '../tool/TableOfContents';
 import FeedbackForm from '../tool/FeedbackForm';
 import '../../assets/css/knowledge/carbon-footprint-calculator.css';
+import ToolDynamicSections from '../tool/ToolDynamicSections'
 
 const CarbonFootprintCalculator = () => {
   const [currentTab, setCurrentTab] = useState(0);
@@ -1056,6 +1057,7 @@ const CarbonFootprintCalculator = () => {
           </div>
         </div>
       </ContentSection>
+
 
       <FAQSection faqs={faqData} />
     </ToolPageLayout>

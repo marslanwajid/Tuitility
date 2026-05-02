@@ -5,7 +5,7 @@
 
 class CurrencyCalculator {
   constructor() {
-    this.API_KEY = '29806ca0329170a3c8348241';
+    this.API_KEY = import.meta.env.VITE_EXCHANGE_RATE_API_KEY || import.meta.env.EXCHANGE_RATE_API_KEY || '';
     this.API_BASE_URL = 'https://v6.exchangerate-api.com/v6';
     this.exchangeRates = {};
     this.lastUpdated = null;
@@ -19,6 +19,10 @@ class CurrencyCalculator {
    */
   async fetchExchangeRates(baseCurrency = 'USD') {
     try {
+      if (!this.API_KEY) {
+        throw new Error('Exchange rate API key is not configured');
+      }
+
       const url = `${this.API_BASE_URL}/${this.API_KEY}/latest/${baseCurrency}`;
       const response = await fetch(url);
       

@@ -8,6 +8,7 @@ import TableOfContents from '../tool/TableOfContents';
 import MathFormula from '../tool/MathFormula';
 import FeedbackForm from '../tool/FeedbackForm';
 import '../../assets/css/knowledge/mbti-calculator.css';
+import ToolDynamicSections from '../tool/ToolDynamicSections'
 
 const MBTICalculator = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -1485,6 +1486,7 @@ const MBTICalculator = () => {
           </div>
         </div>
       </ContentSection>
+
 
       <FAQSection faqs={faqData} />
       

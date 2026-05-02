@@ -11,6 +11,7 @@ import TableOfContents from '../../tool/TableOfContents';
 import FeedbackForm from '../../tool/FeedbackForm';
 import Seo from '../../Seo';
 import '../../../assets/css/utility/converter-tools/pdf-splitter.css';
+import ToolDynamicSections from '../../tool/ToolDynamicSections'
 
 // Set worker source
 pdfjsLib.GlobalWorkerOptions.workerSrc = pdfWorker;
@@ -690,6 +691,7 @@ const PdfSplitter = () => {
                             </div>
                         </div>
                     </ContentSection>
+
 
                     <FAQSection faqs={[
                         {

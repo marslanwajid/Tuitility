@@ -1,6 +1,7 @@
 import React, { useState, useEffect, memo } from 'react'
 import { Link } from 'react-router-dom'
 import HeaderSearch from './HeaderSearch'
+import { toolCategories } from '../data/toolCategories'
 import "../assets/css/header.css"
 
 const Header = () => {
@@ -46,42 +47,14 @@ const Header = () => {
           <HeaderSearch idPrefix="mobileSearch" isMobile={true} />
           
           <li><Link to="/" onClick={closeMenu}> Home</Link></li>
-          <li className="nav-category">
-            <Link to="/math" onClick={closeMenu}>
-              <i className="fas fa-calculator"></i>
-              <span>Math</span>
-            </Link>
-          </li>
-          <li className="nav-category">
-            <Link to="/finance" onClick={closeMenu}>
-              <i className="fas fa-dollar-sign"></i>
-              <span>Finance</span>
-            </Link>
-          </li>
-          <li className="nav-category">
-            <Link to="/science" onClick={closeMenu}>
-              <i className="fas fa-cog"></i>
-              <span>Science</span>
-            </Link>
-          </li>
-          <li className="nav-category">
-            <Link to="/health" onClick={closeMenu}>
-              <i className="fas fa-heartbeat"></i>
-              <span>Health</span>
-            </Link>
-          </li>
-          <li className="nav-category">
-            <Link to="/utility-tools" onClick={closeMenu}>
-              <i className="fas fa-tools"></i>
-              <span>Utility</span>
-            </Link>
-          </li>
-          <li className="nav-category">
-            <Link to="/knowledge" onClick={closeMenu}>
-              <i className="fas fa-brain"></i>
-              <span>Knowledge</span>
-            </Link>
-          </li>
+          {toolCategories.map((category) => (
+            <li className="nav-category" key={category.url}>
+              <Link to={category.url} onClick={closeMenu}>
+                <i className={category.icon}></i>
+                <span>{category.name}</span>
+              </Link>
+            </li>
+          ))}
           
         </ul>
         
