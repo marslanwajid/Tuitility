@@ -14,12 +14,14 @@ const StaticPage = ({ title, description, children, canonicalPath }) => {
       />
       <div className="static-page">
         <div className="static-page__container">
-          <header className="static-page__hero">
-            <p className="static-page__eyebrow">Tuitility</p>
-            <h1>{title}</h1>
-            <p>{description}</p>
-          </header>
-          <div className="static-page__content">{children}</div>
+          <article className="static-page__content static-page__content--page">
+            <header className="static-page__hero">
+              <p className="static-page__eyebrow">Tuitility</p>
+              <h1>{title}</h1>
+              <p>{description}</p>
+            </header>
+            <div className="static-page__body">{children}</div>
+          </article>
         </div>
       </div>
     </>

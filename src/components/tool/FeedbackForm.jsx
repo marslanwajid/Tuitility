@@ -1,43 +1,52 @@
 import React, { useState } from 'react';
+import { submitSiteMessage } from '../../utils/siteMessage';
 
 const FeedbackForm = ({ toolName }) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [rating, setRating] = useState(0);
   const [message, setMessage] = useState('');
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState({ type: '', message: '' });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleRatingClick = (value) => {
     setRating(value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Here you would typically send the feedback to your backend
-    console.log('Feedback submitted:', { toolName, name, email, rating, message });
-    setSubmitted(true);
-    
-    // Reset form after 3 seconds
-    setTimeout(() => {
-      setSubmitted(false);
+    setIsSubmitting(true);
+    setStatus({ type: '', message: '' });
+
+    try {
+      await submitSiteMessage({
+        formType: 'tool-feedback',
+        toolName: toolName || 'Tuitility Tool',
+        name,
+        email,
+        subject: `Tool Feedback: ${toolName || 'Tuitility Tool'}`,
+        message,
+        rating,
+        pageUrl: typeof window !== 'undefined' ? window.location.href : '',
+      });
+
+      setStatus({
+        type: 'success',
+        message: 'Your feedback has been sent successfully. Thank you for helping improve this tool.',
+      });
       setName('');
       setEmail('');
       setRating(0);
       setMessage('');
-    }, 3000);
+    } catch (error) {
+      setStatus({
+        type: 'error',
+        message: error.message || 'Unable to submit feedback right now.',
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
-
-  if (submitted) {
-    return (
-      <div className="feedback-form">
-        <div style={{ textAlign: 'center', color: 'var(--success-color)' }}>
-          <i className="fas fa-check-circle" style={{ fontSize: '2rem', marginBottom: '1rem' }}></i>
-          <h3>Thank you for your feedback!</h3>
-          <p>Your input helps us improve our tools.</p>
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div className="feedback-form">
@@ -98,15 +107,21 @@ const FeedbackForm = ({ toolName }) => {
             rows={4}
           />
         </div>
+
+        {status.message && (
+          <div className={`site-page__alert site-page__alert--${status.type}`}>
+            {status.message}
+          </div>
+        )}
         
         {/* Submit Button */}
         <button
           type="submit"
           className="feedback-submit"
-          disabled={!name || !email || rating === 0}
+          disabled={!name || !email || rating === 0 || isSubmitting}
         >
           <i className="fas fa-paper-plane"></i>
-          Submit Feedback
+          {isSubmitting ? 'Sending Feedback...' : 'Submit Feedback'}
         </button>
       </form>
     </div>

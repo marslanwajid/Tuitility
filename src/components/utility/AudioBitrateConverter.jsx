@@ -315,7 +315,7 @@ const AudioBitrateConverter = () => {
   // --- Tool Data ---
 
   const relatedTools = [
-    { name: "Text to Speech", url: "/utility-tools/converter-tools/text-to-speech-converter", icon: "fas fa-volume-up" },
+    { name: "Text Case Converter", url: "/utility-tools/converter-tools/text-case-converter", icon: "fas fa-font" },
     { name: "Gen Z Translator", url: "/utility-tools/genz-translator", icon: "fas fa-language" },
     { name: "Aspect Ratio Converter", url: "/utility-tools/image-tools/aspect-ratio-converter", icon: "fas fa-expand-arrows-alt" },
     { name: "File Size Converter", url: "/math/calculators/binary-calculator", icon: "fas fa-file-code" },
@@ -333,6 +333,7 @@ const AudioBitrateConverter = () => {
     { id: 'history', title: 'Brief History of Compression' },
     { id: 'workflow-guide', title: 'Production Workflow Guide' },
     { id: 'recommendations', title: 'Bitrate Recommendations' },
+    { id: 'next-steps', title: 'Related Tools and Next Steps' },
     { id: 'faq', title: 'Frequently Asked Questions' }
   ];
 
@@ -931,6 +932,18 @@ const AudioBitrateConverter = () => {
             <li><strong>General music listening:</strong> Higher compressed bitrates are a safer choice for preserving detail.</li>
             <li><strong>Archival or post-production:</strong> Use lossless outputs whenever possible to avoid repeated quality loss.</li>
           </ul>
+        </ContentSection>
+
+        <ContentSection id="next-steps" title="Related Tools and Next Steps">
+          <p>Audio conversion is usually part of a broader publishing workflow. After setting bitrate or extracting audio, the next step is often cleaning the copy, preparing visuals, or moving assets into another platform format.</p>
+          <ul>
+            <li><strong>Use Text Case Converter</strong> to clean imported titles, show notes, labels, or transcript headings.</li>
+            <li><strong>Use Instagram Reels Downloader</strong> when you are collecting short-form source media before audio extraction or remix planning.</li>
+            <li><strong>Use Aspect Ratio Converter</strong> if the extracted audio belongs to a video project that also needs correctly sized visual exports.</li>
+            <li><strong>Use Binary Calculator</strong> when you need quick storage-size reasoning around file growth, compression, and output expectations.</li>
+            <li><strong>Use Gen Z Translator</strong> if social captions, promo copy, or creator-facing language needs a more audience-specific tone after export.</li>
+          </ul>
+          <p>A practical workflow is: choose the right bitrate, extract or convert the file, validate size and quality, then prepare the related text and platform assets for publishing.</p>
         </ContentSection>
 
 

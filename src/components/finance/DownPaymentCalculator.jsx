@@ -43,6 +43,32 @@ const DownPaymentCalculator = () => {
   const seoDescription = toolData.description;
   const seoKeywords = `${toolData.name.toLowerCase()}, ${toolData.category.toLowerCase()} calculator, mortgage, home loan, pmi`;
   const canonicalUrl = `https://tuitility.vercel.app/finance/calculators/down-payment-calculator`;
+  const faqs = [
+    {
+      question: "What's the minimum down payment required?",
+      answer: "The minimum depends on the loan program. Some conventional, FHA, VA, and USDA options allow much less than 20 percent, but lower down payments can change cost and qualification requirements."
+    },
+    {
+      question: "Should I make a larger down payment?",
+      answer: "A larger down payment often lowers the loan amount, monthly payment, and lifetime interest cost, but you should also preserve emergency savings and closing-cost cash."
+    },
+    {
+      question: "What is private mortgage insurance (PMI)?",
+      answer: "PMI is lender protection that is often required on conventional loans with smaller down payments. It adds to monthly housing cost until enough equity is built."
+    },
+    {
+      question: "Can I use gift money for my down payment?",
+      answer: "Many programs allow gift funds from approved sources, but lenders usually require documentation that shows where the money came from."
+    },
+    {
+      question: "How does my down payment affect my interest rate?",
+      answer: "A stronger down payment can reduce lender risk and sometimes improve pricing, though the impact depends on your full loan profile."
+    },
+    {
+      question: "What's the difference between down payment and closing costs?",
+      answer: "The down payment reduces the purchase price financed by the lender, while closing costs are separate transaction expenses paid to complete the purchase."
+    }
+  ];
 
   // Categories for sidebar
   const categories = [
@@ -74,6 +100,7 @@ const DownPaymentCalculator = () => {
     { id: 'significance', title: 'Significance' },
     { id: 'functionality', title: 'Functionality' },
     { id: 'applications', title: 'Applications' },
+    { id: 'next-steps', title: 'Related Calculators and Next Steps' },
     { id: 'faqs', title: 'FAQs' }
   ];
 
@@ -216,6 +243,29 @@ const DownPaymentCalculator = () => {
               browserRequirements: 'Requires JavaScript and a modern browser',
               url: canonicalUrl,
               description: seoDescription
+            },
+            {
+              '@context': 'https://schema.org',
+              '@type': 'HowTo',
+              name: 'How to use the down payment calculator',
+              step: [
+                { '@type': 'HowToStep', text: 'Enter the home price and your target down payment percentage.' },
+                { '@type': 'HowToStep', text: 'Add the interest rate and loan term you want to test.' },
+                { '@type': 'HowToStep', text: 'Review the down payment amount, loan amount, and monthly payment.' },
+                { '@type': 'HowToStep', text: 'Use related home-buying calculators to compare affordability, DTI, and mortgage structure.' }
+              ]
+            },
+            {
+              '@context': 'https://schema.org',
+              '@type': 'FAQPage',
+              mainEntity: faqs.map((faq) => ({
+                '@type': 'Question',
+                name: faq.question,
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: faq.answer
+                }
+              }))
             }
           ]
         }} 
@@ -638,34 +688,23 @@ const DownPaymentCalculator = () => {
           </div>
         </ContentSection>
 
+        <ContentSection id="next-steps" title="Related Calculators and Next Steps">
+          <p>
+            Down payment planning is one part of the larger home financing decision. The amount you put down
+            affects loan size, affordability, cash reserves, and often the long-term interest bill.
+          </p>
+          <ul>
+            <li><a href="/finance/calculators/house-affordability-calculator">House Affordability Calculator</a> helps test whether the target home price fits your income and debt profile.</li>
+            <li><a href="/finance/calculators/mortgage-calculator">Mortgage Calculator</a> helps convert the financed balance into a fuller monthly housing payment estimate.</li>
+            <li><a href="/finance/calculators/amortization-calculator">Amortization Calculator</a> shows how the smaller or larger loan balance changes principal and interest over time.</li>
+            <li><a href="/finance/calculators/debt-income-calculator">Debt Income Calculator</a> helps you see whether the resulting payment fits comfortably inside lender and budget limits.</li>
+            <li><a href="/finance/calculators/budget-calculator">Budget Calculator</a> is useful when you want to balance saving for a down payment with other monthly priorities.</li>
+          </ul>
+        </ContentSection>
+
 
         <FAQSection 
-          faqs={[
-            {
-              question: "What's the minimum down payment required?",
-              answer: "The minimum down payment varies by loan type: Conventional loans typically require 5-20%, FHA loans allow 3.5%, VA loans require 0% for eligible veterans, and USDA loans require 0% for eligible rural properties. Higher down payments often result in better interest rates."
-            },
-            {
-              question: "Should I make a larger down payment?",
-              answer: "A larger down payment reduces your monthly payment, total interest paid, and may eliminate the need for private mortgage insurance (PMI). However, consider your overall financial situation, including emergency funds and other investment opportunities."
-            },
-            {
-              question: "What is private mortgage insurance (PMI)?",
-              answer: "PMI is insurance that protects the lender if you default on your loan. It's typically required when your down payment is less than 20% on conventional loans. PMI costs vary but usually range from 0.5% to 2% of the loan amount annually."
-            },
-            {
-              question: "Can I use gift money for my down payment?",
-              answer: "Yes, many loan programs allow gift funds for down payments. The gift must come from an acceptable source (usually family members), and you'll need to provide a gift letter and documentation showing the transfer of funds."
-            },
-            {
-              question: "How does my down payment affect my interest rate?",
-              answer: "A larger down payment generally results in a lower interest rate because it reduces the lender's risk. Lenders may offer better rates for down payments of 20% or more, and some offer additional discounts for even larger down payments."
-            },
-            {
-              question: "What's the difference between down payment and closing costs?",
-              answer: "The down payment is the initial payment toward the home's purchase price, while closing costs are fees paid to complete the transaction (typically 2-5% of the home price). You'll need to budget for both when planning your home purchase."
-            }
-          ]}
+          faqs={faqs}
           title="Frequently Asked Questions"
         />
       </ToolPageLayout>

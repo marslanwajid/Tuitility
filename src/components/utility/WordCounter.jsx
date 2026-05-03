@@ -264,6 +264,7 @@ const WordCounter = () => {
     { id: 'file-upload', title: 'File Upload' },
     { id: 'examples', title: 'Examples' },
     { id: 'applications', title: 'Applications' },
+    { id: 'next-steps', title: 'Related Tools and Next Steps' },
     { id: 'faqs', title: 'FAQs' }
   ]
 
@@ -635,6 +636,19 @@ const WordCounter = () => {
             <li>Review extracted document text before relying on final counts.</li>
             <li>Use character counts without spaces for strict field limits.</li>
             <li>Remember that different institutions may define count rules slightly differently.</li>
+          </ul>
+        </ContentSection>
+
+        <ContentSection id="next-steps" title="Related Tools and Next Steps">
+          <p>
+            Word count is often only one step in a larger writing or document workflow. Once text is
+            extracted or measured, the next task is usually cleanup, formatting, or content conversion.
+          </p>
+          <ul>
+            <li><a href="/utility-tools/converter-tools/text-case-converter">Text Case Converter</a> helps normalize headings, titles, and body text after drafting or extraction.</li>
+            <li><a href="/utility-tools/html-to-markdown-converter">HTML to Markdown Converter</a> is useful when the text needs to move into documentation, CMS, or publishing workflows.</li>
+            <li><a href="/utility-tools/ocr-pdf-generator">OCR PDF Generator</a> helps turn scanned documents into usable text before counting and editing.</li>
+            <li><a href="/utility-tools/morse-code-translator">Morse Code Translator</a> and <a href="/utility-tools/english-to-ipa-translator">English to IPA Translator</a> are helpful when your text work becomes more language- or symbol-focused.</li>
           </ul>
         </ContentSection>
 

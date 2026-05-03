@@ -122,6 +122,7 @@ const GoldWeightConverter = () => {
         { id: 'tips', title: 'Trading Tips' },
         { id: 'purity-vs-weight', title: 'Purity vs Weight' },
         { id: 'buying-checklist', title: 'Buying Checklist' },
+        { id: 'next-steps', title: 'Related Tools and Next Steps' },
         { id: 'faqs', title: 'FAQ' }
     ];
 
@@ -379,6 +380,20 @@ const GoldWeightConverter = () => {
                             <li><strong>Compare like for like:</strong> Convert all offers into one unit before checking price differences.</li>
                             <li><strong>Separate metal value from labor:</strong> Jewelry cost often includes making charges beyond the raw metal amount.</li>
                         </ul>
+                    </div>
+                </ContentSection>
+
+                <ContentSection id="next-steps" title="Related Tools and Next Steps">
+                    <div className="content-block">
+                        <p>Weight conversion is only one part of a buying or selling decision. Once you standardize the unit, the next step is usually pricing, tax comparison, or return analysis.</p>
+                        <ul>
+                            <li><strong>Use Currency Calculator</strong> when local gold prices need to be compared across markets or countries.</li>
+                            <li><strong>Use ROI Calculator</strong> to estimate profit after resale, holding gains, or margin differences.</li>
+                            <li><strong>Use Sales Tax Calculator</strong> if fees or tax treatment affect the true landed cost.</li>
+                            <li><strong>Use Percent to Fraction</strong> when purity, discount, or markup figures need to be compared in simpler numeric form.</li>
+                            <li><strong>Use RGB to Pantone</strong> if you also work in jewelry design, plating references, packaging, or product presentation.</li>
+                        </ul>
+                        <p>A practical workflow is: convert the weight, verify purity, compare the quoted unit price, then calculate taxes or expected return before committing to a transaction.</p>
                     </div>
                 </ContentSection>
 

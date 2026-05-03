@@ -113,8 +113,9 @@ const BudgetCalculator = () => {
     { id: 'budget-types', title: 'Budget Types & Strategies' },
     { id: 'significance', title: 'Significance' },
     { id: 'functionality', title: 'Functionality' },
-    { id: 'applications', title: 'Applications' },
-    { id: 'faqs', title: 'FAQs' }
+      { id: 'applications', title: 'Applications' },
+      { id: 'next-steps', title: 'Related Calculators and Next Steps' },
+      { id: 'faqs', title: 'FAQs' }
   ];
 
   const handleInputChange = (field, value) => {
@@ -928,6 +929,15 @@ const BudgetCalculator = () => {
             <li>Review savings as a planned category, not just what is left over.</li>
             <li>Update your budget when income or obligations change.</li>
           </ul>
+        </ContentSection>
+
+        <ContentSection id="next-steps" title="Related Calculators and Next Steps">
+          <p>
+            Budgeting becomes more powerful when it connects to debt, savings, and investment decisions. After building your spending plan here, continue with the <a href="/finance/calculators/debt-payoff-calculator">Debt Payoff Calculator</a> to reduce high-cost balances, or use the <a href="/finance/calculators/retirement-calculator">Retirement Calculator</a> and <a href="/finance/calculators/investment-calculator">Investment Calculator</a> to give extra cash a longer-term role.
+          </p>
+          <p>
+            If housing consumes a large part of your budget, link this page with the <a href="/finance/calculators/mortgage-calculator">Mortgage Calculator</a> and <a href="/finance/calculators/house-affordability-calculator">House Affordability Calculator</a>.
+          </p>
         </ContentSection>
 
 

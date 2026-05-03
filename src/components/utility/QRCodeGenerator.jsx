@@ -93,6 +93,7 @@ const QRCodeGenerator = () => {
     { id: 'design-options', title: 'Design Options' },
     { id: 'best-practices', title: 'Best Practices' },
     { id: 'applications', title: 'Applications' },
+    { id: 'next-steps', title: 'Related Tools and Next Steps' },
     { id: 'faqs', title: 'FAQs' }
   ];
 
@@ -292,6 +293,19 @@ const QRCodeGenerator = () => {
             support. A customizable generator is especially valuable when the code needs to work as part of a
             designed asset instead of just a plain black square.
           </p>
+        </ContentSection>
+
+        <ContentSection id="next-steps" title="Related Tools and Next Steps">
+          <p>
+            QR creation often leads directly into scanning, image optimization, and broader sharing workflows.
+            Linking those tasks saves time when a code needs to be tested, styled, or embedded elsewhere.
+          </p>
+          <ul>
+            <li><a href="/utility-tools/converter-tools/qr-code-scanner">QR Code Scanner</a> lets you verify that the final code scans correctly before you publish or print it.</li>
+            <li><a href="/utility-tools/image-tools/image-to-webp-converter">Image to WebP Converter</a> is useful when you want a lighter QR asset for web delivery.</li>
+            <li><a href="/utility-tools/converter-tools/rgb-to-hex-converter">RGB to HEX Converter</a> and <a href="/utility-tools/converter-tools/rgb-to-pantone-converter">RGB to Pantone Converter</a> help keep color choices consistent in brand-driven QR campaigns.</li>
+            <li><a href="/utility-tools/word-counter">Word Counter</a> can help trim long text payloads when a simple QR destination or shorter content string is more practical.</li>
+          </ul>
         </ContentSection>
 
         <FAQSection faqs={faqs} />

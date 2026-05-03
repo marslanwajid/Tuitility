@@ -111,8 +111,8 @@ const TikTokDownloader = () => {
         { name: "Audio Bitrate Converter", url: "/utility-tools/audio-bitrate-converter", icon: "fas fa-music" },
         { name: "Image to WebP", url: "/utility-tools/image-tools/image-to-webp-converter", icon: "fas fa-image" },
         { name: "QR Code Scanner", url: "/utility-tools/converter-tools/qr-code-scanner", icon: "fas fa-qrcode" },
-        { name: "Text Case Converter", url: "/converter-tools/text-case-converter", icon: "fas fa-font" },
-        { name: "Gen Z Translator", url: "/genz-translator", icon: "fas fa-language" }
+        { name: "Text Case Converter", url: "/utility-tools/converter-tools/text-case-converter", icon: "fas fa-font" },
+        { name: "Gen Z Translator", url: "/utility-tools/genz-translator", icon: "fas fa-language" }
     ];
 
     const tableOfContents = [
@@ -126,6 +126,7 @@ const TikTokDownloader = () => {
         { id: 'best-practices', title: 'Best Practices' },
         { id: 'responsible-use', title: 'Responsible Use' },
         { id: 'download-troubleshooting', title: 'Troubleshooting' },
+        { id: 'next-steps', title: 'Related Tools and Next Steps' },
         { id: 'faqs', title: 'FAQ' }
     ];
 
@@ -452,6 +453,20 @@ const TikTokDownloader = () => {
                             <li><strong>Check the video status:</strong> Private, removed, or region-limited videos may not return a valid result.</li>
                             <li><strong>Retry later:</strong> Temporary provider throttling can affect social download services.</li>
                         </ul>
+                    </div>
+                </ContentSection>
+
+                <ContentSection id="next-steps" title="Related Tools and Next Steps">
+                    <div className="content-block">
+                        <p>TikTok downloads often become part of a larger publishing or review workflow. Once the video is saved, the next step is usually cleanup, optimization, or related campaign prep.</p>
+                        <ul>
+                            <li><strong>Use Instagram Reels Downloader</strong> when you are comparing performance or creative direction across short-video platforms.</li>
+                            <li><strong>Use Audio Bitrate Converter</strong> if you need to optimize sound before editing or storing the file elsewhere.</li>
+                            <li><strong>Use Image to WebP</strong> to compress covers, extracted stills, or lightweight media previews.</li>
+                            <li><strong>Use Text Case Converter</strong> to clean up repurposed captions, hooks, or copied title text.</li>
+                            <li><strong>Use Gen Z Translator</strong> if you want to localize slang-heavy captions into clearer or more audience-specific wording.</li>
+                        </ul>
+                        <p>A practical sequence is: save the video, verify reuse rights, prepare thumbnails or captions, then adapt the asset for the platform or audience you care about next.</p>
                     </div>
                 </ContentSection>
 

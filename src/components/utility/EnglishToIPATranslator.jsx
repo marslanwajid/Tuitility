@@ -260,6 +260,7 @@ const EnglishToIPATranslator = () => {
     { id: 'accents', title: 'British vs American IPA' },
     { id: 'use-cases', title: 'Who Uses This Tool' },
     { id: 'limitations', title: 'Pronunciation Limits' },
+    { id: 'next-steps', title: 'Related Tools and Next Steps' },
     { id: 'faq', title: 'Frequently Asked Questions' }
   ];
 
@@ -483,6 +484,19 @@ const EnglishToIPATranslator = () => {
         <ContentSection id="limitations" title="Pronunciation Limits and Best Use">
           <p>This translator combines dictionary lookups with fallback rules, so it is very helpful for practice but it cannot fully replace a large pronunciation lexicon or native-speaker judgment. Proper nouns, rare words, regional pronunciations, and sentence-level connected speech can still produce imperfect results.</p>
           <p>For best results, use the output as a pronunciation guide, then compare it with trusted audio from dictionaries, teachers, or recordings when precision matters for performance, exams, or research.</p>
+        </ContentSection>
+
+        <ContentSection id="next-steps" title="Related Tools and Next Steps">
+          <p>
+            Pronunciation work often connects with writing, text cleanup, and symbolic practice. These tools
+            help when your next step is preparing study text, formatting examples, or moving language content into another workflow.
+          </p>
+          <ul>
+            <li><a href="/utility-tools/word-counter">Word Counter</a> helps size pronunciation exercises, scripts, and study passages.</li>
+            <li><a href="/utility-tools/converter-tools/text-case-converter">Text Case Converter</a> is useful when preparing consistent headings, examples, and lesson notes.</li>
+            <li><a href="/utility-tools/morse-code-translator">Morse Code Translator</a> is a good adjacent tool for users interested in other symbolic encoding systems.</li>
+            <li><a href="/utility-tools/html-to-markdown-converter">HTML to Markdown Converter</a> helps move teaching material into notes, documentation, or LMS-friendly formats.</li>
+          </ul>
         </ContentSection>
 
 

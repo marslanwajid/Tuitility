@@ -92,6 +92,7 @@ const AmortizationCalculator = () => {
     { id: 'significance', title: 'Significance' },
     { id: 'functionality', title: 'Functionality' },
     { id: 'applications', title: 'Applications' },
+    { id: 'next-steps', title: 'Related Calculators and Next Steps' },
     { id: 'faqs', title: 'FAQs' }
   ];
 
@@ -659,6 +660,20 @@ const AmortizationCalculator = () => {
             <li>Longer terms can look affordable monthly but cost much more overall.</li>
             <li>Extra principal payments matter more when made earlier in the loan.</li>
             <li>Use the schedule to compare true cost, not just payment comfort.</li>
+          </ul>
+        </ContentSection>
+
+        <ContentSection id="next-steps" title="Related Calculators and Next Steps">
+          <p>
+            Amortization becomes most useful when you use it as part of a broader borrowing workflow instead of
+            looking at the payment table in isolation.
+          </p>
+          <ul>
+            <li><a href="/finance/calculators/mortgage-calculator">Mortgage Calculator</a> helps estimate a fuller housing payment with taxes, insurance, and other real ownership costs.</li>
+            <li><a href="/finance/calculators/loan-calculator">Loan Calculator</a> is useful when you want a faster monthly payment estimate before reviewing the full schedule.</li>
+            <li><a href="/finance/calculators/down-payment-calculator">Down Payment Calculator</a> helps reduce the financed amount before the amortization schedule is even created.</li>
+            <li><a href="/finance/calculators/debt-income-calculator">Debt Income Calculator</a> shows whether the monthly obligation fits within lender-friendly and personally safe ranges.</li>
+            <li><a href="/finance/calculators/house-affordability-calculator">House Affordability Calculator</a> helps determine if the property target itself is realistic before loan structuring.</li>
           </ul>
         </ContentSection>
 

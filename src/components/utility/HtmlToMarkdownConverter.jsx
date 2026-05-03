@@ -233,6 +233,7 @@ const HtmlToMarkdownConverter = () => {
     { id: 'how-to-use', title: 'How to Use' },
     { id: 'markdown-basics', title: 'Markdown Syntax Basics' },
     { id: 'use-cases', title: 'Common Use Cases' },
+    { id: 'next-steps', title: 'Related Tools and Next Steps' },
     { id: 'faq', title: 'Frequently Asked Questions' }
   ];
 
@@ -432,6 +433,19 @@ const HtmlToMarkdownConverter = () => {
             <li>Presentation styles are usually removed in favor of semantic content.</li>
             <li>Always review converted output before publishing or committing migrations.</li>
             <li>Use Markdown when you want clean authoring, not pixel-perfect HTML preservation.</li>
+          </ul>
+        </ContentSection>
+
+        <ContentSection id="next-steps" title="Related Tools and Next Steps">
+          <p>
+            Content conversion rarely stops at one format change. After moving between HTML and Markdown,
+            teams often need text cleanup, length checks, or adjacent publishing utilities.
+          </p>
+          <ul className="list-disc pl-6 space-y-2">
+            <li><a href="/utility-tools/converter-tools/text-case-converter">Text Case Converter</a> helps clean capitalization after large content migrations.</li>
+            <li><a href="/utility-tools/word-counter">Word Counter</a> is useful when comparing content length before and after conversion.</li>
+            <li><a href="/utility-tools/ocr-pdf-generator">OCR PDF Generator</a> can extract source text from scanned material before it is converted into Markdown.</li>
+            <li><a href="/utility-tools/english-to-ipa-translator">English to IPA Translator</a> and other language tools can help when the converted content also needs pronunciation or language-support work.</li>
           </ul>
         </ContentSection>
 

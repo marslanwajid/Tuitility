@@ -36,6 +36,32 @@ const HouseAffordabilityCalculator = () => {
   const seoDescription = toolData.description;
   const seoKeywords = `${toolData.name.toLowerCase()}, ${toolData.category.toLowerCase()} calculator, home buying, mortgage affordability, real estate`;
   const canonicalUrl = `https://tuitility.vercel.app/finance/calculators/house-affordability-calculator`;
+  const faqs = [
+    {
+      question: "What is a good debt-to-income ratio for buying a house?",
+      answer: "Most lenders prefer a DTI ratio of 43% or less. This means your total monthly debt payments, including the new mortgage, should not exceed 43% of your gross monthly income."
+    },
+    {
+      question: "Should I include utilities in my affordability calculation?",
+      answer: "Utilities are not usually part of lender affordability formulas, but they still matter for your real monthly budget. Use them when deciding on a comfortable purchase range."
+    },
+    {
+      question: "How much should I save for a down payment?",
+      answer: "Many buyers target 10% to 20%, but some loan programs allow less. A larger down payment usually reduces monthly cost and improves overall loan terms."
+    },
+    {
+      question: "What if my income changes after buying a house?",
+      answer: "That is why conservative planning matters. If your income is variable, it is often safer to use a lower affordability target than the maximum the calculator shows."
+    },
+    {
+      question: "How do property taxes affect affordability?",
+      answer: "Property taxes directly raise monthly housing cost. Higher tax areas reduce the amount of mortgage principal you can comfortably support."
+    },
+    {
+      question: "What other costs should I consider beyond the mortgage?",
+      answer: "You should also budget for insurance, HOA fees, maintenance, repairs, utilities, and an emergency reserve for unexpected housing expenses."
+    }
+  ];
 
   // Categories for sidebar
   const categories = [
@@ -66,6 +92,7 @@ const HouseAffordabilityCalculator = () => {
     { id: 'significance', title: 'Significance' },
     { id: 'functionality', title: 'Functionality' },
     { id: 'applications', title: 'Applications' },
+    { id: 'next-steps', title: 'Related Calculators and Next Steps' },
     { id: 'faqs', title: 'FAQs' }
   ];
 
@@ -297,6 +324,29 @@ const HouseAffordabilityCalculator = () => {
               browserRequirements: 'Requires JavaScript and a modern browser',
               url: canonicalUrl,
               description: seoDescription
+            },
+            {
+              '@context': 'https://schema.org',
+              '@type': 'HowTo',
+              name: 'How to use the house affordability calculator',
+              step: [
+                { '@type': 'HowToStep', text: 'Enter your annual income, interest rate, and loan term.' },
+                { '@type': 'HowToStep', text: 'Add monthly debt, down payment, property tax, insurance, and HOA fees.' },
+                { '@type': 'HowToStep', text: 'Review the maximum home price, loan amount, and payment breakdown.' },
+                { '@type': 'HowToStep', text: 'Use related calculators to refine mortgage, down payment, and debt planning.' }
+              ]
+            },
+            {
+              '@context': 'https://schema.org',
+              '@type': 'FAQPage',
+              mainEntity: faqs.map((faq) => ({
+                '@type': 'Question',
+                name: faq.question,
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: faq.answer
+                }
+              }))
             }
           ]
         }} 
@@ -796,34 +846,23 @@ const HouseAffordabilityCalculator = () => {
           </div>
         </ContentSection>
 
+        <ContentSection id="next-steps" title="Related Calculators and Next Steps">
+          <p>
+            House affordability is usually the start of a larger home-buying workflow. Once you know a realistic
+            price range, the next step is to turn that estimate into a more detailed financing plan.
+          </p>
+          <ul>
+            <li><a href="/finance/calculators/mortgage-calculator">Mortgage Calculator</a> helps translate your target price into principal, interest, taxes, and insurance scenarios.</li>
+            <li><a href="/finance/calculators/down-payment-calculator">Down Payment Calculator</a> shows how different down payment percentages change loan size and monthly cost.</li>
+            <li><a href="/finance/calculators/debt-income-calculator">Debt Income Calculator</a> helps confirm whether your existing obligations leave enough room for a safe housing payment.</li>
+            <li><a href="/finance/calculators/amortization-calculator">Amortization Calculator</a> breaks the future loan into month-by-month principal and interest so you can compare terms.</li>
+            <li><a href="/finance/calculators/budget-calculator">Budget Calculator</a> is useful once you want to fit housing into a broader monthly spending plan.</li>
+          </ul>
+        </ContentSection>
+
 
         <FAQSection 
-          faqs={[
-            {
-              question: "What is a good debt-to-income ratio for buying a house?",
-              answer: "Most lenders prefer a DTI ratio of 43% or less. This means your total monthly debt payments (including the new mortgage) should not exceed 43% of your gross monthly income. Some lenders may approve up to 50%, but lower is better for financial stability."
-            },
-            {
-              question: "Should I include utilities in my affordability calculation?",
-              answer: "While utilities aren't typically included in mortgage affordability calculations, you should budget for them separately. Our calculator focuses on housing costs that lenders consider, but you'll need additional income for utilities, maintenance, and other living expenses."
-            },
-            {
-              question: "How much should I save for a down payment?",
-              answer: "Traditional wisdom suggests 20% down to avoid PMI, but many first-time buyers use 3-10% down payment programs. The more you put down, the lower your monthly payment and the more house you can afford. Aim for at least 10% if possible."
-            },
-            {
-              question: "What if my income changes after buying a house?",
-              answer: "Consider your job stability and potential income growth when calculating affordability. If your income is variable or you're in a field with uncertain prospects, be more conservative in your estimates. It's better to buy less house than you can afford than to risk financial stress."
-            },
-            {
-              question: "How do property taxes affect affordability?",
-              answer: "Property taxes can significantly impact your monthly housing costs. Higher property tax rates reduce the amount you can afford to borrow. Research property tax rates in your target areas, as they can vary widely between cities and neighborhoods."
-            },
-            {
-              question: "What other costs should I consider beyond the mortgage?",
-              answer: "Beyond the mortgage, budget for property taxes, homeowners insurance, HOA fees, maintenance (1-3% of home value annually), utilities, and emergency repairs. These costs can add 25-40% to your monthly housing expenses, so factor them into your affordability calculation."
-            }
-          ]}
+          faqs={faqs}
           title="Frequently Asked Questions"
         />
       </ToolPageLayout>

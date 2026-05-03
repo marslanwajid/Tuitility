@@ -170,6 +170,7 @@ const DebtIncomeCalculator = () => {
     { id: 'significance', title: 'Significance' },
     { id: 'functionality', title: 'Functionality' },
     { id: 'applications', title: 'Applications' },
+    { id: 'next-steps', title: 'Related Calculators and Next Steps' },
     { id: 'faqs', title: 'FAQs' }
   ];
 
@@ -1137,6 +1138,20 @@ const DebtIncomeCalculator = () => {
               <p>Determine how much you can save based on your DTI</p>
             </div>
           </div>
+        </ContentSection>
+
+        <ContentSection id="next-steps" title="Related Calculators and Next Steps">
+          <p>
+            A DTI ratio is rarely the end of the decision. It usually points to the next financial question you
+            need to answer, whether that is qualifying for a mortgage, reducing debt pressure, or rebuilding room in your budget.
+          </p>
+          <ul>
+            <li><a href="/finance/calculators/house-affordability-calculator">House Affordability Calculator</a> helps convert your DTI capacity into a realistic home price range.</li>
+            <li><a href="/finance/calculators/mortgage-calculator">Mortgage Calculator</a> is useful once you want to estimate a payment that can fit within your ratio target.</li>
+            <li><a href="/finance/calculators/debt-payoff-calculator">Debt Payoff Calculator</a> helps reduce recurring obligations so your DTI improves over time.</li>
+            <li><a href="/finance/calculators/budget-calculator">Budget Calculator</a> helps identify where monthly cash flow can be tightened or reallocated.</li>
+            <li><a href="/finance/calculators/down-payment-calculator">Down Payment Calculator</a> can reduce financed amount and lower monthly mortgage pressure for homebuyers.</li>
+          </ul>
         </ContentSection>
 
 

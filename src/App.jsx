@@ -7,6 +7,11 @@ import Footer from './components/Footer'
 import ScrollToTop from './components/ScrollToTop'
 import SeoManager from './components/SeoManager'
 import StaticPage from './components/StaticPage'
+import AboutPage from './components/AboutPage'
+import CookieBanner from './components/CookieBanner'
+import ContactPage from './components/ContactPage'
+import PrivacyPolicyPage from './components/PrivacyPolicyPage'
+import TermsPage from './components/TermsPage'
 
 // Lazily import pages
 const MathCalculator = lazy(() => import('./pages/math/MathCalculator'))
@@ -130,81 +135,100 @@ const App = () => {
       <Suspense fallback={<div>Loading...</div>}>
         <Routes>
             <Route path="/" element={<Home />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+          <Route path="/terms-and-conditions" element={<TermsPage />} />
           <Route
-            path="/about"
-            element={
-              <StaticPage
-                title="About Tuitility"
-                description="Tuitility brings practical calculators, converters, PDF utilities, and smart online tools together in one fast, searchable platform."
-                canonicalPath="/about"
-              >
-                <h2>What We Build</h2>
-                <p>
-                  Tuitility is designed to make everyday calculations and digital tasks simpler. We
-                  focus on free tools that are fast to open, easy to understand, and useful on both
-                  desktop and mobile.
-                </p>
-                <h2>Our Focus</h2>
-                <p>
-                  We organize tools across math, finance, science, health, knowledge, and utility
-                  workflows so users can find the right calculator without jumping between multiple
-                  websites.
-                </p>
-              </StaticPage>
-            }
-          />
-          <Route
-            path="/contact"
-            element={
-              <StaticPage
-                title="Contact Tuitility"
-                description="Reach out to Tuitility for support, correction requests, tool ideas, SEO suggestions, and partnership discussions."
-                canonicalPath="/contact"
-              >
-                <h2>Support and Feedback</h2>
-                <p>
-                  Questions, bug reports, correction requests, and feature ideas are always welcome.
-                  The fastest way to reach us is by email at
-                  {' '}
-                  <a href="mailto:wajidmarslan@gmail.com">wajidmarslan@gmail.com</a>.
-                </p>
-                <h2>Partnerships</h2>
-                <p>
-                  If you want to collaborate on tool growth, content, or product improvements, send
-                  a short overview and we will review it.
-                </p>
-              </StaticPage>
-            }
-          />
-          <Route
-            path="/privacy-policy"
+            path="/privacy-policy-legacy"
             element={
               <StaticPage
                 title="Privacy Policy"
-                description="Review how Tuitility handles privacy, in-browser processing, and limited data collection across our online calculator platform."
+                description="Review how Tuitility handles privacy, cookies, consent, browser-based processing, and future advertising systems including Google AdSense."
                 canonicalPath="/privacy-policy"
               >
-                <h2>Browser-First Tools</h2>
+                <h2>Overview</h2>
                 <p>
-                  Many Tuitility tools process data directly in your browser. That means uploaded
-                  files and calculator inputs often stay on your device unless a specific feature
-                  clearly requires an external API.
+                  Tuitility values privacy and aims to minimize unnecessary data collection. Many of
+                  our calculators and utility tools process information directly in your browser, which
+                  means your inputs and uploaded files often stay on your device unless a specific
+                  feature clearly relies on an external API or server-side service.
+                </p>
+                <h2>Cookies and Consent</h2>
+                <p>
+                  We may use cookies or similar technologies for essential site functions, performance
+                  measurement, user preferences, and future advertising support. A consent banner is
+                  shown so visitors can choose whether to allow only essential cookies or accept
+                  optional categories when available.
+                </p>
+                <h2>Google AdSense and Advertising</h2>
+                <p>
+                  We may apply for and use Google AdSense in the future. If advertising is enabled,
+                  AdSense may use cookies to serve relevant ads, measure ad performance, and limit
+                  repetitive ad delivery. Users should review Google’s own advertising and privacy
+                  policies for more information about how Google may process advertising-related data.
                 </p>
                 <h2>Third-Party Services</h2>
                 <p>
-                  Some features may call trusted external APIs for exchange rates or AI-assisted
-                  transformations. When they do, only the data needed for that feature is sent.
+                  Some features may call external services such as exchange-rate APIs or AI tools.
+                  When that happens, only the data required for that feature should be sent. We aim to
+                  use reputable providers and avoid unnecessary sharing of personal information.
+                </p>
+                <h2>Files and User Inputs</h2>
+                <p>
+                  Several tools, especially PDF, text, and image utilities, are designed to process
+                  content locally in your browser. However, users should avoid uploading confidential
+                  legal, financial, medical, or personal documents unless they understand the specific
+                  tool flow and are comfortable with the risk.
                 </p>
                 <h2>Contact</h2>
                 <p>
-                  If you have privacy questions, email
-                  {' '}
+                  For privacy questions or removal requests, email{' '}
                   <a href="mailto:wajidmarslan@gmail.com">wajidmarslan@gmail.com</a>.
                 </p>
               </StaticPage>
             }
           />
-          {/* Add more routes here as needed */}
+          <Route
+            path="/terms-and-conditions-legacy"
+            element={
+              <StaticPage
+                title="Terms and Conditions"
+                description="Read the Tuitility terms and conditions covering acceptable use, informational limitations, user responsibility, and service policies."
+                canonicalPath="/terms-and-conditions"
+              >
+                <h2>Acceptance of Terms</h2>
+                <p>
+                  By using Tuitility, you agree to use the site lawfully and responsibly. These tools
+                  are provided for general informational and productivity purposes and may not be
+                  suitable as a substitute for professional advice.
+                </p>
+                <h2>Tool Accuracy and User Responsibility</h2>
+                <p>
+                  We work to keep calculators and utility tools accurate and useful, but results may
+                  still depend on the assumptions, formulas, data sources, and inputs provided by the
+                  user. You are responsible for checking important results before relying on them for
+                  financial, legal, medical, academic, or business decisions.
+                </p>
+                <h2>Acceptable Use</h2>
+                <p>
+                  You agree not to misuse the site, interfere with site operation, attempt to exploit
+                  vulnerabilities, or use the tools for illegal, abusive, or fraudulent purposes.
+                </p>
+                <h2>Third-Party Services and Ads</h2>
+                <p>
+                  Some tools may rely on third-party APIs or services. Future advertising may also be
+                  displayed through providers such as Google AdSense. We are not responsible for the
+                  independent policies or content of third-party services.
+                </p>
+                <h2>Contact</h2>
+                <p>
+                  Questions about these terms can be sent to{' '}
+                  <a href="mailto:wajidmarslan@gmail.com">wajidmarslan@gmail.com</a>.
+                </p>
+              </StaticPage>
+            }
+          />
           <Route path="/math" element={<MathCalculator />} />
           <Route path="/math/calculators/binary-calculator" element={<BinaryCalculatorTool />} />
           <Route path="/math/calculators/comparing-decimals-calculator" element={<ComparingDecimalsCalculator />} />
@@ -323,6 +347,7 @@ const App = () => {
           />
         </Routes>
       </Suspense>
+      <CookieBanner />
       <Footer />
     </>
   )

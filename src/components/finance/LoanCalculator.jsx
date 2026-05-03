@@ -93,8 +93,9 @@ const LoanCalculator = () => {
     { id: 'examples', title: 'Examples' },
     { id: 'significance', title: 'Significance' },
     { id: 'functionality', title: 'Functionality' },
-    { id: 'applications', title: 'Applications' },
-    { id: 'faqs', title: 'FAQs' }
+      { id: 'applications', title: 'Applications' },
+      { id: 'next-steps', title: 'Related Calculators and Next Steps' },
+      { id: 'faqs', title: 'FAQs' }
   ];
 
   // Initialize calculator
@@ -635,6 +636,15 @@ const LoanCalculator = () => {
             <li>Check how a down payment changes the effective borrowing cost.</li>
             <li>Use affordability rules together with your actual budget and debt load.</li>
           </ul>
+        </ContentSection>
+
+        <ContentSection id="next-steps" title="Related Calculators and Next Steps">
+          <p>
+            A basic payment estimate is usually only the beginning. If you want to see how every installment changes principal and interest, continue with the <a href="/finance/calculators/amortization-calculator">Amortization Calculator</a>. If the loan is one piece of a wider borrowing picture, add the <a href="/finance/calculators/debt-income-calculator">Debt Income Calculator</a> and the <a href="/finance/calculators/debt-payoff-calculator">Debt Payoff Calculator</a>.
+          </p>
+          <p>
+            For home loans specifically, the next connected pages are the <a href="/finance/calculators/mortgage-calculator">Mortgage Calculator</a> and <a href="/finance/calculators/house-affordability-calculator">House Affordability Calculator</a>.
+          </p>
         </ContentSection>
 
 

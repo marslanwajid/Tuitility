@@ -260,7 +260,8 @@ const PasswordGenerator = () => {
     { id: 'passgen-functionality', title: 'Functionality' },
     { id: 'passgen-applications', title: 'Applications' },
     { id: 'passgen-policy-guide', title: 'Password Policy Guide' },
-    { id: 'passgen-mistakes', title: 'Common Password Mistakes' }
+    { id: 'passgen-mistakes', title: 'Common Password Mistakes' },
+    { id: 'passgen-next-steps', title: 'Related Tools and Next Steps' }
   ];
 
   return (
@@ -542,6 +543,19 @@ const PasswordGenerator = () => {
               <li><strong>Predictable substitutions:</strong> Replacing <code>a</code> with <code>@</code> or <code>o</code> with <code>0</code> does not make a short password truly strong.</li>
               <li><strong>Choosing short lengths:</strong> Eight characters may satisfy a minimum rule, but longer passwords are far more resilient.</li>
               <li><strong>Saving passwords in plain text:</strong> Generated credentials should be stored in a trusted password manager, not notes or screenshots.</li>
+            </ul>
+          </ContentSection>
+
+          <ContentSection id="passgen-next-steps" title="Related Tools and Next Steps">
+            <p>
+              Strong password generation is most useful when it sits inside a broader security and
+              productivity workflow instead of being treated as a one-time copy-and-paste step.
+            </p>
+            <ul>
+              <li><a href="/utility-tools/word-counter">Word Counter</a> can help if you want to compare password length or evaluate passphrase-style text inputs.</li>
+              <li><a href="/utility-tools/qr-code-generator">QR Code Generator</a> is useful when you need to share setup links, account onboarding URLs, or secure access instructions in scannable form.</li>
+              <li><a href="/utility-tools/converter-tools/text-case-converter">Text Case Converter</a> can help clean copied account notes or documentation labels around credential workflows.</li>
+              <li><a href="/about">About</a>, <a href="/privacy-policy">Privacy Policy</a>, and <a href="/terms-and-conditions">Terms &amp; Conditions</a> provide the broader trust context for how the site is operated.</li>
             </ul>
           </ContentSection>
 

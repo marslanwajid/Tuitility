@@ -191,6 +191,7 @@ const MorseCodeTranslator = () => {
     { id: 'learning-tips', title: 'Tips for Learning' },
     { id: 'timing-reference', title: 'Timing Reference' },
     { id: 'practice-workflow', title: 'Practice Workflow' },
+    { id: 'next-steps', title: 'Related Tools and Next Steps' },
     { id: 'faq', title: 'Frequently Asked Questions' }
   ];
 
@@ -526,6 +527,19 @@ const MorseCodeTranslator = () => {
             <li><strong>Hide the answer:</strong> Play the signal and try to decode before looking back at the text.</li>
             <li><strong>Raise speed gradually:</strong> Increase WPM once recognition feels automatic rather than stressful.</li>
             <li><strong>Mix directions:</strong> Practice both sending and receiving to reinforce memory.</li>
+          </ul>
+        </ContentSection>
+
+        <ContentSection id="next-steps" title="Related Tools and Next Steps">
+          <p>
+            Morse practice usually overlaps with other text, symbol, and communication tools. If you are
+            studying signals, testing encoded text, or preparing learning material, these related pages are useful next steps.
+          </p>
+          <ul>
+            <li><a href="/utility-tools/word-counter">Word Counter</a> helps measure training text length and compare practice passages.</li>
+            <li><a href="/utility-tools/converter-tools/text-case-converter">Text Case Converter</a> can normalize source text before encoding or classroom use.</li>
+            <li><a href="/utility-tools/english-to-ipa-translator">English to IPA Translator</a> is a good companion when you are also studying pronunciation systems and symbolic language notation.</li>
+            <li><a href="/utility-tools/qr-code-generator">QR Code Generator</a> can package Morse-learning resources, lesson pages, or reference sheets into scannable links.</li>
           </ul>
         </ContentSection>
 

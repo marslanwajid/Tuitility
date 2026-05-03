@@ -179,6 +179,7 @@ const TextCaseConverter = () => {
         { id: 'case-types', title: 'Case Types' },
         { id: 'features', title: 'Features' },
         { id: 'applications', title: 'Applications' },
+        { id: 'next-steps', title: 'Related Tools and Next Steps' },
         { id: 'faqs', title: 'FAQs' }
     ]
 
@@ -461,6 +462,19 @@ const TextCaseConverter = () => {
                             <p>Create eye-catching posts with stylized text formatting.</p>
                         </div>
                     </div>
+                </ContentSection>
+
+                <ContentSection id="next-steps" title="Related Tools and Next Steps">
+                    <p>
+                        Text cleanup often happens before or after another content tool, not in isolation. Once capitalization is corrected,
+                        users usually move into counting, exporting, converting, or publishing workflows.
+                    </p>
+                    <ul>
+                        <li><a href="/utility-tools/word-counter">Word Counter</a> helps measure the cleaned text and compare draft versions.</li>
+                        <li><a href="/utility-tools/html-to-markdown-converter">HTML to Markdown Converter</a> is useful when formatted content needs to move into a documentation workflow.</li>
+                        <li><a href="/utility-tools/ocr-pdf-generator">OCR PDF Generator</a> can supply extracted text that often needs capitalization cleanup afterward.</li>
+                        <li><a href="/utility-tools/english-to-ipa-translator">English to IPA Translator</a> can help when cleaned text also needs pronunciation support or teaching use.</li>
+                    </ul>
                 </ContentSection>
 
 

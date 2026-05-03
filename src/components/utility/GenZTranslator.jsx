@@ -112,6 +112,7 @@ const GenZTranslator = () => {
     { id: 'why-use', title: 'Why Use This Tool?' },
     { id: 'tone-context', title: 'Tone and Context' },
     { id: 'translation-limits', title: 'Translation Limits' },
+    { id: 'next-steps', title: 'Related Tools and Next Steps' },
     { id: 'faq', title: 'Frequently Asked Questions' }
   ];
 
@@ -361,6 +362,16 @@ const GenZTranslator = () => {
           <p>Use the result as a smart draft for tone conversion, meaning clarification, or audience understanding rather than assuming every phrase has one fixed translation.</p>
         </ContentSection>
 
+        <ContentSection id="next-steps" title="Related Tools and Next Steps">
+          <p>If you are polishing social copy, online captions, or tone-sensitive messages, it helps to pair translation with cleanup tools that handle clarity, pronunciation, and formatting.</p>
+          <ul>
+            <li><strong>Use Word Counter</strong> to tighten captions, bios, and short-form content after translation.</li>
+            <li><strong>Use Text Case Converter</strong> when you want to normalize messy copied text before posting or sharing it.</li>
+            <li><strong>Use English to IPA</strong> if you also need pronunciation support for spoken scripts, skits, or creator content.</li>
+            <li><strong>Use Morse Code Translator or HTML to Markdown</strong> when you are moving between niche internet formats and standard readable text.</li>
+          </ul>
+          <p>For the best result, translate first, then review tone, then clean the final draft using one of the related utility tools above.</p>
+        </ContentSection>
 
         <FAQSection faqs={faqData} />
 

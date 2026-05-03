@@ -48,9 +48,38 @@ const PdfMerger = () => {
     ];
 
     const relatedTools = [
+        { name: 'PDF Splitter', url: '/utility-tools/converter-tools/split-pdf', icon: 'fas fa-cut' },
+        { name: 'PDF Organizer', url: '/utility-tools/converter-tools/organize-pdf', icon: 'fas fa-sort' },
         { name: 'PDF to Image', url: '/utility-tools/converter-tools/pdf-to-image-converter', icon: 'fas fa-file-image' },
         { name: 'OCR PDF Generator', url: '/utility-tools/ocr-pdf-generator', icon: 'fas fa-file-pdf' },
-        { name: 'QR Code Generator', url: '/utility-tools/qr-code-generator', icon: 'fas fa-qrcode' }
+        { name: 'Delete PDF Pages', url: '/utility-tools/converter-tools/delete-pdf-pages', icon: 'fas fa-trash-alt' }
+    ];
+
+    const faqs = [
+        {
+            question: "What is a PDF merger?",
+            answer: "A PDF merger is a tool that combines multiple PDF files into a single document while preserving the original formatting, quality, and content of each file."
+        },
+        {
+            question: "How many PDF files can I merge at once?",
+            answer: "You can merge multiple PDF files simultaneously. We recommend keeping the total combined size under 100MB for optimal processing speed and performance."
+        },
+        {
+            question: "Will the merged PDF maintain the original quality?",
+            answer: "Yes, our merger preserves the original quality of all documents, including images, fonts, formatting, and layout elements."
+        },
+        {
+            question: "Can I change the order of files before merging?",
+            answer: "Absolutely! Use our drag-and-drop interface to reorder files in any sequence you prefer before starting the merge process."
+        },
+        {
+            question: "What happens to bookmarks when merging PDFs?",
+            answer: "You can choose to preserve bookmarks from the original files. Our tool will organize them hierarchically in the merged document."
+        },
+        {
+            question: "Is there a file size limit for individual PDFs?",
+            answer: "Individual PDF files should be under 25MB each to ensure smooth processing. The total combined size should not exceed 100MB."
+        }
     ];
 
     const tableOfContents = [
@@ -62,6 +91,7 @@ const PdfMerger = () => {
         { id: 'significance', title: 'Significance' },
         { id: 'advanced', title: 'Advanced Functionality' },
         { id: 'applications', title: 'Applications' },
+        { id: 'next-steps', title: 'Related Tools and Next Steps' },
         { id: 'faqs', title: 'FAQs' }
     ];
 
@@ -320,7 +350,53 @@ const PdfMerger = () => {
                             operatingSystem: 'Any',
                             browserRequirements: 'Requires JavaScript and a modern browser',
                             url: seoData.canonicalUrl,
-                            description: seoData.description
+                            description: seoData.description,
+                            featureList: [
+                                'Merge multiple PDF files in one workflow',
+                                'Reorder files before combining them',
+                                'Add page numbers to merged PDFs',
+                                'Browser-based PDF processing'
+                            ]
+                        },
+                        {
+                            '@context': 'https://schema.org',
+                            '@type': 'HowTo',
+                            name: 'How to merge PDF files online',
+                            description: 'Combine multiple PDF documents into one file using the Tuitility PDF Merger.',
+                            step: [
+                                {
+                                    '@type': 'HowToStep',
+                                    name: 'Upload PDF files',
+                                    text: 'Add two or more PDF files to the merger workspace.'
+                                },
+                                {
+                                    '@type': 'HowToStep',
+                                    name: 'Arrange the file order',
+                                    text: 'Drag and drop files until they match the order you want in the final PDF.'
+                                },
+                                {
+                                    '@type': 'HowToStep',
+                                    name: 'Choose merge options',
+                                    text: 'Set the output file name and optional settings such as page numbering.'
+                                },
+                                {
+                                    '@type': 'HowToStep',
+                                    name: 'Merge and download',
+                                    text: 'Run the merge process and download the combined PDF document.'
+                                }
+                            ]
+                        },
+                        {
+                            '@context': 'https://schema.org',
+                            '@type': 'FAQPage',
+                            mainEntity: faqs.map((faq) => ({
+                                '@type': 'Question',
+                                name: faq.question,
+                                acceptedAnswer: {
+                                    '@type': 'Answer',
+                                    text: faq.answer
+                                }
+                            }))
                         }
                     ]
                 }}
@@ -698,33 +774,45 @@ const PdfMerger = () => {
                         </p>
                     </ContentSection>
 
+                    <ContentSection id="next-steps" title="Related Tools and Next Steps">
+                        <p>
+                            PDF merging usually sits in the middle of a document workflow rather than at the very end. After combining
+                            documents, many users still need to split sections back out, reorganize page order, remove unnecessary pages,
+                            or convert the final file into images for publishing and sharing.
+                        </p>
+                        <div className="applications-grid">
+                            <div className="application-item">
+                                <h3><i className="fas fa-cut"></i> Split Combined Files</h3>
+                                <p>
+                                    Use the <a href="/utility-tools/converter-tools/split-pdf">PDF Splitter</a> when you need to extract
+                                    just one section, chapter, or appendix from a larger merged document.
+                                </p>
+                            </div>
+                            <div className="application-item">
+                                <h3><i className="fas fa-sort"></i> Reorder Pages</h3>
+                                <p>
+                                    Open <a href="/utility-tools/converter-tools/organize-pdf">PDF Organizer</a> if your merged file needs
+                                    page cleanup, section rearrangement, or a more polished reading order.
+                                </p>
+                            </div>
+                            <div className="application-item">
+                                <h3><i className="fas fa-trash-alt"></i> Remove Extra Pages</h3>
+                                <p>
+                                    Use <a href="/utility-tools/converter-tools/delete-pdf-pages">Delete PDF Pages</a> to remove blank pages,
+                                    duplicate scans, or trailing paperwork before sharing the final document.
+                                </p>
+                            </div>
+                            <div className="application-item">
+                                <h3><i className="fas fa-file-image"></i> Export Visual Pages</h3>
+                                <p>
+                                    Convert the finished file with <a href="/utility-tools/converter-tools/pdf-to-image-converter">PDF to Image Converter</a>
+                                    when you need slides, previews, or image-based assets for websites and presentations.
+                                </p>
+                            </div>
+                        </div>
+                    </ContentSection>
 
-                    <FAQSection faqs={[
-                        {
-                            question: "What is a PDF merger?",
-                            answer: "A PDF merger is a tool that combines multiple PDF files into a single document while preserving the original formatting, quality, and content of each file."
-                        },
-                        {
-                            question: "How many PDF files can I merge at once?",
-                            answer: "You can merge multiple PDF files simultaneously. We recommend keeping the total combined size under 100MB for optimal processing speed and performance."
-                        },
-                        {
-                            question: "Will the merged PDF maintain the original quality?",
-                            answer: "Yes, our merger preserves the original quality of all documents, including images, fonts, formatting, and layout elements."
-                        },
-                        {
-                            question: "Can I change the order of files before merging?",
-                            answer: "Absolutely! Use our drag-and-drop interface to reorder files in any sequence you prefer before starting the merge process."
-                        },
-                        {
-                            question: "What happens to bookmarks when merging PDFs?",
-                            answer: "You can choose to preserve bookmarks from the original files. Our tool will organize them hierarchically in the merged document."
-                        },
-                        {
-                            question: "Is there a file size limit for individual PDFs?",
-                            answer: "Individual PDF files should be under 25MB each to ensure smooth processing. The total combined size should not exceed 100MB."
-                        }
-                    ]} />
+                    <FAQSection faqs={faqs} />
                 </div>
             </ToolPageLayout>
     );

@@ -251,8 +251,8 @@ const QRCodeScanner = () => {
         { name: "Image to WebP", url: "/utility-tools/image-tools/image-to-webp-converter", icon: "fas fa-image" },
         { name: "TikTok Downloader", url: "/utility-tools/converter-tools/tiktok-downloader", icon: "fab fa-tiktok" },
         { name: "Instagram Reels Downloader", url: "/utility-tools/converter-tools/reels-downloader", icon: "fab fa-instagram" },
-        { name: "Password Generator", url: "/password-generator", icon: "fas fa-key" },
-        { name: "Text to Speech", url: "/converter-tools/text-to-speech-converter", icon: "fas fa-volume-up" }
+        { name: "Password Generator", url: "/utility-tools/password-generator", icon: "fas fa-key" },
+        { name: "Word Counter", url: "/utility-tools/word-counter", icon: "fas fa-font" }
     ];
 
     const tableOfContents = [
@@ -266,6 +266,7 @@ const QRCodeScanner = () => {
         { id: 'best-practices', title: 'Best Practices' },
         { id: 'result-types', title: 'QR Result Types' },
         { id: 'troubleshooting', title: 'Troubleshooting' },
+        { id: 'next-steps', title: 'Related Tools and Next Steps' },
         { id: 'faqs', title: 'FAQ' }
     ];
 
@@ -581,6 +582,18 @@ const QRCodeScanner = () => {
                             <li><strong>Reduce glare:</strong> Reflection on glossy packaging or screens can hide the finder patterns.</li>
                             <li><strong>Try another distance:</strong> Moving slightly closer or farther helps autofocus lock properly.</li>
                             <li><strong>Upload instead of live scan:</strong> For difficult codes, a saved screenshot can decode more reliably than a moving camera feed.</li>
+                        </ul>
+                    </div>
+                </ContentSection>
+
+                <ContentSection id="next-steps" title="Related Tools and Next Steps">
+                    <div className="content-block">
+                        <p>Scanning a QR code is often part of a broader sharing, verification, or image-processing workflow. These related tools help extend that process.</p>
+                        <ul>
+                            <li><strong><a href="/utility-tools/qr-code-generator">QR Code Generator</a>:</strong> Create new QR codes after testing scan quality and payload structure.</li>
+                            <li><strong><a href="/utility-tools/image-tools/image-to-webp-converter">Image to WebP Converter</a>:</strong> Optimize scanned or exported QR-related assets for lighter web delivery.</li>
+                            <li><strong><a href="/utility-tools/converter-tools/rgb-to-hex-converter">RGB to HEX Converter</a>:</strong> Keep brand colors consistent when designing scannable assets around a QR workflow.</li>
+                            <li><strong><a href="/utility-tools/password-generator">Password Generator</a>:</strong> Helpful when a scanned QR setup leads into account creation or credential onboarding.</li>
                         </ul>
                     </div>
                 </ContentSection>

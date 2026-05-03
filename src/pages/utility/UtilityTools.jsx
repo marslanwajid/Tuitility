@@ -47,7 +47,7 @@ const UtilityTools = () => {
   return (
     <CategoryPage
       title="Utility Tools"
-      description="Explore utility tools for QR codes, PDF editing, text conversion, OCR, image formats, color workflows, social media downloads, language conversion, and everyday digital productivity tasks."
+      description="Explore utility tools for QR codes, PDF workflows, OCR, text conversion, image optimization, color matching, language utilities, and digital productivity tasks. Use this category as a connected utility hub where document tools, text tools, image tools, and scanning tools link naturally into one another."
       tools={utilityTools}
       categories={categories}
       searchPlaceholder="Search utility tools..."

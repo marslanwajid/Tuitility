@@ -3,12 +3,12 @@ import CategoryPage from '../../components/CategoryPage'
 
 const FinanceCalculator = () => {
   const financeTools = [
-    { name: 'Mortgage Calculator', desc: 'Estimate mortgage payments with taxes, insurance, PMI, HOA fees, and total long-term borrowing cost.', url: '/finance/calculators/mortgage-calculator', category: 'Real Estate', icon: 'fas fa-home' },
-    { name: 'Loan Calculator', desc: 'Calculate loan payments, fees, loan-to-value impact, and the full cost of borrowing over time.', url: '/finance/calculators/loan-calculator', category: 'Personal Loans', icon: 'fas fa-hand-holding-usd' },
-    { name: 'Currency Calculator', desc: 'Convert world currencies with live exchange rates, reverse rates, and major forex pair comparisons.', url: '/finance/calculators/currency-calculator', category: 'Currency', icon: 'fas fa-exchange-alt' },
-    { name: 'House Affordability Calculator', desc: 'Estimate how much house you can afford based on income, debt, rate, and homeownership costs.', url: '/finance/calculators/house-affordability-calculator', category: 'Real Estate', icon: 'fas fa-home' },
-    { name: 'Compound Interest Calculator', desc: 'Project long-term investment growth with compounding frequency and regular contribution scenarios.', url: '/finance/calculators/compound-interest-calculator', category: 'Investments', icon: 'fas fa-chart-area' },
-    { name: 'ROI Calculator', desc: 'Measure return on investment, profitability, and annualized performance for business and investment decisions.', url: '/finance/calculators/roi-calculator', category: 'Investments', icon: 'fas fa-chart-line' },
+    { name: 'Mortgage Calculator', desc: 'Estimate mortgage payments with taxes, insurance, PMI, HOA fees, and total long-term borrowing cost, then compare with affordability and down-payment tools.', url: '/finance/calculators/mortgage-calculator', category: 'Real Estate', icon: 'fas fa-home' },
+    { name: 'Loan Calculator', desc: 'Calculate loan payments, fees, loan-to-value impact, and the full cost of borrowing over time before moving into amortization or debt planning.', url: '/finance/calculators/loan-calculator', category: 'Personal Loans', icon: 'fas fa-hand-holding-usd' },
+    { name: 'Currency Calculator', desc: 'Convert world currencies with live exchange rates, reverse rates, and major forex pair comparisons for travel, shopping, and cross-border business.', url: '/finance/calculators/currency-calculator', category: 'Currency', icon: 'fas fa-exchange-alt' },
+    { name: 'House Affordability Calculator', desc: 'Estimate how much house you can afford based on income, debt, rate, and homeownership costs, then continue into mortgage and down-payment analysis.', url: '/finance/calculators/house-affordability-calculator', category: 'Real Estate', icon: 'fas fa-home' },
+    { name: 'Compound Interest Calculator', desc: 'Project long-term investment growth with compounding frequency and regular contribution scenarios, then compare against future and present value tools.', url: '/finance/calculators/compound-interest-calculator', category: 'Investments', icon: 'fas fa-chart-area' },
+    { name: 'ROI Calculator', desc: 'Measure return on investment, profitability, and annualized performance for business and investment decisions with natural links into rental property and investment planning.', url: '/finance/calculators/roi-calculator', category: 'Investments', icon: 'fas fa-chart-line' },
     { name: 'Amortization Calculator', desc: 'Generate amortization schedules with monthly principal, interest, and remaining balance by payment period.', url: '/finance/calculators/amortization-calculator', category: 'Loans', icon: 'fas fa-chart-line' },
     { name: 'Business Loan Calculator', desc: 'Estimate business financing payments, origination fees, documentation costs, and all-in loan expense.', url: '/finance/calculators/business-loan-calculator', category: 'Business', icon: 'fas fa-briefcase' },
     { name: 'Credit Card Calculator', desc: 'Estimate APR-driven interest, payoff time, and total repayment cost for revolving card balances.', url: '/finance/calculators/credit-card-calculator', category: 'Loans', icon: 'fas fa-credit-card' },
@@ -41,7 +41,7 @@ const FinanceCalculator = () => {
   return (
     <CategoryPage
       title="Finance Calculators"
-      description="Browse finance calculators for mortgages, loans, debt payoff, budgeting, taxes, business financing, insurance, currency exchange, and investment planning. Compare costs, project growth, and make better financial decisions with detailed calculation tools."
+      description="Browse finance calculators for mortgages, loans, debt payoff, budgeting, taxes, business financing, insurance, currency exchange, and investment planning. Use the category as a connected finance hub for linked workflows like house affordability to mortgage, loan to amortization, and compound interest to retirement and investment planning."
       tools={financeTools}
       categories={categories}
       searchPlaceholder="Search finance calculators..."

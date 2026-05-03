@@ -29,6 +29,21 @@ const Footer = () => {
                 <span className="stat-label">Available</span>
               </div>
             </div>
+            <a
+              href="https://json-prompt-generator.vercel.app"
+              className="footer-partner-tool"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div className="footer-partner-tool-media">
+                <img src="/images/logo-prompt-genetaor.png" alt="JSON Prompt Generator" loading="lazy" />
+              </div>
+              <div className="footer-partner-tool-content">
+                <span className="footer-partner-tool-eyebrow">Other AI Tool Site</span>
+                <strong>JSON Prompt Generator</strong>
+                <span>Generate JSON prompts for AI image generators with structured AI-focused workflows.</span>
+              </div>
+            </a>
           </div>
 
           {/* Quick Links Grid */}
@@ -64,6 +79,7 @@ const Footer = () => {
                 <Link to="/about">About Us</Link>
                 <Link to="/contact">Contact</Link>
                 <Link to="/privacy-policy">Privacy Policy</Link>
+                <Link to="/terms-and-conditions">Terms &amp; Conditions</Link>
               </div>
               <div className="contact-info">
                 <h4>Get in Touch</h4>

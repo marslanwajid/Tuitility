@@ -109,8 +109,9 @@ const MortgageCalculator = () => {
     { id: 'examples', title: 'Examples' },
     { id: 'significance', title: 'Significance' },
     { id: 'functionality', title: 'Functionality' },
-    { id: 'applications', title: 'Applications' },
-    { id: 'faqs', title: 'FAQs' }
+      { id: 'applications', title: 'Applications' },
+      { id: 'next-steps', title: 'Related Calculators and Next Steps' },
+      { id: 'faqs', title: 'FAQs' }
   ];
 
   const handleInputChange = (field, value) => {
@@ -829,6 +830,15 @@ const MortgageCalculator = () => {
             <li>Review total interest paid across different loan terms.</li>
             <li>Include HOA fees when evaluating condos or planned communities.</li>
           </ul>
+        </ContentSection>
+
+        <ContentSection id="next-steps" title="Related Calculators and Next Steps">
+          <p>
+            Mortgage planning works best when you move beyond the payment alone. Start with the <a href="/finance/calculators/house-affordability-calculator">House Affordability Calculator</a> if you are still deciding your price range, then use the <a href="/finance/calculators/down-payment-calculator">Down Payment Calculator</a> to see how upfront cash changes the loan size.
+          </p>
+          <p>
+            After that, continue into the <a href="/finance/calculators/amortization-calculator">Amortization Calculator</a> for a period-by-period payoff schedule or the <a href="/finance/calculators/debt-income-calculator">Debt Income Calculator</a> to judge lender-facing debt pressure.
+          </p>
         </ContentSection>
 
 

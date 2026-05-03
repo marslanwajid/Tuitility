@@ -95,6 +95,7 @@ const CompoundInterestCalculator = () => {
     { id: 'significance', title: 'Significance' },
     { id: 'functionality', title: 'Functionality' },
     { id: 'applications', title: 'Applications' },
+    { id: 'next-steps', title: 'Related Calculators and Next Steps' },
     { id: 'faqs', title: 'FAQs' }
   ];
 
@@ -770,6 +771,20 @@ const CompoundInterestCalculator = () => {
             <li>Remember that inflation can reduce real purchasing power.</li>
             <li>Use a realistic time horizon that matches your actual plan.</li>
             <li>Test multiple contribution and rate scenarios instead of relying on one projection.</li>
+          </ul>
+        </ContentSection>
+
+        <ContentSection id="next-steps" title="Related Calculators and Next Steps">
+          <p>
+            Compound interest is one of the core building blocks of long-term financial planning, but it becomes
+            more useful when you compare it with adjacent decisions and goals.
+          </p>
+          <ul>
+            <li><a href="/finance/calculators/investment-calculator">Investment Calculator</a> adds a broader investing view with inflation-adjusted projections and recurring contributions.</li>
+            <li><a href="/finance/calculators/retirement-calculator">Retirement Calculator</a> helps connect long-term growth assumptions to actual retirement income needs.</li>
+            <li><a href="/finance/calculators/future-value-calculator">Future Value Calculator</a> is useful when you want a simpler time-value-of-money projection.</li>
+            <li><a href="/finance/calculators/present-value-calculator">Present Value Calculator</a> helps reverse the question and estimate what a future goal is worth today.</li>
+            <li><a href="/finance/calculators/roi-calculator">ROI Calculator</a> is useful when you want to compare projected growth with actual realized returns.</li>
           </ul>
         </ContentSection>
 

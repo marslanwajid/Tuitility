@@ -44,6 +44,32 @@ const InvestmentCalculator = () => {
   const seoDescription = toolData.description;
   const seoKeywords = `${toolData.name.toLowerCase()}, ${toolData.category.toLowerCase()} calculator, compound interest, stock market, retirement planning`;
   const canonicalUrl = `https://tuitility.vercel.app/finance/calculators/investment-calculator`;
+  const faqs = [
+    {
+      question: "What is compound interest and why is it important?",
+      answer: "Compound interest is growth earned on both your original investment and previous gains. Over time it becomes one of the biggest drivers of long-term portfolio growth."
+    },
+    {
+      question: "How accurate are these investment projections?",
+      answer: "They are planning estimates based on the return, contribution, and inflation assumptions you enter. Real markets do not deliver the same result every year."
+    },
+    {
+      question: "What's the difference between nominal and real returns?",
+      answer: "Nominal return is the raw growth rate. Real return adjusts that growth for inflation so you can better estimate future purchasing power."
+    },
+    {
+      question: "How much should I invest monthly?",
+      answer: "That depends on your goals, income, time horizon, and other priorities. The calculator helps you test different contribution levels to see what is realistic."
+    },
+    {
+      question: "What's a realistic annual return rate?",
+      answer: "A realistic range depends on asset mix and risk. Conservative scenarios are often better for planning than overly optimistic projections."
+    },
+    {
+      question: "How does inflation affect my investments?",
+      answer: "Inflation reduces the future buying power of your money, which is why inflation-adjusted analysis matters for long-term planning."
+    }
+  ];
 
   // Categories for sidebar
   const categories = [
@@ -74,6 +100,7 @@ const InvestmentCalculator = () => {
     { id: 'significance', title: 'Significance' },
     { id: 'functionality', title: 'Functionality' },
     { id: 'applications', title: 'Applications' },
+    { id: 'next-steps', title: 'Related Calculators and Next Steps' },
     { id: 'faqs', title: 'FAQs' }
   ];
 
@@ -220,6 +247,29 @@ const InvestmentCalculator = () => {
               browserRequirements: 'Requires JavaScript and a modern browser',
               url: canonicalUrl,
               description: seoDescription
+            },
+            {
+              '@context': 'https://schema.org',
+              '@type': 'HowTo',
+              name: 'How to use the investment calculator',
+              step: [
+                { '@type': 'HowToStep', text: 'Enter initial investment, monthly contribution, annual return, and investment years.' },
+                { '@type': 'HowToStep', text: 'Add an inflation rate if you want a more realistic long-term projection.' },
+                { '@type': 'HowToStep', text: 'Review total invested, total interest, future value, and inflation-adjusted value.' },
+                { '@type': 'HowToStep', text: 'Use related calculators to compare retirement, ROI, and compounding scenarios.' }
+              ]
+            },
+            {
+              '@context': 'https://schema.org',
+              '@type': 'FAQPage',
+              mainEntity: faqs.map((faq) => ({
+                '@type': 'Question',
+                name: faq.question,
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: faq.answer
+                }
+              }))
             }
           ]
         }} 
@@ -642,34 +692,23 @@ const InvestmentCalculator = () => {
           </div>
         </ContentSection>
 
+        <ContentSection id="next-steps" title="Related Calculators and Next Steps">
+          <p>
+            This calculator works best as part of a connected investing workflow. Once you have a projection, the
+            next question is usually whether that growth path fits a real goal, a retirement target, or a return benchmark.
+          </p>
+          <ul>
+            <li><a href="/finance/calculators/compound-interest-calculator">Compound Interest Calculator</a> helps isolate the effect of compounding frequency and recurring contributions.</li>
+            <li><a href="/finance/calculators/retirement-calculator">Retirement Calculator</a> turns a projected portfolio into an income-readiness question.</li>
+            <li><a href="/finance/calculators/roi-calculator">ROI Calculator</a> is helpful when you want to compare a projection with actual realized performance.</li>
+            <li><a href="/finance/calculators/future-value-calculator">Future Value Calculator</a> gives a simpler planning path for specific future money targets.</li>
+            <li><a href="/finance/calculators/present-value-calculator">Present Value Calculator</a> helps estimate how much capital is needed today to support a future objective.</li>
+          </ul>
+        </ContentSection>
+
 
         <FAQSection 
-          faqs={[
-            {
-              question: "What is compound interest and why is it important?",
-              answer: "Compound interest is interest earned on both your initial investment and the accumulated interest from previous periods. It's crucial because it allows your money to grow exponentially over time, making it one of the most powerful forces in wealth building."
-            },
-            {
-              question: "How accurate are these investment projections?",
-              answer: "These are estimates based on consistent returns and contributions. Actual results may vary due to market fluctuations, changes in contribution amounts, and varying return rates. Use conservative estimates for more realistic planning."
-            },
-            {
-              question: "What's the difference between nominal and real returns?",
-              answer: "Nominal returns are the stated percentage returns, while real returns account for inflation. For example, a 7% nominal return with 2% inflation gives you a 5% real return, which represents your actual purchasing power increase."
-            },
-            {
-              question: "How much should I invest monthly?",
-              answer: "This depends on your goals, timeline, and current financial situation. A common rule is to invest 10-15% of your income, but start with what you can afford and increase gradually. The key is consistency over time."
-            },
-            {
-              question: "What's a realistic annual return rate?",
-              answer: "Historically, stock market returns average 7-10% annually, but this varies by asset class and time period. Conservative estimates (5-7%) are better for long-term planning, while aggressive estimates (8-12%) assume higher-risk investments."
-            },
-            {
-              question: "How does inflation affect my investments?",
-              answer: "Inflation reduces the purchasing power of your money over time. Even if your investment grows at 7% annually, with 2% inflation, your real return is only 5%. This is why it's important to consider inflation in long-term planning."
-            }
-          ]}
+          faqs={faqs}
           title="Frequently Asked Questions"
         />
       </ToolPageLayout>

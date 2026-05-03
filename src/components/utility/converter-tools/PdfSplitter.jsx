@@ -62,10 +62,38 @@ const PdfSplitter = () => {
 
     const relatedTools = [
         { name: 'Merge PDF', url: '/utility-tools/converter-tools/merge-pdf', icon: 'fas fa-object-group' },
+        { name: 'PDF Organizer', url: '/utility-tools/converter-tools/organize-pdf', icon: 'fas fa-sort' },
         { name: 'PDF to Image', url: '/utility-tools/converter-tools/pdf-to-image-converter', icon: 'fas fa-file-image' },
         { name: 'OCR PDF Generator', url: '/utility-tools/ocr-pdf-generator', icon: 'fas fa-file-pdf' },
         { name: 'Delete PDF Pages', url: '/utility-tools/converter-tools/delete-pdf-pages', icon: 'fas fa-trash-alt' },
-        { name: 'QR Code Generator', url: '/utility-tools/qr-code-generator', icon: 'fas fa-qrcode' }
+        { name: 'Text Case Converter', url: '/utility-tools/converter-tools/text-case-converter', icon: 'fas fa-font' }
+    ];
+
+    const faqs = [
+        {
+            question: "Is there a page limit for the PDF Splitter?",
+            answer: "Our tool uses your browser's resources. While we generally limit uploads to 50MB to ensure stability, the number of pages we can process depends largely on your device's memory. Most standard documents of hundreds of pages are processed in seconds."
+        },
+        {
+            question: "Can I merge pages back together after splitting?",
+            answer: "Absolutely! After splitting your document, you can use our PDF Merger tool to combine the split files with other documents or reorder them as needed."
+        },
+        {
+            question: "Does the quality of the PDF decrease after splitting?",
+            answer: "No. Our tool manipulates the internal structure of the PDF file to copy pages directly. It does not re-compress images or alter fonts, ensuring your split files are identical in quality to the original."
+        },
+        {
+            question: "Is this tool free to use?",
+            answer: "Yes, Tuitility PDF Splitter is completely free. There are no hidden costs, watermarks added to your files, or daily usage limits."
+        },
+        {
+            question: "How do I split a PDF into single pages?",
+            answer: "Select the 'Every X Pages' mode and set the value to '1'. This will break your entire document into individual PDF files for each page."
+        },
+        {
+            question: "My PDF has a password. Can I still split it?",
+            answer: "For security reasons, we cannot process encrypted files directly. You must remove the password protection before uploading the file to our splitter."
+        }
     ];
 
     const tableOfContents = [
@@ -74,6 +102,7 @@ const PdfSplitter = () => {
         { id: 'how-it-works', title: 'How It Works' },
         { id: 'split-methods', title: 'Split Methods' },
         { id: 'features', title: 'Features' },
+        { id: 'next-steps', title: 'Related Tools and Next Steps' },
         { id: 'faqs', title: 'FAQs' }
     ];
 
@@ -404,7 +433,53 @@ const PdfSplitter = () => {
                             operatingSystem: 'Any',
                             browserRequirements: 'Requires JavaScript and a modern browser',
                             url: seoData.canonicalUrl,
-                            description: seoData.description
+                            description: seoData.description,
+                            featureList: [
+                                'Split PDF by range',
+                                'Extract selected PDF pages',
+                                'Create one file for every page or every N pages',
+                                'Browser-based secure processing'
+                            ]
+                        },
+                        {
+                            '@context': 'https://schema.org',
+                            '@type': 'HowTo',
+                            name: 'How to split a PDF online',
+                            description: 'Split a PDF by range, selected pages, or fixed-size chunks with the Tuitility PDF Splitter.',
+                            step: [
+                                {
+                                    '@type': 'HowToStep',
+                                    name: 'Upload the PDF',
+                                    text: 'Choose the PDF file you want to split and wait for the page previews to load.'
+                                },
+                                {
+                                    '@type': 'HowToStep',
+                                    name: 'Pick a split mode',
+                                    text: 'Select range, extract, or every N pages depending on the output you need.'
+                                },
+                                {
+                                    '@type': 'HowToStep',
+                                    name: 'Set the page selection',
+                                    text: 'Enter the page range, selected pages, or pages-per-file value.'
+                                },
+                                {
+                                    '@type': 'HowToStep',
+                                    name: 'Generate and download',
+                                    text: 'Run the splitter and download the new PDF files individually or as a ZIP.'
+                                }
+                            ]
+                        },
+                        {
+                            '@context': 'https://schema.org',
+                            '@type': 'FAQPage',
+                            mainEntity: faqs.map((faq) => ({
+                                '@type': 'Question',
+                                name: faq.question,
+                                acceptedAnswer: {
+                                    '@type': 'Answer',
+                                    text: faq.answer
+                                }
+                            }))
                         }
                     ]
                 }}
@@ -706,33 +781,45 @@ const PdfSplitter = () => {
                         </div>
                     </ContentSection>
 
+                    <ContentSection id="next-steps" title="Related Tools and Next Steps">
+                        <p>
+                            Splitting a PDF is often the first step in cleaning up, repackaging, or reusing a larger document. Once you
+                            have extracted the pages you need, the next move is usually to merge them into a new packet, delete unnecessary
+                            pages, reorganize the sequence, or convert them into another shareable format.
+                        </p>
+                        <div className="applications-grid">
+                            <div className="application-item">
+                                <h3><i className="fas fa-object-group"></i> Rebuild a Smaller Packet</h3>
+                                <p>
+                                    Use <a href="/utility-tools/converter-tools/merge-pdf">PDF Merger</a> to combine extracted sections
+                                    into a fresh client packet, assignment bundle, or project handoff.
+                                </p>
+                            </div>
+                            <div className="application-item">
+                                <h3><i className="fas fa-sort"></i> Reorder Pages</h3>
+                                <p>
+                                    Open <a href="/utility-tools/converter-tools/organize-pdf">PDF Organizer</a> when your extracted pages
+                                    need a cleaner order before saving or sharing the final version.
+                                </p>
+                            </div>
+                            <div className="application-item">
+                                <h3><i className="fas fa-trash-alt"></i> Remove Remaining Clutter</h3>
+                                <p>
+                                    Use <a href="/utility-tools/converter-tools/delete-pdf-pages">Delete PDF Pages</a> if you want to trim
+                                    blank pages, duplicates, or unwanted inserts from the final document.
+                                </p>
+                            </div>
+                            <div className="application-item">
+                                <h3><i className="fas fa-file-image"></i> Turn Pages into Images</h3>
+                                <p>
+                                    Try <a href="/utility-tools/converter-tools/pdf-to-image-converter">PDF to Image Converter</a> when you
+                                    need slide previews, social-ready assets, or visual reference pages from the extracted PDF content.
+                                </p>
+                            </div>
+                        </div>
+                    </ContentSection>
 
-                    <FAQSection faqs={[
-                        {
-                            question: "Is there a page limit for the PDF Splitter?",
-                            answer: "Our tool uses your browser's resources. While we generally limit uploads to 50MB to ensure stability, the number of pages we can process depends largely on your device's memory. Most standard documents of hundreds of pages are processed in seconds."
-                        },
-                        {
-                            question: "Can I merge pages back together after splitting?",
-                            answer: "Absolutely! After splitting your document, you can use our <a href='/utility-tools/converter-tools/merge-pdf'>PDF Merger</a> tool to combine the split files with other documents or reorder them as needed."
-                        },
-                        {
-                            question: "Does the quality of the PDF decrease after splitting?",
-                            answer: "No. Our tool manipulates the internal structure of the PDF file to copy pages directly. It does not re-compress images or alter fonts, ensuring your split files are identical in quality to the original."
-                        },
-                        {
-                            question: "Is this tool free to use?",
-                            answer: "Yes, Tuitility PDF Splitter is completely free. There are no hidden costs, watermarks added to your files, or daily usage limits."
-                        },
-                        {
-                            question: "How do I split a PDF into single pages?",
-                            answer: "Select the 'Every X Pages' mode and set the value to '1'. This will break your entire document into individual PDF files for each page."
-                        },
-                        {
-                            question: "My PDF has a password. Can I still split it?",
-                            answer: "For security reasons, we cannot process encrypted files directly. You must remove the password protection before uploading the file to our splitter."
-                        }
-                    ]} />
+                    <FAQSection faqs={faqs} />
                 </div>
             </ToolPageLayout>
     );

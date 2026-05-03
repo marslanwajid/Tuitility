@@ -37,6 +37,16 @@ const ToolPageLayout = ({
         <div className="tool-content">
           {/* Calculator, TOC, Feedback, and Content Sections */}
           {children}
+          <section className="tool-trust-links">
+            <h2>Site Policies and Support</h2>
+            <p>
+              For transparency, privacy information, support requests, and site policies, review our
+              <a href="/about"> About page</a>,
+              <a href="/privacy-policy"> Privacy Policy</a>,
+              <a href="/terms-and-conditions"> Terms &amp; Conditions</a>, and
+              <a href="/contact"> Contact page</a>.
+            </p>
+          </section>
         </div>
         
         {/* Right Sidebar - Can be used for ads or additional content */}

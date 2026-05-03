@@ -43,6 +43,13 @@ export const staticPages = [
     description:
       'Read the Tuitility privacy policy for information about data handling, browser processing, and user privacy.',
   },
+  {
+    name: 'Terms and Conditions',
+    path: '/terms-and-conditions',
+    title: `${SITE_NAME} Terms and Conditions`,
+    description:
+      'Review the Tuitility terms and conditions for acceptable use, content expectations, disclaimers, and site policies.',
+  },
 ];
 
 export const categoryPageMeta = toolCategories.map((category) => ({

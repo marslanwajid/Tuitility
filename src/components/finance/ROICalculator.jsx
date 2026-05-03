@@ -142,6 +142,24 @@ const ROICalculator = () => {
   const seoDescription = toolData.description;
   const seoKeywords = `${toolData.name.toLowerCase()}, ${toolData.category.toLowerCase()} calculator, return on investment, annualized return, investment analysis`;
   const canonicalUrl = `https://tuitility.vercel.app/finance/calculators/roi-calculator`;
+  const faqs = [
+    {
+      question: "What is the difference between ROI and Annualized ROI?",
+      answer: "ROI shows the total return across the full holding period, while annualized ROI shows the average compound rate per year so different time spans are easier to compare."
+    },
+    {
+      question: "Should I include additional contributions in ROI calculations?",
+      answer: "Yes. Regular contributions affect your real invested capital, so including them gives a more honest picture of performance."
+    },
+    {
+      question: "What is a good ROI percentage?",
+      answer: "That depends on the asset, time frame, and risk level. A strong result in one market may be weak or unrealistic in another."
+    },
+    {
+      question: "How does investment period affect ROI?",
+      answer: "Longer periods often smooth short-term volatility, and annualized ROI is especially helpful when you compare investments held for different lengths of time."
+    }
+  ];
 
   const categories = [
     { name: "Investment Analysis", icon: "fas fa-chart-pie" },
@@ -168,6 +186,7 @@ const ROICalculator = () => {
     { id: "significance", title: "Significance", icon: "fas fa-star" },
     { id: "functionality", title: "Functionality", icon: "fas fa-cogs" },
     { id: "applications", title: "Applications", icon: "fas fa-rocket" },
+    { id: "next-steps", title: "Related Calculators and Next Steps", icon: "fas fa-link" },
     { id: "faq", title: "FAQ", icon: "fas fa-question-circle" }
   ];
 
@@ -197,6 +216,29 @@ const ROICalculator = () => {
               browserRequirements: 'Requires JavaScript and a modern browser',
               url: canonicalUrl,
               description: seoDescription
+            },
+            {
+              '@context': 'https://schema.org',
+              '@type': 'HowTo',
+              name: 'How to use the ROI calculator',
+              step: [
+                { '@type': 'HowToStep', text: 'Enter your initial investment, final value, and investment period.' },
+                { '@type': 'HowToStep', text: 'Add any recurring contributions and their frequency if they apply.' },
+                { '@type': 'HowToStep', text: 'Review total investment, total return, ROI, and annualized ROI.' },
+                { '@type': 'HowToStep', text: 'Compare the result with related investment, compound growth, and property analysis tools.' }
+              ]
+            },
+            {
+              '@context': 'https://schema.org',
+              '@type': 'FAQPage',
+              mainEntity: faqs.map((faq) => ({
+                '@type': 'Question',
+                name: faq.question,
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: faq.answer
+                }
+              }))
             }
           ]
         }}
@@ -538,27 +580,24 @@ const ROICalculator = () => {
           </div>
         </ContentSection>
 
+        <ContentSection id="next-steps" title="Related Calculators and Next Steps">
+          <p>
+            ROI is strongest when it is part of a fuller decision process. A total return percentage tells you a
+            lot, but pairing it with growth, financing, and cash-flow tools gives a much better view of the deal.
+          </p>
+          <ul>
+            <li><a href="/finance/calculators/compound-interest-calculator">Compound Interest Calculator</a> is useful when you want to compare realized ROI with projected long-term compounding.</li>
+            <li><a href="/finance/calculators/investment-calculator">Investment Calculator</a> helps test future contribution and growth scenarios before capital is committed.</li>
+            <li><a href="/finance/calculators/rental-property-calculator">Rental Property Calculator</a> is ideal when your ROI question is tied to real estate cash flow and property expenses.</li>
+            <li><a href="/finance/calculators/present-value-calculator">Present Value Calculator</a> helps evaluate whether a future payoff justifies today’s investment amount.</li>
+            <li><a href="/finance/calculators/future-value-calculator">Future Value Calculator</a> helps translate a target return goal into a future money target you can plan around.</li>
+          </ul>
+        </ContentSection>
+
 
         <FAQSection
           title="Frequently Asked Questions"
-          faqs={[
-            {
-              question: "What is the difference between ROI and Annualized ROI?",
-              answer: "ROI shows the total return over the entire investment period, while Annualized ROI shows the compound annual growth rate, making it easier to compare investments of different durations."
-            },
-            {
-              question: "Should I include additional contributions in ROI calculations?",
-              answer: "Yes, including additional contributions gives you a more accurate picture of your total investment and actual returns. This is especially important for long-term investments with regular contributions."
-            },
-            {
-              question: "What is a good ROI percentage?",
-              answer: "A good ROI depends on the investment type and market conditions. Generally, 7-10% annualized return is considered good for long-term investments, but higher-risk investments may target 15-20% or more."
-            },
-            {
-              question: "How does investment period affect ROI?",
-              answer: "Longer investment periods typically show more stable and potentially higher returns due to compound growth and market recovery from short-term fluctuations."
-            }
-          ]}
+          faqs={faqs}
         />
 
        
