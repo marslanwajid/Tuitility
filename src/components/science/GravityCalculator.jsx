@@ -88,6 +88,7 @@ const GravityCalculator = () => {
     { id: 'applications', title: 'Applications', level: 1 },
     { id: 'inverse-square', title: 'Inverse Square Insight', level: 1 },
     { id: 'astronomy-context', title: 'Astronomy Context', level: 1 },
+    { id: 'next-steps', title: 'Related Tools and Next Steps', level: 1 },
     { id: 'faq', title: 'Frequently Asked Questions', level: 1 }
   ];
 
@@ -108,22 +109,34 @@ const GravityCalculator = () => {
       'astronomy gravity calculator',
     ],
     canonicalUrl: 'https://tuitility.vercel.app/science/calculators/gravity-calculator',
-    schemaData: {
-      '@context': 'https://schema.org',
-      '@type': 'WebApplication',
-      name: 'Gravity Calculator',
-      applicationCategory: 'EducationalApplication',
-      operatingSystem: 'Any',
-      browserRequirements: 'Requires JavaScript and a modern browser',
-      url: 'https://tuitility.vercel.app/science/calculators/gravity-calculator',
-      description: 'Calculate gravitational force and acceleration between two masses using Newtonian gravitation formulas.',
-      featureList: [
-        'Gravitational force calculation',
-        'Flexible mass and distance units',
-        'Newton law application',
-        'Astronomy and mechanics examples',
-      ],
-    }
+    schemaData: [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'WebApplication',
+        name: 'Gravity Calculator',
+        applicationCategory: 'EducationalApplication',
+        operatingSystem: 'Any',
+        browserRequirements: 'Requires JavaScript and a modern browser',
+        url: 'https://tuitility.vercel.app/science/calculators/gravity-calculator',
+        description: 'Calculate gravitational force and acceleration between two masses using Newtonian gravitation formulas.',
+        featureList: [
+          'Gravitational force calculation',
+          'Flexible mass and distance units',
+          'Newton law application',
+          'Astronomy and mechanics examples',
+        ],
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'HowTo',
+        name: 'How to calculate gravitational force',
+        step: [
+          { '@type': 'HowToStep', text: 'Enter the two masses and the distance between them.' },
+          { '@type': 'HowToStep', text: 'Keep the gravitational constant at the default value unless you have a special use case.' },
+          { '@type': 'HowToStep', text: 'Calculate to view force results and the supporting explanation.' },
+        ],
+      },
+    ]
   };
 
   // Handle form input changes
@@ -504,6 +517,19 @@ const GravityCalculator = () => {
             <p>GPS systems, space station positioning, and satellite communications</p>
           </div>
         </div>
+      </ContentSection>
+
+      <ContentSection id="next-steps" title="Related Tools and Next Steps">
+        <p>
+          Gravity calculations naturally lead into broader mechanics and physics interpretation. After finding force or acceleration, the
+          next useful step is often to connect that result to work, power, wave behavior, or other inverse-square relationships.
+        </p>
+        <ul>
+          <li><strong>Mechanical energy:</strong> Use <a href="/science/calculators/work-power-calculator">Work Power Calculator</a> when gravity problems transition into lifting, motion, or energy-transfer analysis.</li>
+          <li><strong>Propagation comparisons:</strong> Open <a href="/science/calculators/wave-speed-calculator">Wave Speed Calculator</a> for adjacent motion and propagation topics in physics coursework.</li>
+          <li><strong>Field comparison:</strong> Use <a href="/science/calculators/electric-flux-calculator">Electric Flux Calculator</a> to compare gravitational and electrostatic field ideas.</li>
+          <li><strong>Applied engineering context:</strong> Use <a href="/science/calculators/dbm-watts-calculator">dBm to Watts Calculator</a> when study shifts from classical mechanics to signal and power interpretation.</li>
+        </ul>
       </ContentSection>
 
 

@@ -89,6 +89,7 @@ const DBmMilliwattsCalculator = () => {
     { id: 'functionality', title: 'Functionality' },
     { id: 'rf-reference', title: 'RF Reference Points' },
     { id: 'conversion-logic', title: 'Conversion Logic' },
+    { id: 'next-steps', title: 'Related Tools and Next Steps' },
     { id: 'faqs', title: 'FAQs' }
   ];
 
@@ -128,22 +129,46 @@ const DBmMilliwattsCalculator = () => {
       'telecom power converter',
     ],
     canonicalUrl: 'https://tuitility.vercel.app/science/calculators/dbm-milliwatts-calculator',
-    schemaData: {
-      '@context': 'https://schema.org',
-      '@type': 'WebApplication',
-      name: 'DBm to Milliwatts Calculator',
-      applicationCategory: 'EducationalApplication',
-      operatingSystem: 'Any',
-      browserRequirements: 'Requires JavaScript and a modern browser',
-      url: 'https://tuitility.vercel.app/science/calculators/dbm-milliwatts-calculator',
-      description: 'Convert between dBm and milliwatts for RF, telecom, and electronics power analysis.',
-      featureList: [
-        'dBm to milliwatts conversion',
-        'Milliwatts to dBm conversion',
-        'Watt equivalent display',
-        'Step-by-step RF power breakdown',
-      ],
-    }
+    schemaData: [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'WebApplication',
+        name: 'DBm to Milliwatts Calculator',
+        applicationCategory: 'EducationalApplication',
+        operatingSystem: 'Any',
+        browserRequirements: 'Requires JavaScript and a modern browser',
+        url: 'https://tuitility.vercel.app/science/calculators/dbm-milliwatts-calculator',
+        description: 'Convert between dBm and milliwatts for RF, telecom, and electronics power analysis.',
+        featureList: [
+          'dBm to milliwatts conversion',
+          'Milliwatts to dBm conversion',
+          'Watt equivalent display',
+          'Step-by-step RF power breakdown',
+        ],
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'HowTo',
+        name: 'How to convert dBm and milliwatts',
+        step: [
+          { '@type': 'HowToStep', text: 'Enter a value in dBm or milliwatts.' },
+          { '@type': 'HowToStep', text: 'Run the calculator to convert to the other unit.' },
+          { '@type': 'HowToStep', text: 'Review the watt equivalent and RF interpretation notes.' },
+        ],
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faqData.map((faq) => ({
+          '@type': 'Question',
+          name: faq.question,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: faq.answer,
+          },
+        })),
+      },
+    ]
   };
 
   const handleInputChange = (field, value) => {
@@ -540,6 +565,16 @@ const DBmMilliwattsCalculator = () => {
         </ul>
       </ContentSection>
 
+
+      <ContentSection id="next-steps" title="Related Tools and Next Steps">
+        <p>This conversion is often the first step in RF troubleshooting and wireless design. Once you know the milliwatt level, the next question is usually how that value compares with watts, circuit behavior, or the broader communication system.</p>
+        <ul>
+          <li><strong>Scale up to larger power values:</strong> Use the <a href="/science/calculators/dbm-watts-calculator">dBm to Watts Calculator</a> when hardware specs are written in full watts.</li>
+          <li><strong>Relate power to stored energy:</strong> The <a href="/science/calculators/capacitance-calculator">Capacitance Calculator</a> is helpful when power and capacitor sizing appear in the same electronics workflow.</li>
+          <li><strong>Connect power and propagation:</strong> Continue to the <a href="/science/calculators/wave-speed-calculator">Wave Speed Calculator</a> for transmission and signal-system study.</li>
+          <li><strong>Bridge into general power physics:</strong> The <a href="/science/calculators/work-power-calculator">Work Power Calculator</a> helps compare RF power ideas with broader work and power formulas.</li>
+        </ul>
+      </ContentSection>
 
       <FAQSection 
         faqs={[

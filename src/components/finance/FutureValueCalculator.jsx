@@ -74,6 +74,7 @@ const FutureValueCalculator = () => {
     { id: 'applications', title: 'Applications' },
     { id: 'significance', title: 'Significance' },
     { id: 'functionality', title: 'Functionality' },
+    { id: 'next-steps', title: 'Related Calculators and Next Steps' },
     { id: 'faqs', title: 'FAQs' }
   ];
 
@@ -649,6 +650,16 @@ const FutureValueCalculator = () => {
           </ul>
         </ContentSection>
 
+
+        <ContentSection id="next-steps" title="Related Calculators and Next Steps">
+          <p>Future value projections are best used alongside present-day tradeoffs. After seeing how money may grow, the next step is usually discounting it back, comparing other investments, or checking how much saving effort is actually needed.</p>
+          <ul>
+            <li><strong>Translate future goals into today’s value:</strong> Use the <a href="/finance/calculators/present-value-calculator">Present Value Calculator</a> to discount the result back to current dollars.</li>
+            <li><strong>Compare with broader growth models:</strong> Continue with the <a href="/finance/calculators/investment-calculator">Investment Calculator</a> and <a href="/finance/calculators/compound-interest-calculator">Compound Interest Calculator</a>.</li>
+            <li><strong>Plan retirement targets:</strong> The <a href="/finance/calculators/retirement-calculator">Retirement Calculator</a> is a strong follow-up for long-horizon savings goals.</li>
+            <li><strong>Test loan alternatives:</strong> Use the <a href="/finance/calculators/loan-calculator">Loan Calculator</a> if you are comparing saving versus borrowing decisions.</li>
+          </ul>
+        </ContentSection>
 
         <FAQSection 
           faqs={[

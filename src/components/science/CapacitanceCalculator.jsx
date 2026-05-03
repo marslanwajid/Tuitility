@@ -89,6 +89,7 @@ const CapacitanceCalculator = () => {
     { id: 'functionality', title: 'Functionality' },
     { id: 'engineering-context', title: 'Engineering Context' },
     { id: 'unit-scaling', title: 'Unit Scaling' },
+    { id: 'next-steps', title: 'Related Tools and Next Steps' },
     { id: 'faqs', title: 'FAQs' }
   ];
 
@@ -593,6 +594,16 @@ const CapacitanceCalculator = () => {
         </ul>
       </ContentSection>
 
+
+      <ContentSection id="next-steps" title="Related Tools and Next Steps">
+        <p>Capacitance values become more useful when you place them inside the rest of the system. After sizing a capacitor, many learners and engineers move next into power conversion, field behavior, or timing relationships that explain how the component will behave in practice.</p>
+        <ul>
+          <li><strong>Compare RF power scales:</strong> Use the <a href="/science/calculators/dbm-milliwatts-calculator">dBm to Milliwatts Calculator</a> or <a href="/science/calculators/dbm-watts-calculator">dBm to Watts Calculator</a> when your circuit work overlaps with signal or transmitter power.</li>
+          <li><strong>Connect charge and fields:</strong> The <a href="/science/calculators/electric-flux-calculator">Electric Flux Calculator</a> is a strong follow-up when capacitance questions lead into electric field concepts.</li>
+          <li><strong>Study system timing:</strong> Move into the <a href="/science/calculators/wave-speed-calculator">Wave Speed Calculator</a> for propagation and timing ideas that often sit alongside RC behavior.</li>
+          <li><strong>Broaden the energy picture:</strong> The <a href="/science/calculators/work-power-calculator">Work Power Calculator</a> helps compare stored electrical energy with wider physics energy and power relationships.</li>
+        </ul>
+      </ContentSection>
 
       <FAQSection 
         faqs={[

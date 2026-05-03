@@ -271,7 +271,8 @@ const AspectRatioConverter = () => {
     const relatedTools = [
         { name: "Image to WebP", url: "/utility-tools/image-tools/image-to-webp-converter", icon: "fas fa-image" },
         { name: "Color Blindness Simulator", url: "/utility-tools/image-tools/color-blindness-simulator", icon: "fas fa-eye" },
-        { name: "QR Code Generator", url: "/utility-tools/qr-code-generator", icon: "fas fa-qrcode" }
+        { name: "PDF to Image Converter", url: "/utility-tools/converter-tools/pdf-to-image-converter", icon: "fas fa-file-image" },
+        { name: "RGB to HEX", url: "/utility-tools/converter-tools/rgb-to-hex-converter", icon: "fas fa-palette" }
     ];
 
     const tableOfContents = [
@@ -283,6 +284,7 @@ const AspectRatioConverter = () => {
         { id: 'web-design', title: 'Web Design & UI' },
         { id: 'how-to-calc', title: 'Calculation Formula' },
         { id: 'features', title: 'Tool Features' },
+        { id: 'next-steps', title: 'Related Tools and Next Steps' },
         { id: 'faq', title: 'FAQ' }
     ];
 
@@ -316,7 +318,37 @@ const AspectRatioConverter = () => {
                         operatingSystem: 'Any',
                         browserRequirements: 'Requires JavaScript and a modern browser',
                         url: seoData.canonicalUrl,
-                        description: seoData.description
+                        description: seoData.description,
+                        featureList: [
+                            'Calculate aspect ratios from width and height values',
+                            'Resize images to common ratios',
+                            'Switch between fit and crop modes',
+                            'Prepare assets for social and web layouts'
+                        ]
+                    },
+                    {
+                        '@context': 'https://schema.org',
+                        '@type': 'HowTo',
+                        name: 'How to calculate and convert image aspect ratios',
+                        description: 'Use the calculator to find dimensions or upload an image to convert it into a new aspect ratio.',
+                        step: [
+                            { '@type': 'HowToStep', name: 'Choose calculator or converter mode', text: 'Pick the math-based calculator or upload an image for direct conversion.' },
+                            { '@type': 'HowToStep', name: 'Enter or select the target ratio', text: 'Use a preset ratio or define a custom width-to-height proportion.' },
+                            { '@type': 'HowToStep', name: 'Adjust fit or crop behavior', text: 'Choose whether the image should fit inside the frame or fill it with cropping.' },
+                            { '@type': 'HowToStep', name: 'Export the result', text: 'Download the resized or cropped image after confirming the preview.' }
+                        ]
+                    },
+                    {
+                        '@context': 'https://schema.org',
+                        '@type': 'FAQPage',
+                        mainEntity: faqs.map((faq) => ({
+                            '@type': 'Question',
+                            name: faq.question,
+                            acceptedAnswer: {
+                                '@type': 'Answer',
+                                text: faq.answer
+                            }
+                        }))
                     }
                 ]
             }} categories={toolCategories} relatedTools={relatedTools} tableOfContents={tableOfContents}>
@@ -569,6 +601,22 @@ const AspectRatioConverter = () => {
                             <li><strong>Fit Mode (Letterbox):</strong> Maintains the entire original image and adds white bars to fill the target dimension. Essential when you cannot lose any part of the image (e.g., posters with text).</li>
                             <li><strong>Crop Mode (Fill):</strong> Zooms in to fill the target dimension, cutting off the edges. Essential for creating immersive, full-screen graphics where filling the frame is more important than showing every detail.</li>
                             <li><strong>Calculator:</strong> Instantly solves the W:H algebra for you, ensuring pixel-perfect resizing numbers every time.</li>
+                        </ul>
+                    </div>
+                </ContentSection>
+
+                <ContentSection id="next-steps" title="Related Tools and Next Steps">
+                    <div className="content-block">
+                        <p>
+                            Aspect ratio work is often the structural step that comes before compression, accessibility review, or document-image
+                            extraction. Once your proportions are correct, the next task is usually to optimize the file format, validate the
+                            visual accessibility, or convert source documents into image-based assets.
+                        </p>
+                        <ul>
+                            <li><strong>Compress the Resized Image:</strong> Use <a href="/utility-tools/image-tools/image-to-webp-converter">Image to WebP Converter</a> to reduce file size after preparing the right dimensions.</li>
+                            <li><strong>Run Accessibility Checks:</strong> Open <a href="/utility-tools/image-tools/color-blindness-simulator">Color Blindness Simulator</a> to verify that your resized graphics still communicate clearly.</li>
+                            <li><strong>Create Images from PDFs:</strong> Start with <a href="/utility-tools/converter-tools/pdf-to-image-converter">PDF to Image Converter</a> when the source file is a PDF that needs social or presentation-ready aspect ratios.</li>
+                            <li><strong>Clean Up Color Values:</strong> Use <a href="/utility-tools/converter-tools/rgb-to-hex-converter">RGB to HEX</a> when design handoff or CSS-ready color values need to match the updated visual asset.</li>
                         </ul>
                     </div>
                 </ContentSection>

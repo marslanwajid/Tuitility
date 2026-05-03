@@ -86,6 +86,7 @@ const WaveSpeedCalculator = () => {
     { id: 'functionality', title: 'Functionality' },
     { id: 'wave-context', title: 'Wave Context' },
     { id: 'unit-awareness', title: 'Unit Awareness' },
+    { id: 'next-steps', title: 'Related Tools and Next Steps' },
     { id: 'faqs', title: 'FAQs' }
   ];
 
@@ -584,6 +585,19 @@ const WaveSpeedCalculator = () => {
       <ContentSection id="unit-awareness" title="Unit Awareness">
         <p>Wave calculations are only as good as the units used. If frequency and wavelength are not entered in compatible SI units, the resulting speed can be off by large factors even when the formula itself is correct.</p>
         <p>When in doubt, convert to hertz and meters first, then interpret the result in meters per second before applying it to a real-world scenario.</p>
+      </ContentSection>
+
+      <ContentSection id="next-steps" title="Related Tools and Next Steps">
+        <p>
+          Wave speed is often the starting point for a wider physics workflow. Once propagation speed is known, the next step is usually to
+          compare signal behavior, energy relationships, or neighboring field concepts depending on the topic you are studying.
+        </p>
+        <ul>
+          <li><strong>Field relationships:</strong> Use <a href="/science/calculators/electric-flux-calculator">Electric Flux Calculator</a> for electromagnetic field and surface-flux analysis.</li>
+          <li><strong>Mechanical output:</strong> Open <a href="/science/calculators/work-power-calculator">Work Power Calculator</a> when the problem moves from propagation into force, energy, or output-rate interpretation.</li>
+          <li><strong>Signal power context:</strong> Use <a href="/science/calculators/dbm-watts-calculator">dBm to Watts Calculator</a> or <a href="/science/calculators/dbm-milliwatts-calculator">dBm to Milliwatts Calculator</a> for RF and communications problems.</li>
+          <li><strong>Related motion ideas:</strong> Use <a href="/science/calculators/gravity-calculator">Gravity Calculator</a> when you want to compare propagation and motion within broader physics coursework.</li>
+        </ul>
       </ContentSection>
 
 

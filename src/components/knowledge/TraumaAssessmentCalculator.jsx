@@ -809,6 +809,16 @@ Keep your response under 500 words and use a warm, supportive tone. Format with 
       </ContentSection>
 
 
+      <ContentSection id="next-steps" title="Related Tools and Next Steps">
+        <p>This reflection tool is most useful when it helps organize support, awareness, and follow-up action. After reviewing the result, people often need adjacent self-checks or routine-planning tools rather than another isolated score.</p>
+        <ul>
+          <li><strong>Review overlapping stress patterns:</strong> Use the <a href="/knowledge/calculators/anxiety-assessment-calculator">Anxiety Assessment Calculator</a> for related symptom reflection.</li>
+          <li><strong>Build stabilizing routines:</strong> The <a href="/knowledge/calculators/habit-formation-calculator">Habit Formation Calculator</a> can help structure sleep, journaling, grounding, or self-care habits.</li>
+          <li><strong>Examine day-to-day pressure:</strong> Continue with the <a href="/knowledge/calculators/average-time-calculator">Average Time Calculator</a> if workload, pacing, or routine stress is part of the picture.</li>
+          <li><strong>Reconnect planning with work or study:</strong> The <a href="/knowledge/calculators/career-assessment-calculator">Career Assessment Calculator</a> and <a href="/knowledge/calculators/gpa-calculator">GPA Calculator</a> can help when symptoms affect career or academic direction.</li>
+        </ul>
+      </ContentSection>
+
       <FAQSection faqs={faqs} />
     </ToolPageLayout>
   );

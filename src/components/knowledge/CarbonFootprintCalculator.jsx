@@ -1085,6 +1085,16 @@ const CarbonFootprintCalculator = () => {
       </ContentSection>
 
 
+      <ContentSection id="next-steps" title="Related Tools and Next Steps">
+        <p>Carbon estimates are strongest when they turn into practical choices. After seeing your emissions breakdown, the next step is usually comparing travel, budgeting, and routine changes that can lower impact over time.</p>
+        <ul>
+          <li><strong>Estimate travel efficiency:</strong> Use the <a href="/knowledge/calculators/fuel-calculator">Fuel Calculator</a> to examine vehicle fuel use and transport-related cost decisions.</li>
+          <li><strong>Plan sustainable routines:</strong> The <a href="/knowledge/calculators/habit-formation-calculator">Habit Formation Calculator</a> helps turn reduction goals into repeatable daily behaviors.</li>
+          <li><strong>Track household timing:</strong> Continue with the <a href="/knowledge/calculators/average-time-calculator">Average Time Calculator</a> if you are comparing routines, appliance use, or commuting patterns.</li>
+          <li><strong>Support long-term personal planning:</strong> The <a href="/knowledge/calculators/age-calculator">Age Calculator</a> can be useful when sustainability goals are tied to life stages and long-range planning.</li>
+        </ul>
+      </ContentSection>
+
       <FAQSection faqs={faqData} />
     </ToolPageLayout>
   );

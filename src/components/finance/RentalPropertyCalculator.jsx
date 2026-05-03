@@ -90,6 +90,7 @@ const RentalPropertyCalculator = () => {
     { id: 'significance', title: 'Significance' },
     { id: 'functionality', title: 'Functionality' },
     { id: 'applications', title: 'Applications' },
+    { id: 'next-steps', title: 'Related Calculators and Next Steps' },
     { id: 'faqs', title: 'FAQs' }
   ];
 
@@ -1115,6 +1116,16 @@ const RentalPropertyCalculator = () => {
           </div>
         </ContentSection>
 
+
+        <ContentSection id="next-steps" title="Related Calculators and Next Steps">
+          <p>Rental-property analysis is strongest when you compare financing, affordability, and return assumptions together. After reviewing cash flow and total return, the next step is usually stress-testing the deal against loans, ownership costs, and alternative investments.</p>
+          <ul>
+            <li><strong>Review financing structure:</strong> Use the <a href="/finance/calculators/mortgage-calculator">Mortgage Calculator</a> or <a href="/finance/calculators/loan-calculator">Loan Calculator</a> to compare debt terms more closely.</li>
+            <li><strong>Check purchase feasibility:</strong> The <a href="/finance/calculators/house-affordability-calculator">House Affordability Calculator</a> and <a href="/finance/calculators/down-payment-calculator">Down Payment Calculator</a> help validate the entry cost.</li>
+            <li><strong>Compare investment alternatives:</strong> Continue with the <a href="/finance/calculators/investment-calculator">Investment Calculator</a> or <a href="/finance/calculators/roi-calculator">ROI Calculator</a> to judge whether property beats other options.</li>
+            <li><strong>Fold into cash planning:</strong> Use the <a href="/finance/calculators/budget-calculator">Budget Calculator</a> to see how ownership costs interact with your broader finances.</li>
+          </ul>
+        </ContentSection>
 
         <FAQSection 
           faqs={[

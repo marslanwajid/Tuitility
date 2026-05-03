@@ -307,6 +307,7 @@ const BodyFatCalculator = () => {
     { id: 'significance', title: 'Significance' },
     { id: 'functionality', title: 'Functionality' },
     { id: 'applications', title: 'Applications' },
+    { id: 'next-steps', title: 'Related Calculators and Next Steps' },
     { id: 'faqs', title: 'FAQs' }
   ];
 
@@ -1086,6 +1087,16 @@ const BodyFatCalculator = () => {
           </div>
         </ContentSection>
 
+
+        <ContentSection id="next-steps" title="Related Calculators and Next Steps">
+          <p>Body-fat estimates become much more useful when you connect them to weight planning, calorie intake, and overall health markers. After checking body fat percentage, the next step is usually deciding whether the goal is fat loss, maintenance, or lean mass gain.</p>
+          <ul>
+            <li><strong>Compare with general screening metrics:</strong> Use the <a href="/health/calculators/bmi-calculator">BMI Calculator</a> for a fast high-level weight assessment.</li>
+            <li><strong>Plan calories around composition goals:</strong> Continue with the <a href="/health/calculators/calorie-calculator">Calorie Calculator</a> to connect body fat results with daily intake.</li>
+            <li><strong>Choose a direction:</strong> The <a href="/health/calculators/weight-loss-calculator">Weight Loss Calculator</a> and <a href="/health/calculators/weight-gain-calculator">Weight Gain Calculator</a> help turn the result into a strategy.</li>
+            <li><strong>Review healthy target ranges:</strong> Use the <a href="/health/calculators/ideal-body-weight-calculator">Ideal Weight Calculator</a> for a broader reference range.</li>
+          </ul>
+        </ContentSection>
 
         <FAQSection 
           faqs={[

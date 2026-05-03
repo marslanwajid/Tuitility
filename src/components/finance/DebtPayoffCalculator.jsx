@@ -75,6 +75,7 @@ const DebtPayoffCalculator = () => {
     { id: 'significance', title: 'Significance' },
     { id: 'functionality', title: 'Functionality' },
     { id: 'applications', title: 'Applications' },
+    { id: 'next-steps', title: 'Related Calculators and Next Steps' },
     { id: 'faqs', title: 'FAQs' }
   ];
 
@@ -694,6 +695,16 @@ const DebtPayoffCalculator = () => {
           </div>
         </ContentSection>
 
+
+        <ContentSection id="next-steps" title="Related Calculators and Next Steps">
+          <p>Debt payoff plans work best when they connect to the rest of your finances. After seeing payoff time and total interest, the next step is usually checking how extra payments affect your monthly budget and related balances.</p>
+          <ul>
+            <li><strong>Compare revolving debt pressure:</strong> Use the <a href="/finance/calculators/credit-card-calculator">Credit Card Calculator</a> for card-specific interest behavior.</li>
+            <li><strong>Stress-test your monthly plan:</strong> Continue with the <a href="/finance/calculators/budget-calculator">Budget Calculator</a> to see whether extra payments are sustainable.</li>
+            <li><strong>Review other loan obligations:</strong> The <a href="/finance/calculators/loan-calculator">Loan Calculator</a> and <a href="/finance/calculators/mortgage-calculator">Mortgage Calculator</a> help when total debt strategy spans several balances.</li>
+            <li><strong>Check debt ratio impact:</strong> Use the <a href="/finance/calculators/debt-income-calculator">Debt Income Calculator</a> to understand how payoff progress may improve borrowing capacity.</li>
+          </ul>
+        </ContentSection>
 
         <FAQSection 
           faqs={[

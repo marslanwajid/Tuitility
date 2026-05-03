@@ -71,6 +71,7 @@ const WeightGainCalculator = () => {
     { id: 'significance', title: 'Significance' },
     { id: 'functionality', title: 'Functionality' },
     { id: 'applications', title: 'Applications' },
+    { id: 'next-steps', title: 'Related Calculators and Next Steps' },
     { id: 'faqs', title: 'FAQs' }
   ];
 
@@ -792,6 +793,16 @@ const WeightGainCalculator = () => {
           </div>
         </ContentSection>
 
+
+        <ContentSection id="next-steps" title="Related Calculators and Next Steps">
+          <p>Weight-gain planning works best when it balances calorie surplus, body composition, and recovery. After checking the gain timeline, the next step is usually confirming whether the target is realistic and whether the added calories support lean mass rather than just scale weight.</p>
+          <ul>
+            <li><strong>Set baseline intake correctly:</strong> Use the <a href="/health/calculators/calorie-calculator">Calorie Calculator</a> to compare maintenance and surplus targets.</li>
+            <li><strong>Track body-composition quality:</strong> Continue with the <a href="/health/calculators/body-fat-calculator">Body Fat Calculator</a> so progress is not judged by body weight alone.</li>
+            <li><strong>Support hydration and training:</strong> The <a href="/health/calculators/water-intake-calculator">Water Intake Calculator</a> and <a href="/health/calculators/calorie-burn-calculator">Calorie Burn Calculator</a> help round out the routine.</li>
+            <li><strong>Compare with healthy reference ranges:</strong> Use the <a href="/health/calculators/ideal-body-weight-calculator">Ideal Weight Calculator</a> and <a href="/health/calculators/bmi-calculator">BMI Calculator</a> for broader context.</li>
+          </ul>
+        </ContentSection>
 
         <FAQSection 
           faqs={[

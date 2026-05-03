@@ -200,10 +200,10 @@ const ImageToWebP = () => {
   }
 
   const relatedTools = [
-    { name: 'Word Counter', url: '/utility-tools/word-counter', icon: 'fas fa-font' },
-    { name: 'Password Generator', url: '/utility-tools/password-generator', icon: 'fas fa-key' },
-    { name: 'QR Code Generator', url: '/utility-tools/qr-code-generator', icon: 'fas fa-qrcode' },
-    { name: 'OCR PDF Generator', url: '/utility-tools/ocr-pdf-generator', icon: 'fas fa-file-pdf' }
+    { name: 'PDF to Image Converter', url: '/utility-tools/converter-tools/pdf-to-image-converter', icon: 'fas fa-file-image' },
+    { name: 'Aspect Ratio Converter', url: '/utility-tools/image-tools/aspect-ratio-converter', icon: 'fas fa-expand-arrows-alt' },
+    { name: 'Color Blindness Simulator', url: '/utility-tools/image-tools/color-blindness-simulator', icon: 'fas fa-eye' },
+    { name: 'RGB to Pantone', url: '/utility-tools/rgb-to-pantone-converter', icon: 'fas fa-palette' }
   ]
 
   const tableOfContents = [
@@ -214,6 +214,7 @@ const ImageToWebP = () => {
     { id: 'comparison', title: 'WebP vs Other Formats' },
     { id: 'technical-specs', title: 'Technical Specifications' },
     { id: 'performance', title: 'Web Performance Impact' },
+    { id: 'next-steps', title: 'Related Tools and Next Steps' },
     { id: 'faqs', title: 'Frequently Asked Questions' }
   ]
 
@@ -276,7 +277,37 @@ const ImageToWebP = () => {
               operatingSystem: 'Any',
               browserRequirements: 'Requires JavaScript and a modern browser',
               url: seoData.canonicalUrl,
-              description: seoData.description
+              description: seoData.description,
+              featureList: [
+                'Convert JPG, PNG, and GIF to WebP',
+                'Control compression quality',
+                'Process one image or a batch',
+                'Browser-based private image conversion'
+              ]
+            },
+            {
+              '@context': 'https://schema.org',
+              '@type': 'HowTo',
+              name: 'How to convert images to WebP online',
+              description: 'Upload images, choose a quality setting, and convert them into WebP files.',
+              step: [
+                { '@type': 'HowToStep', name: 'Upload images', text: 'Choose one or more JPG, PNG, or GIF images.' },
+                { '@type': 'HowToStep', name: 'Choose quality settings', text: 'Set the desired WebP quality level and pick standard or advanced conversion mode.' },
+                { '@type': 'HowToStep', name: 'Convert files', text: 'Start the conversion process and wait for the browser to generate the new files.' },
+                { '@type': 'HowToStep', name: 'Download results', text: 'Download the converted WebP image or ZIP archive of converted images.' }
+              ]
+            },
+            {
+              '@context': 'https://schema.org',
+              '@type': 'FAQPage',
+              mainEntity: faqData.map((faq) => ({
+                '@type': 'Question',
+                name: faq.question,
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: faq.answer
+                }
+              }))
             }
           ]
         }}
@@ -605,6 +636,39 @@ const ImageToWebP = () => {
             <p style={{ margin: 0, color: '#1a1a1a' }}>
               YouTube improved page load time by 10% simply by switching to WebP thumbnails. Facebook saw a 25-35% data saving by switching to WebP for their mobile apps.
             </p>
+          </div>
+        </ContentSection>
+
+        <ContentSection id="next-steps" title="Related Tools and Next Steps">
+          <p>
+            Converting images to WebP is often part of a broader image optimization workflow. After compression, you may still need to resize
+            the image for specific placements, preview how it works for accessibility, or convert document pages into images before optimizing them.
+          </p>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '1rem', marginTop: '1rem' }}>
+            <div style={{ background: '#f8fafc', padding: '1rem', borderRadius: '8px', border: '1px solid #e5e7eb' }}>
+              <h4 style={{ margin: '0 0 0.5rem 0', color: '#1a1a1a' }}>Resize for Platforms</h4>
+              <p style={{ margin: 0 }}>
+                Use <a href="/utility-tools/image-tools/aspect-ratio-converter">Aspect Ratio Converter</a> to resize your optimized images for social media, thumbnails, banners, and responsive layouts.
+              </p>
+            </div>
+            <div style={{ background: '#f8fafc', padding: '1rem', borderRadius: '8px', border: '1px solid #e5e7eb' }}>
+              <h4 style={{ margin: '0 0 0.5rem 0', color: '#1a1a1a' }}>Accessibility Review</h4>
+              <p style={{ margin: 0 }}>
+                Open <a href="/utility-tools/image-tools/color-blindness-simulator">Color Blindness Simulator</a> to check whether your optimized assets remain usable and clear for broader audiences.
+              </p>
+            </div>
+            <div style={{ background: '#f8fafc', padding: '1rem', borderRadius: '8px', border: '1px solid #e5e7eb' }}>
+              <h4 style={{ margin: '0 0 0.5rem 0', color: '#1a1a1a' }}>Convert PDF Pages First</h4>
+              <p style={{ margin: 0 }}>
+                Start with <a href="/utility-tools/converter-tools/pdf-to-image-converter">PDF to Image Converter</a> when your source material is a PDF page that needs to become a web-ready image.
+              </p>
+            </div>
+            <div style={{ background: '#f8fafc', padding: '1rem', borderRadius: '8px', border: '1px solid #e5e7eb' }}>
+              <h4 style={{ margin: '0 0 0.5rem 0', color: '#1a1a1a' }}>Color Workflow Support</h4>
+              <p style={{ margin: 0 }}>
+                Use <a href="/utility-tools/rgb-to-pantone-converter">RGB to Pantone Converter</a> if your optimized images need design-system color alignment for print or brand review.
+              </p>
+            </div>
           </div>
         </ContentSection>
 

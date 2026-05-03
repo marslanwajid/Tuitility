@@ -959,6 +959,16 @@ const ZakatCalculator = () => {
       </ContentSection>
 
 
+      <ContentSection id="next-steps" title="Related Tools and Next Steps">
+        <p>Zakat calculations are clearest when they sit inside a wider picture of planning, record-keeping, and responsible giving. After calculating the obligation, many users move into scheduling, budgeting, or reviewing related assets and goals.</p>
+        <ul>
+          <li><strong>Review long-term planning dates:</strong> Use the <a href="/knowledge/calculators/age-calculator">Age Calculator</a> for milestone timing around annual financial review cycles.</li>
+          <li><strong>Organize repeated habits:</strong> The <a href="/knowledge/calculators/habit-formation-calculator">Habit Formation Calculator</a> can help build a steady saving or charitable routine.</li>
+          <li><strong>Track education-linked finances:</strong> Continue with the <a href="/knowledge/calculators/gpa-calculator">GPA Calculator</a> when student planning and scholarship timelines influence giving or savings decisions.</li>
+          <li><strong>Estimate travel-related spending:</strong> The <a href="/knowledge/calculators/fuel-calculator">Fuel Calculator</a> is useful when budgeting annual expenses alongside zakatable assets and liabilities.</li>
+        </ul>
+      </ContentSection>
+
       <FAQSection faqs={faqData} />
     </ToolPageLayout>
   );

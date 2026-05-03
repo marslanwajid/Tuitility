@@ -179,9 +179,8 @@ const ColorBlindnessSimulator = () => {
     const relatedTools = [
         { name: "RGB to Pantone", url: "/utility-tools/converter-tools/rgb-to-pantone-converter", icon: "fas fa-palette" },
         { name: "Image to WebP", url: "/utility-tools/image-tools/image-to-webp-converter", icon: "fas fa-image" },
-        { name: "QR Code Scanner", url: "/utility-tools/converter-tools/qr-code-scanner", icon: "fas fa-qrcode" },
-        { name: "RGB to HEX", url: "/converter-tools/rgb-to-hex-converter", icon: "fas fa-palette" },
-        { name: "Contrast Checker", url: "/image-tools/contrast-checker", icon: "fas fa-adjust" }
+        { name: "Aspect Ratio Converter", url: "/utility-tools/image-tools/aspect-ratio-converter", icon: "fas fa-expand-arrows-alt" },
+        { name: "RGB to HEX", url: "/utility-tools/converter-tools/rgb-to-hex-converter", icon: "fas fa-palette" }
     ];
 
     const tableOfContents = [
@@ -193,6 +192,7 @@ const ColorBlindnessSimulator = () => {
         { id: 'accessibility', title: 'Web Accessibility (WCAG)' },
         { id: 'design-impact', title: 'Design Impact' },
         { id: 'who-needs', title: 'Who Needs This?' },
+        { id: 'next-steps', title: 'Related Tools and Next Steps' },
         { id: 'faq', title: 'FAQ' }
     ];
 
@@ -227,7 +227,37 @@ const ColorBlindnessSimulator = () => {
                             operatingSystem: 'Any',
                             browserRequirements: 'Requires JavaScript and a modern browser',
                             url: seoData.canonicalUrl,
-                            description: seoData.description
+                            description: seoData.description,
+                            featureList: [
+                                'Simulate multiple forms of color blindness',
+                                'Preview protanopia, deuteranopia, tritanopia, and more',
+                                'Download simulated outputs',
+                                'Support accessibility-focused design reviews'
+                            ]
+                        },
+                        {
+                            '@context': 'https://schema.org',
+                            '@type': 'HowTo',
+                            name: 'How to test an image for color blindness accessibility',
+                            description: 'Upload an image, run the simulation, and compare how it appears across different types of color vision deficiency.',
+                            step: [
+                                { '@type': 'HowToStep', name: 'Upload an image', text: 'Choose the design, interface, chart, or asset you want to test.' },
+                                { '@type': 'HowToStep', name: 'Run the simulation', text: 'Generate the color blindness previews for the supported simulation types.' },
+                                { '@type': 'HowToStep', name: 'Review the outputs', text: 'Compare the accessibility of important colors, labels, and design cues.' },
+                                { '@type': 'HowToStep', name: 'Download results', text: 'Save any simulated views you need for accessibility documentation or team review.' }
+                            ]
+                        },
+                        {
+                            '@context': 'https://schema.org',
+                            '@type': 'FAQPage',
+                            mainEntity: faqs.map((faq) => ({
+                                '@type': 'Question',
+                                name: faq.question,
+                                acceptedAnswer: {
+                                    '@type': 'Answer',
+                                    text: faq.answer
+                                }
+                            }))
                         }
                     ]
                 }}
@@ -444,6 +474,21 @@ const ColorBlindnessSimulator = () => {
                             <li><strong>Data Scientists:</strong> To verify that visualizations are readable.</li>
                             <li><strong>Educators:</strong> To create inclusive learning materials.</li>
                             <li><strong>Digital Marketers:</strong> To ensure call-to-action buttons stand out to every potential customer.</li>
+                        </ul>
+                    </div>
+                </ContentSection>
+
+                <ContentSection id="next-steps" title="Related Tools and Next Steps">
+                    <div className="content-block">
+                        <p>
+                            Accessibility review works best when it is part of a broader design workflow. After checking how users with color
+                            vision deficiencies may experience an asset, the next step is often to optimize the image for the web, refine the
+                            color system, or resize the design for the platform where it will actually be used.
+                        </p>
+                        <ul>
+                            <li><strong>Optimize Final Assets:</strong> Use <a href="/utility-tools/image-tools/image-to-webp-converter">Image to WebP Converter</a> to make accessible visuals lighter and faster for production websites.</li>
+                            <li><strong>Resize for Real Placements:</strong> Open <a href="/utility-tools/image-tools/aspect-ratio-converter">Aspect Ratio Converter</a> to prepare the same asset for stories, thumbnails, banners, and responsive containers.</li>
+                            <li><strong>Review Brand Colors:</strong> Use <a href="/utility-tools/rgb-to-pantone-converter">RGB to Pantone Converter</a> or <a href="/utility-tools/converter-tools/rgb-to-hex-converter">RGB to HEX</a> when adjusting palettes and handoff values.</li>
                         </ul>
                     </div>
                 </ContentSection>

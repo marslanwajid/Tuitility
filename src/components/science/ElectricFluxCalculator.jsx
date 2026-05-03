@@ -93,6 +93,7 @@ const ElectricFluxCalculator = () => {
     { id: 'functionality', title: 'Functionality' },
     { id: 'gauss-context', title: 'Gauss Law Context' },
     { id: 'angle-geometry', title: 'Angle and Geometry' },
+    { id: 'next-steps', title: 'Related Tools and Next Steps' },
     { id: 'faqs', title: 'FAQs' }
   ];
 
@@ -113,22 +114,34 @@ const ElectricFluxCalculator = () => {
       'surface flux calculator',
     ],
     canonicalUrl: 'https://tuitility.vercel.app/science/calculators/electric-flux-calculator',
-    schemaData: {
-      '@context': 'https://schema.org',
-      '@type': 'WebApplication',
-      name: 'Electric Flux Calculator',
-      applicationCategory: 'EducationalApplication',
-      operatingSystem: 'Any',
-      browserRequirements: 'Requires JavaScript and a modern browser',
-      url: 'https://tuitility.vercel.app/science/calculators/electric-flux-calculator',
-      description: 'Calculate electric flux using electric field, area, angle, or charge-based electromagnetism relationships.',
-      featureList: [
-        'Electric flux calculation',
-        'Angle-aware surface calculation',
-        'Charge and permittivity support',
-        'Electromagnetism step breakdown',
-      ],
-    }
+    schemaData: [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'WebApplication',
+        name: 'Electric Flux Calculator',
+        applicationCategory: 'EducationalApplication',
+        operatingSystem: 'Any',
+        browserRequirements: 'Requires JavaScript and a modern browser',
+        url: 'https://tuitility.vercel.app/science/calculators/electric-flux-calculator',
+        description: 'Calculate electric flux using electric field, area, angle, or charge-based electromagnetism relationships.',
+        featureList: [
+          'Electric flux calculation',
+          'Angle-aware surface calculation',
+          'Charge and permittivity support',
+          'Electromagnetism step breakdown',
+        ],
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'HowTo',
+        name: 'How to calculate electric flux',
+        step: [
+          { '@type': 'HowToStep', text: 'Enter electric field strength, surface area, and the angle between them.' },
+          { '@type': 'HowToStep', text: 'Run the calculator to compute the resulting electric flux.' },
+          { '@type': 'HowToStep', text: 'Review the field orientation and interpretation notes for the result.' },
+        ],
+      },
+    ]
   };
 
   const handleInputChange = (field, value) => {
@@ -642,6 +655,19 @@ const ElectricFluxCalculator = () => {
           <li>
             <span><strong>Educational Content:</strong> Explains electric flux concepts and applications</span>
           </li>
+        </ul>
+      </ContentSection>
+
+      <ContentSection id="next-steps" title="Related Tools and Next Steps">
+        <p>
+          Electric flux usually sits alongside charge, capacitance, propagation, and applied electronics topics. After calculating flux,
+          many students and engineers move into storage behavior, signal interpretation, or related wave and energy relationships.
+        </p>
+        <ul>
+          <li><strong>Charge storage:</strong> Use <a href="/science/calculators/capacitance-calculator">Capacitance Calculator</a> for capacitor and dielectric analysis.</li>
+          <li><strong>Wave and field context:</strong> Open <a href="/science/calculators/wave-speed-calculator">Wave Speed Calculator</a> when electric-field concepts connect to propagation and frequency.</li>
+          <li><strong>Applied electronics:</strong> Use <a href="/science/calculators/dbm-watts-calculator">dBm to Watts Calculator</a> or <a href="/science/calculators/dbm-milliwatts-calculator">dBm to Milliwatts Calculator</a> for RF power interpretation.</li>
+          <li><strong>Energy transfer:</strong> Use <a href="/science/calculators/work-power-calculator">Work Power Calculator</a> when your science work shifts from fields into energy and rate calculations.</li>
         </ul>
       </ContentSection>
 

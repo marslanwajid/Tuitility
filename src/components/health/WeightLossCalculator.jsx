@@ -70,6 +70,7 @@ const WeightLossCalculator = () => {
     { id: 'significance', title: 'Significance' },
     { id: 'functionality', title: 'Functionality' },
     { id: 'applications', title: 'Applications' },
+    { id: 'next-steps', title: 'Related Calculators and Next Steps' },
     { id: 'faqs', title: 'FAQs' }
   ];
 
@@ -791,6 +792,16 @@ const WeightLossCalculator = () => {
           </div>
         </ContentSection>
 
+
+        <ContentSection id="next-steps" title="Related Calculators and Next Steps">
+          <p>Weight-loss projections are most useful when they connect calorie targets, hydration, and body composition together. After checking the timeline, the next step is usually refining the target and making sure the daily plan is realistic.</p>
+          <ul>
+            <li><strong>Validate starting metrics:</strong> Use the <a href="/health/calculators/bmi-calculator">BMI Calculator</a> and <a href="/health/calculators/body-fat-calculator">Body Fat Calculator</a> for a fuller baseline.</li>
+            <li><strong>Fine-tune intake:</strong> Continue with the <a href="/health/calculators/calorie-calculator">Calorie Calculator</a> for maintenance and deficit estimates.</li>
+            <li><strong>Support recovery and hydration:</strong> The <a href="/health/calculators/water-intake-calculator">Water Intake Calculator</a> helps keep the plan practical.</li>
+            <li><strong>Compare target ranges:</strong> Use the <a href="/health/calculators/ideal-body-weight-calculator">Ideal Weight Calculator</a> to see how your target sits within common reference ranges.</li>
+          </ul>
+        </ContentSection>
 
         <FAQSection 
           faqs={[

@@ -76,6 +76,7 @@ const TaxCalculator = () => {
     { id: 'significance', title: 'Significance' },
     { id: 'functionality', title: 'Functionality' },
     { id: 'applications', title: 'Applications' },
+    { id: 'next-steps', title: 'Related Calculators and Next Steps' },
     { id: 'faqs', title: 'FAQs' }
   ];
 
@@ -715,6 +716,16 @@ const TaxCalculator = () => {
           </div>
         </ContentSection>
 
+
+        <ContentSection id="next-steps" title="Related Calculators and Next Steps">
+          <p>Tax estimates are most useful when they feed into the rest of your financial plan. After reviewing your tax burden, the next step is usually comparing spending, retirement contributions, and investment decisions in light of your after-tax income.</p>
+          <ul>
+            <li><strong>Plan monthly cash flow:</strong> Use the <a href="/finance/calculators/budget-calculator">Budget Calculator</a> to place after-tax income into a realistic spending plan.</li>
+            <li><strong>Review long-term investing:</strong> Continue with the <a href="/finance/calculators/investment-calculator">Investment Calculator</a> or <a href="/finance/calculators/retirement-calculator">Retirement Calculator</a> to see how taxes affect growth goals.</li>
+            <li><strong>Compare transaction taxes:</strong> The <a href="/finance/calculators/sales-tax-calculator">Sales Tax Calculator</a> helps when you want a fuller picture of ongoing tax costs beyond income tax.</li>
+            <li><strong>Check borrowing decisions:</strong> Use the <a href="/finance/calculators/loan-calculator">Loan Calculator</a> when salary, deductions, and tax-adjusted income are part of affordability planning.</li>
+          </ul>
+        </ContentSection>
 
         <FAQSection 
           faqs={[

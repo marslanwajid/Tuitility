@@ -135,6 +135,7 @@ const GPACalculator = () => {
     { id: 'applications', title: 'Applications' },
     { id: 'planning-strategy', title: 'Planning Strategy' },
     { id: 'credit-weighting', title: 'Credit Weighting' },
+    { id: 'next-steps', title: 'Related Tools and Next Steps' },
     { id: 'faqs', title: 'FAQs' }
   ];
 
@@ -823,6 +824,16 @@ const GPACalculator = () => {
       <ContentSection id="credit-weighting" title="Credit Weighting">
         <p>Not all classes affect GPA equally. A three-credit course has less impact than a four-credit or five-credit course, which is why weighted point totals matter more than a simple average of letter grades.</p>
         <p>This calculator handles that weighting directly so the final GPA or CGPA reflects the true academic load rather than just the number of subjects entered.</p>
+      </ContentSection>
+
+      <ContentSection id="next-steps" title="Related Tools and Next Steps">
+        <p>GPA results are most useful when they lead into planning rather than just reporting. After checking current standing, the next step is usually scheduling study time, measuring output, or building habits that support the target grade.</p>
+        <ul>
+          <li><strong>Benchmark writing speed:</strong> Use the <a href="/knowledge/calculators/wpm-calculator">WPM Calculator</a> for coursework productivity and typing efficiency.</li>
+          <li><strong>Map study routines:</strong> The <a href="/knowledge/calculators/habit-formation-calculator">Habit Formation Calculator</a> helps convert academic goals into daily repetition.</li>
+          <li><strong>Track session length:</strong> Continue with the <a href="/knowledge/calculators/average-time-calculator">Average Time Calculator</a> to review study duration and pacing.</li>
+          <li><strong>Plan milestone timing:</strong> The <a href="/knowledge/calculators/age-calculator">Age Calculator</a> can help with admission deadlines, eligibility windows, and age-based academic checkpoints.</li>
+        </ul>
       </ContentSection>
 
 

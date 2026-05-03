@@ -1038,6 +1038,16 @@ IMPORTANT: Return ONLY valid JSON, no additional text or formatting.`;
       </ContentSection>
 
 
+      <ContentSection id="next-steps" title="Related Tools and Next Steps">
+        <p>Career-fit results become more valuable when you connect them to actual planning. After reviewing your strengths and matches, the next step is usually building routines, checking workload patterns, or pairing the result with study and productivity tools.</p>
+        <ul>
+          <li><strong>Connect fit with personality patterns:</strong> Use the <a href="/knowledge/calculators/mbti-calculator">MBTI Calculator</a> to compare broader preference patterns with career matches.</li>
+          <li><strong>Build action habits:</strong> The <a href="/knowledge/calculators/habit-formation-calculator">Habit Formation Calculator</a> helps turn career goals into repeatable learning and networking routines.</li>
+          <li><strong>Support academic direction:</strong> Continue with the <a href="/knowledge/calculators/gpa-calculator">GPA Calculator</a> when career choices affect major selection or study priorities.</li>
+          <li><strong>Review time and pace:</strong> The <a href="/knowledge/calculators/average-time-calculator">Average Time Calculator</a> and <a href="/knowledge/calculators/wpm-calculator">WPM Calculator</a> are useful when career preparation depends on speed, workload, and practice consistency.</li>
+        </ul>
+      </ContentSection>
+
       <FAQSection faqs={faqs} />
      
     </ToolPageLayout>

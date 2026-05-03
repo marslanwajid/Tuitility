@@ -281,6 +281,7 @@ const DiabetesRiskCalculator = () => {
     { id: 'significance', title: 'Significance' },
     { id: 'functionality', title: 'Functionality' },
     { id: 'applications', title: 'Applications' },
+    { id: 'next-steps', title: 'Related Calculators and Next Steps' },
     { id: 'faqs', title: 'FAQs' }
   ];
 
@@ -933,6 +934,16 @@ const DiabetesRiskCalculator = () => {
           </div>
         </ContentSection>
 
+
+        <ContentSection id="next-steps" title="Related Calculators and Next Steps">
+          <p>A diabetes-risk score is most helpful when it leads into practical monitoring and lifestyle planning. After seeing the result, the next step is usually reviewing weight, activity, and nutrition-related factors that you can actually change.</p>
+          <ul>
+            <li><strong>Review body-weight context:</strong> Use the <a href="/health/calculators/bmi-calculator">BMI Calculator</a> or <a href="/health/calculators/body-fat-calculator">Body Fat Calculator</a> for related risk indicators.</li>
+            <li><strong>Estimate nutrition needs:</strong> Continue with the <a href="/health/calculators/calorie-calculator">Calorie Calculator</a> to support gradual, sustainable adjustments.</li>
+            <li><strong>Plan weight-change strategy:</strong> The <a href="/health/calculators/weight-loss-calculator">Weight Loss Calculator</a> can help when lower weight is part of the recommendation.</li>
+            <li><strong>Support everyday habits:</strong> Use the <a href="/health/calculators/water-intake-calculator">Water Intake Calculator</a> and <a href="/health/calculators/calorie-burn-calculator">Calorie Burn Calculator</a> to reinforce daily lifestyle changes.</li>
+          </ul>
+        </ContentSection>
 
         <FAQSection 
           faqs={[

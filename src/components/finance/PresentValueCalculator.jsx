@@ -74,6 +74,7 @@ const PresentValueCalculator = () => {
     { id: 'applications', title: 'Applications' },
     { id: 'significance', title: 'Significance' },
     { id: 'functionality', title: 'Functionality' },
+    { id: 'next-steps', title: 'Related Calculators and Next Steps' },
     { id: 'faqs', title: 'FAQs' }
   ];
 
@@ -648,6 +649,16 @@ const PresentValueCalculator = () => {
           </ul>
         </ContentSection>
 
+
+        <ContentSection id="next-steps" title="Related Calculators and Next Steps">
+          <p>Present value becomes more meaningful when you compare it against future growth and real financing choices. After discounting a future amount, the next step is usually checking the growth path, loan alternative, or investment tradeoff.</p>
+          <ul>
+            <li><strong>Reverse the calculation:</strong> Use the <a href="/finance/calculators/future-value-calculator">Future Value Calculator</a> to project money forward using the same assumptions.</li>
+            <li><strong>Test full growth scenarios:</strong> Continue with the <a href="/finance/calculators/investment-calculator">Investment Calculator</a> or <a href="/finance/calculators/compound-interest-calculator">Compound Interest Calculator</a> for savings plans.</li>
+            <li><strong>Compare borrowing choices:</strong> The <a href="/finance/calculators/loan-calculator">Loan Calculator</a> helps when the discounted value is part of a financing decision.</li>
+            <li><strong>Use it in retirement planning:</strong> Pair this with the <a href="/finance/calculators/retirement-calculator">Retirement Calculator</a> for future income and nest-egg analysis.</li>
+          </ul>
+        </ContentSection>
 
         <FAQSection 
           faqs={[

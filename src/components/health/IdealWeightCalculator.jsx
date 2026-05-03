@@ -230,6 +230,7 @@ const IdealWeightCalculator = () => {
     { id: 'significance', title: 'Significance' },
     { id: 'functionality', title: 'Functionality' },
     { id: 'applications', title: 'Applications' },
+    { id: 'next-steps', title: 'Related Calculators and Next Steps' },
     { id: 'faqs', title: 'FAQs' }
   ];
 
@@ -962,6 +963,16 @@ const IdealWeightCalculator = () => {
           </div>
         </ContentSection>
 
+
+        <ContentSection id="next-steps" title="Related Calculators and Next Steps">
+          <p>Ideal-weight formulas are most useful when you treat them as a reference range instead of a single perfect number. After checking the target zone, the next step is usually comparing current body composition, calories, and whether the goal is loss, gain, or maintenance.</p>
+          <ul>
+            <li><strong>Compare with current screening metrics:</strong> Use the <a href="/health/calculators/bmi-calculator">BMI Calculator</a> to see how your present weight sits in common ranges.</li>
+            <li><strong>Add body-composition detail:</strong> Continue with the <a href="/health/calculators/body-fat-calculator">Body Fat Calculator</a> for more context than scale weight alone.</li>
+            <li><strong>Connect targets to calories:</strong> The <a href="/health/calculators/calorie-calculator">Calorie Calculator</a> helps turn a target into a daily plan.</li>
+            <li><strong>Choose a structured path:</strong> Use the <a href="/health/calculators/weight-loss-calculator">Weight Loss Calculator</a> or <a href="/health/calculators/weight-gain-calculator">Weight Gain Calculator</a> to estimate the timeline.</li>
+          </ul>
+        </ContentSection>
 
         <FAQSection 
           faqs={[

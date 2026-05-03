@@ -258,6 +258,7 @@ const HabitFormationCalculator = () => {
     { id: 'significance', title: 'Significance', level: 2 },
     { id: 'functionality', title: 'Functionality', level: 2 },
     { id: 'applications', title: 'Applications', level: 2 },
+    { id: 'next-steps', title: 'Related Tools and Next Steps', level: 2 },
     { id: 'faqs', title: 'FAQs', level: 2 }
   ];
 
@@ -760,8 +761,18 @@ const HabitFormationCalculator = () => {
       </ContentSection>
 
 
+      <ContentSection id="next-steps" title="Related Tools and Next Steps">
+        <p>Habit estimates become much more useful when you connect them to a real outcome. After projecting how long a routine may take to stick, the next step is usually linking that routine to school, wellbeing, productivity, or sustainability goals.</p>
+        <ul>
+          <li><strong>Support academic consistency:</strong> Use the <a href="/knowledge/calculators/gpa-calculator">GPA Calculator</a> to connect study habits with grade targets.</li>
+          <li><strong>Improve output habits:</strong> The <a href="/knowledge/calculators/wpm-calculator">WPM Calculator</a> is a strong companion for typing practice and productivity routines.</li>
+          <li><strong>Build wellbeing routines:</strong> Continue with the <a href="/knowledge/calculators/anxiety-assessment-calculator">Anxiety Assessment Calculator</a> when the habit plan is focused on coping skills or self-care structure.</li>
+          <li><strong>Reduce impact through repetition:</strong> Pair this with the <a href="/knowledge/calculators/carbon-footprint-calculator">Carbon Footprint Calculator</a> to turn sustainability goals into daily actions.</li>
+        </ul>
+      </ContentSection>
+
       <FAQSection faqs={faqData} />
-      <FeedbackForm />
+      <FeedbackForm toolName={toolData.name} />
     </ToolPageLayout>
   );
 };

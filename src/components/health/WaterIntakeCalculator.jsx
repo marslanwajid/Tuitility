@@ -80,6 +80,7 @@ const WaterIntakeCalculator = () => {
     { id: 'significance', title: 'Significance' },
     { id: 'functionality', title: 'Functionality' },
     { id: 'applications', title: 'Applications' },
+    { id: 'next-steps', title: 'Related Calculators and Next Steps' },
     { id: 'faqs', title: 'FAQs' }
   ];
 
@@ -1017,6 +1018,16 @@ const WaterIntakeCalculator = () => {
           </div>
         </ContentSection>
 
+
+        <ContentSection id="next-steps" title="Related Calculators and Next Steps">
+          <p>Hydration is easiest to use well when it sits inside a broader health routine. After estimating water needs, the next step is usually adjusting for calories, body size, exercise, and weight goals.</p>
+          <ul>
+            <li><strong>Connect hydration to nutrition:</strong> Use the <a href="/health/calculators/calorie-calculator">Calorie Calculator</a> for daily intake planning.</li>
+            <li><strong>Check body size context:</strong> Continue with the <a href="/health/calculators/bmi-calculator">BMI Calculator</a> or <a href="/health/calculators/ideal-body-weight-calculator">Ideal Weight Calculator</a>.</li>
+            <li><strong>Match activity levels:</strong> The <a href="/health/calculators/calorie-burn-calculator">Calorie Burn Calculator</a> helps when exercise volume changes fluid needs.</li>
+            <li><strong>Support weight change goals:</strong> Use the <a href="/health/calculators/weight-loss-calculator">Weight Loss Calculator</a> or <a href="/health/calculators/weight-gain-calculator">Weight Gain Calculator</a> for a more complete plan.</li>
+          </ul>
+        </ContentSection>
 
         <FAQSection 
           faqs={[

@@ -1032,6 +1032,7 @@ const MBTICalculator = () => {
     { id: 'significance', title: 'Significance', level: 2 },
     { id: 'functionality', title: 'Functionality', level: 2 },
     { id: 'applications', title: 'Applications', level: 2 },
+    { id: 'next-steps', title: 'Related Tools and Next Steps', level: 2 },
     { id: 'faqs', title: 'FAQs', level: 2 }
   ];
 
@@ -1513,6 +1514,17 @@ const MBTICalculator = () => {
         </div>
       </ContentSection>
 
+
+      <ContentSection id="next-steps">
+        <h2>Related Tools and Next Steps</h2>
+        <p>Personality results are most useful when they help you make a decision or build a plan. After reviewing your MBTI-style profile, the next step is usually connecting those preferences to career direction, study strategy, or everyday habits.</p>
+        <ul className="usage-steps">
+          <li><strong>Match preferences to work options:</strong> Use the <a href="/knowledge/calculators/career-assessment-calculator">Career Assessment Calculator</a> to compare personality tendencies with career-fit suggestions.</li>
+          <li><strong>Turn insight into routine:</strong> The <a href="/knowledge/calculators/habit-formation-calculator">Habit Formation Calculator</a> helps build development habits around communication, study, or personal growth.</li>
+          <li><strong>Support learning decisions:</strong> Continue with the <a href="/knowledge/calculators/language-level-calculator">Language Level Calculator</a> or <a href="/knowledge/calculators/gpa-calculator">GPA Calculator</a> when your profile informs academic planning.</li>
+          <li><strong>Measure execution and pace:</strong> The <a href="/knowledge/calculators/wpm-calculator">WPM Calculator</a> and <a href="/knowledge/calculators/average-time-calculator">Average Time Calculator</a> are useful companions for productivity and skills practice.</li>
+        </ul>
+      </ContentSection>
 
       <FAQSection faqs={faqData} />
       

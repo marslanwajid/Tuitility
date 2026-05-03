@@ -1319,6 +1319,16 @@ const LanguageLevelCalculator = () => {
       </ContentSection>
 
 
+      <ContentSection id="next-steps" title="Related Tools and Next Steps">
+        <p>Language-level estimates are most useful when they guide your next practice decision. After reviewing the score, the next step is usually setting a routine, tracking speed, or placing the result into a bigger study plan.</p>
+        <ul>
+          <li><strong>Measure typing practice in the target language:</strong> Use the <a href="/knowledge/calculators/wpm-calculator">WPM Calculator</a> for keyboard fluency and speed work.</li>
+          <li><strong>Build a regular study routine:</strong> The <a href="/knowledge/calculators/habit-formation-calculator">Habit Formation Calculator</a> helps turn language goals into daily repetition.</li>
+          <li><strong>Plan academic progress:</strong> Continue with the <a href="/knowledge/calculators/gpa-calculator">GPA Calculator</a> if language learning is part of coursework or formal study.</li>
+          <li><strong>Estimate study session timing:</strong> The <a href="/knowledge/calculators/average-time-calculator">Average Time Calculator</a> is useful for comparing lesson and practice duration.</li>
+        </ul>
+      </ContentSection>
+
       <FAQSection faqs={faqData} />
     </ToolPageLayout>
   );

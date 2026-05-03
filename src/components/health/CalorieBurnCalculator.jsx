@@ -261,6 +261,7 @@ const CalorieBurnCalculator = () => {
     { id: 'significance', title: 'Significance' },
     { id: 'functionality', title: 'Functionality' },
     { id: 'applications', title: 'Applications' },
+    { id: 'next-steps', title: 'Related Calculators and Next Steps' },
     { id: 'faqs', title: 'FAQs' }
   ];
 
@@ -926,6 +927,16 @@ const CalorieBurnCalculator = () => {
           </div>
         </ContentSection>
 
+
+        <ContentSection id="next-steps" title="Related Calculators and Next Steps">
+          <p>Calorie-burn estimates are most useful when they connect to the rest of your plan. After checking exercise output, the next step is usually deciding how that affects total calorie needs, hydration, and whether the routine supports weight loss or weight gain.</p>
+          <ul>
+            <li><strong>Balance exercise with intake:</strong> Use the <a href="/health/calculators/calorie-calculator">Calorie Calculator</a> to combine burned calories with total daily needs.</li>
+            <li><strong>Support hydration:</strong> Continue with the <a href="/health/calculators/water-intake-calculator">Water Intake Calculator</a> when training volume is rising.</li>
+            <li><strong>Use it for weight change planning:</strong> The <a href="/health/calculators/weight-loss-calculator">Weight Loss Calculator</a> and <a href="/health/calculators/weight-gain-calculator">Weight Gain Calculator</a> help turn activity into realistic weekly targets.</li>
+            <li><strong>Check body metrics:</strong> Pair it with the <a href="/health/calculators/bmi-calculator">BMI Calculator</a> or <a href="/health/calculators/body-fat-calculator">Body Fat Calculator</a> for more context.</li>
+          </ul>
+        </ContentSection>
 
         <FAQSection 
           faqs={[

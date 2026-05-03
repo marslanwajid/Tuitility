@@ -92,6 +92,7 @@ const AverageAtomicMassCalculator = () => {
     { id: 'functionality', title: 'Functionality' },
     { id: 'chemistry-context', title: 'Chemistry Context' },
     { id: 'common-mistakes', title: 'Common Mistakes' },
+    { id: 'next-steps', title: 'Related Tools and Next Steps' },
     { id: 'faqs', title: 'FAQs' }
   ];
 
@@ -657,6 +658,19 @@ const AverageAtomicMassCalculator = () => {
           <li><strong>Percent vs decimal confusion:</strong> 75.77% is not the same as 75.77 as a decimal fraction.</li>
           <li><strong>Missing isotope share:</strong> If abundances do not represent the full element, the final result can be misleading.</li>
           <li><strong>Premature rounding:</strong> Keep precision through the weighted calculations and round near the end.</li>
+        </ul>
+      </ContentSection>
+
+      <ContentSection id="next-steps" title="Related Tools and Next Steps">
+        <p>
+          Average atomic mass calculations often support larger chemistry and physics workflows. After finding the weighted isotope mass,
+          the next step is usually to connect that result to electrostatics, energy analysis, or other foundational science topics.
+        </p>
+        <ul>
+          <li><strong>Field concepts:</strong> Use <a href="/science/calculators/electric-flux-calculator">Electric Flux Calculator</a> for electrostatics and charge-distribution work.</li>
+          <li><strong>Charge storage:</strong> Open <a href="/science/calculators/capacitance-calculator">Capacitance Calculator</a> when chemistry overlaps with electrical behavior and material response.</li>
+          <li><strong>Energy interpretation:</strong> Use <a href="/science/calculators/work-power-calculator">Work Power Calculator</a> if the lesson moves into energy transfer or applied mechanics.</li>
+          <li><strong>Propagation context:</strong> Use <a href="/science/calculators/wave-speed-calculator">Wave Speed Calculator</a> when coursework links isotope topics with radiation, signals, or propagation ideas.</li>
         </ul>
       </ContentSection>
 

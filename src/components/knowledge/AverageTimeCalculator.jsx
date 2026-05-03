@@ -853,6 +853,16 @@ const AverageTimeCalculator = () => {
       </ContentSection>
 
 
+      <ContentSection id="next-steps" title="Related Tools and Next Steps">
+        <p>Average time analysis is often part of a larger performance workflow. Once you know the mean or median duration, the next useful step is usually interpreting it in study, typing, travel, or routine-building contexts.</p>
+        <ul>
+          <li><strong>Test typing pace:</strong> Use the <a href="/knowledge/calculators/wpm-calculator">WPM Calculator</a> to turn time-based measurements into speed and accuracy benchmarks.</li>
+          <li><strong>Support study planning:</strong> The <a href="/knowledge/calculators/gpa-calculator">GPA Calculator</a> is a natural follow-up when timing data connects to coursework and academic performance.</li>
+          <li><strong>Estimate routine consistency:</strong> Continue with the <a href="/knowledge/calculators/habit-formation-calculator">Habit Formation Calculator</a> when your time entries reflect repeated daily habits.</li>
+          <li><strong>Budget trips and schedules:</strong> Pair this with the <a href="/knowledge/calculators/fuel-calculator">Fuel Calculator</a> for commute and trip timing plus transport cost planning.</li>
+        </ul>
+      </ContentSection>
+
       <FAQSection faqs={faqData} />
     </ToolPageLayout>
   );

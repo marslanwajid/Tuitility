@@ -811,6 +811,16 @@ Keep your response under 500 words and use a warm, supportive tone.`;
       </ContentSection>
 
 
+      <ContentSection id="next-steps" title="Related Tools and Next Steps">
+        <p>This self-check is most helpful when it leads into reflection, support planning, and related wellbeing tools. The next step is usually understanding adjacent patterns or organizing practical routines rather than repeating the same assessment without action.</p>
+        <ul>
+          <li><strong>Explore overlapping experiences:</strong> Use the <a href="/knowledge/calculators/trauma-assessment-calculator">Trauma Assessment Calculator</a> when symptoms may connect with stress responses or difficult past events.</li>
+          <li><strong>Strengthen routines:</strong> The <a href="/knowledge/calculators/habit-formation-calculator">Habit Formation Calculator</a> can help plan sustainable self-care habits and daily anchors.</li>
+          <li><strong>Reflect on work fit and stressors:</strong> Continue with the <a href="/knowledge/calculators/career-assessment-calculator">Career Assessment Calculator</a> if anxiety is tied to role fit, strengths, or work direction.</li>
+          <li><strong>Measure productivity pressure points:</strong> The <a href="/knowledge/calculators/average-time-calculator">Average Time Calculator</a> helps analyze workload timing and repetitive task pressure.</li>
+        </ul>
+      </ContentSection>
+
       <FAQSection faqs={faqs} />
     </ToolPageLayout>
   );

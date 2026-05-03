@@ -308,6 +308,7 @@ const WPMCalculator = () => {
     { id: 'applications', title: 'Applications', level: 2 },
     { id: 'improvement-strategy', title: 'Improvement Strategy', level: 2 },
     { id: 'accuracy-vs-speed', title: 'Accuracy vs Speed', level: 2 },
+    { id: 'next-steps', title: 'Related Tools and Next Steps', level: 2 },
     { id: 'faqs', title: 'FAQs', level: 2 }
   ];
 
@@ -804,8 +805,19 @@ const WPMCalculator = () => {
         </ContentSection>
 
 
+        <ContentSection id="next-steps">
+          <h2>Related Tools and Next Steps</h2>
+          <p>Typing scores become more useful when you pair them with the kind of goal you are working toward. After testing WPM, the next step is usually building a better practice routine, connecting performance to study tasks, or comparing time usage more closely.</p>
+          <ul className="usage-steps">
+            <li><strong>Build a practice routine:</strong> Use the <a href="/knowledge/calculators/habit-formation-calculator">Habit Formation Calculator</a> to turn keyboard practice into a repeatable habit.</li>
+            <li><strong>Support school and coursework:</strong> The <a href="/knowledge/calculators/gpa-calculator">GPA Calculator</a> helps connect typing productivity with academic targets.</li>
+            <li><strong>Review session duration:</strong> Continue with the <a href="/knowledge/calculators/average-time-calculator">Average Time Calculator</a> for timing drills and productivity blocks.</li>
+            <li><strong>Plan bigger milestones:</strong> The <a href="/knowledge/calculators/age-calculator">Age Calculator</a> is useful when productivity goals are tied to application, graduation, or career timing.</li>
+          </ul>
+        </ContentSection>
+
         <FAQSection faqs={faqData} />
-        <FeedbackForm />
+        <FeedbackForm toolName={toolData.name} />
     
     </ToolPageLayout>
   );

@@ -141,6 +141,7 @@ const CalorieCalculator = () => {
     { id: 'significance', title: 'Significance' },
     { id: 'functionality', title: 'Functionality' },
     { id: 'applications', title: 'Applications' },
+    { id: 'next-steps', title: 'Related Calculators and Next Steps' },
     { id: 'faqs', title: 'FAQs' }
   ];
 
@@ -800,6 +801,16 @@ const CalorieCalculator = () => {
           </div>
         </ContentSection>
 
+
+        <ContentSection id="next-steps" title="Related Calculators and Next Steps">
+          <p>Calorie targets work best when they are matched with body composition, hydration, and a realistic goal pace. After seeing daily calories, the next step is usually connecting the number to weight planning and recovery habits.</p>
+          <ul>
+            <li><strong>Check weight status first:</strong> Use the <a href="/health/calculators/bmi-calculator">BMI Calculator</a> or <a href="/health/calculators/body-fat-calculator">Body Fat Calculator</a> for more context around your target.</li>
+            <li><strong>Choose a direction:</strong> Continue with the <a href="/health/calculators/weight-loss-calculator">Weight Loss Calculator</a> or <a href="/health/calculators/weight-gain-calculator">Weight Gain Calculator</a> based on your goal.</li>
+            <li><strong>Support hydration:</strong> The <a href="/health/calculators/water-intake-calculator">Water Intake Calculator</a> helps round out the daily plan.</li>
+            <li><strong>Account for activity:</strong> Use the <a href="/health/calculators/calorie-burn-calculator">Calorie Burn Calculator</a> to connect exercise output with intake planning.</li>
+          </ul>
+        </ContentSection>
 
         <FAQSection 
           faqs={faqs}

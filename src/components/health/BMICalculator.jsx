@@ -152,6 +152,7 @@ const BMICalculator = () => {
     { id: 'significance', title: 'Significance' },
     { id: 'functionality', title: 'Functionality' },
     { id: 'applications', title: 'Applications' },
+    { id: 'next-steps', title: 'Related Calculators and Next Steps' },
     { id: 'faqs', title: 'FAQs' }
   ];
 
@@ -1103,6 +1104,16 @@ const BMICalculator = () => {
         </div>
       </ContentSection>
 
+
+      <ContentSection id="next-steps" title="Related Calculators and Next Steps">
+        <p>BMI is usually the starting point rather than the full answer. After checking body mass index, most people want to compare body composition, calorie needs, hydration, and realistic weight targets.</p>
+        <ul>
+          <li><strong>Review body composition:</strong> Use the <a href="/health/calculators/body-fat-calculator">Body Fat Calculator</a> for a more detailed picture than BMI alone.</li>
+          <li><strong>Estimate calorie needs:</strong> Continue with the <a href="/health/calculators/calorie-calculator">Calorie Calculator</a> to connect weight status with nutrition planning.</li>
+          <li><strong>Plan healthy targets:</strong> The <a href="/health/calculators/ideal-body-weight-calculator">Ideal Weight Calculator</a> and <a href="/health/calculators/weight-loss-calculator">Weight Loss Calculator</a> help turn BMI results into action.</li>
+          <li><strong>Support daily habits:</strong> Use the <a href="/health/calculators/water-intake-calculator">Water Intake Calculator</a> to build hydration around your overall health plan.</li>
+        </ul>
+      </ContentSection>
 
       <FAQSection 
         faqs={faqs}

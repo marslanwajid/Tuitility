@@ -392,6 +392,7 @@ const DRICalculator = () => {
     { id: 'significance', title: 'Significance' },
     { id: 'functionality', title: 'Functionality' },
     { id: 'applications', title: 'Applications' },
+    { id: 'next-steps', title: 'Related Calculators and Next Steps' },
     { id: 'faqs', title: 'FAQs' }
   ];
 
@@ -1049,6 +1050,16 @@ const DRICalculator = () => {
         </div>
         </ContentSection>
 
+
+        <ContentSection id="next-steps" title="Related Calculators and Next Steps">
+          <p>DRI results become more practical when they are paired with calorie targets, hydration, and body-weight context. After reviewing nutrient recommendations, the next step is usually shaping daily intake around your energy needs and health goals.</p>
+          <ul>
+            <li><strong>Set total energy intake:</strong> Use the <a href="/health/calculators/calorie-calculator">Calorie Calculator</a> to match nutrient guidance with calorie needs.</li>
+            <li><strong>Support fluid targets:</strong> Continue with the <a href="/health/calculators/water-intake-calculator">Water Intake Calculator</a> for hydration planning.</li>
+            <li><strong>Check weight-related context:</strong> The <a href="/health/calculators/bmi-calculator">BMI Calculator</a> and <a href="/health/calculators/ideal-body-weight-calculator">Ideal Weight Calculator</a> help frame nutritional goals.</li>
+            <li><strong>Apply it to body-composition change:</strong> Use the <a href="/health/calculators/weight-loss-calculator">Weight Loss Calculator</a> or <a href="/health/calculators/weight-gain-calculator">Weight Gain Calculator</a> depending on your direction.</li>
+          </ul>
+        </ContentSection>
 
         <FAQSection 
           faqs={[

@@ -255,6 +255,7 @@ const BRICalculator = () => {
     { id: 'significance', title: 'Significance' },
     { id: 'functionality', title: 'Functionality' },
     { id: 'applications', title: 'Applications' },
+    { id: 'next-steps', title: 'Related Calculators and Next Steps' },
     { id: 'faqs', title: 'FAQs' }
   ];
 
@@ -687,6 +688,16 @@ const BRICalculator = () => {
           </div>
         </ContentSection>
 
+
+        <ContentSection id="next-steps" title="Related Calculators and Next Steps">
+          <p>BRI is strongest when you compare it with other health markers instead of reading it in isolation. After checking roundness and fat distribution, the next step is usually reviewing BMI, body fat, and the nutrition or activity changes that could reduce central-fat risk.</p>
+          <ul>
+            <li><strong>Compare with standard weight screening:</strong> Use the <a href="/health/calculators/bmi-calculator">BMI Calculator</a> for a broader weight-status view.</li>
+            <li><strong>Look deeper at composition:</strong> Continue with the <a href="/health/calculators/body-fat-calculator">Body Fat Calculator</a> for a direct body-fat estimate.</li>
+            <li><strong>Adjust intake and activity:</strong> The <a href="/health/calculators/calorie-calculator">Calorie Calculator</a> and <a href="/health/calculators/calorie-burn-calculator">Calorie Burn Calculator</a> help connect the result to action.</li>
+            <li><strong>Plan risk-reduction goals:</strong> Use the <a href="/health/calculators/weight-loss-calculator">Weight Loss Calculator</a> if lowering central adiposity is part of the recommendation.</li>
+          </ul>
+        </ContentSection>
 
         <FAQSection 
           faqs={[

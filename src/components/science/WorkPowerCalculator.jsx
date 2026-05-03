@@ -92,6 +92,7 @@ const WorkPowerCalculator = () => {
     { id: 'applications', title: 'Applications', level: 1 },
     { id: 'angle-effects', title: 'Angle Effects', level: 1 },
     { id: 'interpretation', title: 'Interpreting Work and Power', level: 1 },
+    { id: 'next-steps', title: 'Related Tools and Next Steps', level: 1 },
     { id: 'faq', title: 'Frequently Asked Questions', level: 1 }
   ];
 
@@ -131,22 +132,34 @@ const WorkPowerCalculator = () => {
       'joules and watts calculator',
     ],
     canonicalUrl: 'https://tuitility.vercel.app/science/calculators/work-power-calculator',
-    schemaData: {
-      '@context': 'https://schema.org',
-      '@type': 'WebApplication',
-      name: 'Work Power Calculator',
-      applicationCategory: 'EducationalApplication',
-      operatingSystem: 'Any',
-      browserRequirements: 'Requires JavaScript and a modern browser',
-      url: 'https://tuitility.vercel.app/science/calculators/work-power-calculator',
-      description: 'Calculate mechanical work and power using force, distance, angle, and time with engineering-friendly unit options.',
-      featureList: [
-        'Work calculation',
-        'Power calculation',
-        'Angle-aware force component handling',
-        'Multiple unit selections',
-      ],
-    }
+    schemaData: [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'WebApplication',
+        name: 'Work Power Calculator',
+        applicationCategory: 'EducationalApplication',
+        operatingSystem: 'Any',
+        browserRequirements: 'Requires JavaScript and a modern browser',
+        url: 'https://tuitility.vercel.app/science/calculators/work-power-calculator',
+        description: 'Calculate mechanical work and power using force, distance, angle, and time with engineering-friendly unit options.',
+        featureList: [
+          'Work calculation',
+          'Power calculation',
+          'Angle-aware force component handling',
+          'Multiple unit selections',
+        ],
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'HowTo',
+        name: 'How to calculate work and power',
+        step: [
+          { '@type': 'HowToStep', text: 'Choose the quantity you want to solve for and enter the known values.' },
+          { '@type': 'HowToStep', text: 'Run the calculator to compute work, power, or a related variable.' },
+          { '@type': 'HowToStep', text: 'Use the result together with the explanation to interpret the mechanics problem.' },
+        ],
+      },
+    ]
   };
 
   // Handle form input changes
@@ -512,6 +525,19 @@ const WorkPowerCalculator = () => {
             <p>Power generation, energy conversion, and renewable energy analysis</p>
           </div>
         </div>
+      </ContentSection>
+
+      <ContentSection id="next-steps" title="Related Tools and Next Steps">
+        <p>
+          Work and power calculations often sit in the center of physics problem solving. Once energy transfer and rate are known, the next
+          step is usually to compare those results with gravity, propagation, or electrical systems depending on the application.
+        </p>
+        <ul>
+          <li><strong>Force source analysis:</strong> Use <a href="/science/calculators/gravity-calculator">Gravity Calculator</a> when the applied force comes from gravitational interaction.</li>
+          <li><strong>Propagation context:</strong> Open <a href="/science/calculators/wave-speed-calculator">Wave Speed Calculator</a> for systems involving traveling waves, signal transfer, or oscillatory motion.</li>
+          <li><strong>Field relationships:</strong> Use <a href="/science/calculators/electric-flux-calculator">Electric Flux Calculator</a> for electrostatics problems where field behavior and energy ideas intersect.</li>
+          <li><strong>Power conversion:</strong> Use <a href="/science/calculators/dbm-watts-calculator">dBm to Watts Calculator</a> or <a href="/science/calculators/dbm-milliwatts-calculator">dBm to Milliwatts Calculator</a> for communications and RF power levels.</li>
+        </ul>
       </ContentSection>
 
 
