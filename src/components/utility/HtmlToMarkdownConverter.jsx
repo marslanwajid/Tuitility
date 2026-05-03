@@ -5,10 +5,8 @@ import ContentSection from '../tool/ContentSection';
 import FAQSection from '../tool/FAQSection';
 import TableOfContents from '../tool/TableOfContents';
 import FeedbackForm from '../tool/FeedbackForm';
-import Seo from '../Seo';
 import '../../assets/css/utility/html-to-markdown.css';
 import { toolCategories } from '../../data/toolCategories';
-import ToolDynamicSections from '../tool/ToolDynamicSections'
 
 
 const HtmlToMarkdownConverter = () => {
@@ -189,7 +187,36 @@ const HtmlToMarkdownConverter = () => {
     icon: "fab fa-html5",
     category: "Utility",
     breadcrumb: ["Utility", "Tools", "HTML to Markdown"],
-    tags: ["html", "markdown", "converter", "syntax", "developer"]
+    tags: ["html", "markdown", "converter", "syntax", "developer"],
+    seoTitle: 'HTML to Markdown Converter for Clean Content Migration | Tuitility',
+    seoDescription: 'Convert HTML to Markdown and Markdown to HTML for documentation, blogging, CMS migration, and developer workflows with clean readable output.',
+    seoKeywords: [
+      'html to markdown converter',
+      'markdown to html converter',
+      'html markdown tool',
+      'content migration converter',
+      'developer markdown converter',
+      'documentation converter',
+    ],
+    canonicalUrl: 'https://tuitility.vercel.app/utility-tools/html-to-markdown-converter',
+    schemaData: [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'SoftwareApplication',
+        name: 'HTML to Markdown Converter',
+        applicationCategory: 'DeveloperApplication',
+        operatingSystem: 'Web',
+        description: 'Converter for HTML to Markdown and Markdown to HTML content workflows.',
+        offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+        featureList: [
+          'HTML to Markdown conversion',
+          'Markdown to HTML conversion',
+          'Clipboard copy support',
+          'Download converted file output',
+        ],
+        url: 'https://tuitility.vercel.app/utility-tools/html-to-markdown-converter',
+      },
+    ],
   };
 
 
@@ -231,16 +258,7 @@ const HtmlToMarkdownConverter = () => {
   const sourceLabel = conversionType === 'to-markdown' ? 'HTML Input' : 'Markdown Input';
   const targetLabel = conversionType === 'to-markdown' ? 'Markdown Output' : 'HTML Output';
 
-  const seoData = {
-    title: 'HTML to Markdown Converter - Free Online Tool | Tuitility',
-    description: 'Convert HTML to Markdown and vice versa instantly. Free online tool for developers, writers, and content creators. Clean, accurate conversion.',
-    keywords: 'html to markdown, markdown to html, html converter, markdown converter, content migration, developer tools',
-    canonicalUrl: 'https://tuitility.vercel.app/utility-tools/html-to-markdown-converter'
-  };
-
   return (
-    <>
-      <Seo {...seoData} />
       <ToolPageLayout
         toolData={toolData}
         categories={toolCategories}
@@ -377,11 +395,50 @@ const HtmlToMarkdownConverter = () => {
           </ul>
         </ContentSection>
 
+        <ContentSection id="conversion-quality" title="What This Converter Handles Best">
+          <p>
+            This converter works best on semantic content such as headings, paragraphs, links, emphasis,
+            lists, code, images, and blockquotes. Those are the structures Markdown is designed to represent
+            clearly. For standard documentation and article content, that makes conversion fast and practical.
+          </p>
+          <p>
+            It is especially useful when you want readable output instead of preserving every visual detail from
+            the original HTML source.
+          </p>
+        </ContentSection>
+
+        <ContentSection id="html-markdown-tradeoffs" title="Why HTML and Markdown Serve Different Purposes">
+          <p>
+            HTML is flexible and expressive, which makes it ideal for final rendering in browsers. Markdown is
+            lighter and easier to edit, which makes it ideal for authors, technical writers, and teams who want
+            cleaner version control and simpler content maintenance.
+          </p>
+          <ul className="list-disc pl-6 space-y-2">
+            <li><strong>HTML:</strong> best for final layout and browser rendering.</li>
+            <li><strong>Markdown:</strong> best for readability, portability, and authoring speed.</li>
+            <li><strong>Bi-directional conversion:</strong> helps teams move between writing and publishing workflows.</li>
+            <li><strong>Migration support:</strong> useful for moving legacy content into modern documentation systems.</li>
+          </ul>
+        </ContentSection>
+
+        <ContentSection id="conversion-mistakes" title="Common Conversion Limitations to Expect">
+          <p>
+            Not every HTML construct has a perfect Markdown equivalent. Inline styles, custom layout wrappers,
+            complex tables, scripts, and presentation-only markup often need cleanup after conversion. That is not
+            a failure of the tool so much as a difference between the two formats.
+          </p>
+          <ul className="list-disc pl-6 space-y-2">
+            <li>Complex layout HTML may be simplified into plain readable text.</li>
+            <li>Presentation styles are usually removed in favor of semantic content.</li>
+            <li>Always review converted output before publishing or committing migrations.</li>
+            <li>Use Markdown when you want clean authoring, not pixel-perfect HTML preservation.</li>
+          </ul>
+        </ContentSection>
+
 
         <FAQSection faqs={faqData} />
 
       </ToolPageLayout>
-    </>
   );
 };
 

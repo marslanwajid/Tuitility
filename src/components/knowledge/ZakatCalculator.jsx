@@ -6,7 +6,6 @@ import FAQSection from '../tool/FAQSection';
 import TableOfContents from '../tool/TableOfContents';
 import FeedbackForm from '../tool/FeedbackForm';
 import '../../assets/css/knowledge/zakat-calculator.css';
-import ToolDynamicSections from '../tool/ToolDynamicSections'
 
 const ZakatCalculator = () => {
   const [formData, setFormData] = useState({
@@ -36,7 +35,34 @@ const ZakatCalculator = () => {
     category: "Knowledge",
     icon: "fas fa-mosque",
     breadcrumb: ['Knowledge', 'Calculators', 'Zakat Calculator'],
-    keywords: ["zakat", "islamic", "finance", "charity", "obligation", "nisab", "gold", "silver", "assets"]
+    keywords: ["zakat", "islamic", "finance", "charity", "obligation", "nisab", "gold", "silver", "assets"],
+    seoTitle: 'Zakat Calculator - Calculate Zakat on Assets and Savings | Tuitility',
+    seoDescription: 'Calculate Zakat on cash, gold, silver, investments, and business assets with Nisab comparison and category-based breakdowns.',
+    seoKeywords: [
+      'zakat calculator',
+      'nisab calculator',
+      'islamic finance calculator',
+      'zakat on gold and cash',
+      'zakat amount calculator',
+      'zakat on investments',
+    ],
+    canonicalUrl: 'https://tuitility.vercel.app/knowledge/calculators/zakat-calculator',
+    schemaData: {
+      '@context': 'https://schema.org',
+      '@type': 'WebApplication',
+      name: 'Zakat Calculator',
+      applicationCategory: 'FinanceApplication',
+      operatingSystem: 'Any',
+      browserRequirements: 'Requires JavaScript and a modern browser',
+      url: 'https://tuitility.vercel.app/knowledge/calculators/zakat-calculator',
+      description: 'Calculate zakat obligations from zakatable assets, liabilities, and Nisab thresholds.',
+      featureList: [
+        'Nisab comparison',
+        'Cash and asset category totals',
+        'Gold and silver valuation',
+        'Zakat obligation breakdown',
+      ],
+    }
   };
 
   // Categories for navigation
@@ -939,4 +965,3 @@ const ZakatCalculator = () => {
 };
 
 export default ZakatCalculator;
-

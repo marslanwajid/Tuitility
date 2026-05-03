@@ -6,8 +6,6 @@ import FAQSection from '../tool/FAQSection'
 import TableOfContents from '../tool/TableOfContents'
 import FeedbackForm from '../tool/FeedbackForm'
 import '../../assets/css/finance/house-affordability-calculator.css'
-import Seo from '../Seo'
-import ToolDynamicSections from '../tool/ToolDynamicSections'
 
 const HouseAffordabilityCalculator = () => {
   const [formData, setFormData] = useState({
@@ -274,15 +272,34 @@ const HouseAffordabilityCalculator = () => {
   }, [result]); // Re-render when results change
 
   return (
-    <>
-      <Seo
-        title={seoTitle}
-        description={seoDescription}
-        keywords={seoKeywords}
-        canonicalUrl={canonicalUrl}
-      />
       <ToolPageLayout 
-        toolData={toolData} 
+        toolData={{
+          ...toolData,
+          seoTitle,
+          seoDescription,
+          seoKeywords,
+          canonicalUrl,
+          schemaData: [
+            {
+              '@context': 'https://schema.org',
+              '@type': 'FinancialProduct',
+              name: toolData.name,
+              url: canonicalUrl,
+              description: seoDescription,
+              category: toolData.name
+            },
+            {
+              '@context': 'https://schema.org',
+              '@type': 'SoftwareApplication',
+              name: toolData.name,
+              applicationCategory: 'FinanceApplication',
+              operatingSystem: 'Any',
+              browserRequirements: 'Requires JavaScript and a modern browser',
+              url: canonicalUrl,
+              description: seoDescription
+            }
+          ]
+        }} 
         tableOfContents={tableOfContents}
         categories={categories}
         relatedTools={relatedTools}
@@ -810,7 +827,6 @@ const HouseAffordabilityCalculator = () => {
           title="Frequently Asked Questions"
         />
       </ToolPageLayout>
-    </>
   )
 }
 

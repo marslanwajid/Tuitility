@@ -5,10 +5,8 @@ import ContentSection from '../tool/ContentSection';
 import FAQSection from '../tool/FAQSection';
 import TableOfContents from '../tool/TableOfContents';
 import FeedbackForm from '../tool/FeedbackForm';
-import Seo from '../Seo';
 import '../../assets/css/utility/morse-code-translator.css';
 import { toolCategories } from '../../data/toolCategories';
-import ToolDynamicSections from '../tool/ToolDynamicSections'
 
 
 const MorseCodeTranslator = () => {
@@ -175,19 +173,6 @@ const MorseCodeTranslator = () => {
     return () => stopPlayback();
   }, []);
 
-  // --- Content & Metadata ---
-
-  const toolData = {
-    name: "Morse Code Translator",
-    title: "Morse Code Translator",
-    description: "Convert text to Morse code and back instantly. Features audio playback, visual light signaling, and adjustable transmission speeds for learning and testing.",
-    icon: "fas fa-signal",
-    category: "Utility",
-    breadcrumb: ["Utility", "Tools", "Morse Converter"],
-    tags: ["morse", "code", "translator", "audio", "flash", "telegraph", "sos", "signal"]
-  };
-
-
   const relatedTools = [
     { name: "QR Code Generator", url: "/utility-tools/qr-code-generator", icon: "fas fa-qrcode" },
     { name: "Word Counter", url: "/utility-tools/word-counter", icon: "fas fa-font" },
@@ -204,6 +189,8 @@ const MorseCodeTranslator = () => {
     { id: 'applications', title: 'Modern Applications' },
     { id: 'sos-distress', title: 'SOS & Emergency Signals' },
     { id: 'learning-tips', title: 'Tips for Learning' },
+    { id: 'timing-reference', title: 'Timing Reference' },
+    { id: 'practice-workflow', title: 'Practice Workflow' },
     { id: 'faq', title: 'Frequently Asked Questions' }
   ];
 
@@ -230,16 +217,70 @@ const MorseCodeTranslator = () => {
     }
   ];
 
-  const seoData = {
-    title: 'Morse Code Translator - Text to Morse & Audio | Tuitility',
-    description: 'Free online Morse code translator with audio playback and visual flashing. Convert text to Morse code and back instantly. Learn Morse code with adjustable speeds.',
-    keywords: 'morse code translator, text to morse, morse to text, morse code audio, morse code generator, morse code decoder',
-    canonicalUrl: 'https://tuitility.vercel.app/utility-tools/morse-code-translator'
+  const toolData = {
+    name: "Morse Code Translator",
+    title: "Morse Code Translator",
+    description: "Convert text to Morse code and back instantly. Features audio playback, visual light signaling, and adjustable transmission speeds for learning and testing.",
+    icon: "fas fa-signal",
+    category: "Utility",
+    breadcrumb: ["Utility", "Tools", "Morse Converter"],
+    tags: ["morse", "code", "translator", "audio", "flash", "telegraph", "sos", "signal"],
+    seoTitle: 'Morse Code Translator - Text to Morse with Audio and Flash | Tuitility',
+    seoDescription: 'Translate text to Morse code and Morse code back to text with adjustable speed, audio playback, and visual flash signaling.',
+    seoKeywords: [
+      'morse code translator',
+      'text to morse code',
+      'morse to text',
+      'morse code audio',
+      'morse code flash',
+      'morse code practice',
+    ],
+    canonicalUrl: 'https://tuitility.vercel.app/utility-tools/morse-code-translator',
+    schemaData: [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'WebApplication',
+        name: 'Morse Code Translator',
+        applicationCategory: 'EducationalApplication',
+        operatingSystem: 'Any',
+        browserRequirements: 'Requires JavaScript and browser audio support',
+        url: 'https://tuitility.vercel.app/utility-tools/morse-code-translator',
+        description: 'Translate text to Morse code and practice Morse timing with sound and flashing output.',
+        featureList: [
+          'Text to Morse translation',
+          'Morse to text decoding',
+          'Audio playback',
+          'Visual flash signaling',
+          'Adjustable WPM speed',
+        ],
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'HowTo',
+        name: 'How to use a Morse code translator',
+        step: [
+          { '@type': 'HowToStep', text: 'Type plain text to generate Morse code or paste Morse code to decode it.' },
+          { '@type': 'HowToStep', text: 'Adjust the words-per-minute speed to fit your practice level.' },
+          { '@type': 'HowToStep', text: 'Play the audio or flash the signal to practice recognition.' },
+          { '@type': 'HowToStep', text: 'Compare the output and repeat with new phrases to improve fluency.' },
+        ],
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faqData.map((faq) => ({
+          '@type': 'Question',
+          name: faq.question,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: faq.answer,
+          },
+        })),
+      },
+    ],
   };
 
   return (
-    <>
-      <Seo {...seoData} />
       <ToolPageLayout
         toolData={toolData}
         categories={toolCategories}
@@ -467,11 +508,31 @@ const MorseCodeTranslator = () => {
           </ul>
         </ContentSection>
 
+        <ContentSection id="timing-reference" title="Timing Reference">
+          <p>Morse code depends on precise relative timing. Once you understand the ratio between dots, dashes, and spaces, sending and receiving become much more intuitive.</p>
+          <ul>
+            <li><strong>Dot:</strong> 1 time unit</li>
+            <li><strong>Dash:</strong> 3 time units</li>
+            <li><strong>Space inside one letter:</strong> 1 time unit</li>
+            <li><strong>Space between letters:</strong> 3 time units</li>
+            <li><strong>Space between words:</strong> 7 time units</li>
+          </ul>
+        </ContentSection>
+
+        <ContentSection id="practice-workflow" title="Practice Workflow">
+          <p>A practical learning routine is to start with short words, listen or watch the signal at a slower WPM, and only then increase speed. This tool supports that workflow by combining text conversion with sound and flash output in the same page.</p>
+          <ul>
+            <li><strong>Start small:</strong> Use short words and common letters first.</li>
+            <li><strong>Hide the answer:</strong> Play the signal and try to decode before looking back at the text.</li>
+            <li><strong>Raise speed gradually:</strong> Increase WPM once recognition feels automatic rather than stressful.</li>
+            <li><strong>Mix directions:</strong> Practice both sending and receiving to reinforce memory.</li>
+          </ul>
+        </ContentSection>
+
 
         <FAQSection faqs={faqData} />
 
       </ToolPageLayout>
-    </>
   );
 };
 

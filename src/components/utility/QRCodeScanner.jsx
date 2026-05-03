@@ -6,10 +6,8 @@ import ContentSection from '../tool/ContentSection';
 import FAQSection from '../tool/FAQSection';
 import FeedbackForm from '../tool/FeedbackForm';
 import TableOfContents from '../tool/TableOfContents';
-import Seo from '../Seo';
 import '../../assets/css/utility/qr-code-scanner.css';
 import { toolCategories } from '../../data/toolCategories';
-import ToolDynamicSections from '../tool/ToolDynamicSections'
 
 
 const QRCodeScanner = () => {
@@ -248,18 +246,6 @@ const QRCodeScanner = () => {
         try { return Boolean(new URL(string)); } catch (e) { return false; }
     };
 
-    // --- Tool Data ---
-    const toolData = {
-        name: "QR Code Scanner",
-        title: "Online QR Code Scanner",
-        description: "Scan QR codes instantly directly from your browser using your webcam or by uploading an image. Fast, secure, and privacy-focused.",
-        icon: "fas fa-qrcode",
-        category: "Utility",
-        breadcrumb: ["Utility", "Tools", "Generator Tools"],
-        tags: ["qr", "scanner", "barcode", "reader", "camera"]
-    };
-
-
     const relatedTools = [
         { name: "QR Code Generator", url: "/utility-tools/qr-code-generator", icon: "fas fa-qrcode" },
         { name: "Image to WebP", url: "/utility-tools/image-tools/image-to-webp-converter", icon: "fas fa-image" },
@@ -278,6 +264,8 @@ const QRCodeScanner = () => {
         { id: 'applications', title: 'Applications' },
         { id: 'technical-specs', title: 'Specifications' },
         { id: 'best-practices', title: 'Best Practices' },
+        { id: 'result-types', title: 'QR Result Types' },
+        { id: 'troubleshooting', title: 'Troubleshooting' },
         { id: 'faqs', title: 'FAQ' }
     ];
 
@@ -316,16 +304,71 @@ const QRCodeScanner = () => {
         }
     ];
 
-    const seoData = {
-        title: 'QR Code Scanner - Scan QR Codes Online Free | Tuitility',
-        description: 'Free online QR code scanner. Scan QR codes using your camera or upload images. Fast, secure, and privacy-focused with local processing.',
-        keywords: 'qr code scanner, scan qr code, qr reader, online qr scanner, camera qr scan, upload qr image',
-        canonicalUrl: 'https://tuitility.vercel.app/utility-tools/converter-tools/qr-code-scanner'
+    // --- Tool Data ---
+    const toolData = {
+        name: "QR Code Scanner",
+        title: "Online QR Code Scanner",
+        description: "Scan QR codes instantly directly from your browser using your webcam or by uploading an image. Fast, secure, and privacy-focused.",
+        icon: "fas fa-qrcode",
+        category: "Utility",
+        breadcrumb: ["Utility", "Tools", "Generator Tools"],
+        tags: ["qr", "scanner", "barcode", "reader", "camera"],
+        seoTitle: 'QR Code Scanner - Scan QR Codes from Camera or Image | Tuitility',
+        seoDescription: 'Scan QR codes online using your camera or uploaded images. Decode URLs, text, Wi-Fi details, and more with local browser-based QR scanning.',
+        seoKeywords: [
+            'qr code scanner',
+            'scan qr code online',
+            'qr scanner from image',
+            'camera qr code reader',
+            'free qr code scanner',
+            'browser qr scanner',
+        ],
+        canonicalUrl: 'https://tuitility.vercel.app/utility-tools/converter-tools/qr-code-scanner',
+        schemaData: [
+            {
+                '@context': 'https://schema.org',
+                '@type': 'WebApplication',
+                name: 'QR Code Scanner',
+                applicationCategory: 'UtilitiesApplication',
+                operatingSystem: 'Any',
+                browserRequirements: 'Requires JavaScript and camera permissions for live scanning',
+                url: 'https://tuitility.vercel.app/utility-tools/converter-tools/qr-code-scanner',
+                description: 'Browser-based QR code scanner that reads QR codes from a live camera feed or uploaded image files.',
+                featureList: [
+                    'Live camera QR scanning',
+                    'Image upload QR detection',
+                    'Local browser processing',
+                    'URL preview and result display',
+                    'Enhanced contrast and multi-scale scanning',
+                ],
+            },
+            {
+                '@context': 'https://schema.org',
+                '@type': 'HowTo',
+                name: 'How to scan a QR code online',
+                step: [
+                    { '@type': 'HowToStep', text: 'Start the camera or upload an image that contains a QR code.' },
+                    { '@type': 'HowToStep', text: 'Allow browser camera permissions if you are scanning live.' },
+                    { '@type': 'HowToStep', text: 'Position the QR code clearly inside the scanning area or choose a readable image.' },
+                    { '@type': 'HowToStep', text: 'Review the decoded result before opening any links or using the scanned data.' },
+                ],
+            },
+            {
+                '@context': 'https://schema.org',
+                '@type': 'FAQPage',
+                mainEntity: faqs.map((faq) => ({
+                    '@type': 'Question',
+                    name: faq.question,
+                    acceptedAnswer: {
+                        '@type': 'Answer',
+                        text: faq.answer,
+                    },
+                })),
+            },
+        ],
     };
 
     return (
-        <>
-            <Seo {...seoData} />
             <ToolPageLayout
                 toolData={toolData}
                 categories={toolCategories}
@@ -517,11 +560,35 @@ const QRCodeScanner = () => {
                     </div>
                 </ContentSection>
 
+                <ContentSection id="result-types" title="QR Result Types You Can Expect">
+                    <div className="content-block">
+                        <p>QR codes can store more than just website links. This scanner is useful because it reveals the content before you act on it, which helps you verify whether the code matches your expectation.</p>
+                        <ul>
+                            <li><strong>URLs:</strong> Links to websites, product pages, forms, menus, or support portals.</li>
+                            <li><strong>Plain text:</strong> Notes, coupon strings, inventory labels, and event instructions.</li>
+                            <li><strong>Wi-Fi credentials:</strong> Network names and password payloads used for quick connection.</li>
+                            <li><strong>Contact cards:</strong> vCard or contact details for networking and business cards.</li>
+                            <li><strong>Payment data:</strong> Wallet addresses or payment requests that should always be checked carefully before use.</li>
+                        </ul>
+                    </div>
+                </ContentSection>
+
+                <ContentSection id="troubleshooting" title="Troubleshooting Low-Quality or Failed Scans">
+                    <div className="content-block">
+                        <p>If a QR code is not being detected, the issue is usually related to image quality, perspective, or glare rather than the code format itself. A few simple adjustments often fix the problem quickly.</p>
+                        <ul>
+                            <li><strong>Use sharper source images:</strong> Crop out extra background and keep the QR code large in frame.</li>
+                            <li><strong>Reduce glare:</strong> Reflection on glossy packaging or screens can hide the finder patterns.</li>
+                            <li><strong>Try another distance:</strong> Moving slightly closer or farther helps autofocus lock properly.</li>
+                            <li><strong>Upload instead of live scan:</strong> For difficult codes, a saved screenshot can decode more reliably than a moving camera feed.</li>
+                        </ul>
+                    </div>
+                </ContentSection>
+
 
                 <FAQSection id="faqs" faqs={faqs} />
 
             </ToolPageLayout>
-        </>
     );
 };
 

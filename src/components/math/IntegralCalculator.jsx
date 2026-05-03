@@ -60,8 +60,9 @@ const IntegralCalculatorComponent = () => {
     { id: 'common-integrals', title: 'Common Integrals' },
     { id: 'how-to-use', title: 'How to Use' },
     { id: 'examples', title: 'Examples' },
-    { id: 'applications', title: 'Applications' },
-    { id: 'faqs', title: 'FAQs' }
+      { id: 'applications', title: 'Applications' },
+      { id: 'next-steps', title: 'Related Calculators and Next Steps' },
+      { id: 'faqs', title: 'FAQs' }
   ];
 
   // KaTeX rendering for examples
@@ -633,6 +634,15 @@ const IntegralCalculatorComponent = () => {
           <li>Find the antiderivative first, then apply definite limits.</li>
           <li>Recheck signs on trig integrals like integral of sin(x) and cos(x).</li>
         </ul>
+      </ContentSection>
+
+      <ContentSection id="next-steps" title="Related Calculators and Next Steps">
+        <p>
+          Integration problems often begin with differentiation ideas or end with applied interpretation. If you want to check the inverse relationship, continue with the <a href="/math/calculators/derivative-calculator">Derivative Calculator</a>. If you need cleaner numeric work around constants, bounds, or rounded outputs, the <a href="/math/calculators/decimal-calculator">Decimal Calculator</a> is the next practical page.
+        </p>
+        <p>
+          Definite integrals also connect strongly to physics-style quantities such as accumulated work, motion, and field behavior. Good cross-category follow-ups include the <a href="/science/calculators/work-power-calculator">Work and Power Calculator</a> and the <a href="/science/calculators/gravity-calculator">Gravity Calculator</a>.
+        </p>
       </ContentSection>
 
 

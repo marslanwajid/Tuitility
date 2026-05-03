@@ -6,7 +6,6 @@ import FAQSection from '../tool/FAQSection'
 import TableOfContents from '../tool/TableOfContents'
 import FeedbackForm from '../tool/FeedbackForm'
 import '../../assets/css/knowledge/age-calculator.css'
-import ToolDynamicSections from '../tool/ToolDynamicSections'
 
 // Age Calculator Logic Class
 class AgeCalculatorLogic {
@@ -199,14 +198,6 @@ const AgeCalculator = () => {
   const [error, setError] = useState('');
   const [calculator] = useState(new AgeCalculatorLogic());
 
-  const toolData = {
-    name: 'Age Calculator',
-    description: 'Calculate your exact age in years, months, days, hours, minutes, and seconds. Get detailed age breakdowns, next birthday information, and age category classification.',
-    icon: 'fas fa-calendar-alt',
-    category: 'Knowledge',
-    breadcrumb: ['Knowledge', 'Calculators', 'Age Calculator']
-  };
-
   const categories = [
     { name: 'Knowledge', url: '/knowledge', icon: 'fas fa-graduation-cap' },
     { name: 'Math', url: '/math', icon: 'fas fa-calculator' },
@@ -233,6 +224,8 @@ const AgeCalculator = () => {
     { id: 'significance', title: 'Significance' },
     { id: 'functionality', title: 'Functionality' },
     { id: 'applications', title: 'Applications' },
+    { id: 'life-planning', title: 'Life Planning Uses' },
+    { id: 'date-accuracy', title: 'Date Accuracy Notes' },
     { id: 'faqs', title: 'FAQs' }
   ];
 
@@ -258,6 +251,66 @@ const AgeCalculator = () => {
       answer: "The calculator uses standard age categories: Infant (0-1), Toddler (1-3), Preschooler (3-5), Child (5-12), Teenager (12-18), Young Adult (18-30), Adult (30-50), Middle Age (50-65), and Senior (65+)."
     }
   ];
+
+  const toolData = {
+    name: 'Age Calculator',
+    description: 'Calculate your exact age in years, months, days, hours, minutes, and seconds. Get detailed age breakdowns, next birthday information, and age category classification.',
+    icon: 'fas fa-calendar-alt',
+    category: 'Knowledge',
+    breadcrumb: ['Knowledge', 'Calculators', 'Age Calculator'],
+    seoTitle: 'Age Calculator - Calculate Exact Age in Years, Months and Days | Tuitility',
+    seoDescription: 'Find exact age from date of birth with years, months, days, hours, next birthday details, and age breakdowns for planning, records, and personal use.',
+    seoKeywords: [
+      'age calculator',
+      'exact age calculator',
+      'calculate age from date of birth',
+      'birthday age calculator',
+      'age in years months days',
+      'dob age calculator',
+    ],
+    canonicalUrl: 'https://tuitility.vercel.app/knowledge/calculators/age-calculator',
+    schemaData: [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'WebApplication',
+        name: 'Age Calculator',
+        applicationCategory: 'UtilitiesApplication',
+        operatingSystem: 'Any',
+        browserRequirements: 'Requires JavaScript and a modern browser',
+        url: 'https://tuitility.vercel.app/knowledge/calculators/age-calculator',
+        description: 'Calculate exact age and next birthday details from birth date and time.',
+        featureList: [
+          'Age in years, months, and days',
+          'Age in hours, minutes, and seconds',
+          'Next birthday countdown',
+          'Age category classification',
+        ],
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'HowTo',
+        name: 'How to calculate exact age',
+        step: [
+          { '@type': 'HowToStep', text: 'Enter the birth date and optional birth time.' },
+          { '@type': 'HowToStep', text: 'Choose the calculation date and optional time.' },
+          { '@type': 'HowToStep', text: 'Run the calculator to view the exact age breakdown.' },
+          { '@type': 'HowToStep', text: 'Review totals, next birthday details, and age category information.' },
+        ],
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faqData.map((faq) => ({
+          '@type': 'Question',
+          name: faq.question,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: faq.answer,
+          },
+        })),
+      },
+    ],
+  };
 
   const handleInputChange = (field, value) => {
     setFormData(prev => ({ ...prev, [field]: value }));
@@ -730,6 +783,21 @@ const AgeCalculator = () => {
             <p>Population and statistical studies</p>
           </div>
         </div>
+      </ContentSection>
+
+      <ContentSection id="life-planning" title="Life Planning Uses">
+        <p>Exact age calculations are useful beyond curiosity. They help verify eligibility windows, organize records, and plan milestones where a rough estimate is not good enough.</p>
+        <ul>
+          <li><strong>School and admissions:</strong> Check age cutoffs and enrollment requirements.</li>
+          <li><strong>Retirement planning:</strong> Understand timing around age-based benefits and goals.</li>
+          <li><strong>Family planning and milestones:</strong> Track birthdays, anniversaries, and development checkpoints accurately.</li>
+          <li><strong>Official paperwork:</strong> Support forms and records that depend on exact age values.</li>
+        </ul>
+      </ContentSection>
+
+      <ContentSection id="date-accuracy" title="Date Accuracy Notes">
+        <p>The most precise result comes from entering both date and time, especially when two timestamps are close together. If birth time is unknown, the calculator still works well, but the totals in hours, minutes, and seconds will reflect the default midnight assumption.</p>
+        <p>For international or historical records, double-check local dates and time handling before entering the data so the comparison stays consistent.</p>
       </ContentSection>
 
 

@@ -56,6 +56,7 @@ const DerivativeCalculator = () => {
     { id: 'significance', title: 'Significance' },
     { id: 'functionality', title: 'Functionality' },
     { id: 'applications', title: 'Applications' },
+    { id: 'next-steps', title: 'Related Calculators and Next Steps' },
     { id: 'faqs', title: 'FAQs' }
   ];
 
@@ -555,6 +556,15 @@ const DerivativeCalculator = () => {
           <li>Review trig derivatives carefully, especially the negative sign for d/dx[cos(x)].</li>
           <li>Use point evaluation only after the symbolic derivative is correct.</li>
         </ul>
+      </ContentSection>
+
+      <ContentSection id="next-steps" title="Related Calculators and Next Steps">
+        <p>
+          Derivatives and integrals form the core pair of calculus workflows. After finding a derivative, the most natural next page is the <a href="/math/calculators/integral-calculator">Integral Calculator</a> to move from rates of change back to accumulation. If your result needs numerical checking, the <a href="/math/calculators/decimal-calculator">Decimal Calculator</a> is a helpful companion.
+        </p>
+        <p>
+          Calculus ideas also connect directly to science tools that involve motion, force, and changing systems. For applied follow-up work, use the <a href="/science/calculators/gravity-calculator">Gravity Calculator</a> or the <a href="/science/calculators/wave-speed-calculator">Wave Speed Calculator</a>.
+        </p>
       </ContentSection>
 
 

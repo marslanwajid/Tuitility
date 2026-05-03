@@ -8,7 +8,6 @@ import TableOfContents from '../tool/TableOfContents';
 import MathFormula from '../tool/MathFormula';
 import FeedbackForm from '../tool/FeedbackForm';
 import '../../assets/css/knowledge/wpm-calculator.css';
-import ToolDynamicSections from '../tool/ToolDynamicSections'
 
 const WPMCalculator = () => {
   const [formData, setFormData] = useState({
@@ -281,14 +280,6 @@ const WPMCalculator = () => {
     textDisplay.innerHTML = html;
   };
 
-  const toolData = {
-    name: "WPM Calculator",
-    description: "Test your typing speed and accuracy with our comprehensive Words Per Minute (WPM) calculator. Practice with various texts and improve your typing skills with detailed performance metrics.",
-    icon: "fas fa-keyboard",
-    category: "Knowledge",
-    breadcrumb: ["Knowledge", "Calculators", "WPM Calculator"]
-  };
-
   const categories = [
     { name: "Knowledge", url: "/knowledge", icon: "fas fa-graduation-cap" },
     { name: "Math", url: "/math", icon: "fas fa-calculator" },
@@ -315,6 +306,8 @@ const WPMCalculator = () => {
     { id: 'significance', title: 'Significance', level: 2 },
     { id: 'functionality', title: 'Functionality', level: 2 },
     { id: 'applications', title: 'Applications', level: 2 },
+    { id: 'improvement-strategy', title: 'Improvement Strategy', level: 2 },
+    { id: 'accuracy-vs-speed', title: 'Accuracy vs Speed', level: 2 },
     { id: 'faqs', title: 'FAQs', level: 2 }
   ];
 
@@ -344,6 +337,67 @@ const WPMCalculator = () => {
       answer: "WPM (Words Per Minute) counts words, while CPM (Characters Per Minute) counts individual characters. WPM is more commonly used for typing speed measurement."
     }
   ];
+
+  const toolData = {
+    name: "WPM Calculator",
+    description: "Test your typing speed and accuracy with our comprehensive Words Per Minute (WPM) calculator. Practice with various texts and improve your typing skills with detailed performance metrics.",
+    icon: "fas fa-keyboard",
+    category: "Knowledge",
+    breadcrumb: ["Knowledge", "Calculators", "WPM Calculator"],
+    seoTitle: 'WPM Calculator - Test Typing Speed and Accuracy Online | Tuitility',
+    seoDescription: 'Measure typing speed with this WPM calculator and typing test. Track words per minute, accuracy, typed characters, and performance category.',
+    seoKeywords: [
+      'wpm calculator',
+      'typing speed test',
+      'words per minute test',
+      'typing accuracy calculator',
+      'typing practice test',
+      'keyboard speed test',
+    ],
+    canonicalUrl: 'https://tuitility.vercel.app/knowledge/calculators/word-per-minute',
+    schemaData: [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'WebApplication',
+        name: 'WPM Calculator',
+        applicationCategory: 'EducationalApplication',
+        operatingSystem: 'Any',
+        browserRequirements: 'Requires JavaScript and a modern browser',
+        url: 'https://tuitility.vercel.app/knowledge/calculators/word-per-minute',
+        description: 'Typing speed test that measures words per minute, typing accuracy, and total typed characters.',
+        featureList: [
+          'Timed typing test',
+          'WPM calculation',
+          'Typing accuracy tracking',
+          'Performance category result',
+          'Custom text option',
+        ],
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'HowTo',
+        name: 'How to test typing speed',
+        step: [
+          { '@type': 'HowToStep', text: 'Choose the test duration and decide whether to use sample or custom text.' },
+          { '@type': 'HowToStep', text: 'Start the test and type the displayed text as accurately as possible.' },
+          { '@type': 'HowToStep', text: 'Let the timer finish or complete the passage while tracking live stats.' },
+          { '@type': 'HowToStep', text: 'Review WPM, accuracy, and category results to guide improvement.' },
+        ],
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faqData.map((faq) => ({
+          '@type': 'Question',
+          name: faq.question,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: faq.answer,
+          },
+        })),
+      },
+    ],
+  };
 
   return (
     <ToolPageLayout
@@ -731,6 +785,22 @@ const WPMCalculator = () => {
               <p>Gamers use WPM testing to improve communication speed in online games and streaming.</p>
             </div>
           </div>
+        </ContentSection>
+
+        <ContentSection id="improvement-strategy">
+          <h2>Improvement Strategy</h2>
+          <p>The strongest way to improve WPM is usually not forcing speed immediately. Better results come from consistent repetition, cleaner keystrokes, and reducing hesitation across common letter patterns.</p>
+          <ul className="usage-steps">
+            <li><strong>Practice short sessions often:</strong> Daily drills usually beat occasional long sessions.</li>
+            <li><strong>Target weak patterns:</strong> Numbers, punctuation, and awkward combinations often cause the biggest slowdowns.</li>
+            <li><strong>Use realistic text:</strong> Practice with the kinds of material you actually type for work, study, or coding.</li>
+          </ul>
+        </ContentSection>
+
+        <ContentSection id="accuracy-vs-speed">
+          <h2>Accuracy vs Speed</h2>
+          <p>Raw WPM can be misleading if accuracy drops too far. In practical typing tasks, frequent corrections can erase the value of a high speed score.</p>
+          <p>This is why the calculator tracks WPM and accuracy together. A slightly slower result with cleaner input is often the stronger real-world performance.</p>
         </ContentSection>
 
 

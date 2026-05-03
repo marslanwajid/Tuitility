@@ -7,8 +7,6 @@ import TableOfContents from '../tool/TableOfContents'
 import FeedbackForm from '../tool/FeedbackForm'
 import CreditCardCalculatorJS from '../../assets/js/finance/credit-card-calculator.js'
 import '../../assets/css/finance/credit-card-calculator.css'
-import Seo from '../Seo'
-import ToolDynamicSections from '../tool/ToolDynamicSections'
 
 const CreditCardCalculator = () => {
   const [formData, setFormData] = useState({
@@ -37,14 +35,45 @@ const CreditCardCalculator = () => {
     description: 'Calculate credit card payments, interest, and payoff time. Understand the true cost of carrying a balance and plan your debt payoff strategy.',
     icon: 'fas fa-credit-card',
     category: 'Finance',
-    breadcrumb: ['Finance', 'Calculators', 'Credit Card Calculator']
+    breadcrumb: ['Finance', 'Calculators', 'Credit Card Calculator'],
+    seoTitle: 'Credit Card Calculator for APR, Payoff Time, and Interest Cost | Tuitility',
+    seoDescription: 'Estimate credit card interest, total repayment cost, monthly interest charges, and payoff time based on balance, APR, and monthly payment.',
+    seoKeywords: [
+      'credit card calculator',
+      'credit card payoff calculator',
+      'apr interest calculator',
+      'credit card debt calculator',
+      'how long to pay off credit card',
+      'credit card interest estimator',
+    ],
+    canonicalUrl: 'https://tuitility.vercel.app/finance/calculators/credit-card-calculator',
+    schemaData: [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'FinancialProduct',
+        name: 'Credit Card Calculator',
+        description: 'Credit card calculator for interest cost, payoff time, and total amount paid.',
+        category: 'Credit Card Debt Calculator',
+        url: 'https://tuitility.vercel.app/finance/calculators/credit-card-calculator',
+        isAccessibleForFree: true,
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'SoftwareApplication',
+        name: 'Credit Card Calculator',
+        applicationCategory: 'FinanceApplication',
+        operatingSystem: 'Web',
+        offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+        featureList: [
+          'Credit card payoff time estimate',
+          'Total interest cost analysis',
+          'Monthly interest charge estimate',
+          'Payment strategy comparison',
+        ],
+        url: 'https://tuitility.vercel.app/finance/calculators/credit-card-calculator',
+      },
+    ],
   };
-
-  // SEO data
-  const seoTitle = `${toolData.name} - ${toolData.category} | Tuitility`;
-  const seoDescription = toolData.description;
-  const seoKeywords = `${toolData.name.toLowerCase()}, ${toolData.category.toLowerCase()} calculator, debt payoff, apr, interest calculator`;
-  const canonicalUrl = `https://tuitility.vercel.app/finance/calculators/credit-card-calculator`;
 
   // Categories for sidebar
   const categories = [
@@ -192,13 +221,6 @@ const CreditCardCalculator = () => {
   }, [result]); // Re-render when results change
 
   return (
-    <>
-      <Seo
-        title={seoTitle}
-        description={seoDescription}
-        keywords={seoKeywords}
-        canonicalUrl={canonicalUrl}
-      />
       <ToolPageLayout 
         toolData={toolData} 
         tableOfContents={tableOfContents}
@@ -571,6 +593,46 @@ const CreditCardCalculator = () => {
           </div>
         </ContentSection>
 
+        <ContentSection id="credit-card-payoff-strategy" title="Why Monthly Payment Size Changes Everything">
+          <p>
+            Credit card debt is especially expensive because high APRs and ongoing balances can keep interest
+            charges alive for years. A small increase in your monthly payment can reduce payoff time sharply and
+            cut total interest by a surprisingly large amount.
+          </p>
+          <p>
+            This calculator helps you test that effect directly so you can see whether paying more each month
+            changes your timeline enough to justify a tighter short-term budget.
+          </p>
+        </ContentSection>
+
+        <ContentSection id="apr-and-balance-growth" title="How APR and New Charges Affect Credit Card Debt">
+          <p>
+            Credit card balances become difficult to repay when interest is high and new charges continue to be
+            added. Even if you make monthly payments, the balance can shrink very slowly if the interest portion
+            consumes too much of each payment.
+          </p>
+          <ul>
+            <li><strong>Higher APR:</strong> raises monthly interest and total payoff cost.</li>
+            <li><strong>Larger payment:</strong> increases how much goes toward reducing principal.</li>
+            <li><strong>Additional charges:</strong> make payoff longer and more expensive.</li>
+            <li><strong>Consistent repayment:</strong> is key to escaping revolving debt faster.</li>
+          </ul>
+        </ContentSection>
+
+        <ContentSection id="credit-card-mistakes" title="Common Credit Card Debt Mistakes">
+          <p>
+            The biggest mistake is paying only the minimum and assuming the balance will disappear in a reasonable
+            time. Another is continuing to add charges while trying to pay the card down, which weakens the effect
+            of your repayment plan and extends the interest burden.
+          </p>
+          <ul>
+            <li>Do not judge progress only by the payment amount.</li>
+            <li>Review total interest paid, not just the balance today.</li>
+            <li>Reduce or stop new charges when building a payoff plan.</li>
+            <li>Compare payoff scenarios by increasing the monthly payment where possible.</li>
+          </ul>
+        </ContentSection>
+
 
         <FAQSection 
           faqs={[
@@ -602,7 +664,6 @@ const CreditCardCalculator = () => {
           title="Frequently Asked Questions"
         />
       </ToolPageLayout>
-    </>
   )
 }
 

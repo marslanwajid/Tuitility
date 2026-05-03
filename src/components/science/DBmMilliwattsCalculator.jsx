@@ -8,7 +8,6 @@ import FeedbackForm from '../tool/FeedbackForm'
 import DBmMilliwattsCalculatorJS from '../../assets/js/science/dbm-milliwatts-calculator.js'
 import '../../assets/css/science/dbm-milliwatts-calculator.css'
 import 'katex/dist/katex.min.css'
-import ToolDynamicSections from '../tool/ToolDynamicSections'
 
 const DBmMilliwattsCalculator = () => {
   const [formData, setFormData] = useState({
@@ -59,15 +58,6 @@ const DBmMilliwattsCalculator = () => {
     }, 100);
   }, [result]);
 
-  // Tool data
-  const toolData = {
-    name: 'DBm to Milliwatts Calculator',
-    description: 'Convert between dBm (decibel-milliwatts) and milliwatts with precise calculations. Essential for RF engineering, telecommunications, and signal analysis.',
-    icon: 'fas fa-broadcast-tower',
-    category: 'Science',
-    breadcrumb: ['Science', 'Calculators', 'DBm to Milliwatts Calculator']
-  };
-
   // Categories for sidebar
   const categories = [
     { name: 'Math', url: '/math', icon: 'fas fa-calculator' },
@@ -97,8 +87,64 @@ const DBmMilliwattsCalculator = () => {
     { id: 'applications', title: 'Applications' },
     { id: 'significance', title: 'Significance' },
     { id: 'functionality', title: 'Functionality' },
+    { id: 'rf-reference', title: 'RF Reference Points' },
+    { id: 'conversion-logic', title: 'Conversion Logic' },
     { id: 'faqs', title: 'FAQs' }
   ];
+
+  const faqData = [
+    {
+      question: 'What is 0 dBm in milliwatts?',
+      answer: '0 dBm equals 1 milliwatt.'
+    },
+    {
+      question: 'Why are dBm and milliwatts both useful?',
+      answer: 'Milliwatts show direct linear power, while dBm is easier for comparing RF gains, losses, and wide power ranges on a logarithmic scale.'
+    },
+    {
+      question: 'Can dBm values be negative?',
+      answer: 'Yes. Negative dBm values represent power below 1 milliwatt and are common in received or low-power signals.'
+    },
+    {
+      question: 'Where is this used?',
+      answer: 'It is commonly used in wireless systems, telecom links, RF labs, antennas, and electronics power analysis.'
+    }
+  ];
+
+  const toolData = {
+    name: 'DBm to Milliwatts Calculator',
+    description: 'Convert between dBm (decibel-milliwatts) and milliwatts with precise calculations. Essential for RF engineering, telecommunications, and signal analysis.',
+    icon: 'fas fa-broadcast-tower',
+    category: 'Science',
+    breadcrumb: ['Science', 'Calculators', 'DBm to Milliwatts Calculator'],
+    seoTitle: 'dBm to Milliwatts Calculator - RF Power Conversion | Tuitility',
+    seoDescription: 'Convert dBm to milliwatts and milliwatts to dBm for RF and telecom power calculations with formulas and practical reference values.',
+    seoKeywords: [
+      'dbm to milliwatts calculator',
+      'milliwatts to dbm',
+      'rf power conversion',
+      'dbm mW calculator',
+      'wireless power calculator',
+      'telecom power converter',
+    ],
+    canonicalUrl: 'https://tuitility.vercel.app/science/calculators/dbm-milliwatts-calculator',
+    schemaData: {
+      '@context': 'https://schema.org',
+      '@type': 'WebApplication',
+      name: 'DBm to Milliwatts Calculator',
+      applicationCategory: 'EducationalApplication',
+      operatingSystem: 'Any',
+      browserRequirements: 'Requires JavaScript and a modern browser',
+      url: 'https://tuitility.vercel.app/science/calculators/dbm-milliwatts-calculator',
+      description: 'Convert between dBm and milliwatts for RF, telecom, and electronics power analysis.',
+      featureList: [
+        'dBm to milliwatts conversion',
+        'Milliwatts to dBm conversion',
+        'Watt equivalent display',
+        'Step-by-step RF power breakdown',
+      ],
+    }
+  };
 
   const handleInputChange = (field, value) => {
     setFormData(prev => ({

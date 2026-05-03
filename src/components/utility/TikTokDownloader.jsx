@@ -5,10 +5,8 @@ import ContentSection from '../tool/ContentSection';
 import FAQSection from '../tool/FAQSection';
 import FeedbackForm from '../tool/FeedbackForm';
 import TableOfContents from '../tool/TableOfContents';
-import Seo from '../Seo';
 import '../../assets/css/utility/tiktok-downloader.css';
 import { toolCategories } from '../../data/toolCategories';
-import ToolDynamicSections from '../tool/ToolDynamicSections'
 
 
 const TikTokDownloader = () => {
@@ -108,18 +106,6 @@ const TikTokDownloader = () => {
         }
     };
 
-    // --- Tool Data ---
-    const toolData = {
-        name: "TikTok Downloader",
-        title: "Professional TikTok Downloader",
-        description: "Download TikTok videos without watermarks. High-quality downloader supporting all devices.",
-        icon: "fab fa-tiktok",
-        category: "Utility",
-        breadcrumb: ["Utility", "Tools", "Converter Tools"],
-        tags: ["tiktok", "downloader", "video", "social", "HD", "no watermark"]
-    };
-
-
     const relatedTools = [
         { name: "Instagram Reels Downloader", url: "/utility-tools/converter-tools/reels-downloader", icon: "fab fa-instagram" },
         { name: "Audio Bitrate Converter", url: "/utility-tools/audio-bitrate-converter", icon: "fas fa-music" },
@@ -138,6 +124,8 @@ const TikTokDownloader = () => {
         { id: 'applications', title: 'Applications' },
         { id: 'technical-specs', title: 'Specifications' },
         { id: 'best-practices', title: 'Best Practices' },
+        { id: 'responsible-use', title: 'Responsible Use' },
+        { id: 'download-troubleshooting', title: 'Troubleshooting' },
         { id: 'faqs', title: 'FAQ' }
     ];
 
@@ -160,16 +148,69 @@ const TikTokDownloader = () => {
         }
     ];
 
-    const seoData = {
-        title: 'TikTok Downloader - Download TikTok Videos HD | Tuitility',
-        description: 'Free TikTok video downloader. Download TikTok videos without watermarks in HD quality. Works on all devices, fast and secure.',
-        keywords: 'tiktok downloader, download tiktok videos, tiktok video saver, tiktok no watermark, save tiktok',
-        canonicalUrl: 'https://tuitility.vercel.app/utility-tools/converter-tools/tiktok-downloader'
+    const toolData = {
+        name: "TikTok Downloader",
+        title: "Professional TikTok Downloader",
+        description: "Download TikTok videos without watermarks. High-quality downloader supporting all devices.",
+        icon: "fab fa-tiktok",
+        category: "Utility",
+        breadcrumb: ["Utility", "Tools", "Converter Tools"],
+        tags: ["tiktok", "downloader", "video", "social", "HD", "no watermark"],
+        seoTitle: 'TikTok Downloader - Save TikTok Videos Online | Tuitility',
+        seoDescription: 'Download TikTok videos online with a link-based workflow, preview the result, and save the file for offline viewing.',
+        seoKeywords: [
+            'tiktok downloader',
+            'download tiktok video',
+            'save tiktok video',
+            'tiktok video downloader online',
+            'tiktok link downloader',
+            'tiktok mp4 downloader',
+        ],
+        canonicalUrl: 'https://tuitility.vercel.app/utility-tools/converter-tools/tiktok-downloader',
+        schemaData: [
+            {
+                '@context': 'https://schema.org',
+                '@type': 'WebApplication',
+                name: 'TikTok Downloader',
+                applicationCategory: 'MultimediaApplication',
+                operatingSystem: 'Any',
+                browserRequirements: 'Requires JavaScript and a modern browser',
+                url: 'https://tuitility.vercel.app/utility-tools/converter-tools/tiktok-downloader',
+                description: 'Paste a TikTok URL to fetch a downloadable video result that can be previewed and saved from the browser.',
+                featureList: [
+                    'TikTok URL input',
+                    'Clipboard paste support',
+                    'Video preview before download',
+                    'Browser-based saving workflow',
+                ],
+            },
+            {
+                '@context': 'https://schema.org',
+                '@type': 'HowTo',
+                name: 'How to download a TikTok video',
+                step: [
+                    { '@type': 'HowToStep', text: 'Copy the TikTok video URL you want to save.' },
+                    { '@type': 'HowToStep', text: 'Paste the URL into the downloader field.' },
+                    { '@type': 'HowToStep', text: 'Start processing and wait for the preview result.' },
+                    { '@type': 'HowToStep', text: 'Review the returned file and save it to your device.' },
+                ],
+            },
+            {
+                '@context': 'https://schema.org',
+                '@type': 'FAQPage',
+                mainEntity: faqs.map((faq) => ({
+                    '@type': 'Question',
+                    name: faq.question,
+                    acceptedAnswer: {
+                        '@type': 'Answer',
+                        text: faq.answer,
+                    },
+                })),
+            },
+        ],
     };
 
     return (
-        <>
-            <Seo {...seoData} />
             <ToolPageLayout
                 toolData={toolData}
                 categories={toolCategories}
@@ -391,11 +432,33 @@ const TikTokDownloader = () => {
                     </div>
                 </ContentSection>
 
+                <ContentSection id="responsible-use" title="Responsible Use">
+                    <div className="content-block">
+                        <p>Saving a social-media video does not transfer ownership of that content. This tool is best suited to personal offline viewing, archiving your own uploads, or collecting reference material that you have permission to reuse.</p>
+                        <ul>
+                            <li><strong>Ask before reposting:</strong> Creator permission still matters even if a file can be downloaded.</li>
+                            <li><strong>Credit the source:</strong> Attribution is especially important for commentary, compilations, and editorial reuse.</li>
+                            <li><strong>Review platform rules:</strong> Usage rights may vary depending on the content and jurisdiction.</li>
+                        </ul>
+                    </div>
+                </ContentSection>
+
+                <ContentSection id="download-troubleshooting" title="Troubleshooting">
+                    <div className="content-block">
+                        <p>If a TikTok link does not produce a downloadable preview, the issue is usually related to the link format, video availability, or upstream provider limits rather than the page layout itself.</p>
+                        <ul>
+                            <li><strong>Use the original share link:</strong> Modified or redirected URLs are more likely to fail.</li>
+                            <li><strong>Clear and paste again:</strong> Extra spaces or copied text around the URL can break the request.</li>
+                            <li><strong>Check the video status:</strong> Private, removed, or region-limited videos may not return a valid result.</li>
+                            <li><strong>Retry later:</strong> Temporary provider throttling can affect social download services.</li>
+                        </ul>
+                    </div>
+                </ContentSection>
+
 
                 <FAQSection id="faqs" faqs={faqs} />
 
             </ToolPageLayout>
-        </>
     );
 };
 

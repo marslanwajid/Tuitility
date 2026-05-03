@@ -6,7 +6,6 @@ import FAQSection from '../tool/FAQSection'
 import TableOfContents from '../tool/TableOfContents'
 import FeedbackForm from '../tool/FeedbackForm'
 import '../../assets/css/knowledge/gpa-calculator.css'
-import ToolDynamicSections from '../tool/ToolDynamicSections'
 
 // GPA Calculator Logic Class
 class GPACalculatorLogic {
@@ -108,14 +107,6 @@ const GPACalculator = () => {
   const [error, setError] = useState('');
   const [calculator] = useState(new GPACalculatorLogic());
 
-  const toolData = {
-    name: 'GPA & CGPA Calculator',
-    description: 'Calculate your Grade Point Average and Cumulative Grade Point Average with precision. Track your academic performance across semesters and courses.',
-    icon: 'fas fa-graduation-cap',
-    category: 'Knowledge',
-    breadcrumb: ['Knowledge', 'Calculators', 'GPA & CGPA Calculator']
-  };
-
   const categories = [
     { name: 'Knowledge', url: '/knowledge', icon: 'fas fa-graduation-cap' },
     { name: 'Math', url: '/math', icon: 'fas fa-calculator' },
@@ -142,6 +133,8 @@ const GPACalculator = () => {
     { id: 'significance', title: 'Significance' },
     { id: 'functionality', title: 'Functionality' },
     { id: 'applications', title: 'Applications' },
+    { id: 'planning-strategy', title: 'Planning Strategy' },
+    { id: 'credit-weighting', title: 'Credit Weighting' },
     { id: 'faqs', title: 'FAQs' }
   ];
 
@@ -167,6 +160,66 @@ const GPACalculator = () => {
       answer: "Yes, you can calculate GPA for any number of courses, even if you haven't completed all courses for a semester. Just enter the courses you have grades for."
     }
   ];
+
+  const toolData = {
+    name: 'GPA & CGPA Calculator',
+    description: 'Calculate your Grade Point Average and Cumulative Grade Point Average with precision. Track your academic performance across semesters and courses.',
+    icon: 'fas fa-graduation-cap',
+    category: 'Knowledge',
+    breadcrumb: ['Knowledge', 'Calculators', 'GPA & CGPA Calculator'],
+    seoTitle: 'GPA Calculator - Calculate GPA and CGPA Online | Tuitility',
+    seoDescription: 'Calculate GPA and CGPA from course grades, credit hours, and semester averages. Useful for academic planning, performance tracking, and target GPA goals.',
+    seoKeywords: [
+      'gpa calculator',
+      'cgpa calculator',
+      'grade point average calculator',
+      'semester gpa calculator',
+      'college gpa calculator',
+      'credit hour gpa calculator',
+    ],
+    canonicalUrl: 'https://tuitility.vercel.app/knowledge/calculators/gpa-calculator',
+    schemaData: [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'WebApplication',
+        name: 'GPA & CGPA Calculator',
+        applicationCategory: 'EducationalApplication',
+        operatingSystem: 'Any',
+        browserRequirements: 'Requires JavaScript and a modern browser',
+        url: 'https://tuitility.vercel.app/knowledge/calculators/gpa-calculator',
+        description: 'Calculate semester GPA and cumulative CGPA from course grades, semester GPAs, and credits.',
+        featureList: [
+          'Semester GPA calculation',
+          'Cumulative CGPA calculation',
+          'Credit-weighted grade handling',
+          'Academic classification result',
+        ],
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'HowTo',
+        name: 'How to calculate GPA or CGPA',
+        step: [
+          { '@type': 'HowToStep', text: 'Choose GPA for one term or CGPA for multiple semesters.' },
+          { '@type': 'HowToStep', text: 'Enter grades and credits for courses, or semester GPAs and credits for cumulative calculation.' },
+          { '@type': 'HowToStep', text: 'Run the calculator to get the weighted average result.' },
+          { '@type': 'HowToStep', text: 'Review the breakdown and classification to plan future academic targets.' },
+        ],
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faqData.map((faq) => ({
+          '@type': 'Question',
+          name: faq.question,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: faq.answer,
+          },
+        })),
+      },
+    ],
+  };
 
   const handleInputChange = (field, value) => {
     setFormData(prev => ({
@@ -756,6 +809,20 @@ const GPACalculator = () => {
             <p>Support academic counseling and guidance</p>
           </div>
         </div>
+      </ContentSection>
+
+      <ContentSection id="planning-strategy" title="Planning Strategy">
+        <p>GPA tools are most useful when they support decisions, not just reporting. Students can use current results to estimate how much future course performance may shift their overall standing and where higher-credit classes will matter most.</p>
+        <ul>
+          <li><strong>Target GPA planning:</strong> Estimate what grades are needed in upcoming terms.</li>
+          <li><strong>Course load decisions:</strong> Understand how heavier-credit courses can influence results more strongly.</li>
+          <li><strong>Recovery planning:</strong> See how much improvement is needed after one weak semester.</li>
+        </ul>
+      </ContentSection>
+
+      <ContentSection id="credit-weighting" title="Credit Weighting">
+        <p>Not all classes affect GPA equally. A three-credit course has less impact than a four-credit or five-credit course, which is why weighted point totals matter more than a simple average of letter grades.</p>
+        <p>This calculator handles that weighting directly so the final GPA or CGPA reflects the true academic load rather than just the number of subjects entered.</p>
       </ContentSection>
 
 

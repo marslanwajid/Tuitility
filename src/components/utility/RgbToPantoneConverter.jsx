@@ -5,10 +5,8 @@ import ContentSection from '../tool/ContentSection';
 import FAQSection from '../tool/FAQSection';
 import FeedbackForm from '../tool/FeedbackForm';
 import TableOfContents from '../tool/TableOfContents';
-import Seo from '../Seo';
 import '../../assets/css/utility/rgb-to-pantone.css';
 import { toolCategories } from '../../data/toolCategories';
-import ToolDynamicSections from '../tool/ToolDynamicSections'
 
 
 const RgbToPantoneConverter = () => {
@@ -148,10 +146,26 @@ const RgbToPantoneConverter = () => {
   };
 
   return (
-    <>
-      <Seo {...seoData} />
       <ToolPageLayout
-        toolData={toolData}
+        toolData={{
+          ...toolData,
+          seoTitle: seoData.title,
+          seoDescription: seoData.description,
+          seoKeywords: seoData.keywords,
+          canonicalUrl: seoData.canonicalUrl,
+          schemaData: [
+            {
+              '@context': 'https://schema.org',
+              '@type': 'WebApplication',
+              name: toolData.name,
+              applicationCategory: 'DesignApplication',
+              operatingSystem: 'Any',
+              browserRequirements: 'Requires JavaScript and a modern browser',
+              url: seoData.canonicalUrl,
+              description: seoData.description
+            }
+          ]
+        }}
         categories={toolCategories}
         relatedTools={relatedTools}
         tableOfContents={tableOfContents}
@@ -304,7 +318,6 @@ const RgbToPantoneConverter = () => {
         <FAQSection id="faqs" faqs={faqs} />
 
       </ToolPageLayout>
-    </>
   );
 };
 

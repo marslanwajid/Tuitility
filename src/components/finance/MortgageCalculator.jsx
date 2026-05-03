@@ -7,8 +7,6 @@ import TableOfContents from '../tool/TableOfContents'
 import FeedbackForm from '../tool/FeedbackForm'
 import { MortgageCalculator as MortgageCalculatorJS } from '../../assets/js/finance/mortgage-calculator.js'
 import '../../assets/css/finance/mortgage-calculator.css'
-import Seo from '../Seo'
-import ToolDynamicSections from '../tool/ToolDynamicSections'
 
 const MortgageCalculator = () => {
   const [formData, setFormData] = useState({
@@ -42,14 +40,46 @@ const MortgageCalculator = () => {
     description: 'Calculate monthly mortgage payments with detailed breakdowns including taxes, insurance, PMI, and HOA fees. Perfect for homebuyers planning their purchase.',
     icon: 'fas fa-home',
     category: 'Finance',
-    breadcrumb: ['Finance', 'Calculators', 'Mortgage Calculator']
+    breadcrumb: ['Finance', 'Calculators', 'Mortgage Calculator'],
+    seoTitle: 'Mortgage Calculator for Monthly Payments, PMI, Taxes, and Insurance | Tuitility',
+    seoDescription: 'Use this mortgage calculator to estimate monthly home loan payments, total interest, property tax, homeowners insurance, PMI, HOA fees, and long-term affordability.',
+    seoKeywords: [
+      'mortgage calculator',
+      'monthly mortgage payment calculator',
+      'home loan calculator',
+      'mortgage payment with taxes and insurance',
+      'pmi calculator',
+      'house payment calculator',
+      'mortgage affordability tool',
+    ],
+    canonicalUrl: 'https://tuitility.vercel.app/finance/calculators/mortgage-calculator',
+    schemaData: [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'FinancialProduct',
+        name: 'Mortgage Calculator',
+        description: 'Mortgage calculator for monthly payments, principal and interest, PMI, taxes, insurance, and HOA fees.',
+        category: 'Mortgage Loan Calculator',
+        url: 'https://tuitility.vercel.app/finance/calculators/mortgage-calculator',
+        isAccessibleForFree: true,
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'SoftwareApplication',
+        name: 'Mortgage Calculator',
+        applicationCategory: 'FinanceApplication',
+        operatingSystem: 'Web',
+        offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+        featureList: [
+          'Monthly mortgage payment calculation',
+          'Advanced payment breakdown with taxes and insurance',
+          'PMI and HOA fee support',
+          'Loan-to-value analysis',
+        ],
+        url: 'https://tuitility.vercel.app/finance/calculators/mortgage-calculator',
+      },
+    ],
   };
-
-  // SEO data
-  const seoTitle = `${toolData.name} - ${toolData.category} | Tuitility`;
-  const seoDescription = toolData.description;
-  const seoKeywords = `${toolData.name.toLowerCase()}, ${toolData.category.toLowerCase()} calculator, home loan, pmi, amortization`;
-  const canonicalUrl = `https://tuitility.vercel.app/finance/calculators/mortgage-calculator`;
 
   // Categories for sidebar
   const categories = [
@@ -239,13 +269,6 @@ const MortgageCalculator = () => {
   }, [result]); // Re-render when results change
 
   return (
-    <>
-      <Seo
-        title={seoTitle}
-        description={seoDescription}
-        keywords={seoKeywords}
-        canonicalUrl={canonicalUrl}
-      />
       <ToolPageLayout 
         toolData={toolData} 
         tableOfContents={tableOfContents}
@@ -767,6 +790,47 @@ const MortgageCalculator = () => {
           </div>
         </ContentSection>
 
+        <ContentSection id="mortgage-affordability" title="How to Use a Mortgage Calculator for Affordability">
+          <p>
+            A mortgage payment is only one part of home affordability. The real monthly cost usually includes
+            property tax, homeowners insurance, private mortgage insurance, and sometimes HOA fees. That is why
+            a complete mortgage calculator is more useful than a simple principal-and-interest estimate.
+          </p>
+          <p>
+            This tool helps you test price points before speaking with a lender. By changing the down payment,
+            rate, or term, you can see how much of the payment comes from borrowing cost versus other recurring
+            housing expenses.
+          </p>
+        </ContentSection>
+
+        <ContentSection id="mortgage-term-tradeoffs" title="30-Year vs 15-Year Mortgage Tradeoffs">
+          <p>
+            A longer mortgage term usually lowers the monthly payment but increases total interest paid over the
+            life of the loan. A shorter term raises the monthly payment but can save a substantial amount in
+            interest. This calculator helps you compare those tradeoffs more clearly before committing.
+          </p>
+          <ul>
+            <li><strong>30-year loan:</strong> lower monthly payment, higher total interest.</li>
+            <li><strong>15-year loan:</strong> higher monthly payment, lower total interest.</li>
+            <li><strong>Larger down payment:</strong> reduces loan amount and may remove PMI.</li>
+            <li><strong>Advanced mode:</strong> reveals the full housing payment, not just the mortgage note.</li>
+          </ul>
+        </ContentSection>
+
+        <ContentSection id="mortgage-mistakes" title="Common Mortgage Planning Mistakes">
+          <p>
+            Many buyers focus only on the advertised interest rate and forget the full monthly housing payment.
+            Others underestimate the impact of PMI, taxes, or insurance when their down payment is small. These
+            missing costs can make a home seem affordable on paper when it is not comfortable in practice.
+          </p>
+          <ul>
+            <li>Compare total monthly housing cost, not just principal and interest.</li>
+            <li>Check how PMI changes with the size of your down payment.</li>
+            <li>Review total interest paid across different loan terms.</li>
+            <li>Include HOA fees when evaluating condos or planned communities.</li>
+          </ul>
+        </ContentSection>
+
 
         <FAQSection 
           faqs={[
@@ -798,7 +862,6 @@ const MortgageCalculator = () => {
           title="Frequently Asked Questions"
         />
       </ToolPageLayout>
-    </>
   )
 }
 

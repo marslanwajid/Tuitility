@@ -5,9 +5,7 @@ import ContentSection from '../tool/ContentSection'
 import FAQSection from '../tool/FAQSection'
 import TableOfContents from '../tool/TableOfContents'
 import FeedbackForm from '../tool/FeedbackForm'
-import Seo from '../Seo' // Import the Seo component
 import '../../assets/css/finance/amortization-calculator.css'
-import ToolDynamicSections from '../tool/ToolDynamicSections'
 
 const AmortizationCalculator = () => {
   const [formData, setFormData] = useState({
@@ -24,14 +22,45 @@ const AmortizationCalculator = () => {
     description: 'Generate detailed loan amortization schedules showing monthly payments, principal, interest, and remaining balance. Perfect for understanding how loans are paid off over time.',
     icon: 'fas fa-chart-line',
     category: 'Finance',
-    breadcrumb: ['Finance', 'Calculators', 'Amortization Calculator']
+    breadcrumb: ['Finance', 'Calculators', 'Amortization Calculator'],
+    seoTitle: 'Amortization Calculator for Loan Schedules, Principal, and Interest | Tuitility',
+    seoDescription: 'Generate a loan amortization schedule showing monthly payment breakdowns, principal paid, interest paid, and remaining balance over time.',
+    seoKeywords: [
+      'amortization calculator',
+      'loan amortization schedule',
+      'monthly principal and interest calculator',
+      'mortgage amortization table',
+      'loan payoff schedule',
+      'amortization chart',
+    ],
+    canonicalUrl: 'https://tuitility.vercel.app/finance/calculators/amortization-calculator',
+    schemaData: [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'FinancialProduct',
+        name: 'Amortization Calculator',
+        description: 'Loan amortization calculator for monthly payments, balance reduction, and total interest.',
+        category: 'Loan Schedule Calculator',
+        url: 'https://tuitility.vercel.app/finance/calculators/amortization-calculator',
+        isAccessibleForFree: true,
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'SoftwareApplication',
+        name: 'Amortization Calculator',
+        applicationCategory: 'FinanceApplication',
+        operatingSystem: 'Web',
+        offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+        featureList: [
+          'Amortization schedule generation',
+          'Monthly principal and interest breakdown',
+          'Remaining loan balance tracking',
+          'Total interest and total cost analysis',
+        ],
+        url: 'https://tuitility.vercel.app/finance/calculators/amortization-calculator',
+      },
+    ],
   };
-
-  // SEO data
-  const seoTitle = `${toolData.name} - ${toolData.category} | Tuitility`;
-  const seoDescription = toolData.description;
-  const seoKeywords = `${toolData.name.toLowerCase()}, ${toolData.category.toLowerCase()} calculator, loan amortization, mortgage calculator, finance tools`;
-  const canonicalUrl = `https://tuitility.vercel.app/finance/calculators/amortization-calculator`; // Specific canonical URL for this page
 
 
   // Categories for sidebar
@@ -235,13 +264,6 @@ const AmortizationCalculator = () => {
   }, [result]); // Re-render when results change
 
   return (
-    <>
-      <Seo
-        title={seoTitle}
-        description={seoDescription}
-        keywords={seoKeywords}
-        canonicalUrl={canonicalUrl}
-      />
       <ToolPageLayout
         toolData={toolData}
         tableOfContents={tableOfContents}
@@ -600,6 +622,46 @@ const AmortizationCalculator = () => {
           </div>
         </ContentSection>
 
+        <ContentSection id="amortization-reading" title="How to Read an Amortization Schedule">
+          <p>
+            An amortization table shows how each payment is split between interest and principal. In the early
+            months, interest usually takes the larger share because the outstanding balance is still high. Over
+            time, the interest portion falls and the principal portion rises, which accelerates balance reduction.
+          </p>
+          <p>
+            This calculator is especially useful when you want to understand where your payment is really going,
+            not just how much the monthly amount is.
+          </p>
+        </ContentSection>
+
+        <ContentSection id="amortization-strategy" title="Why Amortization Matters for Payoff Strategy">
+          <p>
+            Understanding amortization helps you see why extra payments can save so much interest. Because interest
+            is charged on the remaining balance, reducing that balance earlier can create long-term savings that are
+            larger than many borrowers expect.
+          </p>
+          <ul>
+            <li><strong>Early extra payments:</strong> usually save more interest than later ones.</li>
+            <li><strong>Shorter term loans:</strong> shift more payment toward principal sooner.</li>
+            <li><strong>Lower rate refinancing:</strong> may reduce both payment and total interest.</li>
+            <li><strong>Schedule review:</strong> shows where payoff acceleration has the most effect.</li>
+          </ul>
+        </ContentSection>
+
+        <ContentSection id="amortization-mistakes" title="Common Amortization Misunderstandings">
+          <p>
+            Borrowers often assume a fixed payment means each month is split evenly between principal and interest,
+            but that is not how amortized loans work. Another common mistake is focusing only on the monthly payment
+            while ignoring the long-term interest cost.
+          </p>
+          <ul>
+            <li>A fixed payment does not mean a fixed interest amount.</li>
+            <li>Longer terms can look affordable monthly but cost much more overall.</li>
+            <li>Extra principal payments matter more when made earlier in the loan.</li>
+            <li>Use the schedule to compare true cost, not just payment comfort.</li>
+          </ul>
+        </ContentSection>
+
 
         <FAQSection
           faqs={[
@@ -631,7 +693,6 @@ const AmortizationCalculator = () => {
           title="Frequently Asked Questions"
         />
       </ToolPageLayout>
-    </>
   )
 }
 

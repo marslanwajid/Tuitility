@@ -7,8 +7,6 @@ import TableOfContents from '../tool/TableOfContents'
 import FeedbackForm from '../tool/FeedbackForm'
 import PresentValueCalculatorJS from '../../assets/js/finance/present-value-calculator.js'
 import '../../assets/css/finance/present-value-calculator.css'
-import Seo from '../Seo'
-import ToolDynamicSections from '../tool/ToolDynamicSections'
 
 const PresentValueCalculator = () => {
   const [formData, setFormData] = useState({
@@ -197,15 +195,34 @@ const PresentValueCalculator = () => {
   }, [result]); // Re-render when results change
 
   return (
-    <>
-      <Seo
-        title={seoTitle}
-        description={seoDescription}
-        keywords={seoKeywords}
-        canonicalUrl={canonicalUrl}
-      />
       <ToolPageLayout 
-        toolData={toolData} 
+        toolData={{
+          ...toolData,
+          seoTitle,
+          seoDescription,
+          seoKeywords,
+          canonicalUrl,
+          schemaData: [
+            {
+              '@context': 'https://schema.org',
+              '@type': 'FinancialProduct',
+              name: toolData.name,
+              url: canonicalUrl,
+              description: seoDescription,
+              category: toolData.name
+            },
+            {
+              '@context': 'https://schema.org',
+              '@type': 'SoftwareApplication',
+              name: toolData.name,
+              applicationCategory: 'FinanceApplication',
+              operatingSystem: 'Any',
+              browserRequirements: 'Requires JavaScript and a modern browser',
+              url: canonicalUrl,
+              description: seoDescription
+            }
+          ]
+        }} 
         tableOfContents={tableOfContents}
         categories={categories}
         relatedTools={relatedTools}
@@ -662,7 +679,6 @@ const PresentValueCalculator = () => {
           title="Frequently Asked Questions"
         />
       </ToolPageLayout>
-    </>
   )
 }
 

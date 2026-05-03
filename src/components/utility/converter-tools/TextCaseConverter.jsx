@@ -5,10 +5,8 @@ import ContentSection from '../../tool/ContentSection'
 import FAQSection from '../../tool/FAQSection'
 import TableOfContents from '../../tool/TableOfContents'
 import FeedbackForm from '../../tool/FeedbackForm'
-import Seo from '../../Seo'
 import '../../../assets/css/utility/converter-tools/text-case-converter.css'
 import { toolCategories } from '../../../data/toolCategories'
-import ToolDynamicSections from '../../tool/ToolDynamicSections'
 
 // Text Case Converter Logic
 class TextCaseConverterLogic {
@@ -229,10 +227,26 @@ const TextCaseConverter = () => {
     }
 
     return (
-        <>
-            <Seo {...seoData} />
             <ToolPageLayout
-                toolData={toolData}
+                toolData={{
+                    ...toolData,
+                    seoTitle: seoData.title,
+                    seoDescription: seoData.description,
+                    seoKeywords: seoData.keywords,
+                    canonicalUrl: seoData.canonicalUrl,
+                    schemaData: [
+                        {
+                            '@context': 'https://schema.org',
+                            '@type': 'WebApplication',
+                            name: toolData.name,
+                            applicationCategory: 'UtilityApplication',
+                            operatingSystem: 'Any',
+                            browserRequirements: 'Requires JavaScript and a modern browser',
+                            url: seoData.canonicalUrl,
+                            description: seoData.description
+                        }
+                    ]
+                }}
                 tableOfContents={tableOfContents}
                 categories={toolCategories}
                 relatedTools={relatedTools}
@@ -452,7 +466,6 @@ const TextCaseConverter = () => {
 
                 <FAQSection faqs={faqData} />
             </ToolPageLayout>
-        </>
     )
 }
 

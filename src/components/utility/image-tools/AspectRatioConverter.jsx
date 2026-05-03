@@ -5,10 +5,8 @@ import ContentSection from '../../tool/ContentSection';
 import FAQSection from '../../tool/FAQSection';
 import FeedbackForm from '../../tool/FeedbackForm';
 import TableOfContents from '../../tool/TableOfContents';
-import Seo from '../../Seo';
 import { toolCategories } from '../../../data/toolCategories';
 import '../../../assets/css/utility/aspect-ratio-converter.css';
-import ToolDynamicSections from '../../tool/ToolDynamicSections'
 
 const AspectRatioConverter = () => {
     // --- Calculator Logic ---
@@ -303,9 +301,25 @@ const AspectRatioConverter = () => {
     };
 
     return (
-        <>
-            <Seo {...seoData} />
-            <ToolPageLayout toolData={toolData} categories={toolCategories} relatedTools={relatedTools} tableOfContents={tableOfContents}>
+            <ToolPageLayout toolData={{
+                ...toolData,
+                seoTitle: seoData.title,
+                seoDescription: seoData.description,
+                seoKeywords: seoData.keywords,
+                canonicalUrl: seoData.canonicalUrl,
+                schemaData: [
+                    {
+                        '@context': 'https://schema.org',
+                        '@type': 'WebApplication',
+                        name: toolData.name,
+                        applicationCategory: 'DesignApplication',
+                        operatingSystem: 'Any',
+                        browserRequirements: 'Requires JavaScript and a modern browser',
+                        url: seoData.canonicalUrl,
+                        description: seoData.description
+                    }
+                ]
+            }} categories={toolCategories} relatedTools={relatedTools} tableOfContents={tableOfContents}>
 
                 <div className="arc-tabs">
                     <button className={`arc-tab ${activeTab === 'calculator' ? 'active' : ''}`} onClick={() => setActiveTab('calculator')}>
@@ -563,7 +577,6 @@ const AspectRatioConverter = () => {
                 <FAQSection id="faq" faqs={faqs} />
 
             </ToolPageLayout>
-        </>
     );
 };
 

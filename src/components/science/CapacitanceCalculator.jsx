@@ -8,7 +8,6 @@ import FeedbackForm from '../tool/FeedbackForm'
 import CapacitanceCalculatorJS from '../../assets/js/science/capacitance-calculator.js'
 import '../../assets/css/science/capacitance-calculator.css'
 import 'katex/dist/katex.min.css'
-import ToolDynamicSections from '../tool/ToolDynamicSections'
 
 const CapacitanceCalculator = () => {
   const [formData, setFormData] = useState({
@@ -59,15 +58,6 @@ const CapacitanceCalculator = () => {
     }, 100);
   }, [result]);
 
-  // Tool data
-  const toolData = {
-    name: 'Capacitance Calculator',
-    description: 'Calculate electrical capacitance from energy and voltage. Essential for circuit design, energy storage analysis, and electrical engineering calculations.',
-    icon: 'fas fa-microchip',
-    category: 'Science',
-    breadcrumb: ['Science', 'Calculators', 'Capacitance Calculator']
-  };
-
   // Categories for sidebar
   const categories = [
     { name: 'Math', url: '/math', icon: 'fas fa-calculator' },
@@ -97,8 +87,89 @@ const CapacitanceCalculator = () => {
     { id: 'applications', title: 'Applications' },
     { id: 'significance', title: 'Significance' },
     { id: 'functionality', title: 'Functionality' },
+    { id: 'engineering-context', title: 'Engineering Context' },
+    { id: 'unit-scaling', title: 'Unit Scaling' },
     { id: 'faqs', title: 'FAQs' }
   ];
+
+  const faqData = [
+    {
+      question: 'What does capacitance measure?',
+      answer: 'Capacitance measures how much electric charge a capacitor can store per unit of voltage.'
+    },
+    {
+      question: 'Why does voltage matter so much in stored energy?',
+      answer: 'Stored capacitor energy depends on the square of voltage, so voltage changes can have a large effect on energy.'
+    },
+    {
+      question: 'What units are commonly used for capacitance?',
+      answer: 'Large values use farads, but most practical electronics use microfarads, nanofarads, or picofarads.'
+    },
+    {
+      question: 'Where is this calculation useful?',
+      answer: 'It is useful in circuit design, power supplies, timing circuits, energy storage analysis, and electronics education.'
+    }
+  ];
+
+  const toolData = {
+    name: 'Capacitance Calculator',
+    description: 'Calculate electrical capacitance from energy and voltage. Essential for circuit design, energy storage analysis, and electrical engineering calculations.',
+    icon: 'fas fa-microchip',
+    category: 'Science',
+    breadcrumb: ['Science', 'Calculators', 'Capacitance Calculator'],
+    seoTitle: 'Capacitance Calculator - Calculate Capacitance from Energy and Voltage | Tuitility',
+    seoDescription: 'Calculate capacitance from stored energy and voltage using capacitor formulas. Useful for electronics, circuit design, and energy storage analysis.',
+    seoKeywords: [
+      'capacitance calculator',
+      'capacitor calculator',
+      'capacitance formula',
+      'energy voltage capacitor',
+      'electronics capacitance calculator',
+      'farad calculator',
+    ],
+    canonicalUrl: 'https://tuitility.vercel.app/science/calculators/capacitance-calculator',
+    schemaData: [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'WebApplication',
+        name: 'Capacitance Calculator',
+        applicationCategory: 'EducationalApplication',
+        operatingSystem: 'Any',
+        browserRequirements: 'Requires JavaScript and a modern browser',
+        url: 'https://tuitility.vercel.app/science/calculators/capacitance-calculator',
+        description: 'Calculate capacitance from stored energy and voltage for electronics and circuit analysis.',
+        featureList: [
+          'Capacitance from energy and voltage',
+          'Step-by-step capacitor calculation',
+          'Capacitor range interpretation',
+          'Circuit design support',
+        ],
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'HowTo',
+        name: 'How to calculate capacitance',
+        step: [
+          { '@type': 'HowToStep', text: 'Enter the energy stored in the capacitor.' },
+          { '@type': 'HowToStep', text: 'Enter the voltage across the capacitor.' },
+          { '@type': 'HowToStep', text: 'Run the calculation to compute capacitance.' },
+          { '@type': 'HowToStep', text: 'Review the result and the capacitor interpretation details.' },
+        ],
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faqData.map((faq) => ({
+          '@type': 'Question',
+          name: faq.question,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: faq.answer,
+          },
+        })),
+      },
+    ],
+  };
 
   const handleInputChange = (field, value) => {
     setFormData(prev => ({
@@ -500,6 +571,25 @@ const CapacitanceCalculator = () => {
           <li>
             <span><strong>Educational Content:</strong> Explains capacitance concepts and applications</span>
           </li>
+        </ul>
+      </ContentSection>
+
+      <ContentSection id="engineering-context" title="Engineering Context">
+        <p>Capacitance calculations show up in many practical electronics problems, from simple filtering to more serious energy buffering. Knowing how energy and voltage interact helps engineers choose capacitor sizes that are both safe and useful for the circuit.</p>
+        <ul>
+          <li><strong>Power smoothing:</strong> Estimate capacitor values for reducing ripple in supply rails.</li>
+          <li><strong>Energy buffering:</strong> Evaluate how much stored energy is available during short load demands.</li>
+          <li><strong>Timing networks:</strong> Support RC calculations in control and signal circuits.</li>
+        </ul>
+      </ContentSection>
+
+      <ContentSection id="unit-scaling" title="Unit Scaling">
+        <p>Farads are a large unit, so many everyday components are described in smaller scales such as microfarads, nanofarads, or picofarads. Interpreting the final value correctly is important because the same number may sound very different depending on the chosen unit prefix.</p>
+        <ul>
+          <li><strong>1 mF:</strong> 0.001 farads</li>
+          <li><strong>1 μF:</strong> 0.000001 farads</li>
+          <li><strong>1 nF:</strong> 0.000000001 farads</li>
+          <li><strong>1 pF:</strong> 0.000000000001 farads</li>
         </ul>
       </ContentSection>
 

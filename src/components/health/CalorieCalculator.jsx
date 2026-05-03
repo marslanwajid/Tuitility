@@ -7,8 +7,6 @@ import TableOfContents from '../tool/TableOfContents'
 import FeedbackForm from '../tool/FeedbackForm'
 import '../../assets/css/health/calorie-calculator.css'
 import CalorieCalculatorLogic from '../../assets/js/health/calorie-calculator.js'
-import Seo from '../Seo'
-import ToolDynamicSections from '../tool/ToolDynamicSections'
 
 const CalorieCalculator = () => {
   const [formData, setFormData] = useState({
@@ -26,20 +24,93 @@ const CalorieCalculator = () => {
   const [result, setResult] = useState(null);
   const [error, setError] = useState('');
 
+  const faqs = [
+    {
+      question: 'How accurate are the calorie calculations?',
+      answer: 'The calculations use the scientifically validated Mifflin-St Jeor equation for BMR, which is considered one of the most accurate formulas. However, individual metabolism can vary, so use these as starting points and adjust based on your results.'
+    },
+    {
+      question: 'What if my calculated calories seem too low?',
+      answer: 'The calculator enforces minimum calorie limits to prevent health risks. If your calculated calories are below recommended ranges, use the result as a planning reference and consider professional nutrition guidance.'
+    },
+    {
+      question: 'How often should I recalculate my calorie needs?',
+      answer: 'Recalculate every 4 to 6 weeks or when your weight, activity level, or training routine changes noticeably.'
+    },
+    {
+      question: "What's the difference between BMR and TDEE?",
+      answer: 'BMR is the energy your body needs at rest. TDEE includes BMR plus the calories you burn through movement, exercise, and daily activity.'
+    },
+    {
+      question: 'Is the macronutrient split right for everyone?',
+      answer: 'The default split is a practical starting point for many people, but athletes and people with medical or dietary needs may need a different approach.'
+    },
+    {
+      question: 'How quickly should I expect results?',
+      answer: 'Weight trends usually become more meaningful after two to four weeks of consistent eating and activity tracking rather than day-to-day scale changes.'
+    }
+  ];
+
   // Tool data
   const toolData = {
     name: 'Calorie Calculator',
     description: 'Calculate your daily calorie needs, BMR, and macronutrient requirements for weight management. Get personalized nutrition recommendations based on your goals.',
     icon: 'fas fa-apple-alt',
     category: 'Health',
-    breadcrumb: ['Health', 'Calculators', 'Calorie Calculator']
+    breadcrumb: ['Health', 'Calculators', 'Calorie Calculator'],
+    seoTitle: 'Calorie Calculator - Daily Calorie and BMR Estimator | Tuitility',
+    seoDescription: 'Estimate daily calorie needs, BMR, and goal-based nutrition targets for maintenance, weight loss, or weight gain.',
+    seoKeywords: ['calorie calculator','daily calorie calculator','bmr calculator','calories per day','weight loss calories','nutrition calculator'],
+    canonicalUrl: 'https://tuitility.vercel.app/health/calculators/calorie-calculator',
+    schemaData: [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'MedicalWebPage',
+        name: 'Calorie Calculator',
+        url: 'https://tuitility.vercel.app/health/calculators/calorie-calculator',
+        description: 'Daily calorie calculator with BMR, TDEE, goal calories, and macro guidance for maintenance, weight loss, and weight gain.'
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'WebApplication',
+        name: 'Calorie Calculator',
+        applicationCategory: 'HealthApplication',
+        operatingSystem: 'Any',
+        browserRequirements: 'Requires JavaScript and a modern browser',
+        url: 'https://tuitility.vercel.app/health/calculators/calorie-calculator',
+        featureList: [
+          'BMR calculation',
+          'TDEE estimation',
+          'Goal calorie planning',
+          'Macronutrient breakdown',
+          'Weight projection support'
+        ]
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'HowTo',
+        name: 'How to use the calorie calculator',
+        step: [
+          { '@type': 'HowToStep', text: 'Enter your age, sex, height, and current weight.' },
+          { '@type': 'HowToStep', text: 'Choose your activity level based on your typical week.' },
+          { '@type': 'HowToStep', text: 'Select whether you want to maintain, lose, or gain weight.' },
+          { '@type': 'HowToStep', text: 'Review your daily calories, macros, and projected outcome.' }
+        ]
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faqs.map((faq) => ({
+          '@type': 'Question',
+          name: faq.question,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: faq.answer
+          }
+        }))
+      }
+    ]
   };
-
-  // SEO data
-  const seoTitle = `${toolData.name} - ${toolData.category} | Tuitility`;
-  const seoDescription = toolData.description;
-  const seoKeywords = `${toolData.name.toLowerCase()}, ${toolData.category.toLowerCase()} calculator, daily calorie needs, BMR calculator, macronutrient calculator, weight management`;
-  const canonicalUrl = `https://tuitility.vercel.app/health/calculators/calorie-calculator`;
 
   // Categories for sidebar
   const categories = [
@@ -171,13 +242,6 @@ const CalorieCalculator = () => {
   }, [result]); // Re-render when results change
 
   return (
-    <>
-      <Seo
-        title={seoTitle}
-        description={seoDescription}
-        keywords={seoKeywords}
-        canonicalUrl={canonicalUrl}
-      />
       <ToolPageLayout 
         toolData={toolData} 
         tableOfContents={tableOfContents}
@@ -738,36 +802,10 @@ const CalorieCalculator = () => {
 
 
         <FAQSection 
-          faqs={[
-            {
-              question: "How accurate are the calorie calculations?",
-              answer: "The calculations use the scientifically validated Mifflin-St Jeor equation for BMR, which is considered one of the most accurate formulas. However, individual metabolism can vary, so use these as starting points and adjust based on your results."
-            },
-            {
-              question: "What if my calculated calories seem too low?",
-              answer: "The calculator enforces minimum calorie limits (1200 for women, 1500 for men) to prevent health risks. If your calculated calories are below these limits, the calculator will adjust them and show a warning."
-            },
-            {
-              question: "How often should I recalculate my calorie needs?",
-              answer: "Recalculate every 4-6 weeks or when your weight changes significantly (5+ kg). As you lose or gain weight, your BMR changes, so your calorie needs will also change."
-            },
-            {
-              question: "What's the difference between BMR and TDEE?",
-              answer: "BMR (Basal Metabolic Rate) is the calories you burn at rest for basic body functions. TDEE (Total Daily Energy Expenditure) includes BMR plus calories burned through daily activities and exercise."
-            },
-            {
-              question: "Is the 30-40-30 macronutrient split right for everyone?",
-              answer: "This is a general guideline that works well for most people. Athletes or people with specific dietary needs may benefit from different ratios. Consult a nutritionist for personalized macronutrient targets."
-            },
-            {
-              question: "How quickly should I expect to see results?",
-              answer: "Weight changes typically become noticeable after 2-4 weeks of consistent calorie tracking. Remember that weight can fluctuate daily due to water retention, so focus on weekly trends rather than daily changes."
-            }
-          ]}
+          faqs={faqs}
           title="Frequently Asked Questions"
         />
       </ToolPageLayout>
-    </>
   )
 }
 

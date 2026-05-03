@@ -6,8 +6,6 @@ import FAQSection from '../tool/FAQSection'
 import TableOfContents from '../tool/TableOfContents'
 import FeedbackForm from '../tool/FeedbackForm'
 import '../../assets/css/finance/compound-interest-calculator.css'
-import Seo from '../Seo'
-import ToolDynamicSections from '../tool/ToolDynamicSections'
 
 const CompoundInterestCalculator = () => {
   const [formData, setFormData] = useState({
@@ -27,14 +25,46 @@ const CompoundInterestCalculator = () => {
     description: 'Calculate compound interest growth on investments with regular contributions. See how your money grows over time with different compounding frequencies and contribution schedules.',
     icon: 'fas fa-chart-area',
     category: 'Finance',
-    breadcrumb: ['Finance', 'Calculators', 'Compound Interest Calculator']
+    breadcrumb: ['Finance', 'Calculators', 'Compound Interest Calculator'],
+    seoTitle: 'Compound Interest Calculator for Investment Growth and Regular Contributions | Tuitility',
+    seoDescription: 'Estimate compound interest growth, future value, total interest earned, and year-by-year balances with contribution and compounding frequency options.',
+    seoKeywords: [
+      'compound interest calculator',
+      'investment growth calculator',
+      'future value calculator',
+      'interest compounding calculator',
+      'savings growth calculator',
+      'compound interest with monthly contributions',
+      'long term investment calculator',
+    ],
+    canonicalUrl: 'https://tuitility.vercel.app/finance/calculators/compound-interest-calculator',
+    schemaData: [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'FinancialProduct',
+        name: 'Compound Interest Calculator',
+        description: 'Compound interest calculator for investment growth, regular contributions, and future value planning.',
+        category: 'Investment Growth Calculator',
+        url: 'https://tuitility.vercel.app/finance/calculators/compound-interest-calculator',
+        isAccessibleForFree: true,
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'SoftwareApplication',
+        name: 'Compound Interest Calculator',
+        applicationCategory: 'FinanceApplication',
+        operatingSystem: 'Web',
+        offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+        featureList: [
+          'Future value projection',
+          'Regular contribution analysis',
+          'Year-by-year growth breakdown',
+          'Compounding frequency comparison',
+        ],
+        url: 'https://tuitility.vercel.app/finance/calculators/compound-interest-calculator',
+      },
+    ],
   };
-
-  // SEO data
-  const seoTitle = `${toolData.name} - ${toolData.category} | Tuitility`;
-  const seoDescription = toolData.description;
-  const seoKeywords = `${toolData.name.toLowerCase()}, ${toolData.category.toLowerCase()} calculator, investment calculator, future value, retirement savings`;
-  const canonicalUrl = `https://tuitility.vercel.app/finance/calculators/compound-interest-calculator`;
 
   // Categories for sidebar
   const categories = [
@@ -265,13 +295,6 @@ const CompoundInterestCalculator = () => {
   }, [result]); // Re-render when results change
 
   return (
-    <>
-      <Seo
-        title={seoTitle}
-        description={seoDescription}
-        keywords={seoKeywords}
-        canonicalUrl={canonicalUrl}
-      />
       <ToolPageLayout 
         toolData={toolData} 
         tableOfContents={tableOfContents}
@@ -708,6 +731,48 @@ const CompoundInterestCalculator = () => {
           </div>
         </ContentSection>
 
+        <ContentSection id="compound-interest-time" title="Why Time Matters More Than Most People Expect">
+          <p>
+            Time is one of the strongest drivers of compound growth because every year gives your previous
+            gains a chance to earn more gains. That is why even moderate rates can create large future values
+            when the investment horizon is long. This calculator helps show that effect in a way that is hard
+            to see from rough mental estimates.
+          </p>
+          <p>
+            The year-by-year breakdown is especially useful because it reveals when compounding begins to
+            accelerate and how the ending balance starts to grow faster later in the timeline.
+          </p>
+        </ContentSection>
+
+        <ContentSection id="contribution-impact" title="How Regular Contributions Change the Outcome">
+          <p>
+            Many people focus on the starting amount and overlook the effect of consistent contributions. In
+            practice, monthly or annual additions can become the most important part of a long-term savings or
+            investing plan. This tool lets you compare the effect of contribution size and frequency alongside
+            the compounding schedule.
+          </p>
+          <ul>
+            <li><strong>Higher contributions:</strong> increase invested capital and future compounding base.</li>
+            <li><strong>Earlier contributions:</strong> usually produce more growth than later larger deposits.</li>
+            <li><strong>More frequent compounding:</strong> can improve returns, though often modestly.</li>
+            <li><strong>Longer time horizon:</strong> magnifies the effect of both rate and contribution habits.</li>
+          </ul>
+        </ContentSection>
+
+        <ContentSection id="compound-interest-mistakes" title="Common Compound Interest Mistakes">
+          <p>
+            A common mistake is assuming a quoted return is guaranteed every year. Another is underestimating how
+            inflation, taxes, or investment fees can affect real-world outcomes. This calculator is excellent for
+            planning, but the assumptions you enter should still be realistic for your goals and risk level.
+          </p>
+          <ul>
+            <li>Do not confuse average return assumptions with guaranteed results.</li>
+            <li>Remember that inflation can reduce real purchasing power.</li>
+            <li>Use a realistic time horizon that matches your actual plan.</li>
+            <li>Test multiple contribution and rate scenarios instead of relying on one projection.</li>
+          </ul>
+        </ContentSection>
+
 
         <FAQSection 
           faqs={[
@@ -739,7 +804,6 @@ const CompoundInterestCalculator = () => {
           title="Frequently Asked Questions"
         />
       </ToolPageLayout>
-    </>
   )
 }
 

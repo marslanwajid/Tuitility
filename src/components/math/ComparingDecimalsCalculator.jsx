@@ -55,6 +55,7 @@ const ComparingDecimalsCalculator = () => {
     { id: 'significance', title: 'Significance' },
     { id: 'functionality', title: 'Functionality' },
     { id: 'applications', title: 'Applications' },
+    { id: 'next-steps', title: 'Related Calculators and Next Steps' },
     { id: 'faqs', title: 'FAQs' }
   ];
 
@@ -458,6 +459,15 @@ const ComparingDecimalsCalculator = () => {
           Because this tool shows both the relationship and the absolute difference, it is helpful when
           you need more than a simple greater-than or less-than symbol. It gives context for how far apart
           two values really are.
+        </p>
+      </ContentSection>
+
+      <ContentSection id="next-steps" title="Related Calculators and Next Steps">
+        <p>
+          Decimal comparison is often the first step before calculation or conversion. Continue to the <a href="/math/calculators/decimal-calculator">Decimal Calculator</a> if you need full arithmetic, or use the <a href="/math/calculators/decimal-to-fraction-calculator">Decimal to Fraction Calculator</a> to turn exact decimal values into fraction form.
+        </p>
+        <p>
+          If the decimal values represent rates, discounts, or shares, the <a href="/math/calculators/percentage-calculator">Percentage Calculator</a> is a natural next page. In real-world scenarios, this also pairs well with the <a href="/finance/calculators/sales-tax-calculator">Sales Tax Calculator</a> and <a href="/finance/calculators/loan-calculator">Loan Calculator</a>.
         </p>
       </ContentSection>
 

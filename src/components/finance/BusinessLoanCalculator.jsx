@@ -7,8 +7,6 @@ import TableOfContents from '../tool/TableOfContents'
 import FeedbackForm from '../tool/FeedbackForm'
 import { BusinessLoanCalculator as BusinessLoanCalculatorJS } from '../../assets/js/finance/business-loan-calculator.js'
 import '../../assets/css/finance/business-loan-calculator.css'
-import Seo from '../Seo'
-import ToolDynamicSections from '../tool/ToolDynamicSections'
 
 const BusinessLoanCalculator = () => {
   const [formData, setFormData] = useState({
@@ -43,14 +41,45 @@ const BusinessLoanCalculator = () => {
     description: 'Calculate business loan payments with detailed breakdowns including origination fees, documentation fees, and other costs. Perfect for business owners planning financing.',
     icon: 'fas fa-building',
     category: 'Finance',
-    breadcrumb: ['Finance', 'Calculators', 'Business Loan Calculator']
+    breadcrumb: ['Finance', 'Calculators', 'Business Loan Calculator'],
+    seoTitle: 'Business Loan Calculator for Payments, Fees, and Total Financing Cost | Tuitility',
+    seoDescription: 'Estimate business loan payments, financing fees, origination charges, documentation costs, total interest, and the true total cost of borrowing.',
+    seoKeywords: [
+      'business loan calculator',
+      'commercial loan calculator',
+      'smb loan payment calculator',
+      'business financing calculator',
+      'loan with origination fee calculator',
+      'small business debt calculator',
+    ],
+    canonicalUrl: 'https://tuitility.vercel.app/finance/calculators/business-loan-calculator',
+    schemaData: [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'FinancialProduct',
+        name: 'Business Loan Calculator',
+        description: 'Business financing calculator for loan payments, origination fees, documentation fees, and total borrowing cost.',
+        category: 'Business Financing Calculator',
+        url: 'https://tuitility.vercel.app/finance/calculators/business-loan-calculator',
+        isAccessibleForFree: true,
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'SoftwareApplication',
+        name: 'Business Loan Calculator',
+        applicationCategory: 'FinanceApplication',
+        operatingSystem: 'Web',
+        offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+        featureList: [
+          'Business loan payment estimate',
+          'Origination and documentation fee analysis',
+          'Payment frequency comparison',
+          'Total cost of financing breakdown',
+        ],
+        url: 'https://tuitility.vercel.app/finance/calculators/business-loan-calculator',
+      },
+    ],
   };
-
-  // SEO data
-  const seoTitle = `${toolData.name} - ${toolData.category} | Tuitility`;
-  const seoDescription = toolData.description;
-  const seoKeywords = `${toolData.name.toLowerCase()}, ${toolData.category.toLowerCase()} calculator, business financing, loan amortization, smb loan`;
-  const canonicalUrl = `https://tuitility.vercel.app/finance/calculators/business-loan-calculator`;
 
   // Categories for sidebar
   const categories = [
@@ -187,13 +216,6 @@ const BusinessLoanCalculator = () => {
   }, [result]); // Re-render when results change
 
   return (
-    <>
-      <Seo
-        title={seoTitle}
-        description={seoDescription}
-        keywords={seoKeywords}
-        canonicalUrl={canonicalUrl}
-      />
       <ToolPageLayout
         toolData={toolData}
         categories={categories}
@@ -550,6 +572,46 @@ const BusinessLoanCalculator = () => {
           </div>
         </ContentSection>
 
+        <ContentSection id="business-loan-costs" title="Why Business Loan Fees Matter as Much as the Rate">
+          <p>
+            Business financing is often priced through more than just the interest rate. Origination fees,
+            documentation charges, and other lender costs can materially change the effective cost of capital,
+            especially on shorter loans or lower borrowing amounts.
+          </p>
+          <p>
+            This calculator is valuable because it pulls those costs into the same view as the payment and
+            interest total, which makes loan offers easier to compare on a true all-in basis.
+          </p>
+        </ContentSection>
+
+        <ContentSection id="business-loan-usage" title="When to Use a Business Loan Calculator">
+          <p>
+            A business loan calculator is most useful before accepting financing for equipment, expansion,
+            working capital, inventory, hiring, or seasonal operations. It helps you judge whether the expected
+            cash flow from the business use can comfortably support the loan payment and its associated fees.
+          </p>
+          <ul>
+            <li><strong>Equipment purchases:</strong> compare financing cost against productive value.</li>
+            <li><strong>Expansion plans:</strong> test whether projected revenue supports the debt.</li>
+            <li><strong>Working capital:</strong> estimate repayment pressure on near-term cash flow.</li>
+            <li><strong>Offer comparison:</strong> review total cost, not just quoted rate.</li>
+          </ul>
+        </ContentSection>
+
+        <ContentSection id="business-loan-mistakes" title="Common Business Financing Mistakes">
+          <p>
+            One common mistake is comparing business loans by payment alone without including fees. Another is
+            assuming a weekly or biweekly payment schedule is automatically cheaper, when in practice the full
+            cost depends on rate, fees, and the timing structure together.
+          </p>
+          <ul>
+            <li>Include origination and documentation fees in total cost analysis.</li>
+            <li>Check how payment frequency changes cash flow pressure.</li>
+            <li>Compare financing cost to expected business return, not revenue alone.</li>
+            <li>Review affordability under conservative business performance assumptions.</li>
+          </ul>
+        </ContentSection>
+
 
         <FAQSection
           title="Frequently Asked Questions"
@@ -573,7 +635,6 @@ const BusinessLoanCalculator = () => {
           ]}
         />
       </ToolPageLayout>
-    </>
   );
 };
 

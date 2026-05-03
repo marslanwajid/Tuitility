@@ -5,9 +5,7 @@ import ContentSection from '../tool/ContentSection';
 import FAQSection from '../tool/FAQSection';
 import TableOfContents from '../tool/TableOfContents';
 import FeedbackForm from '../tool/FeedbackForm';
-import Seo from '../Seo';
 import '../../assets/css/utility/password-generator.css';
-import ToolDynamicSections from '../tool/ToolDynamicSections'
 
 const PasswordGenerator = () => {
   // Form state (scoped IDs and classes)
@@ -165,16 +163,6 @@ const PasswordGenerator = () => {
     updateStrengthIndicator();
   }, [passwordLength, includeLowercase, includeUppercase, includeNumbers, includeSymbols]);
 
-  const toolData = {
-    name: 'Password Generator',
-    title: 'Password Generator',
-    description: 'Generate secure, customizable passwords with various character sets, length options, and strength indicators.',
-    icon: 'fas fa-key',
-    category: 'utility',
-    breadcrumb: ['Utility', 'Tools', 'Password Generator'],
-    tags: ['password', 'security', 'generator', 'utility', 'crypto']
-  };
-
   const sidebarCategories = [
     { name: 'Utility Tools', url: '/utility-tools', icon: 'fas fa-tools' },
     { name: 'Math Calculators', url: '/math', icon: 'fas fa-calculator' },
@@ -197,6 +185,71 @@ const PasswordGenerator = () => {
     { question: 'What is the no-repeats option?', answer: 'No-repeats ensures each character appears only once in the password, but requires the password length to be less than or equal to the available character set size.' }
   ];
 
+  const toolData = {
+    name: 'Password Generator',
+    title: 'Password Generator',
+    description: 'Generate secure, customizable passwords with various character sets, length options, and strength indicators.',
+    icon: 'fas fa-key',
+    category: 'utility',
+    breadcrumb: ['Utility', 'Tools', 'Password Generator'],
+    tags: ['password', 'security', 'generator', 'utility', 'crypto'],
+    seoTitle: 'Password Generator - Generate Strong Random Passwords Online | Tuitility',
+    seoDescription: 'Create strong random passwords online with custom length, symbols, no-repeat options, and strength guidance. Free password generator for secure account protection.',
+    seoKeywords: [
+      'password generator',
+      'strong password generator',
+      'random password generator',
+      'secure password creator',
+      'online password generator',
+      'password security tool',
+    ],
+    canonicalUrl: 'https://tuitility.vercel.app/utility-tools/password-generator',
+    schemaData: [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'WebApplication',
+        name: 'Password Generator',
+        applicationCategory: 'SecurityApplication',
+        operatingSystem: 'Any',
+        browserRequirements: 'Requires JavaScript and a modern browser',
+        url: 'https://tuitility.vercel.app/utility-tools/password-generator',
+        description: 'Generate secure random passwords with customizable length, symbols, exclusions, and strength guidance.',
+        featureList: [
+          'Custom password length',
+          'Uppercase, lowercase, number, and symbol controls',
+          'Ambiguous character exclusion',
+          'No-repeat option',
+          'Password strength indicator',
+          'One-click copy',
+        ],
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'HowTo',
+        name: 'How to generate a strong password',
+        step: [
+          { '@type': 'HowToStep', text: 'Choose a password length based on your security needs.' },
+          { '@type': 'HowToStep', text: 'Select the character sets you want to include.' },
+          { '@type': 'HowToStep', text: 'Enable exclusions or no-repeat mode if needed.' },
+          { '@type': 'HowToStep', text: 'Generate the password and review the strength indicator.' },
+          { '@type': 'HowToStep', text: 'Copy the password and store it safely in your password manager.' },
+        ],
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faqs.map((faq) => ({
+          '@type': 'Question',
+          name: faq.question,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: faq.answer,
+          },
+        })),
+      },
+    ],
+  };
+
   const tableOfContents = [
     { id: 'passgen-introduction', title: 'Introduction' },
     { id: 'passgen-what-is', title: 'What is Password Security?' },
@@ -205,19 +258,12 @@ const PasswordGenerator = () => {
     { id: 'passgen-examples', title: 'Examples' },
     { id: 'passgen-significance', title: 'Significance' },
     { id: 'passgen-functionality', title: 'Functionality' },
-    { id: 'passgen-applications', title: 'Applications' }
+    { id: 'passgen-applications', title: 'Applications' },
+    { id: 'passgen-policy-guide', title: 'Password Policy Guide' },
+    { id: 'passgen-mistakes', title: 'Common Password Mistakes' }
   ];
 
-  const seoData = {
-    title: 'Password Generator - Create Secure Random Passwords | Tuitility',
-    description: 'Generate strong, secure passwords with our free online password generator. Customize length, characters, and complexity for maximum security.',
-    keywords: 'password generator, secure password, random password, strong password, password tool, online password generator',
-    canonicalUrl: 'https://tuitility.vercel.app/utility-tools/password-generator'
-  };
-
   return (
-    <>
-      <Seo {...seoData} />
       <ToolPageLayout toolData={toolData} categories={sidebarCategories} relatedTools={relatedTools}>
         <CalculatorSection>
           <div className="passgen-page">
@@ -479,11 +525,30 @@ const PasswordGenerator = () => {
             </div>
           </ContentSection>
 
+          <ContentSection id="passgen-policy-guide" title="Password Policy Guide">
+            <p>Different accounts deserve different password policies. Banking, business email, cloud dashboards, and administrator portals should use longer passwords with full character diversity and no reuse. Lower-risk throwaway accounts can still benefit from a unique password, but your most sensitive accounts should always get the strongest settings available.</p>
+            <ul>
+              <li><strong>Personal accounts:</strong> Aim for at least 14 to 16 characters with letters, numbers, and symbols.</li>
+              <li><strong>Business systems:</strong> Prefer 18+ characters, unique values, and storage in an approved password manager.</li>
+              <li><strong>Shared team access:</strong> Use generated credentials plus access rotation and 2FA, rather than memorable words passed around manually.</li>
+              <li><strong>Device and Wi-Fi passwords:</strong> Favor long passphrases or long generated strings to resist guessing and brute-force attempts.</li>
+            </ul>
+          </ContentSection>
+
+          <ContentSection id="passgen-mistakes" title="Common Password Mistakes">
+            <p>Many weak passwords look complex at a glance but still fail in practice because they follow patterns attackers already know. The biggest improvement is usually not adding one symbol, but using longer, unique credentials for every login.</p>
+            <ul>
+              <li><strong>Reusing one password everywhere:</strong> A breach on one website can expose your other accounts immediately.</li>
+              <li><strong>Predictable substitutions:</strong> Replacing <code>a</code> with <code>@</code> or <code>o</code> with <code>0</code> does not make a short password truly strong.</li>
+              <li><strong>Choosing short lengths:</strong> Eight characters may satisfy a minimum rule, but longer passwords are far more resilient.</li>
+              <li><strong>Saving passwords in plain text:</strong> Generated credentials should be stored in a trusted password manager, not notes or screenshots.</li>
+            </ul>
+          </ContentSection>
+
 
           <FAQSection faqs={faqs} />
         </div>
       </ToolPageLayout>
-    </>
   );
 };
 

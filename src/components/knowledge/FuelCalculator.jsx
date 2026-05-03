@@ -6,7 +6,6 @@ import FAQSection from '../tool/FAQSection';
 import TableOfContents from '../tool/TableOfContents';
 import FeedbackForm from '../tool/FeedbackForm';
 import '../../assets/css/knowledge/fuel-calculator.css';
-import ToolDynamicSections from '../tool/ToolDynamicSections'
 
 const FuelCalculator = () => {
   const [formData, setFormData] = useState({
@@ -30,7 +29,60 @@ const FuelCalculator = () => {
     category: "Knowledge",
     icon: "fas fa-gas-pump",
     breadcrumb: ['Knowledge', 'Calculators', 'Fuel Cost Calculator'],
-    keywords: ["fuel", "cost", "trip", "gas", "mileage", "efficiency", "travel", "budget"]
+    keywords: ["fuel", "cost", "trip", "gas", "mileage", "efficiency", "travel", "budget"],
+    seoTitle: 'Fuel Cost Calculator - Trip Fuel Expense and Mileage Cost | Tuitility',
+    seoDescription: 'Estimate trip fuel cost from distance, fuel efficiency, fuel price, passenger count, and round-trip settings. Useful for travel budgeting and carpool planning.',
+    seoKeywords: [
+      'fuel cost calculator',
+      'trip fuel calculator',
+      'gas cost calculator',
+      'mileage cost calculator',
+      'road trip fuel cost',
+      'fuel expense estimator',
+    ],
+    canonicalUrl: 'https://tuitility.vercel.app/knowledge/calculators/fuel-calculator',
+    schemaData: [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'WebApplication',
+        name: 'Fuel Cost Calculator',
+        applicationCategory: 'FinanceApplication',
+        operatingSystem: 'Any',
+        browserRequirements: 'Requires JavaScript and a modern browser',
+        url: 'https://tuitility.vercel.app/knowledge/calculators/fuel-calculator',
+        description: 'Estimate fuel costs for trips using distance, fuel efficiency, fuel price, and passenger count.',
+        featureList: [
+          'Single-trip and round-trip fuel estimates',
+          'Distance unit conversion',
+          'Fuel efficiency unit conversion',
+          'Per-person cost split',
+          'Currency support',
+        ],
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'HowTo',
+        name: 'How to calculate trip fuel cost',
+        step: [
+          { '@type': 'HowToStep', text: 'Enter the trip distance and choose the distance unit.' },
+          { '@type': 'HowToStep', text: 'Enter fuel efficiency and fuel price.' },
+          { '@type': 'HowToStep', text: 'Choose round-trip settings and passenger count if needed.' },
+          { '@type': 'HowToStep', text: 'Run the calculator to estimate total fuel usage and cost.' },
+        ],
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faqData.map((faq) => ({
+          '@type': 'Question',
+          name: faq.question,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: faq.answer,
+          },
+        })),
+      },
+    ],
   };
 
   // Categories for navigation
@@ -202,7 +254,9 @@ const FuelCalculator = () => {
     { id: 'examples', title: 'Examples' },
     { id: 'significance', title: 'Significance' },
     { id: 'functionality', title: 'Functionality' },
-    { id: 'applications', title: 'Applications' }
+    { id: 'applications', title: 'Applications' },
+    { id: 'budgeting-tips', title: 'Budgeting Tips' },
+    { id: 'real-world-variables', title: 'Real-World Variables' }
   ];
 
   // FAQ data
@@ -742,6 +796,20 @@ const FuelCalculator = () => {
         </div>
       </ContentSection>
 
+      <ContentSection id="budgeting-tips" title="Budgeting Tips">
+        <p>Fuel estimates are most useful when they are part of a wider transport budget. Even a simple trip becomes easier to plan when you compare fuel cost with tolls, parking, and shared costs across travelers.</p>
+        <ul>
+          <li><strong>Commute planning:</strong> Estimate recurring weekly or monthly fuel expense.</li>
+          <li><strong>Road trip budgeting:</strong> Combine fuel, lodging, and food for more realistic planning.</li>
+          <li><strong>Carpool fairness:</strong> Use per-person cost to split expenses transparently.</li>
+        </ul>
+      </ContentSection>
+
+      <ContentSection id="real-world-variables" title="Real-World Variables">
+        <p>Actual fuel use can vary from the estimate because driving conditions are rarely ideal. Traffic, hills, air conditioning, extra cargo, tire pressure, and aggressive acceleration can all increase fuel consumption noticeably.</p>
+        <p>For best results, use a realistic efficiency figure based on your normal driving conditions rather than the most optimistic rating on paper.</p>
+      </ContentSection>
+
 
       <FAQSection faqs={faqData} />
     </ToolPageLayout>
@@ -749,4 +817,3 @@ const FuelCalculator = () => {
 };
 
 export default FuelCalculator;
-

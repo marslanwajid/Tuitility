@@ -6,7 +6,6 @@ import FAQSection from '../tool/FAQSection';
 import TableOfContents from '../tool/TableOfContents';
 import FeedbackForm from '../tool/FeedbackForm';
 import '../../assets/css/knowledge/language-level-calculator.css';
-import ToolDynamicSections from '../tool/ToolDynamicSections'
 
 const LanguageLevelCalculator = () => {
   const [selectedLanguage, setSelectedLanguage] = useState('');
@@ -24,7 +23,34 @@ const LanguageLevelCalculator = () => {
     category: "Knowledge",
     icon: "fas fa-language",
     breadcrumb: ['Knowledge', 'Calculators', 'Language Level Calculator'],
-    keywords: ["language", "proficiency", "assessment", "test", "level", "grammar", "vocabulary", "fluency"]
+    keywords: ["language", "proficiency", "assessment", "test", "level", "grammar", "vocabulary", "fluency"],
+    seoTitle: 'Language Level Calculator - Estimate Language Proficiency | Tuitility',
+    seoDescription: 'Assess language proficiency with a quiz-based language level calculator covering grammar, vocabulary, and usage across multiple languages.',
+    seoKeywords: [
+      'language level calculator',
+      'language proficiency test',
+      'language assessment quiz',
+      'english level test',
+      'fluency level calculator',
+      'grammar proficiency test',
+    ],
+    canonicalUrl: 'https://tuitility.vercel.app/knowledge/calculators/language-level-calculator',
+    schemaData: {
+      '@context': 'https://schema.org',
+      '@type': 'WebApplication',
+      name: 'Language Level Calculator',
+      applicationCategory: 'EducationalApplication',
+      operatingSystem: 'Any',
+      browserRequirements: 'Requires JavaScript and a modern browser',
+      url: 'https://tuitility.vercel.app/knowledge/calculators/language-level-calculator',
+      description: 'Quiz-based tool for estimating language proficiency level across multiple supported languages.',
+      featureList: [
+        'Multiple language tests',
+        'Quiz-based proficiency scoring',
+        'Vocabulary and grammar assessment',
+        'Level estimation output',
+      ],
+    }
   };
 
   // Categories for navigation

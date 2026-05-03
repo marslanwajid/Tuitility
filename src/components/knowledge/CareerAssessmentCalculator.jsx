@@ -6,7 +6,6 @@ import FAQSection from '../tool/FAQSection';
 import TableOfContents from '../tool/TableOfContents';
 import FeedbackForm from '../tool/FeedbackForm';
 import '../../assets/css/knowledge/career-assessment-calculator.css';
-import ToolDynamicSections from '../tool/ToolDynamicSections'
 
 const CareerAssessmentCalculator = () => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -27,7 +26,34 @@ const CareerAssessmentCalculator = () => {
     category: "knowledge",
     breadcrumb: ["Knowledge", "Calculators", "Career Assessment"],
     tags: ["career", "assessment", "personality", "skills", "job", "profession"],
-    lastUpdated: "2024-01-15"
+    lastUpdated: "2024-01-15",
+    seoTitle: 'Career Assessment Calculator - Explore Career Fit and Strengths | Tuitility',
+    seoDescription: 'Take a career assessment to explore strengths, interests, and possible career matches with guided category scoring and recommendation support.',
+    seoKeywords: [
+      'career assessment',
+      'career calculator',
+      'career aptitude test',
+      'career path quiz',
+      'job fit assessment',
+      'career recommendation tool',
+    ],
+    canonicalUrl: 'https://tuitility.vercel.app/knowledge/calculators/career-assessment-calculator',
+    schemaData: {
+      '@context': 'https://schema.org',
+      '@type': 'WebApplication',
+      name: 'Career Assessment Calculator',
+      applicationCategory: 'EducationalApplication',
+      operatingSystem: 'Any',
+      browserRequirements: 'Requires JavaScript and a modern browser',
+      url: 'https://tuitility.vercel.app/knowledge/calculators/career-assessment-calculator',
+      description: 'Question-based career assessment with category scoring and career recommendation support.',
+      featureList: [
+        'Career-fit assessment questions',
+        'Interest selection',
+        'Category score breakdown',
+        'Career recommendation output',
+      ],
+    }
   };
 
   const categories = [

@@ -8,7 +8,6 @@ import FeedbackForm from '../tool/FeedbackForm'
 import ElectricFluxCalculatorJS from '../../assets/js/science/electric-flux-calculator.js'
 import '../../assets/css/science/electric-flux-calculator.css'
 import 'katex/dist/katex.min.css'
-import ToolDynamicSections from '../tool/ToolDynamicSections'
 
 const ElectricFluxCalculator = () => {
   const [formData, setFormData] = useState({
@@ -63,15 +62,6 @@ const ElectricFluxCalculator = () => {
     }, 100);
   }, [result]);
 
-  // Tool data
-  const toolData = {
-    name: 'Electric Flux Calculator',
-    description: 'Calculate electric flux through surfaces using electric field and area, or Gauss\'s Law with charge. Essential for electromagnetism and electrical engineering.',
-    icon: 'fas fa-lightning',
-    category: 'Science',
-    breadcrumb: ['Science', 'Calculators', 'Electric Flux Calculator']
-  };
-
   // Categories for sidebar
   const categories = [
     { name: 'Math', url: '/math', icon: 'fas fa-calculator' },
@@ -101,8 +91,45 @@ const ElectricFluxCalculator = () => {
     { id: 'applications', title: 'Applications' },
     { id: 'significance', title: 'Significance' },
     { id: 'functionality', title: 'Functionality' },
+    { id: 'gauss-context', title: 'Gauss Law Context' },
+    { id: 'angle-geometry', title: 'Angle and Geometry' },
     { id: 'faqs', title: 'FAQs' }
   ];
+
+  const toolData = {
+    name: 'Electric Flux Calculator',
+    description: 'Calculate electric flux through surfaces using electric field and area, or Gauss\'s Law with charge. Essential for electromagnetism and electrical engineering.',
+    icon: 'fas fa-lightning',
+    category: 'Science',
+    breadcrumb: ['Science', 'Calculators', 'Electric Flux Calculator'],
+    seoTitle: 'Electric Flux Calculator - Flux and Gauss Law Formula Tool | Tuitility',
+    seoDescription: 'Calculate electric flux from electric field, area, angle, charge, and permittivity using surface-flux formulas and Gauss law relationships.',
+    seoKeywords: [
+      'electric flux calculator',
+      'gauss law calculator',
+      'electric field flux',
+      'electromagnetism calculator',
+      'flux formula calculator',
+      'surface flux calculator',
+    ],
+    canonicalUrl: 'https://tuitility.vercel.app/science/calculators/electric-flux-calculator',
+    schemaData: {
+      '@context': 'https://schema.org',
+      '@type': 'WebApplication',
+      name: 'Electric Flux Calculator',
+      applicationCategory: 'EducationalApplication',
+      operatingSystem: 'Any',
+      browserRequirements: 'Requires JavaScript and a modern browser',
+      url: 'https://tuitility.vercel.app/science/calculators/electric-flux-calculator',
+      description: 'Calculate electric flux using electric field, area, angle, or charge-based electromagnetism relationships.',
+      featureList: [
+        'Electric flux calculation',
+        'Angle-aware surface calculation',
+        'Charge and permittivity support',
+        'Electromagnetism step breakdown',
+      ],
+    }
+  };
 
   const handleInputChange = (field, value) => {
     setFormData(prev => ({

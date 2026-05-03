@@ -6,7 +6,6 @@ import FAQSection from '../tool/FAQSection';
 import TableOfContents from '../tool/TableOfContents';
 import FeedbackForm from '../tool/FeedbackForm';
 import '../../assets/css/knowledge/average-time-calculator.css';
-import ToolDynamicSections from '../tool/ToolDynamicSections'
 
 const AverageTimeCalculator = () => {
   const [timeEntries, setTimeEntries] = useState([
@@ -26,7 +25,34 @@ const AverageTimeCalculator = () => {
     category: "Knowledge",
     icon: "fas fa-clock",
     breadcrumb: ['Knowledge', 'Calculators', 'Average Time Calculator'],
-    keywords: ["average", "time", "statistics", "median", "mode", "performance", "timing", "analysis"]
+    keywords: ["average", "time", "statistics", "median", "mode", "performance", "timing", "analysis"],
+    seoTitle: 'Average Time Calculator - Mean, Median and Mode of Time Values | Tuitility',
+    seoDescription: 'Calculate average time, median time, mode, standard deviation, and outlier-adjusted results from multiple time entries for timing analysis and performance tracking.',
+    seoKeywords: [
+      'average time calculator',
+      'time average calculator',
+      'mean median mode time',
+      'time statistics calculator',
+      'average lap time calculator',
+      'time outlier calculator',
+    ],
+    canonicalUrl: 'https://tuitility.vercel.app/knowledge/calculators/average-time-calculator',
+    schemaData: {
+      '@context': 'https://schema.org',
+      '@type': 'WebApplication',
+      name: 'Average Time Calculator',
+      applicationCategory: 'EducationalApplication',
+      operatingSystem: 'Any',
+      browserRequirements: 'Requires JavaScript and a modern browser',
+      url: 'https://tuitility.vercel.app/knowledge/calculators/average-time-calculator',
+      description: 'Calculate average, median, mode, and spread of multiple time values with optional outlier exclusion.',
+      featureList: [
+        'Average, median, and mode time calculation',
+        'Optional milliseconds support',
+        'Outlier exclusion',
+        'Standard deviation and range reporting',
+      ],
+    }
   };
 
   // Categories for navigation
@@ -301,7 +327,9 @@ const AverageTimeCalculator = () => {
     { id: 'examples', title: 'Examples' },
     { id: 'significance', title: 'Significance' },
     { id: 'functionality', title: 'Functionality' },
-    { id: 'applications', title: 'Applications' }
+    { id: 'applications', title: 'Applications' },
+    { id: 'analysis-context', title: 'Analysis Context' },
+    { id: 'outlier-notes', title: 'Outlier Notes' }
   ];
 
   // FAQ data

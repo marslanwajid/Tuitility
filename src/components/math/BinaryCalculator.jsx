@@ -228,6 +228,20 @@ const BinaryCalculator = () => {
        ]
      },
      {
+       id: "next-steps",
+       title: "Related Calculators and Next Steps",
+       content: (
+         <div>
+           <p>
+             Binary work usually sits inside a wider number-system workflow. If you want more precision with base-10 operations, continue with the <a href="/math/calculators/decimal-calculator">Decimal Calculator</a>. If you are comparing converted values after switching formats, the <a href="/math/calculators/comparing-decimals-calculator">Comparing Decimals Calculator</a> is a strong next step.
+           </p>
+           <p>
+             This tool also overlaps naturally with applied science and technical conversion pages. For cross-category follow-up, use the <a href="/science/calculators/dbm-to-watts-calculator">dBm to Watts Calculator</a> or the <a href="/science/calculators/dbm-to-milliwatts-calculator">dBm to Milliwatts Calculator</a> when binary and numeric representation lead into engineering calculations.
+           </p>
+         </div>
+       )
+     },
+     {
        id: "applications",
        title: "Applications",
        list: [
@@ -279,6 +293,7 @@ const BinaryCalculator = () => {
     { id: "how-to-use", title: "How to Use" },
     { id: "examples", title: "Examples" },
     { id: "significance", title: "Significance" },
+    { id: "next-steps", title: "Related Calculators and Next Steps" },
     { id: "applications", title: "Applications" },
     { id: "faqs", title: "FAQs" }
   ];

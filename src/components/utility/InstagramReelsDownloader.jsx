@@ -5,10 +5,8 @@ import ContentSection from '../tool/ContentSection';
 import FAQSection from '../tool/FAQSection';
 import FeedbackForm from '../tool/FeedbackForm';
 import TableOfContents from '../tool/TableOfContents';
-import Seo from '../Seo';
 import '../../assets/css/utility/instagram-reels-downloader.css';
 import { toolCategories } from '../../data/toolCategories';
-import ToolDynamicSections from '../tool/ToolDynamicSections'
 
 
 const InstagramReelsDownloader = () => {
@@ -195,10 +193,26 @@ const InstagramReelsDownloader = () => {
     };
 
     return (
-        <>
-            <Seo {...seoData} />
             <ToolPageLayout
-                toolData={toolData}
+                toolData={{
+                    ...toolData,
+                    seoTitle: seoData.title,
+                    seoDescription: seoData.description,
+                    seoKeywords: seoData.keywords,
+                    canonicalUrl: seoData.canonicalUrl,
+                    schemaData: [
+                        {
+                            '@context': 'https://schema.org',
+                            '@type': 'WebApplication',
+                            name: toolData.name,
+                            applicationCategory: 'UtilityApplication',
+                            operatingSystem: 'Any',
+                            browserRequirements: 'Requires JavaScript and a modern browser',
+                            url: seoData.canonicalUrl,
+                            description: seoData.description
+                        }
+                    ]
+                }}
                 categories={toolCategories}
                 relatedTools={relatedTools}
                 tableOfContents={tableOfContents}
@@ -457,7 +471,6 @@ const InstagramReelsDownloader = () => {
                 <FAQSection id="faqs" faqs={faqs} />
 
             </ToolPageLayout>
-        </>
     );
 };
 

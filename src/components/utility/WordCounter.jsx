@@ -5,10 +5,8 @@ import ContentSection from '../tool/ContentSection'
 import FAQSection from '../tool/FAQSection'
 import TableOfContents from '../tool/TableOfContents'
 import FeedbackForm from '../tool/FeedbackForm'
-import Seo from '../Seo'
 import '../../assets/css/utility/word-counter.css'
 import { toolCategories } from '../../data/toolCategories';
-import ToolDynamicSections from '../tool/ToolDynamicSections'
 
 // Word Counter Logic Class
 class WordCounterLogic {
@@ -218,7 +216,37 @@ const WordCounter = () => {
     description: 'Count words, characters, sentences, and paragraphs in your text. Supports file upload for PDF and DOCX documents.',
     icon: 'fas fa-font',
     category: 'Utility',
-    breadcrumb: ['Utility', 'Tools', 'Word Counter']
+    breadcrumb: ['Utility', 'Tools', 'Word Counter'],
+    seoTitle: 'Word Counter for Words, Characters, Sentences, and Paragraphs | Tuitility',
+    seoDescription: 'Count words, characters, characters without spaces, sentences, and paragraphs instantly. Upload PDF and DOCX files for text analysis in your browser.',
+    seoKeywords: [
+      'word counter',
+      'character counter',
+      'sentence counter',
+      'paragraph counter',
+      'pdf word counter',
+      'docx word counter',
+      'text statistics tool',
+    ],
+    canonicalUrl: 'https://tuitility.vercel.app/utility-tools/word-counter',
+    schemaData: [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'SoftwareApplication',
+        name: 'Word Counter',
+        applicationCategory: 'UtilityApplication',
+        operatingSystem: 'Web',
+        description: 'Word counter for text, PDF, and DOCX documents with character, sentence, and paragraph statistics.',
+        offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+        featureList: [
+          'Word count',
+          'Character count',
+          'Sentence and paragraph analysis',
+          'PDF and DOCX text extraction',
+        ],
+        url: 'https://tuitility.vercel.app/utility-tools/word-counter',
+      },
+    ],
   }
 
   const relatedTools = [
@@ -262,16 +290,7 @@ const WordCounter = () => {
     }
   ]
 
-  const seoData = {
-    title: 'Word Counter - Count Words, Characters & Sentences Online Free | Tuitility',
-    description: 'Free online word counter tool to count words, characters, sentences, and paragraphs. Supports PDF and DOCX file uploads. Fast, accurate, and privacy-focused.',
-    keywords: 'word counter, character counter, sentence counter, paragraph counter, text analysis, word count tool, free word counter',
-    canonicalUrl: 'https://tuitility.vercel.app/utility-tools/word-counter'
-  }
-
   return (
-    <>
-      <Seo {...seoData} />
       <ToolPageLayout
         toolData={toolData}
         tableOfContents={tableOfContents}
@@ -578,10 +597,50 @@ const WordCounter = () => {
           </div>
         </ContentSection>
 
+        <ContentSection id="word-counter-use-cases" title="When a Word Counter Is Most Useful">
+          <p>
+            A word counter is useful any time text length matters. Writers use it for articles and essays,
+            students use it for assignment limits, marketers use it for ad copy and metadata, and editors use
+            it to compare drafts quickly. Because this tool also counts sentences and paragraphs, it gives a
+            more complete picture than word count alone.
+          </p>
+          <p>
+            The file upload support also makes it practical when your text starts inside a document rather than
+            in a plain text editor.
+          </p>
+        </ContentSection>
+
+        <ContentSection id="word-counter-quality-signals" title="How Word, Sentence, and Character Counts Work Together">
+          <p>
+            Word count tells you length, but character and sentence counts help you understand structure. A short
+            piece with very long sentences may be harder to read than a slightly longer one with clearer breaks.
+            Paragraph count is also useful when reviewing readability and formatting before submission or publishing.
+          </p>
+          <ul>
+            <li><strong>Word count:</strong> useful for limits and content sizing.</li>
+            <li><strong>Character count:</strong> helpful for forms, bios, and metadata fields.</li>
+            <li><strong>Sentence count:</strong> gives a quick sense of density and pacing.</li>
+            <li><strong>Paragraph count:</strong> helps evaluate structure and readability.</li>
+          </ul>
+        </ContentSection>
+
+        <ContentSection id="word-counter-mistakes" title="Common Text Counting Mistakes">
+          <p>
+            People often copy text from formatted sources and assume the visible text is the only content present.
+            Hidden spacing, pasted line breaks, and extracted file text can all affect counts. That is why it is
+            useful to review the actual input text after upload or paste, especially for formal word-limit work.
+          </p>
+          <ul>
+            <li>Check pasted text for extra whitespace or formatting artifacts.</li>
+            <li>Review extracted document text before relying on final counts.</li>
+            <li>Use character counts without spaces for strict field limits.</li>
+            <li>Remember that different institutions may define count rules slightly differently.</li>
+          </ul>
+        </ContentSection>
+
 
         <FAQSection faqs={faqData} />
       </ToolPageLayout>
-    </>
   )
 }
 

@@ -52,6 +52,7 @@ const ComparingFractionsCalculator = () => {
     { id: 'significance', title: 'Significance' },
     { id: 'functionality', title: 'Functionality' },
     { id: 'applications', title: 'Applications' },
+    { id: 'next-steps', title: 'Related Calculators and Next Steps' },
     { id: 'faqs', title: 'FAQs' }
   ];
 
@@ -570,6 +571,15 @@ const ComparingFractionsCalculator = () => {
           <li>Remember that 75% means 0.75, not 75.</li>
           <li>Use a shared form before deciding which value is larger.</li>
         </ul>
+      </ContentSection>
+
+      <ContentSection id="next-steps" title="Related Calculators and Next Steps">
+        <p>
+          If your fractions need rewriting before comparison, use the <a href="/math/calculators/lcd-calculator">LCD Calculator</a> or the <a href="/math/calculators/lcm-calculator">LCM Calculator</a> first. If you want to perform arithmetic instead of only ranking values, continue with the <a href="/math/calculators/fraction-calculator">Fraction Calculator</a>.
+        </p>
+        <p>
+          Cross-format comparison also works well with the <a href="/math/calculators/comparing-decimals-calculator">Comparing Decimals Calculator</a>, the <a href="/math/calculators/fraction-to-percent-calculator">Fraction to Percent Calculator</a>, and real-world rate tools like the <a href="/finance/calculators/roi-calculator">ROI Calculator</a> when percentages become decision metrics.
+        </p>
       </ContentSection>
 
 

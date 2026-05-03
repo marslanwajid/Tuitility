@@ -6,7 +6,6 @@ import FAQSection from '../tool/FAQSection';
 import TableOfContents from '../tool/TableOfContents';
 import FeedbackForm from '../tool/FeedbackForm';
 import '../../assets/css/knowledge/trauma-assessment-calculator.css';
-import ToolDynamicSections from '../tool/ToolDynamicSections'
 
 const TraumaAssessmentCalculator = () => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -26,7 +25,34 @@ const TraumaAssessmentCalculator = () => {
     category: "knowledge",
     breadcrumb: ["Knowledge", "Calculators", "Trauma Assessment"],
     tags: ["trauma", "assessment", "mental health", "ptsd", "healing", "recovery"],
-    lastUpdated: "2024-01-15"
+    lastUpdated: "2024-01-15",
+    seoTitle: 'Trauma Assessment Calculator - Trauma Symptom Self-Reflection Tool | Tuitility',
+    seoDescription: 'Use this trauma assessment calculator for a supportive symptom self-check with category scores, reflection prompts, and guidance on seeking support.',
+    seoKeywords: [
+      'trauma assessment',
+      'trauma calculator',
+      'ptsd symptom self check',
+      'trauma symptom quiz',
+      'mental health trauma assessment',
+      'recovery self reflection tool',
+    ],
+    canonicalUrl: 'https://tuitility.vercel.app/knowledge/calculators/trauma-assessment-calculator',
+    schemaData: {
+      '@context': 'https://schema.org',
+      '@type': 'WebApplication',
+      name: 'Trauma Assessment Calculator',
+      applicationCategory: 'HealthApplication',
+      operatingSystem: 'Any',
+      browserRequirements: 'Requires JavaScript and a modern browser',
+      url: 'https://tuitility.vercel.app/knowledge/calculators/trauma-assessment-calculator',
+      description: 'Question-based trauma symptom self-assessment with supportive category scoring and reflection guidance.',
+      featureList: [
+        'Trauma symptom self-check',
+        'Category score breakdown',
+        'Supportive reflection output',
+        'Downloadable results',
+      ],
+    }
   };
 
   const categories = [

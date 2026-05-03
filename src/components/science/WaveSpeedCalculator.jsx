@@ -8,7 +8,6 @@ import FeedbackForm from '../tool/FeedbackForm'
 import WaveSpeedCalculatorJS from '../../assets/js/science/wave-speed-calculator.js'
 import '../../assets/css/science/wave-speed-calculator.css'
 import 'katex/dist/katex.min.css'
-import ToolDynamicSections from '../tool/ToolDynamicSections'
 
 const WaveSpeedCalculator = () => {
   const [formData, setFormData] = useState({
@@ -56,15 +55,6 @@ const WaveSpeedCalculator = () => {
     renderKaTeX();
   }, [result]);
 
-  // Tool data
-  const toolData = {
-    name: 'Wave Speed Calculator',
-    description: 'Calculate wave speed, frequency, and wavelength using the fundamental wave equation. Perfect for physics students and professionals.',
-    icon: 'fas fa-wave-square',
-    category: 'Science',
-    breadcrumb: ['Science', 'Calculators', 'Wave Speed Calculator']
-  };
-
   // Categories for sidebar
   const categories = [
     { name: 'Math', url: '/math', icon: 'fas fa-calculator' },
@@ -94,8 +84,89 @@ const WaveSpeedCalculator = () => {
     { id: 'applications', title: 'Applications' },
     { id: 'significance', title: 'Significance' },
     { id: 'functionality', title: 'Functionality' },
+    { id: 'wave-context', title: 'Wave Context' },
+    { id: 'unit-awareness', title: 'Unit Awareness' },
     { id: 'faqs', title: 'FAQs' }
   ];
+
+  const faqData = [
+    {
+      question: 'What is the basic wave speed formula?',
+      answer: 'The basic formula is v = f × λ, where v is wave speed, f is frequency, and λ is wavelength.'
+    },
+    {
+      question: 'Does changing frequency always change wave speed?',
+      answer: 'Not always. In many media the wave speed is set by the medium, so a frequency change causes wavelength to adjust instead.'
+    },
+    {
+      question: 'What units should I use?',
+      answer: 'Use hertz for frequency and meters for wavelength if you want the result in meters per second.'
+    },
+    {
+      question: 'Where is this calculation used?',
+      answer: 'It is used in acoustics, electromagnetics, physics education, communications, and general wave analysis.'
+    }
+  ];
+
+  const toolData = {
+    name: 'Wave Speed Calculator',
+    description: 'Calculate wave speed, frequency, and wavelength using the fundamental wave equation. Perfect for physics students and professionals.',
+    icon: 'fas fa-wave-square',
+    category: 'Science',
+    breadcrumb: ['Science', 'Calculators', 'Wave Speed Calculator'],
+    seoTitle: 'Wave Speed Calculator - Calculate Frequency, Wavelength and Speed | Tuitility',
+    seoDescription: 'Calculate wave speed from frequency and wavelength using the wave equation. Useful for physics, acoustics, electronics, and classroom problem solving.',
+    seoKeywords: [
+      'wave speed calculator',
+      'wave equation calculator',
+      'frequency wavelength speed',
+      'physics wave calculator',
+      'wave velocity calculator',
+      'v equals f lambda calculator',
+    ],
+    canonicalUrl: 'https://tuitility.vercel.app/science/calculators/wave-speed-calculator',
+    schemaData: [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'WebApplication',
+        name: 'Wave Speed Calculator',
+        applicationCategory: 'EducationalApplication',
+        operatingSystem: 'Any',
+        browserRequirements: 'Requires JavaScript and a modern browser',
+        url: 'https://tuitility.vercel.app/science/calculators/wave-speed-calculator',
+        description: 'Calculate wave speed from frequency and wavelength with a step-by-step physics breakdown.',
+        featureList: [
+          'Wave speed calculation',
+          'Frequency and wavelength interpretation',
+          'Step-by-step wave equation use',
+          'Wave property summary',
+        ],
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'HowTo',
+        name: 'How to calculate wave speed',
+        step: [
+          { '@type': 'HowToStep', text: 'Enter the wave frequency in hertz.' },
+          { '@type': 'HowToStep', text: 'Enter the wavelength in meters.' },
+          { '@type': 'HowToStep', text: 'Run the calculator to apply the wave equation.' },
+          { '@type': 'HowToStep', text: 'Review the resulting speed and derived wave properties.' },
+        ],
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faqData.map((faq) => ({
+          '@type': 'Question',
+          name: faq.question,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: faq.answer,
+          },
+        })),
+      },
+    ],
+  };
 
   const handleInputChange = (field, value) => {
     setFormData(prev => ({
@@ -499,6 +570,20 @@ const WaveSpeedCalculator = () => {
             <span><strong>Input Validation:</strong> Ensures all inputs are valid and reasonable</span>
           </li>
         </ul>
+      </ContentSection>
+
+      <ContentSection id="wave-context" title="Wave Context">
+        <p>The same wave equation appears across very different physical systems, which is why wave speed is such a foundational concept in physics. Sound, light, water waves, and many other oscillatory systems all use the relationship between frequency, wavelength, and propagation speed.</p>
+        <ul>
+          <li><strong>Sound:</strong> Speed depends strongly on the medium and its temperature or density.</li>
+          <li><strong>Electromagnetic waves:</strong> Speed in vacuum is fixed, but wavelength changes with frequency.</li>
+          <li><strong>Water and surface waves:</strong> Medium depth and restoring forces can influence observed behavior.</li>
+        </ul>
+      </ContentSection>
+
+      <ContentSection id="unit-awareness" title="Unit Awareness">
+        <p>Wave calculations are only as good as the units used. If frequency and wavelength are not entered in compatible SI units, the resulting speed can be off by large factors even when the formula itself is correct.</p>
+        <p>When in doubt, convert to hertz and meters first, then interpret the result in meters per second before applying it to a real-world scenario.</p>
       </ContentSection>
 
 

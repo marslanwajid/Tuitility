@@ -7,8 +7,6 @@ import TableOfContents from '../tool/TableOfContents'
 import FeedbackForm from '../tool/FeedbackForm'
 import DebtIncomeCalculatorJS from '../../assets/js/finance/debt-income-calculator.js'
 import '../../assets/css/finance/debt-income-calculator.css'
-import Seo from '../Seo'
-import ToolDynamicSections from '../tool/ToolDynamicSections'
 
 const DebtIncomeCalculator = () => {
   const [formData, setFormData] = useState({
@@ -43,6 +41,33 @@ const DebtIncomeCalculator = () => {
   const [error, setError] = useState('');
   const [calculator, setCalculator] = useState(null);
 
+  const faqs = [
+    {
+      question: "What's a good debt-to-income ratio?",
+      answer: 'A strong DTI ratio is generally 36 percent or lower, while many lenders set an upper limit around 43 percent depending on the loan type and the rest of your application.'
+    },
+    {
+      question: 'What debts should I include in my DTI calculation?',
+      answer: 'Include recurring monthly debt obligations such as housing payments, credit card minimums, student loans, auto loans, personal loans, HOA fees, taxes, and insurance when relevant.'
+    },
+    {
+      question: 'Should I use gross or net income for DTI calculations?',
+      answer: 'Most lenders use gross income before taxes and deductions, so that is the standard approach for DTI planning.'
+    },
+    {
+      question: 'How can I improve my debt-to-income ratio?',
+      answer: 'You can reduce debt payments, refinance expensive obligations, avoid taking on new loans, or increase reliable income sources.'
+    },
+    {
+      question: 'Does DTI affect my credit score?',
+      answer: 'DTI does not directly change your credit score, but it strongly affects approval decisions for mortgages and other lending products.'
+    },
+    {
+      question: "What's the difference between front-end and back-end DTI?",
+      answer: 'Front-end DTI looks only at housing costs. Back-end DTI includes housing plus all other recurring debt obligations and is usually the broader underwriting measure.'
+    }
+  ];
+
   // Initialize calculator on component mount
   useEffect(() => {
     try {
@@ -59,14 +84,61 @@ const DebtIncomeCalculator = () => {
     description: 'Calculate your debt-to-income ratio to assess financial health and loan eligibility. Analyze income vs debt obligations for better financial planning.',
     icon: 'fas fa-balance-scale',
     category: 'Finance',
-    breadcrumb: ['Finance', 'Calculators', 'Debt Income Calculator']
+    breadcrumb: ['Finance', 'Calculators', 'Debt Income Calculator'],
+    seoTitle: 'Debt to Income Calculator - DTI Ratio for Loan Planning | Tuitility',
+    seoDescription: 'Calculate debt-to-income ratio from income, housing costs, and debt payments to evaluate loan readiness and financial pressure.',
+    seoKeywords: ['debt to income calculator','dti calculator','loan eligibility calculator','mortgage dti','financial ratio calculator','debt income ratio'],
+    canonicalUrl: 'https://tuitility.vercel.app/finance/calculators/debt-income-calculator',
+    schemaData: [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'FinancialProduct',
+        name: 'Debt Income Calculator',
+        url: 'https://tuitility.vercel.app/finance/calculators/debt-income-calculator',
+        description: 'Debt-to-income ratio calculator for income, housing costs, and monthly debt planning.',
+        category: 'Debt to Income Calculator'
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'SoftwareApplication',
+        name: 'Debt Income Calculator',
+        applicationCategory: 'FinanceApplication',
+        operatingSystem: 'Any',
+        browserRequirements: 'Requires JavaScript and a modern browser',
+        url: 'https://tuitility.vercel.app/finance/calculators/debt-income-calculator',
+        featureList: [
+          'Income normalization',
+          'Monthly debt analysis',
+          'DTI ratio calculation',
+          'Loan-readiness guidance',
+          'Income and debt breakdowns'
+        ]
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'HowTo',
+        name: 'How to calculate debt-to-income ratio',
+        step: [
+          { '@type': 'HowToStep', text: 'Enter your income sources and their payment frequency.' },
+          { '@type': 'HowToStep', text: 'Add your housing costs and recurring debt payments.' },
+          { '@type': 'HowToStep', text: 'Convert annual figures where needed and review the monthly totals.' },
+          { '@type': 'HowToStep', text: 'Calculate your DTI ratio and compare it with lender-friendly ranges.' }
+        ]
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faqs.map((faq) => ({
+          '@type': 'Question',
+          name: faq.question,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: faq.answer
+          }
+        }))
+      }
+    ]
   };
-
-  // SEO data
-  const seoTitle = `${toolData.name} - ${toolData.category} | Tuitility`;
-  const seoDescription = toolData.description;
-  const seoKeywords = `${toolData.name.toLowerCase()}, ${toolData.category.toLowerCase()} calculator, dti ratio, financial health, loan eligibility`;
-  const canonicalUrl = `https://tuitility.vercel.app/finance/calculators/debt-income-calculator`;
 
   // Categories for sidebar
   const categories = [
@@ -264,13 +336,6 @@ const DebtIncomeCalculator = () => {
   }, [result]); // Re-render when results change
   
   return (
-    <>
-      <Seo
-        title={seoTitle}
-        description={seoDescription}
-        keywords={seoKeywords}
-        canonicalUrl={canonicalUrl}
-      />
       <ToolPageLayout 
         toolData={toolData} 
         tableOfContents={tableOfContents}
@@ -1076,36 +1141,10 @@ const DebtIncomeCalculator = () => {
 
 
         <FAQSection 
-          faqs={[
-            {
-              question: "What's a good debt-to-income ratio?",
-              answer: "A good DTI ratio is generally 36% or lower. Lenders typically prefer ratios below 43%, with 36% being the ideal maximum for most loan types. Lower ratios indicate better financial health and higher loan approval chances."
-            },
-            {
-              question: "What debts should I include in my DTI calculation?",
-              answer: "Include all recurring monthly debt payments: rent/mortgage, credit card minimum payments, student loans, auto loans, personal loans, and any other monthly debt obligations. Don't include utilities, groceries, or other living expenses."
-            },
-            {
-              question: "Should I use gross or net income for DTI calculations?",
-              answer: "Always use gross income (before taxes and deductions) for DTI calculations. Lenders use gross income to assess your ability to repay loans, as it represents your total earning capacity."
-            },
-            {
-              question: "How can I improve my debt-to-income ratio?",
-              answer: "You can improve your DTI by increasing your income (raise, side job, investment returns) or reducing your debt payments (pay off loans, refinance at lower rates, consolidate debt). Focus on paying down high-interest debt first."
-            },
-            {
-              question: "Does DTI affect my credit score?",
-              answer: "DTI doesn't directly affect your credit score, but it's a major factor in loan approval decisions. High DTI can limit your ability to get new credit, which can indirectly impact your credit utilization and credit mix."
-            },
-            {
-              question: "What's the difference between front-end and back-end DTI?",
-              answer: "Front-end DTI only includes housing costs (rent/mortgage, property tax, insurance, HOA), while back-end DTI includes all monthly debt payments. Lenders typically look at back-end DTI for most loans, but front-end DTI is important for mortgages."
-            }
-          ]}
+          faqs={faqs}
           title="Frequently Asked Questions"
         />
       </ToolPageLayout>
-    </>
   )
 }
 

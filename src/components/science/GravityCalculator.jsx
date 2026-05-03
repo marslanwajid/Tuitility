@@ -8,7 +8,6 @@ import FeedbackForm from '../tool/FeedbackForm'
 import GravityCalculatorJS from '../../assets/js/science/gravity-calculator.js'
 import '../../assets/css/science/gravity-calculator.css'
 import 'katex/dist/katex.min.css'
-import ToolDynamicSections from '../tool/ToolDynamicSections'
 
 const GravityCalculator = () => {
   const [formData, setFormData] = useState({
@@ -58,15 +57,6 @@ const GravityCalculator = () => {
     renderKaTeX();
   }, [result]);
 
-  // Tool data
-  const toolData = {
-    name: 'Gravity Calculator',
-    description: 'Calculate gravitational force and acceleration between two masses using Newton\'s law of universal gravitation. Perfect for physics students and professionals.',
-    icon: 'fas fa-globe',
-    category: 'Science',
-    breadcrumb: ['Science', 'Calculators', 'Gravity Calculator']
-  };
-
   // Categories for sidebar
   const categories = [
     { name: 'Math', url: '/math', icon: 'fas fa-calculator' },
@@ -96,8 +86,45 @@ const GravityCalculator = () => {
     { id: 'formulas', title: 'Mathematical Formulas', level: 1 },
     { id: 'examples', title: 'Real-World Examples', level: 1 },
     { id: 'applications', title: 'Applications', level: 1 },
+    { id: 'inverse-square', title: 'Inverse Square Insight', level: 1 },
+    { id: 'astronomy-context', title: 'Astronomy Context', level: 1 },
     { id: 'faq', title: 'Frequently Asked Questions', level: 1 }
   ];
+
+  const toolData = {
+    name: 'Gravity Calculator',
+    description: 'Calculate gravitational force and acceleration between two masses using Newton\'s law of universal gravitation. Perfect for physics students and professionals.',
+    icon: 'fas fa-globe',
+    category: 'Science',
+    breadcrumb: ['Science', 'Calculators', 'Gravity Calculator'],
+    seoTitle: 'Gravity Calculator - Newton Law of Gravitation Tool | Tuitility',
+    seoDescription: 'Calculate gravitational force and related quantities between two masses using Newton’s law of universal gravitation with flexible unit inputs.',
+    seoKeywords: [
+      'gravity calculator',
+      'gravitational force calculator',
+      'newton law of gravitation calculator',
+      'mass distance gravity',
+      'physics gravity formula',
+      'astronomy gravity calculator',
+    ],
+    canonicalUrl: 'https://tuitility.vercel.app/science/calculators/gravity-calculator',
+    schemaData: {
+      '@context': 'https://schema.org',
+      '@type': 'WebApplication',
+      name: 'Gravity Calculator',
+      applicationCategory: 'EducationalApplication',
+      operatingSystem: 'Any',
+      browserRequirements: 'Requires JavaScript and a modern browser',
+      url: 'https://tuitility.vercel.app/science/calculators/gravity-calculator',
+      description: 'Calculate gravitational force and acceleration between two masses using Newtonian gravitation formulas.',
+      featureList: [
+        'Gravitational force calculation',
+        'Flexible mass and distance units',
+        'Newton law application',
+        'Astronomy and mechanics examples',
+      ],
+    }
+  };
 
   // Handle form input changes
   const handleInputChange = (e) => {
@@ -518,4 +545,3 @@ const GravityCalculator = () => {
 };
 
 export default GravityCalculator;
-

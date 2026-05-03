@@ -7,8 +7,6 @@ import TableOfContents from '../tool/TableOfContents'
 import FeedbackForm from '../tool/FeedbackForm'
 import BudgetCalculatorJS from '../../assets/js/finance/budget-calculator.js'
 import '../../assets/css/finance/budget-calculator.css'
-import Seo from '../Seo'
-import ToolDynamicSections from '../tool/ToolDynamicSections'
 
 const BudgetCalculator = () => {
   const [formData, setFormData] = useState({
@@ -45,14 +43,46 @@ const BudgetCalculator = () => {
     description: 'Create and manage personal budgets with the 50-30-20 rule and custom allocations. Track expenses and optimize your financial planning.',
     icon: 'fas fa-calculator',
     category: 'Finance',
-    breadcrumb: ['Finance', 'Calculators', 'Budget Calculator']
+    breadcrumb: ['Finance', 'Calculators', 'Budget Calculator'],
+    seoTitle: 'Budget Calculator for Income, Expenses, and Savings Planning | Tuitility',
+    seoDescription: 'Plan a personal budget with income, expense categories, savings goals, and popular budgeting methods like the 50-30-20 rule.',
+    seoKeywords: [
+      'budget calculator',
+      'personal budget planner',
+      '50 30 20 budget calculator',
+      'monthly expense calculator',
+      'income and expense tracker',
+      'household budget calculator',
+      'budget planning tool',
+    ],
+    canonicalUrl: 'https://tuitility.vercel.app/finance/calculators/budget-calculator',
+    schemaData: [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'FinancialProduct',
+        name: 'Budget Calculator',
+        description: 'Budget calculator for income planning, expense breakdown, savings analysis, and common budgeting methods.',
+        category: 'Budget Planning Calculator',
+        url: 'https://tuitility.vercel.app/finance/calculators/budget-calculator',
+        isAccessibleForFree: true,
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'SoftwareApplication',
+        name: 'Budget Calculator',
+        applicationCategory: 'FinanceApplication',
+        operatingSystem: 'Web',
+        offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+        featureList: [
+          'Income and expense analysis',
+          'Budget rule comparison',
+          'Savings rate calculation',
+          'Category-by-category spending breakdown',
+        ],
+        url: 'https://tuitility.vercel.app/finance/calculators/budget-calculator',
+      },
+    ],
   };
-
-  // SEO data
-  const seoTitle = `${toolData.name} - ${toolData.category} | Tuitility`;
-  const seoDescription = toolData.description;
-  const seoKeywords = `${toolData.name.toLowerCase()}, ${toolData.category.toLowerCase()} calculator, personal finance, 50-30-20 rule, expense tracker`;
-  const canonicalUrl = `https://tuitility.vercel.app/finance/calculators/budget-calculator`;
 
   // Categories for sidebar
   const categories = [
@@ -233,13 +263,6 @@ const BudgetCalculator = () => {
   }, [result]); // Re-render when results change
 
   return (
-    <>
-      <Seo
-        title={seoTitle}
-        description={seoDescription}
-        keywords={seoKeywords}
-        canonicalUrl={canonicalUrl}
-      />
       <ToolPageLayout 
         toolData={toolData} 
         tableOfContents={tableOfContents}
@@ -866,6 +889,47 @@ const BudgetCalculator = () => {
           </div>
         </ContentSection>
 
+        <ContentSection id="budget-structure" title="How a Good Budget Helps You Make Better Decisions">
+          <p>
+            A useful budget does more than track bills. It shows how your spending choices affect savings,
+            debt payoff, lifestyle flexibility, and long-term goals. When you can see fixed costs, variable
+            costs, and savings together, it becomes easier to decide what needs adjustment first.
+          </p>
+          <p>
+            This calculator is especially helpful if you want to compare your current spending against common
+            frameworks like the 50-30-20 rule without building a spreadsheet from scratch.
+          </p>
+        </ContentSection>
+
+        <ContentSection id="budget-rules" title="When to Use 50-30-20 vs Custom Budgeting">
+          <p>
+            Budget rules are useful starting points, not universal laws. The 50-30-20 method works well for
+            many households, but high-cost cities, debt-heavy situations, or aggressive savings goals may call
+            for a different structure. A custom budget can be more realistic when your life stage or obligations
+            do not fit a standard template.
+          </p>
+          <ul>
+            <li><strong>50-30-20:</strong> good for balanced personal budgeting.</li>
+            <li><strong>60-20-20:</strong> helpful when balancing expenses, savings, and debt.</li>
+            <li><strong>70-20-10:</strong> can fit simpler high-expense situations.</li>
+            <li><strong>Custom budget:</strong> best when standard ratios do not match your reality.</li>
+          </ul>
+        </ContentSection>
+
+        <ContentSection id="budget-mistakes" title="Common Budgeting Mistakes That Reduce Accuracy">
+          <p>
+            Many people create a budget from ideal numbers instead of actual spending patterns. Others forget
+            irregular expenses such as repairs, gifts, subscriptions, and annual bills. A budget becomes much
+            more useful when it reflects real recurring costs and not just optimistic targets.
+          </p>
+          <ul>
+            <li>Include irregular and seasonal expenses in monthly planning.</li>
+            <li>Track debt payments separately from optional spending.</li>
+            <li>Review savings as a planned category, not just what is left over.</li>
+            <li>Update your budget when income or obligations change.</li>
+          </ul>
+        </ContentSection>
+
 
         <FAQSection 
           faqs={[
@@ -897,7 +961,6 @@ const BudgetCalculator = () => {
           title="Frequently Asked Questions"
         />
       </ToolPageLayout>
-    </>
   );
 }
 

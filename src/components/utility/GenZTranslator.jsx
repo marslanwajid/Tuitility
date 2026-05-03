@@ -5,10 +5,8 @@ import ContentSection from '../tool/ContentSection';
 import FAQSection from '../tool/FAQSection';
 import TableOfContents from '../tool/TableOfContents';
 import FeedbackForm from '../tool/FeedbackForm';
-import Seo from '../Seo';
 import '../../assets/css/utility/genz-translator.css';
 import { toolCategories } from '../../data/toolCategories';
-import ToolDynamicSections from '../tool/ToolDynamicSections'
 
 
 const GenZTranslator = () => {
@@ -99,19 +97,6 @@ const GenZTranslator = () => {
     }
   };
 
-  // --- Tool Data ---
-
-  const toolData = {
-    name: "Gen Z Translator",
-    title: "Gen Z Translator",
-    description: "Instantly translate standard English into modern Gen Z slang, or decode confusing Gen Z texts back to formal English using advanced AI.",
-    icon: "fas fa-language",
-    category: "Language",
-    breadcrumb: ["Utility", "Tools", "Gen Z Translator"],
-    tags: ["gen z", "slang", "translator", "ai", "gemini", "english"]
-  };
-
-
   const relatedTools = [
     { name: "Word Counter", url: "/utility-tools/word-counter", icon: "fas fa-font" },
     { name: "Morse Code Translator", url: "/utility-tools/morse-code-translator", icon: "fas fa-signal" },
@@ -125,6 +110,8 @@ const GenZTranslator = () => {
     { id: 'how-to-use', title: 'How to Use' },
     { id: 'slang-dictionary', title: 'Mini Gen Z Dictionary' },
     { id: 'why-use', title: 'Why Use This Tool?' },
+    { id: 'tone-context', title: 'Tone and Context' },
+    { id: 'translation-limits', title: 'Translation Limits' },
     { id: 'faq', title: 'Frequently Asked Questions' }
   ];
 
@@ -151,16 +138,69 @@ const GenZTranslator = () => {
   const outputLabel = conversionMode === 'to-genz' ? 'Gen Z Output' : 'Standard English Output';
   const inputPlaceholder = conversionMode === 'to-genz' ? 'Hello! How are you doing today?' : 'Yo fam, the vibes correspond fr fr no cap...';
 
-  const seoData = {
-    title: 'Gen Z Translator - AI-Powered Slang Converter | Tuitility',
-    description: 'Free AI-powered Gen Z translator. Convert standard English to Gen Z slang or decode modern internet language instantly using advanced Gemini AI.',
-    keywords: 'gen z translator, slang translator, gen z slang, internet slang, ai translator, modern slang decoder',
-    canonicalUrl: 'https://tuitility.vercel.app/utility-tools/genz-translator'
+  const toolData = {
+    name: "Gen Z Translator",
+    title: "Gen Z Translator",
+    description: "Instantly translate standard English into modern Gen Z slang, or decode confusing Gen Z texts back to formal English using advanced AI.",
+    icon: "fas fa-language",
+    category: "Language",
+    breadcrumb: ["Utility", "Tools", "Gen Z Translator"],
+    tags: ["gen z", "slang", "translator", "ai", "gemini", "english"],
+    seoTitle: 'Gen Z Translator - AI Slang Translator and Decoder | Tuitility',
+    seoDescription: 'Translate standard English into Gen Z slang or decode modern internet slang back into clear language with this AI-powered Gen Z translator.',
+    seoKeywords: [
+      'gen z translator',
+      'gen z slang translator',
+      'slang decoder',
+      'internet slang translator',
+      'ai slang translator',
+      'gen z meaning tool',
+    ],
+    canonicalUrl: 'https://tuitility.vercel.app/utility-tools/genz-translator',
+    schemaData: [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'WebApplication',
+        name: 'Gen Z Translator',
+        applicationCategory: 'UtilitiesApplication',
+        operatingSystem: 'Any',
+        browserRequirements: 'Requires JavaScript and a valid API key for AI translation',
+        url: 'https://tuitility.vercel.app/utility-tools/genz-translator',
+        description: 'AI translator for converting standard English into Gen Z slang and translating slang back into standard English.',
+        featureList: [
+          'Standard English to Gen Z translation',
+          'Gen Z slang to standard English translation',
+          'AI-assisted context-aware output',
+          'Copy result to clipboard',
+        ],
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'HowTo',
+        name: 'How to use a Gen Z translator',
+        step: [
+          { '@type': 'HowToStep', text: 'Choose whether you want to translate into Gen Z slang or back to standard English.' },
+          { '@type': 'HowToStep', text: 'Enter the message you want to rewrite or decode.' },
+          { '@type': 'HowToStep', text: 'Wait for the AI translation to generate.' },
+          { '@type': 'HowToStep', text: 'Review the tone and copy the translated text if it fits your use case.' },
+        ],
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faqData.map((faq) => ({
+          '@type': 'Question',
+          name: faq.question,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: faq.answer,
+          },
+        })),
+      },
+    ],
   };
 
   return (
-    <>
-      <Seo {...seoData} />
       <ToolPageLayout
         toolData={toolData}
         categories={toolCategories}
@@ -307,11 +347,24 @@ const GenZTranslator = () => {
           </div>
         </ContentSection>
 
+        <ContentSection id="tone-context" title="Tone and Context">
+          <p>Gen Z slang is not just a list of viral words. Meaning changes with tone, platform culture, group identity, and irony, so the best translation is the one that preserves intent instead of copying every trend word literally.</p>
+          <ul>
+            <li><strong>Casual conversations:</strong> Slang fits naturally in texts, chats, and social posts.</li>
+            <li><strong>Brand copy:</strong> Overusing trendy phrases can sound forced or dated very quickly.</li>
+            <li><strong>Professional messages:</strong> Translating slang back to standard English is often the more valuable use case.</li>
+          </ul>
+        </ContentSection>
+
+        <ContentSection id="translation-limits" title="Translation Limits">
+          <p>This tool uses AI to improve context, but slang evolves fast and can vary by country, community, and platform. Some phrases are intentionally ironic or ambiguous, so the output should be reviewed before it is used in public posts, campaigns, or professional conversations.</p>
+          <p>Use the result as a smart draft for tone conversion, meaning clarification, or audience understanding rather than assuming every phrase has one fixed translation.</p>
+        </ContentSection>
+
 
         <FAQSection faqs={faqData} />
 
       </ToolPageLayout>
-    </>
   );
 };
 

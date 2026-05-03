@@ -3,6 +3,7 @@ import ToolHero from './ToolHero';
 import ToolSidebar from './ToolSidebar';
 import TableOfContents from './TableOfContents';
 import FeedbackForm from './FeedbackForm';
+import Seo from '../Seo';
 import '../../assets/css/tool-page.css';
 
 const ToolPageLayout = ({ 
@@ -14,6 +15,14 @@ const ToolPageLayout = ({
 }) => {
   return (
     <div className="tool-page">
+      <Seo
+        title={toolData?.seoTitle}
+        description={toolData?.seoDescription || toolData?.description}
+        keywords={toolData?.seoKeywords}
+        canonicalUrl={toolData?.canonicalUrl}
+        structuredData={toolData?.schemaData}
+        type="article"
+      />
       <ToolHero toolData={toolData} />
       
       <main className="tool-main">

@@ -7,8 +7,6 @@ import TableOfContents from '../tool/TableOfContents'
 import FeedbackForm from '../tool/FeedbackForm'
 import DownPaymentCalculatorJS from '../../assets/js/finance/down-payment-calculator.js'
 import '../../assets/css/finance/down-payment-calculator.css'
-import Seo from '../Seo'
-import ToolDynamicSections from '../tool/ToolDynamicSections'
 
 const DownPaymentCalculator = () => {
   const [formData, setFormData] = useState({
@@ -193,15 +191,34 @@ const DownPaymentCalculator = () => {
   }, [result]); // Re-render when results change
 
   return (
-    <>
-      <Seo
-        title={seoTitle}
-        description={seoDescription}
-        keywords={seoKeywords}
-        canonicalUrl={canonicalUrl}
-      />
       <ToolPageLayout 
-        toolData={toolData} 
+        toolData={{
+          ...toolData,
+          seoTitle,
+          seoDescription,
+          seoKeywords,
+          canonicalUrl,
+          schemaData: [
+            {
+              '@context': 'https://schema.org',
+              '@type': 'FinancialProduct',
+              name: toolData.name,
+              url: canonicalUrl,
+              description: seoDescription,
+              category: toolData.name
+            },
+            {
+              '@context': 'https://schema.org',
+              '@type': 'SoftwareApplication',
+              name: toolData.name,
+              applicationCategory: 'FinanceApplication',
+              operatingSystem: 'Any',
+              browserRequirements: 'Requires JavaScript and a modern browser',
+              url: canonicalUrl,
+              description: seoDescription
+            }
+          ]
+        }} 
         tableOfContents={tableOfContents}
         categories={categories}
         relatedTools={relatedTools}
@@ -652,7 +669,6 @@ const DownPaymentCalculator = () => {
           title="Frequently Asked Questions"
         />
       </ToolPageLayout>
-    </>
   )
 }
 

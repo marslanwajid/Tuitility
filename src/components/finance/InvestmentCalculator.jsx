@@ -7,8 +7,6 @@ import TableOfContents from '../tool/TableOfContents'
 import FeedbackForm from '../tool/FeedbackForm'
 import InvestmentCalculatorJS from '../../assets/js/finance/investment-calculator.js'
 import '../../assets/css/finance/investment-calculator.css'
-import Seo from '../Seo'
-import ToolDynamicSections from '../tool/ToolDynamicSections'
 
 const InvestmentCalculator = () => {
   const [formData, setFormData] = useState({
@@ -197,15 +195,34 @@ const InvestmentCalculator = () => {
   }, [result]); // Re-render when results change
 
   return (
-    <>
-      <Seo
-        title={seoTitle}
-        description={seoDescription}
-        keywords={seoKeywords}
-        canonicalUrl={canonicalUrl}
-      />
       <ToolPageLayout 
-        toolData={toolData} 
+        toolData={{
+          ...toolData,
+          seoTitle,
+          seoDescription,
+          seoKeywords,
+          canonicalUrl,
+          schemaData: [
+            {
+              '@context': 'https://schema.org',
+              '@type': 'FinancialProduct',
+              name: toolData.name,
+              url: canonicalUrl,
+              description: seoDescription,
+              category: toolData.name
+            },
+            {
+              '@context': 'https://schema.org',
+              '@type': 'SoftwareApplication',
+              name: toolData.name,
+              applicationCategory: 'FinanceApplication',
+              operatingSystem: 'Any',
+              browserRequirements: 'Requires JavaScript and a modern browser',
+              url: canonicalUrl,
+              description: seoDescription
+            }
+          ]
+        }} 
         tableOfContents={tableOfContents}
         categories={categories}
         relatedTools={relatedTools}
@@ -656,7 +673,6 @@ const InvestmentCalculator = () => {
           title="Frequently Asked Questions"
         />
       </ToolPageLayout>
-    </>
   )
 }
 

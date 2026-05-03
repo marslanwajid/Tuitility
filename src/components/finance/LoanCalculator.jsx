@@ -7,8 +7,6 @@ import TableOfContents from '../tool/TableOfContents'
 import FeedbackForm from '../tool/FeedbackForm'
 import { LoanCalculator as LoanCalculatorJS } from '../../assets/js/finance/loan-calculator.js'
 import '../../assets/css/finance/loan-calculator.css'
-import Seo from '../Seo'
-import ToolDynamicSections from '../tool/ToolDynamicSections'
 
 const LoanCalculator = () => {
   const [principal, setPrincipal] = useState('250000')
@@ -26,14 +24,46 @@ const LoanCalculator = () => {
     description: 'Calculate loan payments, interest, and amortization schedules. Perfect for mortgages, personal loans, auto loans, and financial planning.',
     icon: 'fas fa-home',
     category: 'Finance',
-    breadcrumb: ['Finance', 'Calculators', 'Loan Calculator']
+    breadcrumb: ['Finance', 'Calculators', 'Loan Calculator'],
+    seoTitle: 'Loan Calculator for Monthly Payments, Interest, and Total Loan Cost | Tuitility',
+    seoDescription: 'Estimate monthly loan payments, total interest, down payment impact, monthly fees, loan-to-value ratio, and total borrowing cost with this loan calculator.',
+    seoKeywords: [
+      'loan calculator',
+      'monthly loan payment calculator',
+      'personal loan calculator',
+      'auto loan calculator',
+      'loan interest calculator',
+      'borrowed amount calculator',
+      'loan cost estimator',
+    ],
+    canonicalUrl: 'https://tuitility.vercel.app/finance/calculators/loan-calculator',
+    schemaData: [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'FinancialProduct',
+        name: 'Loan Calculator',
+        description: 'Loan calculator for monthly payments, interest, fees, and total repayment cost.',
+        category: 'Loan Calculator',
+        url: 'https://tuitility.vercel.app/finance/calculators/loan-calculator',
+        isAccessibleForFree: true,
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'SoftwareApplication',
+        name: 'Loan Calculator',
+        applicationCategory: 'FinanceApplication',
+        operatingSystem: 'Web',
+        offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+        featureList: [
+          'Monthly loan payment calculation',
+          'Down payment analysis',
+          'Loan-to-value ratio estimate',
+          'Monthly fee integration',
+        ],
+        url: 'https://tuitility.vercel.app/finance/calculators/loan-calculator',
+      },
+    ],
   };
-
-  // SEO data
-  const seoTitle = `${toolData.name} - ${toolData.category} | Tuitility`;
-  const seoDescription = toolData.description;
-  const seoKeywords = `${toolData.name.toLowerCase()}, ${toolData.category.toLowerCase()} calculator, mortgage calculator, auto loan, personal loan`;
-  const canonicalUrl = `https://tuitility.vercel.app/finance/calculators/loan-calculator`;
 
   // Categories for sidebar
   const categories = [
@@ -175,13 +205,6 @@ const LoanCalculator = () => {
   }, [result]); // Re-render when results change
 
   return (
-    <>
-      <Seo
-        title={seoTitle}
-        description={seoDescription}
-        keywords={seoKeywords}
-        canonicalUrl={canonicalUrl}
-      />
       <ToolPageLayout 
         toolData={toolData} 
         tableOfContents={tableOfContents}
@@ -573,6 +596,47 @@ const LoanCalculator = () => {
           </div>
         </ContentSection>
 
+        <ContentSection id="loan-comparison" title="How to Compare Loan Offers Effectively">
+          <p>
+            A lower monthly payment does not always mean a better loan. The repayment term, interest rate,
+            upfront down payment, and recurring fees all affect the true borrowing cost. This loan calculator
+            helps you compare those pieces together instead of focusing on one number in isolation.
+          </p>
+          <p>
+            That makes the tool useful for mortgages, personal loans, auto financing, and any borrowing
+            decision where you need to balance affordability against total long-term cost.
+          </p>
+        </ContentSection>
+
+        <ContentSection id="loan-term-costs" title="Monthly Payment vs Total Interest">
+          <p>
+            Borrowers often choose the loan with the lowest payment because it feels easier to manage. In many
+            cases, though, that lower payment comes from stretching the term, which increases the total interest
+            paid. This calculator makes that tradeoff visible so you can see the price of lower monthly pressure.
+          </p>
+          <ul>
+            <li><strong>Shorter term:</strong> higher monthly payment, lower total interest.</li>
+            <li><strong>Longer term:</strong> lower monthly payment, higher total interest.</li>
+            <li><strong>Higher down payment:</strong> reduces financed balance and total cost.</li>
+            <li><strong>Extra fees:</strong> can materially change the real affordability of a loan.</li>
+          </ul>
+        </ContentSection>
+
+        <ContentSection id="loan-mistakes" title="Common Loan Planning Mistakes">
+          <p>
+            One of the biggest mistakes is ignoring total cost and comparing only the advertised payment. Another
+            is overlooking fees or assuming a larger loan is manageable just because the monthly amount appears to
+            fit. A careful loan decision looks at payment, interest, term length, and how the loan fits your wider
+            budget.
+          </p>
+          <ul>
+            <li>Review total interest alongside the monthly payment.</li>
+            <li>Include fees instead of treating them as separate from the loan.</li>
+            <li>Check how a down payment changes the effective borrowing cost.</li>
+            <li>Use affordability rules together with your actual budget and debt load.</li>
+          </ul>
+        </ContentSection>
+
 
         <FAQSection 
           faqs={[
@@ -604,7 +668,6 @@ const LoanCalculator = () => {
           title="Frequently Asked Questions"
         />
       </ToolPageLayout>
-    </>
   )
 }
 

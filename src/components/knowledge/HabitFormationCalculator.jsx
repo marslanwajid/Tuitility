@@ -8,7 +8,6 @@ import TableOfContents from '../tool/TableOfContents';
 import MathFormula from '../tool/MathFormula';
 import FeedbackForm from '../tool/FeedbackForm';
 import '../../assets/css/knowledge/habit-formation-calculator.css';
-import ToolDynamicSections from '../tool/ToolDynamicSections'
 
 const HabitFormationCalculator = () => {
   const [formData, setFormData] = useState({
@@ -203,7 +202,34 @@ const HabitFormationCalculator = () => {
     description: "Calculate how long it takes to form a new habit based on scientific research. Get personalized estimates, success probability, and actionable tips for building lasting habits.",
     icon: "fas fa-calendar-check",
     category: "Knowledge",
-    breadcrumb: ["Knowledge", "Calculators", "Habit Formation Calculator"]
+    breadcrumb: ["Knowledge", "Calculators", "Habit Formation Calculator"],
+    seoTitle: 'Habit Formation Calculator - Estimate Time to Build a Habit | Tuitility',
+    seoDescription: 'Estimate how long a habit may take to form based on motivation, complexity, daily time, and previous attempts, with practical habit-building tips.',
+    seoKeywords: [
+      'habit formation calculator',
+      'how long to build a habit',
+      'habit tracker estimate',
+      'habit building calculator',
+      'behavior change calculator',
+      'habit success probability',
+    ],
+    canonicalUrl: 'https://tuitility.vercel.app/knowledge/calculators/habit-formation-calculator',
+    schemaData: {
+      '@context': 'https://schema.org',
+      '@type': 'WebApplication',
+      name: 'Habit Formation Calculator',
+      applicationCategory: 'EducationalApplication',
+      operatingSystem: 'Any',
+      browserRequirements: 'Requires JavaScript and a modern browser',
+      url: 'https://tuitility.vercel.app/knowledge/calculators/habit-formation-calculator',
+      description: 'Estimate habit formation time and success probability using behavior and consistency factors.',
+      featureList: [
+        'Habit time estimate',
+        'Success probability estimate',
+        'Target date calculation',
+        'Personalized habit tips',
+      ],
+    }
   };
 
   const categories = [
@@ -741,4 +767,3 @@ const HabitFormationCalculator = () => {
 };
 
 export default HabitFormationCalculator;
-

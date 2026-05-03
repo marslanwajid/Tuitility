@@ -8,7 +8,6 @@ import FeedbackForm from '../tool/FeedbackForm'
 import WorkPowerCalculatorJS from '../../assets/js/science/work-power-calculator.js'
 import '../../assets/css/science/work-power-calculator.css'
 import 'katex/dist/katex.min.css'
-import ToolDynamicSections from '../tool/ToolDynamicSections'
 
 const WorkPowerCalculator = () => {
   const [formData, setFormData] = useState({
@@ -62,15 +61,6 @@ const WorkPowerCalculator = () => {
     renderKaTeX();
   }, [result]);
 
-  // Tool data
-  const toolData = {
-    name: 'Work Power Calculator',
-    description: 'Calculate work and power using force, distance, angle, and time. Essential for physics students and engineers.',
-    icon: 'fas fa-cogs',
-    category: 'Science',
-    breadcrumb: ['Science', 'Calculators', 'Work Power Calculator']
-  };
-
   // Categories for sidebar
   const categories = [
     { name: 'Math', url: '/math', icon: 'fas fa-calculator' },
@@ -100,8 +90,64 @@ const WorkPowerCalculator = () => {
     { id: 'formulas', title: 'Mathematical Formulas', level: 1 },
     { id: 'examples', title: 'Real-World Examples', level: 1 },
     { id: 'applications', title: 'Applications', level: 1 },
+    { id: 'angle-effects', title: 'Angle Effects', level: 1 },
+    { id: 'interpretation', title: 'Interpreting Work and Power', level: 1 },
     { id: 'faq', title: 'Frequently Asked Questions', level: 1 }
   ];
+
+  const faqData = [
+    {
+      question: 'What is the difference between work and power?',
+      answer: 'Work is the amount of energy transferred, while power is the rate at which that work is done.'
+    },
+    {
+      question: 'Why does angle matter in work calculations?',
+      answer: 'Only the component of force acting in the direction of displacement contributes to mechanical work.'
+    },
+    {
+      question: 'Can work be zero even if force is applied?',
+      answer: 'Yes. If there is no displacement, or if the force is perpendicular to the motion, the work can be zero.'
+    },
+    {
+      question: 'Where is this used?',
+      answer: 'It is used in mechanics, machine design, education, engines, lifting systems, and energy transfer analysis.'
+    }
+  ];
+
+  const toolData = {
+    name: 'Work Power Calculator',
+    description: 'Calculate work and power using force, distance, angle, and time. Essential for physics students and engineers.',
+    icon: 'fas fa-cogs',
+    category: 'Science',
+    breadcrumb: ['Science', 'Calculators', 'Work Power Calculator'],
+    seoTitle: 'Work and Power Calculator - Physics Work Formula Tool | Tuitility',
+    seoDescription: 'Calculate work and power from force, distance, angle, and time. Useful for physics problems, mechanics, and engineering analysis.',
+    seoKeywords: [
+      'work power calculator',
+      'physics work calculator',
+      'power formula calculator',
+      'force distance work',
+      'mechanical work calculator',
+      'joules and watts calculator',
+    ],
+    canonicalUrl: 'https://tuitility.vercel.app/science/calculators/work-power-calculator',
+    schemaData: {
+      '@context': 'https://schema.org',
+      '@type': 'WebApplication',
+      name: 'Work Power Calculator',
+      applicationCategory: 'EducationalApplication',
+      operatingSystem: 'Any',
+      browserRequirements: 'Requires JavaScript and a modern browser',
+      url: 'https://tuitility.vercel.app/science/calculators/work-power-calculator',
+      description: 'Calculate mechanical work and power using force, distance, angle, and time with engineering-friendly unit options.',
+      featureList: [
+        'Work calculation',
+        'Power calculation',
+        'Angle-aware force component handling',
+        'Multiple unit selections',
+      ],
+    }
+  };
 
   // Handle form input changes
   const handleInputChange = (e) => {

@@ -7,7 +7,6 @@ import TableOfContents from '../tool/TableOfContents'
 import FeedbackForm from '../tool/FeedbackForm'
 import '../../assets/css/health/bmi-calculator.css'
 import BMICalculatorLogic from '../../assets/js/health/bmi-calculator.js'
-import ToolDynamicSections from '../tool/ToolDynamicSections'
 
 const BMICalculator = () => {
   const [formData, setFormData] = useState({
@@ -36,13 +35,92 @@ const BMICalculator = () => {
   const [error, setError] = useState('');
   const [activeTab, setActiveTab] = useState('basic');
 
+  const faqs = [
+    {
+      question: 'Is BMI accurate for everyone?',
+      answer: "BMI is a useful screening tool but may not be accurate for athletes with high muscle mass, older adults, or people with certain medical conditions. It's best used as a starting point for health assessment."
+    },
+    {
+      question: "What's the difference between basic and advanced BMI calculation?",
+      answer: 'Basic calculation provides BMI, weight category, and healthy weight range. Advanced calculation adds body composition analysis, health risk assessment, metabolic calculations, and personalized recommendations.'
+    },
+    {
+      question: 'How often should I check my BMI?',
+      answer: "For most people, checking BMI monthly is sufficient. If you're actively trying to change your weight, weekly measurements can help track progress, but remember that weight can fluctuate daily."
+    },
+    {
+      question: 'What does waist-to-hip ratio tell me?',
+      answer: 'WHR indicates body fat distribution. Higher ratios (more fat around the waist) are associated with increased health risks, even in people with normal BMI.'
+    },
+    {
+      question: 'How accurate are the calorie calculations?',
+      answer: 'The BMR and calorie calculations use the Mifflin-St Jeor equation, which is considered one of the most accurate formulas. However, individual metabolism can vary, so use these as starting points.'
+    },
+    {
+      question: 'Should I be concerned if my BMI is in the overweight range?',
+      answer: 'BMI is just one indicator of health. Consider other factors like body composition, fitness level, and overall health. Consult with a healthcare provider for personalized advice.'
+    }
+  ];
+
   // Tool data
   const toolData = {
     name: 'BMI Calculator',
     description: 'Calculate your Body Mass Index (BMI) and get comprehensive health insights including weight category, healthy weight range, and advanced body composition analysis.',
     icon: 'fas fa-weight',
     category: 'Health',
-    breadcrumb: ['Health', 'Calculators', 'BMI Calculator']
+    breadcrumb: ['Health', 'Calculators', 'BMI Calculator'],
+    seoTitle: 'BMI Calculator - Body Mass Index and Weight Range Tool | Tuitility',
+    seoDescription: 'Calculate BMI, weight category, and healthy weight range using height and weight inputs with extra body composition context.',
+    seoKeywords: ['bmi calculator','body mass index calculator','healthy weight calculator','weight category','bmi chart','body composition tool'],
+    canonicalUrl: 'https://tuitility.vercel.app/health/calculators/bmi-calculator',
+    schemaData: [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'MedicalWebPage',
+        name: 'BMI Calculator',
+        url: 'https://tuitility.vercel.app/health/calculators/bmi-calculator',
+        description: 'BMI calculator with body mass index, healthy weight range, body composition context, and calorie planning support.'
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'WebApplication',
+        name: 'BMI Calculator',
+        applicationCategory: 'HealthApplication',
+        operatingSystem: 'Any',
+        browserRequirements: 'Requires JavaScript and a modern browser',
+        url: 'https://tuitility.vercel.app/health/calculators/bmi-calculator',
+        featureList: [
+          'BMI calculation',
+          'Healthy weight range estimation',
+          'Metric and imperial unit support',
+          'Advanced body composition inputs',
+          'BMR and daily calorie estimation'
+        ]
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'HowTo',
+        name: 'How to use the BMI calculator',
+        step: [
+          { '@type': 'HowToStep', text: 'Choose your height and weight units.' },
+          { '@type': 'HowToStep', text: 'Enter your height and current weight.' },
+          { '@type': 'HowToStep', text: 'Open the advanced mode if you want body composition analysis.' },
+          { '@type': 'HowToStep', text: 'Click calculate to view your BMI, category, and healthy weight range.' }
+        ]
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faqs.map((faq) => ({
+          '@type': 'Question',
+          name: faq.question,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: faq.answer
+          }
+        }))
+      }
+    ]
   };
 
   // Categories for sidebar
@@ -1027,32 +1105,7 @@ const BMICalculator = () => {
 
 
       <FAQSection 
-        faqs={[
-          {
-            question: "Is BMI accurate for everyone?",
-            answer: "BMI is a useful screening tool but may not be accurate for athletes with high muscle mass, older adults, or people with certain medical conditions. It's best used as a starting point for health assessment."
-          },
-          {
-            question: "What's the difference between basic and advanced BMI calculation?",
-            answer: "Basic calculation provides BMI, weight category, and healthy weight range. Advanced calculation adds body composition analysis, health risk assessment, metabolic calculations, and personalized recommendations."
-          },
-          {
-            question: "How often should I check my BMI?",
-            answer: "For most people, checking BMI monthly is sufficient. If you're actively trying to change your weight, weekly measurements can help track progress, but remember that weight can fluctuate daily."
-          },
-          {
-            question: "What does waist-to-hip ratio tell me?",
-            answer: "WHR indicates body fat distribution. Higher ratios (more fat around the waist) are associated with increased health risks, even in people with normal BMI."
-          },
-          {
-            question: "How accurate are the calorie calculations?",
-            answer: "The BMR and calorie calculations use the Mifflin-St Jeor equation, which is considered one of the most accurate formulas. However, individual metabolism can vary, so use these as starting points."
-          },
-          {
-            question: "Should I be concerned if my BMI is in the overweight range?",
-            answer: "BMI is just one indicator of health. Consider other factors like body composition, fitness level, and overall health. Consult with a healthcare provider for personalized advice."
-          }
-        ]}
+        faqs={faqs}
         title="Frequently Asked Questions"
       />
     </ToolPageLayout>

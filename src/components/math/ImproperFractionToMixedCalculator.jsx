@@ -51,6 +51,7 @@ const ImproperFractionToMixedCalculator = () => {
     { id: 'significance', title: 'Significance' },
     { id: 'functionality', title: 'Functionality' },
     { id: 'applications', title: 'Applications' },
+    { id: 'next-steps', title: 'Related Calculators and Next Steps' },
     { id: 'faqs', title: 'FAQs' }
   ];
 
@@ -573,6 +574,15 @@ const ImproperFractionToMixedCalculator = () => {
           <li>Check that the remainder is smaller than the denominator.</li>
           <li>If the remainder is 0, write the result as a whole number.</li>
         </ul>
+      </ContentSection>
+
+      <ContentSection id="next-steps" title="Related Calculators and Next Steps">
+        <p>
+          Mixed-number output is often easier to read, but many later operations still need fraction form. After conversion, continue with the <a href="/math/calculators/fraction-calculator">Fraction Calculator</a> for arithmetic or the <a href="/math/calculators/comparing-fractions-calculator">Comparing Fractions Calculator</a> if you need to rank values.
+        </p>
+        <p>
+          If you are switching between decimal and fraction formats in the same lesson or worksheet, the <a href="/math/calculators/decimal-to-fraction-calculator">Decimal to Fraction Calculator</a> and <a href="/math/calculators/fraction-to-percent-calculator">Fraction to Percent Calculator</a> are the most useful next pages.
+        </p>
       </ContentSection>
 
 

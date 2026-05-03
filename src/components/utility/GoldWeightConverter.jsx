@@ -5,10 +5,8 @@ import ContentSection from '../tool/ContentSection';
 import FAQSection from '../tool/FAQSection';
 import FeedbackForm from '../tool/FeedbackForm';
 import TableOfContents from '../tool/TableOfContents';
-import Seo from '../Seo';
 import { toolCategories } from '../../data/toolCategories';
 import '../../assets/css/utility/gold-weight-converter.css';
-import ToolDynamicSections from '../tool/ToolDynamicSections'
 
 const GoldWeightConverter = () => {
     // Conversion Factors (as provided in user logic)
@@ -105,18 +103,6 @@ const GoldWeightConverter = () => {
         setState(prev => ({ ...prev, [field]: e.target.value }));
     };
 
-    // Tool Data
-    const toolData = {
-        name: "Gold Weight Converter",
-        title: "Precious Metal Weight Converter",
-        description: "Accurately convert weights for Gold, Silver, Platinum, and other precious metals between Grams, Troy Ounces, Carats, Pennyweights, and Tolas.",
-        icon: "fas fa-coins",
-        category: "Converters",
-        breadcrumb: ["Utility", "Tools", "Converters"],
-        tags: ["gold", "silver", "weight", "converter", "troy ounce", "gram", "karat"]
-    };
-
-
     const relatedTools = [
         { name: "Currency Calculator", url: "/finance/calculators/currency-calculator", icon: "fas fa-exchange-alt" },
         { name: "RGB to Pantone", url: "/utility-tools/converter-tools/rgb-to-pantone-converter", icon: "fas fa-palette" },
@@ -134,6 +120,8 @@ const GoldWeightConverter = () => {
         { id: 'applications', title: 'Market Applications' },
         { id: 'accuracy', title: 'Precision & Accuracy' },
         { id: 'tips', title: 'Trading Tips' },
+        { id: 'purity-vs-weight', title: 'Purity vs Weight' },
+        { id: 'buying-checklist', title: 'Buying Checklist' },
         { id: 'faqs', title: 'FAQ' }
     ];
 
@@ -144,16 +132,68 @@ const GoldWeightConverter = () => {
         { question: "Why Pennyweight (dwt)?", answer: "Pennyweight is an old unit equal to 24 grains or 1/20 of a troy ounce, still commonly used by jewelers for valuing small amounts of metal." }
     ];
 
-    const seoData = {
-        title: 'Gold Weight Converter - Troy Ounce, Gram, Tola | Tuitility',
-        description: 'Convert gold and precious metal weights between grams, troy ounces, carats, pennyweights, and tolas. Free online converter for investors and jewelers.',
-        keywords: 'gold weight converter, troy ounce to gram, tola converter, precious metal calculator, gold calculator, jewelry weight',
-        canonicalUrl: 'https://tuitility.vercel.app/utility-tools/converter-tools/gold-precious-metal-weight-converter'
+    const toolData = {
+        name: "Gold Weight Converter",
+        title: "Precious Metal Weight Converter",
+        description: "Accurately convert weights for Gold, Silver, Platinum, and other precious metals between Grams, Troy Ounces, Carats, Pennyweights, and Tolas.",
+        icon: "fas fa-coins",
+        category: "Converters",
+        breadcrumb: ["Utility", "Tools", "Converters"],
+        tags: ["gold", "silver", "weight", "converter", "troy ounce", "gram", "karat"],
+        seoTitle: 'Gold Weight Converter - Gram, Troy Ounce, Tola and Carat | Tuitility',
+        seoDescription: 'Convert gold and precious metal weights between grams, troy ounces, tolas, pennyweights, carats, and more. Useful for jewelers, bullion buyers, and traders.',
+        seoKeywords: [
+            'gold weight converter',
+            'troy ounce to gram',
+            'tola to gram',
+            'gold gram converter',
+            'precious metal weight converter',
+            'jewelry weight calculator',
+        ],
+        canonicalUrl: 'https://tuitility.vercel.app/utility-tools/converter-tools/gold-precious-metal-weight-converter',
+        schemaData: [
+            {
+                '@context': 'https://schema.org',
+                '@type': 'WebApplication',
+                name: 'Gold Weight Converter',
+                applicationCategory: 'FinanceApplication',
+                operatingSystem: 'Any',
+                browserRequirements: 'Requires JavaScript and a modern browser',
+                url: 'https://tuitility.vercel.app/utility-tools/converter-tools/gold-precious-metal-weight-converter',
+                description: 'Convert precious metal weights between metric and trade units such as grams, troy ounces, carats, pennyweights, and tolas.',
+                featureList: [
+                    'Gold and precious metal unit conversion',
+                    'Quick all-unit comparison table',
+                    'Support for grams, troy ounces, tolas, carats, grains, and more',
+                ],
+            },
+            {
+                '@context': 'https://schema.org',
+                '@type': 'HowTo',
+                name: 'How to convert gold weight units',
+                step: [
+                    { '@type': 'HowToStep', text: 'Enter the amount of metal you want to convert.' },
+                    { '@type': 'HowToStep', text: 'Choose the starting unit such as gram, troy ounce, or tola.' },
+                    { '@type': 'HowToStep', text: 'Select the target unit for the result.' },
+                    { '@type': 'HowToStep', text: 'Review the direct conversion result and the full reference table.' },
+                ],
+            },
+            {
+                '@context': 'https://schema.org',
+                '@type': 'FAQPage',
+                mainEntity: faqs.map((faq) => ({
+                    '@type': 'Question',
+                    name: faq.question,
+                    acceptedAnswer: {
+                        '@type': 'Answer',
+                        text: faq.answer,
+                    },
+                })),
+            },
+        ],
     };
 
     return (
-        <>
-            <Seo {...seoData} />
             <ToolPageLayout
                 toolData={toolData}
                 categories={toolCategories}
@@ -319,10 +359,32 @@ const GoldWeightConverter = () => {
                     </div>
                 </ContentSection>
 
+                <ContentSection id="purity-vs-weight" title="Purity vs Weight">
+                    <div className="content-block">
+                        <p>Weight conversion tells you how much mass is present, but it does not tell you how pure the metal is. When valuing jewelry or scrap metal, purity can change the final worth dramatically even if the physical weight is identical.</p>
+                        <ul>
+                            <li><strong>Weight:</strong> The measurable mass in grams, troy ounces, tolas, or other units.</li>
+                            <li><strong>Purity:</strong> The portion of the item that is actually precious metal, often expressed as karat or fineness.</li>
+                            <li><strong>Valuation:</strong> Real buying and selling decisions should combine converted weight with purity and market rate.</li>
+                        </ul>
+                    </div>
+                </ContentSection>
+
+                <ContentSection id="buying-checklist" title="Buying Checklist">
+                    <div className="content-block">
+                        <p>When comparing bullion bars, jewelry pieces, or local-market gold rates, use a single unit before judging whether a deal is good. That prevents confusion when sellers quote in grams, tolas, or troy ounces interchangeably.</p>
+                        <ul>
+                            <li><strong>Confirm the quoted unit:</strong> Make sure the seller is using the same weight basis you are comparing.</li>
+                            <li><strong>Check purity marks:</strong> Weight alone does not tell you the full value of the metal.</li>
+                            <li><strong>Compare like for like:</strong> Convert all offers into one unit before checking price differences.</li>
+                            <li><strong>Separate metal value from labor:</strong> Jewelry cost often includes making charges beyond the raw metal amount.</li>
+                        </ul>
+                    </div>
+                </ContentSection>
+
 
                 <FAQSection id="faqs" faqs={faqs} />
             </ToolPageLayout>
-        </>
     );
 };
 

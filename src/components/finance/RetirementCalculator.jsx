@@ -7,8 +7,6 @@ import TableOfContents from '../tool/TableOfContents'
 import FeedbackForm from '../tool/FeedbackForm'
 import RetirementCalculatorJS from '../../assets/js/finance/retirement-calculator.js'
 import '../../assets/css/finance/retirement-calculator.css'
-import Seo from '../Seo'
-import ToolDynamicSections from '../tool/ToolDynamicSections'
 
 const RetirementCalculator = () => {
   const [formData, setFormData] = useState({
@@ -24,6 +22,33 @@ const RetirementCalculator = () => {
   const [result, setResult] = useState(null);
   const [error, setError] = useState('');
   const [calculator, setCalculator] = useState(null);
+
+  const faqs = [
+    {
+      question: 'How much should I save for retirement?',
+      answer: 'Many people target saving 10 to 15 percent of income, but the right number depends on when you want to retire, your spending goals, existing savings, and expected returns.'
+    },
+    {
+      question: "What's a safe withdrawal rate in retirement?",
+      answer: 'A 4 percent withdrawal rule is a common planning benchmark, though real retirement strategy may need adjustments for taxes, market risk, and longevity.'
+    },
+    {
+      question: 'When should I start saving for retirement?',
+      answer: 'As early as possible. The longer your money can compound, the less you may need to contribute each month to reach the same target.'
+    },
+    {
+      question: 'How does inflation affect retirement planning?',
+      answer: 'Inflation reduces purchasing power over time, so a retirement plan should use inflation-aware estimates instead of today’s spending alone.'
+    },
+    {
+      question: 'Should I rely on Social Security for retirement?',
+      answer: 'Social Security can be a helpful part of retirement income, but most plans work better when it supplements personal savings and investments instead of replacing them.'
+    },
+    {
+      question: "What if I'm behind on my retirement savings?",
+      answer: 'You can test higher monthly contributions, later retirement ages, or lower target spending to see which changes close the gap most effectively.'
+    }
+  ];
 
   // Initialize calculator on component mount
   useEffect(() => {
@@ -41,14 +66,61 @@ const RetirementCalculator = () => {
     description: 'Calculate retirement savings goals, monthly contributions, and future income. Plan your retirement strategy with detailed projections and inflation-adjusted returns.',
     icon: 'fas fa-piggy-bank',
     category: 'Finance',
-    breadcrumb: ['Finance', 'Calculators', 'Retirement Calculator']
+    breadcrumb: ['Finance', 'Calculators', 'Retirement Calculator'],
+    seoTitle: 'Retirement Calculator - Savings Goal and Income Projection | Tuitility',
+    seoDescription: 'Estimate retirement savings needs, monthly contributions, inflation-adjusted growth, and projected retirement income.',
+    seoKeywords: ['retirement calculator','retirement savings calculator','retirement planning tool','future retirement income','retirement nest egg','inflation retirement calculator'],
+    canonicalUrl: 'https://tuitility.vercel.app/finance/calculators/retirement-calculator',
+    schemaData: [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'FinancialProduct',
+        name: 'Retirement Calculator',
+        url: 'https://tuitility.vercel.app/finance/calculators/retirement-calculator',
+        description: 'Retirement savings calculator for contribution planning, growth projection, inflation impact, and income-gap analysis.',
+        category: 'Retirement Planning Calculator'
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'SoftwareApplication',
+        name: 'Retirement Calculator',
+        applicationCategory: 'FinanceApplication',
+        operatingSystem: 'Any',
+        browserRequirements: 'Requires JavaScript and a modern browser',
+        url: 'https://tuitility.vercel.app/finance/calculators/retirement-calculator',
+        featureList: [
+          'Retirement savings goal estimation',
+          'Contribution planning',
+          'Inflation-adjusted projection',
+          'Retirement income gap analysis',
+          'Social Security integration'
+        ]
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'HowTo',
+        name: 'How to use the retirement calculator',
+        step: [
+          { '@type': 'HowToStep', text: 'Enter your current age and target retirement age.' },
+          { '@type': 'HowToStep', text: 'Add your current retirement savings and monthly contributions.' },
+          { '@type': 'HowToStep', text: 'Estimate expected annual return, inflation, and retirement income needs.' },
+          { '@type': 'HowToStep', text: 'Review the projected savings total, income gap, and required contribution.' }
+        ]
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faqs.map((faq) => ({
+          '@type': 'Question',
+          name: faq.question,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: faq.answer
+          }
+        }))
+      }
+    ]
   };
-
-  // SEO data
-  const seoTitle = `${toolData.name} - ${toolData.category} | Tuitility`;
-  const seoDescription = toolData.description;
-  const seoKeywords = `${toolData.name.toLowerCase()}, ${toolData.category.toLowerCase()} calculator, 401k, ira, retirement planning`;
-  const canonicalUrl = `https://tuitility.vercel.app/finance/calculators/retirement-calculator`;
 
   // Categories for sidebar
   const categories = [
@@ -212,13 +284,6 @@ const RetirementCalculator = () => {
   }, [result]); // Re-render when results change
 
   return (
-    <>
-      <Seo
-        title={seoTitle}
-        description={seoDescription}
-        keywords={seoKeywords}
-        canonicalUrl={canonicalUrl}
-      />
       <ToolPageLayout 
         toolData={toolData} 
         tableOfContents={tableOfContents}
@@ -720,36 +785,10 @@ const RetirementCalculator = () => {
 
 
         <FAQSection 
-          faqs={[
-            {
-              question: "How much should I save for retirement?",
-              answer: "A common rule of thumb is to save 10-15% of your income, but the exact amount depends on your goals, timeline, and current savings. Our calculator helps you determine the specific amount needed to reach your retirement income goals."
-            },
-            {
-              question: "What's a safe withdrawal rate in retirement?",
-              answer: "The 4% rule is commonly used, meaning you can withdraw 4% of your retirement savings annually. This assumes your investments will grow enough to maintain your principal while providing income for 30+ years."
-            },
-            {
-              question: "When should I start saving for retirement?",
-              answer: "The best time to start is as early as possible due to compound growth. Even small amounts saved in your 20s can grow significantly more than larger amounts saved later in life. However, it's never too late to start."
-            },
-            {
-              question: "How does inflation affect retirement planning?",
-              answer: "Inflation reduces the purchasing power of your money over time. A dollar today will buy less in the future, so you need to account for inflation when setting retirement income goals and investment return expectations."
-            },
-            {
-              question: "Should I rely on Social Security for retirement?",
-              answer: "Social Security should be considered as one component of retirement income, not your primary source. The program faces long-term funding challenges, so it's wise to have additional savings and investments for retirement."
-            },
-            {
-              question: "What if I'm behind on my retirement savings?",
-              answer: "If you're behind, consider increasing your contributions, working longer, reducing your retirement income expectations, or a combination of these strategies. The calculator can help you see the impact of different approaches."
-            }
-          ]}
+          faqs={faqs}
           title="Frequently Asked Questions"
         />
       </ToolPageLayout>
-    </>
   )
 }
 

@@ -8,7 +8,6 @@ import TableOfContents from '../tool/TableOfContents';
 import MathFormula from '../tool/MathFormula';
 import FeedbackForm from '../tool/FeedbackForm';
 import '../../assets/css/knowledge/mbti-calculator.css';
-import ToolDynamicSections from '../tool/ToolDynamicSections'
 
 const MBTICalculator = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -100,6 +99,41 @@ const MBTICalculator = () => {
     { text: "I prefer clear expectations and guidelines", dimension: "JP", direction: "J" },
     { text: "I value predictability and stability", dimension: "JP", direction: "J" }
   ];
+
+  const toolData = {
+    name: "MBTI Calculator",
+    description: "Take an MBTI-style personality quiz to explore personality preferences, type patterns, and trait summaries.",
+    icon: "fas fa-user-friends",
+    category: "Knowledge",
+    breadcrumb: ["Knowledge", "Calculators", "MBTI Calculator"],
+    seoTitle: 'MBTI Calculator - Personality Type Quiz and Result Guide | Tuitility',
+    seoDescription: 'Take an MBTI-style personality calculator to explore type preferences, personality patterns, and trait summaries across key dimensions.',
+    seoKeywords: [
+      'mbti calculator',
+      'personality type quiz',
+      'mbti test',
+      'personality calculator',
+      'introvert extrovert quiz',
+      'mbti result guide',
+    ],
+    canonicalUrl: 'https://tuitility.vercel.app/knowledge/calculators/mbti-calculator',
+    schemaData: {
+      '@context': 'https://schema.org',
+      '@type': 'WebApplication',
+      name: 'MBTI Calculator',
+      applicationCategory: 'EducationalApplication',
+      operatingSystem: 'Any',
+      browserRequirements: 'Requires JavaScript and a modern browser',
+      url: 'https://tuitility.vercel.app/knowledge/calculators/mbti-calculator',
+      description: 'Question-based MBTI-style personality calculator with type summaries and dimension scoring.',
+      featureList: [
+        'MBTI-style personality quiz',
+        'Dimension scoring',
+        'Type summary',
+        'Compatibility and trait guidance',
+      ],
+    }
+  };
 
   useEffect(() => {
     // Load the JavaScript logic
@@ -970,14 +1004,6 @@ const MBTICalculator = () => {
     } finally {
       setIsDownloading(false);
     }
-  };
-
-  const toolData = {
-    name: "MBTI Personality Evaluation Test",
-    description: "Discover your personality type with our comprehensive Myers-Briggs Type Indicator (MBTI) evaluation. Get detailed insights into your cognitive functions, compatibility, and personal growth opportunities.",
-    icon: "fas fa-user-friends",
-    category: "Knowledge",
-    breadcrumb: ["Knowledge", "Calculators", "MBTI Personality Test"]
   };
 
   const categories = [

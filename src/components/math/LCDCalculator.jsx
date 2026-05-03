@@ -53,6 +53,7 @@ const LCDCalculator = () => {
     { id: 'significance', title: 'Significance' },
     { id: 'functionality', title: 'Functionality' },
     { id: 'applications', title: 'Applications' },
+    { id: 'next-steps', title: 'Related Calculators and Next Steps' },
     { id: 'faqs', title: 'FAQs' }
   ];
 
@@ -632,6 +633,15 @@ const LCDCalculator = () => {
           <li>Do not simplify one fraction in a way that changes the intended comparison step.</li>
           <li>Check that every converted fraction ends with the same denominator.</li>
         </ul>
+      </ContentSection>
+
+      <ContentSection id="next-steps" title="Related Calculators and Next Steps">
+        <p>
+          Once you have the least common denominator, you are usually ready to perform fraction arithmetic or comparison. Continue to the <a href="/math/calculators/fraction-calculator">Fraction Calculator</a> for operations, the <a href="/math/calculators/comparing-fractions-calculator">Comparing Fractions Calculator</a> for ordering, or the <a href="/math/calculators/improper-fraction-to-mixed-calculator">Improper Fraction to Mixed Calculator</a> if you want a cleaner final format.
+        </p>
+        <p>
+          If you are still looking for the underlying least common multiple first, return to the <a href="/math/calculators/lcm-calculator">LCM Calculator</a>. For mixed fraction and percentage workflows, the <a href="/math/calculators/percentage-calculator">Percentage Calculator</a> is the next logical step.
+        </p>
       </ContentSection>
 
 

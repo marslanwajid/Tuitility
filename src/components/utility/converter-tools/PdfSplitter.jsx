@@ -9,9 +9,7 @@ import ContentSection from '../../tool/ContentSection';
 import FAQSection from '../../tool/FAQSection';
 import TableOfContents from '../../tool/TableOfContents';
 import FeedbackForm from '../../tool/FeedbackForm';
-import Seo from '../../Seo';
 import '../../../assets/css/utility/converter-tools/pdf-splitter.css';
-import ToolDynamicSections from '../../tool/ToolDynamicSections'
 
 // Set worker source
 pdfjsLib.GlobalWorkerOptions.workerSrc = pdfWorker;
@@ -390,10 +388,26 @@ const PdfSplitter = () => {
     };
 
     return (
-        <>
-            <Seo {...seoData} />
             <ToolPageLayout
-                toolData={toolData}
+                toolData={{
+                    ...toolData,
+                    seoTitle: seoData.title,
+                    seoDescription: seoData.description,
+                    seoKeywords: seoData.keywords,
+                    canonicalUrl: seoData.canonicalUrl,
+                    schemaData: [
+                        {
+                            '@context': 'https://schema.org',
+                            '@type': 'WebApplication',
+                            name: toolData.name,
+                            applicationCategory: 'UtilityApplication',
+                            operatingSystem: 'Any',
+                            browserRequirements: 'Requires JavaScript and a modern browser',
+                            url: seoData.canonicalUrl,
+                            description: seoData.description
+                        }
+                    ]
+                }}
                 categories={categories}
                 relatedTools={relatedTools}
                 tableOfContents={tableOfContents}
@@ -721,7 +735,6 @@ const PdfSplitter = () => {
                     ]} />
                 </div>
             </ToolPageLayout>
-        </>
     );
 };
 

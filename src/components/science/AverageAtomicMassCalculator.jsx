@@ -8,7 +8,6 @@ import FeedbackForm from '../tool/FeedbackForm'
 import AverageAtomicMassCalculatorJS from '../../assets/js/science/average-atomic-mass-calculator.js'
 import '../../assets/css/science/average-atomic-mass-calculator.css'
 import 'katex/dist/katex.min.css'
-import ToolDynamicSections from '../tool/ToolDynamicSections'
 
 const AverageAtomicMassCalculator = () => {
   const [formData, setFormData] = useState({
@@ -62,15 +61,6 @@ const AverageAtomicMassCalculator = () => {
     }, 100);
   }, [result]);
 
-  // Tool data
-  const toolData = {
-    name: 'Average Atomic Mass Calculator',
-    description: 'Calculate the average atomic mass of an element from its isotopes. Essential for chemistry calculations, isotopic analysis, and understanding atomic structure.',
-    icon: 'fas fa-atom',
-    category: 'Science',
-    breadcrumb: ['Science', 'Calculators', 'Average Atomic Mass Calculator']
-  };
-
   // Categories for sidebar
   const categories = [
     { name: 'Math', url: '/math', icon: 'fas fa-calculator' },
@@ -100,8 +90,89 @@ const AverageAtomicMassCalculator = () => {
     { id: 'applications', title: 'Applications' },
     { id: 'significance', title: 'Significance' },
     { id: 'functionality', title: 'Functionality' },
+    { id: 'chemistry-context', title: 'Chemistry Context' },
+    { id: 'common-mistakes', title: 'Common Mistakes' },
     { id: 'faqs', title: 'FAQs' }
   ];
+
+  const faqData = [
+    {
+      question: 'What is average atomic mass?',
+      answer: 'Average atomic mass is the weighted average of an element’s naturally occurring isotopes, based on their masses and relative abundances.'
+    },
+    {
+      question: 'Why is average atomic mass not a whole number?',
+      answer: 'Because most elements exist as a mixture of isotopes, the weighted average usually falls between whole-number isotope masses.'
+    },
+    {
+      question: 'Do isotope abundances need to equal 100 percent?',
+      answer: 'Yes. When abundances are entered as percentages, they should total about 100%. When entered as decimals, they should total about 1.0.'
+    },
+    {
+      question: 'Where is this calculation used?',
+      answer: 'It is used in chemistry classes, stoichiometry work, atomic structure analysis, isotope studies, and periodic table interpretation.'
+    }
+  ];
+
+  const toolData = {
+    name: 'Average Atomic Mass Calculator',
+    description: 'Calculate the average atomic mass of an element from its isotopes. Essential for chemistry calculations, isotopic analysis, and understanding atomic structure.',
+    icon: 'fas fa-atom',
+    category: 'Science',
+    breadcrumb: ['Science', 'Calculators', 'Average Atomic Mass Calculator'],
+    seoTitle: 'Average Atomic Mass Calculator - Isotope Weighted Average | Tuitility',
+    seoDescription: 'Calculate average atomic mass from isotope mass and abundance values. Useful for chemistry homework, isotope analysis, and weighted average atomic calculations.',
+    seoKeywords: [
+      'average atomic mass calculator',
+      'atomic mass calculator',
+      'isotope abundance calculator',
+      'weighted average chemistry',
+      'average atomic mass formula',
+      'chemistry isotope calculator',
+    ],
+    canonicalUrl: 'https://tuitility.vercel.app/science/calculators/average-atomic-mass-calculator',
+    schemaData: [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'WebApplication',
+        name: 'Average Atomic Mass Calculator',
+        applicationCategory: 'EducationalApplication',
+        operatingSystem: 'Any',
+        browserRequirements: 'Requires JavaScript and a modern browser',
+        url: 'https://tuitility.vercel.app/science/calculators/average-atomic-mass-calculator',
+        description: 'Chemistry calculator for finding average atomic mass from isotope masses and abundances.',
+        featureList: [
+          'Multiple isotope entries',
+          'Percentage or decimal abundance input',
+          'Weighted average atomic mass calculation',
+          'Step-by-step isotope breakdown',
+        ],
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'HowTo',
+        name: 'How to calculate average atomic mass',
+        step: [
+          { '@type': 'HowToStep', text: 'Enter each isotope mass.' },
+          { '@type': 'HowToStep', text: 'Enter the abundance of each isotope as a percent or decimal.' },
+          { '@type': 'HowToStep', text: 'Check that the abundances total correctly.' },
+          { '@type': 'HowToStep', text: 'Run the calculator to see the weighted average atomic mass.' },
+        ],
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faqData.map((faq) => ({
+          '@type': 'Question',
+          name: faq.question,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: faq.answer,
+          },
+        })),
+      },
+    ],
+  };
 
   const handleIsotopeCountChange = (count) => {
     const newIsotopes = [];
@@ -568,6 +639,24 @@ const AverageAtomicMassCalculator = () => {
           <li>
             <span><strong>Educational Content:</strong> Explains atomic mass concepts and applications</span>
           </li>
+        </ul>
+      </ContentSection>
+
+      <ContentSection id="chemistry-context" title="Chemistry Context">
+        <p>Average atomic mass explains why periodic table values are usually not whole numbers. Elements exist as isotope mixtures, and each isotope contributes to the final listed mass according to how common it is in nature.</p>
+        <ul>
+          <li><strong>Periodic table understanding:</strong> Connect isotope data to the atomic masses students see in chemistry references.</li>
+          <li><strong>Stoichiometry work:</strong> Use realistic mass values in mole and reaction calculations.</li>
+          <li><strong>Isotope comparison:</strong> See how even low-abundance isotopes still affect the weighted average.</li>
+        </ul>
+      </ContentSection>
+
+      <ContentSection id="common-mistakes" title="Common Mistakes">
+        <p>The biggest errors in average atomic mass problems usually come from mixing percent and decimal abundance formats, forgetting to total abundances correctly, or rounding too early in the process.</p>
+        <ul>
+          <li><strong>Percent vs decimal confusion:</strong> 75.77% is not the same as 75.77 as a decimal fraction.</li>
+          <li><strong>Missing isotope share:</strong> If abundances do not represent the full element, the final result can be misleading.</li>
+          <li><strong>Premature rounding:</strong> Keep precision through the weighted calculations and round near the end.</li>
         </ul>
       </ContentSection>
 

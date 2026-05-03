@@ -5,10 +5,8 @@ import ContentSection from '../tool/ContentSection';
 import FAQSection from '../tool/FAQSection';
 import TableOfContents from '../tool/TableOfContents';
 import FeedbackForm from '../tool/FeedbackForm';
-import Seo from '../Seo';
 import '../../assets/css/utility/english-to-ipa-translator.css';
 import { toolCategories } from '../../data/toolCategories';
-import ToolDynamicSections from '../tool/ToolDynamicSections'
 
 
 const EnglishToIPATranslator = () => {
@@ -247,17 +245,6 @@ const EnglishToIPATranslator = () => {
 
   // --- Tool Metadata & Content ---
 
-  const toolData = {
-    name: "English to IPA",
-    title: "English to IPA Converter",
-    description: "Convert English text to International Phonetic Alphabet (IPA) notation with support for British and American accents.",
-    icon: "fas fa-microphone-alt",
-    category: "Language",
-    breadcrumb: ["Utility", "Tools", "English to IPA"],
-    tags: ["english", "ipa", "phonetic", "transcription", "pronunciation", "accent"]
-  };
-
-
   const relatedTools = [
     { name: "Gen Z Translator", url: "/utility-tools/genz-translator", icon: "fas fa-language" },
     { name: "Word Counter", url: "/utility-tools/word-counter", icon: "fas fa-font" },
@@ -271,6 +258,8 @@ const EnglishToIPATranslator = () => {
     { id: 'how-to-use', title: 'How to Use' },
     { id: 'ipa-chart', title: 'Common IPA Symbols' },
     { id: 'accents', title: 'British vs American IPA' },
+    { id: 'use-cases', title: 'Who Uses This Tool' },
+    { id: 'limitations', title: 'Pronunciation Limits' },
     { id: 'faq', title: 'Frequently Asked Questions' }
   ];
 
@@ -289,19 +278,73 @@ const EnglishToIPATranslator = () => {
     }
   ];
 
+  const toolData = {
+    name: "English to IPA",
+    title: "English to IPA Converter",
+    description: "Convert English text to International Phonetic Alphabet (IPA) notation with support for British and American accents.",
+    icon: "fas fa-microphone-alt",
+    category: "Language",
+    breadcrumb: ["Utility", "Tools", "English to IPA"],
+    tags: ["english", "ipa", "phonetic", "transcription", "pronunciation", "accent"],
+    seoTitle: 'English to IPA Translator - Convert English to Phonetic Symbols | Tuitility',
+    seoDescription: 'Convert English words and sentences into IPA phonetic transcription with British and American accent support. Useful for pronunciation practice, linguistics, ESL study, and speech work.',
+    seoKeywords: [
+      'english to ipa',
+      'ipa translator',
+      'phonetic transcription',
+      'english pronunciation tool',
+      'british ipa',
+      'american ipa',
+    ],
+    canonicalUrl: 'https://tuitility.vercel.app/utility-tools/english-to-ipa-translator',
+    schemaData: [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'WebApplication',
+        name: 'English to IPA Translator',
+        applicationCategory: 'EducationalApplication',
+        operatingSystem: 'Any',
+        browserRequirements: 'Requires JavaScript and a modern browser',
+        url: 'https://tuitility.vercel.app/utility-tools/english-to-ipa-translator',
+        description: 'Convert English text into International Phonetic Alphabet notation and compare British and American pronunciation patterns.',
+        featureList: [
+          'English to IPA conversion',
+          'IPA to English conversion',
+          'British accent mode',
+          'American accent mode',
+          'Copy output to clipboard',
+        ],
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'HowTo',
+        name: 'How to convert English text to IPA',
+        step: [
+          { '@type': 'HowToStep', text: 'Choose whether you want to convert English to IPA or IPA back to English.' },
+          { '@type': 'HowToStep', text: 'Select British or American accent mode when converting from English.' },
+          { '@type': 'HowToStep', text: 'Paste or type your source text into the input area.' },
+          { '@type': 'HowToStep', text: 'Run the conversion and review the transcription output.' },
+        ],
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faqData.map((faq) => ({
+          '@type': 'Question',
+          name: faq.question,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: faq.answer,
+          },
+        })),
+      },
+    ],
+  };
+
   const inputLabel = conversionType === 'to-ipa' ? 'English Text' : 'IPA Text';
   const outputLabel = conversionType === 'to-ipa' ? 'IPA Transcription' : 'English Text';
 
-  const seoData = {
-    title: 'English to IPA Translator - Phonetic Transcription | Tuitility',
-    description: 'Convert English text to IPA (International Phonetic Alphabet) notation. Supports British and American accents. Perfect for linguistics students and language learners.',
-    keywords: 'english to ipa, ipa translator, phonetic transcription, pronunciation guide, british accent, american accent',
-    canonicalUrl: 'https://tuitility.vercel.app/utility-tools/english-to-ipa-translator'
-  };
-
   return (
-    <>
-      <Seo {...seoData} />
       <ToolPageLayout
         toolData={toolData}
         categories={toolCategories}
@@ -418,11 +461,34 @@ const EnglishToIPATranslator = () => {
           </div>
         </ContentSection>
 
+        <ContentSection id="accents" title="British vs American IPA">
+          <p>British and American English often share the same spelling while using noticeably different vowel quality, stress placement, and rhotic pronunciation. This tool lets you compare those patterns so you can study not just what a word means, but how its sound changes across accents.</p>
+          <ul>
+            <li><strong>British mode:</strong> Better for Received Pronunciation style practice, dictionaries, stage work, and many ESL learning contexts.</li>
+            <li><strong>American mode:</strong> Better for General American pronunciation, media speech, and many North American learning goals.</li>
+            <li><strong>Rhoticity differences:</strong> American speech often pronounces written <code>r</code> sounds more consistently than British RP patterns.</li>
+          </ul>
+        </ContentSection>
+
+        <ContentSection id="use-cases" title="Who Uses This Tool">
+          <p>Phonetic transcription is useful anywhere accurate pronunciation matters more than ordinary spelling. Because English spelling is inconsistent, IPA gives learners and professionals a more dependable way to see the sounds behind a word.</p>
+          <ul>
+            <li><strong>Language learners:</strong> Improve listening, speaking, and word stress recognition.</li>
+            <li><strong>Linguistics students:</strong> Compare accent features and study sound rules more systematically.</li>
+            <li><strong>Actors and voice professionals:</strong> Prepare accent-sensitive scripts and pronunciation references.</li>
+            <li><strong>Teachers and tutors:</strong> Create pronunciation examples for lessons, worksheets, and classroom support.</li>
+          </ul>
+        </ContentSection>
+
+        <ContentSection id="limitations" title="Pronunciation Limits and Best Use">
+          <p>This translator combines dictionary lookups with fallback rules, so it is very helpful for practice but it cannot fully replace a large pronunciation lexicon or native-speaker judgment. Proper nouns, rare words, regional pronunciations, and sentence-level connected speech can still produce imperfect results.</p>
+          <p>For best results, use the output as a pronunciation guide, then compare it with trusted audio from dictionaries, teachers, or recordings when precision matters for performance, exams, or research.</p>
+        </ContentSection>
+
 
         <FAQSection faqs={faqData} />
 
       </ToolPageLayout>
-    </>
   );
 };
 

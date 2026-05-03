@@ -8,7 +8,6 @@ import FeedbackForm from '../tool/FeedbackForm'
 import DBmWattsCalculatorJS from '../../assets/js/science/dbm-watts-calculator.js'
 import '../../assets/css/science/dbm-watts-calculator.css'
 import 'katex/dist/katex.min.css'
-import ToolDynamicSections from '../tool/ToolDynamicSections'
 
 const DBmWattsCalculator = () => {
   const [formData, setFormData] = useState({
@@ -59,15 +58,6 @@ const DBmWattsCalculator = () => {
     }, 100);
   }, [result]);
 
-  // Tool data
-  const toolData = {
-    name: 'DBm Watts Calculator',
-    description: 'Convert between dBm and Watts for power measurements in telecommunications and electronics.',
-    icon: 'fas fa-bolt',
-    category: 'Science',
-    breadcrumb: ['Science', 'Calculators', 'DBm Watts Calculator']
-  };
-
   // Categories for sidebar
   const categories = [
     { name: 'Math', url: '/math', icon: 'fas fa-calculator' },
@@ -97,8 +87,89 @@ const DBmWattsCalculator = () => {
     { id: 'formulas', title: 'Mathematical Formulas', level: 1 },
     { id: 'examples', title: 'Real-World Examples', level: 1 },
     { id: 'applications', title: 'Applications', level: 1 },
+    { id: 'interpretation', title: 'Interpreting Results', level: 1 },
+    { id: 'common-levels', title: 'Common RF Levels', level: 1 },
     { id: 'faq', title: 'Frequently Asked Questions', level: 1 }
   ];
+
+  const faqData = [
+    {
+      question: 'Why is dBm used instead of watts in RF work?',
+      answer: 'dBm uses a logarithmic scale, which makes very small and very large power levels easier to compare and makes gain and loss calculations simpler.'
+    },
+    {
+      question: 'What is 0 dBm in watts?',
+      answer: '0 dBm equals 1 milliwatt, which is 0.001 watts.'
+    },
+    {
+      question: 'Can dBm values be negative?',
+      answer: 'Yes. Negative dBm values represent power below 1 milliwatt and are common in low-power signal measurements.'
+    },
+    {
+      question: 'Where is this conversion used?',
+      answer: 'It is widely used in RF engineering, telecommunications, Wi-Fi design, antenna systems, and signal chain analysis.'
+    }
+  ];
+
+  const toolData = {
+    name: 'DBm Watts Calculator',
+    description: 'Convert between dBm and Watts for power measurements in telecommunications and electronics.',
+    icon: 'fas fa-bolt',
+    category: 'Science',
+    breadcrumb: ['Science', 'Calculators', 'DBm Watts Calculator'],
+    seoTitle: 'dBm to Watts Calculator - Convert RF Power Units | Tuitility',
+    seoDescription: 'Convert dBm to watts and watts to dBm for RF, telecom, and electronics power calculations. Includes formulas, examples, and step-by-step results.',
+    seoKeywords: [
+      'dbm to watts calculator',
+      'watts to dbm',
+      'rf power calculator',
+      'dbm conversion',
+      'telecom power converter',
+      'dbm watt formula',
+    ],
+    canonicalUrl: 'https://tuitility.vercel.app/science/calculators/dbm-watts-calculator',
+    schemaData: [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'WebApplication',
+        name: 'DBm Watts Calculator',
+        applicationCategory: 'EducationalApplication',
+        operatingSystem: 'Any',
+        browserRequirements: 'Requires JavaScript and a modern browser',
+        url: 'https://tuitility.vercel.app/science/calculators/dbm-watts-calculator',
+        description: 'Convert power values between dBm and watts for RF, telecommunications, and electronics work.',
+        featureList: [
+          'dBm to watts conversion',
+          'Watts to dBm conversion',
+          'Step-by-step power calculation',
+          'RF and telecom examples',
+        ],
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'HowTo',
+        name: 'How to convert dBm and watts',
+        step: [
+          { '@type': 'HowToStep', text: 'Choose whether you want to convert dBm to watts or watts to dBm.' },
+          { '@type': 'HowToStep', text: 'Enter the power value in the input field.' },
+          { '@type': 'HowToStep', text: 'Run the calculator to generate the converted result.' },
+          { '@type': 'HowToStep', text: 'Review the formulas and step breakdown to interpret the output.' },
+        ],
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faqData.map((faq) => ({
+          '@type': 'Question',
+          name: faq.question,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: faq.answer,
+          },
+        })),
+      },
+    ],
+  };
 
   // Handle form input changes
   const handleInputChange = (e) => {
@@ -363,6 +434,26 @@ const DBmWattsCalculator = () => {
             <p>System design, performance analysis, and compliance testing</p>
           </div>
         </div>
+      </ContentSection>
+
+      <ContentSection id="interpretation" title="Interpreting Results">
+        <p>dBm is often easier to interpret in RF work because it expresses power on a logarithmic scale, while watts show the raw linear magnitude. Engineers switch between the two depending on whether they need intuitive absolute power or easier gain-and-loss reasoning.</p>
+        <ul>
+          <li><strong>Positive dBm values:</strong> Represent power above 1 milliwatt.</li>
+          <li><strong>Negative dBm values:</strong> Represent power below 1 milliwatt and are common in received signals.</li>
+          <li><strong>Watts:</strong> Useful when you need the direct physical power level for system or hardware calculations.</li>
+        </ul>
+      </ContentSection>
+
+      <ContentSection id="common-levels" title="Common RF Levels">
+        <p>A few memorized reference points make RF power conversions much faster in practice. This calculator helps confirm those anchor values and show how quickly power changes as dBm increases or decreases.</p>
+        <ul>
+          <li><strong>0 dBm:</strong> 1 mW</li>
+          <li><strong>10 dBm:</strong> 10 mW</li>
+          <li><strong>20 dBm:</strong> 100 mW</li>
+          <li><strong>30 dBm:</strong> 1 W</li>
+          <li><strong>40 dBm:</strong> 10 W</li>
+        </ul>
       </ContentSection>
 
 

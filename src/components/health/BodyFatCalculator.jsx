@@ -6,8 +6,6 @@ import FAQSection from '../tool/FAQSection'
 import TableOfContents from '../tool/TableOfContents'
 import FeedbackForm from '../tool/FeedbackForm'
 import '../../assets/css/health/body-fat-calculator.css'
-import Seo from '../Seo'
-import ToolDynamicSections from '../tool/ToolDynamicSections'
 // Import the logic class - we'll define it inline for now
 // import BodyFatCalculatorLogic from '../../assets/js/health/body-fat-calculator.js'
 
@@ -419,15 +417,33 @@ const BodyFatCalculator = () => {
   }, [result]);
 
   return (
-    <>
-      <Seo
-        title={seoTitle}
-        description={seoDescription}
-        keywords={seoKeywords}
-        canonicalUrl={canonicalUrl}
-      />
       <ToolPageLayout 
-        toolData={toolData} 
+        toolData={{
+          ...toolData,
+          seoTitle,
+          seoDescription,
+          seoKeywords,
+          canonicalUrl,
+          schemaData: [
+            {
+              '@context': 'https://schema.org',
+              '@type': 'MedicalWebPage',
+              name: toolData.name,
+              url: canonicalUrl,
+              description: seoDescription
+            },
+            {
+              '@context': 'https://schema.org',
+              '@type': 'WebApplication',
+              name: toolData.name,
+              applicationCategory: 'HealthApplication',
+              operatingSystem: 'Any',
+              browserRequirements: 'Requires JavaScript and a modern browser',
+              url: canonicalUrl,
+              description: seoDescription
+            }
+          ]
+        }} 
         tableOfContents={tableOfContents}
         categories={categories}
         relatedTools={relatedTools}
@@ -1101,7 +1117,6 @@ const BodyFatCalculator = () => {
           title="Frequently Asked Questions"
         />
       </ToolPageLayout>
-    </>
   )
 }
 

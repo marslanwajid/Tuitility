@@ -6,7 +6,6 @@ import FAQSection from '../tool/FAQSection';
 import TableOfContents from '../tool/TableOfContents';
 import FeedbackForm from '../tool/FeedbackForm';
 import '../../assets/css/knowledge/carbon-footprint-calculator.css';
-import ToolDynamicSections from '../tool/ToolDynamicSections'
 
 const CarbonFootprintCalculator = () => {
   const [currentTab, setCurrentTab] = useState(0);
@@ -45,7 +44,34 @@ const CarbonFootprintCalculator = () => {
     category: "Knowledge",
     icon: "fas fa-leaf",
     breadcrumb: ['Knowledge', 'Calculators', 'Carbon Footprint Calculator'],
-    keywords: ["carbon", "footprint", "environment", "sustainability", "emissions", "climate", "green", "eco-friendly"]
+    keywords: ["carbon", "footprint", "environment", "sustainability", "emissions", "climate", "green", "eco-friendly"],
+    seoTitle: 'Carbon Footprint Calculator - Estimate Personal CO2 Emissions | Tuitility',
+    seoDescription: 'Estimate your carbon footprint from transport, home energy, food, and waste habits. Get category totals and practical reduction ideas.',
+    seoKeywords: [
+      'carbon footprint calculator',
+      'co2 emissions calculator',
+      'personal carbon footprint',
+      'sustainability calculator',
+      'household emissions calculator',
+      'climate impact calculator',
+    ],
+    canonicalUrl: 'https://tuitility.vercel.app/knowledge/calculators/carbon-footprint-calculator',
+    schemaData: {
+      '@context': 'https://schema.org',
+      '@type': 'WebApplication',
+      name: 'Carbon Footprint Calculator',
+      applicationCategory: 'UtilitiesApplication',
+      operatingSystem: 'Any',
+      browserRequirements: 'Requires JavaScript and a modern browser',
+      url: 'https://tuitility.vercel.app/knowledge/calculators/carbon-footprint-calculator',
+      description: 'Estimate personal carbon emissions across transportation, energy, food, and waste categories.',
+      featureList: [
+        'Transportation emissions estimate',
+        'Home energy footprint estimate',
+        'Food and waste category scoring',
+        'Reduction suggestions',
+      ],
+    }
   };
 
   // Categories for navigation

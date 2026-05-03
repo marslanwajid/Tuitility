@@ -6,7 +6,6 @@ import FAQSection from '../tool/FAQSection';
 import TableOfContents from '../tool/TableOfContents';
 import FeedbackForm from '../tool/FeedbackForm';
 import '../../assets/css/knowledge/anxiety-assessment-calculator.css';
-import ToolDynamicSections from '../tool/ToolDynamicSections'
 
 const AnxietyAssessmentCalculator = () => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -26,7 +25,34 @@ const AnxietyAssessmentCalculator = () => {
     category: "knowledge",
     breadcrumb: ["Knowledge", "Calculators", "Anxiety Assessment"],
     tags: ["anxiety", "assessment", "mental health", "stress", "wellbeing", "coping"],
-    lastUpdated: "2024-01-15"
+    lastUpdated: "2024-01-15",
+    seoTitle: 'Anxiety Assessment Calculator - Anxiety Symptom Self-Check | Tuitility',
+    seoDescription: 'Use this anxiety assessment calculator for a guided symptom self-check with category scoring, supportive interpretation, and follow-up reflection.',
+    seoKeywords: [
+      'anxiety assessment',
+      'anxiety calculator',
+      'anxiety self check',
+      'anxiety symptom test',
+      'mental health assessment',
+      'stress and anxiety quiz',
+    ],
+    canonicalUrl: 'https://tuitility.vercel.app/knowledge/calculators/anxiety-assessment-calculator',
+    schemaData: {
+      '@context': 'https://schema.org',
+      '@type': 'WebApplication',
+      name: 'Anxiety Assessment Calculator',
+      applicationCategory: 'HealthApplication',
+      operatingSystem: 'Any',
+      browserRequirements: 'Requires JavaScript and a modern browser',
+      url: 'https://tuitility.vercel.app/knowledge/calculators/anxiety-assessment-calculator',
+      description: 'Question-based anxiety self-assessment with category scoring and supportive reflection content.',
+      featureList: [
+        'Question-based anxiety self-check',
+        'Category score breakdown',
+        'Supportive interpretation',
+        'Downloadable results',
+      ],
+    }
   };
 
   const categories = [

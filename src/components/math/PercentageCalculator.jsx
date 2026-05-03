@@ -54,6 +54,7 @@ const PercentageCalculator = () => {
     { id: 'formulas', title: 'Key Formulas' },
     { id: 'significance', title: 'Significance' },
     { id: 'applications', title: 'Applications' },
+    { id: 'next-steps', title: 'Related Calculators and Next Steps' },
     { id: 'faqs', title: 'FAQs' }
   ];
 
@@ -812,6 +813,15 @@ const PercentageCalculator = () => {
           When the result looks surprising, compare the answer against the original number. A 10%
           increase should not be larger than the base value itself, and a small part of a large total
           should not produce an unusually high percentage.
+        </p>
+      </ContentSection>
+
+      <ContentSection id="next-steps" title="Related Calculators and Next Steps">
+        <p>
+          Percentage problems often lead naturally into format conversion. If you need to move between percent and fraction forms, use the <a href="/math/calculators/fraction-to-percent-calculator">Fraction to Percent Calculator</a> or the <a href="/math/calculators/percent-to-fraction-calculator">Percent to Fraction Calculator</a>. If your calculation depends on exact decimal arithmetic, continue with the <a href="/math/calculators/decimal-calculator">Decimal Calculator</a>.
+        </p>
+        <p>
+          Percentage skills also connect directly to real-world finance tools. Once you understand the rate change here, you can apply it in the <a href="/finance/calculators/sales-tax-calculator">Sales Tax Calculator</a>, <a href="/finance/calculators/compound-interest-calculator">Compound Interest Calculator</a>, and <a href="/finance/calculators/roi-calculator">ROI Calculator</a>.
         </p>
       </ContentSection>
 

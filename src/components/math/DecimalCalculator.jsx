@@ -52,6 +52,7 @@ const DecimalCalculator = () => {
     { id: 'rounding', title: 'Rounding Options' },
     { id: 'significance', title: 'Significance' },
     { id: 'applications', title: 'Applications' },
+    { id: 'next-steps', title: 'Related Calculators and Next Steps' },
     { id: 'faqs', title: 'FAQs' }
   ];
 
@@ -474,6 +475,15 @@ const DecimalCalculator = () => {
           If a result looks off, double-check the operation selector first, then review whether you meant
           to round the answer. In finance and science, a small rounding change can materially affect the
           next step, so keeping the exact value until the end is often safer.
+        </p>
+      </ContentSection>
+
+      <ContentSection id="next-steps" title="Related Calculators and Next Steps">
+        <p>
+          When decimal arithmetic is only part of the workflow, you can branch into more specific math pages. Use the <a href="/math/calculators/comparing-decimals-calculator">Comparing Decimals Calculator</a> for ordering, the <a href="/math/calculators/decimal-to-fraction-calculator">Decimal to Fraction Calculator</a> for exact representations, or the <a href="/math/calculators/percentage-calculator">Percentage Calculator</a> when the decimal value represents a rate.
+        </p>
+        <p>
+          Decimal calculations also appear throughout finance and science. Practical next pages include the <a href="/finance/calculators/roi-calculator">ROI Calculator</a>, <a href="/finance/calculators/compound-interest-calculator">Compound Interest Calculator</a>, and <a href="/science/calculators/dbm-to-watts-calculator">dBm to Watts Calculator</a>.
         </p>
       </ContentSection>
 
