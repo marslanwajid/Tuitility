@@ -144,29 +144,19 @@ const App = () => {
             element={
               <StaticPage
                 title="Privacy Policy"
-                description="Review how Tuitility handles privacy, cookies, consent, browser-based processing, and future advertising systems including Google AdSense."
+                description="Review how Tuitility handles privacy, cookies, consent, and browser-based processing."
                 canonicalPath="/privacy-policy"
               >
-                <h2>Overview</h2>
                 <p>
-                  Tuitility values privacy and aims to minimize unnecessary data collection. Many of
+                  Tuitility values privacy and operates on a user-side processing model. Most of
                   our calculators and utility tools process information directly in your browser, which
-                  means your inputs and uploaded files often stay on your device unless a specific
-                  feature clearly relies on an external API or server-side service.
+                  means your inputs and uploaded files stay on your device. We do not collect or store
+                  any data from the tools themselves.
                 </p>
-                <h2>Cookies and Consent</h2>
                 <p>
-                  We may use cookies or similar technologies for essential site functions, performance
-                  measurement, user preferences, and future advertising support. A consent banner is
-                  shown so visitors can choose whether to allow only essential cookies or accept
-                  optional categories when available.
-                </p>
-                <h2>Google AdSense and Advertising</h2>
-                <p>
-                  We may apply for and use Google AdSense in the future. If advertising is enabled,
-                  AdSense may use cookies to serve relevant ads, measure ad performance, and limit
-                  repetitive ad delivery. Users should review Google’s own advertising and privacy
-                  policies for more information about how Google may process advertising-related data.
+                  We may use cookies for essential site functions and user preferences. We do not
+                  use tracking or analytics cookies. A consent banner is shown so visitors are 
+                  informed of our cookie usage.
                 </p>
                 <h2>Third-Party Services</h2>
                 <p>
@@ -214,12 +204,6 @@ const App = () => {
                 <p>
                   You agree not to misuse the site, interfere with site operation, attempt to exploit
                   vulnerabilities, or use the tools for illegal, abusive, or fraudulent purposes.
-                </p>
-                <h2>Third-Party Services and Ads</h2>
-                <p>
-                  Some tools may rely on third-party APIs or services. Future advertising may also be
-                  displayed through providers such as Google AdSense. We are not responsible for the
-                  independent policies or content of third-party services.
                 </p>
                 <h2>Contact</h2>
                 <p>

@@ -48,12 +48,13 @@ const CookieBanner = () => {
     <aside className="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie consent">
       <div className="cookie-banner__content">
         <p className="cookie-banner__eyebrow">Privacy & Cookies</p>
-        <h2>We use cookies to keep Tuitility reliable and ready for future ads.</h2>
+        <h2>We use cookies to enhance your experience.</h2>
         <p>
-          Essential cookies help the site work properly. Optional cookies may be used later for
-          analytics, performance measurement, and Google AdSense ad personalization. You can read
-          more in our <Link to="/privacy-policy">Privacy Policy</Link> and <Link to="/terms-and-conditions">Terms & Conditions</Link>.
+          Essential cookies ensure the site functions correctly, while anonymous analytics 
+          help us improve our tools and user experience. We never collect or store 
+          any data from the tools themselves. Read our <Link to="/privacy-policy">Privacy Policy</Link> for more information.
         </p>
+
       </div>
       <div className="cookie-banner__actions">
         <button
