@@ -264,7 +264,7 @@ const TraumaAssessmentCalculator = () => {
       setAssessmentResults({
         categoryScores,
         recommendations: {
-          interpretation: recommendations,
+          interpretation: formatAIResponse(recommendations),
           selfCareStrategies: []
         },
         totalScore: Object.values(categoryScores).reduce((sum, score) => sum + score, 0),
@@ -309,27 +309,29 @@ const TraumaAssessmentCalculator = () => {
   };
 
   const getAIRecommendations = async (categoryScores) => {
-    const prompt = `You are a compassionate trauma-informed mental health educator. Based on the following trauma assessment results, provide thoughtful, supportive insights. Focus on validation, normalization of trauma responses, and gentle suggestions for self-care and healing.
+    const prompt = `You are a professional clinical psychologist and trauma specialist. Based on the following assessment results, provide a professional clinical interpretation and evidence-based self-care recommendations. 
 
 Assessment Results:
 - Total Score: ${Object.values(categoryScores).reduce((sum, score) => sum + score, 0)} out of 80
-- Hyperarousal & Anxiety Score: ${categoryScores.anxiety}/16
-- Intrusive Thoughts & Memories Score: ${categoryScores.intrusive}/16
-- Avoidance Behaviors Score: ${categoryScores.avoidance}/16
-- Negative Mood & Cognition Score: ${categoryScores.negative}/16
-- Functional Impairment Score: ${categoryScores.functional}/16
+- Hyperarousal & Anxiety: ${categoryScores.anxiety}/16
+- Intrusive Thoughts & Memories: ${categoryScores.intrusive}/16
+- Avoidance Behaviors: ${categoryScores.avoidance}/16
+- Negative Mood & Cognition: ${categoryScores.negative}/16
+- Functional Impairment: ${categoryScores.functional}/16
 
-${additionalInfo ? `Additional Information: ${additionalInfo}` : 'No additional information provided.'}
+${additionalInfo ? `Additional Context: ${additionalInfo}` : ''}
 
-Please provide:
-1. A brief, compassionate interpretation of these results
-2. Validation of the person's experiences
-3. 5-7 specific self-care strategies based on their highest scoring categories
-4. A gentle reminder about professional support if needed
-5. An encouraging message about healing and resilience
+Instructions:
+1. Maintain a professional, clinical, yet supportive tone.
+2. Avoid informal greetings like "Dear one".
+3. Provide a clear interpretation of the severity levels.
+4. List 5-7 specific, evidence-based coping strategies (e.g., CBT or somatic techniques).
+5. Explicitly state the importance of professional psychiatric/psychological consultation.
 
-Format your response with clear sections: "Understanding Your Results", "Personalized Self-Care Strategies", and "Moving Forward".
-Keep your response under 500 words and use a warm, supportive tone.`;
+Structure with Markdown Headers:
+### Clinical Interpretation
+### Recommended Coping Strategies
+### Professional Guidance and Next Steps`;
 
     const fallback = `<h4>Understanding Your Results</h4><p>Based on your responses, you may be experiencing some trauma-related symptoms. Consider speaking with a mental health professional for support.</p><h4>Personalized Self-Care Strategies</h4><ul><li>Practice grounding techniques when feeling overwhelmed</li><li>Establish a consistent sleep routine</li><li>Engage in gentle physical movement</li><li>Connect with supportive people</li><li>Consider journaling to process feelings</li></ul><h4>Moving Forward</h4><p>Healing from trauma takes time and patience with yourself. Remember that seeking professional help is a sign of strength, not weakness.</p>`;
 
@@ -736,7 +738,7 @@ Keep your response under 500 words and use a warm, supportive tone.`;
                   <h3>Personalized Insights & Recommendations</h3>
                   <div className="trauma-ai-analysis">
                     {assessmentResults.recommendations.interpretation && (
-                      <div className="trauma-ai-response" dangerouslySetInnerHTML={{ __html: assessmentResults.recommendations.interpretation }}>
+                      <div className="trauma-ai-response ai-report-content" dangerouslySetInnerHTML={{ __html: assessmentResults.recommendations.interpretation }}>
                       </div>
                     )}
                   </div>

@@ -81,6 +81,47 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--color-text-main);
 }
 
+/* AI Assessment Report Styling */
+.ai-report-content {
+  line-height: 1.6;
+  color: var(--color-text-main);
+}
+
+.ai-header {
+  color: var(--color-primary);
+  font-weight: 700;
+  margin: 1.5rem 0 0.75rem 0;
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 0.5rem;
+}
+
+.ai-report-content h4.ai-header {
+  font-size: 1.25rem;
+}
+
+.ai-report-content h3.ai-header {
+  font-size: 1.5rem;
+}
+
+.ai-report-content p {
+  margin-bottom: 1rem;
+}
+
+.ai-report-content ul {
+  margin-bottom: 1.5rem;
+  padding-left: 1.25rem;
+}
+
+.ai-report-content li {
+  margin-bottom: 0.5rem;
+  position: relative;
+}
+
+.ai-report-content strong {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
 /* Animations */
 @keyframes float {
   0% { transform: translateY(0px); }

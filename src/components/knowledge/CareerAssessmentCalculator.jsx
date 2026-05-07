@@ -220,42 +220,35 @@ const CareerAssessmentCalculator = () => {
   };
 
   const getAIRecommendations = async (categoryScores) => {
-    const interestsText = selectedInterests.length > 0 
-      ? `\nSelected Interest Areas: ${selectedInterests.join(', ')}`
-      : '';
+    const prompt = `You are a high-level executive career coach and industrial-organizational psychologist. Based on the following assessment results, provide a professional, data-driven career analysis and recommendations.
 
-    const prompt = `Based on the following career assessment scores and interests, provide 4-5 specific career recommendations with detailed explanations:
+Assessment Results (Category Scores out of 100):
+- Creative & Artistic: ${categoryScores.creative}%
+- Technical & Analytical: ${categoryScores.technical}%
+- Social & Helping: ${categoryScores.social}%
+- Business & Entrepreneurial: ${categoryScores.business}%
+- Administrative & Organized: ${categoryScores.administrative}%
 
-Technical Skills: ${categoryScores.technical}/100
-Creative Thinking: ${categoryScores.creative}/100
-Leadership Potential: ${categoryScores.leadership}/100
-Interpersonal Skills: ${categoryScores.interpersonal}/100${interestsText}
+Selected Interest Areas: ${selectedInterests.length > 0 ? selectedInterests.join(', ') : 'Broad interest range'}
 
-Please recommend careers that match these scores and interests, focusing on modern, in-demand roles.
-For each career, provide:
-1. Specific job title
-2. Match percentage (80-95% for top matches)
-3. Brief explanation of why it's a good fit
-4. Key skills needed (3-5 specific skills)
-5. Potential salary ranges (realistic current market rates)
-6. Growth potential (High/Medium/Low)
+Provide exactly 3-5 career recommendations that align with these scores and interests. 
 
 Format the response as JSON with the following structure:
 {
   "careers": [
     {
       "title": "Career Title",
-      "match_score": "85%",
-      "explanation": "Why this career fits based on scores and interests",
-      "required_skills": ["skill1", "skill2", "skill3"],
-      "salary_range": "$50,000 - $80,000",
-      "growth_potential": "High"
+      "match_score": "Match Percentage (e.g., 92%)",
+      "explanation": "Professional analysis of why this career fits based on psychological profile and interests",
+      "required_skills": ["Critical Skill 1", "Critical Skill 2", "Critical Skill 3"],
+      "salary_range": "Realistic Market Range (e.g., $75,000 - $120,000)",
+      "growth_potential": "Market Outlook (High/Stable/Moderate)"
     }
   ],
-  "summary": "Overall career path recommendation based on assessment"
+  "summary": "Executive summary of the candidate's professional profile and strategic career direction."
 }
 
-IMPORTANT: Return ONLY valid JSON, no additional text or formatting.`;
+IMPORTANT: Return ONLY valid JSON. Avoid any informal language.`;
 
     const fallbackData = getBasicRecommendations(categoryScores);
     const fallbackString = JSON.stringify(fallbackData);

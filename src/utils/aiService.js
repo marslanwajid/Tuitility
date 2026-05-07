@@ -78,30 +78,40 @@ export const callGeminiAI = async (prompt, toolName, fallbackContent) => {
 };
 
 /**
- * Formats AI markdown-like response into HTML-friendly structure
+ * Formats AI markdown response into clean, professional HTML.
  */
 export const formatAIResponse = (text) => {
   if (!text) return '';
   
-  // Replace section headers
-  let formatted = text.replace(/^(Understanding Your Results|Personalized Self-Care Strategies|Moving Forward|Summary|Recommendations):/gm, '<h4>$1</h4>');
-  
-  // Format bold text
+  let formatted = text;
+
+  // 1. Handle Headers (e.g., ### Understanding Your Results)
+  formatted = formatted.replace(/^###\s+(.+)$/gm, '<h4 class="ai-header">$1</h4>');
+  formatted = formatted.replace(/^##\s+(.+)$/gm, '<h3 class="ai-header">$1</h3>');
+  formatted = formatted.replace(/^#\s+(.+)$/gm, '<h2 class="ai-header">$1</h2>');
+
+  // 2. Handle Bold Text (**text**)
   formatted = formatted.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+
+  // 3. Handle Numbered Lists (1. Item)
+  formatted = formatted.replace(/^\d+\.\s+(.+)$/gm, '<li>$1</li>');
   
-  // Format lists
-  formatted = formatted.replace(/^\s*[\*\-]\s+(.+)$/gm, '<li>$1</li>');
-  
-  // Wrap list items in <ul> if they aren't already
-  formatted = formatted.replace(/(<li>.*?<\/li>(\s*<li>.*?<\/li>)*)/gs, '<ul>$1</ul>');
-  
-  // Replace double line breaks with paragraphs
-  formatted = formatted.replace(/\n\n/g, '</p><p>');
-  
-  // Wrap in initial paragraph if needed
-  if (!formatted.startsWith('<')) {
-    formatted = '<p>' + formatted + '</p>';
-  }
-  
+  // 4. Handle Bullet Lists (* Item or - Item)
+  formatted = formatted.replace(/^[\*\-]\s+(.+)$/gm, '<li>$1</li>');
+
+  // 5. Wrap <li> groups in <ul>
+  // This logic looks for contiguous blocks of <li> and wraps them
+  formatted = formatted.replace(/(<li>.*?<\/li>(?:\s*<li>.*?<\/li>)*)/gs, '<ul>$1</ul>');
+
+  // 6. Handle Paragraphs (Double line breaks)
+  // Avoid breaking headers or lists
+  const parts = formatted.split(/\n\n+/);
+  formatted = parts.map(part => {
+    if (part.startsWith('<h') || part.startsWith('<ul') || part.startsWith('<li')) {
+      return part;
+    }
+    return `<p>${part.replace(/\n/g, ' ')}</p>`;
+  }).join('');
+
   return formatted;
 };

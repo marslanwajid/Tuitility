@@ -252,9 +252,7 @@ const MBTICalculator = () => {
       cognitiveInfo,
       compatibilityInfo,
       famousPeople,
-      detailedAnalysis: aiAnalysis,
-      scores: finalScores,
-      answers: finalAnswers
+      detailedAnalysis: aiAnalysis
     });
   };
 
@@ -703,22 +701,25 @@ const MBTICalculator = () => {
   };
 
   const getAIRecommendations = async (type, scores) => {
-    const prompt = `You are an expert personality psychologist. Provide a detailed, insightful, and professional analysis for someone with the MBTI type: ${type}.
+    const prompt = `You are a world-class personality psychologist and MBTI specialist. Provide a sophisticated, clinical-grade analysis for the MBTI type: ${type}.
 
-Score details:
-- Extraversion vs Introversion: ${scores.EI > 0 ? 'Introverted' : 'Extraverted'} (Score: ${Math.abs(scores.EI)})
-- Sensing vs Intuition: ${scores.SN > 0 ? 'Intuitive' : 'Sensing'} (Score: ${Math.abs(scores.SN)})
-- Thinking vs Feeling: ${scores.TF > 0 ? 'Feeling' : 'Thinking'} (Score: ${Math.abs(scores.TF)})
-- Judging vs Perceiving: ${scores.JP > 0 ? 'Perceiving' : 'Judging'} (Score: ${Math.abs(scores.JP)})
+Analysis Context:
+- Orientation: ${scores.EI > 0 ? 'Introverted' : 'Extraverted'} (Intensity: ${Math.abs(scores.EI)})
+- Information Gathering: ${scores.SN > 0 ? 'Intuitive' : 'Sensing'} (Intensity: ${Math.abs(scores.SN)})
+- Decision Making: ${scores.TF > 0 ? 'Feeling' : 'Thinking'} (Intensity: ${Math.abs(scores.TF)})
+- Lifestyle: ${scores.JP > 0 ? 'Perceiving' : 'Judging'} (Intensity: ${Math.abs(scores.JP)})
 
-Please provide:
-1. "Core Personality Overview": A deep dive into their worldview and core motivations.
-2. "Strengths & Talents": 4-5 key areas where they naturally excel.
-3. "Growth Areas": Honest but supportive insights into potential blind spots.
-4. "Workplace Dynamics": How they lead, follow, and collaborate.
-5. "Communication Style": How they express themselves and how others can best communicate with them.
+Instructions:
+1. Maintain a professional, sophisticated, and insightful tone.
+2. Avoid generic platitudes or informal greetings.
+3. Use Markdown headers for structure.
 
-Format the response with clear headers for each section. Use a professional yet accessible tone.`;
+Structure:
+### Strategic Personality Analysis
+### Cognitive Processing & Decision Making
+### Interpersonal Dynamics & Communication Style
+### Professional Strengths & Optimization Strategies
+### Targeted Personal Growth Trajectories`;
 
     const fallback = getDetailedAnalysis(type);
     const fallbackHTML = `<h4>Core Personality Overview</h4><p>${fallback.processing}</p><h4>Strengths & Talents</h4><ul>${fallback.workplace.map(w => `<li>${w}</li>`).join('')}</ul><h4>Growth Areas</h4><ul>${fallback.growth.map(g => `<li>${g}</li>`).join('')}</ul><h4>Communication Style</h4><p>${fallback.communication}</p>`;
@@ -1243,7 +1244,7 @@ Format the response with clear headers for each section. Use a professional yet 
 
                    <div className="mbti-careers">
                      <h4>Career Paths</h4>
-                     <div className="mbti-ai-analysis" dangerouslySetInnerHTML={{ __html: result.detailedAnalysis }}>
+                     <div className="mbti-ai-analysis ai-report-content" dangerouslySetInnerHTML={{ __html: result.detailedAnalysis }}>
                      </div>
                    </div>
                  </div>

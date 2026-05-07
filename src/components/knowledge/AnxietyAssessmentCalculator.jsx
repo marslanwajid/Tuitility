@@ -269,7 +269,7 @@ const AnxietyAssessmentCalculator = () => {
       setAssessmentResults({
         categoryScores,
         recommendations: {
-          interpretation: recommendations,
+          interpretation: formatAIResponse(recommendations),
           selfCareStrategies: []
         },
         totalScore: Object.values(categoryScores).reduce((sum, score) => sum + score, 0),
@@ -316,7 +316,7 @@ const AnxietyAssessmentCalculator = () => {
   };
 
   const getAIRecommendations = async (categoryScores) => {
-    const prompt = `You are a supportive mental health educator. Based on the following anxiety assessment results, provide helpful, compassionate insights. Focus on normalization, practical coping tools, and gentle encouragement.
+    const prompt = `You are a professional clinical psychologist specializing in anxiety disorders. Based on the following assessment results, provide a professional clinical interpretation and evidence-based self-care recommendations.
 
 Assessment Results:
 - Total Score: ${Object.values(categoryScores).reduce((sum, score) => sum + score, 0)} out of 80
@@ -325,16 +325,19 @@ Assessment Results:
 - Behavioral Symptoms: ${categoryScores.behavioral}/20
 - Emotional Symptoms: ${categoryScores.emotional}/20
 
-${additionalInfo ? `Additional Context: ${additionalInfo}` : 'No additional information provided.'}
+${additionalInfo ? `Additional Context: ${additionalInfo}` : ''}
 
-Please provide:
-1. A brief, supportive interpretation of these results
-2. 5-7 specific anxiety management techniques tailored to their scores
-3. A section on when to seek professional help
-4. An encouraging closing message
+Instructions:
+1. Maintain a professional, clinical, yet supportive tone.
+2. Avoid informal greetings like "Dear one".
+3. Provide a clear interpretation of the anxiety severity levels.
+4. List 5-7 specific, evidence-based coping strategies (e.g., CBT, mindfulness, or breathing exercises).
+5. Explicitly state the importance of professional psychiatric/psychological consultation.
 
-Format your response with clear sections: "Understanding Your Anxiety", "Coping Strategies", and "Moving Forward".
-Keep your response under 500 words and use a calm, reassuring tone.`;
+Structure with Markdown Headers:
+### Clinical Interpretation
+### Recommended Coping Strategies
+### Professional Guidance and Next Steps`;
 
     const fallback = `<h4>Understanding Your Anxiety</h4><p>Based on your responses, you may be experiencing symptoms of anxiety. This is a common experience, and there are many effective ways to manage these feelings.</p><h4>Coping Strategies</h4><ul><li>Practice deep belly breathing (4-7-8 technique)</li><li>Use the 5-4-3-2-1 grounding exercise</li><li>Reduce caffeine and stimulant intake</li><li>Maintain a consistent sleep schedule</li><li>Engage in regular physical activity</li></ul><h4>Moving Forward</h4><p>If these feelings persist and interfere with your daily life, consider speaking with a healthcare professional or counselor. You don't have to navigate this alone.</p>`;
 
@@ -740,7 +743,7 @@ Keep your response under 500 words and use a calm, reassuring tone.`;
                   <h3>Personalized Insights & Recommendations</h3>
                   <div className="anxiety-ai-analysis">
                     {assessmentResults.recommendations.interpretation && (
-                      <div className="anxiety-ai-response" dangerouslySetInnerHTML={{ __html: assessmentResults.recommendations.interpretation }}>
+                      <div className="anxiety-ai-response ai-report-content" dangerouslySetInnerHTML={{ __html: assessmentResults.recommendations.interpretation }}>
                       </div>
                     )}
                   </div>
