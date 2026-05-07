@@ -7,6 +7,7 @@ import ResultSection from '../tool/ResultSection';
 import TableOfContents from '../tool/TableOfContents';
 import MathFormula from '../tool/MathFormula';
 import FeedbackForm from '../tool/FeedbackForm';
+import { callGeminiAI, formatAIResponse } from '../../utils/aiService';
 import '../../assets/css/knowledge/mbti-calculator.css';
 
 const MBTICalculator = () => {
@@ -19,6 +20,7 @@ const MBTICalculator = () => {
   const [testCompleted, setTestCompleted] = useState(false);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [isDownloading, setIsDownloading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const questions = [
     // Extraversion (E) vs. Introversion (I) Questions
@@ -136,19 +138,11 @@ const MBTICalculator = () => {
   };
 
   useEffect(() => {
-    // Load the JavaScript logic
-    const script = document.createElement('script');
-    script.src = '/src/assets/js/knowledge/mbti-calculator.js';
-    script.async = true;
-    document.head.appendChild(script);
-
-    return () => {
-      // Cleanup
-      if (document.head.contains(script)) {
-        document.head.removeChild(script);
-      }
-    };
-  }, []);
+    // Scroll to top when test starts or completes
+    if (testStarted || testCompleted) {
+      window.scrollTo(0, 0);
+    }
+  }, [testStarted, testCompleted]);
 
   const startTest = () => {
     setTestStarted(true);
@@ -203,8 +197,12 @@ const MBTICalculator = () => {
       setCurrentQuestion(currentQuestion + 1);
     } else {
       // Test completed
-      setTestCompleted(true);
-      calculateResults(newScores, newAnswers);
+      setIsLoading(true);
+      setTimeout(async () => {
+        await calculateResults(newScores, newAnswers);
+        setIsLoading(false);
+        setTestCompleted(true);
+      }, 1000);
     }
   };
 
@@ -240,13 +238,13 @@ const MBTICalculator = () => {
     }
   };
 
-  const calculateResults = (finalScores, finalAnswers) => {
+  const calculateResults = async (finalScores, finalAnswers) => {
     const personalityType = calculateType(finalScores, finalAnswers);
     const typeInfo = getTypeDescription(personalityType);
     const cognitiveInfo = getCognitiveFunctions(personalityType);
     const compatibilityInfo = getCompatibilityInfo(personalityType);
     const famousPeople = getFamousPeople(personalityType);
-    const detailedAnalysis = getDetailedAnalysis(personalityType);
+    const aiAnalysis = await getAIRecommendations(personalityType, finalScores);
     
     setResult({
       type: personalityType,
@@ -254,7 +252,7 @@ const MBTICalculator = () => {
       cognitiveInfo,
       compatibilityInfo,
       famousPeople,
-      detailedAnalysis,
+      detailedAnalysis: aiAnalysis,
       scores: finalScores,
       answers: finalAnswers
     });
@@ -702,6 +700,31 @@ const MBTICalculator = () => {
       ]
     };
     return famousPeople[type] || ['Famous people information will be added soon.'];
+  };
+
+  const getAIRecommendations = async (type, scores) => {
+    const prompt = `You are an expert personality psychologist. Provide a detailed, insightful, and professional analysis for someone with the MBTI type: ${type}.
+
+Score details:
+- Extraversion vs Introversion: ${scores.EI > 0 ? 'Introverted' : 'Extraverted'} (Score: ${Math.abs(scores.EI)})
+- Sensing vs Intuition: ${scores.SN > 0 ? 'Intuitive' : 'Sensing'} (Score: ${Math.abs(scores.SN)})
+- Thinking vs Feeling: ${scores.TF > 0 ? 'Feeling' : 'Thinking'} (Score: ${Math.abs(scores.TF)})
+- Judging vs Perceiving: ${scores.JP > 0 ? 'Perceiving' : 'Judging'} (Score: ${Math.abs(scores.JP)})
+
+Please provide:
+1. "Core Personality Overview": A deep dive into their worldview and core motivations.
+2. "Strengths & Talents": 4-5 key areas where they naturally excel.
+3. "Growth Areas": Honest but supportive insights into potential blind spots.
+4. "Workplace Dynamics": How they lead, follow, and collaborate.
+5. "Communication Style": How they express themselves and how others can best communicate with them.
+
+Format the response with clear headers for each section. Use a professional yet accessible tone.`;
+
+    const fallback = getDetailedAnalysis(type);
+    const fallbackHTML = `<h4>Core Personality Overview</h4><p>${fallback.processing}</p><h4>Strengths & Talents</h4><ul>${fallback.workplace.map(w => `<li>${w}</li>`).join('')}</ul><h4>Growth Areas</h4><ul>${fallback.growth.map(g => `<li>${g}</li>`).join('')}</ul><h4>Communication Style</h4><p>${fallback.communication}</p>`;
+
+    const aiResponse = await callGeminiAI(prompt, "MBTI Calculator", fallbackHTML);
+    return formatAIResponse(aiResponse);
   };
 
   const getDetailedAnalysis = (type) => {
@@ -1154,7 +1177,16 @@ const MBTICalculator = () => {
           </div>
         ) : (
           <div className="mbti-result-section">
-            {result && (
+            {isLoading && (
+              <div className="mbti-loading-section">
+                <div className="mbti-loading-content">
+                  <div className="mbti-loading-spinner"></div>
+                  <h3>Analyzing Your Personality</h3>
+                  <p>Our AI is crafting a detailed report based on your unique responses...</p>
+                </div>
+              </div>
+            )}
+            {testCompleted && result && (
                <div className="mbti-formation-calculator-result">
                  <h3 className="mbti-result-title">Your MBTI Personality Type</h3>
                  <div className="mbti-disclaimer">
@@ -1211,11 +1243,8 @@ const MBTICalculator = () => {
 
                    <div className="mbti-careers">
                      <h4>Career Paths</h4>
-                     <ul>
-                       {result.typeInfo.careers.map((career, index) => (
-                         <li key={index}>{career}</li>
-                       ))}
-                     </ul>
+                     <div className="mbti-ai-analysis" dangerouslySetInnerHTML={{ __html: result.detailedAnalysis }}>
+                     </div>
                    </div>
                  </div>
                </div>

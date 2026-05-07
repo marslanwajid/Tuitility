@@ -5,7 +5,126 @@ import ContentSection from '../tool/ContentSection';
 import FAQSection from '../tool/FAQSection';
 import TableOfContents from '../tool/TableOfContents';
 import FeedbackForm from '../tool/FeedbackForm';
+import { callGeminiAI, formatAIResponse } from '../../utils/aiService';
 import '../../assets/css/knowledge/anxiety-assessment-calculator.css';
+
+// Anxiety Assessment Questions
+const anxietyQuestions = [
+  // Psychological Symptoms (0-4)
+  {
+    question: "Over the last 2 weeks, how often have you felt nervous, anxious, or on edge?",
+    category: "psychological",
+    weight: 1.0
+  },
+  {
+    question: "Over the last 2 weeks, how often have you been unable to stop or control worrying?",
+    category: "psychological",
+    weight: 1.0
+  },
+  {
+    question: "Over the last 2 weeks, how often have you worried too much about different things?",
+    category: "psychological",
+    weight: 1.0
+  },
+  {
+    question: "Over the last 2 weeks, how often have you had trouble relaxing?",
+    category: "psychological",
+    weight: 1.0
+  },
+  {
+    question: "Over the last 2 weeks, how often have you felt afraid, as if something awful might happen?",
+    category: "psychological",
+    weight: 1.0
+  },
+
+  // Physical Symptoms (5-9)
+  {
+    question: "Over the last 2 weeks, how often have you experienced a racing heart or palpitations?",
+    category: "physical",
+    weight: 1.0
+  },
+  {
+    question: "Over the last 2 weeks, how often have you experienced shortness of breath or difficulty breathing?",
+    category: "physical",
+    weight: 1.0
+  },
+  {
+    question: "Over the last 2 weeks, how often have you experienced muscle tension or body aches?",
+    category: "physical",
+    weight: 1.0
+  },
+  {
+    question: "Over the last 2 weeks, how often have you experienced sweating, hot flashes, or chills?",
+    category: "physical",
+    weight: 1.0
+  },
+  {
+    question: "Over the last 2 weeks, how often have you experienced sleep problems (difficulty falling asleep, staying asleep, or restless sleep)?",
+    category: "physical",
+    weight: 1.0
+  },
+
+  // Behavioral Changes (10-14)
+  {
+    question: "Over the last 2 weeks, how often have you avoided situations that might trigger anxiety?",
+    category: "behavioral",
+    weight: 1.0
+  },
+  {
+    question: "Over the last 2 weeks, how often have you found yourself unable to sit still or feeling restless?",
+    category: "behavioral",
+    weight: 1.0
+  },
+  {
+    question: "Over the last 2 weeks, how often have you experienced changes in appetite (eating too much or too little)?",
+    category: "behavioral",
+    weight: 1.0
+  },
+  {
+    question: "Over the last 2 weeks, how often have you relied on substances (alcohol, medication, etc.) to manage anxiety?",
+    category: "behavioral",
+    weight: 1.0
+  },
+  {
+    question: "Over the last 2 weeks, how often have you engaged in repetitive behaviors to reduce anxiety?",
+    category: "behavioral",
+    weight: 1.0
+  },
+
+  // Social Impact (15-17)
+  {
+    question: "Over the last 2 weeks, how often has anxiety interfered with your work or academic performance?",
+    category: "social",
+    weight: 1.0
+  },
+  {
+    question: "Over the last 2 weeks, how often has anxiety affected your relationships with family, friends, or colleagues?",
+    category: "social",
+    weight: 1.0
+  },
+  {
+    question: "Over the last 2 weeks, how often have you avoided social situations due to anxiety?",
+    category: "social",
+    weight: 1.0
+  },
+
+  // Cognitive Patterns (18-20)
+  {
+    question: "Over the last 2 weeks, how often have you experienced difficulty concentrating due to worry?",
+    category: "cognitive",
+    weight: 1.0
+  },
+  {
+    question: "Over the last 2 weeks, how often have you experienced intrusive or unwanted thoughts?",
+    category: "cognitive",
+    weight: 1.0
+  },
+  {
+    question: "Over the last 2 weeks, how often have you found yourself overthinking or ruminating on problems?",
+    category: "cognitive",
+    weight: 1.0
+  }
+];
 
 const AnxietyAssessmentCalculator = () => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -138,7 +257,7 @@ const AnxietyAssessmentCalculator = () => {
       setIsLoading(true);
       setTimeout(() => {
         analyzeResults(newAnswers);
-      }, 2000);
+      }, 1000);
     }
   };
 
@@ -149,32 +268,26 @@ const AnxietyAssessmentCalculator = () => {
       
       setAssessmentResults({
         categoryScores,
-        recommendations,
+        recommendations: {
+          interpretation: recommendations,
+          selfCareStrategies: []
+        },
         totalScore: Object.values(categoryScores).reduce((sum, score) => sum + score, 0),
-        maxScore: anxietyQuestions.length * 3
+        maxScore: anxietyQuestions.length * 4
       });
       
       setShowResults(true);
     } catch (error) {
       console.error('Error analyzing results:', error);
-      // Fallback results without AI
       const categoryScores = calculateCategoryScores(answers);
       setAssessmentResults({
         categoryScores,
         recommendations: {
-          interpretation: "Based on your responses, you may be experiencing some anxiety symptoms. Consider speaking with a mental health professional for support.",
-          selfCareStrategies: [
-            "Practice deep breathing exercises when feeling anxious",
-            "Establish a consistent sleep routine",
-            "Engage in regular physical activity",
-            "Limit caffeine and alcohol",
-            "Try mindfulness meditation",
-            "Consider journaling to process anxious thoughts",
-            "Connect with supportive people"
-          ]
+          interpretation: "<h4>Understanding Your Anxiety</h4><p>Based on your responses, you may be experiencing symptoms of anxiety. This is a common experience, and there are many effective ways to manage these feelings.</p><h4>Immediate Strategies</h4><ul><li>Practice deep belly breathing (4-7-8 technique)</li><li>Use the 5-4-3-2-1 grounding exercise</li><li>Reduce caffeine and stimulant intake</li><li>Maintain a consistent sleep schedule</li><li>Engage in regular physical activity</li></ul>",
+          selfCareStrategies: []
         },
         totalScore: Object.values(categoryScores).reduce((sum, score) => sum + score, 0),
-        maxScore: anxietyQuestions.length * 3
+        maxScore: anxietyQuestions.length * 4
       });
       setShowResults(true);
     } finally {
@@ -194,69 +307,38 @@ const AnxietyAssessmentCalculator = () => {
     answers.forEach((answer, index) => {
       const score = answer.answer || 0;
       const category = anxietyQuestions[index].category;
-      scores[category] += score;
+      if (scores.hasOwnProperty(category)) {
+        scores[category] += score;
+      }
     });
 
     return scores;
   };
 
   const getAIRecommendations = async (categoryScores) => {
-    try {
-      const prompt = `You are a compassionate mental health educator specializing in anxiety. Based on the following anxiety assessment results, provide thoughtful, supportive insights. Focus on validation, normalization of anxiety responses, and gentle suggestions for self-care and management.
+    const prompt = `You are a supportive mental health educator. Based on the following anxiety assessment results, provide helpful, compassionate insights. Focus on normalization, practical coping tools, and gentle encouragement.
 
 Assessment Results:
-- Total Score: ${Object.values(categoryScores).reduce((sum, score) => sum + score, 0)} out of 63
-- Psychological Symptoms Score: ${categoryScores.psychological}/15
-- Physical Symptoms Score: ${categoryScores.physical}/15
-- Behavioral Changes Score: ${categoryScores.behavioral}/15
-- Social Impact Score: ${categoryScores.social}/9
-- Cognitive Patterns Score: ${categoryScores.cognitive}/9
+- Total Score: ${Object.values(categoryScores).reduce((sum, score) => sum + score, 0)} out of 80
+- Physical Symptoms: ${categoryScores.physical}/20
+- Cognitive Symptoms: ${categoryScores.cognitive}/20
+- Behavioral Symptoms: ${categoryScores.behavioral}/20
+- Emotional Symptoms: ${categoryScores.emotional}/20
 
-${additionalInfo ? `Additional Information: ${additionalInfo}` : 'No additional information provided.'}
+${additionalInfo ? `Additional Context: ${additionalInfo}` : 'No additional information provided.'}
 
 Please provide:
-1. A brief, compassionate interpretation of these results
-2. Validation of the person's experiences with anxiety
-3. 5-7 specific self-care strategies based on their highest scoring categories
-4. A gentle reminder about professional support if needed
-5. An encouraging message about managing anxiety and building resilience
+1. A brief, supportive interpretation of these results
+2. 5-7 specific anxiety management techniques tailored to their scores
+3. A section on when to seek professional help
+4. An encouraging closing message
 
-Format your response with clear sections: "Understanding Your Results", "Personalized Self-Care Strategies", and "Moving Forward".
-Keep your response under 500 words and use a warm, supportive tone.`;
+Format your response with clear sections: "Understanding Your Anxiety", "Coping Strategies", and "Moving Forward".
+Keep your response under 500 words and use a calm, reassuring tone.`;
 
-      const apiKey = import.meta.env.VITE_GEMINI_API || import.meta.env.GEMINI_API;
+    const fallback = `<h4>Understanding Your Anxiety</h4><p>Based on your responses, you may be experiencing symptoms of anxiety. This is a common experience, and there are many effective ways to manage these feelings.</p><h4>Coping Strategies</h4><ul><li>Practice deep belly breathing (4-7-8 technique)</li><li>Use the 5-4-3-2-1 grounding exercise</li><li>Reduce caffeine and stimulant intake</li><li>Maintain a consistent sleep schedule</li><li>Engage in regular physical activity</li></ul><h4>Moving Forward</h4><p>If these feelings persist and interfere with your daily life, consider speaking with a healthcare professional or counselor. You don't have to navigate this alone.</p>`;
 
-      if (!apiKey) {
-        throw new Error('Gemini API key is not configured');
-      }
-
-      const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          contents: [{
-            parts: [{ text: prompt }]
-          }]
-        })
-      });
-
-      if (!response.ok) {
-        throw new Error('API request failed');
-      }
-
-      const data = await response.json();
-      const aiResponse = data.candidates[0].content.parts[0].text;
-      
-      return {
-        interpretation: aiResponse,
-        selfCareStrategies: []
-      };
-    } catch (error) {
-      console.error('Error getting AI recommendations:', error);
-      throw error;
-    }
+    return await callGeminiAI(prompt, "Anxiety Assessment Calculator", fallback);
   };
 
   const loadPDFLibraries = () => {
@@ -658,8 +740,7 @@ Keep your response under 500 words and use a warm, supportive tone.`;
                   <h3>Personalized Insights & Recommendations</h3>
                   <div className="anxiety-ai-analysis">
                     {assessmentResults.recommendations.interpretation && (
-                      <div className="anxiety-ai-response">
-                        {assessmentResults.recommendations.interpretation}
+                      <div className="anxiety-ai-response" dangerouslySetInnerHTML={{ __html: assessmentResults.recommendations.interpretation }}>
                       </div>
                     )}
                   </div>
@@ -826,122 +907,6 @@ Keep your response under 500 words and use a warm, supportive tone.`;
   );
 };
 
-// Anxiety Assessment Questions
-const anxietyQuestions = [
-  // Psychological Symptoms (0-4)
-  {
-    question: "Over the last 2 weeks, how often have you felt nervous, anxious, or on edge?",
-    category: "psychological",
-    weight: 1.0
-  },
-  {
-    question: "Over the last 2 weeks, how often have you been unable to stop or control worrying?",
-    category: "psychological",
-    weight: 1.0
-  },
-  {
-    question: "Over the last 2 weeks, how often have you worried too much about different things?",
-    category: "psychological",
-    weight: 1.0
-  },
-  {
-    question: "Over the last 2 weeks, how often have you had trouble relaxing?",
-    category: "psychological",
-    weight: 1.0
-  },
-  {
-    question: "Over the last 2 weeks, how often have you felt afraid, as if something awful might happen?",
-    category: "psychological",
-    weight: 1.0
-  },
-
-  // Physical Symptoms (5-9)
-  {
-    question: "Over the last 2 weeks, how often have you experienced a racing heart or palpitations?",
-    category: "physical",
-    weight: 1.0
-  },
-  {
-    question: "Over the last 2 weeks, how often have you experienced shortness of breath or difficulty breathing?",
-    category: "physical",
-    weight: 1.0
-  },
-  {
-    question: "Over the last 2 weeks, how often have you experienced muscle tension or body aches?",
-    category: "physical",
-    weight: 1.0
-  },
-  {
-    question: "Over the last 2 weeks, how often have you experienced sweating, hot flashes, or chills?",
-    category: "physical",
-    weight: 1.0
-  },
-  {
-    question: "Over the last 2 weeks, how often have you experienced sleep problems (difficulty falling asleep, staying asleep, or restless sleep)?",
-    category: "physical",
-    weight: 1.0
-  },
-
-  // Behavioral Changes (10-14)
-  {
-    question: "Over the last 2 weeks, how often have you avoided situations that might trigger anxiety?",
-    category: "behavioral",
-    weight: 1.0
-  },
-  {
-    question: "Over the last 2 weeks, how often have you found yourself unable to sit still or feeling restless?",
-    category: "behavioral",
-    weight: 1.0
-  },
-  {
-    question: "Over the last 2 weeks, how often have you experienced changes in appetite (eating too much or too little)?",
-    category: "behavioral",
-    weight: 1.0
-  },
-  {
-    question: "Over the last 2 weeks, how often have you relied on substances (alcohol, medication, etc.) to manage anxiety?",
-    category: "behavioral",
-    weight: 1.0
-  },
-  {
-    question: "Over the last 2 weeks, how often have you engaged in repetitive behaviors to reduce anxiety?",
-    category: "behavioral",
-    weight: 1.0
-  },
-
-  // Social Impact (15-17)
-  {
-    question: "Over the last 2 weeks, how often has anxiety interfered with your work or academic performance?",
-    category: "social",
-    weight: 1.0
-  },
-  {
-    question: "Over the last 2 weeks, how often has anxiety affected your relationships with family, friends, or colleagues?",
-    category: "social",
-    weight: 1.0
-  },
-  {
-    question: "Over the last 2 weeks, how often have you avoided social situations due to anxiety?",
-    category: "social",
-    weight: 1.0
-  },
-
-  // Cognitive Patterns (18-20)
-  {
-    question: "Over the last 2 weeks, how often have you experienced difficulty concentrating due to worry?",
-    category: "cognitive",
-    weight: 1.0
-  },
-  {
-    question: "Over the last 2 weeks, how often have you experienced intrusive or unwanted thoughts?",
-    category: "cognitive",
-    weight: 1.0
-  },
-  {
-    question: "Over the last 2 weeks, how often have you found yourself overthinking or ruminating on problems?",
-    category: "cognitive",
-    weight: 1.0
-  }
-];
 
 export default AnxietyAssessmentCalculator;
+

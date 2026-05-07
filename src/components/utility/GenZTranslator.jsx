@@ -5,6 +5,7 @@ import ContentSection from '../tool/ContentSection';
 import FAQSection from '../tool/FAQSection';
 import TableOfContents from '../tool/TableOfContents';
 import FeedbackForm from '../tool/FeedbackForm';
+import { callGeminiAI } from '../../utils/aiService';
 import '../../assets/css/utility/genz-translator.css';
 import { toolCategories } from '../../data/toolCategories';
 
@@ -18,40 +19,17 @@ const GenZTranslator = () => {
 
   const typingTimerRef = useRef(null);
 
-  const API_KEY = import.meta.env.VITE_GEMINI_API || import.meta.env.GEMINI_API;
-  const API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent';
 
   const translateWithGemini = async (text, toGenZ) => {
-    if (!API_KEY) {
-      return "Error: API Key not found. Please check your .env file.";
-    }
+    const prompt = toGenZ 
+      ? `Translate the following formal or standard English text into modern Gen Z slang. Make it sound authentic, using current terms like 'no cap', 'fr fr', 'slay', 'bestie', 'rizz', etc. Keep the original meaning but change the vibe completely.\n\nText: "${text}"`
+      : `Translate the following Gen Z slang into clear, professional, standard English. Explain any specific slang terms used if they are complex.\n\nText: "${text}"`;
 
-    const prompt = toGenZ
-      ? `Convert this text to Gen Z style language. Give me ONE direct translation only. Make it sound authentic with modern Gen Z slang (no cap, bet, fr, bussin, rizz, etc), abbreviations, and occasional emojis. Keep the core meaning but make it very casual and Gen Z-like. Do not provide multiple options or explanations, just give me the converted text: "${text}"`
-      : `Convert this Gen Z style text to standard, formal English. Give me ONE direct translation only. Remove slang, emojis, and informal abbreviations while maintaining the original meaning. Make it clear and professional. Do not provide multiple options or explanations, just give me the converted text: "${text}"`;
+    const fallback = toGenZ
+      ? "I'm sorry, I couldn't translate that to Gen Z slang right now. (AI Service Offline)"
+      : "I'm sorry, I couldn't translate that to standard English right now. (AI Service Offline)";
 
-    try {
-      const response = await fetch(`${API_URL}?key=${API_KEY}`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          contents: [{ parts: [{ text: prompt }] }]
-        })
-      });
-
-      if (!response.ok) {
-        const errorData = await response.text();
-        throw new Error(`API request failed: ${response.status} ${errorData}`);
-      }
-
-      const data = await response.json();
-      return data.candidates && data.candidates[0] && data.candidates[0].content
-        ? data.candidates[0].content.parts[0].text
-        : "Translation error.";
-    } catch (error) {
-      console.error("Gemini API Error:", error);
-      return "Translation service unavailable.";
-    }
+    return await callGeminiAI(prompt, "Gen Z Translator", fallback);
   };
 
   // Debounced translation or manual trigger

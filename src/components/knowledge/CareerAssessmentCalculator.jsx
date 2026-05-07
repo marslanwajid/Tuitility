@@ -5,6 +5,7 @@ import ContentSection from '../tool/ContentSection';
 import FAQSection from '../tool/FAQSection';
 import TableOfContents from '../tool/TableOfContents';
 import FeedbackForm from '../tool/FeedbackForm';
+import { callGeminiAI } from '../../utils/aiService';
 import '../../assets/css/knowledge/career-assessment-calculator.css';
 
 const CareerAssessmentCalculator = () => {
@@ -219,26 +220,18 @@ const CareerAssessmentCalculator = () => {
   };
 
   const getAIRecommendations = async (categoryScores) => {
-    try {
-      const interestsText = selectedInterests.length > 0 
-        ? `\nSelected Interest Areas: ${selectedInterests.join(', ')}`
-        : '';
+    const interestsText = selectedInterests.length > 0 
+      ? `\nSelected Interest Areas: ${selectedInterests.join(', ')}`
+      : '';
 
-      const prompt = `Based on the following career assessment scores and interests, provide 4-5 specific career recommendations with detailed explanations:
+    const prompt = `Based on the following career assessment scores and interests, provide 4-5 specific career recommendations with detailed explanations:
 
 Technical Skills: ${categoryScores.technical}/100
 Creative Thinking: ${categoryScores.creative}/100
 Leadership Potential: ${categoryScores.leadership}/100
 Interpersonal Skills: ${categoryScores.interpersonal}/100${interestsText}
 
-Please recommend careers that match these scores and interests, focusing on modern, in-demand roles including:
-- Technology: Software Engineer, AI/ML Engineer, Data Scientist, Cybersecurity Analyst, Cloud Architect, DevOps Engineer, Blockchain Developer, Game Developer, Mobile App Developer, Robotics Engineer, IoT Developer, AR/VR Developer
-- Creative: Video Editor, Motion Graphics Designer, UI/UX Designer, Content Creator, Digital Marketing Specialist, Social Media Manager, Photographer, Videographer, Animator, Illustrator, Art Director
-- Business: Project Manager, Product Manager, Business Analyst, Management Consultant, Strategy Consultant, Business Development Manager, Operations Manager
-- Media: Content Creator, Podcast Producer, Journalist, Broadcast Producer, Film Director, Screenwriter, Streaming Content Creator, Media Planner, Social Media Influencer
-- Arts: Fine Artist, Digital Artist, Concept Artist, Fashion Designer, Interior Designer, Architect
-- And other relevant modern careers
-
+Please recommend careers that match these scores and interests, focusing on modern, in-demand roles.
 For each career, provide:
 1. Specific job title
 2. Match percentage (80-95% for top matches)
@@ -264,57 +257,27 @@ Format the response as JSON with the following structure:
 
 IMPORTANT: Return ONLY valid JSON, no additional text or formatting.`;
 
-      const apiKey = import.meta.env.VITE_GEMINI_API || import.meta.env.GEMINI_API;
+    const fallbackData = getBasicRecommendations(categoryScores);
+    const fallbackString = JSON.stringify(fallbackData);
 
-      if (!apiKey) {
-        throw new Error('Gemini API key is not configured');
-      }
+    const aiResponse = await callGeminiAI(prompt, "Career Assessment Calculator", fallbackString);
 
-      const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          contents: [{
-            parts: [{
-              text: prompt
-            }]
-          }]
-        })
-      });
-
-      if (!response.ok) {
-        throw new Error('API request failed');
-      }
-
-      const data = await response.json();
-      const aiResponse = data.candidates[0].content.parts[0].text;
-      
+    try {
       let cleanResponse = aiResponse.trim();
-      
       if (cleanResponse.startsWith('```json')) {
         cleanResponse = cleanResponse.replace(/```json\s*/, '').replace(/\s*```$/, '');
       } else if (cleanResponse.startsWith('```')) {
         cleanResponse = cleanResponse.replace(/```\s*/, '').replace(/\s*```$/, '');
       }
       
-      try {
-        const parsedResponse = JSON.parse(cleanResponse);
-        
-        if (parsedResponse.careers && Array.isArray(parsedResponse.careers)) {
-          return parsedResponse;
-        } else {
-          throw new Error('Invalid response structure');
-        }
-      } catch (parseError) {
-        console.error('JSON parsing failed:', parseError);
-        return getBasicRecommendations(categoryScores);
+      const parsedResponse = JSON.parse(cleanResponse);
+      if (parsedResponse.careers && Array.isArray(parsedResponse.careers)) {
+        return parsedResponse;
       }
-      
-    } catch (error) {
-      console.error('AI API Error:', error);
-      return getBasicRecommendations(categoryScores);
+      return fallbackData;
+    } catch (parseError) {
+      console.error('JSON parsing failed for Career Assessment:', parseError);
+      return fallbackData;
     }
   };
 

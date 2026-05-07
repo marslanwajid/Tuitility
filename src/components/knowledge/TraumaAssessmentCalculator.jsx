@@ -5,7 +5,121 @@ import ContentSection from '../tool/ContentSection';
 import FAQSection from '../tool/FAQSection';
 import TableOfContents from '../tool/TableOfContents';
 import FeedbackForm from '../tool/FeedbackForm';
+import { callGeminiAI, formatAIResponse } from '../../utils/aiService';
 import '../../assets/css/knowledge/trauma-assessment-calculator.css';
+
+// Trauma Assessment Questions
+const traumaQuestions = [
+  // Hyperarousal & Anxiety (0-3)
+  {
+    question: "I feel constantly on edge or alert for danger.",
+    category: "anxiety",
+    weight: 1.0
+  },
+  {
+    question: "I am easily startled by unexpected noises or movements.",
+    category: "anxiety",
+    weight: 1.0
+  },
+  {
+    question: "I have difficulty falling or staying asleep.",
+    category: "anxiety",
+    weight: 1.0
+  },
+  {
+    question: "I experience sudden feelings of anxiety or panic.",
+    category: "anxiety",
+    weight: 1.0
+  },
+
+  // Intrusive Thoughts & Memories (4-7)
+  {
+    question: "I have unwanted memories of distressing events that come into my mind suddenly.",
+    category: "intrusive",
+    weight: 1.0
+  },
+  {
+    question: "I experience flashbacks where I feel like I'm reliving a distressing event.",
+    category: "intrusive",
+    weight: 1.0
+  },
+  {
+    question: "I have nightmares related to difficult experiences.",
+    category: "intrusive",
+    weight: 1.0
+  },
+  {
+    question: "Certain triggers (sounds, smells, situations) cause intense emotional or physical reactions.",
+    category: "intrusive",
+    weight: 1.0
+  },
+
+  // Avoidance Behaviors (8-11)
+  {
+    question: "I avoid people, places, or activities that might remind me of distressing experiences.",
+    category: "avoidance",
+    weight: 1.0
+  },
+  {
+    question: "I find it difficult to talk about certain past experiences.",
+    category: "avoidance",
+    weight: 1.0
+  },
+  {
+    question: "I try to push away thoughts or feelings related to difficult experiences.",
+    category: "avoidance",
+    weight: 1.0
+  },
+  {
+    question: "I feel detached or disconnected from others.",
+    category: "avoidance",
+    weight: 1.0
+  },
+
+  // Negative Mood & Cognition (12-15)
+  {
+    question: "I have persistent negative beliefs about myself, others, or the world.",
+    category: "negative",
+    weight: 1.0
+  },
+  {
+    question: "I blame myself for bad things that have happened.",
+    category: "negative",
+    weight: 1.0
+  },
+  {
+    question: "I experience persistent negative emotions (fear, horror, anger, guilt, or shame).",
+    category: "negative",
+    weight: 1.0
+  },
+  {
+    question: "I have difficulty experiencing positive emotions like happiness or love.",
+    category: "negative",
+    weight: 1.0
+  },
+
+  // Functional Impairment (16-19)
+  {
+    question: "My symptoms interfere with my ability to work or study.",
+    category: "functional",
+    weight: 1.0
+  },
+  {
+    question: "My symptoms affect my relationships with family or friends.",
+    category: "functional",
+    weight: 1.0
+  },
+  {
+    question: "I have difficulty concentrating or remembering things.",
+    category: "functional",
+    weight: 1.0
+  },
+  {
+    question: "I engage in risky or self-destructive behavior.",
+    category: "functional",
+    weight: 1.0
+  }
+];
 
 const TraumaAssessmentCalculator = () => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -138,7 +252,7 @@ const TraumaAssessmentCalculator = () => {
       setIsLoading(true);
       setTimeout(() => {
         analyzeResults(newAnswers);
-      }, 2000);
+      }, 1000);
     }
   };
 
@@ -149,7 +263,10 @@ const TraumaAssessmentCalculator = () => {
       
       setAssessmentResults({
         categoryScores,
-        recommendations,
+        recommendations: {
+          interpretation: recommendations,
+          selfCareStrategies: []
+        },
         totalScore: Object.values(categoryScores).reduce((sum, score) => sum + score, 0),
         maxScore: traumaQuestions.length * 4
       });
@@ -157,19 +274,12 @@ const TraumaAssessmentCalculator = () => {
       setShowResults(true);
     } catch (error) {
       console.error('Error analyzing results:', error);
-      // Fallback results without AI
       const categoryScores = calculateCategoryScores(answers);
       setAssessmentResults({
         categoryScores,
         recommendations: {
-          interpretation: "Based on your responses, you may be experiencing some trauma-related symptoms. Consider speaking with a mental health professional for support.",
-          selfCareStrategies: [
-            "Practice grounding techniques when feeling overwhelmed",
-            "Establish a consistent sleep routine",
-            "Engage in gentle physical movement",
-            "Connect with supportive people",
-            "Consider journaling to process feelings"
-          ]
+          interpretation: "<h4>Understanding Your Results</h4><p>Based on your responses, you may be experiencing some trauma-related symptoms. Consider speaking with a mental health professional for support.</p><h4>Self-Care Strategies</h4><ul><li>Practice grounding techniques when feeling overwhelmed</li><li>Establish a consistent sleep routine</li><li>Engage in gentle physical movement</li><li>Connect with supportive people</li><li>Consider journaling to process feelings</li></ul>",
+          selfCareStrategies: []
         },
         totalScore: Object.values(categoryScores).reduce((sum, score) => sum + score, 0),
         maxScore: traumaQuestions.length * 4
@@ -199,8 +309,7 @@ const TraumaAssessmentCalculator = () => {
   };
 
   const getAIRecommendations = async (categoryScores) => {
-    try {
-      const prompt = `You are a compassionate trauma-informed mental health educator. Based on the following trauma assessment results, provide thoughtful, supportive insights. Focus on validation, normalization of trauma responses, and gentle suggestions for self-care and healing.
+    const prompt = `You are a compassionate trauma-informed mental health educator. Based on the following trauma assessment results, provide thoughtful, supportive insights. Focus on validation, normalization of trauma responses, and gentle suggestions for self-care and healing.
 
 Assessment Results:
 - Total Score: ${Object.values(categoryScores).reduce((sum, score) => sum + score, 0)} out of 80
@@ -219,41 +328,12 @@ Please provide:
 4. A gentle reminder about professional support if needed
 5. An encouraging message about healing and resilience
 
-Keep your response under 500 words and use a warm, supportive tone. Format with clear sections: "Understanding Your Results", "Personalized Self-Care Strategies", and "Moving Forward".`;
+Format your response with clear sections: "Understanding Your Results", "Personalized Self-Care Strategies", and "Moving Forward".
+Keep your response under 500 words and use a warm, supportive tone.`;
 
-      const apiKey = import.meta.env.VITE_GEMINI_API || import.meta.env.GEMINI_API;
+    const fallback = `<h4>Understanding Your Results</h4><p>Based on your responses, you may be experiencing some trauma-related symptoms. Consider speaking with a mental health professional for support.</p><h4>Personalized Self-Care Strategies</h4><ul><li>Practice grounding techniques when feeling overwhelmed</li><li>Establish a consistent sleep routine</li><li>Engage in gentle physical movement</li><li>Connect with supportive people</li><li>Consider journaling to process feelings</li></ul><h4>Moving Forward</h4><p>Healing from trauma takes time and patience with yourself. Remember that seeking professional help is a sign of strength, not weakness.</p>`;
 
-      if (!apiKey) {
-        throw new Error('Gemini API key is not configured');
-      }
-
-      const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          contents: [{
-            parts: [{ text: prompt }]
-          }]
-        })
-      });
-
-      if (!response.ok) {
-        throw new Error('API request failed');
-      }
-
-      const data = await response.json();
-      const aiResponse = data.candidates[0].content.parts[0].text;
-      
-      return {
-        interpretation: aiResponse,
-        selfCareStrategies: []
-      };
-    } catch (error) {
-      console.error('Error getting AI recommendations:', error);
-      throw error;
-    }
+    return await callGeminiAI(prompt, "Trauma Assessment Calculator", fallback);
   };
 
   const loadPDFLibraries = () => {
@@ -656,8 +736,7 @@ Keep your response under 500 words and use a warm, supportive tone. Format with 
                   <h3>Personalized Insights & Recommendations</h3>
                   <div className="trauma-ai-analysis">
                     {assessmentResults.recommendations.interpretation && (
-                      <div className="trauma-ai-response">
-                        {assessmentResults.recommendations.interpretation}
+                      <div className="trauma-ai-response" dangerouslySetInnerHTML={{ __html: assessmentResults.recommendations.interpretation }}>
                       </div>
                     )}
                   </div>
@@ -824,117 +903,5 @@ Keep your response under 500 words and use a warm, supportive tone. Format with 
   );
 };
 
-// Trauma Assessment Questions
-const traumaQuestions = [
-  // Hyperarousal & Anxiety (0-3)
-  {
-    question: "I feel constantly on edge or alert for danger.",
-    category: "anxiety",
-    weight: 1.0
-  },
-  {
-    question: "I am easily startled by unexpected noises or movements.",
-    category: "anxiety",
-    weight: 1.0
-  },
-  {
-    question: "I have difficulty falling or staying asleep.",
-    category: "anxiety",
-    weight: 1.0
-  },
-  {
-    question: "I experience sudden feelings of anxiety or panic.",
-    category: "anxiety",
-    weight: 1.0
-  },
-
-  // Intrusive Thoughts & Memories (4-7)
-  {
-    question: "I have unwanted memories of distressing events that come into my mind suddenly.",
-    category: "intrusive",
-    weight: 1.0
-  },
-  {
-    question: "I experience flashbacks where I feel like I'm reliving a distressing event.",
-    category: "intrusive",
-    weight: 1.0
-  },
-  {
-    question: "I have nightmares related to difficult experiences.",
-    category: "intrusive",
-    weight: 1.0
-  },
-  {
-    question: "Certain triggers (sounds, smells, situations) cause intense emotional or physical reactions.",
-    category: "intrusive",
-    weight: 1.0
-  },
-
-  // Avoidance Behaviors (8-11)
-  {
-    question: "I avoid people, places, or activities that might remind me of distressing experiences.",
-    category: "avoidance",
-    weight: 1.0
-  },
-  {
-    question: "I find it difficult to talk about certain past experiences.",
-    category: "avoidance",
-    weight: 1.0
-  },
-  {
-    question: "I try to push away thoughts or feelings related to difficult experiences.",
-    category: "avoidance",
-    weight: 1.0
-  },
-  {
-    question: "I feel detached or disconnected from others.",
-    category: "avoidance",
-    weight: 1.0
-  },
-
-  // Negative Mood & Cognition (12-15)
-  {
-    question: "I have persistent negative beliefs about myself, others, or the world.",
-    category: "negative",
-    weight: 1.0
-  },
-  {
-    question: "I blame myself for bad things that have happened.",
-    category: "negative",
-    weight: 1.0
-  },
-  {
-    question: "I experience persistent negative emotions (fear, horror, anger, guilt, or shame).",
-    category: "negative",
-    weight: 1.0
-  },
-  {
-    question: "I have difficulty experiencing positive emotions like happiness or love.",
-    category: "negative",
-    weight: 1.0
-  },
-
-  // Functional Impairment (16-19)
-  {
-    question: "My symptoms interfere with my ability to work or study.",
-    category: "functional",
-    weight: 1.0
-  },
-  {
-    question: "My symptoms affect my relationships with family or friends.",
-    category: "functional",
-    weight: 1.0
-  },
-  {
-    question: "I have difficulty concentrating or remembering things.",
-    category: "functional",
-    weight: 1.0
-  },
-  {
-    question: "I engage in risky or self-destructive behavior.",
-    category: "functional",
-    weight: 1.0
-  }
-];
-
 export default TraumaAssessmentCalculator;
+

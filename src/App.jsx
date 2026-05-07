@@ -12,6 +12,8 @@ import CookieBanner from './components/CookieBanner'
 import ContactPage from './components/ContactPage'
 import PrivacyPolicyPage from './components/PrivacyPolicyPage'
 import TermsPage from './components/TermsPage'
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 // Lazily import pages
 const MathCalculator = lazy(() => import('./pages/math/MathCalculator'))
@@ -332,6 +334,7 @@ const App = () => {
         </Routes>
       </Suspense>
       <CookieBanner />
+      <ToastContainer position="top-right" autoClose={5000} />
       <Footer />
     </>
   )

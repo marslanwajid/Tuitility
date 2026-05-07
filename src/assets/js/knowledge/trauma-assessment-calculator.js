@@ -1,8 +1,8 @@
 // Trauma Assessment Calculator JavaScript
 // This file contains the core logic for the trauma assessment functionality
 
-// Gemini API configuration
-const GEMINI_API_KEY = import.meta.env.VITE_GEMINI_API || import.meta.env.GEMINI_API || '';
+// Gemini API configuration (Managed via React component)
+const GEMINI_API_KEY = '';
 const API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent';
 
 // Assessment questions
