@@ -1,11 +1,9 @@
 /**
  * Centralized AI Service for Tuitility
- * Handles Gemini API calls, error reporting, and admin notifications.
+ * Handles Gemini AI calls through a secure server-side proxy to hide API keys.
  */
 
 import { toast } from 'react-toastify';
-
-const API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent';
 
 /**
  * Sends an automated email alert to the administrator when the AI API fails.
@@ -38,46 +36,39 @@ const sendAIAlertEmail = async (toolName, errorMessage) => {
 };
 
 /**
- * Calls the Gemini AI API with the provided prompt.
+ * Calls the secure Gemini AI Proxy endpoint.
  * Falls back to static content on failure and notifies the admin.
  */
 export const callGeminiAI = async (prompt, toolName, fallbackContent) => {
-  const apiKey = import.meta.env.VITE_GEMINI_API || import.meta.env.GEMINI_API;
-
-  if (!apiKey) {
-    const errorMsg = "Gemini API key is not configured in the environment.";
-    console.error(errorMsg);
-    toast.error(`AI Service Error: ${errorMsg}`);
-    await sendAIAlertEmail(toolName, errorMsg);
-    return fallbackContent;
-  }
-
   try {
-    const response = await fetch(`${API_URL}?key=${apiKey}`, {
+    const response = await fetch('/api/gemini', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        contents: [{ parts: [{ text: prompt }] }]
+      body: JSON.stringify({ 
+        prompt,
+        model: 'gemini-2.5-flash' // Using the model verified by user
       })
     });
 
     if (!response.ok) {
-      const errorData = await response.text();
-      const errorMsg = `API Error ${response.status}: ${errorData}`;
-      console.error(errorMsg);
-      toast.warn(`The AI service is currently unavailable. Generating a standard report instead.`);
-      await sendAIAlertEmail(toolName, errorMsg);
+      const errorData = await response.json();
+      const errorMsg = errorData.details || errorData.message || `Status ${response.status}`;
+      
+      console.error(`AI Proxy Error (${toolName}):`, errorMsg);
+      
+      if (response.status === 404) {
+        toast.warn("AI Proxy not found locally. Running with standard report.");
+        console.warn('AI Proxy (/api/gemini) not found. Use "vercel dev" to test AI features locally.');
+      } else {
+        toast.warn(`The AI service is currently unavailable. Generating a standard report instead.`);
+        await sendAIAlertEmail(toolName, errorMsg);
+      }
+      
       return fallbackContent;
     }
 
     const data = await response.json();
-    const resultText = data.candidates?.[0]?.content?.parts?.[0]?.text;
-
-    if (!resultText) {
-      throw new Error("Empty response from AI API");
-    }
-
-    return resultText;
+    return data.text;
   } catch (error) {
     console.error(`AI call failed for ${toolName}:`, error);
     toast.error(`AI Generation Error: ${error.message}`);
