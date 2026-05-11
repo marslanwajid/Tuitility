@@ -1,0 +1,144 @@
+.pdf-editor-container {
+    width: 100%;
+    min-height: 100vh;
+    background: #0f172a;
+    color: white;
+}
+
+.editor-top-toolbar {
+    height: 72px;
+    background: rgba(15, 23, 42, 0.9);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 24px;
+
+    position: sticky;
+    top: 0;
+
+    z-index: 1000;
+
+    backdrop-filter: blur(16px);
+}
+
+.toolbar-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.toolbar-tools,
+.toolbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.tool-btn,
+.apply-btn,
+.upload-btn {
+    height: 42px;
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    background: rgba(255,255,255,0.04);
+
+    color: white;
+
+    border-radius: 12px;
+
+    padding: 0 18px;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.tool-btn:hover,
+.apply-btn:hover,
+.upload-btn:hover {
+    transform: translateY(-1px);
+    background: rgba(255,255,255,0.08);
+}
+
+.tool-btn.active {
+    background: #2563eb;
+}
+
+.editor-pages-scroll {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 40px;
+
+    padding: 40px;
+}
+
+.pdf-page-container {
+    position: relative;
+
+    background: white;
+
+    box-shadow: 0 30px 80px rgba(0,0,0,0.4);
+}
+
+.pdf-page-canvas {
+    width: 100%;
+    height: 100%;
+}
+
+.pdf-text-layer {
+    position: absolute;
+    inset: 0;
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-top: 4px solid #2563eb;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.pdf-overlay-image {
+    position: absolute;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 2px solid rgba(37,99,235,0.7);
+}
+
+.upload-placeholder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: calc(100vh - 72px);
+}
+
+.editor-loading {
+    position: fixed;
+    inset: 0;
+
+    background: rgba(0,0,0,0.6);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: white;
+    font-size: 1.2rem;
+    flex-direction: column;
+}

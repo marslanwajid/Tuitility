@@ -8,7 +8,9 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "generate-sitemap": "node scripts/generate-sitemap.js"
+    "generate-sitemap": "node scripts/generate-sitemap.js",
+    "generate-static-pages": "node scripts/generate-static-pages.js",
+    "build:ssg": "vite build && node scripts/generate-static-pages.js"
   },
   "dependencies": {
     "@google/generative-ai": "^0.24.1",
@@ -38,6 +40,8 @@
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.20",
     "globals": "^16.3.0",
+    "puppeteer": "^24.43.0",
+    "serve": "^14.2.6",
     "vite": "^7.0.4"
   }
 }
