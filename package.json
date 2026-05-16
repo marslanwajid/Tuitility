@@ -5,7 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && node scripts/prerender.mjs",
+    "build:vite": "vite build",
+    "prerender": "node scripts/prerender.mjs",
     "lint": "eslint .",
     "preview": "vite preview",
     "generate-sitemap": "node scripts/generate-sitemap.js",
@@ -16,6 +18,7 @@
     "@google/generative-ai": "^0.24.1",
     "@imgly/background-removal": "^1.7.0",
     "@pdf-lib/fontkit": "^1.1.1",
+    "@unhead/vue": "^3.1.0",
     "browser-image-compression": "^2.0.2",
     "jsqr": "^1.4.0",
     "jszip": "^3.10.1",
@@ -29,7 +32,8 @@
     "react-dom": "^19.1.0",
     "react-katex": "^3.1.0",
     "react-router-dom": "^7.7.1",
-    "react-toastify": "^11.1.0"
+    "react-toastify": "^11.1.0",
+    "vite-ssg": "^28.3.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.30.1",

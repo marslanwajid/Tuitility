@@ -1,8 +1,30 @@
 {
-  "rewrites": [
+  "routes": [
     {
-      "source": "/(.*)",
-      "destination": "/index.html"
+      "src": "/assets/(.*)",
+      "dest": "/assets/$1"
+    },
+    {
+      "src": "/images/(.*)",
+      "dest": "/images/$1"
+    },
+    {
+      "src": "/(robots\\.txt|sitemap\\.xml|llms\\.txt|google[a-z0-9]+\\.html|favicon\\.ico|favicon\\.png)",
+      "dest": "/$1"
+    },
+    {
+      "src": "/(.*)/",
+      "dest": "/$1/index.html",
+      "check": true
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/$1/index.html",
+      "check": true
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
     }
   ]
 }
