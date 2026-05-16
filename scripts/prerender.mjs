@@ -121,8 +121,19 @@ function injectBodyContent(html, seo) {
   
   // Title and Overview
   bodyHtml += `    <h1>${escHtml(c.seoTitle || c.name)}</h1>\n`;
+  
+  if (c.intro) bodyHtml += `    <p>${escHtml(c.intro)}</p>\n`;
+  if (c.detail) bodyHtml += `    <p>${escHtml(c.detail)}</p>\n`;
+
   if (c.overview) {
     c.overview.forEach(p => {
+      bodyHtml += `    <p>${escHtml(p)}</p>\n`;
+    });
+  }
+
+  if (c.functionalitySummary) {
+    bodyHtml += `    <h2>Functionality</h2>\n`;
+    c.functionalitySummary.forEach(p => {
       bodyHtml += `    <p>${escHtml(p)}</p>\n`;
     });
   }
@@ -137,14 +148,90 @@ function injectBodyContent(html, seo) {
     bodyHtml += `    </ol>\n`;
   }
 
-  // Benefits / Capabilities
+  // Capabilities
   if (c.capabilities && c.capabilities.length > 0) {
-    bodyHtml += `    <h2>Key Features</h2>\n`;
+    bodyHtml += `    <h2>Key Features & Capabilities</h2>\n`;
     bodyHtml += `    <ul>\n`;
     c.capabilities.forEach(cap => {
       bodyHtml += `      <li>${escHtml(cap)}</li>\n`;
     });
     bodyHtml += `    </ul>\n`;
+  }
+
+  // Benefits
+  if (c.benefits && c.benefits.length > 0) {
+    bodyHtml += `    <h2>Benefits</h2>\n`;
+    bodyHtml += `    <ul>\n`;
+    c.benefits.forEach(ben => {
+      bodyHtml += `      <li>${escHtml(ben)}</li>\n`;
+    });
+    bodyHtml += `    </ul>\n`;
+  }
+
+  // When to Use
+  if (c.whenToUse && c.whenToUse.length > 0) {
+    bodyHtml += `    <h2>When to Use</h2>\n`;
+    c.whenToUse.forEach(p => {
+      bodyHtml += `    <p>${escHtml(p)}</p>\n`;
+    });
+  }
+
+  // Use Cases
+  if (c.useCases && c.useCases.length > 0) {
+    bodyHtml += `    <h2>Use Cases</h2>\n`;
+    bodyHtml += `    <ul>\n`;
+    c.useCases.forEach(uc => {
+      bodyHtml += `      <li>${escHtml(uc)}</li>\n`;
+    });
+    bodyHtml += `    </ul>\n`;
+  }
+
+  // Audience
+  if (c.audience && c.audience.length > 0) {
+    bodyHtml += `    <h2>Target Audience</h2>\n`;
+    bodyHtml += `    <ul>\n`;
+    c.audience.forEach(aud => {
+      bodyHtml += `      <li>${escHtml(aud)}</li>\n`;
+    });
+    bodyHtml += `    </ul>\n`;
+  }
+
+  // Reasons
+  if (c.reasons && c.reasons.length > 0) {
+    bodyHtml += `    <h2>Why Use This Tool</h2>\n`;
+    bodyHtml += `    <ul>\n`;
+    c.reasons.forEach(rsn => {
+      bodyHtml += `      <li>${escHtml(rsn)}</li>\n`;
+    });
+    bodyHtml += `    </ul>\n`;
+  }
+
+  // Tips
+  if (c.tips && c.tips.length > 0) {
+    bodyHtml += `    <h2>Pro Tips</h2>\n`;
+    bodyHtml += `    <ul>\n`;
+    c.tips.forEach(tip => {
+      bodyHtml += `      <li>${escHtml(tip)}</li>\n`;
+    });
+    bodyHtml += `    </ul>\n`;
+  }
+
+  // Mistakes
+  if (c.mistakes && c.mistakes.length > 0) {
+    bodyHtml += `    <h2>Common Mistakes to Avoid</h2>\n`;
+    bodyHtml += `    <ul>\n`;
+    c.mistakes.forEach(mis => {
+      bodyHtml += `      <li>${escHtml(mis)}</li>\n`;
+    });
+    bodyHtml += `    </ul>\n`;
+  }
+
+  // Search Intent
+  if (c.searchIntent && c.searchIntent.length > 0) {
+    bodyHtml += `    <h2>Search Intent</h2>\n`;
+    c.searchIntent.forEach(si => {
+      bodyHtml += `    <p>${escHtml(si)}</p>\n`;
+    });
   }
 
   // FAQs
@@ -156,6 +243,16 @@ function injectBodyContent(html, seo) {
       bodyHtml += `      <p>${escHtml(faq.answer)}</p>\n`;
       bodyHtml += `    </div>\n`;
     });
+  }
+
+  // Related Tools
+  if (c.relatedTools && c.relatedTools.length > 0) {
+    bodyHtml += `    <h2>Related Tools</h2>\n`;
+    bodyHtml += `    <ul>\n`;
+    c.relatedTools.forEach(t => {
+      bodyHtml += `      <li><a href="${t.url}">${escHtml(t.name)}</a> - ${escHtml(t.desc)}</li>\n`;
+    });
+    bodyHtml += `    </ul>\n`;
   }
 
   // Categories / Priority tools (for category pages)
