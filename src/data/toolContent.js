@@ -1,6 +1,6 @@
-import { allTools } from './allTools';
-import { SITE_NAME, SITE_URL } from './siteConfig';
-import { toolCategories } from './toolCategories';
+import { allTools } from './allTools.js';
+import { SITE_NAME, SITE_URL } from './siteConfig.js';
+import { toolCategories } from './toolCategories.js';
 
 const CATEGORY_PLAYBOOK = {
   Math: {
