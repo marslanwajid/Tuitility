@@ -1,27 +1,119 @@
 /**
- * Tuitility Pre-render Script — Full Content Injection
- * ─────────────────────────────────────────────────────
- * Run after `vite build`:  node scripts/prerender.mjs
+ * Tuitility Full Pre-render Script
+ * Run after `vite build`: node scripts/prerender.mjs
  *
- * For every route this script:
- *  1. Injects correct <title>, <meta>, <canonical>, JSON-LD into <head>
- *  2. Injects a fully crawlable <div id="ssg-content"> BEFORE <div id="root">
- *     containing: overview, how-to steps, capabilities, FAQs, related tools
- *     — all as real HTML that Google reads immediately, no JS needed.
- *  3. React mounts into #root normally on top — users see zero difference.
+ * Reads each tool's real .jsx component, extracts ContentSection text,
+ * FAQs, formulas, and internal links, then injects everything as
+ * crawlable HTML before <div id="root"> in each route's index.html.
  */
-
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const DIST = path.resolve(__dirname, '../dist');
+const ROOT = path.resolve(__dirname, '..');
+const DIST = path.resolve(ROOT, 'dist');
+const SRC  = path.resolve(ROOT, 'src');
 
 const SITE_NAME = 'Tuitility';
-const SITE_URL = 'https://tuitility.vercel.app';
+const SITE_URL  = 'https://tuitility.vercel.app';
 
-// ─── All Tools ────────────────────────────────────────────────────────────────
+// Route → component file (relative to src/)
+const ROUTE_COMPONENT_MAP = {
+  '/math/calculators/fraction-calculator':               'components/math/FractionCalculator.jsx',
+  '/math/calculators/percentage-calculator':             'components/math/PercentageCalculator.jsx',
+  '/math/calculators/decimal-to-fraction-calculator':    'components/math/DecimalToFractionCalculator.jsx',
+  '/math/calculators/lcm-calculator':                    'components/math/LCMCalculator.jsx',
+  '/math/calculators/binary-calculator':                 'components/math/BinaryCalculator.jsx',
+  '/math/calculators/lcd-calculator':                    'components/math/LCDCalculator.jsx',
+  '/math/calculators/comparing-fractions-calculator':    'components/math/ComparingFractionsCalculator.jsx',
+  '/math/calculators/decimal-calculator':                'components/math/DecimalCalculator.jsx',
+  '/math/calculators/comparing-decimals-calculator':     'components/math/ComparingDecimalsCalculator.jsx',
+  '/math/calculators/fraction-to-percent-calculator':    'components/math/FractionToPercentCalculator.jsx',
+  '/math/calculators/improper-fraction-to-mixed-calculator': 'components/math/ImproperFractionToMixedCalculator.jsx',
+  '/math/calculators/percent-to-fraction-calculator':    'components/math/PercentToFractionCalculator.jsx',
+  '/math/calculators/sse-calculator':                    'components/math/SSECalculator.jsx',
+  '/math/calculators/derivative-calculator':             'components/math/DerivativeCalculator.jsx',
+  '/math/calculators/integral-calculator':               'components/math/IntegralCalculator.jsx',
+  '/finance/calculators/mortgage-calculator':            'components/finance/MortgageCalculator.jsx',
+  '/finance/calculators/amortization-calculator':        'components/finance/AmortizationCalculator.jsx',
+  '/finance/calculators/loan-calculator':                'components/finance/LoanCalculator.jsx',
+  '/finance/calculators/currency-calculator':            'components/finance/CurrencyCalculator.jsx',
+  '/finance/calculators/house-affordability-calculator': 'components/finance/HouseAffordabilityCalculator.jsx',
+  '/finance/calculators/compound-interest-calculator':   'components/finance/CompoundInterestCalculator.jsx',
+  '/finance/calculators/roi-calculator':                 'components/finance/ROICalculator.jsx',
+  '/finance/calculators/business-loan-calculator':       'components/finance/BusinessLoanCalculator.jsx',
+  '/finance/calculators/credit-card-calculator':         'components/finance/CreditCardCalculator.jsx',
+  '/finance/calculators/investment-calculator':          'components/finance/InvestmentCalculator.jsx',
+  '/finance/calculators/tax-calculator':                 'components/finance/TaxCalculator.jsx',
+  '/finance/calculators/retirement-calculator':          'components/finance/RetirementCalculator.jsx',
+  '/finance/calculators/sales-tax-calculator':           'components/finance/SalesTaxCalculator.jsx',
+  '/finance/calculators/debt-payoff-calculator':         'components/finance/DebtPayoffCalculator.jsx',
+  '/finance/calculators/insurance-calculator':           'components/finance/InsuranceCalculator.jsx',
+  '/finance/calculators/budget-calculator':              'components/finance/BudgetCalculator.jsx',
+  '/finance/calculators/rental-property-calculator':     'components/finance/RentalPropertyCalculator.jsx',
+  '/finance/calculators/debt-income-calculator':         'components/finance/DebtIncomeCalculator.jsx',
+  '/finance/calculators/down-payment-calculator':        'components/finance/DownPaymentCalculator.jsx',
+  '/finance/calculators/present-value-calculator':       'components/finance/PresentValueCalculator.jsx',
+  '/finance/calculators/future-value-calculator':        'components/finance/FutureValueCalculator.jsx',
+  '/science/calculators/wave-speed-calculator':          'components/science/WaveSpeedCalculator.jsx',
+  '/science/calculators/gravity-calculator':             'components/science/GravityCalculator.jsx',
+  '/science/calculators/work-power-calculator':          'components/science/WorkPowerCalculator.jsx',
+  '/science/calculators/dbm-watts-calculator':           'components/science/DBmWattsCalculator.jsx',
+  '/science/calculators/dbm-milliwatts-calculator':      'components/science/DBmMilliwattsCalculator.jsx',
+  '/science/calculators/capacitance-calculator':         'components/science/CapacitanceCalculator.jsx',
+  '/science/calculators/electric-flux-calculator':       'components/science/ElectricFluxCalculator.jsx',
+  '/science/calculators/average-atomic-mass-calculator': 'components/science/AverageAtomicMassCalculator.jsx',
+  '/health/calculators/bmi-calculator':                  'components/health/BMICalculator.jsx',
+  '/health/calculators/calorie-calculator':              'components/health/CalorieCalculator.jsx',
+  '/health/calculators/calorie-burn-calculator':         'components/health/CalorieBurnCalculator.jsx',
+  '/health/calculators/water-intake-calculator':         'components/health/WaterIntakeCalculator.jsx',
+  '/health/calculators/weight-loss-calculator':          'components/health/WeightLossCalculator.jsx',
+  '/health/calculators/weight-gain-calculator':          'components/health/WeightGainCalculator.jsx',
+  '/health/calculators/body-fat-calculator':             'components/health/BodyFatCalculator.jsx',
+  '/health/calculators/ideal-body-weight-calculator':    'components/health/IdealWeightCalculator.jsx',
+  '/health/calculators/diabetes-risk-calculator':        'components/health/DiabetesRiskCalculator.jsx',
+  '/health/calculators/dri-calculator':                  'components/health/DRICalculator.jsx',
+  '/health/calculators/bri-calculator':                  'components/health/BRICalculator.jsx',
+  '/utility-tools/word-counter':                         'components/utility/WordCounter.jsx',
+  '/utility-tools/password-generator':                   'components/utility/PasswordGenerator.jsx',
+  '/utility-tools/qr-code-generator':                    'components/utility/QRCodeGenerator.jsx',
+  '/utility-tools/ocr-pdf-generator':                    'components/utility/OCRPDFGenerator.jsx',
+  '/utility-tools/genz-translator':                      'components/utility/GenZTranslator.jsx',
+  '/utility-tools/morse-code-translator':                'components/utility/MorseCodeTranslator.jsx',
+  '/utility-tools/html-to-markdown-converter':           'components/utility/HtmlToMarkdownConverter.jsx',
+  '/utility-tools/english-to-ipa-translator':            'components/utility/EnglishToIPATranslator.jsx',
+  '/utility-tools/audio-bitrate-converter':              'components/utility/AudioBitrateConverter.jsx',
+  '/utility-tools/converter-tools/reels-downloader':     'components/utility/InstagramReelsDownloader.jsx',
+  '/utility-tools/converter-tools/tiktok-downloader':    'components/utility/TikTokDownloader.jsx',
+  '/utility-tools/converter-tools/qr-code-scanner':      'components/utility/QRCodeScanner.jsx',
+  '/utility-tools/converter-tools/rgb-to-hex-converter': 'components/utility/converter-tools/RgbToHexConverter.jsx',
+  '/utility-tools/converter-tools/text-case-converter':  'components/utility/converter-tools/TextCaseConverter.jsx',
+  '/utility-tools/converter-tools/pdf-to-image-converter': 'components/utility/converter-tools/PdfToImageConverter.jsx',
+  '/utility-tools/converter-tools/merge-pdf':            'components/utility/converter-tools/PdfMerger.jsx',
+  '/utility-tools/converter-tools/split-pdf':            'components/utility/converter-tools/PdfSplitter.jsx',
+  '/utility-tools/converter-tools/delete-pdf-pages':     'components/utility/converter-tools/DeletePdfPages.jsx',
+  '/utility-tools/converter-tools/organize-pdf-pages':   'components/utility/converter-tools/PdfOrganizer.jsx',
+  '/utility-tools/converter-tools/rgb-to-pantone-converter': 'components/utility/RgbToPantoneConverter.jsx',
+  '/utility-tools/converter-tools/gold-precious-metal-weight-converter': 'components/utility/GoldWeightConverter.jsx',
+  '/utility-tools/image-tools/image-to-webp-converter':  'components/utility/image-tools/ImageToWebP.jsx',
+  '/utility-tools/image-tools/aspect-ratio-converter':   'components/utility/image-tools/AspectRatioConverter.jsx',
+  '/utility-tools/image-tools/color-blindness-simulator':'components/utility/image-tools/ColorBlindnessSimulator.jsx',
+  '/knowledge/calculators/gpa-calculator':               'components/knowledge/GPACalculator.jsx',
+  '/knowledge/calculators/age-calculator':               'components/knowledge/AgeCalculator.jsx',
+  '/knowledge/calculators/wpm-calculator':               'components/knowledge/WPMCalculator.jsx',
+  '/knowledge/calculators/habit-formation-calculator':   'components/knowledge/HabitFormationCalculator.jsx',
+  '/knowledge/calculators/language-level-calculator':    'components/knowledge/LanguageLevelCalculator.jsx',
+  '/knowledge/calculators/fuel-calculator':              'components/knowledge/FuelCalculator.jsx',
+  '/knowledge/calculators/average-time-calculator':      'components/knowledge/AverageTimeCalculator.jsx',
+  '/knowledge/calculators/career-assessment-calculator': 'components/knowledge/CareerAssessmentCalculator.jsx',
+  '/knowledge/calculators/trauma-assessment-calculator': 'components/knowledge/TraumaAssessmentCalculator.jsx',
+  '/knowledge/calculators/anxiety-assessment-calculator':'components/knowledge/AnxietyAssessmentCalculator.jsx',
+  '/knowledge/calculators/mbti-calculator':              'components/knowledge/MBTICalculator.jsx',
+  '/knowledge/calculators/carbon-footprint-calculator':  'components/knowledge/CarbonFootprintCalculator.jsx',
+  '/knowledge/calculators/zakat-calculator':             'components/knowledge/ZakatCalculator.jsx',
+};
+
 const allTools = [
   { name: 'Fraction Calculator', desc: 'Add, subtract, multiply and divide fractions', url: '/math/calculators/fraction-calculator', category: 'Math' },
   { name: 'Percentage Calculator', desc: 'Calculate percentages quickly and easily', url: '/math/calculators/percentage-calculator', category: 'Math' },
@@ -39,7 +131,7 @@ const allTools = [
   { name: 'Derivative Calculator', desc: 'Calculate derivatives of functions', url: '/math/calculators/derivative-calculator', category: 'Math' },
   { name: 'Integral Calculator', desc: 'Calculate definite and indefinite integrals', url: '/math/calculators/integral-calculator', category: 'Math' },
   { name: 'Mortgage Calculator', desc: 'Calculate monthly mortgage payments with taxes, insurance, PMI', url: '/finance/calculators/mortgage-calculator', category: 'Finance' },
-  { name: 'Amortization Calculator', desc: 'Calculate amortization schedules, monthly payments, and total interest over time', url: '/finance/calculators/amortization-calculator', category: 'Finance' },
+  { name: 'Amortization Calculator', desc: 'Calculate amortization schedules, monthly payments, and total interest', url: '/finance/calculators/amortization-calculator', category: 'Finance' },
   { name: 'Loan Calculator', desc: 'Calculate loan payments with down payment and fees', url: '/finance/calculators/loan-calculator', category: 'Finance' },
   { name: 'Currency Calculator', desc: 'Convert between 170+ world currencies with real-time rates', url: '/finance/calculators/currency-calculator', category: 'Finance' },
   { name: 'House Affordability Calculator', desc: 'Calculate how much house you can afford', url: '/finance/calculators/house-affordability-calculator', category: 'Finance' },
@@ -49,16 +141,16 @@ const allTools = [
   { name: 'Credit Card Calculator', desc: 'Calculate credit card payments, interest, and payoff time', url: '/finance/calculators/credit-card-calculator', category: 'Finance' },
   { name: 'Investment Calculator', desc: 'Calculate investment growth, compound returns, and future value', url: '/finance/calculators/investment-calculator', category: 'Finance' },
   { name: 'Tax Calculator', desc: 'Calculate federal and state income taxes, deductions, and credits', url: '/finance/calculators/tax-calculator', category: 'Finance' },
-  { name: 'Retirement Calculator', desc: 'Calculate retirement savings goals, monthly contributions, and future income', url: '/finance/calculators/retirement-calculator', category: 'Finance' },
-  { name: 'Sales Tax Calculator', desc: 'Calculate sales tax, subtotal, and total amount for purchases', url: '/finance/calculators/sales-tax-calculator', category: 'Finance' },
+  { name: 'Retirement Calculator', desc: 'Calculate retirement savings goals and future income', url: '/finance/calculators/retirement-calculator', category: 'Finance' },
+  { name: 'Sales Tax Calculator', desc: 'Calculate sales tax, subtotal, and total amount', url: '/finance/calculators/sales-tax-calculator', category: 'Finance' },
   { name: 'Debt Payoff Calculator', desc: 'Calculate debt payoff time, total interest, and payment strategies', url: '/finance/calculators/debt-payoff-calculator', category: 'Finance' },
-  { name: 'Insurance Calculator', desc: 'Calculate insurance premiums, coverage costs, and policy comparisons', url: '/finance/calculators/insurance-calculator', category: 'Finance' },
-  { name: 'Budget Calculator', desc: 'Create and manage personal budgets with the 50-30-20 rule and custom allocations', url: '/finance/calculators/budget-calculator', category: 'Finance' },
+  { name: 'Insurance Calculator', desc: 'Calculate insurance premiums and coverage costs', url: '/finance/calculators/insurance-calculator', category: 'Finance' },
+  { name: 'Budget Calculator', desc: 'Create and manage personal budgets with the 50-30-20 rule', url: '/finance/calculators/budget-calculator', category: 'Finance' },
   { name: 'Rental Property Calculator', desc: 'Calculate rental property ROI, cash flow, and investment returns', url: '/finance/calculators/rental-property-calculator', category: 'Finance' },
-  { name: 'Debt Income Calculator', desc: 'Calculate your debt-to-income ratio to assess financial health and loan eligibility', url: '/finance/calculators/debt-income-calculator', category: 'Finance' },
-  { name: 'Down Payment Calculator', desc: 'Calculate down payment amount, loan amount, and monthly mortgage payments', url: '/finance/calculators/down-payment-calculator', category: 'Finance' },
-  { name: 'Present Value Calculator', desc: 'Calculate the present value of future cash flows and investments', url: '/finance/calculators/present-value-calculator', category: 'Finance' },
-  { name: 'Future Value Calculator', desc: 'Calculate the future value of investments and savings with compound interest', url: '/finance/calculators/future-value-calculator', category: 'Finance' },
+  { name: 'Debt Income Calculator', desc: 'Calculate your debt-to-income ratio', url: '/finance/calculators/debt-income-calculator', category: 'Finance' },
+  { name: 'Down Payment Calculator', desc: 'Calculate down payment amount and loan amount', url: '/finance/calculators/down-payment-calculator', category: 'Finance' },
+  { name: 'Present Value Calculator', desc: 'Calculate the present value of future cash flows', url: '/finance/calculators/present-value-calculator', category: 'Finance' },
+  { name: 'Future Value Calculator', desc: 'Calculate the future value of investments', url: '/finance/calculators/future-value-calculator', category: 'Finance' },
   { name: 'Wave Speed Calculator', desc: 'Calculate wave speed, frequency, and wavelength', url: '/science/calculators/wave-speed-calculator', category: 'Science' },
   { name: 'Gravity Calculator', desc: 'Calculate gravitational force and acceleration', url: '/science/calculators/gravity-calculator', category: 'Science' },
   { name: 'Work Power Calculator', desc: 'Calculate work, power, and energy', url: '/science/calculators/work-power-calculator', category: 'Science' },
@@ -69,7 +161,7 @@ const allTools = [
   { name: 'Atomic Mass Calculator', desc: 'Calculate average atomic mass', url: '/science/calculators/average-atomic-mass-calculator', category: 'Science' },
   { name: 'BMI Calculator', desc: 'Calculate your body mass index', url: '/health/calculators/bmi-calculator', category: 'Health' },
   { name: 'Calorie Calculator', desc: 'Calculate daily calorie needs', url: '/health/calculators/calorie-calculator', category: 'Health' },
-  { name: 'Calorie Burn Calculator', desc: 'Estimate calories burned from exercise, activity duration, and body weight', url: '/health/calculators/calorie-burn-calculator', category: 'Health' },
+  { name: 'Calorie Burn Calculator', desc: 'Estimate calories burned from exercise', url: '/health/calculators/calorie-burn-calculator', category: 'Health' },
   { name: 'Water Intake Calculator', desc: 'Calculate daily water requirements', url: '/health/calculators/water-intake-calculator', category: 'Health' },
   { name: 'Weight Loss Calculator', desc: 'Plan your weight loss journey', url: '/health/calculators/weight-loss-calculator', category: 'Health' },
   { name: 'Weight Gain Calculator', desc: 'Plan your weight gain journey', url: '/health/calculators/weight-gain-calculator', category: 'Health' },
@@ -84,9 +176,9 @@ const allTools = [
   { name: 'QR Code Generator', desc: 'Create professional QR codes', url: '/utility-tools/qr-code-generator', category: 'Utility' },
   { name: 'OCR PDF Generator', desc: 'Extract text from PDF documents', url: '/utility-tools/ocr-pdf-generator', category: 'Utility' },
   { name: 'Gen Z Translator', desc: 'Translate modern slang and expressions', url: '/utility-tools/genz-translator', category: 'Utility' },
-  { name: 'RGB to HEX', desc: 'Convert RGB color values to hexadecimal format', url: '/utility-tools/converter-tools/rgb-to-hex-converter', category: 'Utility' },
+  { name: 'RGB to HEX', desc: 'Convert RGB color values to hexadecimal', url: '/utility-tools/converter-tools/rgb-to-hex-converter', category: 'Utility' },
   { name: 'Text Case Converter', desc: 'Change text case formats', url: '/utility-tools/converter-tools/text-case-converter', category: 'Utility' },
-  { name: 'PDF to Image Converter', desc: 'Convert PDF pages to images (PNG/JPG)', url: '/utility-tools/converter-tools/pdf-to-image-converter', category: 'Utility' },
+  { name: 'PDF to Image Converter', desc: 'Convert PDF pages to images', url: '/utility-tools/converter-tools/pdf-to-image-converter', category: 'Utility' },
   { name: 'PDF Merger', desc: 'Combine multiple PDF files into one', url: '/utility-tools/converter-tools/merge-pdf', category: 'Utility' },
   { name: 'PDF Splitter', desc: 'Split PDF files into multiple pages', url: '/utility-tools/converter-tools/split-pdf', category: 'Utility' },
   { name: 'Delete PDF Pages', desc: 'Remove unwanted pages from PDF files', url: '/utility-tools/converter-tools/delete-pdf-pages', category: 'Utility' },
@@ -117,332 +209,241 @@ const allTools = [
   { name: 'Zakat Calculator', desc: 'Calculate Islamic charity (Zakat) amount', url: '/knowledge/calculators/zakat-calculator', category: 'Knowledge' },
 ];
 
-// ─── Categories ───────────────────────────────────────────────────────────────
 const toolCategories = [
-  { name: 'Utility', url: '/utility-tools', description: 'File converters, generators, downloaders, and day-to-day digital tools.' },
-  { name: 'Math', url: '/math', description: 'Arithmetic, algebra, calculus, fractions, percentages, and number tools.' },
-  { name: 'Finance', url: '/finance', description: 'Loans, mortgages, taxes, budgeting, investing, and money planning calculators.' },
-  { name: 'Health', url: '/health', description: 'BMI, calorie, hydration, body composition, and wellness calculators.' },
-  { name: 'Science', url: '/science', description: 'Physics, electrical, and chemistry calculators for study and problem solving.' },
-  { name: 'Knowledge', url: '/knowledge', description: 'Assessment, education, productivity, and personal development tools.' },
+  { name: 'Utility',   url: '/utility-tools', description: 'File converters, generators, downloaders, and day-to-day digital tools.' },
+  { name: 'Math',      url: '/math',          description: 'Arithmetic, algebra, calculus, fractions, percentages, and number tools.' },
+  { name: 'Finance',   url: '/finance',       description: 'Loans, mortgages, taxes, budgeting, investing, and money planning calculators.' },
+  { name: 'Health',    url: '/health',        description: 'BMI, calorie, hydration, body composition, and wellness calculators.' },
+  { name: 'Science',   url: '/science',       description: 'Physics, electrical, and chemistry calculators for study and problem solving.' },
+  { name: 'Knowledge', url: '/knowledge',     description: 'Assessment, education, productivity, and personal development tools.' },
 ];
 
-// ─── Playbooks ────────────────────────────────────────────────────────────────
-const CATEGORY_PLAYBOOK = {
-  Math: {
-    audience: ['students checking homework', 'teachers building examples', 'parents reviewing answers', 'professionals validating quick calculations'],
-    useCases: ['classroom practice', 'exam preparation', 'worksheet checking', 'everyday number conversions'],
-    pitfalls: ['typing the wrong sign', 'mixing units or formats', 'rounding too early', 'skipping validation of the final result'],
-    tips: ['check whether the input expects decimals, fractions, or whole numbers', 'compare two scenarios when you want to study patterns', 'use related tools to cross-check conversions and percentages'],
-  },
-  Finance: {
-    audience: ['borrowers comparing offers', 'home buyers planning costs', 'investors estimating growth', 'households managing budgets'],
-    useCases: ['loan planning', 'investment analysis', 'monthly budgeting', 'purchase comparisons'],
-    pitfalls: ['ignoring fees and taxes', 'using unrealistic rates', 'forgetting contribution frequency', 'treating estimates as advice instead of planning support'],
-    tips: ['run a conservative, expected, and aggressive scenario', 'check the effect of changing only one variable at a time', 'use the result as a planning estimate before final decisions'],
-  },
-  Science: {
-    audience: ['students solving assignments', 'teachers preparing lessons', 'lab users checking values', 'curious learners exploring formulas'],
-    useCases: ['physics homework', 'lab preparation', 'engineering study', 'concept review'],
-    pitfalls: ['mixing incompatible units', 'using the wrong symbol meaning', 'forgetting exponents or scientific notation', 'entering values without checking assumptions'],
-    tips: ['confirm every unit before calculating', 'use the page to validate manual work line by line', 'compare examples with known textbook values when possible'],
-  },
-  Health: {
-    audience: ['people tracking wellness goals', 'fitness beginners', 'coaches creating estimates', 'users monitoring daily habits'],
-    useCases: ['weight planning', 'hydration tracking', 'nutrition planning', 'wellness check-ins'],
-    pitfalls: ['treating estimates as diagnosis', 'using old body measurements', 'ignoring activity level changes', 'making decisions without context from a professional when needed'],
-    tips: ['update measurements regularly', 'compare estimates across time instead of relying on one reading', 'use health calculators for planning and awareness, not diagnosis'],
-  },
-  Utility: {
-    audience: ['creators working with files', 'students handling documents', 'teams sharing quick conversions', 'everyday users solving digital tasks'],
-    useCases: ['document conversion', 'text cleanup', 'download preparation', 'file organization'],
-    pitfalls: ['using the wrong input format', 'expecting unsupported formatting to stay intact', 'forgetting output settings', 'not checking privacy behavior for file workflows'],
-    tips: ['review the output before downloading or reusing it', 'use related tools for cleanup after conversion', 'keep a source copy when you are processing documents or media'],
-  },
-  Knowledge: {
-    audience: ['students organizing study plans', 'users exploring self-assessments', 'professionals tracking habits', 'learners improving productivity'],
-    useCases: ['study planning', 'self-assessment', 'habit tracking', 'productivity improvement'],
-    pitfalls: ['answering too quickly', 'using incomplete context', 'treating estimates as definitive outcomes', 'ignoring trends across time'],
-    tips: ['revisit the tool when inputs change', 'use results to guide reflection and planning', 'combine this tool with related pages for a fuller workflow'],
-  },
-};
-
-const WORKFLOWS = {
-  calculator: ['Enter your values into the input fields', 'Choose an option or mode if needed', 'Click calculate to get your result instantly', 'Review the result and compare scenarios as needed'],
-  converter:  ['Paste or upload the source input', 'Set the target format or output preference', 'Convert instantly in the browser', 'Copy, review, or download the output'],
-  generator:  ['Define the content or settings', 'Adjust generation options if needed', 'Generate the output instantly', 'Download, copy, or reuse the result'],
-  translator: ['Enter the source text into the input area', 'Choose settings or tone if available', 'Translate instantly', 'Review and copy the result'],
-  downloader: ['Paste the source link into the field', 'Validate the format or supported source', 'Process the request', 'Download or reuse the final file'],
-  scanner:    ['Upload an image or enable the camera', 'Scan the input', 'Read the decoded result', 'Copy or open the extracted content'],
-  organizer:  ['Upload the source file', 'Set ordering or structure changes', 'Apply the changes in the browser', 'Download the updated file'],
-  merger:     ['Upload all source files', 'Confirm order and settings', 'Merge them in the browser', 'Download the final combined file'],
-  splitter:   ['Upload the source file', 'Choose page ranges or split mode', 'Split the file in the browser', 'Download each output file'],
-};
-
 // ─── Helpers ──────────────────────────────────────────────────────────────────
-const esc = (str) => String(str ?? '').replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-const lc  = (s)   => s.charAt(0).toLowerCase() + s.slice(1);
+const esc = (s) => String(s ?? '')
+  .replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 
-const detectKind = (tool) => {
-  const n = tool.name.toLowerCase();
-  for (const k of ['converter','generator','translator','downloader','scanner','organizer','merger','splitter']) if (n.includes(k)) return k;
-  return 'calculator';
-};
+// ─── JSX Content Extractor ────────────────────────────────────────────────────
+function extractJsxContent(jsxSource) {
+  const sections = [];
 
-// ─── Content builders ─────────────────────────────────────────────────────────
-const buildFaqs = (tool) => {
-  const pb = CATEGORY_PLAYBOOK[tool.category];
-  const kind = detectKind(tool);
-  return [
-    { q: `What does the ${tool.name} do?`,
-      a: `The ${tool.name} helps you ${lc(tool.desc)}. It runs entirely in your browser so results are instant on desktop or mobile.` },
-    { q: `Who should use this ${kind}?`,
-      a: `This tool is useful for ${pb.audience.slice(0,3).join(', ')}, and anyone who wants a faster way to complete ${tool.category.toLowerCase()} tasks online.` },
-    { q: `Is the ${tool.name} free?`,
-      a: `Yes. ${SITE_NAME} provides the ${tool.name} completely free — no account, no install, no payment required.` },
-    { q: `Does this work on mobile devices?`,
-      a: `Yes. The tool is fully responsive and works on phones, tablets, and desktop browsers.` },
-    { q: `What should I double-check before relying on the result?`,
-      a: `Check your inputs, units, formatting, and scenario assumptions. The tool speeds up the workflow but result quality depends on entering the right information.` },
-    { q: `What should I do after using the ${tool.name}?`,
-      a: `Compare additional scenarios if needed, validate key assumptions, and explore related ${tool.category.toLowerCase()} tools on ${SITE_NAME} for a more complete workflow.` },
-  ];
-};
+  // 1. ContentSection blocks
+  const csRe = /<ContentSection[^>]*id="([^"]*)"[^>]*title="([^"]*)"[^>]*>([\s\S]*?)<\/ContentSection>/g;
+  let m;
+  while ((m = csRe.exec(jsxSource)) !== null) {
+    const html = jsxToHtml(m[3]);
+    if (html.trim().length > 20) sections.push({ id: m[1], title: m[2], html });
+  }
 
-// ─── HTML block builders ──────────────────────────────────────────────────────
-function buildToolContentHtml(tool) {
-  const pb      = CATEGORY_PLAYBOOK[tool.category];
-  const kind    = detectKind(tool);
-  const steps   = (WORKFLOWS[kind] || WORKFLOWS.calculator);
-  const related = allTools.filter(t => t.category === tool.category && t.url !== tool.url).slice(0, 5);
-  const faqs    = buildFaqs(tool);
+  // 2. FAQSection — parse faqs array
+  const faqBlock = /<FAQSection[\s\S]*?faqs=\{(\[[\s\S]*?\])\}/.exec(jsxSource);
+  if (faqBlock) {
+    const titleM = /title="([^"]*)"/.exec(faqBlock[0]);
+    const faqs = [];
+    const pairRe = /question:\s*"([\s\S]*?)"[\s\S]*?answer:\s*"([\s\S]*?)"/g;
+    let p;
+    while ((p = pairRe.exec(faqBlock[1])) !== null) {
+      faqs.push({ q: p[1].trim(), a: p[2].trim() });
+    }
+    if (faqs.length > 0) {
+      sections.push({
+        id: 'faqs',
+        title: titleM ? titleM[1] : 'Frequently Asked Questions',
+        html: `<dl>${faqs.map(f=>`<dt>${esc(f.q)}</dt><dd>${esc(f.a)}</dd>`).join('')}</dl>`
+      });
+    }
+  }
+
+  // 3. relatedTools links from sidebar data
+  const relBlock = /relatedTools\s*=\s*\[([\s\S]*?)\];/.exec(jsxSource);
+  if (relBlock) {
+    const links = [];
+    const lRe = /name:\s*['"`]([^'"`]+)['"`][\s\S]*?url:\s*['"`]([^'"`]+)['"`]/g;
+    let l;
+    while ((l = lRe.exec(relBlock[1])) !== null) links.push({ name: l[1], url: l[2] });
+    if (links.length > 0) {
+      sections.push({
+        id: 'related',
+        title: 'Related Tools',
+        html: `<ul>${links.map(lk=>`<li><a href="${esc(lk.url)}">${esc(lk.name)}</a></li>`).join('')}</ul>`
+      });
+    }
+  }
+
+  return sections;
+}
+
+// Converts JSX markup to plain HTML Google can read
+function jsxToHtml(jsx) {
+  let h = jsx;
+  // Preserve <a href> links
+  h = h.replace(/<a\s+href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/g, (_, href, inner) =>
+    `<a href="${esc(href)}">${inner.replace(/<[^>]+>/g,'').replace(/\{[^}]*\}/g,'').trim()}</a>`);
+  // Remove icon tags
+  h = h.replace(/<i\s[^>]*><\/i>/g, '');
+  // Remove KaTeX placeholder divs (empty formula containers — formulas rendered by JS)
+  h = h.replace(/<div[^>]*className="[^"]*formula[^"]*"[^>]*><\/div>/g, '');
+  h = h.replace(/<div[^>]*className="[^"]*formula[^"]*"[^>]*\/>/g, '');
+  // Remove className, style, event handler attributes
+  h = h.replace(/\s+className="[^"]*"/g,'');
+  h = h.replace(/\s+style=\{[^{}]*\}/g,'');
+  h = h.replace(/\s+onClick=\{[^{}]*\}/g,'');
+  h = h.replace(/\s+id="[^"]*"/g,'');
+  // Remove JSX comments and expressions
+  h = h.replace(/\{\/\*[\s\S]*?\*\/\}/g,'');
+  h = h.replace(/\{[^{}]*\}/g,'');
+  // Remove unknown React components
+  h = h.replace(/<[A-Z][a-zA-Z]*[^>]*\/>/g,'');
+  h = h.replace(/<[A-Z][a-zA-Z]*[^>]*>[\s\S]*?<\/[A-Z][a-zA-Z]*>/g,'');
+  // Unwrap divs/spans but keep content
+  h = h.replace(/<div[^>]*>/g,'').replace(/<\/div>/g,'');
+  h = h.replace(/<span[^>]*>/g,'').replace(/<\/span>/g,'');
+  // Clean whitespace
+  h = h.replace(/\n\s*\n\s*\n/g,'\n\n').trim();
+  return h;
+}
+
+// ─── SEO ──────────────────────────────────────────────────────────────────────
+function getPageSeo(url) {
+  if (url === '/') return {
+    title: `${SITE_NAME} - Free Online Calculators, PDF Tools, Converters and Utilities`,
+    description: `Explore ${allTools.length}+ free online tools on Tuitility. No sign-up needed.`,
+    keywords: `free online calculators, utility tools, finance calculator, math calculator, ${SITE_NAME}`,
+    canonical: `${SITE_URL}/`
+  };
+  const statics = {
+    '/about':               { title:`About ${SITE_NAME}`, description:`Learn about Tuitility and our free online tools.` },
+    '/contact':             { title:`Contact ${SITE_NAME}`, description:`Get in touch with the Tuitility team.` },
+    '/privacy-policy':      { title:`Privacy Policy — ${SITE_NAME}`, description:`Tuitility privacy policy.` },
+    '/terms-and-conditions':{ title:`Terms — ${SITE_NAME}`, description:`Tuitility terms and conditions.` },
+  };
+  if (statics[url]) return { ...statics[url], keywords:`${SITE_NAME}, free tools`, canonical:`${SITE_URL}${url}` };
+  const cat = toolCategories.find(c=>c.url===url);
+  if (cat) {
+    const n = allTools.filter(t=>t.category===cat.name).length;
+    return { title:`Free ${cat.name} Tools — ${n} Online Calculators | ${SITE_NAME}`,
+      description:`${cat.description} Browse ${n} free tools.`,
+      keywords:`${cat.name.toLowerCase()} tools, ${cat.name.toLowerCase()} calculators, ${SITE_NAME}`,
+      canonical:`${SITE_URL}${url}` };
+  }
+  const tool = allTools.find(t=>t.url===url);
+  if (tool) return {
+    title:`${tool.name} — Free Online ${tool.name} | ${SITE_NAME}`,
+    description:`${tool.desc}. Free and browser-based on ${SITE_NAME}. No sign-up required.`,
+    keywords:`${tool.name.toLowerCase()}, free ${tool.name.toLowerCase()}, ${tool.category.toLowerCase()} calculator, ${SITE_NAME}`,
+    canonical:`${SITE_URL}${url}`
+  };
+  return { title:`${SITE_NAME}`, description:`Free tools on ${SITE_NAME}.`, keywords:SITE_NAME, canonical:`${SITE_URL}${url}` };
+}
+
+function buildSD(url, seo) {
+  const tool = allTools.find(t=>t.url===url);
+  if (tool) return { '@context':'https://schema.org','@type':'WebApplication',
+    name:tool.name, description:seo.description, url:seo.canonical,
+    applicationCategory:'UtilityApplication', operatingSystem:'Any',
+    offers:{'@type':'Offer',price:'0',priceCurrency:'USD'},
+    provider:{'@type':'Organization',name:SITE_NAME,url:SITE_URL} };
+  return { '@context':'https://schema.org','@type':'WebPage',
+    name:seo.title, description:seo.description, url:seo.canonical,
+    isPartOf:{'@type':'WebSite',name:SITE_NAME,url:SITE_URL} };
+}
+
+// ─── HTML builders ────────────────────────────────────────────────────────────
+function buildToolHtml(route, sections) {
+  const tool = allTools.find(t=>t.url===route);
+  const name = tool?.name ?? route.split('/').pop().replace(/-/g,' ');
+  const cat  = tool?.category ?? '';
+  // Same-category interlinks
+  const siblings = allTools.filter(t=>t.category===cat && t.url!==route).slice(0,8);
+  // Cross-category links (2 per other category)
+  const crossLinks = toolCategories
+    .filter(c=>c.name!==cat)
+    .flatMap(c=>allTools.filter(t=>t.category===c.name).slice(0,2));
+
+  const sectionsHtml = sections.map(s=>`
+    <section>
+      <h2>${esc(s.title)}</h2>
+      ${s.html}
+    </section>`).join('');
+
+  const siblingHtml = siblings.length > 0 ? `
+    <section>
+      <h2>More ${esc(cat)} Tools</h2>
+      <ul>${siblings.map(t=>`<li><a href="${esc(t.url)}">${esc(t.name)}</a> — ${esc(t.desc)}</li>`).join('')}</ul>
+    </section>` : '';
+
+  const crossHtml = crossLinks.length > 0 ? `
+    <section>
+      <h2>More Free Tools on ${SITE_NAME}</h2>
+      <ul>${crossLinks.map(t=>`<li><a href="${esc(t.url)}">${esc(t.name)}</a></li>`).join('')}</ul>
+    </section>` : '';
 
   return `<div id="ssg-content" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;" aria-hidden="true">
-  <article itemscope itemtype="https://schema.org/WebApplication">
-    <h1 itemprop="name">${esc(tool.name)} — Free Online ${esc(tool.category)} ${esc(kind.charAt(0).toUpperCase()+kind.slice(1))}</h1>
-    <p itemprop="description">${esc(tool.desc)}. Free, fast, and browser-based on ${SITE_NAME} — no sign-up required.</p>
-
-    <section>
-      <h2>What is the ${esc(tool.name)}?</h2>
-      <p>The ${esc(tool.name)} is a free online ${esc(kind)} built to ${esc(lc(tool.desc))}. This page keeps the core workflow in one place so results are faster to reach and easier to trust.</p>
-      <p>Useful for ${pb.useCases.join(', ')}, and any workflow where a fast, accurate result matters. All processing happens in your browser — nothing is uploaded to a server.</p>
-    </section>
-
-    <section>
-      <h2>How to Use the ${esc(tool.name)}</h2>
-      <ol>
-        ${steps.map((s,i) => `<li><strong>Step ${i+1}:</strong> ${esc(s)}.</li>`).join('\n        ')}
-      </ol>
-    </section>
-
-    <section>
-      <h2>What This Tool Can Do</h2>
-      <ul>
-        <li>Handle the core ${esc(kind)} workflow directly in the browser — no software or sign-up needed.</li>
-        <li>Support repeat use when you need to compare more than one scenario or input set.</li>
-        <li>Display results in a clear, easy-to-scan format you can copy or act on immediately.</li>
-        <li>Connect to related ${esc(tool.category.toLowerCase())} tools on ${SITE_NAME} for deeper follow-up.</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>When to Use the ${esc(tool.name)}</h2>
-      <p>Use this tool when you want to ${esc(lc(tool.desc))} without leaving the browser. It is especially useful during ${esc(pb.useCases[0])} and ${esc(pb.useCases[1])}.</p>
-      <p>A good fit for ${esc(pb.audience[0])} and ${esc(pb.audience[1])} who prefer a lightweight online tool over a spreadsheet or desktop app.</p>
-    </section>
-
-    <section>
-      <h2>Tips for Best Results</h2>
-      <ul>
-        ${pb.tips.map(t => `<li>${esc(t)}</li>`).join('\n        ')}
-        <li>Save time by using the ${esc(tool.name.toLowerCase())} alongside related ${esc(tool.category.toLowerCase())} tools on ${SITE_NAME}.</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>Common Mistakes to Avoid</h2>
-      <ul>
-        ${pb.pitfalls.map(p => `<li>${esc(p)}</li>`).join('\n        ')}
-        <li>Using the ${esc(tool.name.toLowerCase())} without checking whether the result matches your actual goal or context.</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>Frequently Asked Questions</h2>
-      ${faqs.map(f => `<div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-        <h3 itemprop="name">${esc(f.q)}</h3>
-        <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-          <p itemprop="text">${esc(f.a)}</p>
-        </div>
-      </div>`).join('\n      ')}
-    </section>
-
-    ${related.length > 0 ? `<section>
-      <h2>Related ${esc(tool.category)} Tools on ${SITE_NAME}</h2>
-      <ul>
-        ${related.map(r => `<li><a href="${esc(r.url)}">${esc(r.name)}</a> — ${esc(r.desc)}</li>`).join('\n        ')}
-      </ul>
-    </section>` : ''}
+  <article>${sectionsHtml}${siblingHtml}${crossHtml}
   </article>
 </div>`;
 }
 
-function buildCategoryContentHtml(category) {
-  const tools = allTools.filter(t => t.category === category.name);
-  const pb    = CATEGORY_PLAYBOOK[category.name];
-
+function buildCategoryHtml(cat) {
+  const tools = allTools.filter(t=>t.category===cat.name);
+  const others = toolCategories.filter(c=>c.url!==cat.url);
   return `<div id="ssg-content" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;" aria-hidden="true">
   <article>
-    <h1>Free ${esc(category.name)} Tools — Online ${esc(category.name)} Calculators and Converters | ${SITE_NAME}</h1>
-    <p>${esc(category.description)} All ${tools.length} tools are free, browser-based, and require no sign-up.</p>
-
+    <h1>Free ${esc(cat.name)} Tools — Online ${esc(cat.name)} Calculators | ${SITE_NAME}</h1>
+    <p>${esc(cat.description)}</p>
     <section>
-      <h2>Who These Tools Are For</h2>
-      <ul>${pb.audience.map(a => `<li>${esc(a)}</li>`).join('')}</ul>
+      <h2>All ${esc(cat.name)} Tools</h2>
+      <ul>${tools.map(t=>`<li><a href="${esc(t.url)}">${esc(t.name)}</a> — ${esc(t.desc)}</li>`).join('')}</ul>
     </section>
-
     <section>
-      <h2>Common Use Cases</h2>
-      <ul>${pb.useCases.map(u => `<li>${esc(u)}</li>`).join('')}</ul>
-    </section>
-
-    <section>
-      <h2>All ${esc(category.name)} Tools (${tools.length} available)</h2>
-      <ul>
-        ${tools.map(t => `<li><a href="${esc(t.url)}">${esc(t.name)}</a> — ${esc(t.desc)}</li>`).join('\n        ')}
-      </ul>
-    </section>
-
-    <section>
-      <h2>Tips for ${esc(category.name)} Tools</h2>
-      <ul>${pb.tips.map(t => `<li>${esc(t)}</li>`).join('')}</ul>
+      <h2>Other Tool Categories</h2>
+      <ul>${others.map(c=>`<li><a href="${esc(c.url)}">${esc(c.name)} Tools</a> — ${esc(c.description)}</li>`).join('')}</ul>
     </section>
   </article>
 </div>`;
 }
 
-function buildHomepageContentHtml() {
+function buildHomepageHtml() {
   return `<div id="ssg-content" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;" aria-hidden="true">
   <article>
     <h1>Tuitility — Free Online Calculators, Converters, and Utility Tools</h1>
-    <p>Tuitility offers ${allTools.length}+ free online tools across math, finance, health, science, utility, and knowledge categories. All tools run in the browser — no sign-up, no install required.</p>
+    <p>${allTools.length}+ free browser-based tools. No sign-up or install required.</p>
     <section>
       <h2>Tool Categories</h2>
-      <ul>
-        ${toolCategories.map(c => `<li><a href="${esc(c.url)}">${esc(c.name)} Tools</a> — ${esc(c.description)}</li>`).join('\n        ')}
-      </ul>
+      <ul>${toolCategories.map(c=>`<li><a href="${esc(c.url)}">${esc(c.name)} Tools</a> — ${esc(c.description)}</li>`).join('')}</ul>
     </section>
     <section>
-      <h2>Popular Free Tools</h2>
-      <ul>
-        ${allTools.slice(0, 15).map(t => `<li><a href="${esc(t.url)}">${esc(t.name)}</a> — ${esc(t.desc)}</li>`).join('\n        ')}
-      </ul>
+      <h2>All Free Tools</h2>
+      <ul>${allTools.map(t=>`<li><a href="${esc(t.url)}">${esc(t.name)}</a> — ${esc(t.desc)}</li>`).join('')}</ul>
     </section>
   </article>
 </div>`;
 }
 
-// ─── SEO head builders ────────────────────────────────────────────────────────
-function getPageSeo(routeUrl) {
-  if (routeUrl === '/') return {
-    title: `${SITE_NAME} - Free Online Calculators, PDF Tools, Converters and Utilities`,
-    description: `Explore ${allTools.length}+ free online tools on Tuitility — calculators, converters, PDF tools, health trackers, and more. No sign-up needed.`,
-    keywords: `free online calculators, utility tools, pdf tools, finance calculator, math calculator, health calculator, converter tools, ${SITE_NAME}`,
-    canonical: `${SITE_URL}/`,
-  };
-
-  const statics = {
-    '/about':              { title: `About ${SITE_NAME}`, description: `Learn about Tuitility, our mission to provide free accurate online tools, and how we build calculators and converters for everyday use.` },
-    '/contact':            { title: `Contact ${SITE_NAME}`, description: `Get in touch with the Tuitility team for support, feedback, or partnership enquiries.` },
-    '/privacy-policy':     { title: `Privacy Policy — ${SITE_NAME}`, description: `Read the Tuitility privacy policy. All tools run in your browser — we do not store or sell your data.` },
-    '/terms-and-conditions': { title: `Terms and Conditions — ${SITE_NAME}`, description: `Review Tuitility terms and conditions for acceptable use, disclaimers, and site policies.` },
-  };
-  if (statics[routeUrl]) return { ...statics[routeUrl], keywords: `${SITE_NAME}, online tools, free calculators`, canonical: `${SITE_URL}${routeUrl}` };
-
-  const cat = toolCategories.find(c => c.url === routeUrl);
-  if (cat) {
-    const count = allTools.filter(t => t.category === cat.name).length;
-    return {
-      title: `Free ${cat.name} Tools — ${count} Online ${cat.name} Calculators | ${SITE_NAME}`,
-      description: `${cat.description} Browse ${count} free ${cat.name.toLowerCase()} tools on ${SITE_NAME}. Fast, accurate, and browser-based.`,
-      keywords: `${cat.name.toLowerCase()} tools, ${cat.name.toLowerCase()} calculators, free ${cat.name.toLowerCase()} calculator online, ${SITE_NAME}`,
-      canonical: `${SITE_URL}${routeUrl}`,
-    };
-  }
-
-  const tool = allTools.find(t => t.url === routeUrl);
-  if (tool) {
-    const kind = detectKind(tool);
-    return {
-      title: `${tool.name} — Free Online ${tool.name} | ${SITE_NAME}`,
-      description: `${tool.desc}. Free, fast, and accurate ${tool.name.toLowerCase()} — use it instantly in your browser on ${SITE_NAME}. No sign-up required.`,
-      keywords: `${tool.name.toLowerCase()}, ${tool.name.toLowerCase()} online, free ${tool.name.toLowerCase()}, ${tool.category.toLowerCase()} ${kind}, ${SITE_NAME}`,
-      canonical: `${SITE_URL}${routeUrl}`,
-    };
-  }
-
-  const label = routeUrl.split('/').filter(Boolean).map(s => s.replace(/-/g, ' ')).join(' — ');
-  return { title: `${label} | ${SITE_NAME}`, description: `Free online ${label} on ${SITE_NAME}.`, keywords: `${label}, ${SITE_NAME}`, canonical: `${SITE_URL}${routeUrl}` };
-}
-
-function buildStructuredData(routeUrl, seo) {
-  const tool = allTools.find(t => t.url === routeUrl);
-  if (tool) return {
-    '@context': 'https://schema.org', '@type': 'WebApplication',
-    name: tool.name, description: seo.description, url: seo.canonical,
-    applicationCategory: 'UtilityApplication', operatingSystem: 'Any',
-    offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
-    provider: { '@type': 'Organization', name: SITE_NAME, url: SITE_URL },
-  };
-  return {
-    '@context': 'https://schema.org', '@type': 'WebPage',
-    name: seo.title, description: seo.description, url: seo.canonical,
-    isPartOf: { '@type': 'WebSite', name: SITE_NAME, url: SITE_URL },
-  };
-}
-
-// ─── HTML injection ───────────────────────────────────────────────────────────
-function injectHead(html, routeUrl) {
-  const seo = getPageSeo(routeUrl);
-  const sd  = buildStructuredData(routeUrl, seo);
-
-  html = html.replace(/<title>[^<]*<\/title>/,                                   `<title>${esc(seo.title)}</title>`);
-  html = html.replace(/(<meta\s+name="description"\s+content=")[^"]*(")/,        `$1${esc(seo.description)}$2`);
-  html = html.replace(/(<meta\s+name="keywords"\s+content=")[^"]*(")/,          `$1${esc(seo.keywords)}$2`);
-  html = html.replace(/(<meta\s+property="og:title"\s+content=")[^"]*(")/,      `$1${esc(seo.title)}$2`);
-  html = html.replace(/(<meta\s+property="og:description"\s+content=")[^"]*(")/,`$1${esc(seo.description)}$2`);
-  html = html.replace(/(<meta\s+property="og:url"\s+content=")[^"]*(")/,        `$1${esc(seo.canonical)}$2`);
-  html = html.replace(/(<meta\s+name="twitter:title"\s+content=")[^"]*(")/,     `$1${esc(seo.title)}$2`);
+// ─── Head injection ───────────────────────────────────────────────────────────
+function injectHead(html, url) {
+  const seo = getPageSeo(url);
+  const sd  = buildSD(url, seo);
+  html = html.replace(/<title>[^<]*<\/title>/,                                    `<title>${esc(seo.title)}</title>`);
+  html = html.replace(/(<meta\s+name="description"\s+content=")[^"]*(")/,         `$1${esc(seo.description)}$2`);
+  html = html.replace(/(<meta\s+name="keywords"\s+content=")[^"]*(")/,           `$1${esc(seo.keywords)}$2`);
+  html = html.replace(/(<meta\s+property="og:title"\s+content=")[^"]*(")/,       `$1${esc(seo.title)}$2`);
+  html = html.replace(/(<meta\s+property="og:description"\s+content=")[^"]*(")/,  `$1${esc(seo.description)}$2`);
+  html = html.replace(/(<meta\s+property="og:url"\s+content=")[^"]*(")/,         `$1${esc(seo.canonical)}$2`);
+  html = html.replace(/(<meta\s+name="twitter:title"\s+content=")[^"]*(")/,      `$1${esc(seo.title)}$2`);
   html = html.replace(/(<meta\s+name="twitter:description"\s+content=")[^"]*(")/,`$1${esc(seo.description)}$2`);
   html = html.replace(/<link\s+rel="canonical"\s+href="[^"]*"\s*\/?>/, `<link rel="canonical" href="${esc(seo.canonical)}" />`);
-
-  const schemaTag = `<script type="application/ld+json">${JSON.stringify(sd)}</script>`;
+  const st = `<script type="application/ld+json">${JSON.stringify(sd)}</script>`;
   if (/<script[^>]*type="application\/ld\+json"/.test(html)) {
-    html = html.replace(/<script[^>]*type="application\/ld\+json"[\s\S]*?<\/script>/, schemaTag);
+    html = html.replace(/<script[^>]*type="application\/ld\+json"[\s\S]*?<\/script>/, st);
   } else {
-    html = html.replace('</head>', `  ${schemaTag}\n</head>`);
+    html = html.replace('</head>', `  ${st}\n</head>`);
   }
   return html;
 }
 
-function injectBodyContent(html, routeUrl) {
-  const tool = allTools.find(t => t.url === routeUrl);
-  const cat  = toolCategories.find(c => c.url === routeUrl);
-
-  let content = '';
-  if (tool)          content = buildToolContentHtml(tool);
-  else if (cat)      content = buildCategoryContentHtml(cat);
-  else if (routeUrl === '/') content = buildHomepageContentHtml();
-
-  if (!content) return html;
-  return html.replace('<div id="root">', `${content}\n    <div id="root">`);
-}
-
 // ─── Routes ───────────────────────────────────────────────────────────────────
-const routes = ['/', '/about', '/contact', '/privacy-policy', '/terms-and-conditions',
-  ...toolCategories.map(c => c.url),
-  ...allTools.map(t => t.url),
-];
+const routes = ['/','/about','/contact','/privacy-policy','/terms-and-conditions',
+  ...toolCategories.map(c=>c.url), ...allTools.map(t=>t.url)];
 
 // ─── Main ─────────────────────────────────────────────────────────────────────
 async function main() {
@@ -451,17 +452,37 @@ async function main() {
     console.error('❌  dist/index.html not found. Run `npm run build:vite` first.');
     process.exit(1);
   }
-
   const template = fs.readFileSync(templatePath, 'utf-8');
   let ok = 0, fail = 0;
-  console.log(`\n🚀  Pre-rendering ${routes.length} routes with full HTML content injection...\n`);
+  console.log(`\n🚀  Pre-rendering ${routes.length} routes with real JSX content...\n`);
 
   for (const route of routes) {
     try {
       let html = injectHead(template, route);
-      html = injectBodyContent(html, route);
+      let ssg  = '';
 
-      if (route === '/') {  
+      if (route === '/') {
+        ssg = buildHomepageHtml();
+      } else {
+        const cat = toolCategories.find(c=>c.url===route);
+        if (cat) {
+          ssg = buildCategoryHtml(cat);
+        } else {
+          const compPath = ROUTE_COMPONENT_MAP[route];
+          if (compPath) {
+            const fullPath = path.join(SRC, compPath);
+            if (fs.existsSync(fullPath)) {
+              const src = fs.readFileSync(fullPath, 'utf-8');
+              const sections = extractJsxContent(src);
+              ssg = buildToolHtml(route, sections);
+            }
+          }
+        }
+      }
+
+      if (ssg) html = html.replace('<div id="root">', `${ssg}\n    <div id="root">`);
+
+      if (route === '/') {
         fs.writeFileSync(templatePath, html, 'utf-8');
       } else {
         const dir = path.join(DIST, route);
@@ -475,9 +496,7 @@ async function main() {
       fail++;
     }
   }
-
-  console.log(`\n✨  Done: ${ok} pages pre-rendered${fail ? `, ${fail} failed` : ''}.`);
-  console.log(`📄  Each page now has fully crawlable HTML body content — Google can read it without JavaScript.\n`);
+  console.log(`\n✨  Done: ${ok} pages pre-rendered${fail?`, ${fail} failed`:''}.`);
+  console.log(`📄  Real JSX content injected — Google reads all sections, FAQs, and interlinks.\n`);
 }
-
 main();
