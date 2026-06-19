@@ -254,9 +254,9 @@ export default function OcrPdfGenerator() {
 
       {/* Upload Zone */}
       <div
-        className={`border-2 border-dashed rounded-2xl p-8 text-center transition-colors cursor-pointer relative ${
-          dragging ? 'border-white bg-white/10' : 'border-white/20 hover:border-white/40'
-        } bg-white/5`}
+        className={`w-full border-2 border-dashed rounded-2xl p-8 md:p-12 text-center cursor-pointer transition-all duration-300 ${
+          dragging ? 'border-slate-900 bg-slate-50 scale-[0.99]' : 'border-slate-200 hover:border-slate-800 hover:bg-slate-50/50 bg-white'
+        }`}
         onDrop={handleDrop}
         onDragOver={handleDragOver}
         onDragLeave={handleDragLeave}
@@ -271,17 +271,17 @@ export default function OcrPdfGenerator() {
         />
         {file ? (
           <div className="space-y-2">
-            <i className="fas fa-file-pdf text-3xl text-red-400"></i>
-            <p className="text-sm font-bold text-white">{file.name}</p>
-            <p className="text-xs text-slate-400">{(file.size / 1024).toFixed(1)} KB</p>
+            <i className="fas fa-file-pdf text-3xl text-red-500"></i>
+            <p className="text-sm font-bold text-slate-800">{file.name}</p>
+            <p className="text-xs text-slate-500">{(file.size / 1024).toFixed(1)} KB</p>
           </div>
         ) : (
           <div className="space-y-2">
-            <i className="fas fa-cloud-upload-alt text-3xl text-slate-400"></i>
-            <p className="text-sm text-slate-300 font-semibold">
+            <i className="fas fa-cloud-upload-alt text-3xl text-slate-300"></i>
+            <p className="text-sm text-slate-600 font-semibold">
               Drop a PDF here or click to browse
             </p>
-            <p className="text-[10px] text-slate-500">Supports any PDF document — scanned or text-based</p>
+            <p className="text-[10px] text-slate-400">Supports any PDF document — scanned or text-based</p>
           </div>
         )}
       </div>
@@ -303,13 +303,13 @@ export default function OcrPdfGenerator() {
           </div>
           <button
             onClick={handleExtract}
-            className="px-7 py-3 rounded-full bg-white text-slate-900 font-extrabold text-sm hover:bg-slate-100 transition-colors"
+            className="px-7 py-3 rounded-full bg-[#1a1a1a] text-white font-extrabold text-sm hover:bg-neutral-800 transition-colors"
           >
             <i className="fas fa-magic mr-2"></i>Extract Text
           </button>
           <button
             onClick={handleReset}
-            className="px-7 py-3 rounded-full bg-white/10 text-white border border-white/20 font-semibold text-sm hover:bg-white/20 transition-colors"
+            className="px-7 py-3 rounded-full bg-slate-100 text-slate-600 border border-slate-200 font-semibold text-sm hover:bg-slate-200 transition-colors"
           >
             Remove
           </button>
@@ -318,22 +318,22 @@ export default function OcrPdfGenerator() {
 
       {/* Processing Progress */}
       {processing && (
-        <div className="bg-white/5 rounded-2xl p-5 space-y-3 border border-white/10">
+        <div className="bg-slate-50 rounded-2xl p-5 space-y-3 border border-slate-200">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-bold text-slate-300">
+            <span className="text-xs font-bold text-slate-700">
               Page {progress.current} of {progress.total}
             </span>
             <span className="text-[10px] text-slate-500">{progress.status}</span>
           </div>
-          <div className="w-full bg-white/10 rounded-full h-2 overflow-hidden">
+          <div className="w-full bg-slate-200 rounded-full h-2 overflow-hidden">
             <div
-              className="h-full bg-white rounded-full transition-all duration-300"
+              className="h-full bg-slate-700 rounded-full transition-all duration-300"
               style={{ width: `${progress.total > 0 ? (progress.current / progress.total) * 100 : 0}%` }}
             ></div>
           </div>
           <button
             onClick={handleCancel}
-            className="px-5 py-2 rounded-full bg-red-500/20 text-red-300 border border-red-500/30 font-semibold text-xs hover:bg-red-500/30 transition-colors"
+            className="px-5 py-2 rounded-full bg-red-100 text-red-600 border border-red-200 font-semibold text-xs hover:bg-red-200 transition-colors"
           >
             Cancel
           </button>
@@ -342,8 +342,8 @@ export default function OcrPdfGenerator() {
 
       {/* Error */}
       {error && (
-        <div className="bg-red-500/10 border border-red-500/20 rounded-2xl p-4">
-          <p className="text-xs text-red-300 font-semibold"><i className="fas fa-exclamation-triangle mr-2"></i>{error}</p>
+        <div className="bg-red-50 border border-red-200 rounded-2xl p-4">
+          <p className="text-xs text-red-700 font-semibold"><i className="fas fa-exclamation-triangle mr-2"></i>{error}</p>
         </div>
       )}
 
@@ -374,7 +374,7 @@ export default function OcrPdfGenerator() {
                             className="h-full rounded-full transition-all"
                             style={{
                               width: `${(r.chars / maxChars) * 100}%`,
-                              background: 'linear-gradient(90deg, #a78bfa, #818cf8)',
+                              background: 'linear-gradient(90deg, #94a3b8, #64748b)',
                             }}
                           ></div>
                         </div>
