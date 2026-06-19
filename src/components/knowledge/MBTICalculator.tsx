@@ -863,15 +863,20 @@ export default function MBTICalculator() {
 
       {/* Results Stage */}
       {stage === 'results' && (
-        <div className="space-y-8 animate-fade-in-up">
+        <div className="bg-[#1a1a1a] text-white rounded-3xl p-6 md:p-8 space-y-6 text-left shadow-lg relative overflow-hidden animate-fade-in-up">
+          {/* Watermark */}
+          <div className="absolute inset-0 pointer-events-none select-none flex items-center justify-center overflow-hidden">
+            <span className="text-white/[0.03] text-[120px] italic font-black tracking-tighter">MBTI</span>
+          </div>
+          <div className="relative z-10 space-y-8">
           
           {/* Header Summary Row */}
-          <div className="flex flex-col lg:flex-row lg:items-center justify-between pb-6 border-b border-slate-100 gap-6 text-left">
+          <div className="flex flex-col lg:flex-row lg:items-center justify-between pb-6 border-b border-white/10 gap-6 text-left">
             <div>
-              <h2 className="text-3xl font-black text-slate-900 font-display">
+              <h2 className="text-3xl font-black text-white font-display">
                 {calculatedType} &ndash; {details.title}
               </h2>
-              <p className="text-sm text-slate-500 font-semibold mt-0.5">
+              <p className="text-sm text-slate-400 font-semibold mt-0.5">
                 Your evaluated Myers-Briggs personality profile breakdown.
               </p>
             </div>
@@ -880,7 +885,7 @@ export default function MBTICalculator() {
                 type="button"
                 onClick={downloadResults}
                 disabled={isDownloading}
-                className="py-3 px-5 bg-slate-900 hover:bg-slate-800 disabled:bg-slate-400 text-white rounded-2xl font-bold text-xs transition-all flex items-center space-x-2 cursor-pointer shrink-0 shadow-md"
+                className="py-3 px-5 bg-white/10 hover:bg-white/15 disabled:bg-white/5 text-white rounded-2xl font-bold text-xs transition-all flex items-center space-x-2 cursor-pointer shrink-0 shadow-md"
               >
                 <i className="fas fa-download text-[10px]"></i>
                 <span>{isDownloading ? 'Generating...' : 'Download PDF'}</span>
@@ -888,7 +893,7 @@ export default function MBTICalculator() {
               <button
                 type="button"
                 onClick={startTest}
-                className="py-3 px-5 border border-slate-200 hover:bg-slate-50 rounded-2xl font-bold text-xs text-slate-600 transition-all flex items-center space-x-2 cursor-pointer shrink-0"
+                className="py-3 px-5 border border-white/10 hover:bg-white/10 rounded-2xl font-bold text-xs text-slate-300 transition-all flex items-center space-x-2 cursor-pointer shrink-0"
               >
                 <i className="fas fa-redo text-[10px]"></i>
                 <span>Retake Test</span>
@@ -899,28 +904,28 @@ export default function MBTICalculator() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             
             {/* Left Column: Personality Description Card */}
-            <div className="flex flex-col bg-slate-50 p-6 rounded-3xl border border-slate-200/50 justify-between text-left space-y-4">
+            <div className="flex flex-col bg-white/5 p-6 rounded-3xl border border-white/10 justify-between text-left space-y-4">
               <div>
-                <span className="text-xs text-slate-500 font-extrabold uppercase tracking-widest block mb-1">
+                <span className="text-xs text-slate-400 font-extrabold uppercase tracking-widest block mb-1">
                   Profile Overview
                 </span>
-                <h3 className="text-lg font-black text-slate-900 font-display mb-3">
+                <h3 className="text-lg font-black text-white font-display mb-3">
                   About {details.title}
                 </h3>
-                <p className="text-sm text-slate-600 font-medium leading-relaxed">
+                <p className="text-sm text-slate-300 font-medium leading-relaxed">
                   {details.description}
                 </p>
               </div>
 
               {/* Famous figures list */}
-              <div className="pt-4 border-t border-slate-200/60 space-y-2">
-                <span className="text-xs text-slate-500 font-black uppercase block tracking-wider">
+              <div className="pt-4 border-t border-white/10 space-y-2">
+                <span className="text-xs text-slate-400 font-black uppercase block tracking-wider">
                   Famous {calculatedType}s
                 </span>
-                <ul className="text-xs text-slate-600 font-semibold space-y-1">
+                <ul className="text-xs text-slate-300 font-semibold space-y-1">
                   {details.famousPeople.map((fp, i) => (
                     <li key={i} className="flex items-center space-x-1.5">
-                      <span className="w-1.5 h-1.5 rounded-full bg-slate-400 shrink-0"></span>
+                      <span className="w-1.5 h-1.5 rounded-full bg-white/30 shrink-0"></span>
                       <span>{fp}</span>
                     </li>
                   ))}
@@ -930,59 +935,59 @@ export default function MBTICalculator() {
 
             {/* Right Columns: Trait percentages bars & details */}
             <div className="lg:col-span-2 space-y-6 text-left">
-              
+               
               {/* Trait bars */}
               <div className="space-y-4">
-                <h3 className="text-xs font-black uppercase tracking-wider text-slate-500">
+                <h3 className="text-xs font-black uppercase tracking-wider text-slate-400">
                   Dimension Preferences Breakdown
                 </h3>
                 
                 <div className="space-y-3.5">
                   {/* E vs I */}
-                  <div className="bg-slate-50 p-3 rounded-2xl border border-slate-100 space-y-2">
-                    <div className="flex justify-between items-center text-sm font-black text-slate-900">
+                  <div className="bg-white/5 p-3 rounded-2xl border border-white/10 space-y-2">
+                    <div className="flex justify-between items-center text-sm font-black text-white">
                       <span>Extraversion ({dimensionPercentages.E}%)</span>
                       <span>Introversion ({dimensionPercentages.I}%)</span>
                     </div>
-                    <div className="h-2.5 bg-slate-200 rounded-full overflow-hidden flex">
-                      <div className="h-full bg-slate-900" style={{ width: `${dimensionPercentages.E}%` }} />
-                      <div className="h-full bg-slate-400" style={{ width: `${dimensionPercentages.I}%` }} />
+                    <div className="h-2.5 bg-white/10 rounded-full overflow-hidden flex">
+                      <div className="h-full bg-white/40" style={{ width: `${dimensionPercentages.E}%` }} />
+                      <div className="h-full bg-white/20" style={{ width: `${dimensionPercentages.I}%` }} />
                     </div>
                   </div>
 
                   {/* S vs N */}
-                  <div className="bg-slate-50 p-3 rounded-2xl border border-slate-100 space-y-2">
-                    <div className="flex justify-between items-center text-sm font-black text-slate-900">
+                  <div className="bg-white/5 p-3 rounded-2xl border border-white/10 space-y-2">
+                    <div className="flex justify-between items-center text-sm font-black text-white">
                       <span>Sensing ({dimensionPercentages.S}%)</span>
                       <span>Intuition ({dimensionPercentages.N}%)</span>
                     </div>
-                    <div className="h-2.5 bg-slate-200 rounded-full overflow-hidden flex">
-                      <div className="h-full bg-slate-900" style={{ width: `${dimensionPercentages.S}%` }} />
-                      <div className="h-full bg-slate-400" style={{ width: `${dimensionPercentages.N}%` }} />
+                    <div className="h-2.5 bg-white/10 rounded-full overflow-hidden flex">
+                      <div className="h-full bg-white/40" style={{ width: `${dimensionPercentages.S}%` }} />
+                      <div className="h-full bg-white/20" style={{ width: `${dimensionPercentages.N}%` }} />
                     </div>
                   </div>
 
                   {/* T vs F */}
-                  <div className="bg-slate-50 p-3 rounded-2xl border border-slate-100 space-y-2">
-                    <div className="flex justify-between items-center text-sm font-black text-slate-900">
+                  <div className="bg-white/5 p-3 rounded-2xl border border-white/10 space-y-2">
+                    <div className="flex justify-between items-center text-sm font-black text-white">
                       <span>Thinking ({dimensionPercentages.T}%)</span>
                       <span>Feeling ({dimensionPercentages.F}%)</span>
                     </div>
-                    <div className="h-2.5 bg-slate-200 rounded-full overflow-hidden flex">
-                      <div className="h-full bg-slate-900" style={{ width: `${dimensionPercentages.T}%` }} />
-                      <div className="h-full bg-slate-400" style={{ width: `${dimensionPercentages.F}%` }} />
+                    <div className="h-2.5 bg-white/10 rounded-full overflow-hidden flex">
+                      <div className="h-full bg-white/40" style={{ width: `${dimensionPercentages.T}%` }} />
+                      <div className="h-full bg-white/20" style={{ width: `${dimensionPercentages.F}%` }} />
                     </div>
                   </div>
 
                   {/* J vs P */}
-                  <div className="bg-slate-50 p-3 rounded-2xl border border-slate-100 space-y-2">
-                    <div className="flex justify-between items-center text-sm font-black text-slate-900">
+                  <div className="bg-white/5 p-3 rounded-2xl border border-white/10 space-y-2">
+                    <div className="flex justify-between items-center text-sm font-black text-white">
                       <span>Judging ({dimensionPercentages.J}%)</span>
                       <span>Perceiving ({dimensionPercentages.P}%)</span>
                     </div>
-                    <div className="h-2.5 bg-slate-200 rounded-full overflow-hidden flex">
-                      <div className="h-full bg-slate-900" style={{ width: `${dimensionPercentages.J}%` }} />
-                      <div className="h-full bg-slate-400" style={{ width: `${dimensionPercentages.P}%` }} />
+                    <div className="h-2.5 bg-white/10 rounded-full overflow-hidden flex">
+                      <div className="h-full bg-white/40" style={{ width: `${dimensionPercentages.J}%` }} />
+                      <div className="h-full bg-white/20" style={{ width: `${dimensionPercentages.P}%` }} />
                     </div>
                   </div>
                 </div>
@@ -990,23 +995,23 @@ export default function MBTICalculator() {
 
               {/* Strengths & Growth Areas Grid */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
-                <div className="bg-slate-50/50 border border-slate-150 p-4 rounded-2xl space-y-2">
-                  <h4 className="text-sm font-black text-slate-900 uppercase tracking-wide">Key Strengths</h4>
-                  <ul className="text-xs text-slate-600 space-y-1.5">
+                <div className="bg-white/5 border border-white/10 p-4 rounded-2xl space-y-2">
+                  <h4 className="text-sm font-black text-white uppercase tracking-wide">Key Strengths</h4>
+                  <ul className="text-xs text-slate-300 space-y-1.5">
                     {details.strengths.map((str, i) => (
                       <li key={i} className="flex items-start space-x-1.5">
-                        <i className="fas fa-check text-slate-700 mt-0.5 text-xs"></i>
+                        <i className="fas fa-check text-slate-300 mt-0.5 text-xs"></i>
                         <span>{str}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
-                <div className="bg-slate-50/50 border border-slate-150 p-4 rounded-2xl space-y-2">
-                  <h4 className="text-sm font-black text-slate-900 uppercase tracking-wide">Growth Opportunities</h4>
-                  <ul className="text-xs text-slate-600 space-y-1.5">
+                <div className="bg-white/5 border border-white/10 p-4 rounded-2xl space-y-2">
+                  <h4 className="text-sm font-black text-white uppercase tracking-wide">Growth Opportunities</h4>
+                  <ul className="text-xs text-slate-300 space-y-1.5">
                     {details.opportunities.map((opp, i) => (
                       <li key={i} className="flex items-start space-x-1.5">
-                        <i className="fas fa-lightbulb text-slate-700 mt-0.5 text-xs"></i>
+                        <i className="fas fa-lightbulb text-slate-300 mt-0.5 text-xs"></i>
                         <span>{opp}</span>
                       </li>
                     ))}
@@ -1019,63 +1024,63 @@ export default function MBTICalculator() {
           </div>
 
           {/* Cognitive Function Stack Section */}
-          <div className="border-t border-slate-100 pt-6 text-left space-y-4">
+          <div className="border-t border-white/10 pt-6 text-left space-y-4">
             <div>
-              <h3 className="text-lg font-black text-slate-900 font-display">
+              <h3 className="text-lg font-black text-white font-display">
                 Cognitive Functions Stack
               </h3>
-              <p className="text-sm text-slate-500 font-semibold leading-relaxed">
+              <p className="text-sm text-slate-400 font-semibold leading-relaxed">
                 The mental processes that define how your personality gathers information and processes decisions.
               </p>
             </div>
             
             <div className="grid grid-cols-1 sm:grid-cols-4 gap-3.5">
-              <div className="p-4 border border-slate-200/80 rounded-2xl bg-white shadow-sm space-y-1">
-                <span className="text-xs font-black text-[#1a1a1a] uppercase tracking-wider block">Dominant Function</span>
-                <span className="text-sm font-black text-slate-900 block">{details.cognitiveStack.dominant}</span>
+              <div className="p-4 border border-white/10 rounded-2xl bg-white/5 shadow-sm space-y-1">
+                <span className="text-xs font-black text-white uppercase tracking-wider block">Dominant Function</span>
+                <span className="text-sm font-black text-white block">{details.cognitiveStack.dominant}</span>
               </div>
-              <div className="p-4 border border-slate-200/80 rounded-2xl bg-white shadow-sm space-y-1">
-                <span className="text-xs font-black text-[#1a1a1a] uppercase tracking-wider block">Auxiliary Function</span>
-                <span className="text-sm font-black text-slate-900 block">{details.cognitiveStack.auxiliary}</span>
+              <div className="p-4 border border-white/10 rounded-2xl bg-white/5 shadow-sm space-y-1">
+                <span className="text-xs font-black text-white uppercase tracking-wider block">Auxiliary Function</span>
+                <span className="text-sm font-black text-white block">{details.cognitiveStack.auxiliary}</span>
               </div>
-              <div className="p-4 border border-slate-200/80 rounded-2xl bg-white shadow-sm space-y-1">
-                <span className="text-xs font-black text-[#1a1a1a] uppercase tracking-wider block">Tertiary Function</span>
-                <span className="text-sm font-black text-slate-900 block">{details.cognitiveStack.tertiary}</span>
+              <div className="p-4 border border-white/10 rounded-2xl bg-white/5 shadow-sm space-y-1">
+                <span className="text-xs font-black text-white uppercase tracking-wider block">Tertiary Function</span>
+                <span className="text-sm font-black text-white block">{details.cognitiveStack.tertiary}</span>
               </div>
-              <div className="p-4 border border-slate-200/80 rounded-2xl bg-white shadow-sm space-y-1">
-                <span className="text-xs font-black text-[#1a1a1a] uppercase tracking-wider block">Inferior Function</span>
-                <span className="text-sm font-black text-slate-900 block">{details.cognitiveStack.inferior}</span>
+              <div className="p-4 border border-white/10 rounded-2xl bg-white/5 shadow-sm space-y-1">
+                <span className="text-xs font-black text-white uppercase tracking-wider block">Inferior Function</span>
+                <span className="text-sm font-black text-white block">{details.cognitiveStack.inferior}</span>
               </div>
             </div>
           </div>
 
           {/* Compatibility & Careers Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 border-t border-slate-100 pt-6 text-left">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 border-t border-white/10 pt-6 text-left">
             {/* Compatibility */}
             <div className="space-y-3">
-              <h3 className="text-lg font-black text-slate-900 font-display">Relationship Compatibility</h3>
+              <h3 className="text-lg font-black text-white font-display">Relationship Compatibility</h3>
               <div className="space-y-3 text-sm">
                 <div>
-                  <span className="text-xs font-black text-slate-900 uppercase tracking-wider block mb-1">Optimal Romantic Matches</span>
+                  <span className="text-xs font-black text-white uppercase tracking-wider block mb-1">Optimal Romantic Matches</span>
                   <div className="flex gap-2">
                     {details.compatibility.best.map((item, i) => (
-                      <span key={i} className="px-2.5 py-1 bg-slate-50 text-slate-900 font-extrabold rounded-lg border border-slate-200 text-xs">{item}</span>
+                      <span key={i} className="px-2.5 py-1 bg-white/5 text-white font-extrabold rounded-lg border border-white/10 text-xs">{item}</span>
                     ))}
                   </div>
                 </div>
                 <div>
-                  <span className="text-xs font-black text-slate-500 uppercase tracking-wider block mb-1">Strong Intellectual Connections</span>
+                  <span className="text-xs font-black text-slate-400 uppercase tracking-wider block mb-1">Strong Intellectual Connections</span>
                   <div className="flex gap-2">
                     {details.compatibility.good.map((item, i) => (
-                      <span key={i} className="px-2.5 py-1 bg-slate-50 text-slate-600 font-extrabold rounded-lg border border-slate-200 text-xs">{item}</span>
+                      <span key={i} className="px-2.5 py-1 bg-white/5 text-slate-300 font-extrabold rounded-lg border border-white/10 text-xs">{item}</span>
                     ))}
                   </div>
                 </div>
                 <div>
-                  <span className="text-xs font-black text-slate-900 uppercase tracking-wider block mb-1">Potential Communication Friction</span>
+                  <span className="text-xs font-black text-white uppercase tracking-wider block mb-1">Potential Communication Friction</span>
                   <div className="flex gap-2">
                     {details.compatibility.challenges.map((item, i) => (
-                      <span key={i} className="px-2.5 py-1 bg-slate-50 text-slate-900 font-extrabold rounded-lg border border-slate-200 text-xs">{item}</span>
+                      <span key={i} className="px-2.5 py-1 bg-white/5 text-white font-extrabold rounded-lg border border-white/10 text-xs">{item}</span>
                     ))}
                   </div>
                 </div>
@@ -1084,14 +1089,14 @@ export default function MBTICalculator() {
 
             {/* Careers */}
             <div className="space-y-3">
-              <h3 className="text-lg font-black text-slate-900 font-display">Recommended Careers</h3>
-              <p className="text-sm text-slate-500 font-semibold leading-relaxed">
+              <h3 className="text-lg font-black text-white font-display">Recommended Careers</h3>
+              <p className="text-sm text-slate-400 font-semibold leading-relaxed">
                 Work environments where this personality type typically excels and flourishes:
               </p>
               <div className="flex flex-wrap gap-2 pt-1">
                 {details.careers.map((car, i) => (
-                  <span key={i} className="px-3 py-1.5 bg-slate-50 border border-slate-150 rounded-xl text-sm font-black text-slate-900 flex items-center space-x-1.5 shadow-sm">
-                    <i className="fas fa-briefcase text-slate-500 text-xs"></i>
+                  <span key={i} className="px-3 py-1.5 bg-white/5 border border-white/10 rounded-xl text-sm font-black text-white flex items-center space-x-1.5 shadow-sm">
+                    <i className="fas fa-briefcase text-slate-400 text-xs"></i>
                     <span>{car}</span>
                   </span>
                 ))}
@@ -1100,17 +1105,17 @@ export default function MBTICalculator() {
           </div>
 
           {/* AI Grounding Integration Panel */}
-          <div className="border-t border-slate-200/65 pt-8 space-y-6 text-left" ref={aiSectionRef}>
+          <div className="border-t border-white/10 pt-8 space-y-6 text-left" ref={aiSectionRef}>
             <div className="space-y-2">
               <div className="flex items-center space-x-2">
-                <div className="w-8 h-8 rounded-full bg-slate-900 text-white flex items-center justify-center text-sm">
+                <div className="w-8 h-8 rounded-full bg-white/10 text-white flex items-center justify-center text-sm">
                   <i className="fas fa-sparkles"></i>
                 </div>
-                <h3 className="text-lg font-black text-slate-900 font-display">
+                <h3 className="text-lg font-black text-white font-display">
                   Deep AI Psychological Analysis
                 </h3>
               </div>
-              <p className="text-sm text-slate-500 font-semibold leading-relaxed">
+              <p className="text-sm text-slate-400 font-semibold leading-relaxed">
                 Generate an in-depth clinical personality report mapping your cognitive stacks, workplace strengths, interpersonal communication, and targeted personal development trajectories.
               </p>
             </div>
@@ -1120,7 +1125,7 @@ export default function MBTICalculator() {
                 type="button"
                 onClick={handleGenerateAiReport}
                 disabled={isGenerating}
-                className="py-3 px-6 bg-slate-900 hover:bg-slate-800 disabled:bg-slate-400 text-white rounded-xl font-bold text-xs transition-all active:scale-95 cursor-pointer shadow-sm flex items-center space-x-2 shrink-0"
+                className="py-3 px-6 bg-white/10 hover:bg-white/15 disabled:bg-white/5 text-white rounded-xl font-bold text-xs transition-all active:scale-95 cursor-pointer shadow-sm flex items-center space-x-2 shrink-0"
               >
                 {isGenerating ? (
                   <>
@@ -1138,15 +1143,15 @@ export default function MBTICalculator() {
 
             {/* Narrative container */}
             {aiError && (
-              <div className="p-4 bg-slate-50 border border-slate-200/80 rounded-xl text-xs text-slate-650 font-medium text-left flex items-start space-x-2">
-                <i className="fas fa-exclamation-circle text-slate-700 mt-0.5"></i>
+              <div className="p-4 bg-white/5 border border-white/10 rounded-xl text-xs text-slate-300 font-medium text-left flex items-start space-x-2">
+                <i className="fas fa-exclamation-circle text-slate-300 mt-0.5"></i>
                 <span>{aiError}</span>
               </div>
             )}
 
             {aiNarrative && (
               <div 
-                className="p-6 bg-white border border-slate-150 rounded-2xl shadow-sm text-slate-750 text-sm leading-relaxed space-y-4 w-full prose prose-slate max-w-none animate-fade-in text-left"
+                className="p-6 bg-white/5 border border-white/10 rounded-2xl shadow-sm text-slate-300 text-sm leading-relaxed space-y-4 w-full prose prose-slate max-w-none animate-fade-in text-left"
                 style={{ whiteSpace: 'normal', wordBreak: 'break-word' }}
                 dangerouslySetInnerHTML={{ __html: formatAIResponse(aiNarrative) }}
               />
@@ -1154,11 +1159,11 @@ export default function MBTICalculator() {
           </div>
 
           {/* Steps and Resolution math details */}
-          <div className="border-t border-slate-200/60 pt-6 text-left space-y-4">
-            <h4 className="text-xs font-black uppercase tracking-wider text-slate-500">
+          <div className="border-t border-white/10 pt-6 text-left space-y-4">
+            <h4 className="text-xs font-black uppercase tracking-wider text-white/70">
               Step-by-Step Resolution Steps
             </h4>
-            <div className="space-y-3.5 max-h-[220px] overflow-y-auto pr-1 text-sm text-slate-600 leading-relaxed font-medium">
+            <div className="space-y-3.5 max-h-[220px] overflow-y-auto pr-1 text-sm text-white/70 leading-relaxed font-medium">
               {steps.map((step, idx) => {
                 const cleanStep = step.replace(/\*\*/g, '');
                 if (cleanStep.startsWith('$$')) {
@@ -1197,7 +1202,7 @@ export default function MBTICalculator() {
                 }
 
                 return (
-                  <p key={idx} className={step.startsWith('**') ? 'font-black text-slate-800 pt-2 first:pt-0' : ''}>
+                  <p key={idx} className={step.startsWith('**') ? 'font-black text-white pt-2 first:pt-0' : ''}>
                     {parts.length > 0 ? parts : cleanStep}
                   </p>
                 );
@@ -1205,6 +1210,7 @@ export default function MBTICalculator() {
             </div>
           </div>
 
+          </div>
         </div>
       )}
 

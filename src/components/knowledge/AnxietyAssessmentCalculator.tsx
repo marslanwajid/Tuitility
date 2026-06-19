@@ -642,20 +642,25 @@ export default function AnxietyAssessmentCalculator() {
 
       {/* Results Stage */}
       {stage === 'results' && result && (
-        <div className="space-y-8 animate-fade-in-up">
-          
+        <div className="bg-[#1a1a1a] text-white rounded-3xl p-6 md:p-8 space-y-6 text-left shadow-lg relative overflow-hidden animate-fade-in-up">
+          {/* Watermark */}
+          <div className="absolute inset-0 pointer-events-none select-none flex items-center justify-center overflow-hidden">
+            <span className="text-white/[0.03] text-[120px] italic font-black tracking-tighter">ANXIETY</span>
+          </div>
+          <div className="relative z-10 space-y-6">
+
           {/* Header Summary Row */}
-          <div className="flex flex-col lg:flex-row lg:items-center justify-between pb-6 border-b border-slate-100 gap-6 text-left">
+          <div className="flex flex-col lg:flex-row lg:items-center justify-between pb-6 border-b border-white/10 gap-6 text-left">
             <div>
-              <h2 className="text-2xl font-black text-slate-900 font-display">
+              <h2 className="text-2xl font-black text-white font-display">
                 Your Anxiety Evaluation Profile
               </h2>
-              <p className="text-xs text-slate-500 font-semibold mt-0.5">
+              <p className="text-xs text-slate-400 font-semibold mt-0.5">
                 Anxiety symptom intensity mapped across 5 core categories.
               </p>
             </div>
             <div className="flex items-center gap-3 flex-wrap">
-              <div className="bg-slate-900 text-white px-5 py-3 rounded-2xl text-center shadow-md min-w-[120px]">
+              <div className="bg-white/10 text-white px-5 py-3 rounded-2xl text-center shadow-md min-w-[120px]">
                 <span className="text-[8px] font-extrabold uppercase tracking-widest block opacity-75">
                   Total Score
                 </span>
@@ -667,7 +672,7 @@ export default function AnxietyAssessmentCalculator() {
                 type="button"
                 onClick={downloadResults}
                 disabled={isDownloading}
-                className="py-3 px-5 bg-slate-900 hover:bg-slate-800 disabled:bg-slate-400 text-white rounded-2xl font-bold text-xs transition-all flex items-center space-x-2 cursor-pointer shrink-0"
+                className="py-3 px-5 bg-white/10 hover:bg-white/15 disabled:bg-white/5 text-white rounded-2xl font-bold text-xs transition-all flex items-center space-x-2 cursor-pointer shrink-0"
               >
                 <i className="fas fa-download text-[10px]"></i>
                 <span>{isDownloading ? 'Generating...' : 'Download PDF'}</span>
@@ -675,7 +680,7 @@ export default function AnxietyAssessmentCalculator() {
               <button
                 type="button"
                 onClick={startQuiz}
-                className="py-3 px-5 border border-slate-200 hover:bg-slate-50 rounded-2xl font-bold text-xs text-slate-655 transition-all flex items-center space-x-2 cursor-pointer shrink-0"
+                className="py-3 px-5 border border-white/10 hover:bg-white/10 rounded-2xl font-bold text-xs text-white/70 transition-all flex items-center space-x-2 cursor-pointer shrink-0"
               >
                 <i className="fas fa-redo text-[10px]"></i>
                 <span>Retake Screener</span>
@@ -686,7 +691,7 @@ export default function AnxietyAssessmentCalculator() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             
             {/* Left Column: SVG Circle Score Gauge */}
-            <div className="flex flex-col items-center bg-slate-50 p-6 rounded-3xl border border-slate-200/50 justify-center">
+            <div className="flex flex-col items-center bg-white/5 p-6 rounded-3xl border border-white/10 justify-center">
               <span className="text-[10px] text-slate-400 font-extrabold uppercase tracking-widest block mb-4">
                 Anxiety Severity Level
               </span>
@@ -698,7 +703,7 @@ export default function AnxietyAssessmentCalculator() {
                     cx="100"
                     cy="100"
                     r="70"
-                    className="fill-none stroke-slate-200"
+                    className="fill-none stroke-white/10"
                     strokeWidth="12"
                   />
                   
@@ -718,8 +723,8 @@ export default function AnxietyAssessmentCalculator() {
                 
                 {/* Center text score */}
                 <div className="absolute text-center space-y-0.5">
-                  <span className="text-3xl font-black text-slate-900 font-display block">{result.scores.total}</span>
-                  <span className="text-[9px] text-slate-450 font-black uppercase tracking-wider block">Max 63</span>
+                  <span className="text-3xl font-black text-white font-display block">{result.scores.total}</span>
+                  <span className="text-[9px] text-slate-400 font-black uppercase tracking-wider block">Max 63</span>
                 </div>
               </div>
 
@@ -729,7 +734,7 @@ export default function AnxietyAssessmentCalculator() {
                 <span className="text-xs font-black block leading-tight" style={{ color: result.scores.color }}>
                   {result.scores.severity}
                 </span>
-                <p className="text-[9px] text-slate-500 font-semibold leading-normal pt-1 border-t border-slate-200/60">
+                <p className="text-[9px] text-slate-400 font-semibold leading-normal pt-1 border-t border-white/10">
                   {result.scores.severityDesc}
                 </p>
               </div>
@@ -740,25 +745,25 @@ export default function AnxietyAssessmentCalculator() {
               
               {/* Detailed subscales */}
               <div className="space-y-3">
-                <h3 className="text-xs font-black uppercase tracking-wider text-slate-455">
+                <h3 className="text-xs font-black uppercase tracking-wider text-slate-400">
                   Category Scores Breakdown
                 </h3>
                 
                 <div className="grid grid-cols-1 md:grid-cols-5 gap-2.5">
                   {/* Psychological */}
-                  <div className="p-2.5 bg-white border border-slate-250 rounded-xl space-y-1.5 flex flex-col justify-between">
+                  <div className="p-2.5 bg-white/5 border border-white/10 rounded-xl space-y-1.5 flex flex-col justify-between">
                     <div>
-                      <span className="text-[10px] font-black text-slate-900 block leading-tight">Psychological</span>
+                      <span className="text-[10px] font-black text-white block leading-tight">Psychological</span>
                       <span className="text-[9px] text-slate-400 block font-semibold leading-none">Symptoms</span>
                     </div>
                     <div>
-                      <div className="text-xs font-bold text-slate-800 flex justify-between items-baseline mt-1">
+                      <div className="text-xs font-bold text-white flex justify-between items-baseline mt-1">
                         <span>{result.scores.psychological}</span>
                         <span className="text-[9px] opacity-50">/ 15</span>
                       </div>
-                      <div className="h-1.5 bg-slate-100 rounded-full overflow-hidden border border-slate-200/40">
+                      <div className="h-1.5 bg-white/10 rounded-full overflow-hidden border border-white/10">
                         <div
-                          className="h-full bg-slate-900"
+                          className="h-full bg-white/40"
                           style={{ width: `${(result.scores.psychological / 15) * 100}%` }}
                         />
                       </div>
@@ -766,19 +771,19 @@ export default function AnxietyAssessmentCalculator() {
                   </div>
 
                   {/* Physical */}
-                  <div className="p-2.5 bg-white border border-slate-250 rounded-xl space-y-1.5 flex flex-col justify-between">
+                  <div className="p-2.5 bg-white/5 border border-white/10 rounded-xl space-y-1.5 flex flex-col justify-between">
                     <div>
-                      <span className="text-[10px] font-black text-slate-900 block leading-tight">Physical</span>
+                      <span className="text-[10px] font-black text-white block leading-tight">Physical</span>
                       <span className="text-[9px] text-slate-400 block font-semibold leading-none">Manifestations</span>
                     </div>
                     <div>
-                      <div className="text-xs font-bold text-slate-800 flex justify-between items-baseline mt-1">
+                      <div className="text-xs font-bold text-white flex justify-between items-baseline mt-1">
                         <span>{result.scores.physical}</span>
                         <span className="text-[9px] opacity-50">/ 15</span>
                       </div>
-                      <div className="h-1.5 bg-slate-100 rounded-full overflow-hidden border border-slate-200/40">
+                      <div className="h-1.5 bg-white/10 rounded-full overflow-hidden border border-white/10">
                         <div
-                          className="h-full bg-slate-900"
+                          className="h-full bg-white/40"
                           style={{ width: `${(result.scores.physical / 15) * 100}%` }}
                         />
                       </div>
@@ -786,19 +791,19 @@ export default function AnxietyAssessmentCalculator() {
                   </div>
 
                   {/* Behavioral */}
-                  <div className="p-2.5 bg-white border border-slate-250 rounded-xl space-y-1.5 flex flex-col justify-between">
+                  <div className="p-2.5 bg-white/5 border border-white/10 rounded-xl space-y-1.5 flex flex-col justify-between">
                     <div>
-                      <span className="text-[10px] font-black text-slate-900 block leading-tight">Behavioral</span>
+                      <span className="text-[10px] font-black text-white block leading-tight">Behavioral</span>
                       <span className="text-[9px] text-slate-400 block font-semibold leading-none">Changes</span>
                     </div>
                     <div>
-                      <div className="text-xs font-bold text-slate-800 flex justify-between items-baseline mt-1">
+                      <div className="text-xs font-bold text-white flex justify-between items-baseline mt-1">
                         <span>{result.scores.behavioral}</span>
                         <span className="text-[9px] opacity-50">/ 15</span>
                       </div>
-                      <div className="h-1.5 bg-slate-100 rounded-full overflow-hidden border border-slate-200/40">
+                      <div className="h-1.5 bg-white/10 rounded-full overflow-hidden border border-white/10">
                         <div
-                          className="h-full bg-slate-900"
+                          className="h-full bg-white/40"
                           style={{ width: `${(result.scores.behavioral / 15) * 100}%` }}
                         />
                       </div>
@@ -806,19 +811,19 @@ export default function AnxietyAssessmentCalculator() {
                   </div>
 
                   {/* Social */}
-                  <div className="p-2.5 bg-white border border-slate-250 rounded-xl space-y-1.5 flex flex-col justify-between">
+                  <div className="p-2.5 bg-white/5 border border-white/10 rounded-xl space-y-1.5 flex flex-col justify-between">
                     <div>
-                      <span className="text-[10px] font-black text-slate-900 block leading-tight">Social</span>
+                      <span className="text-[10px] font-black text-white block leading-tight">Social</span>
                       <span className="text-[9px] text-slate-400 block font-semibold leading-none">Interference</span>
                     </div>
                     <div>
-                      <div className="text-xs font-bold text-slate-800 flex justify-between items-baseline mt-1">
+                      <div className="text-xs font-bold text-white flex justify-between items-baseline mt-1">
                         <span>{result.scores.social}</span>
                         <span className="text-[9px] opacity-50">/ 9</span>
                       </div>
-                      <div className="h-1.5 bg-slate-100 rounded-full overflow-hidden border border-slate-200/40">
+                      <div className="h-1.5 bg-white/10 rounded-full overflow-hidden border border-white/10">
                         <div
-                          className="h-full bg-slate-900"
+                          className="h-full bg-white/40"
                           style={{ width: `${(result.scores.social / 9) * 100}%` }}
                         />
                       </div>
@@ -826,19 +831,19 @@ export default function AnxietyAssessmentCalculator() {
                   </div>
 
                   {/* Cognitive */}
-                  <div className="p-2.5 bg-white border border-slate-250 rounded-xl space-y-1.5 flex flex-col justify-between">
+                  <div className="p-2.5 bg-white/5 border border-white/10 rounded-xl space-y-1.5 flex flex-col justify-between">
                     <div>
-                      <span className="text-[10px] font-black text-slate-900 block leading-tight">Cognitive</span>
+                      <span className="text-[10px] font-black text-white block leading-tight">Cognitive</span>
                       <span className="text-[9px] text-slate-400 block font-semibold leading-none">Patterns</span>
                     </div>
                     <div>
-                      <div className="text-xs font-bold text-slate-800 flex justify-between items-baseline mt-1">
+                      <div className="text-xs font-bold text-white flex justify-between items-baseline mt-1">
                         <span>{result.scores.cognitive}</span>
                         <span className="text-[9px] opacity-50">/ 9</span>
                       </div>
-                      <div className="h-1.5 bg-slate-100 rounded-full overflow-hidden border border-slate-200/40">
+                      <div className="h-1.5 bg-white/10 rounded-full overflow-hidden border border-white/10">
                         <div
-                          className="h-full bg-slate-900"
+                          className="h-full bg-white/40"
                           style={{ width: `${(result.scores.cognitive / 9) * 100}%` }}
                         />
                       </div>
@@ -848,11 +853,11 @@ export default function AnxietyAssessmentCalculator() {
               </div>
 
               {/* Mathematical Formulation Steps */}
-              <div className="space-y-4 pt-4 border-t border-slate-200/60">
-                <h4 className="text-xs font-black uppercase tracking-wider text-slate-450">
+              <div className="space-y-4 pt-4 border-t border-white/10">
+                <h4 className="text-xs font-black uppercase tracking-wider text-slate-400">
                   Step-by-Step Resolution Steps
                 </h4>
-                <div className="space-y-3.5 max-h-[160px] overflow-y-auto pr-1 text-xs text-slate-655 leading-relaxed font-medium">
+                <div className="space-y-3.5 max-h-[160px] overflow-y-auto pr-1 text-xs text-white/70 leading-relaxed font-medium">
                   {result.steps.map((step, idx) => {
                     const cleanStep = step.replace(/\*\*/g, '');
                     if (cleanStep.startsWith('$$')) {
@@ -891,7 +896,7 @@ export default function AnxietyAssessmentCalculator() {
                     }
 
                     return (
-                      <p key={idx} className={step.startsWith('**') ? 'font-black text-slate-800 pt-2 first:pt-0' : ''}>
+                      <p key={idx} className={step.startsWith('**') ? 'font-black text-white pt-2 first:pt-0' : ''}>
                         {parts.length > 0 ? parts : cleanStep}
                       </p>
                     );
@@ -904,17 +909,17 @@ export default function AnxietyAssessmentCalculator() {
           </div>
 
           {/* AI Grounding Integration Panel */}
-          <div className="border-t border-slate-200/65 pt-8 space-y-6 text-left" ref={aiSectionRef}>
+          <div className="border-t border-white/10 pt-8 space-y-6 text-left" ref={aiSectionRef}>
             <div className="space-y-2">
               <div className="flex items-center space-x-2">
-                <div className="w-8 h-8 rounded-full bg-slate-900 text-white flex items-center justify-center text-sm">
+                <div className="w-8 h-8 rounded-full bg-white/10 text-white flex items-center justify-center text-sm">
                   <i className="fas fa-sparkles"></i>
                 </div>
-                <h3 className="text-lg font-black text-slate-900 font-display">
+                <h3 className="text-lg font-black text-white font-display">
                   AI Coping &amp; Grounding Support
                 </h3>
               </div>
-              <p className="text-xs text-slate-500 font-semibold leading-relaxed">
+              <p className="text-xs text-slate-400 font-semibold leading-relaxed">
                 Generate a personalized clinical interpretation and evidence-based self-care coping recommendations based on your specific category scores. This is processed securely and does not save any personal data.
               </p>
             </div>
@@ -924,7 +929,7 @@ export default function AnxietyAssessmentCalculator() {
                 type="button"
                 onClick={handleGenerateAiReport}
                 disabled={isGenerating}
-                className="py-3 px-6 bg-slate-900 hover:bg-slate-800 disabled:bg-slate-400 text-white rounded-xl font-bold text-xs transition-all active:scale-95 cursor-pointer shadow-sm flex items-center space-x-2 shrink-0"
+                className="py-3 px-6 bg-white/10 hover:bg-white/15 disabled:bg-white/5 text-white rounded-xl font-bold text-xs transition-all active:scale-95 cursor-pointer shadow-sm flex items-center space-x-2 shrink-0"
               >
                 {isGenerating ? (
                   <>
@@ -942,15 +947,15 @@ export default function AnxietyAssessmentCalculator() {
 
             {/* Narrative container */}
             {aiError && (
-              <div className="p-4 bg-slate-50 border border-slate-200/80 rounded-xl text-xs text-slate-655 font-medium text-left flex items-start space-x-2">
-                <i className="fas fa-exclamation-circle text-slate-700 mt-0.5"></i>
+              <div className="p-4 bg-white/5 border border-white/10 rounded-xl text-xs text-slate-300 font-medium text-left flex items-start space-x-2">
+                <i className="fas fa-exclamation-circle text-slate-300 mt-0.5"></i>
                 <span>{aiError}</span>
               </div>
             )}
 
             {aiNarrative && (
               <div 
-                className="p-6 bg-white border border-slate-150 rounded-2xl shadow-sm text-slate-755 text-xs leading-relaxed space-y-4 w-full prose prose-slate max-w-none animate-fade-in text-left"
+                className="p-6 bg-white/5 border border-white/10 rounded-2xl shadow-sm text-slate-300 text-xs leading-relaxed space-y-4 w-full prose prose-slate max-w-none animate-fade-in text-left"
                 style={{ whiteSpace: 'normal', wordBreak: 'break-word' }}
                 dangerouslySetInnerHTML={{ __html: formatAIResponse(aiNarrative) }}
               />
@@ -958,6 +963,7 @@ export default function AnxietyAssessmentCalculator() {
           </div>
 
         </div>
+      </div>
       )}
 
     </div>

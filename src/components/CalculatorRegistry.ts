@@ -265,6 +265,34 @@ export const CALCULATOR_REGISTRY: Record<string, React.ComponentType<any>> = {
     () => import('./knowledge/MBTICalculator'),
     { ssr: false }
   ),
+  '/knowledge/calculators/carbon-footprint-calculator': dynamic(
+    () => import('./knowledge/CarbonFootprintCalculator'),
+    { ssr: false }
+  ),
+  '/knowledge/calculators/zakat-calculator': dynamic(
+    () => import('./knowledge/ZakatCalculator'),
+    { ssr: false }
+  ),
+  '/utility-tools/image-tools/image-to-webp-converter': dynamic(
+    () => import('./utility/ImageToWebP'),
+    { ssr: false }
+  ),
+  '/utility-tools/image-tools/image-converter': dynamic(
+    () => import('./utility/ImageConverter'),
+    { ssr: false }
+  ),
+  '/utility-tools/word-counter': dynamic(
+    () => import('./utility/WordCounter'),
+    { ssr: false }
+  ),
+  '/utility-tools/password-generator': dynamic(
+    () => import('./utility/PasswordGenerator'),
+    { ssr: false }
+  ),
+  '/utility-tools/qr-code-generator': dynamic(
+    () => import('./utility/QRCodeGenerator'),
+    { ssr: false }
+  ),
 };
 
 export default CALCULATOR_REGISTRY;

@@ -189,6 +189,18 @@ const SEO_PRIORITY_OVERRIDES = {
     rationale: 'Practical everyday search with strong conversion and commuting intent; differentiate with distance-unit conversion and per-person cost sharing.',
     focusKeywords: ['fuel calculator', 'fuel cost calculator', 'trip fuel calculator', 'commute fuel cost', 'gas cost estimator'],
   },
+  '/knowledge/calculators/carbon-footprint-calculator': {
+    tier: 'medium',
+    outlook: 'good long-tail opportunity',
+    rationale: 'Growing eco-conscious search intent; differentiate with multi-category tabbed inputs, personalized reduction tips, and visual gauge.',
+    focusKeywords: ['carbon footprint calculator', 'co2 emissions calculator', 'personal carbon footprint', 'sustainability calculator', 'household emissions calculator'],
+  },
+  '/knowledge/calculators/zakat-calculator': {
+    tier: 'medium',
+    outlook: 'good long-tail opportunity',
+    rationale: 'Steady religious finance search intent; differentiate with multi-currency support, gold/silver Nisab methods, and wealth gauge visualizer.',
+    focusKeywords: ['zakat calculator', 'zakat on gold', 'nisab calculator', 'islamic charity calculator', 'zakat al mal calculator', 'zakat on silver'],
+  },
   '/knowledge/calculators/average-time-calculator': {
     tier: 'medium',
     outlook: 'good long-tail opportunity',
@@ -212,6 +224,18 @@ const SEO_PRIORITY_OVERRIDES = {
     outlook: 'high volume / high competition',
     rationale: 'Huge demand but crowded SERPs with focused incumbent tools, so differentiation must be feature and content driven.',
     focusKeywords: ['word counter', 'character counter', 'sentence counter online'],
+  },
+  '/utility-tools/password-generator': {
+    tier: 'high',
+    outlook: 'high volume / manageable competition',
+    rationale: 'Broad consumer demand with strong SEO potential; differentiate via entropy meter, crack-time estimates, and SVG strength widget.',
+    focusKeywords: ['password generator', 'secure password generator', 'random password generator', 'strong password generator', 'create strong password'],
+  },
+  '/utility-tools/qr-code-generator': {
+    tier: 'high',
+    outlook: 'high volume / manageable competition',
+    rationale: 'Differentiate with premium styling features, logo embedding, gradient support, multiple input modes, and flexible download options.',
+    focusKeywords: ['qr code generator', 'qr code maker', 'custom qr code', 'qr code with logo', 'free qr code generator'],
   },
   '/finance/calculators/mortgage-calculator': {
     tier: 'medium',
@@ -392,6 +416,18 @@ const SEO_PRIORITY_OVERRIDES = {
     outlook: 'strong long-tail opportunity',
     rationale: 'High search volume for personality testing and profiling; differentiate with deep AI analysis, cognitive stack mapping, and printable PDF reports.',
     focusKeywords: ['mbti calculator', 'mbti test online', 'personality type calculator', 'free mbti assessment', 'myers briggs calculator'],
+  },
+  '/utility-tools/image-tools/image-to-webp-converter': {
+    tier: 'high',
+    outlook: 'strong long-tail opportunity',
+    rationale: 'Specific developer/creator intent with a clear browser-based utility conversion workflow.',
+    focusKeywords: ['image to webp converter', 'convert images to webp online', 'convert jpg png to webp', 'free batch webp converter'],
+  },
+  '/utility-tools/image-tools/image-converter': {
+    tier: 'high',
+    outlook: 'strong long-tail opportunity',
+    rationale: 'Broad format conversion utility covering common, RAW, and design formats; differentiate with 30+ input formats, client-side privacy, and batch processing.',
+    focusKeywords: ['image converter', 'convert png to jpg', 'image format converter', 'raw to jpg converter', 'heic to jpg converter', 'psd to png converter', 'free image converter online'],
   },
 };
 
@@ -586,6 +622,7 @@ export const getToolContent = (tool: any) => {
   const functionality = FUNCTIONALITY_PLAYBOOK[kind] || FUNCTIONALITY_PLAYBOOK.calculator;
 
   let overview = buildOverview(tool);
+  let faqs = buildFaqs(tool);
   if (tool.url === '/math/calculators/decimal-calculator') {
     overview = [
       `The Decimal Calculator is a free online tool built to perform decimal arithmetic operations (+, -, *, /). Instead of making users hunt for scattered formulas, this page keeps the core workflow in one place. If you need to convert your results, you can also use our [Decimal to Fraction Calculator](/math/calculators/decimal-to-fraction-calculator) for exact fractional values, or use our [Derivative Calculator](/math/calculators/derivative-calculator) and [Integral Calculator](/math/calculators/integral-calculator) to evaluate calculus operations numerically.`,
@@ -828,7 +865,7 @@ export const getToolContent = (tool: any) => {
     ];
     } else if (tool.url ===   '/knowledge/calculators/age-calculator') {
     overview = [
-      `The Age Calculator is a free online time computation tool designed to calculate the exact chronological age between any two dates with precision down to years, months, days, hours, minutes, and seconds. To complement your personal development tracking, pair this with our [Language Level Calculator](/knowledge/calculators/language-level-calculator) for CEFR proficiency assessment, our [Habit Formation Calculator](/knowledge/calculators/habit-formation-calculator) to build consistent routines, our [Fuel Calculator](/knowledge/calculators/fuel-calculator) to plan road trips for milestone celebrations, or our [Average Time Calculator](/knowledge/calculators/average-time-calculator) for statistical timing analysis.`,
+      `The Age Calculator is a free online time computation tool designed to calculate the exact chronological age between any two dates with precision down to years, months, days, hours, minutes, and seconds. To complement your personal development tracking, pair this with our [Language Level Calculator](/knowledge/calculators/language-level-calculator) for CEFR proficiency assessment, our [Habit Formation Calculator](/knowledge/calculators/habit-formation-calculator) to build consistent routines, our [Fuel Calculator](/knowledge/calculators/fuel-calculator) to plan road trips for milestone celebrations, our [Average Time Calculator](/knowledge/calculators/average-time-calculator) for statistical timing analysis, or our [Carbon Footprint Calculator](/knowledge/calculators/carbon-footprint-calculator) to track the environmental impact of lifestyle changes over time, or our [Zakat Calculator](/knowledge/calculators/zakat-calculator) to plan charitable giving aligned with life stage transitions.`,
       `This tool features a detailed iterative calculation engine that counts complete years, then months, then remaining days between birth date and calculation date. It includes a next birthday computation showing days until the next birthday and the day of the week, a comprehensive total-breakdown grid displaying total years, months, weeks, days, hours, and minutes lived, an age category classification system (Infant through Senior) with color-coded badges, and an interactive SVG Life Stage Visualizer timeline mapping your position across the 100-year human life journey. Results include step-by-step KaTeX mathematical resolution and celebrate with canvas-confetti.`,
     ];
   } else if (tool.url ===   '/knowledge/calculators/wpm-calculator') {
@@ -838,7 +875,7 @@ export const getToolContent = (tool: any) => {
     ];
   } else if (tool.url === '/knowledge/calculators/habit-formation-calculator') {
     overview = [
-      `The Habit Formation Calculator is a free online self-improvement tool designed to estimate how long it takes to form a new habit based on scientific research (Lally et al., 2010), accounting for motivation level, habit complexity, previous attempts, and daily time commitment. To further your personal growth journey, pair this with our [Language Level Calculator](/knowledge/calculators/language-level-calculator) for language proficiency assessment, our [WPM Calculator](/knowledge/calculators/wpm-calculator) to develop typing fluency, our [Fuel Calculator](/knowledge/calculators/fuel-calculator) to build efficient commuting routines, or our [Average Time Calculator](/knowledge/calculators/average-time-calculator) for habit timing analysis.`,
+      `The Habit Formation Calculator is a free online self-improvement tool designed to estimate how long it takes to form a new habit based on scientific research (Lally et al., 2010), accounting for motivation level, habit complexity, previous attempts, and daily time commitment. To further your personal growth journey, pair this with our [Language Level Calculator](/knowledge/calculators/language-level-calculator) for language proficiency assessment, our [WPM Calculator](/knowledge/calculators/wpm-calculator) to develop typing fluency, our [Fuel Calculator](/knowledge/calculators/fuel-calculator) to build efficient commuting routines, our [Average Time Calculator](/knowledge/calculators/average-time-calculator) for habit timing analysis, or our [Carbon Footprint Calculator](/knowledge/calculators/carbon-footprint-calculator) to build sustainable habits that lower your environmental impact.`,
       `This tool features a multi-factor calculation starting from the 66-day research baseline and adjusting through four weighted multipliers: motivation level (low 1.3\u00d7, medium 1.0\u00d7, high 0.8\u00d7), habit complexity (simple 0.8\u00d7, medium 1.0\u00d7, complex 1.4\u00d7), previous attempts (first 1.0\u00d7, tried before 0.9\u00d7), and daily time commitment (<5 min 1.2\u00d7, 5\u201330 min 1.0\u00d7, >30 min 0.9\u00d7). Results include a success probability percentage with ring gauge, estimated days with min\u2013max range, target date projection, a color-coded factor breakdown table showing each factor\u2019s impact, personalized improvement tips, and an interactive SVG Habit Formation Journey visualizer mapping the three phases from initiation through adaptation to automaticity. Results include step-by-step KaTeX mathematical resolution.`,
     ];
   } else if (tool.url === '/knowledge/calculators/language-level-calculator') {
@@ -848,12 +885,12 @@ export const getToolContent = (tool: any) => {
     ];
   } else if (tool.url === '/knowledge/calculators/fuel-calculator') {
     overview = [
-      `The Fuel Calculator is a free online trip planning tool designed to estimate fuel consumption, total fuel cost, and per-person cost-sharing for road trips based on distance, vehicle fuel efficiency, and current fuel prices. To further optimize your travel planning, pair this with our [Language Level Calculator](/knowledge/calculators/language-level-calculator) to practice destination languages, our [Habit Formation Calculator](/knowledge/calculators/habit-formation-calculator) to build consistent commuting or travel routines, or our [Average Time Calculator](/knowledge/calculators/average-time-calculator) to analyze trip duration statistics.`,
+      `The Fuel Calculator is a free online trip planning tool designed to estimate fuel consumption, total fuel cost, and per-person cost-sharing for road trips based on distance, vehicle fuel efficiency, and current fuel prices. To further optimize your travel planning, pair this with our [Language Level Calculator](/knowledge/calculators/language-level-calculator) to practice destination languages, our [Habit Formation Calculator](/knowledge/calculators/habit-formation-calculator) to build consistent commuting or travel routines, our [Average Time Calculator](/knowledge/calculators/average-time-calculator) to analyze trip duration statistics, or our [Carbon Footprint Calculator](/knowledge/calculators/carbon-footprint-calculator) to estimate the environmental impact of your travel, or our [Zakat Calculator](/knowledge/calculators/zakat-calculator) to incorporate charitable giving into your financial planning.`,
       `This tool features flexible input options supporting distance in miles or kilometers with automatic unit conversion (kilometers to miles with a 0.621371 factor, km/L to MPG with a 2.35215 multiplier), fuel efficiency in MPG or km/L, fuel price in three major currencies (USD, EUR, GBP), a round trip toggle that doubles the total distance, and passenger count (1\u201320) for per-person cost breakdown. Results include total fuel cost in the selected currency, cost per person when multiple travelers are sharing, a four-card metrics grid (total distance, fuel required, fuel price, passenger breakdown), fuel saving tips, and an interactive SVG Trip Fuel Visualizer showing a route map with origin/destination markers, round-trip arc overlay, fuel gauge bar proportional to distance, and real-time floating data overlays. Results include step-by-step KaTeX mathematical resolution.`,
     ];
   } else if (tool.url === '/knowledge/calculators/average-time-calculator') {
     overview = [
-      `The Average Time Calculator is a free online statistical tool designed to analyze multiple time entries and calculate mean, median, and mode with millisecond precision, outlier detection, and full descriptive statistics. To extend your performance analysis, pair this with our [WPM Calculator](/knowledge/calculators/wpm-calculator) for typing speed benchmarks, our [GPA Calculator](/knowledge/calculators/gpa-calculator) for academic performance tracking, our [Habit Formation Calculator](/knowledge/calculators/habit-formation-calculator) to correlate timing with routine consistency, or our [Fuel Calculator](/knowledge/calculators/fuel-calculator) for commute and trip timing analysis.`,
+      `The Average Time Calculator is a free online statistical tool designed to analyze multiple time entries and calculate mean, median, and mode with millisecond precision, outlier detection, and full descriptive statistics. To extend your performance analysis, pair this with our [WPM Calculator](/knowledge/calculators/wpm-calculator) for typing speed benchmarks, our [GPA Calculator](/knowledge/calculators/gpa-calculator) for academic performance tracking, our [Habit Formation Calculator](/knowledge/calculators/habit-formation-calculator) to correlate timing with routine consistency, our [Fuel Calculator](/knowledge/calculators/fuel-calculator) for commute and trip timing analysis, or our [Carbon Footprint Calculator](/knowledge/calculators/carbon-footprint-calculator) to assess the environmental cost of your routines, or our [Zakat Calculator](/knowledge/calculators/zakat-calculator) to align your financial practices with your values.`,
       `This tool features a fully dynamic entry system supporting HH:MM:SS.MS input with add/remove controls for unlimited time entries, four calculation modes (Mean, Median, Mode, All Methods), optional millisecond precision toggling, Z-score outlier detection with adjustable standard deviation threshold, and a comprehensive results panel showing mean, median, mode (when selected), total entries, valid entries, excluded outliers, minimum, maximum, time range, standard deviation, and analysis interpretation tips. It also includes an interactive SVG Time Distribution Scope visualizer plotting each time entry as a scatter dot with color-coded mean (orange), median (blue), and mode (purple) vertical markers, outlier values highlighted in red, and floating overlay panels showing key statistics. Results include step-by-step KaTeX mathematical resolution.`,
     ];
   } else if (tool.url === '/knowledge/calculators/career-assessment-calculator') {
@@ -876,6 +913,206 @@ export const getToolContent = (tool: any) => {
       `The MBTI Personality Calculator is a free online assessment tool designed to help you discover your Myers-Briggs Type Indicator (MBTI) profile across four core cognitive dimensions: Extraversion vs. Introversion, Sensing vs. Intuition, Thinking vs. Feeling, and Judging vs. Perceiving. To build a holistic roadmap for personal growth, you can pair this self-discovery with our [Career Assessment Calculator](/knowledge/calculators/career-assessment-calculator) to align your career paths with your personality type, or our [Anxiety Assessment Calculator](/knowledge/calculators/anxiety-assessment-calculator) and [Trauma Assessment Calculator](/knowledge/calculators/trauma-assessment-calculator) to support mental health screening.`,
       `This 70-question Likert-scale test accurately aggregates E/I, S/N, T/F, and J/P counters to compute your exact percentage scores and final 4-letter type. The results panel features dimension percentage sliders, strengths & careers lists, a cognitive functions stack card visualizer (Ni, Ne, Ti, Te, etc.), famous personality matches, compatibility details, step-by-step math scoring steps, and optional Gemini-powered psychologist AI reports alongside custom PDF downloads.`,
     ];
+  } else if (tool.url === '/knowledge/calculators/carbon-footprint-calculator') {
+    overview = [
+      `The Carbon Footprint Calculator is a free online environmental impact tool designed to estimate your annual personal CO₂ emissions across four major categories: transportation, home energy, food and diet, and waste. To build a complete sustainability profile, pair this with our [Fuel Calculator](/knowledge/calculators/fuel-calculator) to analyze vehicle-specific fuel consumption, our [Habit Formation Calculator](/knowledge/calculators/habit-formation-calculator) to turn reduction goals into daily routines, our [Average Time Calculator](/knowledge/calculators/average-time-calculator) to analyze commute and appliance usage patterns, or our [Age Calculator](/knowledge/calculators/age-calculator) to set long-term sustainability milestones, or our [Zakat Calculator](/knowledge/calculators/zakat-calculator) to explore ethical wealth management aligned with environmental stewardship.`,
+      `This tool features a four-tab input system covering Transportation (weekly car miles, MPG, public transit, short and long flights), Home Energy (monthly electricity and natural gas usage, renewable energy percentage, household size), Food & Diet (diet type from meat-heavy to vegan, local food percentage, weekly food waste), and Waste (weekly waste generation, recycling rate, composting status). The calculation engine applies standard emission factors — 0.404 kg CO₂e per car mile, 0.14 kg per transit mile, 223 kg per short flight, 986 kg per long flight, 0.42 kg per kWh, 5.3 kg per therm, diet baselines from 1,000 to 2,500 kg/year, and 0.57 kg per pound of waste — adjusting for recycling (up to 70% reduction) and composting (additional 30% reduction). Results include total annual footprint in metric tons CO₂e with comparison to the US average of 16 tons, a four-card category breakdown, personalized reduction tips based on your highest-contributing categories, an interactive SVG Carbon Impact Gauge with color-coded scale bands (green 0–8, yellow 8–16, orange 16–24, red 24+), needle position, grouped category bar chart, and step-by-step KaTeX mathematical resolution.`,
+    ];
+  } else if (tool.url === '/utility-tools/image-tools/image-to-webp-converter') {
+    overview = [
+      `The Image to WebP Converter is a free online image utility designed to convert traditional formats like JPEG, PNG, and GIF into Google's next-generation WebP format. Using WebP compression, you can reduce image sizes by 25-35% or more while maintaining excellent visual quality, which is critical for enhancing page loading speed and optimizing SEO. To build a complete digital asset workflow, you can pair this tool with our [PDF to Image Converter](/utility-tools/converter-tools/pdf-to-image-converter) to extract visual page templates, or use our [RGB to HEX Converter](/utility-tools/converter-tools/rgb-to-hex-converter) to match and align color values for your web layouts.`,
+      `Perfect for web developers, designers, and site owners looking to boost page speed and Core Web Vitals scores. Batch convert dozens of images at once with adjustable quality, compare original vs. compressed sizes in real time, and download individually or as a ZIP. Your files never leave your device — 100% private and secure.`,
+    ];
+    faqs = [
+      {
+        question: "What makes WebP better than JPEG or PNG?",
+        answer: "WebP generally offers a 25-34% reduction in file size compared to JPEG at equivalent quality. Compared to PNG, WebP lossless images are about 26% smaller. This smaller size means your website loads faster, which is crucial for SEO and user experience."
+      },
+      {
+        question: "Does converting to WebP lose image quality?",
+        answer: "It depends on the settings. WebP supports both lossy and lossless compression. If you choose 'lossless' (or high quality settings), the difference is indistinguishable to the human eye. With lossy compression, you can trade a small amount of quality for significant file size savings."
+      },
+      {
+        question: "What is the difference between Standard and Advanced mode?",
+        answer: "Standard mode uses your browser's built-in Canvas API (canvas.toBlob), which is fast and lightweight for small batches. Advanced mode uses the browser-image-compression library running in background Web Workers, preventing the browser from freezing when converting large images or heavy batches."
+      },
+      {
+        question: "Which browsers support WebP?",
+        answer: "WebP is now supported by all modern browsers, including Google Chrome, Mozilla Firefox, Microsoft Edge, Opera, and Safari (on macOS 11+ and iOS 14+). It has effectively become the universal standard for modern web images."
+      },
+      {
+        question: "Can I convert images to WebP on mobile?",
+        answer: "Yes! Our tool is fully responsive and works directly in your mobile browser. You can select photos from your gallery and download the converted WebP files directly to your phone."
+      },
+      {
+        question: "Is there a limit to how many files I can convert?",
+        answer: "No, there are no hard limits. You can select multiple files at once. However, for browser performance, we recommend converting in batches of 20-50 images if they are very large."
+      },
+      {
+        question: "How do I open WebP files on my computer?",
+        answer: "Most modern image viewers and web browsers can open WebP files directly. If you need to edit them, professional software like Adobe Photoshop (with a plugin or newer versions) and GIMP support WebP natively."
+      },
+      {
+        question: "Does WebP support animation?",
+        answer: "Yes, WebP supports animation and interacts similarly to GIF files. It can often provide better quality and much smaller file sizes than traditional GIFs."
+      }
+    ];
+  } else if (tool.url === '/utility-tools/image-tools/image-converter') {
+    overview = [
+      `The Image Converter is a free online image format converter supporting 30+ input formats including PNG, JPEG, WebP, GIF, BMP, SVG, TIFF, ICO, HEIC, PSD, and RAW camera formats (ARW, CR2, CR3, NEF, DNG, RW2, RAF, ORF, etc.). Whether you need to convert CR2 to JPG, HEIC to PNG, NEF to WebP, or resize and recompress any image, this tool handles it entirely in your browser. To build a complete digital asset workflow, pair this with our [Image to WebP Converter](/utility-tools/image-tools/image-to-webp-converter) for dedicated WebP optimization, our [PDF to Image Converter](/utility-tools/converter-tools/pdf-to-image-converter) for document extraction, or our [RGB to HEX Converter](/utility-tools/converter-tools/rgb-to-hex-converter) for color value matching.`,
+      `Perfect for photographers needing to convert CR2 or NEF to JPEG, designers converting PSD to PNG, or anyone switching between image formats for web, print, or archive. Upload via drag-and-drop, set your target format and quality, and let the tool handle the conversion in seconds — completely free and private. No sign-ups, no uploads, no limits.`,
+    ];
+    faqs = [
+      {
+        question: "What image formats are supported for input?",
+        answer: "Our converter supports 30+ input formats: PNG, JPEG, JPG, GIF, WebP, SVG, AVIF, BMP, ICO, TIFF, TIF, HEIC, HIF, PSD, PDF, EPS, AI, and RAW camera formats including ARW (Sony), CR2/CR3/CRW (Canon), NEF/NRW (Nikon), RAF (Fujifilm), RW2 (Panasonic), RAW/ORF/ORI (Olympus), RWL (Leica), DNG (Adobe), 3FR/FFF (Hasselblad), IIQ (Phase One), BRAW (Blackmagic), SRF/SR2 (Sony). RAW formats are decoded using the utif TIFF/RAW decoding library."
+      },
+      {
+        question: "Which output formats can I convert to?",
+        answer: "You can convert to PNG (lossless), JPEG (lossy, adjustable quality), WebP (lossy/lossless), BMP (lossless), and AVIF (lossy, Chrome 85+/Firefox 93+). PNG and BMP always preserve full quality. JPEG, WebP, and AVIF let you trade file size for visual quality."
+      },
+      {
+        question: "Is this tool private and secure?",
+        answer: "Yes. All image processing happens 100% inside your browser using the HTML5 Canvas API (createImageBitmap), utif for RAW decoding, and heic2any for HEIC. No files are uploaded to any server — your images never leave your device. This makes it safe to convert sensitive or confidential images."
+      },
+      {
+        question: "Can I convert RAW camera files like CR2 and NEF?",
+        answer: "Yes. Canon CR2/CR3, Nikon NEF/NRW, Sony ARW, Fujifilm RAF, Panasonic RW2, Olympus ORF, Leica RWL, Adobe DNG, and 15+ other RAW formats are decoded using the utif library, which includes a dedicated lossless JPEG decoder for Canon RAW compression. If a file fails, your browser or OS may lack the required codec — try updating your system's RAW codec pack."
+      },
+      {
+        question: "Does this tool support HEIC/HEIF conversion?",
+        answer: "Yes. HEIC and HIF files (commonly used by Apple devices) are automatically decoded using the heic2any library, which runs entirely in your browser. Unlike most online tools, you don't need to upload photos to a cloud server."
+      },
+      {
+        question: "Can I convert multiple images at once?",
+        answer: "Yes. You can upload as many files as you want via drag-and-drop or the file selector. Each file shows its own format selector and quality control. You can convert all at once and download them individually or as a single ZIP archive."
+      },
+      {
+        question: "What does the 'Compress Further' button do?",
+        answer: "After conversion, if you want to reduce the file size more aggressively, click 'Compress Further' to reset that item back to the pending state. Adjust the quality slider to a lower value and convert again — no need to re-upload the file."
+      },
+      {
+        question: "What is AVIF and should I use it?",
+        answer: "AVIF (AV1 Image File Format) is a next-generation image format offering even better compression than WebP — typically 50% smaller than JPEG at the same quality. However, it's only supported in Chrome 85+, Firefox 93+, and recent Edge versions. For broad compatibility, WebP is still recommended."
+      }
+    ];
+  } else if (tool.url === '/utility-tools/word-counter') {
+    overview = [
+      `The Word Counter is a free online text analysis tool designed to count words, characters, sentences, paragraphs, and more in real time. Whether you are a writer hitting an essay word limit, an SEO professional optimizing content length, a translator billing by word count, or a student checking assignment requirements, this tool gives you instant, accurate metrics as you type. To build a complete content workflow, pair this with our [Image to WebP Converter](/utility-tools/image-tools/image-to-webp-converter) to optimize your article images, or our [RGB to HEX Converter](/utility-tools/converter-tools/rgb-to-hex-converter) to capture brand colors for your content design.`,
+      `Perfect for writers, editors, content marketers, students, translators, and anyone who needs precise text statistics. Type or paste any text and get instant word count, character count (with and without spaces), sentence count, paragraph count, estimated reading and speaking times, longest and shortest word detection, average word length, and a top-10 word frequency distribution chart that reveals keyword density at a glance. All processing happens entirely in your browser — nothing is uploaded, logged, or stored.`,
+    ];
+    faqs = [
+      {
+        question: "How is word count calculated?",
+        answer: "Words are counted by splitting the text on whitespace and filtering out empty segments. Each resulting segment counts as one word, including words with hyphens, apostrophes, or numbers."
+      },
+      {
+        question: "What is the difference between character count with and without spaces?",
+        answer: "Character count (with spaces) includes every character you type, including spaces, tabs, and line breaks. Character count without spaces excludes all whitespace, giving you the raw letter, digit, and punctuation total."
+      },
+      {
+        question: "How are reading and speaking times estimated?",
+        answer: "Reading time uses an average reading speed of 200 words per minute. Speaking time uses an average speaking rate of 130 words per minute. Both are rounded up to the nearest minute."
+      },
+      {
+        question: "Is this tool private?",
+        answer: "Yes. All text processing happens 100% locally in your browser using JavaScript. No text, data, or logs are ever uploaded to any server. Your content never leaves your device, making it safe for sensitive or confidential documents."
+      },
+      {
+        question: "Can I use this for SEO keyword density analysis?",
+        answer: "Yes. The Word Frequency Distribution widget and top words table show the most frequently used words in your text with occurrence counts. This helps you identify overused keywords, optimize for SEO, and maintain natural keyword density in your content."
+      },
+      {
+        question: "Does the word counter work on mobile?",
+        answer: "Yes. The tool is fully responsive and works on any device with a modern browser. Type or paste text directly on your phone or tablet and all metrics update in real time."
+      },
+      {
+        question: "Is there a character limit?",
+        answer: "No hard limit. The tool processes text entirely in your browser, so the practical limit depends on your device's memory. Most modern browsers can handle hundreds of thousands of words without issue."
+      },
+      {
+        question: "How are sentences and paragraphs counted?",
+        answer: "Sentences are counted by splitting on sentence-ending punctuation (period, exclamation mark, question mark) and filtering out empty segments. Paragraphs are counted by splitting on double line breaks (one or more blank lines between text blocks)."
+      }
+    ];
+  } else if (tool.url === '/utility-tools/password-generator') {
+    overview = [
+      `The Password Generator is a free online security tool designed to create cryptographically strong passwords with customizable character sets, entropy-based strength metering, and real-time crack time estimation. Whether you need a secure master password, a Wi-Fi key, encrypted volume passphrase, or unique credentials for every account, this generator builds passwords entirely in your browser using crypto.getRandomValues. To build a complete digital security workflow, pair this with our [Image to WebP Converter](/utility-tools/image-tools/image-to-webp-converter) to optimize your security documentation images, or our [RGB to HEX Converter](/utility-tools/converter-tools/rgb-to-hex-converter) for design asset color management.`,
+      `Perfect for security-conscious users, IT administrators, developers, and anyone who needs strong, unpredictable passwords. Customise length (4-32 characters), toggle uppercase, lowercase, numbers, and symbols, exclude ambiguous characters (il1Lo0O), and watch the entropy meter and crack-time estimate update instantly. The SVG strength widget visualises entropy bits on a color-coded scale with needle position — all generated 100% locally with zero data transmission.`,
+    ];
+    faqs = [
+      {
+        question: "How are passwords generated?",
+        answer: "Passwords are generated using the Web Crypto API (crypto.getRandomValues), which provides cryptographically secure pseudorandom numbers. Each character is selected uniformly at random from the configured character pool, ensuring every possible combination is equally likely."
+      },
+      {
+        question: "What is entropy and why does it matter?",
+        answer: "Entropy measures the unpredictability of a password in bits. Each bit doubles the number of possible combinations. A password with 80+ bits of entropy is considered very strong against brute-force attacks. Our meter calculates entropy as log2(poolSize) * length, where poolSize is the number of possible characters per position."
+      },
+      {
+        question: "What password length do you recommend?",
+        answer: "For most online accounts, 12-16 characters with a mixed character set (uppercase, lowercase, numbers, symbols) provides adequate security. For master passwords or encryption keys, we recommend 20+ characters. The US National Institute of Standards and Technology (NIST) recommends at least 8 characters for user-chosen passwords and 6+ for randomly generated ones."
+      },
+      {
+        question: "Why should I include symbols in my password?",
+        answer: "Including symbols increases the character pool size from 62 (upper+lower+digits) to 95+ printable ASCII characters. This significantly increases entropy — for a 16-character password, the difference is 95.2 bits vs 76.5 bits of entropy, making brute-force attacks exponentially harder."
+      },
+      {
+        question: "What does 'Exclude Ambiguous Characters' do?",
+        answer: "This removes characters that are easily confused visually: lowercase l, uppercase I, digit 1, uppercase O, lowercase o, and digit 0. This makes the password easier to read, share verbally, and type correctly, especially on mobile devices or when reading handwriting."
+      },
+      {
+        question: "Are my generated passwords stored or transmitted?",
+        answer: "No. All generation happens 100% locally in your browser using the Web Crypto API. Passwords never leave your device — they are not sent to any server, saved in any database, or logged anywhere. This makes the tool safe for generating sensitive credentials including master passwords and encryption keys."
+      },
+      {
+        question: "Can I use this password generator on mobile?",
+        answer: "Yes. The tool is fully responsive and works on any modern mobile browser. All features including the entropy meter, character toggles, and copy-to-clipboard are touch-friendly."
+      },
+      {
+        question: "What makes a password 'strong' according to this tool?",
+        answer: "The tool classifies passwords into four tiers based on entropy: Weak (below 36 bits — instant cracking), Fair (36-60 bits — minutes to days), Strong (60-80 bits — years to decades), and Very Strong (80+ bits — centuries to millennia). A password reaching 'Very Strong' with 80+ bits of entropy would take billions of years to crack even with powerful consumer hardware."
+      }
+    ];
+  } else if (tool.url === '/utility-tools/qr-code-generator') {
+    overview = [
+      `The QR Code Generator is a free online tool designed to create fully customizable QR codes with premium styling options. Whether you need a QR code for a URL, email, phone number, SMS, Wi-Fi credentials, or a digital vCard contact, this generator supports 7 input modes with real-time preview. To build a complete digital toolkit, pair this with our [Image to WebP Converter](/utility-tools/image-tools/image-to-webp-converter) to compress any QR screenshot images, or our [RGB to HEX Converter](/utility-tools/converter-tools/rgb-to-hex-converter) for precise color matching across your brand assets.`,
+      `Perfect for marketers, event organizers, restaurant owners, developers, and anyone who needs professional-looking QR codes. Customise dot style (square, dots, rounded, classy, extra-rounded, classy-rounded), corner and corner-dot shapes, foreground and background colors with live preview, linear or radial gradients, and upload a logo to embed at the center. Download as PNG or SVG at your chosen resolution. All generation is 100% local — no data is ever uploaded.`,
+    ];
+    faqs = [
+      {
+        question: "What types of data can I encode in a QR code?",
+        answer: "This generator supports 7 input modes: URL (website links), Text (plain text), Email (with optional subject and body), Phone (tel: protocol), SMS (with pre-filled number and message), WiFi (network name, password, and encryption type for instant connection), and vCard (digital contact card with name, phone, email, organization, title, address, website, and notes)."
+      },
+      {
+        question: "Can I add a logo to my QR code?",
+        answer: "Yes. Upload any image (PNG, JPG, SVG, etc.) and it will be embedded at the center of the QR code. You can adjust the logo size from 10% to 50% of the QR dimensions. Higher error correction levels (Q or H) are recommended when embedding a logo to ensure the QR code remains scannable."
+      },
+      {
+        question: "What customization options are available?",
+        answer: "You can customize dot style (square, dots, rounded, extra-rounded, classy, classy-rounded), corner square and corner dot shapes, foreground and background colors with live color pickers, linear or radial gradients for the dots, separate corner colors, margin (0-4 modules), error correction level (L/M/Q/H), and size (128-600px)."
+      },
+      {
+        question: "What error correction level should I choose?",
+        answer: "L (7%) recovers from minor damage, suitable for high-quality print. M (15%) is a good balance for most uses. Q (25%, default) is recommended when adding a logo or if the QR may be partially obscured. H (30%) offers maximum redundancy for small logos or harsh environments."
+      },
+      {
+        question: "Can I download my QR code as SVG?",
+        answer: "Yes. You can download as both PNG (raster, good for web and social media) and SVG (vector, scalable to any size without quality loss, ideal for print and professional design). You can also set a custom filename before downloading."
+      },
+      {
+        question: "Is this QR code generator free and private?",
+        answer: "Yes, completely free and private. All QR code generation happens 100% locally in your browser using the qr-code-styling library. No data, images, or content are uploaded to any server. Your QR codes never leave your device."
+      },
+      {
+        question: "Does the QR code work on mobile?",
+        answer: "Yes. The tool is fully responsive and works on any modern mobile browser. The generated QR codes follow the standard QR code specification and can be scanned by any QR scanner app, including the built-in cameras on iOS and Android."
+      },
+      {
+        question: "What is the vCard format and how does it work?",
+        answer: "vCard is a standard file format for electronic business cards. When scanned, a vCard QR code prompts the phone to save a new contact with the encoded details — name, phone, email, organization, title, address, website, and notes. This is ideal for networking events, business cards, and conference badges."
+      }
+    ];
   }
 
   return {
@@ -896,7 +1133,7 @@ export const getToolContent = (tool: any) => {
     tips: buildTips(tool),
     mistakes: buildMistakes(tool),
     searchIntent: buildSearchIntent(tool),
-    faqs: buildFaqs(tool),
+    faqs,
     relatedTools,
     priority,
     schema: {

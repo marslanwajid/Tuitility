@@ -717,6 +717,40 @@ const FORMULAS_BY_PATH: Record<string, FormulaConfig[]> = {
       explanation: 'Convert the average score to a percentage by multiplying by 10. This gives an intuitive 0–100% scale for overall language proficiency.'
     }
   ],
+  '/knowledge/calculators/zakat-calculator': [
+    {
+      title: 'Nisab Threshold',
+      latex: '\\text{Nisab} = \\frac{N_{\\text{method}} \\times P_{\\text{metal}}}{\\text{Exchange Rate}}',
+      explanation: 'Where N_method is the Nisab threshold for the selected metal (87.48g gold or 612.36g silver), and P_metal is the market price per gram in USD. The result is the Nisab threshold in the selected currency.'
+    },
+    {
+      title: 'Total Zakatable Assets',
+      latex: '\\text{Assets} = \\text{Cash} + \\text{Metals} + \\text{Investments} - \\text{Liabilities}',
+      explanation: 'Sum all cash & bank assets, gold & silver values (converted from grams using market rates), and investment & business assets, then subtract total liabilities to get the net Zakatable wealth.'
+    },
+    {
+      title: 'Zakat Due',
+      latex: '\\text{Zakat} = \\begin{cases} \\text{Assets} \\times 0.025 & \\text{Assets} \\geq \\text{Nisab} \\\\ 0 & \\text{Assets} < \\text{Nisab} \\end{cases}',
+      explanation: 'If total Zakatable assets meet or exceed the Nisab threshold, Zakat is calculated at 2.5% of total assets. Otherwise, no Zakat is due.'
+    }
+  ],
+  '/knowledge/calculators/carbon-footprint-calculator': [
+    {
+      title: 'Total Carbon Footprint',
+      latex: '\\text{Total} = \\text{Transport} + \\text{Energy} + \\text{Food} + \\text{Waste}',
+      explanation: 'Sum the annual CO₂e emissions from all four categories — transportation, home energy, food and diet, and waste — to get your total personal carbon footprint in metric tons.'
+    },
+    {
+      title: 'Transportation Emissions',
+      latex: '\\text{Transport} = \\frac{\\text{car miles} \\times 52}{\\text{MPG}} \\times 0.404 + \\text{transit} \\times 52 \\times 0.14 + \\frac{\\text{short} \\times 223 + \\text{long} \\times 986}{1000}',
+      explanation: 'Calculate annual transport emissions by combining weekly car mileage (adjusted for fuel efficiency), weekly public transit miles, and yearly short and long flights, each multiplied by standard emission factors and converted to metric tons.'
+    },
+    {
+      title: 'Home Energy Emissions (per person)',
+      latex: '\\text{Energy} = \\frac{(\\text{electricity} \\times 12 \\times 0.42 \\times (1 - \\text{renewable\\%}) + \\text{gas} \\times 12 \\times 5.3)}{1000 \\times \\text{household size}}',
+      explanation: 'Convert monthly electricity and natural gas usage to annual figures, apply emission factors, adjust for renewable energy percentage, and divide by household size to get per-person home energy emissions.'
+    }
+  ],
   '/knowledge/calculators/average-time-calculator': [
     {
       title: 'Mean (Average) Time',

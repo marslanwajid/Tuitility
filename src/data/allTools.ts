@@ -395,6 +395,13 @@ export const allTools = [
     icon: "fas fa-image",
   },
   {
+    name: "Image Converter",
+    desc: "Convert images between 30+ formats including PNG, JPG, WebP, GIF, BMP, SVG, TIFF, HEIC, PSD, RAW",
+    url: "/utility-tools/image-tools/image-converter",
+    category: "Utility",
+    icon: "fas fa-exchange-alt",
+  },
+  {
     name: "Word Counter",
     desc: "Count words, characters, sentences, and paragraphs",
     url: "/utility-tools/word-counter",
