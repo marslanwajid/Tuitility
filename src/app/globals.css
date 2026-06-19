@@ -1,26 +1,187 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css");
+@import url("https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css");
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-primary: #1a1a1a;
+  --color-primary-hover: #2a2a2a;
+  --color-primary-light: #f5f5f5;
+  --color-accent: #1a1a1a;
+  --color-accent-soft: #f5f5f5;
+  --color-text-main: #1a1a1a;
+  --color-text-muted: #666666;
+  --color-bg-main: #ffffff;
+  --color-bg-alt: #fbfbfb;
+  --color-border-custom: rgba(26, 26, 26, 0.06);
+
+  --shadow-card: 0 4px 24px -10px rgba(26, 26, 26, 0.08);
+  --shadow-hover-accent: 0 16px 36px -12px rgba(26, 26, 26, 0.12);
+
+  --color-slate-50: #fafafa;
+  --color-slate-100: #f5f5f5;
+  --color-slate-150: #ededed;
+  --color-slate-200: #e5e5e5;
+  --color-slate-250: #dbdbdb;
+  --color-slate-300: #d4d4d4;
+  --color-slate-350: #c2c2c2;
+  --color-slate-400: #a3a3a3;
+  --color-slate-450: #8a8a8a;
+  --color-slate-500: #737373;
+  --color-slate-600: #525252;
+  --color-slate-650: #4c4c4c;
+  --color-slate-700: #404040;
+  --color-slate-800: #262626;
+  --color-slate-900: #1a1a1a;
+  --color-slate-950: #0d0d0d;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+html {
+  font-size: 17px;
+  scroll-behavior: smooth;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@media (min-width: 768px) {
+  html {
+    font-size: 18px;
   }
 }
 
+:root {
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --gradient-mesh: #ffffff;
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  color: var(--color-text-main);
+  background: #ffffff;
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6, .font-display, [class*="font-display"] {
+  font-family: var(--font-display), 'Jost', sans-serif;
+  font-weight: 500 !important;
+}
+
+/* Glassmorphism utility */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  box-shadow: 0 8px 32px 0 rgba(26, 26, 26, 0.04);
+}
+
+.glass-panel-dark {
+  background: rgba(26, 26, 26, 0.03);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(26, 26, 26, 0.05);
+}
+
+/* Custom transitions and scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #fafafa;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d4d4d4;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a3a3a3;
+}
+
+/* Custom calculations / report styles */
+.ai-report-content {
+  line-height: 1.7;
+}
+
+.ai-header {
+  color: #1a1a1a;
+  font-weight: 700;
+  margin: 1.5rem 0 0.75rem 0;
+  border-bottom: 1px solid rgba(26, 26, 26, 0.08);
+  padding-bottom: 0.5rem;
+}
+
+/* Animations */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes float-delayed {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(10px) rotate(5deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+@keyframes pulse-slow {
+  0%, 100% { opacity: 0.15; transform: scale(1); }
+  50% { opacity: 0.25; transform: scale(1.08); }
+}
+
+@keyframes spin-slow {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float-delayed 5s ease-in-out infinite;
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 8s ease-in-out infinite;
+}
+
+.animate-spin-slow {
+  animation: spin-slow 20s linear infinite;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Background Grid Pattern */
+.bg-grid-pattern {
+  background: #ffffff;
+}
+
+.text-gradient {
+  color: #1a1a1a;
+}
+
+/* Hide scrollbar for Chrome, Safari, Opera, Firefox, IE and Edge */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }

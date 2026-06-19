@@ -1,0 +1,76 @@
+Tuitility
+Base URL: https://tuitility.vercel.app
+Preferred mirror: https://tuitility.vercel.app/site-mirror.md
+
+Purpose:
+- Tuitility is a browser-based collection of calculators, converters, PDF tools, image tools, and productivity utilities.
+- The site focuses on free, client-side tools with tool-specific SEO content, schema markup, internal links, and trust pages.
+- Use this file as a concise entry point and the markdown mirror for broader page coverage.
+
+Primary public pages:
+- Home: https://tuitility.vercel.app/
+- About: https://tuitility.vercel.app/about
+- Contact: https://tuitility.vercel.app/contact
+- Privacy Policy: https://tuitility.vercel.app/privacy-policy
+- Terms and Conditions: https://tuitility.vercel.app/terms-and-conditions
+
+Category hubs:
+- Math: https://tuitility.vercel.app/math
+- Finance: https://tuitility.vercel.app/finance
+- Science: https://tuitility.vercel.app/science
+- Health: https://tuitility.vercel.app/health
+- Utility Tools: https://tuitility.vercel.app/utility-tools
+- Knowledge: https://tuitility.vercel.app/knowledge
+
+Representative science tools:
+- Wave Speed Calculator: https://tuitility.vercel.app/science/calculators/wave-speed-calculator
+- Gravity Calculator: https://tuitility.vercel.app/science/calculators/gravity-calculator
+- Work Power Calculator: https://tuitility.vercel.app/science/calculators/work-power-calculator
+- Electric Flux Calculator: https://tuitility.vercel.app/science/calculators/electric-flux-calculator
+- Average Atomic Mass Calculator: https://tuitility.vercel.app/science/calculators/average-atomic-mass-calculator
+
+Representative finance tools:
+- Mortgage Calculator: https://tuitility.vercel.app/finance/calculators/mortgage-calculator
+- Compound Interest Calculator: https://tuitility.vercel.app/finance/calculators/compound-interest-calculator
+- ROI Calculator: https://tuitility.vercel.app/finance/calculators/roi-calculator
+- Retirement Calculator: https://tuitility.vercel.app/finance/calculators/retirement-calculator
+
+Representative math tools:
+- Fraction Calculator: https://tuitility.vercel.app/math/calculators/fraction-calculator
+- Percentage Calculator: https://tuitility.vercel.app/math/calculators/percentage-calculator
+- Derivative Calculator: https://tuitility.vercel.app/math/calculators/derivative-calculator
+- Integral Calculator: https://tuitility.vercel.app/math/calculators/integral-calculator
+- Binary Calculator: https://tuitility.vercel.app/math/calculators/binary-calculator
+
+High-signal utility and document tools:
+- PDF Merger: https://tuitility.vercel.app/utility-tools/converter-tools/merge-pdf
+- PDF Splitter: https://tuitility.vercel.app/utility-tools/converter-tools/split-pdf
+- PDF Organizer: https://tuitility.vercel.app/utility-tools/converter-tools/organize-pdf
+- PDF to Image Converter: https://tuitility.vercel.app/utility-tools/converter-tools/pdf-to-image-converter
+- OCR PDF Generator: https://tuitility.vercel.app/utility-tools/ocr-pdf-generator
+- Image to WebP Converter: https://tuitility.vercel.app/utility-tools/image-tools/image-to-webp-converter
+- Aspect Ratio Converter: https://tuitility.vercel.app/utility-tools/image-tools/aspect-ratio-converter
+- Color Blindness Simulator: https://tuitility.vercel.app/utility-tools/image-tools/color-blindness-simulator
+- RGB to Pantone Converter: https://tuitility.vercel.app/utility-tools/rgb-to-pantone-converter
+- QR Code Generator: https://tuitility.vercel.app/utility-tools/qr-code-generator
+- QR Code Scanner: https://tuitility.vercel.app/utility-tools/qr-code-scanner
+- HTML to Markdown Converter: https://tuitility.vercel.app/utility-tools/html-to-markdown-converter
+- English to IPA Translator: https://tuitility.vercel.app/utility-tools/english-to-ipa-translator
+
+Developer and editorial signals:
+- Many pages use structured data such as WebApplication, FAQPage, HowTo, and page-level canonical tags.
+- Contact and tool feedback forms route through the same mail-backed endpoint.
+- Trust and policy pages are live and intended to support future AdSense readiness and stronger content quality signals.
+- Tool pages increasingly include related-tool sections to create stronger semantic clusters for users, search engines, and AI readers.
+- Most pages combine an interactive tool with explanatory content, examples, FAQ content, and internal navigation.
+
+How to traverse the site:
+- Start from a category hub for cluster context.
+- Use the markdown mirror for fuller route coverage.
+- Use the sitemap for canonical URL discovery.
+- Follow related-tool sections on tool pages for connected intents and adjacent workflows.
+
+Companion documentation:
+- Markdown mirror: https://tuitility.vercel.app/site-mirror.md
+- Sitemap: https://tuitility.vercel.app/sitemap.xml
+- Robots: https://tuitility.vercel.app/robots.txt
