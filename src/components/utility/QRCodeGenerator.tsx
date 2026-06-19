@@ -9,26 +9,44 @@ type InputMode = typeof INPUT_TYPES[number];
 const DOT_TYPES = ['square', 'dots', 'rounded', 'extra-rounded', 'classy', 'classy-rounded'] as const;
 const CORNER_TYPES = ['square', 'extra-rounded', 'circle', 'dot'] as const;
 
+interface Preset {
+  name: string; icon: string; dotType: string; cornerType: string; cornerDotType: string;
+  fgColor: string; bgColor: string; cornerColor: string; useGradient: boolean;
+  gradientType: 'linear' | 'radial'; gradientColor1: string; gradientColor2: string;
+  transparent: boolean;
+}
+
+const PRESETS: Preset[] = [
+  { name: 'Classic', icon: 'fa-circle', dotType: 'square', cornerType: 'square', cornerDotType: 'square', fgColor: '#000000', bgColor: '#ffffff', cornerColor: '#000000', useGradient: false, gradientType: 'linear', gradientColor1: '#000000', gradientColor2: '#000000', transparent: false },
+  { name: 'Midnight', icon: 'fa-moon', dotType: 'rounded', cornerType: 'extra-rounded', cornerDotType: 'square', fgColor: '#1e3a5f', bgColor: '#ffffff', cornerColor: '#1e3a5f', useGradient: false, gradientType: 'linear', gradientColor1: '#1e3a5f', gradientColor2: '#1e3a5f', transparent: true },
+  { name: 'Emerald', icon: 'fa-leaf', dotType: 'dots', cornerType: 'rounded', cornerDotType: 'dot', fgColor: '#059669', bgColor: '#ffffff', cornerColor: '#059669', useGradient: false, gradientType: 'linear', gradientColor1: '#059669', gradientColor2: '#059669', transparent: true },
+  { name: 'Royal', icon: 'fa-crown', dotType: 'extra-rounded', cornerType: 'circle', cornerDotType: 'circle', fgColor: '#000000', bgColor: '#ffffff', cornerColor: '#000000', useGradient: true, gradientType: 'linear', gradientColor1: '#6366f1', gradientColor2: '#8b5cf6', transparent: true },
+  { name: 'Sunset', icon: 'fa-sun', dotType: 'classy', cornerType: 'extra-rounded', cornerDotType: 'square', fgColor: '#000000', bgColor: '#ffffff', cornerColor: '#000000', useGradient: true, gradientType: 'linear', gradientColor1: '#f59e0b', gradientColor2: '#ef4444', transparent: true },
+  { name: 'Ocean', icon: 'fa-water', dotType: 'classy-rounded', cornerType: 'rounded', cornerDotType: 'dot', fgColor: '#000000', bgColor: '#ffffff', cornerColor: '#000000', useGradient: true, gradientType: 'linear', gradientColor1: '#0ea5e9', gradientColor2: '#06b6d4', transparent: false },
+  { name: 'Rose', icon: 'fa-rose', dotType: 'rounded', cornerType: 'rounded', cornerDotType: 'rounded', fgColor: '#000000', bgColor: '#ffffff', cornerColor: '#000000', useGradient: true, gradientType: 'linear', gradientColor1: '#e11d48', gradientColor2: '#f43f5e', transparent: true },
+  { name: 'Dark', icon: 'fa-moon', dotType: 'square', cornerType: 'square', cornerDotType: 'square', fgColor: '#ffffff', bgColor: '#0a0a0a', cornerColor: '#ffffff', useGradient: false, gradientType: 'linear', gradientColor1: '#ffffff', gradientColor2: '#ffffff', transparent: false },
+  { name: 'Neon', icon: 'fa-bolt', dotType: 'dots', cornerType: 'extra-rounded', cornerDotType: 'circle', fgColor: '#000000', bgColor: '#000000', cornerColor: '#000000', useGradient: true, gradientType: 'linear', gradientColor1: '#a855f7', gradientColor2: '#ec4899', transparent: false },
+  { name: 'Corporate', icon: 'fa-briefcase', dotType: 'square', cornerType: 'square', cornerDotType: 'square', fgColor: '#2563eb', bgColor: '#ffffff', cornerColor: '#2563eb', useGradient: false, gradientType: 'linear', gradientColor1: '#2563eb', gradientColor2: '#2563eb', transparent: false },
+];
+
+interface BadgeStyle { name: string; icon: string; cls: string; }
+const BADGE_STYLES: BadgeStyle[] = [
+  { name: 'Pill Dark', icon: 'fa-circle', cls: 'bg-slate-900 text-white rounded-full px-5 py-2 text-xs font-extrabold shadow-sm' },
+  { name: 'Pill Brand', icon: 'fa-palette', cls: 'bg-indigo-600 text-white rounded-full px-5 py-2 text-xs font-extrabold shadow-sm' },
+  { name: 'Pill Outline', icon: 'fa-border-all', cls: 'border-2 border-slate-900 text-slate-900 rounded-full px-5 py-2 text-xs font-extrabold bg-white' },
+  { name: 'Tag Minimal', icon: 'fa-tag', cls: 'text-slate-500 text-xs font-bold' },
+  { name: 'Tag Underline', icon: 'fa-underline', cls: 'text-slate-900 text-xs font-extrabold border-b-2 border-slate-900 pb-0.5' },
+  { name: 'Badge Icon', icon: 'fa-qrcode', cls: 'bg-slate-100 text-slate-700 rounded-xl px-4 py-1.5 text-xs font-extrabold shadow-sm flex items-center space-x-1.5' },
+];
+
+const TAGLINE_PRESETS = ['Scan me!', 'Follow us', 'Visit website', 'Contact us', 'Learn more', 'Get started'];
+
 interface InputFields {
-  url: string;
-  text: string;
-  email: string;
-  subject: string;
-  body: string;
-  phone: string;
-  smsNumber: string;
-  smsBody: string;
-  ssid: string;
-  wifiPassword: string;
-  encryption: 'WPA' | 'WEP' | 'nopass';
-  vCardName: string;
-  vCardTel: string;
-  vCardEmail: string;
-  vCardOrg: string;
-  vCardTitle: string;
-  vCardAdr: string;
-  vCardUrl: string;
-  vCardNote: string;
+  url: string; text: string; email: string; subject: string; body: string;
+  phone: string; smsNumber: string; smsBody: string; ssid: string;
+  wifiPassword: string; encryption: 'WPA' | 'WEP' | 'nopass';
+  vCardName: string; vCardTel: string; vCardEmail: string; vCardOrg: string;
+  vCardTitle: string; vCardAdr: string; vCardUrl: string; vCardNote: string;
 }
 
 function buildData(mode: InputMode, fields: InputFields): string {
@@ -58,10 +76,12 @@ function buildData(mode: InputMode, fields: InputFields): string {
   }
 }
 
+const inputCls = 'w-full bg-white border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs font-semibold text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-slate-900/10 focus:border-slate-400';
+const labelCls = 'text-[10px] font-extrabold uppercase tracking-wider text-slate-500';
+
 export default function QRCodeGenerator() {
   const containerRef = useRef<HTMLDivElement>(null);
   const qrRef = useRef<QRCodeStyling | null>(null);
-  const [qrInstance, setQrInstance] = useState<QRCodeStyling | null>(null);
   const [mode, setMode] = useState<InputMode>('URL');
   const [size, setSize] = useState(280);
   const [margin, setMargin] = useState(0);
@@ -76,9 +96,12 @@ export default function QRCodeGenerator() {
   const [gradientType, setGradientType] = useState<'linear' | 'radial'>('linear');
   const [gradientColor1, setGradientColor1] = useState('#6366f1');
   const [gradientColor2, setGradientColor2] = useState('#ec4899');
+  const [transparentBg, setTransparentBg] = useState(false);
   const [logoDataUrl, setLogoDataUrl] = useState<string>('');
   const [logoSz, setLogoSz] = useState(0.25);
   const [filename, setFilename] = useState('qr-code');
+  const [tagline, setTagline] = useState('');
+  const [badgeStyle, setBadgeStyle] = useState(0);
   const [copied, setCopied] = useState(false);
   const [fields, setFields] = useState<InputFields>({
     url: 'https://', text: '', email: '', subject: '', body: '',
@@ -89,44 +112,39 @@ export default function QRCodeGenerator() {
 
   const data = buildData(mode, fields);
 
-  useEffect(() => {
-    if (!containerRef.current) return;
-    if (!qrRef.current) {
-      qrRef.current = new QRCodeStyling({
-        width: size, height: size, type: 'canvas', data,
-        margin,
-        qrOptions: { errorCorrectionLevel: ecl },
-        imageOptions: { hideBackgroundDots: true, imageSize: logoSz, margin: 5 },
-        dotsOptions: { color: fgColor, type: dotType as any },
-        cornersSquareOptions: { color: cornerColor, type: cornerType as any },
-        cornersDotOptions: { color: cornerColor, type: cornerDotType as any },
-        backgroundOptions: { color: bgColor },
-        image: logoDataUrl || undefined,
-      });
-      qrRef.current.append(containerRef.current);
-      setQrInstance(qrRef.current);
-    }
+  const applyPreset = useCallback((p: Preset) => {
+    setDotType(p.dotType);
+    setCornerType(p.cornerType);
+    setCornerDotType(p.cornerDotType);
+    setFgColor(p.fgColor);
+    setBgColor(p.bgColor);
+    setCornerColor(p.cornerColor);
+    setUseGradient(p.useGradient);
+    setGradientType(p.gradientType);
+    setGradientColor1(p.gradientColor1);
+    setGradientColor2(p.gradientColor2);
+    setTransparentBg(p.transparent);
   }, []);
 
   useEffect(() => {
-    if (!qrRef.current) return;
-    const opts: any = {
-      width: size, height: size, data,
+    if (!containerRef.current) return;
+    const el = containerRef.current;
+    el.innerHTML = '';
+    const qr = new QRCodeStyling({
       margin,
       qrOptions: { errorCorrectionLevel: ecl },
       imageOptions: { hideBackgroundDots: true, imageSize: logoSz, margin: 5 },
-      backgroundOptions: { color: bgColor },
       image: logoDataUrl || undefined,
-    };
-    if (useGradient) {
-      opts.dotsOptions = { type: dotType, gradient: { type: gradientType, rotation: 0, colorStops: [{ offset: 0, color: gradientColor1 }, { offset: 1, color: gradientColor2 }] } };
-    } else {
-      opts.dotsOptions = { type: dotType, color: fgColor };
-    }
-    opts.cornersSquareOptions = { type: cornerType, color: cornerColor };
-    opts.cornersDotOptions = { type: cornerDotType, color: cornerColor };
-    qrRef.current.update(opts);
-  }, [size, data, margin, ecl, fgColor, bgColor, dotType, cornerType, cornerDotType, cornerColor, useGradient, gradientType, gradientColor1, gradientColor2, logoDataUrl, logoSz]);
+      dotsOptions: useGradient
+        ? { type: dotType as any, gradient: { type: gradientType, rotation: 0, colorStops: [{ offset: 0, color: gradientColor1 }, { offset: 1, color: gradientColor2 }] } }
+        : { type: dotType as any, color: fgColor },
+      cornersSquareOptions: { type: cornerType as any, color: cornerColor },
+      cornersDotOptions: { type: cornerDotType as any, color: cornerColor },
+      backgroundOptions: transparentBg ? undefined : { color: bgColor },
+    });
+    qrRef.current = qr;
+    qr.append(el);
+  }, [size, data, margin, ecl, fgColor, bgColor, dotType, cornerType, cornerDotType, cornerColor, useGradient, gradientType, gradientColor1, gradientColor2, transparentBg, logoDataUrl, logoSz]);
 
   const handleLogoUpload = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -146,8 +164,12 @@ export default function QRCodeGenerator() {
 
   const set = (key: keyof InputFields, val: string) => setFields((prev) => ({ ...prev, [key]: val }));
 
-  const inputCls = 'w-full bg-white border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs font-semibold text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-slate-900/10 focus:border-slate-400';
-  const labelCls = 'text-[10px] font-extrabold uppercase tracking-wider text-slate-500';
+  const activePreset = PRESETS.find((p) =>
+    p.dotType === dotType && p.cornerType === cornerType && p.cornerDotType === cornerDotType &&
+    p.fgColor === (useGradient ? gradientColor1 : fgColor) &&
+    p.bgColor === bgColor && p.cornerColor === cornerColor &&
+    p.useGradient === useGradient && p.transparent === transparentBg
+  );
 
   return (
     <div className="w-full max-w-none bg-white border border-slate-100 rounded-3xl p-6 md:p-8 shadow-sm space-y-6 text-slate-800 animate-fade-in text-left">
@@ -225,7 +247,25 @@ export default function QRCodeGenerator() {
         )}
       </div>
 
-      {/* QR Preview + Basic Settings */}
+      {/* Preset Styles */}
+      <div className="space-y-3">
+        <span className={labelCls}>Quick Styles</span>
+        <div className="flex flex-wrap gap-2">
+          {PRESETS.map((p) => (
+            <button key={p.name} type="button" onClick={() => applyPreset(p)}
+              className={`flex items-center space-x-1.5 px-3.5 py-2 rounded-full text-[10px] font-extrabold transition-all active:scale-95 cursor-pointer border ${
+                activePreset?.name === p.name
+                  ? 'bg-slate-900 text-white border-slate-900 shadow-sm'
+                  : 'bg-white text-slate-600 border-slate-200 hover:border-slate-400 hover:text-slate-800'
+              }`}>
+              <i className={`fas ${p.icon} text-[9px]`}></i>
+              <span>{p.name}</span>
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* QR Preview + Settings */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
         {/* Settings */}
         <div className="lg:col-span-2 space-y-4">
@@ -257,7 +297,6 @@ export default function QRCodeGenerator() {
             </div>
           </div>
 
-          {/* Colors / Style */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
             <div className="space-y-1">
               <span className={labelCls}>Foreground</span>
@@ -269,9 +308,18 @@ export default function QRCodeGenerator() {
             <div className="space-y-1">
               <span className={labelCls}>Background</span>
               <div className="flex items-center space-x-2">
-                <input type="color" value={bgColor} onChange={(e) => setBgColor(e.target.value)} className="w-8 h-8 rounded cursor-pointer border border-slate-200 p-0.5" />
-                <input value={bgColor} onChange={(e) => setBgColor(e.target.value)} className={`${inputCls} flex-1 font-mono text-[10px]`} />
+                <input type="color" value={bgColor} onChange={(e) => setBgColor(e.target.value)} disabled={transparentBg} className="w-8 h-8 rounded cursor-pointer border border-slate-200 p-0.5" />
+                <input value={bgColor} onChange={(e) => setBgColor(e.target.value)} disabled={transparentBg} className={`${inputCls} flex-1 font-mono text-[10px]`} />
               </div>
+            </div>
+            <div className="space-y-1 flex flex-col justify-end">
+              <label className="flex items-center space-x-2 cursor-pointer group">
+                <button type="button" role="checkbox" aria-checked={transparentBg} onClick={() => setTransparentBg(!transparentBg)}
+                  className={`w-4 h-4 rounded border-2 flex items-center justify-center transition-all shrink-0 ${transparentBg ? 'bg-slate-900 border-slate-900' : 'bg-white border-slate-300 group-hover:border-slate-500'}`}>
+                  {transparentBg && <i className="fas fa-check text-[8px] text-white"></i>}
+                </button>
+                <span className="text-[10px] font-extrabold uppercase tracking-wider text-slate-500">Transparent BG</span>
+              </label>
             </div>
             <div className="space-y-1">
               <span className={labelCls}>Corner Style</span>
@@ -279,16 +327,15 @@ export default function QRCodeGenerator() {
                 {CORNER_TYPES.map((t) => <option key={t} value={t}>{t}</option>)}
               </select>
             </div>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
             <div className="space-y-1">
               <span className={labelCls}>Corner Dot</span>
               <select value={cornerDotType} onChange={(e) => setCornerDotType(e.target.value)} className={inputCls}>
                 {CORNER_TYPES.map((t) => <option key={t} value={t}>{t}</option>)}
               </select>
             </div>
-          </div>
-
-          {/* Gradient + Corner Color */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
             <div className="space-y-1 flex flex-col justify-end">
               <label className="flex items-center space-x-2 cursor-pointer group">
                 <button type="button" role="checkbox" aria-checked={useGradient} onClick={() => setUseGradient(!useGradient)}
@@ -334,8 +381,8 @@ export default function QRCodeGenerator() {
             )}
           </div>
 
-          {/* Logo Upload */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-3 items-end">
+          {/* Logo + Tagline */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             <div className="space-y-1">
               <span className={labelCls}>Logo (optional)</span>
               <label className="flex items-center space-x-2 cursor-pointer">
@@ -345,23 +392,59 @@ export default function QRCodeGenerator() {
                 <input type="file" accept="image/*" onChange={handleLogoUpload} className="hidden" />
                 {logoDataUrl && <button type="button" onClick={() => setLogoDataUrl('')} className="text-[10px] text-rose-500 font-bold hover:underline cursor-pointer">Remove</button>}
               </label>
+              {logoDataUrl && (
+                <div className="mt-2">
+                  <span className={labelCls}>Logo Size</span>
+                  <input type="range" min="0.1" max="0.5" step="0.05" value={logoSz} onChange={(e) => setLogoSz(Number(e.target.value))} className="w-full h-1.5 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-slate-900" />
+                  <span className="text-[10px] text-slate-500 font-bold">{Math.round(logoSz * 100)}%</span>
+                </div>
+              )}
             </div>
-            <div className="space-y-1">
-              <span className={labelCls}>Logo Size</span>
-              <input type="range" min="0.1" max="0.5" step="0.05" value={logoSz} onChange={(e) => setLogoSz(Number(e.target.value))} className="w-full h-1.5 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-slate-900" />
-              <span className="text-[10px] text-slate-500 font-bold">{Math.round(logoSz * 100)}%</span>
+            <div className="space-y-2">
+              <span className={labelCls}>Tagline</span>
+              <input value={tagline} onChange={(e) => setTagline(e.target.value)} placeholder="Scan me!" className={inputCls} />
+              <div className="flex flex-wrap gap-1.5">
+                {TAGLINE_PRESETS.map((t) => (
+                  <button key={t} type="button" onClick={() => setTagline(t)}
+                    className={`px-2.5 py-1 rounded-md text-[9px] font-extrabold uppercase tracking-wider transition-all active:scale-95 cursor-pointer ${tagline === t ? 'bg-slate-900 text-white' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'}`}>
+                    {t}
+                  </button>
+                ))}
+              </div>
             </div>
-            <div className="space-y-1">
-              <span className={labelCls}>Filename</span>
-              <input value={filename} onChange={(e) => setFilename(e.target.value)} className={inputCls} />
+          </div>
+          <div className="space-y-2">
+            <span className={labelCls}>Badge Style</span>
+            <div className="flex flex-wrap gap-2">
+              {BADGE_STYLES.map((bs, i) => (
+                <button key={bs.name} type="button" onClick={() => setBadgeStyle(i)}
+                  className={`flex items-center space-x-1.5 px-3.5 py-2 rounded-full text-[10px] font-extrabold transition-all active:scale-95 cursor-pointer border ${
+                    badgeStyle === i
+                      ? 'bg-slate-900 text-white border-slate-900 shadow-sm'
+                      : 'bg-white text-slate-600 border-slate-200 hover:border-slate-400 hover:text-slate-800'
+                  }`}>
+                  <i className={`fas ${bs.icon} text-[9px]`}></i>
+                  <span>{bs.name}</span>
+                </button>
+              ))}
             </div>
+            <span className={labelCls}>Filename</span>
+            <input value={filename} onChange={(e) => setFilename(e.target.value)} className={inputCls} />
           </div>
         </div>
 
-        {/* Preview */}
+        {/* Preview with tagline */}
         <div className="flex flex-col items-center space-y-3">
-          <div className="bg-slate-50 border border-slate-200 rounded-2xl p-4 inline-flex">
-            <div ref={containerRef} className="[&_canvas]:!block [&_canvas]:!max-w-full [&_canvas]:!h-auto" />
+          <div className={`rounded-2xl p-5 inline-flex ${transparentBg ? 'bg-slate-50' : ''} border ${transparentBg ? 'border-slate-200' : 'border-transparent'}`}>
+            <div className="flex flex-col items-center">
+              <div ref={containerRef} className="[&_canvas]:!block [&_canvas]:!max-w-full [&_canvas]:!h-auto" />
+              {tagline && (
+                <span className={`mt-2.5 text-center max-w-[260px] leading-tight inline-flex items-center justify-center gap-1.5 ${BADGE_STYLES[badgeStyle].cls}`}>
+                  {badgeStyle === 5 && <i className="fas fa-qrcode text-[9px]"></i>}
+                  {tagline}
+                </span>
+              )}
+            </div>
           </div>
           <div className="flex items-center space-x-2">
             <button type="button" onClick={() => handleDownload('png')} className="px-5 py-2.5 rounded-full bg-slate-900 text-white font-extrabold text-[10px] transition-all active:scale-95 cursor-pointer flex items-center space-x-1.5 hover:bg-slate-800">
@@ -384,7 +467,6 @@ export default function QRCodeGenerator() {
           <span className="text-white/[0.03] text-[120px] italic font-black tracking-tighter">QR CODE</span>
         </div>
         <div className="relative z-10 space-y-6">
-          {/* Settings Summary */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
             <div className="bg-white/5 rounded-2xl p-4 text-center">
               <span className="text-lg font-black text-white block">{size}&times;{size}</span>
@@ -410,8 +492,8 @@ export default function QRCodeGenerator() {
               <div><span className="text-[9px] text-slate-400 font-extrabold uppercase tracking-wider block">Foreground</span><span className="text-[10px] font-mono text-white font-bold mt-0.5 block">{useGradient ? `${gradientType} gradient` : fgColor}</span></div>
             </div>
             <div className="bg-white/5 border border-white/10 rounded-xl p-3.5 flex items-center space-x-3">
-              <div className="w-6 h-6 rounded border border-white/20 shrink-0" style={{ backgroundColor: bgColor }} />
-              <div><span className="text-[9px] text-slate-400 font-extrabold uppercase tracking-wider block">Background</span><span className="text-[10px] font-mono text-white font-bold mt-0.5 block">{bgColor}</span></div>
+              <div className="w-6 h-6 rounded border border-white/20 shrink-0" style={{ backgroundColor: transparentBg ? 'transparent' : bgColor }} />
+              <div><span className="text-[9px] text-slate-400 font-extrabold uppercase tracking-wider block">Background</span><span className="text-[10px] font-mono text-white font-bold mt-0.5 block">{transparentBg ? 'Transparent' : bgColor}</span></div>
             </div>
             <div className="bg-white/5 border border-white/10 rounded-xl p-3.5 flex items-center space-x-3">
               <div className="w-6 h-6 rounded border border-white/20 shrink-0" style={{ backgroundColor: cornerColor }} />
@@ -430,7 +512,13 @@ export default function QRCodeGenerator() {
             </div>
           )}
 
-          {/* Data */}
+          {tagline && (
+            <div className="bg-white/5 border border-white/10 rounded-xl p-3.5 flex items-center justify-between">
+              <div><span className="text-[9px] text-slate-400 font-extrabold uppercase tracking-wider block">Tagline</span><span className="text-[11px] font-bold text-white mt-0.5 block">{tagline}</span></div>
+              <span className="text-[9px] text-slate-500 font-bold">{BADGE_STYLES[badgeStyle].name}</span>
+            </div>
+          )}
+
           <div className="bg-white/5 border border-white/10 rounded-xl p-4">
             <span className="text-[9px] text-slate-400 font-extrabold uppercase tracking-wider block">Encoded Data</span>
             <p className="text-[11px] font-mono text-slate-300 mt-1 break-all leading-relaxed">{data}</p>

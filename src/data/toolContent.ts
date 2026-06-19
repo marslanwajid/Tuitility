@@ -237,6 +237,12 @@ const SEO_PRIORITY_OVERRIDES = {
     rationale: 'Differentiate with premium styling features, logo embedding, gradient support, multiple input modes, and flexible download options.',
     focusKeywords: ['qr code generator', 'qr code maker', 'custom qr code', 'qr code with logo', 'free qr code generator'],
   },
+  '/utility-tools/ocr-pdf-generator': {
+    tier: 'high',
+    outlook: 'strong long-tail opportunity',
+    rationale: 'Niche but high-intent use case; differentiate with full browser-side OCR, 12 language options, per-page progress, and dual TXT/DOCX download formats.',
+    focusKeywords: ['ocr pdf', 'pdf text extractor', 'ocr pdf online', 'extract text from pdf', 'pdf ocr converter', 'free ocr pdf'],
+  },
   '/finance/calculators/mortgage-calculator': {
     tier: 'medium',
     outlook: 'high volume / high competition',
@@ -1111,6 +1117,45 @@ export const getToolContent = (tool: any) => {
       {
         question: "What is the vCard format and how does it work?",
         answer: "vCard is a standard file format for electronic business cards. When scanned, a vCard QR code prompts the phone to save a new contact with the encoded details — name, phone, email, organization, title, address, website, and notes. This is ideal for networking events, business cards, and conference badges."
+      }
+    ];
+  } else if (tool.url === '/utility-tools/ocr-pdf-generator') {
+    overview = [
+      `The OCR PDF Generator is a free online tool designed to extract text from PDF documents using optical character recognition (OCR) technology. Whether you have a scanned contract, a photographed book page, an old fax document, or a text-heavy report in a foreign language, this tool converts images of text into editable, searchable content — entirely in your browser. To build a complete document workflow, pair this with our [Image to WebP Converter](/utility-tools/image-tools/image-to-webp-converter) for compressing scanned page images, or our [Image Converter](/utility-tools/image-tools/image-converter) for format conversions across your digital assets.`,
+      `Perfect for students digitizing lecture notes, researchers extracting quotes from scanned papers, archivists preserving historical documents, lawyers processing contracts, and anyone who needs to turn a PDF image into real, selectable text. Choose from 12 OCR languages (English, Spanish, French, German, Arabic, Chinese, Japanese, Korean, Russian, Portuguese, Italian, Dutch), watch per-page extraction progress with a live character-count bar chart, edit the recognized text inline, and download as TXT or DOCX. All processing is 100% local — your documents never leave your device.`,
+    ];
+    faqs = [
+      {
+        question: "How does this OCR tool work?",
+        answer: "Upload a PDF, select the document language, and click Extract Text. The tool uses pdf.js to render each PDF page to a canvas image, then Tesseract.js (an open-source OCR engine ported to WebAssembly) analyzes the image and recognizes text characters. Results are combined page by page into an editable textarea for review and download."
+      },
+      {
+        question: "What languages does the OCR support?",
+        answer: "12 languages: English, Spanish, French, German, Arabic, Chinese (Simplified), Japanese, Korean, Russian, Portuguese, Italian, and Dutch. Choose the language that best matches your document for highest accuracy. Multi-language documents can use the most dominant language."
+      },
+      {
+        question: "Is this tool private and secure?",
+        answer: "Yes. All PDF rendering and OCR processing happen 100% locally in your browser using WebAssembly and JavaScript. No files, text, or data are ever uploaded to any server. Your documents never leave your device, making it safe for sensitive contracts, legal documents, and personal papers."
+      },
+      {
+        question: "How accurate is the OCR?",
+        answer: "Accuracy depends on the quality of the source PDF — clear, high-resolution scans with standard fonts yield the best results (typically 90-99% accuracy). Low-quality scans, handwritten text, decorative fonts, or heavily compressed images may reduce accuracy. The results panel shows a per-page confidence score so you know which pages to review."
+      },
+      {
+        question: "What file formats can I download?",
+        answer: "You can download the extracted text as a plain text file (.txt) for universal compatibility, or as a Word document (.docx) for direct editing in Microsoft Word, Google Docs, or LibreOffice. The DOCX file preserves line breaks as paragraph separators."
+      },
+      {
+        question: "Can I edit the extracted text before downloading?",
+        answer: "Yes. The extracted text appears in an editable textarea where you can make corrections, fix OCR mistakes, reformat paragraphs, or add missing content before copying to clipboard or downloading as TXT or DOCX."
+      },
+      {
+        question: "Does this work on mobile devices?",
+        answer: "Yes. The tool is fully responsive and works on any modern mobile browser. Upload a PDF from your phone's storage, select the language, and extract text on the go. All processing runs locally in your mobile browser."
+      },
+      {
+        question: "Why does OCR take time for large documents?",
+        answer: "Each page must be rendered and then analyzed by the OCR engine. Processing time scales with the number of pages, the resolution of each page, and your device's CPU speed. A 10-page document typically processes in 30-60 seconds on a modern laptop. You can cancel processing at any time."
       }
     ];
   }

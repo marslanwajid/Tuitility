@@ -293,6 +293,10 @@ export const CALCULATOR_REGISTRY: Record<string, React.ComponentType<any>> = {
     () => import('./utility/QRCodeGenerator'),
     { ssr: false }
   ),
+  '/utility-tools/ocr-pdf-generator': dynamic(
+    () => import('./utility/OcrPdfGenerator'),
+    { ssr: false }
+  ),
 };
 
 export default CALCULATOR_REGISTRY;
