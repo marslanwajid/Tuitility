@@ -4,13 +4,12 @@ export async function POST(request: NextRequest) {
   try {
     const { anxietyScore, intrusiveScore, avoidanceScore, negativeScore, functionalScore, totalScore } = await request.json();
 
-    // Sourcing API Key: server env
-    const apiKey = process.env.GEMINI_API_KEY || process.env.GEMINI_API;
+    const apiKey = process.env.OPENROUTER_API_KEY;
 
     if (!apiKey) {
       return NextResponse.json(
-        { error: 'Gemini API key is not configured on the server. Please check your environment variables.' },
-        { status: 400 }
+        { error: 'OpenRouter API key is not configured on the server. Please check your environment variables.' },
+        { status: 500 }
       );
     }
 
@@ -55,57 +54,36 @@ Structure with Markdown Headers exactly as follows:
 ### Professional Guidance and Next Steps
 [Insert 1-2 detailed paragraphs here]`;
 
-    // Make direct fetch to Gemini REST API (gemini-2.5-flash)
-    const geminiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`;
-
-    const res = await fetch(geminiUrl, {
+    const res = await fetch('https://openrouter.ai/api/v1/chat/completions', {
       method: 'POST',
       headers: {
+        'Authorization': `Bearer ${apiKey}`,
+        'HTTP-Referer': 'https://tuitility.vercel.app',
+        'X-OpenRouter-Title': 'Tuitility',
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        contents: [
+        model: 'openrouter/free',
+        messages: [
           {
-            parts: [
-              {
-                text: prompt,
-              },
-            ],
+            role: 'user',
+            content: prompt,
           },
         ],
-        generationConfig: {
-          temperature: 0.7,
-          maxOutputTokens: 2500,
-        },
-        safetySettings: [
-          {
-            category: 'HARM_CATEGORY_HARASSMENT',
-            threshold: 'BLOCK_NONE',
-          },
-          {
-            category: 'HARM_CATEGORY_HATE_SPEECH',
-            threshold: 'BLOCK_NONE',
-          },
-          {
-            category: 'HARM_CATEGORY_SEXUALLY_EXPLICIT',
-            threshold: 'BLOCK_NONE',
-          },
-          {
-            category: 'HARM_CATEGORY_DANGEROUS_CONTENT',
-            threshold: 'BLOCK_NONE',
-          },
-        ],
+        temperature: 0.7,
+        max_tokens: 2500,
       }),
+      signal: AbortSignal.timeout(30000),
     });
 
     if (!res.ok) {
       const errorData = await res.json().catch(() => ({}));
-      const errMsg = errorData.error?.message || `Gemini REST API responded with status ${res.status}`;
+      const errMsg = errorData.error?.message || `OpenRouter API responded with status ${res.status}`;
       return NextResponse.json({ error: errMsg }, { status: 502 });
     }
 
     const data = await res.json();
-    const generatedText = data.candidates?.[0]?.content?.parts?.[0]?.text;
+    const generatedText = data.choices?.[0]?.message?.content;
 
     if (!generatedText) {
       return NextResponse.json({ error: 'No response content generated from AI model.' }, { status: 502 });

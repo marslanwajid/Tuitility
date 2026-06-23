@@ -502,6 +502,13 @@ export const allTools = [
     icon: "fab fa-html5",
   },
   {
+    name: "Markdown File Viewer",
+    desc: "View and render Markdown files with live preview",
+    url: "/utility-tools/markdown-file-viewer",
+    category: "Utility",
+    icon: "fab fa-markdown",
+  },
+  {
     name: "English to IPA",
     desc: "Convert text to phonetic notation",
     url: "/utility-tools/english-to-ipa-translator",

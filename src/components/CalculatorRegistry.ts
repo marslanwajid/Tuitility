@@ -297,6 +297,50 @@ export const CALCULATOR_REGISTRY: Record<string, React.ComponentType<any>> = {
     () => import('./utility/OcrPdfGenerator'),
     { ssr: false }
   ),
+  '/utility-tools/genz-translator': dynamic(
+    () => import('./utility/GenZTranslator'),
+    { ssr: false }
+  ),
+  '/utility-tools/converter-tools/rgb-to-hex-converter': dynamic(
+    () => import('./utility/RgbToHex'),
+    { ssr: false }
+  ),
+  '/utility-tools/converter-tools/text-case-converter': dynamic(
+    () => import('./utility/TextCaseConverter'),
+    { ssr: false }
+  ),
+  '/utility-tools/converter-tools/pdf-to-image-converter': dynamic(
+    () => import('./utility/PdfToImageConverter'),
+    { ssr: false }
+  ),
+  '/utility-tools/converter-tools/merge-pdf': dynamic(
+    () => import('./utility/PdfMerger'),
+    { ssr: false }
+  ),
+  '/utility-tools/converter-tools/split-pdf': dynamic(
+    () => import('./utility/PdfSplitter'),
+    { ssr: false }
+  ),
+  '/utility-tools/converter-tools/delete-pdf-pages': dynamic(
+    () => import('./utility/DeletePdfPages'),
+    { ssr: false }
+  ),
+  '/utility-tools/converter-tools/organize-pdf-pages': dynamic(
+    () => import('./utility/PdfOrganizer'),
+    { ssr: false }
+  ),
+  '/utility-tools/morse-code-translator': dynamic(
+    () => import('./utility/MorseCodeTranslator'),
+    { ssr: false }
+  ),
+  '/utility-tools/html-to-markdown-converter': dynamic(
+    () => import('./utility/HtmlToMarkdownConverter'),
+    { ssr: false }
+  ),
+  '/utility-tools/markdown-file-viewer': dynamic(
+    () => import('./utility/MarkdownViewer'),
+    { ssr: false }
+  ),
 };
 
 export default CALCULATOR_REGISTRY;

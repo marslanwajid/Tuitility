@@ -115,7 +115,7 @@ const SEO_PRIORITY_OVERRIDES = {
     tier: 'high',
     outlook: 'strong long-tail opportunity',
     rationale: 'Specific developer intent with a clear browser-based workflow and less brand lock-in than generic calculator queries.',
-    focusKeywords: ['html to markdown converter', 'convert html to markdown online', 'browser html to markdown'],
+    focusKeywords: ['html to markdown converter', 'convert html to markdown online', 'browser html to markdown', 'markdown to html converter', 'html markdown tool'],
   },
   '/utility-tools/english-to-ipa-translator': {
     tier: 'high',
@@ -140,6 +140,54 @@ const SEO_PRIORITY_OVERRIDES = {
     outlook: 'strong long-tail opportunity',
     rationale: 'The query is narrower than general weight conversion and can rank on specificity plus utility.',
     focusKeywords: ['gold weight converter', 'precious metal weight converter', 'grams to tola gold converter'],
+  },
+  '/utility-tools/converter-tools/rgb-to-hex-converter': {
+    tier: 'high',
+    outlook: 'strong long-tail opportunity',
+    rationale: 'High commercial design intent; differentiate with color harmony visualization, HSL support, color history, and copy-to-clipboard UX.',
+    focusKeywords: ['rgb to hex converter', 'hex to rgb converter', 'color code converter', 'rgb to hex online', 'hex color converter', 'color converter'],
+  },
+  '/utility-tools/converter-tools/text-case-converter': {
+    tier: 'high',
+    outlook: 'strong long-tail opportunity',
+    rationale: 'Broad utility use case with high intent for formatting text; differentiate with 15 transform modes, live stats comparison, and clean SVG widget.',
+    focusKeywords: ['text case converter', 'case converter', 'uppercase to lowercase', 'title case converter', 'text formatter online', 'change text case'],
+  },
+  '/utility-tools/converter-tools/pdf-to-image-converter': {
+    tier: 'high',
+    outlook: 'strong long-tail opportunity',
+    rationale: 'High demand for PDF extraction with image output; differentiate with background removal (simple + AI), format selection, resolution control, and dark panel UX.',
+    focusKeywords: ['pdf to image converter', 'pdf to jpg', 'pdf to png', 'convert pdf to image online', 'pdf page to image', 'extract pdf page as image'],
+  },
+  '/utility-tools/converter-tools/merge-pdf': {
+    tier: 'high',
+    outlook: 'strong long-tail opportunity',
+    rationale: 'Common search for combining PDFs; differentiate with drag-and-drop reordering, page numbering, compression toggle, and SVG page proportion visualization.',
+    focusKeywords: ['pdf merger', 'merge pdf files', 'combine pdf', 'pdf joiner', 'merge pdf online', 'combine pdf documents'],
+  },
+  '/utility-tools/converter-tools/split-pdf': {
+    tier: 'high',
+    outlook: 'strong long-tail opportunity',
+    rationale: 'High demand for PDF splitting with three modes; differentiate with visual page preview grid, click-to-select extraction, compression toggle, and SVG chunk visualization.',
+    focusKeywords: ['pdf splitter', 'split pdf', 'extract pdf pages', 'split pdf online', 'pdf page extractor', 'separate pdf pages'],
+  },
+  '/utility-tools/converter-tools/delete-pdf-pages': {
+    tier: 'high',
+    outlook: 'strong long-tail opportunity',
+    rationale: 'Common need for removing unwanted pages; differentiate with dual visual/text selection, SVG kept-vs-deleted bar chart, compression toggle, and inline validation.',
+    focusKeywords: ['delete pdf pages', 'remove pdf pages', 'pdf page remover', 'delete pages from pdf', 'remove pages from pdf online', 'pdf page deletion tool'],
+  },
+  '/utility-tools/converter-tools/organize-pdf-pages': {
+    tier: 'high',
+    outlook: 'strong long-tail opportunity',
+    rationale: 'Common need for rearranging PDF pages; differentiate with drag-and-drop grid, SVG position strip, move-to-front/back buttons, and compression toggle.',
+    focusKeywords: ['organize pdf pages', 'rearrange pdf pages', 'pdf page organizer', 'reorder pdf pages online', 'pdf page sorter', 'pdf page arranger'],
+  },
+  '/utility-tools/morse-code-translator': {
+    tier: 'high',
+    outlook: 'strong long-tail opportunity',
+    rationale: 'Classic utility with strong long-tail search and educational intent; differentiate with bi-directional translation, audio playback, and dark panel UX with reference table.',
+    focusKeywords: ['morse code translator', 'text to morse code', 'morse code decoder', 'morse code converter', 'morse to text', 'learn morse code', 'morse code alphabet'],
   },
   '/science/calculators/dbm-watts-calculator': {
     tier: 'high',
@@ -434,6 +482,12 @@ const SEO_PRIORITY_OVERRIDES = {
     outlook: 'strong long-tail opportunity',
     rationale: 'Broad format conversion utility covering common, RAW, and design formats; differentiate with 30+ input formats, client-side privacy, and batch processing.',
     focusKeywords: ['image converter', 'convert png to jpg', 'image format converter', 'raw to jpg converter', 'heic to jpg converter', 'psd to png converter', 'free image converter online'],
+  },
+  '/utility-tools/genz-translator': {
+    tier: 'high',
+    outlook: 'strong long-tail opportunity',
+    rationale: 'High search volume for fun and practical slang translation and decoding with clear, context-aware AI output.',
+    focusKeywords: ['gen z translator', 'gen z slang translator', 'slang decoder', 'internet slang translator', 'ai slang translator', 'gen z meaning tool'],
   },
 };
 
@@ -1156,6 +1210,388 @@ export const getToolContent = (tool: any) => {
       {
         question: "Why does OCR take time for large documents?",
         answer: "Each page must be rendered and then analyzed by the OCR engine. Processing time scales with the number of pages, the resolution of each page, and your device's CPU speed. A 10-page document typically processes in 30-60 seconds on a modern laptop. You can cancel processing at any time."
+      }
+    ];
+  } else if (tool.url === '/utility-tools/genz-translator') {
+    overview = [
+      `The Gen Z Translator is a free online AI-powered slang translator and decoder designed to bridge generational gaps by instantly translating standard English into modern Gen Z expressions and internet slang, or decoding Gen Z slang back into clear, standard English. Whether you want to spice up your social media copy, decipher text messages from younger colleagues, or understand viral phrases, this tool provides context-aware translations. To build a complete digital and text workflow, pair this with our [Word Counter](/utility-tools/word-counter) to optimize social captions, our [Text Case Converter](/utility-tools/converter-tools/text-case-converter) for formatting, or our [English to IPA](/utility-tools/english-to-ipa-translator) to practice pronouncing new slang terms.`,
+      `Using advanced natural language processing powered by Google's Gemini AI, this utility does not just do direct word substitution but understands the overall tone, vibe, and context of the sentence. The translator features automatic debounced translations as you type, a swap mode button, copy-to-clipboard actions, and a curated mini Gen Z slang dictionary of common expressions like bet, cap, rizz, and sus. Your translations are completed securely on the server-side without exposing API keys.`,
+    ];
+    faqs = [
+      {
+        question: "Is the Gen Z translation 100% accurate?",
+        answer: "Internet slang and Gen Z expressions evolve rapidly! While our tool uses Google's Gemini AI to stay up-to-date with the latest trends, slang is highly context-dependent. Use the translations for informal communication, creative writing, and fun."
+      },
+      {
+        question: "Can I use this translator in professional emails?",
+        answer: "We recommend using the 'Gen Z to Standard' mode if you are trying to understand a message from a younger colleague or client. Avoid sending slang-filled emails in formal or professional business settings unless you have an exceptionally casual relationship with your team."
+      },
+      {
+        question: "What is the meaning of 'no cap'?",
+        answer: "'No cap' is a popular Gen Z slang term that translates to 'no lie', 'for real', or 'seriously'. It is used to emphasize that a statement is completely true and not an exaggeration."
+      },
+      {
+        question: "What does 'Rizz' mean?",
+        answer: "Short for 'charisma'. It refers to someone's charm, appeal, or ability to attract and seduce a romantic partner."
+      },
+      {
+        question: "Is my translation private and secure?",
+        answer: "Yes. While standard translations are sent securely to our server-side API (which connects to the Gemini AI), your text inputs are processed on the fly and are not stored, saved, or logged on our servers."
+      },
+      {
+        question: "How long does translation take?",
+        answer: "The translation is usually completed in less than 2 seconds. The tool features an auto-translate trigger that waits 1 second after you stop typing to send the request, or you can manually trigger it."
+      }
+    ];
+  } else if (tool.url === '/utility-tools/converter-tools/rgb-to-hex-converter') {
+    overview = [
+      `The RGB to HEX Converter is a free online color conversion tool designed to instantly convert between RGB, HEX, and HSL color formats with a live preview, color harmony visualization, and session-based color history. Whether you are a web designer picking brand colors, a developer matching UI elements, a digital artist comparing palettes, or a marketer aligning brand assets, this tool gives you real-time bi-directional conversion with copy-ready outputs. To build a complete design workflow, pair this with our [Image to WebP Converter](/utility-tools/image-tools/image-to-webp-converter) for optimizing color-rich images, or our [QR Code Generator](/utility-tools/qr-code-generator) to add color-customized QR codes to your print materials.`,
+      `Perfect for designers, front-end developers, content creators, and anyone working with digital color codes. Use the RGB sliders or HEX input to enter a color, pick directly from the native color picker, and instantly see the matching HEX, RGB, and HSL values. The SVG hue spectrum widget shows where your color sits on the full color wheel, and the color harmony section displays complementary and analogous colors for palette building. Save frequently used colors to the history bar for quick recall — all processing is 100% local with zero data uploads.`,
+    ];
+    faqs = [
+      {
+        question: "How do I convert RGB to HEX?",
+        answer: "Adjust the R, G, B sliders (each 0-255) or type a number directly into any channel's input field. The HEX value updates instantly in real time. You can also use the native color picker to visually select any color."
+      },
+      {
+        question: "How do I convert HEX to RGB?",
+        answer: "Type or paste a HEX color code (with or without the # prefix) into the HEX input field. The RGB sliders and HSL display update automatically. The tool also validates your input — invalid HEX codes are ignored until corrected."
+      },
+      {
+        question: "What is HSL and why is it useful?",
+        answer: "HSL stands for Hue, Saturation, and Lightness — a cylindrical color model that more closely matches how humans perceive color. The hue (0-360) represents the color's position on the wheel, saturation (0-100%) is the intensity, and lightness (0-100%) is the brightness. It is often easier to create harmonious color schemes with HSL than with RGB."
+      },
+      {
+        question: "How does the color harmony visualization work?",
+        answer: "The color harmony section automatically generates complementary (180 degrees opposite on the color wheel) and analogous (adjacent hues at ±30 and ±60 degrees) colors based on your current color's hue. Click any harmony swatch to load that color into the converter for further exploration."
+      },
+      {
+        question: "What is the color history feature?",
+        answer: "Each time you click 'Save to History', the current color is stored in your browser's session memory. History persists for the current browser tab and remembers up to 12 recent colors. Click any history swatch to instantly reload that color's values."
+      },
+      {
+        question: "Can I copy color values to my clipboard?",
+        answer: "Yes. Each color format card (HEX, RGB, HSL) has a copy button that copies the formatted value to your clipboard. A checkmark briefly appears to confirm the copy was successful."
+      },
+      {
+        question: "Is this tool free and private?",
+        answer: "Yes, completely free and private. All color conversions happen 100% locally in your browser using JavaScript. No color data, inputs, or history are ever uploaded, stored, or logged on any server."
+      },
+      {
+        question: "Does this work on mobile devices?",
+        answer: "Yes. The tool is fully responsive and works on any modern mobile browser. RGB sliders, HEX input, color picker, and harmony previews all function on touch devices."
+      }
+    ];
+  } else if (tool.url === '/utility-tools/converter-tools/text-case-converter') {
+    overview = [
+      `The Text Case Converter is a free online tool designed to instantly transform text between 15 different case formats — uppercase, lowercase, title case, sentence case, camelCase, PascalCase, snake_case, kebab-case, and more. Whether you are a developer formatting variable names, a writer fixing heading styles, a content creator prepping social captions, or a student cleaning up quotes, this tool gives you one-click conversion with live stats comparison. To build a complete text workflow, pair this with our [Word Counter](/utility-tools/word-counter) for detailed text analysis, or our [English to IPA Translator](/utility-tools/english-to-ipa-translator) for pronunciation practice.`,
+      `Perfect for developers, copywriters, editors, students, and anyone who needs to reformat text quickly. Type or paste any text, choose from 15 case modes, and see the result instantly in the dark results panel. The SVG comparison widget shows original vs. transformed character, word, and line counts side by side. All processing is 100% local — no text is ever uploaded or stored.`,
+    ];
+    faqs = [
+      {
+        question: "How many case formats does this converter support?",
+        answer: "15 formats: UPPERCASE, lowercase, Title Case, Sentence case, camelCase, PascalCase, CONSTANT_CASE, snake_case, kebab-case, dot.case, spaced case, tOGGLE cASE, spongebob case, Trim Spaces, and Reverse Text. Each mode is a single click away."
+      },
+      {
+        question: "What is the difference between camelCase and PascalCase?",
+        answer: "In camelCase the first word starts with a lowercase letter and each subsequent word starts with an uppercase letter (e.g., 'helloWorld'). In PascalCase every word starts with an uppercase letter (e.g., 'HelloWorld'). JavaScript developers use camelCase for variables and PascalCase for class names."
+      },
+      {
+        question: "How does the Title Case mode work?",
+        answer: "Title Case capitalizes the first letter of every word and lowercases the rest. It splits on whitespace, so hyphens and other punctuation within words are preserved as-is. For proper title case (with shorter words like 'of' or 'the' lowercased), review the output after conversion."
+      },
+      {
+        question: "What is the spongebob case?",
+        answer: "SpongeBob case alternates between uppercase and lowercase letters in sequence, mimicking the popular 'Mocking SpongeBob' meme format (e.g., 'HeLlo WoRlD'). Only alphabetical characters are toggled; spaces, numbers, and punctuation are preserved."
+      },
+      {
+        question: "Can I convert text case on mobile?",
+        answer: "Yes. The tool is fully responsive and works on any modern mobile browser. All 15 case modes, the input textarea, and the copy-to-clipboard function are touch-friendly."
+      },
+      {
+        question: "Is this tool private and secure?",
+        answer: "Yes. All text processing happens 100% locally in your browser. No text, content, or data are ever uploaded, logged, or stored on any server. Your input never leaves your device."
+      },
+      {
+        question: "Does the converter work with special characters and accents?",
+        answer: "Yes. Accented characters (é, ü, ñ, etc.), Cyrillic, Arabic, and other non-Latin scripts are preserved through all case conversions wherever a case mapping exists in Unicode. Characters without case mappings (like emoji) remain unchanged."
+      },
+      {
+        question: "What does the Trim Spaces mode do?",
+        answer: "Trim Spaces collapses all multiple spaces, tabs, and line breaks into single spaces and trims leading/trailing whitespace. It is useful for cleaning up pasted text from emails, documents, or web pages where formatting may introduce irregular spacing."
+      }
+    ];
+  } else if (tool.url === '/utility-tools/converter-tools/pdf-to-image-converter') {
+    overview = [
+      `The PDF to Image Converter is a free online tool designed to transform PDF document pages into high-quality images (PNG, JPG, WebP) with optional background removal and color inversion. Whether you need to extract a single page as a presentation slide, convert a scanned contract into a shareable image, export a diagram from a technical manual, or create transparent PNGs from white-background PDFs, this tool renders each page at your chosen resolution and format — entirely in your browser. To build a complete document workflow, pair this with our [OCR PDF Generator](/utility-tools/ocr-pdf-generator) for extracting text from scanned pages, or our [Image to WebP Converter](/utility-tools/image-tools/image-to-webp-converter) for further optimizing exported images.`,
+      `Perfect for designers extracting assets from PDFs, students saving lecture slides as images, professionals sharing document excerpts on social media, and anyone who needs a PDF page as a standalone image file. Choose from 3 output formats (PNG, JPG, WebP), adjust resolution from 1x to 3x, remove backgrounds with Simple (instant white removal) or AI (deep-learning-based) mode, invert colors for dark-mode exports, and navigate through multi-page PDFs to convert specific pages. All processing is 100% local — your documents never leave your device.`,
+    ];
+    faqs = [
+      {
+        question: "What image formats can I export to?",
+        answer: "Three formats: PNG (lossless, supports transparency), JPG (smaller file size, good for photographs), and WebP (modern format with superior compression). Select the format that best fits your use case."
+      },
+      {
+        question: "Can I convert only specific pages?",
+        answer: "Yes. Use the Previous/Next page navigation buttons to browse through the PDF and select the page you want to convert. Each page is rendered individually so you can preview before download."
+      },
+      {
+        question: "How does the background removal work?",
+        answer: "Simple mode instantly removes near-white pixels by checking each pixel's RGB values against a tolerance threshold — great for clean white-background documents. AI mode uses a deep-learning model from @imgly/background-removal to intelligently separate foreground from background, which works better on complex images but is slower, especially on first use when the model is downloaded."
+      },
+      {
+        question: "Does the tool preserve original document quality?",
+        answer: "Yes. You can control the output quality with the Resolution slider (1x to 3x scale). Higher scale produces larger, more detailed images. For JPG and WebP, the quality setting (default 0.9) also affects compression level and file size."
+      },
+      {
+        question: "Is this tool private and secure?",
+        answer: "Yes. All PDF rendering, image conversion, and background removal happen 100% locally in your browser. No files, pages, or images are ever uploaded to any server. Your documents never leave your device."
+      },
+      {
+        question: "What happens if my PDF has complex formatting?",
+        answer: "PDF.js renders each page as faithfully as possible, preserving text, fonts, vector graphics, and embedded images. Very complex layouts with overlapping transparency, custom fonts, or advanced PDF features may have minor rendering differences compared to Adobe Acrobat."
+      },
+      {
+        question: "Can I invert the colors of a PDF page?",
+        answer: "Yes. The Invert Colors toggle flips all pixel values (255 - value) to create a negative or dark-mode version of the page. This is useful for creating lighter versions of dark PDFs or for design purposes."
+      },
+      {
+        question: "Does this work on mobile devices?",
+        answer: "Yes. The tool is fully responsive and works on any modern mobile browser. Upload a PDF from your phone, navigate pages, adjust settings, and download images on the go."
+      }
+    ];
+  } else if (tool.url === '/utility-tools/converter-tools/merge-pdf') {
+    overview = [
+      `The PDF Merger is a free online tool designed to combine multiple PDF documents into a single unified file with drag-and-drop reordering, page numbering, and compression options. Whether you need to merge contract pages, combine report sections, consolidate multiple invoices, or create a complete presentation from separate slide decks, this tool lets you upload up to 20 PDFs (25MB each, 100MB total) and arrange them in any order before merging — entirely in your browser. To build a complete document workflow, pair this with our [PDF Splitter](/utility-tools/converter-tools/split-pdf) for extracting sections after merging, or our [PDF to Image Converter](/utility-tools/converter-tools/pdf-to-image-converter) for exporting merged pages as images.`,
+      `Perfect for professionals assembling report packages, students combining lecture notes, legal teams merging contract exhibits, and anyone who needs to consolidate multiple PDFs into one organized document. Drag files to reorder them, toggle automatic page numbering, enable compression for smaller output files, customize the output filename, and see a live SVG bar chart showing each file's page contribution. All processing is 100% local — your files never leave your device.`,
+    ];
+    faqs = [
+      {
+        question: "How many PDFs can I merge at once?",
+        answer: "You can upload up to 20 PDF files per merge session. Each file must be under 25MB, and the total combined size must not exceed 100MB for optimal browser performance."
+      },
+      {
+        question: "Can I reorder files before merging?",
+        answer: "Yes. Drag and drop any file in the list to change its position. The merge order matches the displayed list order — top file becomes the first page, bottom file becomes the last."
+      },
+      {
+        question: "What happens to bookmarks and metadata?",
+        answer: "Individual PDF bookmarks are not preserved during merging. The merged document receives its own metadata (title, creator, date). You can add continuous page numbers across all merged pages."
+      },
+      {
+        question: "Will the merged PDF maintain original quality?",
+        answer: "Yes. pdf-lib preserves all text, fonts, images, vectors, and formatting from each source PDF. With compression enabled, content streams are optimized for a smaller file size without visible quality loss."
+      },
+      {
+        question: "What does the compression option do?",
+        answer: "Compression uses PDF object streams to reduce the final file size. It applies lossless compression to the PDF structure, making the merged document smaller without affecting visual quality. Turn it off if you need slightly faster merging."
+      },
+      {
+        question: "What if one of my PDFs is corrupted?",
+        answer: "If a file fails to load, it's marked with a warning and skipped during merging. The remaining valid files are still merged successfully, and you'll see a notification about which files were skipped."
+      },
+      {
+        question: "Is this tool private and secure?",
+        answer: "Yes. All PDF processing uses pdf-lib running entirely in your browser. No files, content, or data are ever uploaded to any server. Your documents never leave your device."
+      },
+      {
+        question: "Does this work on mobile devices?",
+        answer: "Yes. The tool is fully responsive and works on any modern mobile browser. Upload PDFs from your phone's storage, reorder them, and download the merged result on the go."
+      }
+    ];
+  } else if (tool.url === '/utility-tools/converter-tools/split-pdf') {
+    overview = [
+      `The PDF Splitter is a free online tool designed to split PDF documents into multiple files using three methods: page range extraction, specific page selection, or splitting into fixed-size chunks. Whether you need to extract a single chapter from a textbook, cherry-pick specific pages from a contract, or break a large document into smaller files of N pages each, this tool provides visual page previews, click-to-select extraction, and compression options — entirely in your browser. To build a complete document workflow, pair this with our [PDF Merger](/utility-tools/converter-tools/merge-pdf) for combining extracted sections, or our [Delete PDF Pages](/utility-tools/converter-tools/delete-pdf-pages) for removing unwanted pages from the original.`,
+      `Perfect for students extracting chapters from e-books, professionals isolating specific report sections, legal teams separating contract exhibits, and anyone who needs to break a PDF into smaller, organized files. Choose from 3 split modes (Range, Extract, Every N), click page thumbnails to toggle selection in Extract mode, enable compression for smaller output files, and download results individually or as a ZIP archive. All processing is 100% local — your files never leave your device.`,
+    ];
+    faqs = [
+      {
+        question: "What split modes are available?",
+        answer: "Three modes: Range (extract a continuous block of pages), Extract (select specific pages or ranges like 1, 3-5, 8), and Every N (split the entire document into files of N pages each). Each mode previews the expected output before processing."
+      },
+      {
+        question: "How do I select pages visually?",
+        answer: "In Extract mode, click any page thumbnail in the preview grid to toggle its selection. Selected pages show a white border and checkmark badge. You can also use the All and Clear buttons to bulk-select or deselect all pages."
+      },
+      {
+        question: "Is there a file size limit?",
+        answer: "Individual PDFs must be under 50MB. For very large documents (100+ pages), page previews are limited to the first 100 pages to ensure good performance, but the split operation itself works on the full document."
+      },
+      {
+        question: "Will the split files maintain original quality?",
+        answer: "Yes. pdf-lib copies pages directly at the PDF structure level without re-compressing images or altering fonts. Each split file is identical in quality to the original. Enable compression for smaller file sizes via object stream optimization."
+      },
+      {
+        question: "Can I download all split files at once?",
+        answer: "Yes. When multiple files are generated (e.g., Every N mode), a Download ZIP button appears in the results section that bundles all split files into a single ZIP archive."
+      },
+      {
+        question: "What happens if my PDF has password protection?",
+        answer: "Password-protected or encrypted PDFs cannot be processed. You must remove the password before uploading. The tool will show an error if it fails to load the document."
+      },
+      {
+        question: "Is this tool private and secure?",
+        answer: "Yes. All PDF processing uses pdf-lib and pdfjs-dist running entirely in your browser. No files, page data, or preview images are ever uploaded to any server. Your documents never leave your device."
+      },
+      {
+        question: "Does this work on mobile devices?",
+        answer: "Yes. The tool is fully responsive and works on any modern mobile browser. Upload a PDF, select pages, split, and download results on the go."
+      }
+    ];
+  } else if (tool.url === '/utility-tools/converter-tools/delete-pdf-pages') {
+    overview = [
+      `The Delete PDF Pages tool is a free online utility designed to remove unwanted pages from PDF documents using visual page selection or precise text-based input. Whether you need to delete blank pages from a scanned document, remove confidential sections from a report, strip cover pages from a batch of files, or trim appendix pages from an ebook, this tool lets you select exactly which pages to remove and downloads the cleaned document — entirely in your browser. To build a complete document workflow, pair this with our [PDF Splitter](/utility-tools/converter-tools/split-pdf) for extracting pages into separate files, or our [PDF Merger](/utility-tools/converter-tools/merge-pdf) for combining multiple cleaned documents.`,
+      `Perfect for professionals cleaning up reports before sharing, students removing extraneous pages from study materials, legal staff redacting sensitive pages, and anyone who needs a streamlined PDF without unwanted content. Choose between Visual mode (click page thumbnails to mark them for deletion) or Text Input mode (type page numbers and ranges with comma/hyphen syntax). A live SVG bar chart shows the kept vs deleted page proportion, and the compression toggle helps reduce output file size. All processing is 100% local — your files never leave your device.`,
+    ];
+    faqs = [
+      {
+        question: "Can I delete multiple pages at once?",
+        answer: "Yes. In Visual mode, click any number of page thumbnails to mark them for deletion. In Text Input mode, use comma-separated lists and hyphen ranges (e.g. 1, 3-5, 8). The tool validates that at least one page remains."
+      },
+      {
+        question: "What happens if I accidentally select a page?",
+        answer: "Click the page thumbnail again in Visual mode to deselect it, or edit the text input to remove the page number. Your original PDF file is never modified — the tool creates a new PDF with the remaining pages."
+      },
+      {
+        question: "Is there a limit on how many pages I can delete?",
+        answer: "You can delete any number of pages as long as at least one page remains in the document. The tool validates this condition and shows a warning if you try to delete all pages."
+      },
+      {
+        question: "Will the remaining pages maintain their quality?",
+        answer: "Yes. pdf-lib copies pages at the PDF structure level without re-compressing images or altering fonts. The output quality is identical to the original. Enable compression for smaller file sizes via object stream optimization."
+      },
+      {
+        question: "Can I preview the pages before deleting?",
+        answer: "Yes. Visual mode shows thumbnail previews of all pages (up to 100) rendered with pdfjs-dist. Pages marked for deletion show a red border and trash icon for clear visual feedback."
+      },
+      {
+        question: "What is the file size limit?",
+        answer: "Individual PDFs must be under 25MB. The tool validates the file on upload and shows an error if it exceeds this limit."
+      },
+      {
+        question: "Is this tool private and secure?",
+        answer: "Yes. All PDF processing uses pdf-lib and pdfjs-dist running entirely in your browser. No files, page data, or preview images are ever uploaded to any server. Your documents never leave your device."
+      },
+      {
+        question: "Does this work on mobile devices?",
+        answer: "Yes. The tool is fully responsive and works on any modern mobile browser. Upload a PDF, select pages to delete, and download the cleaned document on the go."
+      }
+    ];
+  } else if (tool.url === '/utility-tools/converter-tools/organize-pdf-pages') {
+    overview = [
+      `The PDF Pages Organizer is a free online tool designed to reorder and rearrange PDF pages with drag-and-drop simplicity, quick actions (reverse, shuffle, reset), and per-page move-to-front/back controls. Whether you need to fix the page order of a scanned document, reorganize presentation slides, reorder contract exhibits, or arrange pages into the correct sequence before publishing, this tool provides a visual thumbnail grid with an SVG position strip showing the current order and compression options — entirely in your browser. To build a complete document workflow, pair this with our [PDF Merger](/utility-tools/converter-tools/merge-pdf) for combining reorganized pages from multiple files, or our [PDF Splitter](/utility-tools/converter-tools/split-pdf) for extracting specific sections after organizing.`,
+      `Perfect for professionals fixing misplaced pages in reports, students arranging lecture note scans, legal teams reordering contract appendices, and anyone who needs to rearrange PDF pages without installing desktop software. Drag page thumbnails to reorder them, use the SVG position strip to visualize the page sequence, apply quick actions like Reverse or Shuffle, and use per-page move-to-front/back buttons for precise positioning. Customize the output filename, enable compression for smaller file sizes, and download the reorganized document. All processing is 100% local — your files never leave your device.`,
+    ];
+    faqs = [
+      {
+        question: "Can I reorder pages by dragging?",
+        answer: "Yes. Drag any page thumbnail to a new position in the grid. The grid updates in real time, and the SVG position strip at the top shows the current page order at a glance."
+      },
+      {
+        question: "What quick actions are available?",
+        answer: "Reverse flips the entire page order, Shuffle randomly rearranges all pages, and Reset restores the original upload order. Per-page Move to Front and Move to Back buttons provide precise control."
+      },
+      {
+        question: "Is there a file size limit?",
+        answer: "Individual PDFs must be under 25MB. The tool validates the file on upload and shows an error if it exceeds this limit."
+      },
+      {
+        question: "Will the reorganized PDF maintain quality?",
+        answer: "Yes. pdf-lib copies pages at the PDF structure level without re-compressing images or altering fonts. The output quality is identical to the original. Enable compression for smaller file sizes via object stream optimization."
+      },
+      {
+        question: "Can I preview pages before downloading?",
+        answer: "Yes. All pages are rendered as thumbnails using pdfjs-dist at 30% scale. The page number badge shows both the new position (after reorder) and the original page label for easy reference."
+      },
+      {
+        question: "What happens to bookmarks and annotations?",
+        answer: "Individual page-level bookmarks and annotations may not be preserved during reordering. The tool copies pages at the PDF structure level — content, images, and text remain intact."
+      },
+      {
+        question: "Is this tool private and secure?",
+        answer: "Yes. All PDF processing uses pdf-lib and pdfjs-dist running entirely in your browser. No files, page data, or preview images are ever uploaded to any server. Your documents never leave your device."
+      },
+      {
+        question: "Does this work on mobile devices?",
+        answer: "Yes. The tool is fully responsive and works on any modern mobile browser. Upload a PDF, drag or use move buttons to reorder pages, and download the reorganized document on the go."
+      }
+    ];
+  } else if (tool.url === '/utility-tools/morse-code-translator') {
+    overview = [
+      `The Morse Code Translator is a free online tool designed to convert text to Morse code and decode Morse code back to text, with real-time bi-directional translation, audio playback, and a complete reference table. Whether you need to encode a message into dots and dashes, decode a Morse signal you received, learn the Morse alphabet for amateur radio or aviation, or practice listening comprehension on the go, this tool provides instant translation with audio playback — entirely in your browser. To build a broader communication toolkit, pair this with our [QR Code Generator](/utility-tools/qr-code-generator) for visual encoding or our [Password Generator](/utility-tools/password-generator) for secure text generation.`,
+      `Perfect for amateur radio enthusiasts, aviation students, history buffs learning telegraphy, educators teaching communication history, and anyone curious about Morse code. Switch between Text to Morse and Morse to Text mode with a single toggle, type or paste your input for instant translation, play the Morse code as audio beeps using the built-in player, and use the collapsible reference table to look up any character. All processing is 100% local — your text never leaves your device.`,
+    ];
+    faqs = [
+      {
+        question: "How do I switch between translation modes?",
+        answer: "Use the toggle at the top of the tool to switch between Text to Morse (encode) and Morse to Text (decode). The input label, placeholder, and output update automatically based on the selected mode."
+      },
+      {
+        question: "What characters are supported?",
+        answer: "A-Z (case-insensitive), 0-9, and common punctuation including period, comma, question mark, exclamation mark, colon, semicolon, double quote, single quote, hyphen, slash, at sign, parentheses, ampersand, plus, equals, underscore, and dollar sign. Unsupported characters are shown as a question mark in Morse output."
+      },
+      {
+        question: "How do I format Morse code input?",
+        answer: "Separate Morse letters with a single space and words with a forward slash surrounded by spaces ( / ). For example: '.... . .-.. .-.. --- / .-- --- .-. .-.. -..' translates to 'HELLO WORLD'."
+      },
+      {
+        question: "Does the audio playback work on mobile?",
+        answer: "Yes. The audio playback uses the Web Audio API which is supported by all modern mobile browsers. Tap the Play button next to the output field to hear the Morse code as beeps."
+      },
+      {
+        question: "Is there a character limit?",
+        answer: "The input is limited to 1000 characters per translation to ensure good performance. A live counter shows your current input length vs the limit."
+      },
+      {
+        question: "Can I learn the Morse alphabet with this tool?",
+        answer: "Yes. Click the Show Reference button to open a complete Morse code reference table displaying all supported characters alongside their dot-and-dash patterns. The audio playback also helps you learn by ear."
+      },
+      {
+        question: "Is this tool private and secure?",
+        answer: "Yes. All translation happens in your browser using client-side JavaScript. No text, Morse code, or data is ever uploaded to any server. Your content never leaves your device."
+      },
+      {
+        question: "Does this work on mobile devices?",
+        answer: "Yes. The tool is fully responsive and works on any modern mobile browser. Type or paste text, toggle modes, play audio, and copy output on the go."
+      }
+    ];
+  } else if (tool.url === '/utility-tools/html-to-markdown-converter') {
+    overview = [
+      `The HTML to Markdown Converter is a free online bi-directional tool designed to convert HTML content to clean Markdown formatting and Markdown back to HTML with real-time translation, live preview, and file download. Whether you need to migrate a WordPress or CMS site to a Markdown-based static site generator like Jekyll or Hugo, convert API documentation to readable README files, transform email templates between formats, or simply strip complex HTML to clean readable text, this tool handles headers, lists, tables, code blocks, blockquotes, links, images, and inline formatting — entirely in your browser. To build a broader content workflow, pair this with our [Text Case Converter](/utility-tools/converter-tools/text-case-converter) for normalizing content after migration or our [Word Counter](/utility-tools/word-counter) for measuring document length.`,
+      `Perfect for developers migrating documentation, content managers transferring CMS content, technical writers converting specs to Markdown, and anyone working with both HTML and Markdown formats. The tool converts in real-time as you type, preserving semantic structure including nested lists, pipe tables, strikethrough, horizontal rules, code blocks with language hints, and blockquotes. A live preview panel renders HTML output visually, a stats strip shows character/word/line counts for both panes, and you can copy output to clipboard or download as .md or .html file. All processing is 100% local — your content never leaves your device.`,
+    ];
+    faqs = [
+      {
+        question: "How does real-time conversion work?",
+        answer: "The converter processes your input as you type, updating the output pane instantly. There is no Convert button to click — just paste or type in the input area and the result appears immediately on the right."
+      },
+      {
+        question: "What HTML elements are supported?",
+        answer: "Headers (h1-h6), bold, italic, strikethrough, links, images, ordered and unordered lists (including nested), code blocks (with language hints), inline code, blockquotes, horizontal rules, line breaks, tables (HTML tables to pipe tables and back), paragraphs, and div/span stripping with content preserved."
+      },
+      {
+        question: "Does the converter handle tables?",
+        answer: "Yes. HTML tables are converted to Markdown pipe tables (| cells | with separator row) and Markdown pipe tables are converted back to HTML tables with proper thead/tbody structure."
+      },
+      {
+        question: "Is the conversion lossless?",
+        answer: "Markdown covers the most common semantic HTML elements (headers, lists, emphasis, links, code, blockquotes, tables). However, complex HTML layouts with inline styles, script tags, or deeply nested div wrappers are simplified to produce clean readable output. Always review converted content before publishing."
+      },
+      {
+        question: "Is there a character limit?",
+        answer: "The input is limited to 100,000 characters per conversion to ensure good performance. A live counter shows your current input length vs the limit."
+      },
+      {
+        question: "Can I download the converted output?",
+        answer: "Yes. Click the Download button next to the output pane to download the result as a .md file (when converting to Markdown) or .html file (when converting to HTML)."
+      },
+      {
+        question: "Is this tool private and secure?",
+        answer: "Yes. All conversion happens in your browser using client-side JavaScript. No HTML, Markdown, or any content is ever uploaded to any server. Your data never leaves your device."
+      },
+      {
+        question: "Does this work on mobile devices?",
+        answer: "Yes. The tool is fully responsive and works on any modern mobile browser. Type or paste content, toggle conversion direction, copy output, and download files on the go."
       }
     ];
   }
