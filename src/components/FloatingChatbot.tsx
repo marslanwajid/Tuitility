@@ -392,11 +392,10 @@ export default function FloatingChatbot() {
                       onCancel={() => handleRequestCancel(msg.id)}
                     />
                   ) : (
-                    <div className={`max-w-[85%] px-3.5 py-2.5 rounded-xl text-[12px] leading-relaxed whitespace-pre-wrap break-words ${
-                      msg.role === 'user'
-                        ? 'bg-slate-700/40 border border-slate-600/50 text-slate-200'
-                        : 'bg-slate-800/40 border border-slate-700/40 text-slate-300'
-                    }`}>
+                    <div className={`max-w-[85%] px-3.5 py-2.5 rounded-xl text-[12px] leading-relaxed whitespace-pre-wrap break-words ${msg.role === 'user'
+                      ? 'bg-slate-700/40 border border-slate-600/50 text-slate-200'
+                      : 'bg-slate-800/40 border border-slate-700/40 text-slate-300'
+                      }`}>
                       {renderFormattedContent(msg.content)}
                     </div>
                   )}
