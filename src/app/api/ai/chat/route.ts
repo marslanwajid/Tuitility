@@ -5,9 +5,9 @@ import { allTools } from '../../../../data/allTools';
 // On free/hobby plan this caps at 10s, but setting it signals intent
 export const maxDuration = 60;
 
-// Build the full tool catalog once at module load
+// Build the full tool catalog once at module load (names and URLs only to minimize token count and prevent rate limiting)
 const TOOL_CATALOG = allTools
-  .map((t: { name: string; url: string; desc: string }) => `- ${t.name} | ${t.url} | ${t.desc}`)
+  .map((t: { name: string; url: string }) => `- ${t.name} | ${t.url}`)
   .join('\n');
 
 const SYSTEM_PROMPT = `You are TuitiBot, the specialized assistant for Tuitility — a free online tools platform.
@@ -23,7 +23,7 @@ CRITICAL RULES (NEVER BREAK THESE):
 7. When suggesting tools, use ONLY the exact name and URL from the catalog.
 
 TOOL LINK FORMAT — always format like this:
-**Tool Name** — short description
+**Tool Name** — short description (write a brief 1-sentence description based on what the tool does)
 [Tool Name](/exact/url/from/catalog)
 
 If multiple tools match, list ALL matching ones from the catalog.
@@ -42,72 +42,169 @@ ${TOOL_CATALOG}
 export async function POST(request: NextRequest) {
   try {
     const { messages } = await request.json();
-    const apiKey = process.env.OPENROUTER_API_KEY;
 
-    if (!apiKey) {
-      return new Response(JSON.stringify({ error: 'OpenRouter API key not configured' }), { status: 500, headers: { 'Content-Type': 'application/json' } });
+    if (!process.env.GROQ_API_KEY && !process.env.CEREBRAS_API_KEY && !process.env.OPENROUTER_API_KEY) {
+      return new Response(
+        JSON.stringify({ error: 'No LLM API keys (Groq, Cerebras, or OpenRouter) are configured on the server' }),
+        { status: 500, headers: { 'Content-Type': 'application/json' } }
+      );
     }
 
     // Limit conversation history to last 10 messages to prevent token overflow on free models
     const recentMessages = messages.slice(-10);
 
-    let res;
-    let model = 'openrouter/free';
+    const formattedMessages = [
+      { role: 'system', content: SYSTEM_PROMPT },
+      ...recentMessages.map((m: { role: string; content: string }) => ({ role: m.role, content: m.content })),
+    ];
 
-    try {
-      res = await fetch('https://openrouter.ai/api/v1/chat/completions', {
-        method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${apiKey}`,
-          'HTTP-Referer': 'https://tuitility.vercel.app',
-          'X-OpenRouter-Title': 'Tuitility',
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          model: model,
-          messages: [
-            { role: 'system', content: SYSTEM_PROMPT },
-            ...recentMessages.map((m: { role: string; content: string }) => ({ role: m.role, content: m.content })),
-          ],
-          temperature: 0.3,
-          max_tokens: 1500,
-          stream: true,
-        }),
-        signal: AbortSignal.timeout(10000),
-      });
-      if (!res.ok) {
-        throw new Error(`HTTP ${res.status}`);
+    let res: Response | undefined = undefined;
+    let success = false;
+    let lastError = '';
+
+    // 1. Try Groq (Primary, fast)
+    if (!success && process.env.GROQ_API_KEY) {
+      try {
+        console.log('Attempting Groq stream...');
+        res = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${process.env.GROQ_API_KEY}`,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            model: 'llama-3.1-8b-instant',
+            messages: formattedMessages,
+            temperature: 0.3,
+            max_tokens: 1500,
+            stream: true,
+          }),
+          signal: AbortSignal.timeout(10000),
+        });
+
+        if (res.ok) {
+          success = true;
+          console.log('Groq stream request succeeded.');
+        } else {
+          const errText = await res.text().catch(() => '');
+          throw new Error(`HTTP ${res.status}: ${errText}`);
+        }
+      } catch (e) {
+        lastError = e instanceof Error ? e.message : String(e);
+        console.warn(`Groq primary failed. Falling back... Error: ${lastError}`);
       }
-    } catch (e) {
-      const errMsg = e instanceof Error ? e.message : String(e);
-      console.warn(`Primary model ${model} failed or timed out. Falling back... Error: ${errMsg}`);
-      model = 'nvidia/nemotron-3-ultra-550b-a55b:free';
-      res = await fetch('https://openrouter.ai/api/v1/chat/completions', {
-        method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${apiKey}`,
-          'HTTP-Referer': 'https://tuitility.vercel.app',
-          'X-OpenRouter-Title': 'Tuitility',
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          model: model,
-          messages: [
-            { role: 'system', content: SYSTEM_PROMPT },
-            ...recentMessages.map((m: { role: string; content: string }) => ({ role: m.role, content: m.content })),
-          ],
-          temperature: 0.3,
-          max_tokens: 1500,
-          stream: true,
-        }),
-        signal: AbortSignal.timeout(30000),
-      });
     }
 
-    if (!res.ok) {
-      const err = await res.json().catch(() => ({}));
-      return new Response(JSON.stringify({ error: err.error?.message || `OpenRouter error ${res.status}` }), { status: 502, headers: { 'Content-Type': 'application/json' } });
+    // 2. Try Cerebras (Secondary fallback)
+    if (!success && process.env.CEREBRAS_API_KEY) {
+      try {
+        console.log('Attempting Cerebras stream...');
+        res = await fetch('https://api.cerebras.ai/v1/chat/completions', {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${process.env.CEREBRAS_API_KEY}`,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            model: 'gpt-oss-120b',
+            messages: formattedMessages,
+            temperature: 0.3,
+            max_tokens: 1500,
+            stream: true,
+          }),
+          signal: AbortSignal.timeout(15000),
+        });
+
+        if (res.ok) {
+          success = true;
+          console.log('Cerebras stream request succeeded.');
+        } else {
+          const errText = await res.text().catch(() => '');
+          throw new Error(`HTTP ${res.status}: ${errText}`);
+        }
+      } catch (e) {
+        lastError = e instanceof Error ? e.message : String(e);
+        console.warn(`Cerebras fallback failed. Falling back... Error: ${lastError}`);
+      }
     }
+
+    // 3. Try OpenRouter (Tertiary fallback, primary free model)
+    if (!success && process.env.OPENROUTER_API_KEY) {
+      try {
+        console.log('Attempting OpenRouter primary stream...');
+        res = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${process.env.OPENROUTER_API_KEY}`,
+            'HTTP-Referer': 'https://tuitility.vercel.app',
+            'X-OpenRouter-Title': 'Tuitility',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            model: 'openrouter/free',
+            messages: formattedMessages,
+            temperature: 0.3,
+            max_tokens: 1500,
+            stream: true,
+          }),
+          signal: AbortSignal.timeout(15000),
+        });
+
+        if (res.ok) {
+          success = true;
+          console.log('OpenRouter primary stream request succeeded.');
+        } else {
+          const errText = await res.text().catch(() => '');
+          throw new Error(`HTTP ${res.status}: ${errText}`);
+        }
+      } catch (e) {
+        lastError = e instanceof Error ? e.message : String(e);
+        console.warn(`OpenRouter primary failed. Falling back... Error: ${lastError}`);
+      }
+    }
+
+    // 4. Try OpenRouter (Final fallback, Nemotron)
+    if (!success && process.env.OPENROUTER_API_KEY) {
+      try {
+        console.log('Attempting OpenRouter secondary stream...');
+        res = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${process.env.OPENROUTER_API_KEY}`,
+            'HTTP-Referer': 'https://tuitility.vercel.app',
+            'X-OpenRouter-Title': 'Tuitility',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            model: 'nvidia/nemotron-3-ultra-550b-a55b:free',
+            messages: formattedMessages,
+            temperature: 0.3,
+            max_tokens: 1500,
+            stream: true,
+          }),
+          signal: AbortSignal.timeout(30000),
+        });
+
+        if (res.ok) {
+          success = true;
+          console.log('OpenRouter secondary stream request succeeded.');
+        } else {
+          const errText = await res.text().catch(() => '');
+          throw new Error(`HTTP ${res.status}: ${errText}`);
+        }
+      } catch (e) {
+        lastError = e instanceof Error ? e.message : String(e);
+        console.warn(`OpenRouter secondary failed. Error: ${lastError}`);
+      }
+    }
+
+    if (!success || !res) {
+      return new Response(
+        JSON.stringify({ error: `All chat model providers failed. Last error: ${lastError || 'No provider configured'}` }),
+        { status: 502, headers: { 'Content-Type': 'application/json' } }
+      );
+    }
+
 
     const encoder = new TextEncoder();
     const reader = res.body?.getReader();
