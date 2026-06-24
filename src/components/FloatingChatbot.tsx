@@ -76,7 +76,7 @@ const RequestForm = ({ onSubmit, onCancel }: { onSubmit: (name: string, email: s
 };
 
 const renderFormattedContent = (content: string) => {
-  const parts = content.split(/(\*\*.*?\*\*|\[.*?\]\(.*?\)|\/(?:math|utility|science|knowledge)\/[a-zA-Z0-9-_/]+)/g);
+  const parts = content.split(/(\*\*.*?\*\*|\[.*?\]\(.*?\)|\/(?:math|finance|science|health|utility-tools|utility|knowledge|image-tools|about|contact|privacy-policy|terms-and-conditions)(?:\/[a-zA-Z0-9-_/]+)?)/g);
   return parts.map((part, index) => {
     if (part.startsWith('**') && part.endsWith('**')) {
       return <strong key={index} className="font-bold text-slate-100">{part.slice(2, -2)}</strong>;
@@ -91,11 +91,28 @@ const renderFormattedContent = (content: string) => {
         </a>
       );
     }
-    if (part.startsWith('/') && (part.includes('/math/') || part.includes('/utility/') || part.includes('/science/') || part.includes('/knowledge/'))) {
+    if (part.startsWith('/')) {
+      let label = part;
       const tool = allTools.find(t => t.url === part);
+      if (tool) {
+        label = tool.name;
+      } else if (part === '/about') {
+        label = 'About Us';
+      } else if (part === '/contact') {
+        label = 'Contact Us';
+      } else if (part === '/privacy-policy') {
+        label = 'Privacy Policy';
+      } else if (part === '/terms-and-conditions') {
+        label = 'Terms & Conditions';
+      } else {
+        const cat = part.substring(1); // e.g. math
+        if (['math', 'finance', 'science', 'health', 'utility-tools', 'knowledge'].includes(cat)) {
+          label = cat.charAt(0).toUpperCase() + cat.slice(1).replace('-tools', '') + ' Tools';
+        }
+      }
       return (
         <a key={index} href={part} className="text-blue-400 hover:text-blue-300 font-semibold underline underline-offset-2 transition-colors" target="_blank" rel="noopener noreferrer">
-          {tool ? tool.name : part}
+          {label}
         </a>
       );
     }
