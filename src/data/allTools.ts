@@ -162,7 +162,7 @@ export const allTools = [
   },
   {
     name: "Credit Card Calculator",
-    desc: "Calculate credit card payments, interest, and payoff time",
+    desc: "Calculate credit card payments, interest rate costs, minimum payments, and payoff time",
     url: "/finance/calculators/credit-card-calculator",
     category: "Finance",
     icon: "fas fa-credit-card",
@@ -176,7 +176,7 @@ export const allTools = [
   },
   {
     name: "Tax Calculator",
-    desc: "Calculate federal and state income taxes, deductions, and credits",
+    desc: "Calculate total tax, tax percentage, federal and state income taxes, deductions, and credits",
     url: "/finance/calculators/tax-calculator",
     category: "Finance",
     icon: "fas fa-file-invoice-dollar",
@@ -660,14 +660,14 @@ export const allTools = [
   },
   {
     name: "Trauma Assessment Calculator",
-    desc: "Calculate your trauma assessment",
+    desc: "PTSD claim calculator and trauma severity screener — assess PTSD compensation scores, IES-R subscale results, and coping strategies",
     url: "/knowledge/calculators/trauma-assessment-calculator",
     category: "Knowledge",
     icon: "fas fa-brain",
   },
   {
     name: "Anxiety Assessment Calculator",
-    desc: "Calculate your anxiety assessment",
+    desc: "Anxiety severity calculator and PTSD anxiety screener — assess HAM-A scores, anxiety claim levels, and personalized coping plans",
     url: "/knowledge/calculators/anxiety-assessment-calculator",
     category: "Knowledge",
     icon: "fas fa-heart",

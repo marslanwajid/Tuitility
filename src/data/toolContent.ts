@@ -403,7 +403,7 @@ const SEO_PRIORITY_OVERRIDES = {
     tier: 'medium',
     outlook: 'good long-tail opportunity',
     rationale: 'Credit card payoff calculators have strong consumer finance intent at scale; differentiation through iterative daily-rate payoff simulation, extra payment accelerator, and goal-based required payment calculation.',
-    focusKeywords: ['credit card calculator', 'credit card payoff calculator', 'credit card payment calculator', 'credit card interest calculator', 'pay off credit card calculator'],
+    focusKeywords: ['credit card calculator', 'credit card payoff calculator', 'credit card payment calculator', 'credit card interest calculator', 'pay off credit card calculator', 'credit card interest rate calculator', 'credit card minimum payment calculator'],
   },
   '/finance/calculators/investment-calculator': {
     tier: 'medium',
@@ -415,7 +415,7 @@ const SEO_PRIORITY_OVERRIDES = {
     tier: 'high',
     outlook: 'extremely high volume / year-round search with Q1 peak',
     rationale: 'Tax calculators are among the highest-volume finance tools, competing with major tax prep brands; differentiation through 3-scenario what-if analysis, auto standard vs itemized deduction comparison, all 50 states + DC coverage, per-bracket marginal breakdown visualization, and FICA (payroll tax) inclusion for a complete picture of tax burden.',
-    focusKeywords: ['tax calculator', 'income tax calculator', 'federal tax calculator', 'state tax calculator', 'tax bracket calculator', 'effective tax rate calculator', 'marginal tax rate', 'payroll tax calculator', 'FICA calculator', 'what if tax calculator'],
+    focusKeywords: ['tax calculator', 'income tax calculator', 'federal tax calculator', 'state tax calculator', 'tax bracket calculator', 'effective tax rate calculator', 'marginal tax rate', 'payroll tax calculator', 'FICA calculator', 'what if tax calculator', 'tax percentage calculator', 'total tax calculator'],
   },
   '/finance/calculators/retirement-calculator': {
     tier: 'high',
@@ -516,14 +516,14 @@ const SEO_PRIORITY_OVERRIDES = {
   '/knowledge/calculators/trauma-assessment-calculator': {
     tier: 'high',
     outlook: 'strong long-tail opportunity',
-    rationale: 'High search volume for clinically backed trauma screener assessments; differentiate with custom IES-R subscale progress bars and Gemini-powered coping narratives.',
-    focusKeywords: ['trauma assessment calculator', 'ies-r calculator', 'ptsd check calculator', 'free trauma test'],
+    rationale: 'High search volume for clinically backed trauma screener assessments and PTSD claim/compensation calculators; differentiate with custom IES-R subscale progress bars and Gemini-powered coping narratives.',
+    focusKeywords: ['trauma assessment calculator', 'ies-r calculator', 'ptsd check calculator', 'free trauma test', 'ptsd claim calculator', 'ptsd compensation calculator', 'ptsd screening tool', 'ptsd test online', 'ptsd calculator', 'ptsd score calculator', 'ptsd severity calculator'],
   },
   '/knowledge/calculators/anxiety-assessment-calculator': {
     tier: 'high',
     outlook: 'strong long-tail opportunity',
     rationale: 'High search volume for clinically backed anxiety screener assessments; differentiate with custom anxiety subscale progress bars, KaTeX math steps, and Gemini-powered coping narratives.',
-    focusKeywords: ['anxiety assessment calculator', 'anxiety screener online', 'ham-a calculator', 'free anxiety test', 'anxiety severity calculator'],
+    focusKeywords: ['anxiety assessment calculator', 'anxiety screener online', 'ham-a calculator', 'free anxiety test', 'anxiety severity calculator', 'anxiety claim calculator', 'anxiety compensation calculator', 'anxiety score calculator', 'anxiety test online free', 'ptsd anxiety calculator'],
   },
   '/knowledge/calculators/mbti-calculator': {
     tier: 'high',

@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState, useCallback, useEffect, useRef } from 'react';
-import Fuse from 'fuse.js';
 import { allTools } from '../data/allTools';
 
 interface Message {
@@ -14,14 +13,6 @@ interface Toast {
   id: string;
   message: string;
   type: 'success' | 'error' | 'info';
-}
-
-interface ToolItem {
-  name: string;
-  desc: string;
-  url: string;
-  category: string;
-  icon: string;
 }
 
 const RequestForm = ({ onSubmit, onCancel }: { onSubmit: (name: string, email: string, details: string) => Promise<void>; onCancel: () => void }) => {
@@ -101,7 +92,7 @@ const renderFormattedContent = (content: string) => {
     if (tool) return `[${tool.name}](${url})`;
     if (VALID_PAGES[url]) return `[${VALID_PAGES[url]}](${url})`;
     // Not a real URL — keep as plain text
-    return tool ? `[${tool.name}](${url})` : url;
+    return url;
   });
 
   // Split on: **bold**, [label](url), and standalone /paths
@@ -150,17 +141,6 @@ const renderFormattedContent = (content: string) => {
 
 const STORAGE_KEY = 'tuitility_chat_history';
 const MAX_MESSAGES = 100;
-
-const fuse = new Fuse(allTools as ToolItem[], {
-  keys: [
-    { name: 'name', weight: 2 },
-    { name: 'desc', weight: 1 },
-    { name: 'category', weight: 0.5 },
-  ],
-  threshold: 0.6,
-  distance: 150,
-  ignoreLocation: true,
-});
 
 function generateId() {
   return Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
@@ -218,23 +198,11 @@ export default function FloatingChatbot() {
     setIsStreaming(true);
 
     try {
-      const userMessages = updatedMessages.filter(m => m.role === 'user');
-      const lastUserText = userMessages[userMessages.length - 1]?.content || '';
-      const secondLastUserText = userMessages[userMessages.length - 2]?.content || '';
-      const combinedSearchText = `${secondLastUserText} ${lastUserText}`.trim();
-
-      const results = fuse.search(combinedSearchText);
-      const matchedTools = results
-        .filter(r => r.score !== undefined && r.score < 0.6)
-        .slice(0, 12)
-        .map(r => ({ name: r.item.name, url: r.item.url, desc: r.item.desc }));
-
       const res = await fetch('/api/ai/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           messages: updatedMessages.map(m => ({ role: m.role, content: m.content })),
-          matchedTools: matchedTools.length > 0 ? matchedTools : undefined,
         }),
       });
 
@@ -280,8 +248,14 @@ export default function FloatingChatbot() {
         }
       }
 
-      // If stream completed but no content was received, show fallback
-      if (!assistantContent.trim()) {
+      // If AI responded with REQUEST_TOOL_FORM, replace that message with the form
+      if (assistantContent.includes('REQUEST_TOOL_FORM')) {
+        setMessages(prev => prev.map(m => m.id === assistantMsg.id ? {
+          ...m,
+          content: 'SHOW_REQUEST_FORM'
+        } : m));
+      } else if (!assistantContent.trim()) {
+        // If stream completed but no content was received, show fallback
         setMessages(prev => {
           const updated = [...prev];
           const last = updated[updated.length - 1];

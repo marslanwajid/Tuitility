@@ -1,50 +1,49 @@
 import { NextRequest } from 'next/server';
+import { allTools } from '../../../../data/allTools';
 
 // Allow up to 60s for streaming responses on Vercel (Pro plan)
 // On free/hobby plan this caps at 10s, but setting it signals intent
 export const maxDuration = 60;
 
-const SYSTEM_PROMPT = `You are TuitiBot, the helpful assistant for Tuitility — a free online tools platform with 96+ calculators, converters, PDF tools, and utility tools.
+// Build the full tool catalog once at module load
+const TOOL_CATALOG = allTools
+  .map((t: { name: string; url: string; desc: string }) => `- ${t.name} | ${t.url} | ${t.desc}`)
+  .join('\n');
 
-Your job:
-1. Greet users warmly and offer to help find tools.
-2. When a user asks about a tool or describes a need, suggest the most relevant tool(s) from the provided matchedTools list.
-3. If the user misspells or describes a tool vaguely, use the matchedTools context to figure out what they mean.
-4. If MULTIPLE tools match the user's query (e.g. "image" matches Image Converter, Image to WebP, etc.), list ALL of them so the user can pick.
-5. If the user wants to submit a request or contact the team, collect their name, email, and a description of their request/feedback conversationally.
-6. For general chat not about tools, answer helpfully but keep it brief.
-7. Always be friendly, concise, and use emojis sparingly.
+const SYSTEM_PROMPT = `You are TuitiBot, the assistant for Tuitility — a free online tools platform.
 
-IMPORTANT — Tool link format:
-Always format each tool suggestion EXACTLY like this, with a markdown link:
+CRITICAL RULES (NEVER BREAK THESE):
+1. You may ONLY suggest tools from the TOOL CATALOG below. This is the COMPLETE list of every tool on the site.
+2. Do NOT invent, imagine, or guess any tool that is not in the catalog. There are NO other tools.
+3. If the user asks for a tool that does NOT exist in the catalog, say: "We don't have that tool yet! Would you like me to submit a request to our team to build it? Just say **yes** and I'll set that up for you. 🚀"
+4. If the user says yes/ok/sure to submitting a request, respond with exactly: REQUEST_TOOL_FORM
+5. When suggesting tools, use ONLY the exact name and URL from the catalog.
+
+TOOL LINK FORMAT — always format like this:
 **Tool Name** — short description
-[Tool Name](/exact/url/path)
+[Tool Name](/exact/url/from/catalog)
 
-For example:
-**Fraction Calculator** — Perform fraction operations with step-by-step visualization
-[Fraction Calculator](/math/calculators/fraction-calculator)
+If multiple tools match, list ALL matching ones from the catalog.
 
-If multiple tools match, list them all:
-**Image Converter** — Convert images between 30+ formats
-[Image Converter](/utility-tools/image-tools/image-converter)
+BEHAVIOR:
+- Greet users warmly
+- Be friendly, concise, use emojis sparingly
+- For general chat not about tools, answer helpfully but brief
+- If the user misspells a tool name, find the closest match in the catalog
+- If the user's query matches multiple tools (e.g. "image" or "pdf"), list ALL matching tools from the catalog
 
-**Image to WebP Converter** — Convert images to WebP format
-[Image to WebP Converter](/utility-tools/image-tools/image-to-webp-converter)
-
-Never make up tools or URLs. You must ONLY use tool names and URLs that appear in the matchedTools list provided with this message. If no matchedTools are provided or none match the user's query, say: "I couldn't find an exact match for that. Could you describe what you're looking for?" Do NOT guess or invent tool names or URL paths.`;
+===== TOOL CATALOG (COMPLETE — nothing else exists) =====
+${TOOL_CATALOG}
+===== END CATALOG =====`;
 
 export async function POST(request: NextRequest) {
   try {
-    const { messages, matchedTools } = await request.json();
+    const { messages } = await request.json();
     const apiKey = process.env.OPENROUTER_API_KEY;
 
     if (!apiKey) {
       return new Response(JSON.stringify({ error: 'OpenRouter API key not configured' }), { status: 500, headers: { 'Content-Type': 'application/json' } });
     }
-
-    const toolContext = matchedTools && matchedTools.length > 0
-      ? `\n\nRelevant tools on this site:\n${matchedTools.map((t: { name: string; url: string; desc: string }) => `- ${t.name}: ${t.desc} (${t.url})`).join('\n')}`
-      : '';
 
     // Limit conversation history to last 10 messages to prevent token overflow on free models
     const recentMessages = messages.slice(-10);
@@ -64,21 +63,21 @@ export async function POST(request: NextRequest) {
         body: JSON.stringify({
           model: model,
           messages: [
-            { role: 'system', content: SYSTEM_PROMPT + toolContext },
+            { role: 'system', content: SYSTEM_PROMPT },
             ...recentMessages.map((m: { role: string; content: string }) => ({ role: m.role, content: m.content })),
           ],
-          temperature: 0.7,
+          temperature: 0.3,
           max_tokens: 1500,
           stream: true,
         }),
-        signal: AbortSignal.timeout(10000), // 10s timeout to fall back quickly if queued/stuck
+        signal: AbortSignal.timeout(10000),
       });
       if (!res.ok) {
         throw new Error(`HTTP ${res.status}`);
       }
     } catch (e) {
       const errMsg = e instanceof Error ? e.message : String(e);
-      console.warn(`Primary model ${model} failed or timed out. Falling back to nvidia/nemotron-3-ultra-550b-a55b:free... Error: ${errMsg}`);
+      console.warn(`Primary model ${model} failed or timed out. Falling back... Error: ${errMsg}`);
       model = 'nvidia/nemotron-3-ultra-550b-a55b:free';
       res = await fetch('https://openrouter.ai/api/v1/chat/completions', {
         method: 'POST',
@@ -91,10 +90,10 @@ export async function POST(request: NextRequest) {
         body: JSON.stringify({
           model: model,
           messages: [
-            { role: 'system', content: SYSTEM_PROMPT + toolContext },
+            { role: 'system', content: SYSTEM_PROMPT },
             ...recentMessages.map((m: { role: string; content: string }) => ({ role: m.role, content: m.content })),
           ],
-          temperature: 0.7,
+          temperature: 0.3,
           max_tokens: 1500,
           stream: true,
         }),
@@ -127,10 +126,7 @@ export async function POST(request: NextRequest) {
             for (const line of lines) {
               const trimmed = line.trim();
               if (!trimmed) continue;
-              if (trimmed.startsWith(':')) {
-                // Keep-alive comment from OpenRouter, skip
-                continue;
-              }
+              if (trimmed.startsWith(':')) continue;
               if (!trimmed.startsWith('data: ')) continue;
               const data = trimmed.slice(6);
               if (data === '[DONE]') continue;
