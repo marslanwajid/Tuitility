@@ -30,7 +30,7 @@ const QUESTIONS: Question[] = [
   { text: "I feel comfortable in crowds and parties", dimension: "EI", direction: "E" },
   { text: "I need private time to process my thoughts and feelings", dimension: "EI", direction: "I" },
   { text: "I enjoy group activities and team projects", dimension: "EI", direction: "E" },
-  
+
   // Sensing (S) vs. Intuition (N) Questions
   { text: "I focus more on present realities than future possibilities", dimension: "SN", direction: "S" },
   { text: "I enjoy thinking about abstract theories and concepts", dimension: "SN", direction: "N" },
@@ -49,7 +49,7 @@ const QUESTIONS: Question[] = [
   { text: "I trust what I can see and touch", dimension: "SN", direction: "S" },
   { text: "I enjoy thinking about possibilities for the future", dimension: "SN", direction: "N" },
   { text: "I prefer working with concrete facts and details", dimension: "SN", direction: "S" },
-  
+
   // Thinking (T) vs. Feeling (F) Questions
   { text: "I make decisions based on logical analysis", dimension: "TF", direction: "T" },
   { text: "I consider how others will feel when making decisions", dimension: "TF", direction: "F" },
@@ -69,7 +69,7 @@ const QUESTIONS: Question[] = [
   { text: "I consider everyone's feelings in group situations", dimension: "TF", direction: "F" },
   { text: "I value logic over emotions in decision-making", dimension: "TF", direction: "T" },
   { text: "I enjoy supporting others emotionally", dimension: "TF", direction: "F" },
-  
+
   // Judging (J) vs. Perceiving (P) Questions
   { text: "I prefer to have things planned and organized", dimension: "JP", direction: "J" },
   { text: "I enjoy being spontaneous and flexible", dimension: "JP", direction: "P" },
@@ -298,7 +298,7 @@ export default function MBTICalculator() {
   const [stage, setStage] = useState<'intro' | 'quiz' | 'results'>('intro');
   const [currentQuestionIdx, setCurrentQuestionIdx] = useState<number>(0);
   const [answers, setAnswers] = useState<Record<number, number>>({});
-  
+
   // Scoring state
   const [calculatedType, setCalculatedType] = useState<string>('INTJ');
   const [dimensionPercentages, setDimensionPercentages] = useState({
@@ -363,7 +363,7 @@ export default function MBTICalculator() {
 
     QUESTIONS.forEach((q, idx) => {
       const rating = finalAnswers[idx] ?? 3; // Neutral default
-      
+
       // Determine points: strongly agree (5) adds 2 to rating category, agree (4) adds 1, neutral (3) adds 0, disagree (2) adds 1 to opposing, strongly disagree (1) adds 2 to opposing.
       let pointsFirst = 0;
       let pointsSecond = 0;
@@ -452,7 +452,7 @@ export default function MBTICalculator() {
       particleCount: 100,
       spread: 70,
       origin: { y: 0.7 },
-      colors: ['#0f172a', '#1e293b', '#334155', '#475569']
+      colors: ['#1a1a1a', '#1e293b', '#334155', '#475569']
     });
   };
 
@@ -710,7 +710,7 @@ export default function MBTICalculator() {
 
   return (
     <div className="w-full max-w-none bg-white border border-slate-100 rounded-3xl p-6 md:p-8 shadow-sm space-y-8 text-slate-800 animate-fade-in">
-      
+
       {/* Disclaimer Alert */}
       <div className="bg-slate-50 border border-slate-200/60 rounded-2xl p-4 flex items-start space-x-3 text-left">
         <i className="fas fa-info-circle text-slate-800 text-base mt-0.5"></i>
@@ -771,14 +771,14 @@ export default function MBTICalculator() {
       {/* Quiz Stage */}
       {stage === 'quiz' && (
         <div className="space-y-8 max-w-2xl mx-auto py-4">
-          
+
           {/* Progress bar info */}
           <div className="space-y-2 text-left">
             <div className="flex justify-between items-center text-[10px] text-slate-400 font-extrabold uppercase tracking-widest">
               <span>Category: {
                 QUESTIONS[currentQuestionIdx].dimension === 'EI' ? 'Extraversion vs. Introversion' :
-                QUESTIONS[currentQuestionIdx].dimension === 'SN' ? 'Sensing vs. Intuition' :
-                QUESTIONS[currentQuestionIdx].dimension === 'TF' ? 'Thinking vs. Feeling' : 'Judging vs. Perceiving'
+                  QUESTIONS[currentQuestionIdx].dimension === 'SN' ? 'Sensing vs. Intuition' :
+                    QUESTIONS[currentQuestionIdx].dimension === 'TF' ? 'Thinking vs. Feeling' : 'Judging vs. Perceiving'
               }</span>
               <span>Statement {currentQuestionIdx + 1} of {QUESTIONS.length}</span>
             </div>
@@ -806,11 +806,10 @@ export default function MBTICalculator() {
                   key={option.score}
                   type="button"
                   onClick={() => handleSelectRating(option.score)}
-                  className={`py-3.5 px-3 border rounded-xl font-bold text-xs transition-all active:scale-95 cursor-pointer flex flex-col items-center justify-center space-y-1.5 shadow-sm ${
-                    isSelected 
-                      ? 'bg-slate-900 border-slate-900 text-white shadow-md' 
+                  className={`py-3.5 px-3 border rounded-xl font-bold text-xs transition-all active:scale-95 cursor-pointer flex flex-col items-center justify-center space-y-1.5 shadow-sm ${isSelected
+                      ? 'bg-slate-900 border-slate-900 text-white shadow-md'
                       : 'bg-white border-slate-200 hover:border-slate-900 text-slate-800'
-                  }`}
+                    }`}
                 >
                   <span className={`text-base font-black ${isSelected ? 'text-white' : 'text-slate-900'}`}>{option.score}</span>
                   <span className={`text-[9px] font-extrabold text-center block uppercase tracking-wider leading-tight ${isSelected ? 'text-slate-200' : 'text-slate-505'}`}>{option.label}</span>
@@ -821,7 +820,7 @@ export default function MBTICalculator() {
 
           {/* Navigation Controls and Hotkey Keypad Panel */}
           <div className="flex flex-col sm:flex-row items-center justify-between pt-4 gap-4 border-t border-slate-100">
-            
+
             <button
               type="button"
               disabled={currentQuestionIdx === 0}
@@ -869,346 +868,346 @@ export default function MBTICalculator() {
             <span className="text-white/[0.03] text-[120px] italic font-black tracking-tighter">MBTI</span>
           </div>
           <div className="relative z-10 space-y-8">
-          
-          {/* Header Summary Row */}
-          <div className="flex flex-col lg:flex-row lg:items-center justify-between pb-6 border-b border-white/10 gap-6 text-left">
-            <div>
-              <h2 className="text-3xl font-black text-white font-display">
-                {calculatedType} &ndash; {details.title}
-              </h2>
-              <p className="text-sm text-slate-400 font-semibold mt-0.5">
-                Your evaluated Myers-Briggs personality profile breakdown.
-              </p>
-            </div>
-            <div className="flex items-center gap-3 flex-wrap">
-              <button
-                type="button"
-                onClick={downloadResults}
-                disabled={isDownloading}
-                className="py-3 px-5 bg-white/10 hover:bg-white/15 disabled:bg-white/5 text-white rounded-2xl font-bold text-xs transition-all flex items-center space-x-2 cursor-pointer shrink-0 shadow-md"
-              >
-                <i className="fas fa-download text-[10px]"></i>
-                <span>{isDownloading ? 'Generating...' : 'Download PDF'}</span>
-              </button>
-              <button
-                type="button"
-                onClick={startTest}
-                className="py-3 px-5 border border-white/10 hover:bg-white/10 rounded-2xl font-bold text-xs text-slate-300 transition-all flex items-center space-x-2 cursor-pointer shrink-0"
-              >
-                <i className="fas fa-redo text-[10px]"></i>
-                <span>Retake Test</span>
-              </button>
-            </div>
-          </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            
-            {/* Left Column: Personality Description Card */}
-            <div className="flex flex-col bg-white/5 p-6 rounded-3xl border border-white/10 justify-between text-left space-y-4">
+            {/* Header Summary Row */}
+            <div className="flex flex-col lg:flex-row lg:items-center justify-between pb-6 border-b border-white/10 gap-6 text-left">
               <div>
-                <span className="text-xs text-slate-400 font-extrabold uppercase tracking-widest block mb-1">
-                  Profile Overview
-                </span>
-                <h3 className="text-lg font-black text-white font-display mb-3">
-                  About {details.title}
+                <h2 className="text-3xl font-black text-white font-display">
+                  {calculatedType} &ndash; {details.title}
+                </h2>
+                <p className="text-sm text-slate-400 font-semibold mt-0.5">
+                  Your evaluated Myers-Briggs personality profile breakdown.
+                </p>
+              </div>
+              <div className="flex items-center gap-3 flex-wrap">
+                <button
+                  type="button"
+                  onClick={downloadResults}
+                  disabled={isDownloading}
+                  className="py-3 px-5 bg-white/10 hover:bg-white/15 disabled:bg-white/5 text-white rounded-2xl font-bold text-xs transition-all flex items-center space-x-2 cursor-pointer shrink-0 shadow-md"
+                >
+                  <i className="fas fa-download text-[10px]"></i>
+                  <span>{isDownloading ? 'Generating...' : 'Download PDF'}</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={startTest}
+                  className="py-3 px-5 border border-white/10 hover:bg-white/10 rounded-2xl font-bold text-xs text-slate-300 transition-all flex items-center space-x-2 cursor-pointer shrink-0"
+                >
+                  <i className="fas fa-redo text-[10px]"></i>
+                  <span>Retake Test</span>
+                </button>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+              {/* Left Column: Personality Description Card */}
+              <div className="flex flex-col bg-white/5 p-6 rounded-3xl border border-white/10 justify-between text-left space-y-4">
+                <div>
+                  <span className="text-xs text-slate-400 font-extrabold uppercase tracking-widest block mb-1">
+                    Profile Overview
+                  </span>
+                  <h3 className="text-lg font-black text-white font-display mb-3">
+                    About {details.title}
+                  </h3>
+                  <p className="text-sm text-slate-300 font-medium leading-relaxed">
+                    {details.description}
+                  </p>
+                </div>
+
+                {/* Famous figures list */}
+                <div className="pt-4 border-t border-white/10 space-y-2">
+                  <span className="text-xs text-slate-400 font-black uppercase block tracking-wider">
+                    Famous {calculatedType}s
+                  </span>
+                  <ul className="text-xs text-slate-300 font-semibold space-y-1">
+                    {details.famousPeople.map((fp, i) => (
+                      <li key={i} className="flex items-center space-x-1.5">
+                        <span className="w-1.5 h-1.5 rounded-full bg-white/30 shrink-0"></span>
+                        <span>{fp}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+
+              {/* Right Columns: Trait percentages bars & details */}
+              <div className="lg:col-span-2 space-y-6 text-left">
+
+                {/* Trait bars */}
+                <div className="space-y-4">
+                  <h3 className="text-xs font-black uppercase tracking-wider text-slate-400">
+                    Dimension Preferences Breakdown
+                  </h3>
+
+                  <div className="space-y-3.5">
+                    {/* E vs I */}
+                    <div className="bg-white/5 p-3 rounded-2xl border border-white/10 space-y-2">
+                      <div className="flex justify-between items-center text-sm font-black text-white">
+                        <span>Extraversion ({dimensionPercentages.E}%)</span>
+                        <span>Introversion ({dimensionPercentages.I}%)</span>
+                      </div>
+                      <div className="h-2.5 bg-white/10 rounded-full overflow-hidden flex">
+                        <div className="h-full bg-white/40" style={{ width: `${dimensionPercentages.E}%` }} />
+                        <div className="h-full bg-white/20" style={{ width: `${dimensionPercentages.I}%` }} />
+                      </div>
+                    </div>
+
+                    {/* S vs N */}
+                    <div className="bg-white/5 p-3 rounded-2xl border border-white/10 space-y-2">
+                      <div className="flex justify-between items-center text-sm font-black text-white">
+                        <span>Sensing ({dimensionPercentages.S}%)</span>
+                        <span>Intuition ({dimensionPercentages.N}%)</span>
+                      </div>
+                      <div className="h-2.5 bg-white/10 rounded-full overflow-hidden flex">
+                        <div className="h-full bg-white/40" style={{ width: `${dimensionPercentages.S}%` }} />
+                        <div className="h-full bg-white/20" style={{ width: `${dimensionPercentages.N}%` }} />
+                      </div>
+                    </div>
+
+                    {/* T vs F */}
+                    <div className="bg-white/5 p-3 rounded-2xl border border-white/10 space-y-2">
+                      <div className="flex justify-between items-center text-sm font-black text-white">
+                        <span>Thinking ({dimensionPercentages.T}%)</span>
+                        <span>Feeling ({dimensionPercentages.F}%)</span>
+                      </div>
+                      <div className="h-2.5 bg-white/10 rounded-full overflow-hidden flex">
+                        <div className="h-full bg-white/40" style={{ width: `${dimensionPercentages.T}%` }} />
+                        <div className="h-full bg-white/20" style={{ width: `${dimensionPercentages.F}%` }} />
+                      </div>
+                    </div>
+
+                    {/* J vs P */}
+                    <div className="bg-white/5 p-3 rounded-2xl border border-white/10 space-y-2">
+                      <div className="flex justify-between items-center text-sm font-black text-white">
+                        <span>Judging ({dimensionPercentages.J}%)</span>
+                        <span>Perceiving ({dimensionPercentages.P}%)</span>
+                      </div>
+                      <div className="h-2.5 bg-white/10 rounded-full overflow-hidden flex">
+                        <div className="h-full bg-white/40" style={{ width: `${dimensionPercentages.J}%` }} />
+                        <div className="h-full bg-white/20" style={{ width: `${dimensionPercentages.P}%` }} />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Strengths & Growth Areas Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+                  <div className="bg-white/5 border border-white/10 p-4 rounded-2xl space-y-2">
+                    <h4 className="text-sm font-black text-white uppercase tracking-wide">Key Strengths</h4>
+                    <ul className="text-xs text-slate-300 space-y-1.5">
+                      {details.strengths.map((str, i) => (
+                        <li key={i} className="flex items-start space-x-1.5">
+                          <i className="fas fa-check text-slate-300 mt-0.5 text-xs"></i>
+                          <span>{str}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div className="bg-white/5 border border-white/10 p-4 rounded-2xl space-y-2">
+                    <h4 className="text-sm font-black text-white uppercase tracking-wide">Growth Opportunities</h4>
+                    <ul className="text-xs text-slate-300 space-y-1.5">
+                      {details.opportunities.map((opp, i) => (
+                        <li key={i} className="flex items-start space-x-1.5">
+                          <i className="fas fa-lightbulb text-slate-300 mt-0.5 text-xs"></i>
+                          <span>{opp}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+
+            {/* Cognitive Function Stack Section */}
+            <div className="border-t border-white/10 pt-6 text-left space-y-4">
+              <div>
+                <h3 className="text-lg font-black text-white font-display">
+                  Cognitive Functions Stack
                 </h3>
-                <p className="text-sm text-slate-300 font-medium leading-relaxed">
-                  {details.description}
+                <p className="text-sm text-slate-400 font-semibold leading-relaxed">
+                  The mental processes that define how your personality gathers information and processes decisions.
                 </p>
               </div>
 
-              {/* Famous figures list */}
-              <div className="pt-4 border-t border-white/10 space-y-2">
-                <span className="text-xs text-slate-400 font-black uppercase block tracking-wider">
-                  Famous {calculatedType}s
-                </span>
-                <ul className="text-xs text-slate-300 font-semibold space-y-1">
-                  {details.famousPeople.map((fp, i) => (
-                    <li key={i} className="flex items-center space-x-1.5">
-                      <span className="w-1.5 h-1.5 rounded-full bg-white/30 shrink-0"></span>
-                      <span>{fp}</span>
-                    </li>
+              <div className="grid grid-cols-1 sm:grid-cols-4 gap-3.5">
+                <div className="p-4 border border-white/10 rounded-2xl bg-white/5 shadow-sm space-y-1">
+                  <span className="text-xs font-black text-white uppercase tracking-wider block">Dominant Function</span>
+                  <span className="text-sm font-black text-white block">{details.cognitiveStack.dominant}</span>
+                </div>
+                <div className="p-4 border border-white/10 rounded-2xl bg-white/5 shadow-sm space-y-1">
+                  <span className="text-xs font-black text-white uppercase tracking-wider block">Auxiliary Function</span>
+                  <span className="text-sm font-black text-white block">{details.cognitiveStack.auxiliary}</span>
+                </div>
+                <div className="p-4 border border-white/10 rounded-2xl bg-white/5 shadow-sm space-y-1">
+                  <span className="text-xs font-black text-white uppercase tracking-wider block">Tertiary Function</span>
+                  <span className="text-sm font-black text-white block">{details.cognitiveStack.tertiary}</span>
+                </div>
+                <div className="p-4 border border-white/10 rounded-2xl bg-white/5 shadow-sm space-y-1">
+                  <span className="text-xs font-black text-white uppercase tracking-wider block">Inferior Function</span>
+                  <span className="text-sm font-black text-white block">{details.cognitiveStack.inferior}</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Compatibility & Careers Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 border-t border-white/10 pt-6 text-left">
+              {/* Compatibility */}
+              <div className="space-y-3">
+                <h3 className="text-lg font-black text-white font-display">Relationship Compatibility</h3>
+                <div className="space-y-3 text-sm">
+                  <div>
+                    <span className="text-xs font-black text-white uppercase tracking-wider block mb-1">Optimal Romantic Matches</span>
+                    <div className="flex gap-2">
+                      {details.compatibility.best.map((item, i) => (
+                        <span key={i} className="px-2.5 py-1 bg-white/5 text-white font-extrabold rounded-lg border border-white/10 text-xs">{item}</span>
+                      ))}
+                    </div>
+                  </div>
+                  <div>
+                    <span className="text-xs font-black text-slate-400 uppercase tracking-wider block mb-1">Strong Intellectual Connections</span>
+                    <div className="flex gap-2">
+                      {details.compatibility.good.map((item, i) => (
+                        <span key={i} className="px-2.5 py-1 bg-white/5 text-slate-300 font-extrabold rounded-lg border border-white/10 text-xs">{item}</span>
+                      ))}
+                    </div>
+                  </div>
+                  <div>
+                    <span className="text-xs font-black text-white uppercase tracking-wider block mb-1">Potential Communication Friction</span>
+                    <div className="flex gap-2">
+                      {details.compatibility.challenges.map((item, i) => (
+                        <span key={i} className="px-2.5 py-1 bg-white/5 text-white font-extrabold rounded-lg border border-white/10 text-xs">{item}</span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Careers */}
+              <div className="space-y-3">
+                <h3 className="text-lg font-black text-white font-display">Recommended Careers</h3>
+                <p className="text-sm text-slate-400 font-semibold leading-relaxed">
+                  Work environments where this personality type typically excels and flourishes:
+                </p>
+                <div className="flex flex-wrap gap-2 pt-1">
+                  {details.careers.map((car, i) => (
+                    <span key={i} className="px-3 py-1.5 bg-white/5 border border-white/10 rounded-xl text-sm font-black text-white flex items-center space-x-1.5 shadow-sm">
+                      <i className="fas fa-briefcase text-slate-400 text-xs"></i>
+                      <span>{car}</span>
+                    </span>
                   ))}
-                </ul>
-              </div>
-            </div>
-
-            {/* Right Columns: Trait percentages bars & details */}
-            <div className="lg:col-span-2 space-y-6 text-left">
-               
-              {/* Trait bars */}
-              <div className="space-y-4">
-                <h3 className="text-xs font-black uppercase tracking-wider text-slate-400">
-                  Dimension Preferences Breakdown
-                </h3>
-                
-                <div className="space-y-3.5">
-                  {/* E vs I */}
-                  <div className="bg-white/5 p-3 rounded-2xl border border-white/10 space-y-2">
-                    <div className="flex justify-between items-center text-sm font-black text-white">
-                      <span>Extraversion ({dimensionPercentages.E}%)</span>
-                      <span>Introversion ({dimensionPercentages.I}%)</span>
-                    </div>
-                    <div className="h-2.5 bg-white/10 rounded-full overflow-hidden flex">
-                      <div className="h-full bg-white/40" style={{ width: `${dimensionPercentages.E}%` }} />
-                      <div className="h-full bg-white/20" style={{ width: `${dimensionPercentages.I}%` }} />
-                    </div>
-                  </div>
-
-                  {/* S vs N */}
-                  <div className="bg-white/5 p-3 rounded-2xl border border-white/10 space-y-2">
-                    <div className="flex justify-between items-center text-sm font-black text-white">
-                      <span>Sensing ({dimensionPercentages.S}%)</span>
-                      <span>Intuition ({dimensionPercentages.N}%)</span>
-                    </div>
-                    <div className="h-2.5 bg-white/10 rounded-full overflow-hidden flex">
-                      <div className="h-full bg-white/40" style={{ width: `${dimensionPercentages.S}%` }} />
-                      <div className="h-full bg-white/20" style={{ width: `${dimensionPercentages.N}%` }} />
-                    </div>
-                  </div>
-
-                  {/* T vs F */}
-                  <div className="bg-white/5 p-3 rounded-2xl border border-white/10 space-y-2">
-                    <div className="flex justify-between items-center text-sm font-black text-white">
-                      <span>Thinking ({dimensionPercentages.T}%)</span>
-                      <span>Feeling ({dimensionPercentages.F}%)</span>
-                    </div>
-                    <div className="h-2.5 bg-white/10 rounded-full overflow-hidden flex">
-                      <div className="h-full bg-white/40" style={{ width: `${dimensionPercentages.T}%` }} />
-                      <div className="h-full bg-white/20" style={{ width: `${dimensionPercentages.F}%` }} />
-                    </div>
-                  </div>
-
-                  {/* J vs P */}
-                  <div className="bg-white/5 p-3 rounded-2xl border border-white/10 space-y-2">
-                    <div className="flex justify-between items-center text-sm font-black text-white">
-                      <span>Judging ({dimensionPercentages.J}%)</span>
-                      <span>Perceiving ({dimensionPercentages.P}%)</span>
-                    </div>
-                    <div className="h-2.5 bg-white/10 rounded-full overflow-hidden flex">
-                      <div className="h-full bg-white/40" style={{ width: `${dimensionPercentages.J}%` }} />
-                      <div className="h-full bg-white/20" style={{ width: `${dimensionPercentages.P}%` }} />
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Strengths & Growth Areas Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
-                <div className="bg-white/5 border border-white/10 p-4 rounded-2xl space-y-2">
-                  <h4 className="text-sm font-black text-white uppercase tracking-wide">Key Strengths</h4>
-                  <ul className="text-xs text-slate-300 space-y-1.5">
-                    {details.strengths.map((str, i) => (
-                      <li key={i} className="flex items-start space-x-1.5">
-                        <i className="fas fa-check text-slate-300 mt-0.5 text-xs"></i>
-                        <span>{str}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="bg-white/5 border border-white/10 p-4 rounded-2xl space-y-2">
-                  <h4 className="text-sm font-black text-white uppercase tracking-wide">Growth Opportunities</h4>
-                  <ul className="text-xs text-slate-300 space-y-1.5">
-                    {details.opportunities.map((opp, i) => (
-                      <li key={i} className="flex items-start space-x-1.5">
-                        <i className="fas fa-lightbulb text-slate-300 mt-0.5 text-xs"></i>
-                        <span>{opp}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-
-            </div>
-
-          </div>
-
-          {/* Cognitive Function Stack Section */}
-          <div className="border-t border-white/10 pt-6 text-left space-y-4">
-            <div>
-              <h3 className="text-lg font-black text-white font-display">
-                Cognitive Functions Stack
-              </h3>
-              <p className="text-sm text-slate-400 font-semibold leading-relaxed">
-                The mental processes that define how your personality gathers information and processes decisions.
-              </p>
-            </div>
-            
-            <div className="grid grid-cols-1 sm:grid-cols-4 gap-3.5">
-              <div className="p-4 border border-white/10 rounded-2xl bg-white/5 shadow-sm space-y-1">
-                <span className="text-xs font-black text-white uppercase tracking-wider block">Dominant Function</span>
-                <span className="text-sm font-black text-white block">{details.cognitiveStack.dominant}</span>
-              </div>
-              <div className="p-4 border border-white/10 rounded-2xl bg-white/5 shadow-sm space-y-1">
-                <span className="text-xs font-black text-white uppercase tracking-wider block">Auxiliary Function</span>
-                <span className="text-sm font-black text-white block">{details.cognitiveStack.auxiliary}</span>
-              </div>
-              <div className="p-4 border border-white/10 rounded-2xl bg-white/5 shadow-sm space-y-1">
-                <span className="text-xs font-black text-white uppercase tracking-wider block">Tertiary Function</span>
-                <span className="text-sm font-black text-white block">{details.cognitiveStack.tertiary}</span>
-              </div>
-              <div className="p-4 border border-white/10 rounded-2xl bg-white/5 shadow-sm space-y-1">
-                <span className="text-xs font-black text-white uppercase tracking-wider block">Inferior Function</span>
-                <span className="text-sm font-black text-white block">{details.cognitiveStack.inferior}</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Compatibility & Careers Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 border-t border-white/10 pt-6 text-left">
-            {/* Compatibility */}
-            <div className="space-y-3">
-              <h3 className="text-lg font-black text-white font-display">Relationship Compatibility</h3>
-              <div className="space-y-3 text-sm">
-                <div>
-                  <span className="text-xs font-black text-white uppercase tracking-wider block mb-1">Optimal Romantic Matches</span>
-                  <div className="flex gap-2">
-                    {details.compatibility.best.map((item, i) => (
-                      <span key={i} className="px-2.5 py-1 bg-white/5 text-white font-extrabold rounded-lg border border-white/10 text-xs">{item}</span>
-                    ))}
-                  </div>
-                </div>
-                <div>
-                  <span className="text-xs font-black text-slate-400 uppercase tracking-wider block mb-1">Strong Intellectual Connections</span>
-                  <div className="flex gap-2">
-                    {details.compatibility.good.map((item, i) => (
-                      <span key={i} className="px-2.5 py-1 bg-white/5 text-slate-300 font-extrabold rounded-lg border border-white/10 text-xs">{item}</span>
-                    ))}
-                  </div>
-                </div>
-                <div>
-                  <span className="text-xs font-black text-white uppercase tracking-wider block mb-1">Potential Communication Friction</span>
-                  <div className="flex gap-2">
-                    {details.compatibility.challenges.map((item, i) => (
-                      <span key={i} className="px-2.5 py-1 bg-white/5 text-white font-extrabold rounded-lg border border-white/10 text-xs">{item}</span>
-                    ))}
-                  </div>
                 </div>
               </div>
             </div>
 
-            {/* Careers */}
-            <div className="space-y-3">
-              <h3 className="text-lg font-black text-white font-display">Recommended Careers</h3>
-              <p className="text-sm text-slate-400 font-semibold leading-relaxed">
-                Work environments where this personality type typically excels and flourishes:
-              </p>
-              <div className="flex flex-wrap gap-2 pt-1">
-                {details.careers.map((car, i) => (
-                  <span key={i} className="px-3 py-1.5 bg-white/5 border border-white/10 rounded-xl text-sm font-black text-white flex items-center space-x-1.5 shadow-sm">
-                    <i className="fas fa-briefcase text-slate-400 text-xs"></i>
-                    <span>{car}</span>
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* AI Grounding Integration Panel */}
-          <div className="border-t border-white/10 pt-8 space-y-6 text-left" ref={aiSectionRef}>
-            <div className="space-y-2">
-              <div className="flex items-center space-x-2">
-                <div className="w-8 h-8 rounded-full bg-white/10 text-white flex items-center justify-center text-sm">
-                  <i className="fas fa-sparkles"></i>
+            {/* AI Grounding Integration Panel */}
+            <div className="border-t border-white/10 pt-8 space-y-6 text-left" ref={aiSectionRef}>
+              <div className="space-y-2">
+                <div className="flex items-center space-x-2">
+                  <div className="w-8 h-8 rounded-full bg-white/10 text-white flex items-center justify-center text-sm">
+                    <i className="fas fa-sparkles"></i>
+                  </div>
+                  <h3 className="text-lg font-black text-white font-display">
+                    Deep AI Psychological Analysis
+                  </h3>
                 </div>
-                <h3 className="text-lg font-black text-white font-display">
-                  Deep AI Psychological Analysis
-                </h3>
+                <p className="text-sm text-slate-400 font-semibold leading-relaxed">
+                  Generate an in-depth clinical personality report mapping your cognitive stacks, workplace strengths, interpersonal communication, and targeted personal development trajectories.
+                </p>
               </div>
-              <p className="text-sm text-slate-400 font-semibold leading-relaxed">
-                Generate an in-depth clinical personality report mapping your cognitive stacks, workplace strengths, interpersonal communication, and targeted personal development trajectories.
-              </p>
+
+              <div className="flex justify-start">
+                <button
+                  type="button"
+                  onClick={handleGenerateAiReport}
+                  disabled={isGenerating}
+                  className="py-3 px-6 bg-white/10 hover:bg-white/15 disabled:bg-white/5 text-white rounded-xl font-bold text-xs transition-all active:scale-95 cursor-pointer shadow-sm flex items-center space-x-2 shrink-0"
+                >
+                  {isGenerating ? (
+                    <>
+                      <i className="fas fa-spinner animate-spin text-[10px]"></i>
+                      <span>Generating Profile...</span>
+                    </>
+                  ) : (
+                    <>
+                      <i className="fas fa-sparkles text-[10px]"></i>
+                      <span>Generate AI Personality Narrative</span>
+                    </>
+                  )}
+                </button>
+              </div>
+
+              {/* Narrative container */}
+              {aiError && (
+                <div className="p-4 bg-white/5 border border-white/10 rounded-xl text-xs text-slate-300 font-medium text-left flex items-start space-x-2">
+                  <i className="fas fa-exclamation-circle text-slate-300 mt-0.5"></i>
+                  <span>{aiError}</span>
+                </div>
+              )}
+
+              {aiNarrative && (
+                <div
+                  className="p-6 bg-white/5 border border-white/10 rounded-2xl shadow-sm text-slate-300 text-sm leading-relaxed space-y-4 w-full prose prose-slate max-w-none animate-fade-in text-left"
+                  style={{ whiteSpace: 'normal', wordBreak: 'break-word' }}
+                  dangerouslySetInnerHTML={{ __html: formatAIResponse(aiNarrative) }}
+                />
+              )}
             </div>
 
-            <div className="flex justify-start">
-              <button
-                type="button"
-                onClick={handleGenerateAiReport}
-                disabled={isGenerating}
-                className="py-3 px-6 bg-white/10 hover:bg-white/15 disabled:bg-white/5 text-white rounded-xl font-bold text-xs transition-all active:scale-95 cursor-pointer shadow-sm flex items-center space-x-2 shrink-0"
-              >
-                {isGenerating ? (
-                  <>
-                    <i className="fas fa-spinner animate-spin text-[10px]"></i>
-                    <span>Generating Profile...</span>
-                  </>
-                ) : (
-                  <>
-                    <i className="fas fa-sparkles text-[10px]"></i>
-                    <span>Generate AI Personality Narrative</span>
-                  </>
-                )}
-              </button>
-            </div>
-
-            {/* Narrative container */}
-            {aiError && (
-              <div className="p-4 bg-white/5 border border-white/10 rounded-xl text-xs text-slate-300 font-medium text-left flex items-start space-x-2">
-                <i className="fas fa-exclamation-circle text-slate-300 mt-0.5"></i>
-                <span>{aiError}</span>
-              </div>
-            )}
-
-            {aiNarrative && (
-              <div 
-                className="p-6 bg-white/5 border border-white/10 rounded-2xl shadow-sm text-slate-300 text-sm leading-relaxed space-y-4 w-full prose prose-slate max-w-none animate-fade-in text-left"
-                style={{ whiteSpace: 'normal', wordBreak: 'break-word' }}
-                dangerouslySetInnerHTML={{ __html: formatAIResponse(aiNarrative) }}
-              />
-            )}
-          </div>
-
-          {/* Steps and Resolution math details */}
-          <div className="border-t border-white/10 pt-6 text-left space-y-4">
-            <h4 className="text-xs font-black uppercase tracking-wider text-white/70">
-              Step-by-Step Resolution Steps
-            </h4>
-            <div className="space-y-3.5 max-h-[220px] overflow-y-auto pr-1 text-sm text-white/70 leading-relaxed font-medium">
-              {steps.map((step, idx) => {
-                const cleanStep = step.replace(/\*\*/g, '');
-                if (cleanStep.startsWith('$$')) {
-                  const latexStr = cleanStep.replace(/\$\$/g, '');
-                  return (
-                    <div key={idx} className="py-2 overflow-x-auto scrollbar-thin">
-                      <BlockMath math={latexStr} />
-                    </div>
-                  );
-                }
-                
-                const inlineRegex = /\$([^$]+)\$/g;
-                let lastIdx = 0;
-                const parts = [];
-                let match;
-
-                while ((match = inlineRegex.exec(cleanStep)) !== null) {
-                  if (match.index > lastIdx) {
-                    parts.push(cleanStep.substring(lastIdx, match.index));
+            {/* Steps and Resolution math details */}
+            <div className="border-t border-white/10 pt-6 text-left space-y-4">
+              <h4 className="text-xs font-black uppercase tracking-wider text-white/70">
+                Step-by-Step Resolution Steps
+              </h4>
+              <div className="space-y-3.5 max-h-[220px] overflow-y-auto pr-1 text-sm text-white/70 leading-relaxed font-medium">
+                {steps.map((step, idx) => {
+                  const cleanStep = step.replace(/\*\*/g, '');
+                  if (cleanStep.startsWith('$$')) {
+                    const latexStr = cleanStep.replace(/\$\$/g, '');
+                    return (
+                      <div key={idx} className="py-2 overflow-x-auto scrollbar-thin">
+                        <BlockMath math={latexStr} />
+                      </div>
+                    );
                   }
-                  parts.push(<InlineMath key={match.index} math={match[1]} />);
-                  lastIdx = inlineRegex.lastIndex;
-                }
 
-                if (lastIdx < cleanStep.length) {
-                  parts.push(cleanStep.substring(lastIdx));
-                }
+                  const inlineRegex = /\$([^$]+)\$/g;
+                  let lastIdx = 0;
+                  const parts = [];
+                  let match;
 
-                if (cleanStep.startsWith('* ')) {
+                  while ((match = inlineRegex.exec(cleanStep)) !== null) {
+                    if (match.index > lastIdx) {
+                      parts.push(cleanStep.substring(lastIdx, match.index));
+                    }
+                    parts.push(<InlineMath key={match.index} math={match[1]} />);
+                    lastIdx = inlineRegex.lastIndex;
+                  }
+
+                  if (lastIdx < cleanStep.length) {
+                    parts.push(cleanStep.substring(lastIdx));
+                  }
+
+                  if (cleanStep.startsWith('* ')) {
+                    return (
+                      <div key={idx} className="pl-4 relative flex items-start space-x-1">
+                        <span className="select-none">•</span>
+                        <span>{parts.length > 0 ? parts : cleanStep.substring(2)}</span>
+                      </div>
+                    );
+                  }
+
                   return (
-                    <div key={idx} className="pl-4 relative flex items-start space-x-1">
-                      <span className="select-none">•</span>
-                      <span>{parts.length > 0 ? parts : cleanStep.substring(2)}</span>
-                    </div>
+                    <p key={idx} className={step.startsWith('**') ? 'font-black text-white pt-2 first:pt-0' : ''}>
+                      {parts.length > 0 ? parts : cleanStep}
+                    </p>
                   );
-                }
-
-                return (
-                  <p key={idx} className={step.startsWith('**') ? 'font-black text-white pt-2 first:pt-0' : ''}>
-                    {parts.length > 0 ? parts : cleanStep}
-                  </p>
-                );
-              })}
+                })}
+              </div>
             </div>
-          </div>
 
           </div>
         </div>
@@ -1220,7 +1219,7 @@ export default function MBTICalculator() {
 
 function formatAIResponse(text: string): string {
   if (!text) return '';
-  
+
   let formatted = text.replace(/\r\n/g, '\n');
 
   formatted = formatted.replace(/^###\s+(.+)$/gm, '<h4 class="text-sm font-black text-slate-900 pt-4 border-b border-slate-100 pb-1 font-display">$1</h4>');

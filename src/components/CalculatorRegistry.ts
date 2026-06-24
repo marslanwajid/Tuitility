@@ -337,8 +337,60 @@ export const CALCULATOR_REGISTRY: Record<string, React.ComponentType<any>> = {
     () => import('./utility/HtmlToMarkdownConverter'),
     { ssr: false }
   ),
+  '/utility-tools/english-to-ipa-translator': dynamic(
+    () => import('./utility/EnglishToIpaTranslator'),
+    { ssr: false }
+  ),
+  '/utility-tools/audio-bitrate-converter': dynamic(
+    () => import('./utility/AudioBitrateConverter'),
+    { ssr: false }
+  ),
   '/utility-tools/markdown-file-viewer': dynamic(
     () => import('./utility/MarkdownViewer'),
+    { ssr: false }
+  ),
+  '/utility-tools/audio-format-converter': dynamic(
+    () => import('./utility/AudioFormatConverter'),
+    { ssr: false }
+  ),
+  '/utility-tools/video-to-audio-extractor': dynamic(
+    () => import('./utility/VideoToAudioExtractor'),
+    { ssr: false }
+  ),
+  '/utility-tools/converter-tools/reels-downloader': dynamic(
+    () => import('./utility/InstagramReelsDownloader'),
+    { ssr: false }
+  ),
+  '/utility-tools/converter-tools/tiktok-downloader': dynamic(
+    () => import('./utility/TikTokDownloader'),
+    { ssr: false }
+  ),
+  '/utility-tools/converter-tools/qr-code-scanner': dynamic(
+    () => import('./utility/QRCodeScanner'),
+    { ssr: false }
+  ),
+  '/utility-tools/image-tools/aspect-ratio-converter': dynamic(
+    () => import('./utility/AspectRatioConverter'),
+    { ssr: false }
+  ),
+  '/utility-tools/image-tools/color-blindness-simulator': dynamic(
+    () => import('./utility/ColorBlindnessSimulator'),
+    { ssr: false }
+  ),
+  '/utility-tools/converter-tools/rgb-to-pantone-converter': dynamic(
+    () => import('./utility/RgbToPantoneConverter'),
+    { ssr: false }
+  ),
+  '/utility-tools/converter-tools/gold-precious-metal-weight-converter': dynamic(
+    () => import('./utility/GoldWeightConverter'),
+    { ssr: false }
+  ),
+  '/utility-tools/converter-tools/svg-to-code-converter': dynamic(
+    () => import('./utility/SvgToCodeConverter'),
+    { ssr: false }
+  ),
+  '/utility-tools/converter-tools/code-to-svg-converter': dynamic(
+    () => import('./utility/CodeToSvgConverter'),
     { ssr: false }
   ),
 };

@@ -117,6 +117,12 @@ const SEO_PRIORITY_OVERRIDES = {
     rationale: 'Specific developer intent with a clear browser-based workflow and less brand lock-in than generic calculator queries.',
     focusKeywords: ['html to markdown converter', 'convert html to markdown online', 'browser html to markdown', 'markdown to html converter', 'html markdown tool'],
   },
+  '/utility-tools/markdown-file-viewer': {
+    tier: 'medium',
+    outlook: 'moderate long-tail opportunity',
+    rationale: 'Markdown preview tools have steady developer and technical writer search volume; differentiate with drag-drop upload, live GFM rendering via marked, and dual HTML/MD export.',
+    focusKeywords: ['markdown viewer', 'markdown preview online', 'md file viewer', 'markdown to html preview', 'readme viewer online', 'markdown file renderer'],
+  },
   '/utility-tools/english-to-ipa-translator': {
     tier: 'high',
     outlook: 'strong long-tail opportunity',
@@ -140,6 +146,18 @@ const SEO_PRIORITY_OVERRIDES = {
     outlook: 'strong long-tail opportunity',
     rationale: 'The query is narrower than general weight conversion and can rank on specificity plus utility.',
     focusKeywords: ['gold weight converter', 'precious metal weight converter', 'grams to tola gold converter'],
+  },
+  '/utility-tools/converter-tools/svg-to-code-converter': {
+    tier: 'high',
+    outlook: 'strong long-tail opportunity',
+    rationale: 'Highly specific developer intent with multiple framework targets and no server dependency.',
+    focusKeywords: ['svg to react component', 'svg to jsx converter', 'svg to vue component', 'svg to code', 'svg to react native', 'svg to angular component'],
+  },
+  '/utility-tools/converter-tools/code-to-svg-converter': {
+    tier: 'high',
+    outlook: 'strong long-tail opportunity',
+    rationale: 'Developer intent for viewing and converting code back to SVG with no server dependency.',
+    focusKeywords: ['svg viewer', 'code to svg converter', 'jsx to svg', 'react component to svg', 'svg file viewer online', 'svg preview tool'],
   },
   '/utility-tools/converter-tools/rgb-to-hex-converter': {
     tier: 'high',
@@ -188,6 +206,48 @@ const SEO_PRIORITY_OVERRIDES = {
     outlook: 'strong long-tail opportunity',
     rationale: 'Classic utility with strong long-tail search and educational intent; differentiate with bi-directional translation, audio playback, and dark panel UX with reference table.',
     focusKeywords: ['morse code translator', 'text to morse code', 'morse code decoder', 'morse code converter', 'morse to text', 'learn morse code', 'morse code alphabet'],
+  },
+  '/utility-tools/audio-bitrate-converter': {
+    tier: 'medium',
+    outlook: 'moderate long-tail opportunity',
+    rationale: 'Audio bitrate queries have steady volume from podcasters, video editors, and audiophiles; differentiate with presets (96-1411 kbps) and real-time conversion between bps/kbps/mbps.',
+    focusKeywords: ['audio bitrate converter', 'bitrate calculator', 'kbps to mbps converter', 'mp3 bitrate converter', 'audio bitrate tool'],
+  },
+  '/utility-tools/audio-format-converter': {
+    tier: 'medium',
+    outlook: 'moderate long-tail opportunity',
+    rationale: 'Format-specific audio conversion queries have consistent volume; differentiate with real browser-based WAV/MP3 encoding, quality presets, and metadata display.',
+    focusKeywords: ['audio format converter', 'mp3 to wav converter', 'wav to mp3 converter', 'online audio converter', 'audio file converter'],
+  },
+  '/utility-tools/video-to-audio-extractor': {
+    tier: 'medium',
+    outlook: 'moderate long-tail opportunity',
+    rationale: 'Video-to-audio extraction is a high-intent workflow for podcasters and video editors; differentiate with video preview player, quality presets, and browser-based processing.',
+    focusKeywords: ['video to audio converter', 'extract audio from video', 'video to mp3 converter', 'video to wav converter', 'online audio extractor'],
+  },
+  '/utility-tools/converter-tools/reels-downloader': {
+    tier: 'high',
+    outlook: 'strong long-tail opportunity',
+    rationale: 'Instagram Reels downloader has high search volume with commercial intent; differentiate with clean UX, step-by-step guide with images, clipboard paste, video preview, and server-side API proxy for reliability.',
+    focusKeywords: ['instagram reels downloader', 'download instagram reels', 'instagram video downloader', 'reels saver', 'instagram reel to mp4', 'save instagram reels online'],
+  },
+  '/utility-tools/converter-tools/tiktok-downloader': {
+    tier: 'high',
+    outlook: 'strong long-tail opportunity',
+    rationale: 'TikTok downloader has very high search volume; differentiate with clean UX, step-by-step guide with images, clipboard paste, video preview, and server-side API proxy.',
+    focusKeywords: ['tiktok downloader', 'download tiktok video', 'save tiktok video', 'tiktok video downloader online', 'tiktok mp4 downloader', 'tiktok link downloader'],
+  },
+  '/utility-tools/image-tools/aspect-ratio-converter': {
+    tier: 'high',
+    outlook: 'strong long-tail opportunity',
+    rationale: 'Aspect ratio calculator and image resizer has consistent search volume with design, social media, and web development intent; differentiate with dual-mode (calculator + converter), fit/crop modes, anchor grid, draggable crop, and color picker.',
+    focusKeywords: ['aspect ratio calculator', 'image resizer', 'aspect ratio converter', 'crop image to ratio', '16:9 calculator', 'resize image for social media', 'youtube thumbnail size', 'instagram image size'],
+  },
+  '/utility-tools/image-tools/color-blindness-simulator': {
+    tier: 'high',
+    outlook: 'strong long-tail opportunity',
+    rationale: 'Color blindness simulator and accessibility testing tool has strong search intent from designers, developers, and content creators needing WCAG compliance checks; differentiate with 6 CVD types, local canvas processing, and individual download.',
+    focusKeywords: ['color blindness simulator', 'accessibility testing tool', 'color vision deficiency simulator', 'protanopia simulation', 'deuteranopia simulation', 'wcag color checker', 'cvd test image', 'accessible design checker'],
   },
   '/science/calculators/dbm-watts-calculator': {
     tier: 'high',
@@ -1592,6 +1652,500 @@ export const getToolContent = (tool: any) => {
       {
         question: "Does this work on mobile devices?",
         answer: "Yes. The tool is fully responsive and works on any modern mobile browser. Type or paste content, toggle conversion direction, copy output, and download files on the go."
+      }
+    ];
+  } else if (tool.url === '/utility-tools/markdown-file-viewer') {
+    overview = [
+      `The Markdown File Viewer is a free online tool designed to open, view, and render Markdown files with a live HTML preview, file upload (drag-and-drop or browse), and full export capabilities. Whether you need to preview a README.md before publishing, review documentation written in Markdown, convert .md files to styled HTML for sharing, or simply read and inspect Markdown content with syntax-highlighted code blocks and rendered tables, this tool provides a side-by-side source-and-preview experience — entirely in your browser. To build a broader document workflow, pair this with our [HTML to Markdown Converter](/utility-tools/html-to-markdown-converter) for bidirectional format conversion or our [Word Counter](/utility-tools/word-counter) for detailed content analysis.`,
+      `Ideal for developers reviewing project documentation, technical writers previewing guides before deployment, students viewing lecture notes in Markdown, and content creators preparing Markdown-based blog posts. The viewer uses the marked library for accurate GFM (GitHub Flavored Markdown) rendering including fenced code blocks with language hints, pipe tables, task lists, strikethrough, blockquotes, nested lists, and auto-linked URLs. You can upload .md files via drag-and-drop or file picker, paste Markdown directly, copy the generated HTML, download as .html or .md, and toggle an IPA symbol reference table — all processing stays 100% local in your browser.`,
+    ];
+    faqs = [
+      {
+        question: "What is the Markdown File Viewer?",
+        answer: "It is a browser-based tool that lets you open any .md or .markdown file and instantly view it rendered as formatted HTML. You can also paste Markdown directly and see the live preview update in real time."
+      },
+      {
+        question: "What Markdown features are supported?",
+        answer: "All standard GFM (GitHub Flavored Markdown) features are supported: headers, bold, italic, strikethrough, ordered and unordered lists (including nested), fenced code blocks with language highlighting, inline code, pipe tables, blockquotes, horizontal rules, links, images, and task lists."
+      },
+      {
+        question: "Can I upload a .md file?",
+        answer: "Yes. You can drag and drop a .md or .markdown file onto the upload area, or click to browse your files. The file content is loaded instantly into the editor and rendered in the preview pane."
+      },
+      {
+        question: "Can I export the rendered output?",
+        answer: "Yes. You can copy the generated HTML to your clipboard, download the HTML file for use in web pages, or download the original Markdown source back as a .md file."
+      },
+      {
+        question: "Is there a file size limit?",
+        answer: "Files up to 500KB and approximately 500,000 characters are supported. A live character counter shows your current input length vs the limit."
+      },
+      {
+        question: "Is this tool private and secure?",
+        answer: "Yes. All file processing and rendering happens entirely in your browser using client-side JavaScript. No files or content are ever uploaded to any server."
+      }
+    ];
+  } else if (tool.url === '/utility-tools/english-to-ipa-translator') {
+    overview = [
+      `The English to IPA Translator is a free online linguistic tool designed to convert English text into International Phonetic Alphabet (IPA) notation with support for both British (Received Pronunciation) and American (General American) accents, plus reverse IPA-to-English decoding. Whether you are a language learner studying pronunciation, a linguistics student analyzing accent differences, an actor or voice professional preparing accent-sensitive scripts, or an ESL teacher creating pronunciation resources, this tool combines dictionary lookups for common words with rule-based fallback for accurate phonetic transcription — entirely in your browser. To build a broader language workflow, pair this with our [Morse Code Translator](/utility-tools/morse-code-translator) for another symbolic encoding system or our [Word Counter](/utility-tools/word-counter) for sizing pronunciation exercises and study passages.`,
+      `The translator supports bidirectional conversion (English to IPA and IPA back to English), with a dedicated British/American accent toggle that adjusts vowel quality, rhoticity, and length marks. It includes a built-in IPA Symbol Reference chart covering short vowels, long vowels, diphthongs, and consonants with example words. Speech synthesis reads your text aloud using the selected accent (en-GB or en-US voice). All processing — conversion, speech, and dictionary matching — happens 100% locally in your browser.`,
+    ];
+    faqs = [
+      {
+        question: "What is IPA?",
+        answer: "The International Phonetic Alphabet (IPA) is a system of phonetic notation used to represent the sounds of spoken language. It provides a consistent way to write down how words are pronounced, regardless of spelling irregularities."
+      },
+      {
+        question: "Why does the tool support different accents?",
+        answer: "English pronunciation varies significantly between regions. British English (Received Pronunciation) and American English (General American) often use different vowel sounds, stress patterns, and rhoticity. The accent toggle adjusts the conversion rules accordingly."
+      },
+      {
+        question: "How does the conversion work?",
+        answer: "The tool uses a dictionary of common English words with their accurate IPA transcriptions for both British and American accents. Words not found in the dictionary are processed through a rule-based system that applies phonetic rules for consonant combinations, vowel patterns, and stress placement."
+      },
+      {
+        question: "Can I hear the pronunciation?",
+        answer: "Yes. Click the Speak Input button to hear your English text read aloud using the selected accent (British or American). The tool uses your browser's built-in speech synthesis with a matching en-GB or en-US voice."
+      },
+      {
+        question: "Is the conversion 100% accurate?",
+        answer: "English spelling is irregular, so rule-based conversion is not perfect. The dictionary provides accurate transcriptions for common words, but rare words, proper nouns, and regional pronunciations may produce less reliable results. Always compare the output with trusted audio sources for critical use."
+      },
+      {
+        question: "Is this tool private and secure?",
+        answer: "Yes. All conversion and speech synthesis happens entirely in your browser using client-side JavaScript. No text or audio data is ever uploaded to any server."
+      }
+    ];
+  } else if (tool.url === '/utility-tools/audio-bitrate-converter') {
+    overview = [
+      `The Audio Bitrate Converter is a free online utility designed to convert audio bitrate values between bps, kbps, and Mbps instantly — right in your browser. Whether you are a podcaster optimizing audio for distribution, a video editor checking export settings, an audiophile comparing quality tiers, or a content creator preparing assets for multiple platforms, this tool provides instant bitrate conversion with presets for common audio standards. To build a broader media workflow, pair this with our [Audio Format Converter](/utility-tools/audio-format-converter) for transcoding audio files, our [Video to Audio Extractor](/utility-tools/video-to-audio-extractor) for pulling audio from videos, or our [Word Counter](/utility-tools/word-counter) for sizing show notes and transcripts.`,
+      `The tool provides real-time conversion between bitrate units with a clean input interface, seven quick presets covering common audio bitrates from 96 kbps (speech-optimized) to 1411 kbps (CD quality), and a reference table showing typical use cases for each preset. All processing happens 100% client-side — your values never leave your device.`,
+    ];
+    faqs = [
+      {
+        question: "Does converting 128 kbps to 320 kbps improve quality?",
+        answer: "No. This is a common myth called upsampling. The data lost during original compression to 128 kbps is gone forever. Converting to 320 kbps just creates a larger file with the same low quality. Always start from a lossless source (WAV/FLAC) for best results."
+      },
+      {
+        question: "What is the difference between WAV and MP3?",
+        answer: "WAV is an uncompressed, lossless format that preserves every audio detail but produces large files (about 30-40 MB for a 3-minute song). MP3 is a compressed, lossy format that reduces file size by removing inaudible frequencies — a 3-minute song at 192 kbps is about 4-5 MB."
+      },
+      {
+        question: "What bitrate should I use for a podcast?",
+        answer: "For speech-only podcasts, 96 kbps (mono) or 128 kbps (stereo) in MP3 is ideal — clear voice quality with small file sizes for quick downloads on mobile data. For music podcasts, use 192-256 kbps."
+      },
+      {
+        question: "Is audio processed on your server?",
+        answer: "No. All processing happens entirely in your browser. Your values never leave your device."
+      }
+    ];
+  } else if (tool.url === '/utility-tools/audio-format-converter') {
+    overview = [
+      `The Audio Format Converter is a free online tool designed to transcode audio files between MP3 and WAV formats with selectable quality settings — all directly in your browser. Whether you are a podcaster converting interview recordings to MP3 for distribution, a musician exporting WAV stems for production, a content creator preparing assets for multi-platform publishing, or an audio archivist converting files to a standard format, this tool provides real audio processing using the Web Audio API and lamejs MP3 encoder. To build a broader media workflow, pair this with our [Video to Audio Extractor](/utility-tools/video-to-audio-extractor) for pulling audio from video files, our [Audio Bitrate Converter](/utility-tools/audio-bitrate-converter) for planning quality settings, or our [Word Counter](/utility-tools/word-counter) for sizing transcripts and show notes.`,
+      `The converter supports uploading audio files in any browser-compatible format (MP3, WAV, AAC, OGG, FLAC) and transcoding to MP3 with quality presets (96-320 kbps) or lossless WAV output. The tool displays per-file metadata including duration, channel count (mono/stereo), and sample rate, plus estimated output file sizes for MP3 conversions. A real-time progress bar shows conversion status, and the final file can be downloaded instantly. All processing happens 100% client-side — your files never leave your device.`,
+    ];
+    faqs = [
+      {
+        question: "What's the difference between WAV and MP3 output?",
+        answer: "WAV is an uncompressed, lossless format that preserves every audio detail but produces large files (about 30-40 MB for a 3-minute song). MP3 is a compressed, lossy format that reduces file size by removing inaudible frequencies — a 3-minute song at 192 kbps is about 4-5 MB. Use WAV for archival and editing, MP3 for distribution and portability."
+      },
+      {
+        question: "Does converting MP3 to WAV improve quality?",
+        answer: "No. Converting an already-compressed MP3 to WAV just restores the file to an uncompressed container — the audio data lost during initial MP3 compression cannot be recovered. The resulting WAV will have the same audible quality as the source MP3 but take up much more space."
+      },
+      {
+        question: "What MP3 quality setting should I use?",
+        answer: "For speech-only content (podcasts, audiobooks), 96-128 kbps is recommended — clear voice quality with small file sizes. For music, use 192-256 kbps for a good balance of quality and size. Use 320 kbps for archival or when audio fidelity is critical and file size is not a concern."
+      },
+      {
+        question: "What input formats are supported?",
+        answer: "The tool supports any audio format your browser can decode, including MP3, WAV, AAC, OGG, FLAC, M4A, and WebM audio. If your browser can play it, the converter can transcode it."
+      },
+      {
+        question: "Is there a file size limit?",
+        answer: "The tool processes files entirely in memory using the Web Audio API. Very large files (over 100MB) may cause performance issues depending on your device. For best results, keep files under 50MB."
+      },
+      {
+        question: "Is this tool private and secure?",
+        answer: "Yes. All audio transcoding happens entirely in your browser using the Web Audio API and lamejs. Your audio files never leave your device."
+      }
+    ];
+  } else if (tool.url === '/utility-tools/video-to-audio-extractor') {
+    overview = [
+      `The Video to Audio Extractor is a free online tool designed to extract high-quality audio tracks from video files and download them as MP3 or WAV — all directly in your browser. Whether you are a podcaster extracting interview footage for audio editing, a video editor separating dialogue from a clip, a content creator repurposing video content for audio distribution (podcasts, audiograms), or a student saving lecture audio for offline review, this tool uses the Web Audio API and lamejs MP3 encoder for real audio extraction. To build a broader media workflow, pair this with our [Audio Format Converter](/utility-tools/audio-format-converter) for transcoding the extracted audio, our [Audio Bitrate Converter](/utility-tools/audio-bitrate-converter) for planning quality settings, or our [Word Counter](/utility-tools/word-counter) for sizing transcripts.`,
+      `The extractor supports browser-compatible video formats including MP4, MOV, AVI, MKV, and WebM. Upload your video, optionally preview it with the built-in video player, choose your output format (MP3 with quality presets 96-320 kbps or lossless WAV), and extract. The tool displays per-file metadata including duration, channel count, and sample rate. A real-time progress bar shows extraction status, and the final audio file can be downloaded instantly. All processing happens 100% client-side — your files never leave your device.`,
+    ];
+    faqs = [
+      {
+        question: "What video formats are supported?",
+        answer: "The tool supports any video format your browser can play, including MP4 (H.264), MOV, AVI (some codecs), MKV (WebM), and WebM. If your browser can play the video in its native player, the audio can be extracted."
+      },
+      {
+        question: "What audio quality will the extraction have?",
+        answer: "The audio quality depends on the original video's audio track. The tool decodes the existing audio using the Web Audio API and re-encodes it at your selected quality setting. For MP3 output, choose from 96-320 kbps. For maximum quality, select WAV for lossless output or 320 kbps MP3."
+      },
+      {
+        question: "Can I preview the video before extracting?",
+        answer: "Yes. Once you upload a video, a built-in player lets you preview the entire video. You can scrub through the timeline, play, pause, and verify the content before extracting audio."
+      },
+      {
+        question: "Is there a file size or duration limit?",
+        answer: "The tool processes files entirely in memory. Very large or long videos (over 100MB or 30+ minutes) may cause performance issues depending on your device. For best results, keep videos under 50MB."
+      },
+      {
+        question: "What is the difference between MP3 and WAV output?",
+        answer: "WAV output is lossless — it preserves the full audio quality from the original video but produces large files (about 30-40 MB for a 3-minute track at CD quality). MP3 compresses the audio by removing inaudible frequencies, producing much smaller files (4-5 MB for 3 minutes at 192 kbps) with a slight trade-off in theoretical quality."
+      },
+      {
+        question: "Is this tool private and secure?",
+        answer: "Yes. All video and audio processing happens entirely in your browser using the Web Audio API and lamejs. Your video files never leave your device."
+      }
+    ];
+  } else if (tool.url === '/utility-tools/converter-tools/reels-downloader') {
+    overview = [
+      `The Instagram Reels Downloader is a free online tool designed to download any public Instagram Reel video as an MP4 file directly to your device — through our browser-based interface and server-side API proxy. Whether you are a content creator studying trending formats, a marketer analyzing competitor campaigns, a social media manager archiving client content, or someone who wants to save memorable Reels for offline viewing, this tool provides a simple four-step workflow: Copy, Paste, Download, Save. To build a broader media workflow, pair this with our [TikTok Downloader](/utility-tools/converter-tools/tiktok-downloader) for cross-platform content, our [Audio Bitrate Converter](/utility-tools/audio-bitrate-converter) for optimizing audio settings, or our [Image Converter](/utility-tools/image-tools/image-converter) for processing thumbnails and stills.`,
+      `The downloader works with any public Instagram Reel URL. Just paste the link, click Download, and we fetch the video through our secure API proxy (your Reel URL is processed server-side, keeping our API key private). Once the video is ready, you can preview it with the built-in player and save it directly to your device with one click. The tool supports all Instagram Reel URL formats including the igsh share parameter used for login-wall bypass, and provides clear error messages if the reel is private or the link is invalid.`,
+    ];
+    faqs = [
+      {
+        question: "Is downloading Instagram Reels legal?",
+        answer: "Downloading Instagram Reels for personal, offline viewing is generally acceptable under fair use provisions. However, redistributing or using downloaded content commercially requires permission from the original creator. Always respect copyright and intellectual property rights."
+      },
+      {
+        question: "Do I need to install any software?",
+        answer: "No software installation is required. The tool is completely web-based and works directly in your browser. Simply paste the URL, click Download, and save your Reel — no extensions or apps needed."
+      },
+      {
+        question: "What video quality can I expect?",
+        answer: "The downloader preserves the original video quality as uploaded to Instagram. Most public Reels are available at 720p HD resolution. The final quality depends on the original upload by the content creator and Instagram's compression."
+      },
+      {
+        question: "Does the downloader work on mobile devices?",
+        answer: "Yes. The tool is fully responsive and works on any modern mobile browser. You can copy a Reel link from the Instagram app, switch to your browser, paste it, and download — all on your phone or tablet."
+      },
+      {
+        question: "Are there any download limits?",
+        answer: "There are no artificial limits imposed by the tool. You can download as many Reels as needed. However, we recommend responsible usage and respect for content creators' rights."
+      },
+      {
+        question: "Why is my Reels URL not working?",
+        answer: "Ensure the URL is complete and correctly formatted (e.g., https://www.instagram.com/reel/ABC123/). Private accounts, age-restricted content, or deleted reels cannot be downloaded. Check your internet connection and try again if issues persist."
+      },
+      {
+        question: "Is my data safe when using this tool?",
+        answer: "Yes. Your Reel URL is sent to our server-side API proxy which forwards it to the RapidAPI service to fetch the video. We do not store any URLs, downloaded videos, or personal information. The video goes directly from the API to your browser."
+      },
+      {
+        question: "Can I download Reels from private Instagram accounts?",
+        answer: "No. The tool respects Instagram's privacy settings. You can only download Reels from public accounts. Private account content is not accessible through the API."
+      }
+    ];
+  } else if (tool.url === '/utility-tools/converter-tools/tiktok-downloader') {
+    overview = [
+      `The TikTok Downloader is a free online tool designed to download any public TikTok video as an MP4 file directly to your device — through our browser-based interface and server-side API proxy. Whether you are a content creator studying trending formats, a marketer analyzing competitor campaigns, a social media manager archiving client content, or someone who wants to save entertaining videos for offline viewing, this tool provides a simple four-step workflow: Find Video, Copy Link, Paste URL, Save. To build a broader media workflow, pair this with our [Instagram Reels Downloader](/utility-tools/converter-tools/reels-downloader) for cross-platform content, our [Audio Bitrate Converter](/utility-tools/audio-bitrate-converter) for optimizing audio settings, or our [Image Converter](/utility-tools/image-tools/image-converter) for processing thumbnails and stills.`,
+      `The downloader works with any public TikTok video URL. Just paste the link, click Download, and we fetch the video through our secure API proxy (your URL is processed server-side, keeping our API key private). Once the video is ready, you can preview it with the built-in player and save it directly to your device with one click. The tool supports all TikTok URL formats including standard URLs (tiktok.com/@username/video/...), shortened links (vm.tiktok.com), and mobile links (m.tiktok.com), and provides clear error messages if the video is private or the link is invalid.`,
+    ];
+    faqs = [
+      {
+        question: "Is downloading TikTok videos legal?",
+        answer: "Downloading TikTok videos for personal, offline viewing is generally acceptable under fair use provisions. However, redistributing or using downloaded content commercially requires permission from the original creator. Always respect copyright and intellectual property rights."
+      },
+      {
+        question: "Does it remove watermarks?",
+        answer: "The downloader fetches the highest quality video available from TikTok's servers. Watermark presence depends on the source and may vary. For clean results, use videos that were originally uploaded without watermarks."
+      },
+      {
+        question: "Is it free?",
+        answer: "Yes, this tool is completely free to use. There are no hidden charges or download limits. Simply paste a TikTok URL, download, and save."
+      },
+      {
+        question: "Does it work on mobile?",
+        answer: "Yes. The tool is fully responsive and works on any modern mobile browser. You can copy a video link from the TikTok app, switch to your browser, paste it, and download — all on your phone or tablet."
+      },
+      {
+        question: "What video quality can I expect?",
+        answer: "The downloader preserves the original video quality as uploaded to TikTok. Most public videos are available in 720p HD resolution. The final quality depends on the original upload by the content creator and TikTok's compression."
+      },
+      {
+        question: "Why is my TikTok URL not working?",
+        answer: "Ensure the URL is complete and correctly formatted (e.g., https://www.tiktok.com/@username/video/1234567890). Private accounts, age-restricted content, or deleted videos cannot be downloaded. Try the original share link rather than a modified or redirected URL."
+      },
+      {
+        question: "Is my data safe when using this tool?",
+        answer: "Yes. Your TikTok URL is sent to our server-side API proxy which forwards it to the RapidAPI service to fetch the video. We do not store any URLs, downloaded videos, or personal information. The video goes directly from the API to your browser."
+      }
+    ];
+  } else if (tool.url === '/utility-tools/converter-tools/qr-code-scanner') {
+    overview = [
+      `The QR Code Scanner is a free online tool designed to decode QR codes instantly using your device's camera or uploaded image files — all entirely in your browser. Whether you need to scan a QR code from a restaurant menu, decode a Wi-Fi QR code, verify a link before visiting it, or extract text from a saved QR image, this tool provides real-time scanning using the jsQR library with multi-scale contrast enhancement for reliable detection. To build a broader QR workflow, pair this with our [QR Code Generator](/utility-tools/qr-code-generator) for creating codes, our [Image Converter](/utility-tools/image-tools/image-converter) for processing scanned assets, or our [Password Generator](/utility-tools/password-generator) for credential-related workflows.`,
+      `The scanner works in two modes: live camera scanning (using your rear-facing camera with auto-focus) and image upload. Click Start Camera to activate the live feed — the tool continuously scans each video frame and displays the decoded result as soon as a QR code is detected. Alternatively, upload a PNG, JPG, or other image file containing a QR code; the tool applies contrast enhancement and multi-scale analysis to maximize detection rates. All processing happens 100% client-side using jsQR — your camera feed and images never leave your device.`,
+    ];
+    faqs = [
+      {
+        question: "Is my camera feed recorded?",
+        answer: "No. The scanning process happens entirely in your browser's memory using the Canvas API and jsQR. No video or image data is ever sent to any server."
+      },
+      {
+        question: "Why can't I access the camera?",
+        answer: "Ensure you have granted camera permissions to this website in your browser settings. Also check that no other application (like a video call app) is currently using the camera."
+      },
+      {
+        question: "What types of QR codes can be scanned?",
+        answer: "The scanner works with standard QR codes (Model 1 and Model 2) containing URLs, plain text, Wi-Fi credentials, vCard contact data, email addresses, phone numbers, SMS payloads, and more."
+      },
+      {
+        question: "Can I scan from an image file?",
+        answer: "Yes. Click Upload Image and select a PNG, JPG, GIF, WebP, or BMP file containing a QR code. The tool applies multi-scale analysis and contrast enhancement to maximize detection."
+      },
+      {
+        question: "Does it work offline?",
+        answer: "Yes. Once the page is loaded, the jsQR library and all scanning logic run locally in your browser. However, you will need an internet connection to visit any URL that you scan."
+      },
+      {
+        question: "Is it safe to scan any QR code?",
+        answer: "The scanner reveals the decoded content before you act on it. If the result is a URL, it is displayed as a clickable link so you can verify the destination before visiting — helping protect you from malicious QR codes."
+      },
+      {
+        question: "Why is the scanner not detecting my code?",
+        answer: "Ensure the QR code is well-lit, in focus, and not obscured by glare or reflections. For camera scanning, hold your device steady about 6-10 inches away. For image uploads, try cropping the image closer to the QR code."
+      },
+      {
+        question: "Can I scan barcodes?",
+        answer: "This tool is optimized specifically for QR codes (2D matrix barcodes), not traditional linear 1D barcodes like UPC or EAN. For linear barcodes, a dedicated barcode scanner library would be needed."
+      }
+    ];
+  } else if (tool.url === '/utility-tools/image-tools/aspect-ratio-converter') {
+    overview = [
+      `The Aspect Ratio Converter is a free online tool that lets you calculate aspect ratio dimensions and resize images to any proportion — all entirely in your browser. Whether you are a social media manager preparing 4:5 Instagram posts, a YouTuber cropping 16:9 thumbnails, a web designer fitting hero images into responsive containers, or a photographer adapting 3:2 DSLR shots for digital platforms, this tool provides two modes in one: a Ratio Calculator for instant dimension math and an Image Converter for live canvas-based resizing with fit (letterbox) and crop (fill) modes. No uploads, no sign-ups, no server round-trips.`,
+      `The tool works in two tabs. The Ratio Calculator lets you enter width, height, or ratio values — change any one field and the rest update automatically. Choose from common presets (1:1, 4:3, 16:9, 3:2, 21:9, 5:4, 9:16, 4:5, 2:3) and see a live visual preview with the simplified GCD ratio displayed below the pixel dimensions. The Image Converter accepts drag-and-drop or file-picker image uploads, then provides a full editing workspace: set target dimensions with preset quick-apply, switch between Fit (letterbox with customizable background color) and Crop (fill with 9-position anchor grid and draggable repositioning), view a live canvas preview, and download the result as a PNG. All processing is client-side using the Canvas API — your images never leave your device. To build a broader image workflow, pair this with our [Image to WebP Converter](/utility-tools/image-tools/image-to-webp-converter) for compression, [Color Blindness Simulator](/utility-tools/image-tools/color-blindness-simulator) for accessibility review, or [RGB to HEX Converter](/utility-tools/converter-tools/rgb-to-hex-converter) for color value cleanup.`,
+    ];
+    faqs = [
+      {
+        question: "What is an aspect ratio?",
+        answer: "Aspect ratio is the proportional relationship between the width and height of an image or screen, expressed as W:H (e.g., 16:9). It describes the shape, not the actual size. Calculating it is simple: divide width by height to get the ratio value."
+      },
+      {
+        question: "Does cropping reduce image quality?",
+        answer: "Cropping removes pixels, making the image smaller, but the remaining pixels retain full quality. The Canvas API uses high-quality bilinear or bicubic resampling during the draw operation, so the output is as sharp as the source data allows."
+      },
+      {
+        question: "What is the best aspect ratio for Instagram?",
+        answer: "For feed posts, 4:5 (1080 × 1350 px) takes up the most screen real estate. 1:1 (1080 × 1080 px) is also safe. For Stories and Reels, use 9:16 (1080 × 1920 px) to fill the mobile screen vertically."
+      },
+      {
+        question: "How do I calculate aspect ratio?",
+        answer: "Divide the width by the height. For example, 1920 ÷ 1080 = 1.777, which is equivalent to 16:9. To find the simplified ratio, calculate the GCD of width and height and divide both numbers by it. Our calculator does this automatically."
+      },
+      {
+        question: "What is the difference between Fit and Crop mode?",
+        answer: "Fit (Letterbox) shrinks the image to fit entirely inside the target dimensions, adding background color bars to fill unused space — no part of the image is lost. Crop (Fill) zooms in to completely fill the target dimensions, cutting off edges — ideal for immersive thumbnails and full-bleed graphics."
+      },
+      {
+        question: "Can I choose the background color in Fit mode?",
+        answer: "Yes. Fit mode includes a color picker so you can set the letterbox background to any color — not just white or black. This is useful when matching the background of a website or social media template."
+      },
+      {
+        question: "What file format does the download use?",
+        answer: "The downloaded image is a PNG file, which preserves transparency (if the source has it) and offers lossless quality. PNG is the best format for final resized outputs before any compression step."
+      },
+      {
+        question: "Is there a limit on image size?",
+        answer: "There is no hard limit, but very large images (8000+ px) may cause slower processing in the browser Canvas API. For best results, keep source images under 6000 pixels on the longest side. All processing is client-side with no file size upload limits."
+      }
+    ];
+  } else if (tool.url === '/utility-tools/image-tools/color-blindness-simulator') {
+    overview = [
+      `The Color Blindness Simulator is a free online accessibility tool that lets you visualize how your images appear to people with different types of Color Vision Deficiency (CVD) — all processed entirely in your browser using HTML5 Canvas pixel manipulation. Whether you are a UI/UX designer auditing interface colors, a game developer checking team indicators, a data scientist verifying chart readability, a content creator ensuring inclusive social media graphics, or a web developer preparing WCAG-compliant assets, this simulator applies scientifically derived confusion matrices to your image across 6 distinct CVD types simultaneously. No uploads, no server round-trips, no data leaving your device.`,
+      `The tool works in two steps. Upload any image via drag-and-drop or file picker, then click Simulate Vision. The tool processes the image through 6 color blindness matrices — Protanopia (Red-Blind), Deuteranopia (Green-Blind), Tritanopia (Blue-Blind), Achromatopsia (Greyscale), Protanomaly (Red-Weak), and Deuteranomaly (Green-Weak) — and displays them in a responsive grid. Each result card includes the simulation name, its severity tag, a canvas preview, a brief description of the condition, and a download button to save that specific simulation as a PNG for accessibility documentation. All processing uses client-side Canvas API pixel-data transformations with 4×4 matrix multiplication for accurate CVD simulation. To build a broader accessibility workflow, pair this with our [Image to WebP Converter](/utility-tools/image-tools/image-to-webp-converter) for optimized production assets, [Aspect Ratio Converter](/utility-tools/image-tools/aspect-ratio-converter) for responsive resizing, or [RGB to HEX Converter](/utility-tools/converter-tools/rgb-to-hex-converter) for color value refinement.`,
+    ];
+    faqs = [
+      {
+        question: "What is color blindness?",
+        answer: "Color blindness (Color Vision Deficiency or CVD) is a reduced ability to distinguish between certain colors. It is usually genetic and affects approximately 1 in 12 men (8%) and 1 in 200 women worldwide. The most common form is difficulty distinguishing red and green."
+      },
+      {
+        question: "How accurate are these simulations?",
+        answer: "They use scientifically derived confusion matrices that mathematically remap RGB pixel values along the confusion lines experienced by each type of dichromat. While no simulation can perfectly replicate subjective visual experience, these provide a very close, industry-standard approximation used by accessibility professionals."
+      },
+      {
+        question: "What is the difference between -opia and -omaly types?",
+        answer: "The -opia types (Protanopia, Deuteranopia, Tritanopia) represent a complete absence of one cone type (dichromacy). The -omaly types (Protanomaly, Deuteranomaly) represent a reduced sensitivity in one cone type (anomalous trichromacy), which is less severe and more common."
+      },
+      {
+        question: "Does this tool upload my images to a server?",
+        answer: "No. All image processing happens locally in your browser using the HTML5 Canvas API. Your images are never uploaded, stored, or transmitted anywhere. This tool is 100% client-side."
+      },
+      {
+        question: "What is WCAG and why does color matter?",
+        answer: "WCAG (Web Content Accessibility Guidelines) Success Criterion 1.4.1 states that color must not be the only visual means of conveying information. This simulator helps you audit whether charts, buttons, error states, and other color-coded elements remain understandable when color perception is reduced."
+      },
+      {
+        question: "Can I download the simulation results?",
+        answer: "Yes. Each simulation card has a download button that saves that specific CVD simulation as a PNG file. You can use these for accessibility documentation, team reviews, or before-and-after comparisons in audit reports."
+      },
+      {
+        question: "What image formats are supported?",
+        answer: "Any standard web image format is supported: JPG, PNG, GIF, WebP, BMP, and others. The tool reads the image using the browser's native image decoder and processes it on an HTML5 Canvas element."
+      },
+      {
+        question: "Why are there 6 types instead of just one simulation?",
+        answer: "Different design choices fail for different CVD types. A red-green contrast that fails for Protanopia might be fine for Tritanopia. Showing all 6 types simultaneously lets you identify which specific deficiencies affect your design, so you can address each one appropriately."
+      }
+    ];
+  } else if (tool.url === '/utility-tools/converter-tools/rgb-to-pantone-converter') {
+    overview = [
+      `The RGB to Pantone Converter is a free online color matching tool that finds the closest Pantone Matching System (PMS) color for any RGB or HEX value — all processed entirely in your browser. Whether you are a print designer transitioning digital brand colors to physical media, a packaging specialist selecting spot colors for cost-effective production, a brand manager ensuring consistency across collateral, or a product designer specifying PMS codes for merchandise, this tool uses Euclidean distance algorithms in 3D RGB color space to search a comprehensive database of Pantone Solid Coated colors. No uploads, no server round-trips, no data leaving your device.`,
+      `The tool works in real time as you adjust the inputs. Use the color picker to visually select a color, type a HEX code directly, or fine-tune individual R, G, B channels with range sliders and number inputs. The left panel shows a large color preview and the current HEX value with one-click copy. As you adjust, the right panel instantly updates with the closest Pantone match — showing the PMS code, name, and a color-coded accuracy badge (green for ≥90%, yellow for ≥70%, red for below). A side-by-side comparison swatch lets you visually compare your input color against the matched Pantone. Below the primary match, six alternative matches are displayed as clickable cards — tap any alternative to preview its color instantly. To build a broader color workflow, pair this with our [RGB to HEX Converter](/utility-tools/converter-tools/rgb-to-hex-converter) for CSS-ready values, [Color Blindness Simulator](/utility-tools/image-tools/color-blindness-simulator) for accessibility review, or [QR Code Generator](/utility-tools/qr-code-generator) for brand-colored QR campaigns.`,
+    ];
+    faqs = [
+      {
+        question: "What is Pantone?",
+        answer: "Pantone is a standardized color matching system (PMS) used primarily in printing, packaging, and manufacturing. Each Pantone color has a unique code (e.g., PMS 185) that ensures consistent color reproduction across different materials, printers, and production runs."
+      },
+      {
+        question: "Is the conversion 100% accurate?",
+        answer: "No. RGB is an additive color model (light-based, used for screens) while Pantone is a subtractive ink system (used for print). Our tool provides the closest mathematical approximation using Euclidean distance in RGB color space. Always verify critical print jobs against a physical Pantone swatch book."
+      },
+      {
+        question: "How do I use this for print production?",
+        answer: "Use this tool as a reference to identify candidate PMS codes, then order a physical Pantone fan deck or swatch book to verify the color under standard lighting (D50 or D65) before finalizing any print run."
+      },
+      {
+        question: "How many Pantone colors does this tool support?",
+        answer: "The database includes over 300 Pantone Solid Coated colors — the most common standard for coated paper stock used in branding, packaging, and marketing materials."
+      },
+      {
+        question: "What does the accuracy percentage mean?",
+        answer: "The accuracy score (0-100%) represents how close the RGB equivalent of the Pantone color is to your input color, calculated from the Euclidean distance in 3D RGB space. Scores above 90% indicate a very close visual match."
+      },
+      {
+        question: "What is the difference between RGB and CMYK/Pantone?",
+        answer: "RGB mixes red, green, and blue light (additive) for screens. CMYK mixes cyan, magenta, yellow, and black ink (subtractive) for full-color printing. Pantone is a spot color system — a single pre-mixed ink. Converting between light and ink is always an approximation."
+      },
+      {
+        question: "Can I use the alternative matches?",
+        answer: "Yes. The six alternative matches below the primary result show nearby Pantone colors in the color spectrum. Click any alternative card to instantly preview that color — useful when the closest match doesn't feel right for your application."
+      },
+      {
+        question: "Does this tool require an internet connection?",
+        answer: "The page requires an initial load, but once loaded, all color matching calculations happen locally in your browser using JavaScript. No data is sent to any server during use."
+      }
+    ];
+  } else if (tool.url === '/utility-tools/converter-tools/gold-precious-metal-weight-converter') {
+    overview = [
+      `The Gold Weight Converter is a free online tool for converting precious metal weights between 8 global units — Grams, Kilograms, Troy Ounces, Carats, Pennyweight, Grains, Troy Pounds, and Tola — all calculated instantly in your browser. Whether you are a jeweler weighing scrap gold in pennyweight, a bullion trader comparing London spot prices in troy ounces to Dubai rates in tola, a collector evaluating coin weights in grains, or an investor converting kilogram bars to troy ounces for portfolio tracking, this tool uses precise gram-based conversion factors to give you accurate results across every unit simultaneously. No uploads, no server round-trips, no data leaving your device.`,
+      `The tool works in real time as you type. Enter a weight value in the input field, select the source unit from the From dropdown, and choose the target unit from the To dropdown — the primary result updates instantly. A swap button (⇄) between the two dropdowns lets you reverse the conversion direction with one click. Below the result, a side-by-side copy button saves the value and unit label to your clipboard. The right panel displays a complete reference grid of all 8 unit conversions simultaneously, updated live as you type or change the source unit. Click any unit card in the grid to set it as the target unit for instant comparison. Each unit value is formatted with adaptive decimal precision — larger values show fewer decimals for readability, while small values retain up to 6 decimal places for accuracy. To build a broader financial workflow, pair this with our [Currency Calculator](/finance/calculators/currency-calculator) for cross-market price comparison, [ROI Calculator](/finance/calculators/roi-calculator) for investment return analysis, or [Sales Tax Calculator](/finance/calculators/sales-tax-calculator) for landed cost calculations.`,
+    ];
+    faqs = [
+      {
+        question: "What is a Troy Ounce?",
+        answer: "A Troy Ounce (oz t) is the standard unit for weighing precious metals globally, equal to approximately 31.1 grams. It is heavier than a standard Avoirdupois ounce (28.35g) used for everyday items. Gold, silver, platinum, and palladium spot prices are always quoted in troy ounces."
+      },
+      {
+        question: "What is a Tola?",
+        answer: "The Tola is a traditional South Asian unit of mass, now standardized at 11.6638 grams. It is widely used for gold bars and jewelry in India, Pakistan, Bangladesh, Nepal, and Sri Lanka. One tola is roughly the same mass as a standard gold bar traded in these markets."
+      },
+      {
+        question: "Does this work for silver, platinum, or other metals?",
+        answer: "Yes. Weight is weight — 1 gram of gold is the same mass as 1 gram of silver, platinum, or palladium. The conversion factors are purely based on mass units, not metal type. You can use this tool for any precious metal or material."
+      },
+      {
+        question: "What is Pennyweight (dwt) used for?",
+        answer: "Pennyweight is an old unit equal to 24 grains or 1/20 of a troy ounce (1.555 grams). It remains a standard in the jewelry industry, especially for estimating casting weights from wax models and valuing small amounts of precious metal."
+      },
+      {
+        question: "How accurate are the conversion factors?",
+        answer: "The tool uses internationally recognized conversion factors (e.g., 1 troy ounce = 31.1035 grams, 1 tola = 11.6638 grams). These are accurate for most practical purposes. For certified bullion transactions, always verify with calibrated assay scales."
+      },
+      {
+        question: "Can I convert between any two units?",
+        answer: "Yes. The tool converts between all 8 supported units — grams, kilograms, troy ounces, carats, pennyweight, grains, troy pounds, and tola. Select any unit as the source and any other as the target. The reference grid on the right shows all units simultaneously."
+      },
+      {
+        question: "Does gold purity affect weight conversion?",
+        answer: "No. Purity (karat) measures what fraction of the item is gold, not how much it weighs. Weight conversion is purely about mass — 10 grams of 24K gold and 10 grams of 18K gold both weigh 10 grams. Purity affects value, not mass."
+      },
+      {
+        question: "Is the graph/icon on each unit meaningful?",
+        answer: "Each unit card has an icon to help visually distinguish the different measurement systems — metric (gram/kilogram), troy (ounce/pound), gemological (carat, grain), jewelry trade (pennyweight), and South Asian (tola). Click any card to set it as your target unit instantly."
+      }
+    ];
+  } else if (tool.url === '/utility-tools/converter-tools/svg-to-code-converter') {
+    overview = [
+      `The SVG to Code Converter is a free online developer tool that transforms SVG files into reusable code across seven output formats — React JSX Components, React Native SVG, Vue Single-File Components, Angular Components, clean HTML embeds, CSS Data URIs, and CSS Mask properties — all processed locally in your browser without uploading a single byte to any server. Whether you are a frontend developer extracting icons from Figma to use as React components, a React Native engineer converting web SVGs for mobile rendering, a Vue or Angular developer building design systems, a designer generating CSS sprite-sheet-ready Data URIs, or a student learning how SVG attributes map to JSX, this tool gives you instant, accurate code every time. It accepts input via three methods: drag-and-drop file upload, direct SVG markup paste, or remote URL fetch. Large SVGs (500KB+) are clearly flagged with a size warning, and the preview panel renders a sandboxed SVG alongside the generated code for side-by-side comparison. To inspect and rasterize the result, use our [SVG Viewer & Code to SVG Converter](/utility-tools/converter-tools/code-to-svg-converter) for zoomable previews, metadata display, and PNG export.`,
+      `The tool works by parsing your SVG into a DOM tree using the native browser DOMParser, then walking every node to convert SVG attributes (stroke-width → strokeWidth, class → className, style strings → JSX objects, etc.) according to the target framework's conventions. You can configure component naming, toggle width/height removal, clean unnecessary attributes (xmlns, version), and enable pretty-printed indentation. The output for React formats wraps the SVG in a fully typed functional component with a props interface, React Native generates proper react-native-svg imports and element mappings, Vue produces a <template> block with <script setup>, and Angular generates a @Component decorator with template. The CSS Data URI mode automatically URL-encodes the SVG and wraps it in a background-image property declaration. For a complete frontend workflow, pair this tool with our [Image Converter](/utility-tools/image-tools/image-converter) for format conversion, [Image to WebP](/utility-tools/image-tools/image-to-webp-converter) for modern compression, [HTML to Markdown Converter](/utility-tools/html-to-markdown-converter) for documentation-ready code blocks, or the [SVG Viewer](/utility-tools/converter-tools/code-to-svg-converter) to reverse the conversion back to raw SVG.`,
+    ];
+    faqs = [
+      {
+        question: "Which output formats are supported?",
+        answer: "Seven formats: React JSX Component (TSX with SVGProps interface), React Native SVG (with react-native-svg imports and element mapping), Vue SFC (<template> + <script setup>), Angular Component (@Component decorator), HTML Embed (clean SVG with responsive attributes), CSS Data URI (background-image with URL-encoded SVG), and CSS Mask (mask and -webkit-mask properties)."
+      },
+      {
+        question: "How does the SVG get converted to React code?",
+        answer: "The SVG is parsed with DOMParser, then every element and attribute is recursively transformed. Hyphenated SVG attributes are converted to camelCase JSX equivalents (stroke-width → strokeWidth, fill-rule → fillRule, clip-path → clipPath). The style attribute is parsed from CSS text into a JSX style object. The result is wrapped in a typed functional component with React.SVGProps and exported as default."
+      },
+      {
+        question: "Can I use this for React Native?",
+        answer: "Yes. React Native mode maps SVG elements to react-native-svg components (svg→Svg, path→Path, circle→Circle, etc.) and generates the correct import statement. Note that some SVG features like filters and complex clip-paths may have limited support in react-native-svg. Always test the output on your target device."
+      },
+      {
+        question: "How are large SVG files handled?",
+        answer: "Files over 500KB trigger an informational toast warning but are still processed. The conversion uses native DOMParser which is fast even for large documents. The code output panel is scrollable for long results. For extremely large SVGs (multiple MB), consider simplifying the artwork or splitting it into smaller components before conversion."
+      },
+      {
+        question: "Is my SVG data sent to any server?",
+        answer: "No. The tool runs entirely in your browser. The SVG is read via FileReader (for uploads), pasted text (for paste), or fetched via fetch() (for URL). All parsing, attribute conversion, and code generation happens in JavaScript on your device. The only network request is the initial page load and optional URL fetch."
+      },
+      {
+        question: "What does Remove w/h do?",
+        answer: "When enabled, the width and height attributes are stripped from the <svg> root element, leaving only the viewBox. This makes the SVG responsive — it will scale to fit its container. Recommended for React components and HTML embeds where you want the SVG to adapt to its parent element's dimensions."
+      },
+      {
+        question: "How do CSS Data URI and CSS Mask differ?",
+        answer: "CSS Data URI generates a background-image property with the SVG URL-encoded inline, useful for CSS sprites, icon backgrounds, and inline decorations. CSS Mask generates mask and -webkit-mask properties that use the SVG as a masking layer over an element's background, useful for shape masking and advanced clipping effects."
+      },
+      {
+        question: "Can I customize the component name?",
+        answer: "Yes. The Component Name field defaults to SvgComponent. For React, Vue, and Angular formats, this name is used for the component function/class, the props interface (React adds Props suffix), and the file selector (Angular adds Component suffix). Use PascalCase naming (e.g., 'MenuIcon') for best results."
+      }
+    ];
+  } else if (tool.url === '/utility-tools/converter-tools/code-to-svg-converter') {
+    overview = [
+      `The SVG Viewer & Code to SVG Converter is a free online developer tool that reverses the SVG-to-code pipeline — it takes existing component code in React JSX, React Native, Vue, Angular, HTML, or CSS Data URI format and converts it back into clean, browser-ready SVG markup, all rendered locally in a full-featured SVG Viewer with zoom, pan, grid overlay, and metadata display. Whether you extracted an SVG as a React component but need the raw SVG file back, inherited a Vue codebase with inline SVGs that you want to export as standalone graphic files, received a CSS Data URI from a designer that you need to decode into an editable SVG, or simply want to inspect an SVG's structure with element count and dimension info displayed alongside a live preview, this tool handles every format in one place. Input can be pasted directly or uploaded from a .svg file. This is the perfect companion to our [SVG to Code Converter](/utility-tools/converter-tools/svg-to-code-converter) — use them together for a complete round-trip SVG workflow.`,
+      `The tool works by reversing every transformation applied in the SVG to Code Converter. For React JSX input, it strips import/export declarations and the component wrapper, then converts camelCase JSX attributes back to standard SVG hyphenated attribute names (strokeWidth → stroke-width, className → class, fillRule → fill-rule, etc.). React Native input additionally reverses the element name mapping (Svg → svg, Path → path, Circle → circle) and strips the react-native-svg import. Vue input extracts the <template> block and converts :style bindings to inline CSS strings. Angular input extracts the template from the @Component decorator. CSS Data URI and Mask inputs decode the URL-encoded SVG from the url() wrapper. Once converted, the SVG is rendered in a live viewer panel where you can zoom from 25% to 500%, pan by dragging, toggle a checkered grid background for transparent regions, view metadata (viewBox, dimensions, element count, file size), and download the result as either an SVG file or a PNG rasterized image — all processed entirely in your browser with zero server uploads. For format conversion beyond SVG, pair with our [Image Converter](/utility-tools/image-tools/image-converter) for raster exports, [Image to WebP](/utility-tools/image-tools/image-to-webp-converter) for optimized compression, or [SVG to Code](/utility-tools/converter-tools/svg-to-code-converter) to turn your SVG into framework components.`,
+    ];
+    faqs = [
+      {
+        question: "What code formats can be converted back to SVG?",
+        answer: "The tool accepts seven input formats: React JSX Component (.tsx), React Native SVG with react-native-svg (.tsx), Vue Single-File Component (.vue), Angular Component (.ts), HTML Embed (inline SVG), CSS Data URI (background-image with url(data:image/svg+xml,...)), and CSS Mask (mask and -webkit-mask properties)."
+      },
+      {
+        question: "How does JSX get converted back to standard SVG?",
+        answer: "The tool strips the React component wrapper and import/export statements. It then walks the JSX attributes and reverses the camelCase conversion — className → class, strokeWidth → stroke-width, fillRule → fill-rule, clipPath → clip-path, etc. JSX style objects ({ fill: '#000', strokeWidth: 2 }) are converted back to inline CSS strings (fill: #000; stroke-width: 2). Spread expressions like {...props} are removed. Numeric values in curly braces are extracted to plain attributes."
+      },
+      {
+        question: "What viewer features are available?",
+        answer: "The SVG Viewer includes zoom controls (−, +, Reset, and Fit), click-and-drag panning, a toggleable checkered grid background for inspecting transparent areas, mouse wheel zoom support, and a metadata panel showing viewBox, width, height, element count, and file size. You can also download the SVG as a .svg file or as a rasterized .png image."
+      },
+      {
+        question: "Can I download the result as a PNG image?",
+        answer: "Yes. Click the PNG button in the viewer toolbar. The SVG is rendered onto an HTML Canvas element at up to 2048×2048 pixels with a white background, then exported as a PNG blob. This is useful for generating static images from vector graphics for use in presentations, social media, or documentation."
+      },
+      {
+        question: "How do CSS Data URI inputs work?",
+        answer: "When you paste a CSS background-image rule containing a data:image/svg+xml URL, the tool extracts the URL-encoded SVG string from inside the url() wrapper, decodes it using decodeURIComponent, and presents the decoded SVG markup in the viewer. The same process applies to CSS Mask inputs. This is useful when designers share icons as CSS data URIs and you need the raw SVG back."
+      },
+      {
+        question: "Is this tool just the reverse of the SVG to Code Converter?",
+        answer: "Yes, they are exact inverses. The SVG to Code Converter takes SVG markup and produces framework-specific component code. This tool takes that generated code and converts it back to SVG. Together, they form a complete round-trip pipeline — useful for scenarios where you need to extract the original SVG from a component-based design system."
+      },
+      {
+        question: "Can I view any SVG in the viewer without converting code?",
+        answer: "Yes, if you paste or upload a standalone .svg file (or raw SVG markup) with the HTML format selected, the tool passes it through directly. The viewer with zoom, pan, grid, metadata, and PNG download works on any SVG content, not just converted code. This makes it useful as a standalone SVG file viewer."
+      },
+      {
+        question: "Does this tool send my code or SVG to any server?",
+        answer: "No. All parsing, attribute conversion, SVG reconstruction, and PNG rasterization happen entirely in your browser using native APIs (DOMParser, Canvas, Blob, URL.createObjectURL). The only network request is the initial page load. Your code never leaves your device."
       }
     ];
   }

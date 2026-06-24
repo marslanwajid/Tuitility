@@ -929,37 +929,65 @@ export default function ToolContentEnhancer({ toolContent }: ToolContentEnhancer
     return () => observer.disconnect();
   }, [toolContent.url, formulas.length, toolContent.relatedTools.length]);
 
-  // Load saved feedback state
+  // Reset feedback state on URL change to permit submission across tool page loads
   useEffect(() => {
-    const saved = localStorage.getItem(`tuitility-feedback-${normalizedPath}`);
-    if (saved) {
-      setSubmitted(true);
-    } else {
-      setSubmitted(false);
-      setRating(null);
-      setFeedbackText('');
-      setEmail('');
-    }
+    setSubmitted(false);
+    setRating(null);
+    setFeedbackText('');
+    setEmail('');
   }, [toolContent.url]);
 
   const handleFeedbackSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    localStorage.setItem(
-      `tuitility-feedback-${normalizedPath}`,
-      JSON.stringify({ rating, feedbackText, email, date: new Date().toISOString() })
-    );
+    
+    const autoName = email ? email.split('@')[0] : `User of ${toolContent.name}`;
+    const autoEmail = email.trim() || 'no-email@tuitility.com';
+    const ratingLabel = rating === 'helpful' ? 'Helpful (5/5)' : rating === 'not-helpful' ? 'Not Helpful (1/5)' : 'No rating';
+    const currentUrl = typeof window !== 'undefined' ? window.location.href : toolContent.url;
+
+    // Dispatch SMTP request in the background
+    fetch('/api/contact', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        name: autoName,
+        email: autoEmail,
+        subject: `Tool Feedback: ${toolContent.name}`,
+        message: feedbackText,
+        formType: 'tool-feedback',
+        toolName: toolContent.name,
+        rating: ratingLabel,
+        pageUrl: currentUrl,
+      }),
+    }).catch((err) => {
+      console.error('Feedback SMTP submission error:', err);
+    });
+
     setSubmitted(true);
   };
 
   const renderFeedbackForm = (isSidebar: boolean) => {
     if (submitted) {
       return (
-        <div className={`bg-white border border-slate-150 ${isSidebar ? 'p-4' : 'p-8'} rounded-3xl text-center shadow-inner space-y-3 py-8 animate-fade-in-up`}>
+        <div className={`bg-white border border-slate-150 ${isSidebar ? 'p-4' : 'p-8'} rounded-3xl text-center shadow-inner space-y-3 py-8 animate-fade-in-up flex flex-col items-center justify-center`}>
           <div className="w-10 h-10 bg-slate-900 rounded-full flex items-center justify-center text-white text-sm mx-auto shadow-sm">
             <i className="fas fa-check text-xs"></i>
           </div>
           <h4 className="text-sm font-bold text-slate-800 font-display">Thank you!</h4>
           <p className="text-xs text-slate-450 font-medium">Your suggestion has been logged to improve this tool.</p>
+          <button
+            type="button"
+            onClick={() => {
+              setSubmitted(false);
+              setFeedbackText('');
+              setRating(null);
+            }}
+            className="mt-4 px-4 py-2 bg-slate-100 hover:bg-slate-200 border border-slate-200 text-slate-700 rounded-full font-bold text-[10px] active:scale-95 transition-all cursor-pointer"
+          >
+            Submit Another Feedback
+          </button>
         </div>
       );
     }

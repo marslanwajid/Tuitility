@@ -3,7 +3,8 @@ import { Inter, Jost } from 'next/font/google';
 import Script from 'next/script';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import FloatingGameButton from '../components/FloatingGameButton';
+import FloatingBrainGames from '../components/FloatingBrainGames';
+import FloatingChatbot from '../components/FloatingChatbot';
 import ScrollToTop from '../components/ScrollToTop';
 import { SITE_NAME, SITE_URL } from '../data/siteConfig';
 import './globals.css';
@@ -106,7 +107,10 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
-        <FloatingGameButton />
+        <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">
+          <FloatingBrainGames />
+          <FloatingChatbot />
+        </div>
       </body>
     </html>
   );

@@ -524,6 +524,20 @@ export const allTools = [
     icon: "fas fa-music",
   },
   {
+    name: "Audio Format Converter",
+    desc: "Convert audio files between MP3, WAV, and other formats with quality control",
+    url: "/utility-tools/audio-format-converter",
+    category: "Utility",
+    icon: "fas fa-exchange-alt",
+  },
+  {
+    name: "Video to Audio Extractor",
+    desc: "Extract audio from video files and download as MP3 or WAV",
+    url: "/utility-tools/video-to-audio-extractor",
+    category: "Utility",
+    icon: "fas fa-video",
+  },
+  {
     name: "Instagram Reels Downloader",
     desc: "Download Instagram Reels videos",
     url: "/utility-tools/converter-tools/reels-downloader",
@@ -572,6 +586,20 @@ export const allTools = [
     url: "/utility-tools/converter-tools/gold-precious-metal-weight-converter",
     category: "Utility",
     icon: "fas fa-coins",
+  },
+  {
+    name: "SVG to Code Converter",
+    desc: "Convert SVG files to React JSX, React Native, Vue, Angular, HTML, and CSS code",
+    url: "/utility-tools/converter-tools/svg-to-code-converter",
+    category: "Utility",
+    icon: "fas fa-code",
+  },
+  {
+    name: "SVG Viewer & Code to SVG Converter",
+    desc: "View SVG files with zoom and grid, or convert React JSX, React Native, Vue, Angular, HTML, and CSS code back to SVG",
+    url: "/utility-tools/converter-tools/code-to-svg-converter",
+    category: "Utility",
+    icon: "fas fa-eye",
   },
 
   {
