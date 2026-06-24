@@ -12,7 +12,7 @@ interface Question {
   explanation: string;
 }
 
-const QUESTIONS_BANK: Record<string, Question[]> = {
+const QUESTIONS_BANK: Record<string, Question[]> = { 
   math: [
     {
       question: "What is the sum of the interior angles of a hexagon?",
