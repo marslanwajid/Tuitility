@@ -75,12 +75,33 @@ const RequestForm = ({ onSubmit, onCancel }: { onSubmit: (name: string, email: s
   );
 };
 
+// Known valid non-tool pages
+const VALID_PAGES: Record<string, string> = {
+  '/about': 'About Us',
+  '/contact': 'Contact Us',
+  '/privacy-policy': 'Privacy Policy',
+  '/terms-and-conditions': 'Terms & Conditions',
+  '/math': 'Math Tools',
+  '/finance': 'Finance Tools',
+  '/science': 'Science Tools',
+  '/health': 'Health Tools',
+  '/utility-tools': 'Utility Tools',
+  '/knowledge': 'Knowledge Tools',
+};
+
+function isValidUrl(url: string): boolean {
+  if (VALID_PAGES[url]) return true;
+  return allTools.some(t => t.url === url);
+}
+
 const renderFormattedContent = (content: string) => {
   // Pre-process: convert "Link: /path" format to markdown link format
   let processed = content.replace(/Link:\s*(\/[a-zA-Z0-9\-_/]+)/g, (_match, url: string) => {
     const tool = allTools.find(t => t.url === url);
-    const label = tool ? tool.name : url;
-    return `[${label}](${url})`;
+    if (tool) return `[${tool.name}](${url})`;
+    if (VALID_PAGES[url]) return `[${VALID_PAGES[url]}](${url})`;
+    // Not a real URL — keep as plain text
+    return tool ? `[${tool.name}](${url})` : url;
   });
 
   // Split on: **bold**, [label](url), and standalone /paths
@@ -94,6 +115,10 @@ const renderFormattedContent = (content: string) => {
       const mid = part.indexOf('](');
       const label = part.slice(1, mid);
       const url = part.slice(mid + 2, -1);
+      // Only render as link if URL is a real tool/page
+      if (!isValidUrl(url)) {
+        return <span key={index}>{label}</span>;
+      }
       return (
         <a key={index} href={url} className="text-blue-400 hover:text-blue-300 font-semibold underline underline-offset-2 transition-colors">
           {label}
@@ -101,29 +126,23 @@ const renderFormattedContent = (content: string) => {
       );
     }
     if (part.startsWith('/')) {
-      let label = part;
       const tool = allTools.find(t => t.url === part);
       if (tool) {
-        label = tool.name;
-      } else if (part === '/about') {
-        label = 'About Us';
-      } else if (part === '/contact') {
-        label = 'Contact Us';
-      } else if (part === '/privacy-policy') {
-        label = 'Privacy Policy';
-      } else if (part === '/terms-and-conditions') {
-        label = 'Terms & Conditions';
-      } else {
-        const cat = part.substring(1);
-        if (['math', 'finance', 'science', 'health', 'utility-tools', 'knowledge'].includes(cat)) {
-          label = cat.charAt(0).toUpperCase() + cat.slice(1).replace('-tools', '') + ' Tools';
-        }
+        return (
+          <a key={index} href={part} className="text-blue-400 hover:text-blue-300 font-semibold underline underline-offset-2 transition-colors">
+            {tool.name}
+          </a>
+        );
       }
-      return (
-        <a key={index} href={part} className="text-blue-400 hover:text-blue-300 font-semibold underline underline-offset-2 transition-colors">
-          {label}
-        </a>
-      );
+      if (VALID_PAGES[part]) {
+        return (
+          <a key={index} href={part} className="text-blue-400 hover:text-blue-300 font-semibold underline underline-offset-2 transition-colors">
+            {VALID_PAGES[part]}
+          </a>
+        );
+      }
+      // Not a real URL — render as plain text, don't make it clickable
+      return <span key={index}>{part}</span>;
     }
     return part;
   });
@@ -238,23 +257,39 @@ export default function FloatingChatbot() {
         const chunk = decoder.decode(value, { stream: true });
         const lines = chunk.split('\n');
         for (const line of lines) {
-          if (!line.trim()) continue;
+          const trimmed = line.trim();
+          if (!trimmed || trimmed.startsWith(':')) continue;
+          let parsed;
           try {
-            const parsed = JSON.parse(line);
-            if (parsed.content) {
-              assistantContent += parsed.content;
-              setMessages(prev => {
-                const updated = [...prev];
-                const last = updated[updated.length - 1];
-                if (last && last.id === assistantMsg.id) {
-                  updated[updated.length - 1] = { ...last, content: assistantContent };
-                }
-                return updated;
-              });
-            }
-            if (parsed.error) throw new Error(parsed.error);
-          } catch { /* skip */ }
+            parsed = JSON.parse(trimmed);
+          } catch {
+            continue;
+          }
+          if (parsed.content) {
+            assistantContent += parsed.content;
+            setMessages(prev => {
+              const updated = [...prev];
+              const last = updated[updated.length - 1];
+              if (last && last.id === assistantMsg.id) {
+                updated[updated.length - 1] = { ...last, content: assistantContent };
+              }
+              return updated;
+            });
+          }
+          if (parsed.error) throw new Error(parsed.error);
         }
+      }
+
+      // If stream completed but no content was received, show fallback
+      if (!assistantContent.trim()) {
+        setMessages(prev => {
+          const updated = [...prev];
+          const last = updated[updated.length - 1];
+          if (last && last.id === assistantMsg.id) {
+            updated[updated.length - 1] = { ...last, content: 'Hmm, I didn\'t get a response. Please try again! 🔄' };
+          }
+          return updated;
+        });
       }
     } catch (e) {
       const errMsg = e instanceof Error ? e.message : 'Something went wrong';

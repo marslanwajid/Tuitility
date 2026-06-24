@@ -1,5 +1,9 @@
 import { NextRequest } from 'next/server';
 
+// Allow up to 60s for streaming responses on Vercel (Pro plan)
+// On free/hobby plan this caps at 10s, but setting it signals intent
+export const maxDuration = 60;
+
 const SYSTEM_PROMPT = `You are TuitiBot, the helpful assistant for Tuitility — a free online tools platform with 96+ calculators, converters, PDF tools, and utility tools.
 
 Your job:
@@ -27,7 +31,7 @@ If multiple tools match, list them all:
 **Image to WebP Converter** — Convert images to WebP format
 [Image to WebP Converter](/utility-tools/image-tools/image-to-webp-converter)
 
-Never make up tools or URLs that aren't in the matchedTools list. If no matchedTools are provided and you're unsure, ask the user to describe what they need.`;
+Never make up tools or URLs. You must ONLY use tool names and URLs that appear in the matchedTools list provided with this message. If no matchedTools are provided or none match the user's query, say: "I couldn't find an exact match for that. Could you describe what you're looking for?" Do NOT guess or invent tool names or URL paths.`;
 
 export async function POST(request: NextRequest) {
   try {
@@ -41,6 +45,9 @@ export async function POST(request: NextRequest) {
     const toolContext = matchedTools && matchedTools.length > 0
       ? `\n\nRelevant tools on this site:\n${matchedTools.map((t: { name: string; url: string; desc: string }) => `- ${t.name}: ${t.desc} (${t.url})`).join('\n')}`
       : '';
+
+    // Limit conversation history to last 10 messages to prevent token overflow on free models
+    const recentMessages = messages.slice(-10);
 
     let res;
     let model = 'openrouter/free';
@@ -58,7 +65,7 @@ export async function POST(request: NextRequest) {
           model: model,
           messages: [
             { role: 'system', content: SYSTEM_PROMPT + toolContext },
-            ...messages.map((m: { role: string; content: string }) => ({ role: m.role, content: m.content })),
+            ...recentMessages.map((m: { role: string; content: string }) => ({ role: m.role, content: m.content })),
           ],
           temperature: 0.7,
           max_tokens: 1500,
@@ -85,7 +92,7 @@ export async function POST(request: NextRequest) {
           model: model,
           messages: [
             { role: 'system', content: SYSTEM_PROMPT + toolContext },
-            ...messages.map((m: { role: string; content: string }) => ({ role: m.role, content: m.content })),
+            ...recentMessages.map((m: { role: string; content: string }) => ({ role: m.role, content: m.content })),
           ],
           temperature: 0.7,
           max_tokens: 1500,
@@ -121,8 +128,7 @@ export async function POST(request: NextRequest) {
               const trimmed = line.trim();
               if (!trimmed) continue;
               if (trimmed.startsWith(':')) {
-                // Keep-alive comment from OpenRouter, forward it to client to prevent timeout
-                controller.enqueue(encoder.encode(':\n'));
+                // Keep-alive comment from OpenRouter, skip
                 continue;
               }
               if (!trimmed.startsWith('data: ')) continue;
