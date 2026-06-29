@@ -4,17 +4,12 @@ import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { useGSAP } from '@gsap/react';
-import gsap from 'gsap';
 import HeaderSearch from './HeaderSearch';
 import { toolCategories } from '../data/toolCategories';
-
-gsap.registerPlugin(useGSAP);
 
 const Header: React.FC = () => {
   const [isMenuActive, setIsMenuActive] = useState(false);
   const pathname = usePathname();
-  const navContainerRef = useRef<HTMLDivElement>(null);
   const menuRef = useRef<HTMLUListElement>(null);
   const burgerRef = useRef<HTMLDivElement>(null);
 
@@ -45,64 +40,13 @@ const Header: React.FC = () => {
     };
   }, [isMenuActive]);
 
-  // GSAP animations for load and sticky state
-  useGSAP(
-    () => {
-      // Entrance animation for header links
-      gsap.fromTo('.nav-item', 
-        { y: -15, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.6, stagger: 0.08, ease: 'power3.out' }
-      );
-
-      // Subtle logo float
-      gsap.to('.logo-img', {
-        y: -2,
-        duration: 2,
-        repeat: -1,
-        yoyo: true,
-        ease: 'sine.inOut',
-      });
-    },
-    { scope: navContainerRef }
-  );
-
-  // GSAP animation for mobile drawer opening
-  useGSAP(
-    () => {
-      if (isMenuActive) {
-        gsap.to(menuRef.current, {
-          x: 0,
-          opacity: 1,
-          duration: 0.4,
-          ease: 'power3.out',
-        });
-        gsap.fromTo(
-          '.mobile-nav-item',
-          { x: 50, opacity: 0 },
-          { x: 0, opacity: 1, duration: 0.4, stagger: 0.05, ease: 'power3.out', delay: 0.1 }
-        );
-      } else {
-        gsap.to(menuRef.current, {
-          x: '100%',
-          opacity: 0,
-          duration: 0.3,
-          ease: 'power3.in',
-        });
-      }
-    },
-    { dependencies: [isMenuActive] }
-  );
-
   return (
-    <header
-      ref={navContainerRef}
-      className="fixed top-0 left-0 right-0 h-20 glass-panel border-b border-slate-200/40 z-50 flex items-center navbar"
-    >
+    <header className="fixed top-0 left-0 right-0 h-20 glass-panel border-b border-slate-200/40 z-50 flex items-center navbar">
       <nav className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         {/* Logo */}
         <div className="flex-shrink-0 group">
           <Link href="/" className="flex items-center space-x-2">
-            <div className="relative w-36 h-10 logo-img">
+            <div className="relative w-36 h-10 animate-float">
               <Image
                 src="/images/logo.png"
                 alt="Tuitility"
@@ -120,7 +64,7 @@ const Header: React.FC = () => {
 
         {/* Desktop Menu */}
         <ul className="hidden lg:flex items-center space-x-1">
-          <li className="nav-item">
+          <li className="animate-fade-in-up" style={{ animationDelay: '0s' }}>
             <Link
               href="/"
               className={`px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 hover:bg-slate-100/80 ${
@@ -130,10 +74,10 @@ const Header: React.FC = () => {
               Home
             </Link>
           </li>
-          {toolCategories.map((category) => {
+          {toolCategories.map((category, i) => {
             const isActive = pathname.startsWith(category.url);
             return (
-              <li className="nav-item" key={category.url}>
+              <li className="animate-fade-in-up" key={category.url} style={{ animationDelay: `${(i + 1) * 0.08}s` }}>
                 <Link
                   href={category.url}
                   className={`px-4 py-2 rounded-full text-sm font-semibold flex items-center space-x-1.5 transition-all duration-300 hover:bg-slate-100/80 ${
@@ -177,14 +121,16 @@ const Header: React.FC = () => {
         {/* Mobile Navigation Drawer */}
         <ul
           ref={menuRef}
-          className="fixed top-0 right-0 bottom-0 w-[280px] bg-white/95 backdrop-blur-xl shadow-2xl border-l border-slate-100 px-6 py-24 flex flex-col space-y-6 z-40 transform translate-x-full lg:hidden"
+          className={`fixed top-0 right-0 bottom-0 w-[280px] bg-white/95 backdrop-blur-xl shadow-2xl border-l border-slate-100 px-6 py-24 flex flex-col space-y-6 z-40 transform transition-all duration-300 lg:hidden ${
+            isMenuActive ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'
+          }`}
         >
           {/* Mobile search */}
-          <div className="mb-4">
+          <div className="mb-4" style={{ animationDelay: '0.1s' }}>
             <HeaderSearch idPrefix="mobileSearch" isMobile={true} />
           </div>
 
-          <li className="mobile-nav-item">
+          <li className={isMenuActive ? 'animate-fade-in-up' : ''} style={isMenuActive ? { animationDelay: '0.15s' } : undefined}>
             <Link
               href="/"
               onClick={closeMenu}
@@ -195,10 +141,10 @@ const Header: React.FC = () => {
               Home
             </Link>
           </li>
-          {toolCategories.map((category) => {
+          {toolCategories.map((category, i) => {
             const isActive = pathname.startsWith(category.url);
             return (
-              <li className="mobile-nav-item" key={category.url}>
+              <li className={isMenuActive ? 'animate-fade-in-up' : ''} key={category.url} style={isMenuActive ? { animationDelay: `${0.15 + (i + 1) * 0.05}s` } : undefined}>
                 <Link
                   href={category.url}
                   onClick={closeMenu}

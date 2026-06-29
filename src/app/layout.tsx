@@ -1,13 +1,15 @@
 import type { Metadata } from 'next';
 import { Inter, Jost } from 'next/font/google';
+import dynamic from 'next/dynamic';
 import Script from 'next/script';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import FloatingBrainGames from '../components/FloatingBrainGames';
-import FloatingChatbot from '../components/FloatingChatbot';
-import ScrollToTop from '../components/ScrollToTop';
 import { SITE_NAME, SITE_URL } from '../data/siteConfig';
 import './globals.css';
+
+const FloatingBrainGames = dynamic(() => import('../components/FloatingBrainGames'));
+const FloatingChatbot = dynamic(() => import('../components/FloatingChatbot'));
+const ScrollToTop = dynamic(() => import('../components/ScrollToTop'));
 
 const inter = Inter({
   variable: '--font-sans',
@@ -74,18 +76,17 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const gtmId = process.env.GTM_ID || 'GTM-KLMXXLLM';
   const gtagId = process.env.GTAG_ID || 'G-J5D6X4QFD9';
 
   return (
     <html lang="en" className={`${inter.variable} ${jost.variable} h-full scroll-smooth`}>
       <head>
-        {/* Google Analytics (gtag.js) */}
+        {/* Google Analytics (gtag.js) — loaded after page is interactive */}
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${gtagId}`}
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
-        <Script id="google-analytics" strategy="afterInteractive">
+        <Script id="google-analytics" strategy="lazyOnload">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
@@ -94,29 +95,19 @@ export default function RootLayout({
           `}
         </Script>
 
-        {/* Google Tag Manager */}
-        <Script
-          id="gtm-script"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-            })(window,document,'script','dataLayer','${gtmId}');`,
-          }}
-        />
+        {/* Font Awesome — loaded after page is interactive (not render-blocking) */}
+        <Script id="font-awesome-loader" strategy="afterInteractive">
+          {`
+            (function() {
+              var link = document.createElement('link');
+              link.rel = 'stylesheet';
+              link.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css';
+              document.head.appendChild(link);
+            })();
+          `}
+        </Script>
       </head>
       <body className="min-h-full flex flex-col pt-24 relative">
-        {/* Google Tag Manager (noscript) */}
-        <noscript>
-          <iframe
-            src={`https://www.googletagmanager.com/ns.html?id=${gtmId}`}
-            height="0"
-            width="0"
-            style={{ display: 'none', visibility: 'hidden' }}
-          />
-        </noscript>
 
         <ScrollToTop />
         <Header />

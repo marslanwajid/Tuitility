@@ -23,7 +23,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority = 0.8;
     } else {
       // Tool detail pages
-      priority = 0.6;
+      priority = 1.0;
     }
 
     // Determine crawl change frequency
