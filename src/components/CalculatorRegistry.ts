@@ -393,6 +393,14 @@ export const CALCULATOR_REGISTRY: Record<string, React.ComponentType<any>> = {
     () => import('./utility/CodeToSvgConverter'),
     { ssr: false }
   ),
+  '/utility-tools/converter-tools/video-to-gif': dynamic(
+    () => import('./utility/VideoToGifConverter'),
+    { ssr: false }
+  ),
+  '/utility-tools/image-tools/gif-compressor': dynamic(
+    () => import('./utility/GifCompressor'),
+    { ssr: false }
+  ),
 };
 
 export default CALCULATOR_REGISTRY;

@@ -549,6 +549,24 @@ const SEO_PRIORITY_OVERRIDES = {
     rationale: 'High search volume for fun and practical slang translation and decoding with clear, context-aware AI output.',
     focusKeywords: ['gen z translator', 'gen z slang translator', 'slang decoder', 'internet slang translator', 'ai slang translator', 'gen z meaning tool'],
   },
+  '/utility-tools/converter-tools/video-to-gif': {
+    tier: 'high',
+    outlook: 'strong long-tail opportunity',
+    rationale: 'High search volume for client-side, browser-based video-to-gif converters; differentiate with customizable FPS (up to 60 FPS), crop timeline sliders, size adjusters, and zero server upload privacy.',
+    focusKeywords: ['video to gif', 'video to gif converter', 'convert video to gif online', 'smooth video to gif', '60 fps video to gif'],
+  },
+  '/utility-tools/image-tools/gif-compressor': {
+    tier: 'high',
+    outlook: 'strong long-tail opportunity',
+    rationale: 'High search intent for client-side animated GIF compression tools to reduce file size without installing software; differentiate with lossy compression factors, frame skipping sliders, and color reduction controls.',
+    focusKeywords: ['gif compressor', 'compress gif online', 'reduce gif size', 'lossy gif compression', 'make gif smaller'],
+  },
+  '/utility-tools/image-tools/gif-background-remover': {
+    tier: 'high',
+    outlook: 'strong long-tail opportunity',
+    rationale: 'High search volume for browser-based transparent GIF generators; differentiate with multi-frame canvas color extraction, alpha threshold adjustments, and zero server storage privacy.',
+    focusKeywords: ['gif background remover', 'remove background from gif', 'make gif background transparent', 'transparent gif maker online', 'change gif background'],
+  },
 };
 
 const normalizePath = (pathname: string = '/') => {
@@ -2146,6 +2164,67 @@ export const getToolContent = (tool: any) => {
       {
         question: "Does this tool send my code or SVG to any server?",
         answer: "No. All parsing, attribute conversion, SVG reconstruction, and PNG rasterization happen entirely in your browser using native APIs (DOMParser, Canvas, Blob, URL.createObjectURL). The only network request is the initial page load. Your code never leaves your device."
+      }
+    ];
+  } else if (tool.url === '/utility-tools/converter-tools/video-to-gif') {
+    overview = [
+      `The Video to GIF Converter is a free online tool that converts video files (such as MP4, WebM, and MOV formats) directly into high-quality animated GIFs in your browser. With a local processing pipeline using Web APIs and canvas encoding, this converter requires no server uploads, maintaining complete user privacy. Differentiate your workflows by customizing frame rates up to 60 FPS for smooth motion transitions, scaling dimensions, adjusting the crop range via timeline sliders, and configuring the loop count. Once you have converted your video to a GIF, you can compress it to reduce file size using our [GIF Compressor](/utility-tools/image-tools/gif-compressor) or remove/change the background of the animation using our [GIF Background Remover](/utility-tools/image-tools/gif-background-remover).`,
+      `The entire quantization and color reduction process runs locally on your device. The tool extracts frames from the video at your chosen frame rate, maps them to an optimized 256-color palette, and compiles them into a download-ready GIF file. This makes it an ideal fit for developers creating documentation assets, designers sharing quick mockups, or content creators optimizing visual loops. For further optimization, pair this converter with our [GIF Compressor](/utility-tools/image-tools/gif-compressor) to trim extra bytes or [GIF Background Remover](/utility-tools/image-tools/gif-background-remover) to make the animation background transparent.`
+    ];
+    faqs = [
+      {
+        question: "How do I make the converted GIF smaller in file size?",
+        answer: "You can reduce the output size by adjusting the frame rate (FPS), scaling the resolution down, or trimming the video duration. For advanced compression (such as lossy optimization or color reduction), you can use our dedicated [GIF Compressor](/utility-tools/image-tools/gif-compressor) after exporting the GIF."
+      },
+      {
+        question: "Can I remove the background of the generated GIF?",
+        answer: "Yes. Once the video has been converted to a GIF, you can pass the output to our [GIF Background Remover](/utility-tools/image-tools/gif-background-remover) to make the background transparent or swap it with a solid color."
+      },
+      {
+        question: "Is my video uploaded to any server?",
+        answer: "No. The conversion is done entirely in your browser using the local Canvas element and Javascript. Your video file never leaves your machine, keeping it 100% private."
+      },
+      {
+        question: "What is the maximum frame rate supported?",
+        answer: "The converter supports up to 60 FPS for extremely smooth animations. Keep in mind that higher frame rates and longer durations increase the output file size and require more memory to encode."
+      }
+    ];
+  } else if (tool.url === '/utility-tools/image-tools/gif-compressor') {
+    overview = [
+      `The GIF Compressor is a free online tool designed to optimize and reduce the file size of animated GIFs locally in your browser. Whether you need to compress a large GIF to fit Slack limits, optimize web assets for faster loading, or shrink a freshly converted clip, this compressor offers adjustable lossy compression, frame skipping, color palette reduction, and scale sliders to help you achieve the perfect balance between quality and file size. For a complete animation workflow, you can convert videos to GIFs using our [Video to GIF Converter](/utility-tools/converter-tools/video-to-gif) or erase background areas using our [GIF Background Remover](/utility-tools/image-tools/gif-background-remover).`,
+      `By utilizing in-browser canvas rendering and palette color re-mapping, the tool compresses files securely on your device without server uploads. To get started, upload any animated GIF, choose a compression preset, adjust custom parameters, and download the optimized output. For creating new assets, use the [Video to GIF Converter](/utility-tools/converter-tools/video-to-gif) first, or transparentize your animations using our [GIF Background Remover](/utility-tools/image-tools/gif-background-remover).`
+    ];
+    faqs = [
+      {
+        question: "How does the GIF Compressor reduce file size?",
+        answer: "It uses multiple optimization techniques: lossy LZW compression (writing color patterns more efficiently), color palette reduction (shrinking the global color table from 256 colors down to 128, 64, or 32), frame dropping (removing every second or third frame), and resolution scaling."
+      },
+      {
+        question: "Can I compress a GIF converted from a video?",
+        answer: "Yes! If you convert a video using our [Video to GIF Converter](/utility-tools/converter-tools/video-to-gif), you can import the resulting file directly into this compressor to minimize its size for web publishing."
+      },
+      {
+        question: "Does compressing a GIF affect its transparency?",
+        answer: "No. The compressor preserves transparency indexes while optimizing color palettes. If you need to make a background transparent, use the [GIF Background Remover](/utility-tools/image-tools/gif-background-remover)."
+      }
+    ];
+  } else if (tool.url === '/utility-tools/image-tools/gif-background-remover') {
+    overview = [
+      `The GIF Background Remover is a free online image editing utility that allows you to remove or replace backgrounds from animated GIFs entirely in the browser. By extracting frames into canvas buffers, analyzing color coordinates, and applying customizable alpha transparency tolerance thresholds, this tool strips out solid or complex backdrops to create a clean, transparent overlay or swap the background with a different color. Use this to prepare animated assets for dark-mode websites, overlay icons, or meme creation. For other GIF editing tasks, optimize file sizes using our [GIF Compressor](/utility-tools/image-tools/gif-compressor) or generate new animations from videos using our [Video to GIF Converter](/utility-tools/converter-tools/video-to-gif).`,
+      `Like all tools on Tuitility, the background removal process is local. Your frames are parsed, transparency-masked, and re-compiled on your device, ensuring maximum privacy. For best results, pair this tool with the [Video to GIF Converter](/utility-tools/converter-tools/video-to-gif) to create high-quality animated loops first, and use the [GIF Compressor](/utility-tools/image-tools/gif-compressor) to reduce output file size.`
+    ];
+    faqs = [
+      {
+        question: "How do I make a GIF background transparent?",
+        answer: "Upload your GIF, select the background color you wish to remove (using the color picker or preset choices), adjust the tolerance slider to capture similar shades, and click render. The tool generates a masked alpha channel for every frame."
+      },
+      {
+        question: "Can I use this for complex photo backgrounds?",
+        answer: "The tool works best on solid, green-screen, or high-contrast backgrounds. Complex patterns or gradient backdrops may require higher tolerance adjustments or custom masking."
+      },
+      {
+        question: "Where can I compress the transparent output?",
+        answer: "You can download the transparent GIF and upload it directly to our [GIF Compressor](/utility-tools/image-tools/gif-compressor) to reduce its file size before sharing."
       }
     ];
   }

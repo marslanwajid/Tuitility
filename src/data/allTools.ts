@@ -601,6 +601,27 @@ export const allTools = [
     category: "Utility",
     icon: "fas fa-eye",
   },
+  {
+    name: "Video to GIF Converter",
+    desc: "Convert MP4, WebM, or MOV videos to high-quality GIFs locally in your browser. Features precise timeline trimming, custom sizing, and smooth framerates up to 60 FPS.",
+    url: "/utility-tools/converter-tools/video-to-gif",
+    category: "Utility",
+    icon: "fas fa-file-video",
+  },
+  {
+    name: "GIF Compressor",
+    desc: "Compress GIF images online. Reduce GIF file size using color reduction, frame dropping, and lossy compression optimizations.",
+    url: "/utility-tools/image-tools/gif-compressor",
+    category: "Utility",
+    icon: "fas fa-compress-arrows-alt",
+  },
+  {
+    name: "GIF Background Remover",
+    desc: "Remove background from animated GIFs. Make GIF backgrounds transparent or replace them with a solid color automatically.",
+    url: "/utility-tools/image-tools/gif-background-remover",
+    category: "Utility",
+    icon: "fas fa-eraser",
+  },
 
   {
     name: "GPA Calculator",
