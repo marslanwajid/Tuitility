@@ -7,6 +7,8 @@ import Footer from '../components/Footer';
 import { SITE_NAME, SITE_URL } from '../data/siteConfig';
 import './globals.css';
 
+import FaviconAnimator from '../components/FaviconAnimator';
+
 const FloatingBrainGames = dynamic(() => import('../components/FloatingBrainGames'));
 const FloatingChatbot = dynamic(() => import('../components/FloatingChatbot'));
 const ScrollToTop = dynamic(() => import('../components/ScrollToTop'));
@@ -42,7 +44,10 @@ export const metadata: Metadata = {
     'converter tools',
   ],
   icons: {
-    icon: '/images/favicon.png',
+    icon: [
+      { url: '/images/favicon.png', type: 'image/png' },
+      { url: '/tuitility-gif.gif', type: 'image/gif' },
+    ],
   },
   alternates: {
     canonical: '/',
@@ -108,7 +113,7 @@ export default function RootLayout({
         </Script>
       </head>
       <body className="min-h-full flex flex-col pt-24 relative">
-
+        <FaviconAnimator />
         <ScrollToTop />
         <Header />
         <main className="flex-1 w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-8">
