@@ -401,6 +401,10 @@ export const CALCULATOR_REGISTRY: Record<string, React.ComponentType<any>> = {
     () => import('./utility/GifCompressor'),
     { ssr: false }
   ),
+  '/utility-tools/image-tools/gif-background-remover': dynamic(
+    () => import('./utility/GifBackgroundRemover'),
+    { ssr: false }
+  ),
 };
 
 export default CALCULATOR_REGISTRY;
