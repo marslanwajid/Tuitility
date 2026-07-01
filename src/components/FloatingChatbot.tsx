@@ -448,7 +448,7 @@ export default function FloatingChatbot() {
               </button>
             </div>
             <div className="flex items-center justify-between mt-1.5 px-1">
-              <span className="text-[9px] text-slate-600">Powered by OpenRouter AI</span>
+              <span className="text-[9px] text-slate-600">Whole Website's Tools AI</span>
               <button type="button" onClick={handleSendRequest}
                 className="text-[9px] text-slate-500 hover:text-slate-300 transition-colors cursor-pointer">
                 <i className="fas fa-envelope mr-1"></i>Submit Request
