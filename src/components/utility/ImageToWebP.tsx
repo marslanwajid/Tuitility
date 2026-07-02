@@ -25,12 +25,17 @@ export default function ImageToWebP() {
   const [conversionError, setConversionError] = useState<string>('');
 
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const filesRef = useRef<ImageFile[]>([]);
+
+  useEffect(() => {
+    filesRef.current = files;
+  }, [files]);
 
   useEffect(() => {
     return () => {
-      files.forEach((f) => { if (f.preview) URL.revokeObjectURL(f.preview); });
+      filesRef.current.forEach((f) => { if (f.preview) URL.revokeObjectURL(f.preview); });
     };
-  }, [files]);
+  }, []);
 
   const handleDragOver = (e: React.DragEvent) => { e.preventDefault(); setIsDragging(true); };
   const handleDragLeave = (e: React.DragEvent) => { e.preventDefault(); setIsDragging(false); };
@@ -62,18 +67,34 @@ export default function ImageToWebP() {
     return parseFloat((bytes / Math.pow(k, i)).toFixed(d)) + ' ' + s[i];
   };
 
-  const convertStandard = (fileObj: ImageFile, q: number): Promise<Blob> =>
-    new Promise((resolve, reject) => {
-      const img = new Image();
-      img.onload = () => {
-        const c = document.createElement('canvas'); c.width = img.width; c.height = img.height;
-        const ctx = c.getContext('2d'); if (!ctx) { reject(new Error('Failed to create canvas 2D context')); return; }
-        ctx.drawImage(img, 0, 0);
-        c.toBlob((blob) => { blob ? resolve(blob) : reject(new Error('Canvas WebP generation returned null')); }, 'image/webp', q);
-      };
-      img.onerror = () => reject(new Error('Failed to load original image in DOM'));
-      img.src = fileObj.preview;
-    });
+  const convertStandard = async (fileObj: ImageFile, q: number): Promise<Blob> => {
+    try {
+      const bitmap = await createImageBitmap(fileObj.file);
+      try {
+        return await new Promise<Blob>((resolve, reject) => {
+          const c = document.createElement('canvas'); c.width = bitmap.width; c.height = bitmap.height;
+          const ctx = c.getContext('2d'); if (!ctx) { reject(new Error('Failed to create canvas 2D context')); return; }
+          ctx.drawImage(bitmap, 0, 0);
+          c.toBlob((blob) => { blob ? resolve(blob) : reject(new Error('Canvas WebP generation returned null')); }, 'image/webp', q);
+        });
+      } finally {
+        bitmap.close();
+      }
+    } catch (bitmapError) {
+      // Fallback to Image loader in DOM if createImageBitmap fails
+      return new Promise<Blob>((resolve, reject) => {
+        const img = new Image();
+        img.onload = () => {
+          const c = document.createElement('canvas'); c.width = img.width; c.height = img.height;
+          const ctx = c.getContext('2d'); if (!ctx) { reject(new Error('Failed to create canvas 2D context')); return; }
+          ctx.drawImage(img, 0, 0);
+          c.toBlob((blob) => { blob ? resolve(blob) : reject(new Error('Canvas WebP generation returned null')); }, 'image/webp', q);
+        };
+        img.onerror = () => reject(new Error('Failed to load original image in DOM'));
+        img.src = fileObj.preview;
+      });
+    }
+  };
 
   const convertAdvanced = async (file: File, q: number): Promise<Blob> => {
     return await imageCompression(file, {

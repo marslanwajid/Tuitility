@@ -41,10 +41,15 @@ export default function ImageConverter() {
   const [globalQuality, setGlobalQuality] = useState(80);
   const [error, setError] = useState('');
   const fileRef = useRef<HTMLInputElement>(null);
+  const itemsRef = useRef<ImageItem[]>([]);
 
   useEffect(() => {
-    return () => { items.forEach((it) => { if (it.preview) URL.revokeObjectURL(it.preview); }); };
+    itemsRef.current = items;
   }, [items]);
+
+  useEffect(() => {
+    return () => { itemsRef.current.forEach((it) => { if (it.preview) URL.revokeObjectURL(it.preview); }); };
+  }, []);
 
   const handleDragOver = (e: React.DragEvent) => { e.preventDefault(); setIsDragging(true); };
   const handleDragLeave = (e: React.DragEvent) => { e.preventDefault(); setIsDragging(false); };
