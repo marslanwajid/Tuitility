@@ -184,6 +184,234 @@ const FORMULAS_BY_PATH: Record<string, FormulaConfig[]> = {
       explanation: 'Measures the gain or loss generated on an investment relative to the amount of money originally invested.'
     }
   ],
+  '/finance/calculators/amortization-calculator': [
+    {
+      title: 'Monthly Payment Formula',
+      latex: 'M = P \\times \\frac{r(1+r)^n}{(1+r)^n - 1}',
+      explanation: 'Where M is the monthly payment, P is the loan principal, r is the monthly interest rate, and n is the total number of payments (loan term in months).'
+    },
+    {
+      title: 'Remaining Balance After k Payments',
+      latex: 'B_k = P \\times \\frac{(1+r)^n - (1+r)^k}{(1+r)^n - 1}',
+      explanation: 'Calculates the outstanding loan balance after k payments have been made, where r is the monthly rate and n is the total number of payments.'
+    }
+  ],
+  '/finance/calculators/loan-calculator': [
+    {
+      title: 'Standard Loan Payment Formula',
+      latex: 'M = P \\times \\frac{r(1+r)^n}{(1+r)^n - 1}',
+      explanation: 'Where M is the monthly payment, P is the loan principal net of down payment, r is the periodic interest rate, and n is the total number of payments.'
+    },
+    {
+      title: 'Total Cost of Loan',
+      latex: '\\text{Total Cost} = M \\times n + \\text{Fees} + \\text{Down Payment}',
+      explanation: 'The total cost includes all monthly payments over the full term, plus any origination or documentation fees, plus the initial down payment.'
+    }
+  ],
+  '/finance/calculators/currency-calculator': [
+    {
+      title: 'Currency Conversion Formula',
+      latex: '\\text{Target Amount} = \\text{Base Amount} \\times \\text{Exchange Rate}',
+      explanation: 'Multiply the amount in the base currency by the exchange rate (price of one unit of base currency in target currency) to get the converted amount.'
+    },
+    {
+      title: 'Reverse Exchange Rate',
+      latex: '\\text{Reverse Rate} = \\frac{1}{\\text{Exchange Rate}}',
+      explanation: 'The reciprocal of the exchange rate gives the amount of base currency needed to buy one unit of the target currency.'
+    }
+  ],
+  '/finance/calculators/house-affordability-calculator': [
+    {
+      title: 'Front-End DTI (Housing Ratio)',
+      latex: '\\text{DTI}_{\\text{front}} = \\frac{\\text{Total Monthly Housing Costs}}{\\text{Gross Monthly Income}} \\times 100\\%',
+      explanation: 'Compares total housing costs (principal, interest, taxes, insurance, HOA) to gross monthly income. Lenders typically cap this at 28% for conventional loans.'
+    },
+    {
+      title: 'Maximum Affordable Home Price',
+      latex: 'P_{\\text{max}} = \\frac{\\text{Affordable Monthly Payment} \\times \\left((1+r)^n - 1\\right)}{r \\times (1+r)^n} + \\text{Down Payment}',
+      explanation: 'Derives the maximum home price by solving the mortgage payment formula for principal, then adding the down payment.'
+    }
+  ],
+  '/finance/calculators/business-loan-calculator': [
+    {
+      title: 'Business Loan Payment with Fees',
+      latex: 'M = (P + F) \\times \\frac{r(1+r)^n}{(1+r)^n - 1}',
+      explanation: 'Where P is the base loan amount and F represents all rolled-in fees (origination, documentation, etc.). The total financed amount (P+F) is amortized over n periods at periodic rate r.'
+    },
+    {
+      title: 'Total Cost of Borrowing',
+      latex: '\\text{Total Cost} = M \\times n - P',
+      explanation: 'Total interest and fees paid over the full loan term, calculated as all payments made minus the original principal borrowed.'
+    }
+  ],
+  '/finance/calculators/credit-card-calculator': [
+    {
+      title: 'Daily Interest Rate',
+      latex: 'r_{\\text{daily}} = \\frac{\\text{APR}}{365}',
+      explanation: 'The annual percentage rate divided by 365 gives the daily periodic rate used in credit card interest calculations.'
+    },
+    {
+      title: 'Credit Card Payoff Time',
+      latex: 'n = \\frac{\\log\\left(\\frac{M}{M - B \\times r_{\\text{daily}}}\\right)}{\\log(1 + r_{\\text{daily}})}',
+      explanation: 'Where B is the current balance, M is the monthly payment, and r\\_daily is the daily interest rate. The formula solves for the number of days to full payoff.'
+    }
+  ],
+  '/finance/calculators/investment-calculator': [
+    {
+      title: 'Multi-Year Investment Growth',
+      latex: 'FV = \\sum_{t=1}^{T} \\left(C_t \\times \\prod_{i=t}^{T} (1 + r_i)\\right)',
+      explanation: 'Each year\'s contribution C_t grows at the applicable annual return rate r_i for the remaining years, and the total future value is the sum of all compounded contributions.'
+    },
+    {
+      title: 'Inflation-Adjusted Real Value',
+      latex: 'V_{\\text{real}} = \\frac{FV}{(1 + i)^T}',
+      explanation: 'Divides the nominal future value by cumulative inflation (i = annual inflation rate, T = total years) to show purchasing power in today\'s dollars.'
+    }
+  ],
+  '/finance/calculators/tax-calculator': [
+    {
+      title: 'Effective Tax Rate',
+      latex: '\\text{Effective Rate} = \\frac{\\text{Total Tax Liability}}{\\text{Taxable Income}} \\times 100\\%',
+      explanation: 'The percentage of taxable income actually paid in taxes after all deductions, credits, and progressive bracket calculations.'
+    },
+    {
+      title: 'Marginal Tax Bracket',
+      latex: '\\text{Tax} = \\sum_{i=1}^{n} \\left(\\max(0, \\min(\\text{Income}, B_i) - B_{i-1}) \\times r_i\\right)',
+      explanation: 'Each portion of income within a bracket\'s range is taxed at that bracket\'s rate r\\_i. Income above a bracket\'s ceiling moves to the next higher bracket.'
+    }
+  ],
+  '/finance/calculators/retirement-calculator': [
+    {
+      title: 'Retirement Savings Future Value',
+      latex: 'FV = P \\times (1+r)^t + C \\times \\frac{(1+r)^t - 1}{r}',
+      explanation: 'Where P is current savings, C is the monthly contribution, r is the monthly return rate, and t is the number of months until retirement.'
+    },
+    {
+      title: 'Safe Withdrawal Amount (4% Rule)',
+      latex: 'W_{\\text{annual}} = FV \\times 0.04',
+      explanation: 'The 4% rule suggests withdrawing 4% of the portfolio value in the first year of retirement, adjusting for inflation annually, to sustain a 30-year retirement.'
+    }
+  ],
+  '/finance/calculators/sales-tax-calculator': [
+    {
+      title: 'Total Price with Sales Tax',
+      latex: 'P_{\\text{total}} = P_{\\text{base}} \\times (1 + r_{\\text{tax}})',
+      explanation: 'Multiply the base price by 1 plus the combined sales tax rate (state + local) expressed as a decimal to get the total price including tax.'
+    },
+    {
+      title: 'Reverse Sales Tax (Tax from Total)',
+      latex: 'P_{\\text{base}} = \\frac{P_{\\text{total}}}{1 + r_{\\text{tax}}}, \\quad \\text{Tax} = P_{\\text{total}} - P_{\\text{base}}',
+      explanation: 'To extract the base price and tax amount from a total that already includes sales tax, divide the total by 1 plus the tax rate.'
+    }
+  ],
+  '/finance/calculators/debt-payoff-calculator': [
+    {
+      title: 'Debt Payoff Time (Fixed Payment)',
+      latex: 'n = \\frac{\\log\\left(\\frac{M}{M - B \\times r}\\right)}{\\log(1 + r)}',
+      explanation: 'Where B is the current balance, M is the fixed monthly payment, and r is the monthly interest rate. Solves for the number of months to full payoff.'
+    },
+    {
+      title: 'Total Interest Paid',
+      latex: '\\text{Total Interest} = (M \\times n) - B',
+      explanation: 'The total interest cost is the sum of all payments minus the original balance borrowed.'
+    }
+  ],
+  '/finance/calculators/budget-calculator': [
+    {
+      title: '50/30/20 Budget Rule Allocation',
+      latex: '\\text{Necds} = I \\times 0.50, \\quad \\text{Wants} = I \\times 0.30, \\quad \\text{Savings} = I \\times 0.20',
+      explanation: 'Allocate 50% of after-tax income to needs (housing, food, utilities), 30% to wants (entertainment, dining), and 20% to savings and debt repayment.'
+    },
+    {
+      title: 'Savings Rate',
+      latex: '\\text{Savings Rate} = \\frac{\\text{Total Income} - \\text{Total Expenses}}{\\text{Total Income}} \\times 100\\%',
+      explanation: 'The percentage of total income that is not spent on expenses — a key indicator of financial health.'
+    }
+  ],
+  '/finance/calculators/rental-property-calculator': [
+    {
+      title: 'Cap Rate (Capitalization Rate)',
+      latex: '\\text{Cap Rate} = \\frac{\\text{NOI}}{\\text{Property Value}} \\times 100\\%',
+      explanation: 'Net Operating Income (rental income minus operating expenses) divided by the property purchase price, expressed as a percentage return.'
+    },
+    {
+      title: 'Cash-on-Cash Return',
+      latex: '\\text{CoC} = \\frac{\\text{Annual Pre-Tax Cash Flow}}{\\text{Total Cash Invested}} \\times 100\\%',
+      explanation: 'Measures the annual return on the actual cash invested (down payment, closing costs, repairs) as a percentage of that invested cash.'
+    }
+  ],
+  '/finance/calculators/debt-income-calculator': [
+    {
+      title: 'Front-End DTI (Housing Ratio)',
+      latex: '\\text{DTI}_{\\text{front}} = \\frac{\\text{Housing Debt Payments}}{\\text{Gross Monthly Income}} \\times 100\\%',
+      explanation: 'Housing debt payments (mortgage or rent) divided by gross monthly income. Conventional lenders prefer this below 28%.'
+    },
+    {
+      title: 'Back-End DTI (Total Debt Ratio)',
+      latex: '\\text{DTI}_{\\text{back}} = \\frac{\\text{Total Monthly Debt Payments}}{\\text{Gross Monthly Income}} \\times 100\\%',
+      explanation: 'All monthly debt obligations divided by gross monthly income. Conventional lenders prefer this below 36%.'
+    }
+  ],
+  '/finance/calculators/down-payment-calculator': [
+    {
+      title: 'Down Payment Percentage',
+      latex: '\\text{Down Payment\\%} = \\frac{\\text{Down Payment Amount}}{\\text{Home Price}} \\times 100\\%',
+      explanation: 'The percentage of the home price paid upfront in cash. A down payment of 20% or more eliminates the need for private mortgage insurance (PMI).'
+    },
+    {
+      title: 'Loan-to-Value Ratio (LTV)',
+      latex: '\\text{LTV} = \\frac{\\text{Loan Amount}}{\\text{Home Price}} \\times 100\\%',
+      explanation: 'The loan amount divided by the home price. Lenders use LTV to assess risk — LTV above 80% typically requires PMI.'
+    }
+  ],
+  '/finance/calculators/present-value-calculator': [
+    {
+      title: 'Present Value of a Lump Sum',
+      latex: 'PV = \\frac{FV}{\\left(1 + \\frac{r}{n}\\right)^{n \\times t}}',
+      explanation: 'Where FV is the future value, r is the annual discount rate, n is the number of compounding periods per year, and t is the time in years.'
+    },
+    {
+      title: 'Present Value of an Ordinary Annuity',
+      latex: 'PV = PMT \\times \\frac{1 - (1 + r)^{-t}}{r}',
+      explanation: 'Where PMT is the periodic payment, r is the periodic discount rate, and t is the total number of payments.'
+    }
+  ],
+  '/finance/calculators/future-value-calculator': [
+    {
+      title: 'Future Value of a Lump Sum',
+      latex: 'FV = PV \\times \\left(1 + \\frac{r}{n}\\right)^{n \\times t}',
+      explanation: 'Where PV is the present value, r is the annual growth rate, n is the number of compounding periods per year, and t is the time in years.'
+    },
+    {
+      title: 'Future Value of an Ordinary Annuity',
+      latex: 'FV = PMT \\times \\frac{(1 + r)^t - 1}{r}',
+      explanation: 'Where PMT is the periodic contribution, r is the periodic rate, and t is the total number of payments made.'
+    }
+  ],
+  '/finance/calculators/insurance-calculator': [
+    {
+      title: 'Coverage-to-Premium Ratio',
+      latex: '\\text{CPR} = \\frac{\\text{Coverage Amount}}{\\text{Annual Premium}}',
+      explanation: 'The total coverage amount divided by the annual premium. A higher ratio indicates better value — more protection per dollar spent.'
+    },
+    {
+      title: 'Deductible Percentage of Coverage',
+      latex: '\\text{Deductible\\%} = \\frac{\\text{Deductible}}{\\text{Coverage Amount}} \\times 100\\%',
+      explanation: 'The deductible expressed as a percentage of the total coverage amount. Lower percentages indicate less out-of-pocket cost before coverage kicks in.'
+    }
+  ],
+  '/finance/calculators/etsy-fee-calculator': [
+    {
+      title: 'Etsy Net Profit Formula',
+      latex: '\\text{Profit} = (P + S) \\times (1 - r_t - r_a) - F_l - F_p - C_i - C_s',
+      explanation: 'Where P is the sale price, S is shipping charged, r_t is the 6.5% transaction fee rate, r_a is the offsite ads rate (0/12/15%), F_l is the $0.20 listing fee, F_p is the 3% + $0.25 payment processing fee, C_i is the item cost, and C_s is the shipping cost.'
+    },
+    {
+      title: 'Etsy Profit Margin',
+      latex: '\\text{Margin} = \\frac{\\text{Profit}}{P + S} \\times 100\\%',
+      explanation: 'The profit expressed as a percentage of total revenue (sale price plus shipping charged). A higher margin means more of each dollar stays with you after fees and costs.'
+    }
+  ],
   '/science/calculators/dbm-watts-calculator': [
     {
       title: 'dBm to Watts Conversion',
@@ -223,6 +451,28 @@ const FORMULAS_BY_PATH: Record<string, FormulaConfig[]> = {
       title: 'Isotope Abundances (2-Isotope System)',
       latex: 'A_1 = \\frac{M_{\\text{avg}} - m_2}{m_1 - m_2}, \\quad A_2 = 1.0 - A_1',
       explanation: 'Solves for the abundances A_1 and A_2 given the target average atomic mass and individual isotope masses m_1 and m_2.'
+    }
+  ],
+  '/science/calculators/dilution-calculator': [
+    {
+      title: 'Dilution Equation (C\u2081V\u2081 = C\u2082V\u2082)',
+      latex: 'C_1 V_1 = C_2 V_2',
+      explanation: 'The fundamental relationship in solution chemistry: the amount of solute (concentration times volume) remains constant before and after dilution.'
+    },
+    {
+      title: 'Solve for Stock Concentration',
+      latex: 'C_1 = \\frac{C_2 \\times V_2}{V_1}',
+      explanation: 'Divide the final amount of solute (C\u2082 \u00D7 V\u2082) by the stock volume to find the required stock concentration.'
+    },
+    {
+      title: 'Solve for Stock Volume',
+      latex: 'V_1 = \\frac{C_2 \\times V_2}{C_1}',
+      explanation: 'Divide the final amount of solute (C\u2082 \u00D7 V\u2082) by the stock concentration to find the required stock volume.'
+    },
+    {
+      title: 'Dilution Factor',
+      latex: '\\text{DF} = \\frac{V_2}{V_1} = \\frac{C_1}{C_2}',
+      explanation: 'The dilution factor can be calculated as the ratio of final volume to stock volume, or the ratio of stock concentration to final concentration.'
     }
   ],
   '/science/calculators/wave-speed-calculator': [
@@ -847,7 +1097,24 @@ const FORMULAS_BY_PATH: Record<string, FormulaConfig[]> = {
       latex: 'C = f(A_{\\text{years}}) \\in \\{\\text{Infant, Toddler, \\dots, Senior}\\}',
       explanation: 'The age in years maps to a standard life-stage category: Infant (0-1), Toddler (1-3), Preschooler (3-5), Child (5-12), Teenager (12-18), Young Adult (18-30), Adult (30-50), Middle Age (50-65), Senior (65+).'
     }
-  ]
+  ],
+  '/knowledge/calculators/zodiac-moon-phase': [
+    {
+      title: 'Zodiac Sign Determination',
+      latex: '\\text{Sign} = f(\\text{Month}, \\text{Day})',
+      explanation: 'Each Western zodiac sign occupies a specific date range based on tropical astrology. The calculator maps the birth month and day to one of 12 signs using traditional date boundaries that divide the year into 30-degree ecliptic segments.'
+    },
+    {
+      title: 'Moon Phase Calculation',
+      latex: '\\text{Lunar Age} = (JD - \\text{Ref}) \\bmod 29.53058867',
+      explanation: 'The lunar age is the number of days since the last new moon, calculated from the Julian Day Number of the target date and a reference new moon (January 6, 2000). The age maps to eight primary phases — New Moon (0\u20131.845 days), Waxing Crescent (1.845\u20135.537), First Quarter (5.537\u20139.23), Waxing Gibbous (9.23\u201312.922), Full Moon (12.922\u201316.615), Waning Gibbous (16.615\u201320.307), Last Quarter (20.307\u201324.0), and Waning Crescent (24.0\u201329.53).'
+    },
+    {
+      title: 'Moon Illumination',
+      latex: 'I = \\frac{1 - \\cos(\\theta)}{2}, \\quad \\theta = \\frac{\\text{Lunar Age} \\times 2\\pi}{29.53}',
+      explanation: 'The illuminated fraction of the moon visible from Earth ranges from 0% (new moon) to 100% (full moon) and follows a cosine function of the phase angle. The phase angle is the lunar age expressed as a fraction of the 29.53-day synodic cycle.'
+    }
+  ],
 };
 
 export default function ToolContentEnhancer({ toolContent }: ToolContentEnhancerProps) {

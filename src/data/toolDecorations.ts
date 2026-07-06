@@ -267,6 +267,19 @@ const EXACT_TOOL_DECORATIONS: Record<string, ToolDecoration> = {
     visualization: 'Doughnut & Plot',
     precision: '2-Decimal Currency',
   },
+  '/finance/calculators/amortization-calculator': {
+    symbols: [
+      { text: '$', className: 'text-4.5xl font-black rotate-12 animate-float-delayed' },
+      { text: '%', className: 'text-5xl font-black -rotate-12 animate-float' },
+      { text: 'Schedule', className: 'text-4xl font-bold rotate-45 animate-float' },
+      { text: 'Principal', className: 'text-6xl font-black -rotate-45 animate-float-delayed' },
+      { text: 'Interest', className: 'text-3xl font-extrabold rotate-12' },
+      { text: 'yr', className: 'text-4xl font-black' },
+    ],
+    method: 'Full Amortization',
+    visualization: 'SVG Timeline & Table',
+    precision: '2-Decimal Currency',
+  },
   '/finance/calculators/loan-calculator': {
     symbols: [
       { text: '$', className: 'text-4.5xl font-black rotate-12 animate-float-delayed' },
@@ -514,6 +527,19 @@ const EXACT_TOOL_DECORATIONS: Record<string, ToolDecoration> = {
     visualization: 'Growth Table',
     precision: '2-Decimal Currency',
   },
+  '/finance/calculators/etsy-fee-calculator': {
+    symbols: [
+      { text: '$', className: 'text-4.5xl font-black rotate-12 animate-float-delayed' },
+      { text: '%', className: 'text-5xl font-black -rotate-12 animate-float' },
+      { text: 'Etsy', className: 'text-4xl font-bold rotate-45 animate-float' },
+      { text: 'Fee', className: 'text-6xl font-black -rotate-45 animate-float-delayed' },
+      { text: '📦', className: 'text-3xl font-extrabold rotate-12' },
+      { text: 'Profit', className: 'text-4xl font-black' },
+    ],
+    method: 'Multi-Fee Breakdown',
+    visualization: 'Doughnut Chart',
+    precision: '2-Decimal Currency',
+  },
   '/health/calculators/bmi-calculator': {
     symbols: [
       { text: '🩺', className: 'text-4.5xl font-black rotate-12 animate-float-delayed' },
@@ -709,6 +735,19 @@ const EXACT_TOOL_DECORATIONS: Record<string, ToolDecoration> = {
     visualization: 'Isotope Peaks',
     precision: '5-Decimal Float',
   },
+  '/science/calculators/dilution-calculator': {
+    symbols: [
+      { text: 'C\u2081', className: 'text-4.5xl font-black rotate-12 animate-float-delayed' },
+      { text: 'V\u2081', className: 'text-5xl font-black -rotate-12 animate-float' },
+      { text: 'C\u2082', className: 'text-4.5xl font-black rotate-45 animate-float' },
+      { text: 'V\u2082', className: 'text-6xl font-black -rotate-45 animate-float-delayed' },
+      { text: '\u03BC', className: 'text-3.5xl font-extrabold rotate-12' },
+      { text: 'M', className: 'text-4xl font-black' },
+    ],
+    method: 'C\u2081V\u2081 = C\u2082V\u2082',
+    visualization: 'Dilution Gradient',
+    precision: '6-Decimal Float',
+  },
   '/knowledge/calculators/gpa-calculator': {
     symbols: [
       { text: 'A+', className: 'text-4.5xl font-black rotate-12 animate-float-delayed' },
@@ -763,15 +802,41 @@ const EXACT_TOOL_DECORATIONS: Record<string, ToolDecoration> = {
   },
   '/knowledge/calculators/mbti-calculator': {
     symbols: [
-      { text: '👤', className: 'text-4.5xl font-black rotate-12 animate-float-delayed' },
-      { text: '💡', className: 'text-5xl font-black -rotate-12 animate-float' },
+      { text: '\uD83D\uDC64', className: 'text-4.5xl font-black rotate-12 animate-float-delayed' },
+      { text: '\uD83D\uDCA1', className: 'text-5xl font-black -rotate-12 animate-float' },
       { text: 'MBTI', className: 'text-4.5xl font-black rotate-45 animate-float' },
-      { text: '🧩', className: 'text-6xl font-black -rotate-45 animate-float-delayed' },
-      { text: '🧠', className: 'text-3.5xl font-extrabold rotate-12' },
+      { text: '\uD83E\uDDE9', className: 'text-6xl font-black -rotate-45 animate-float-delayed' },
+      { text: '\uD83E\uDDE0', className: 'text-3.5xl font-extrabold rotate-12' },
       { text: 'Type', className: 'text-4xl font-black' },
     ],
     method: 'Dimension Aggregation',
     visualization: 'Cognitive Stack Cards',
     precision: 'Percentage Score',
+  },
+  '/utility-tools/diff-checker': {
+    symbols: [
+      { text: '+', className: 'text-5xl font-black rotate-12 animate-float-delayed text-green-400' },
+      { text: '\u2212', className: 'text-5xl font-black -rotate-12 animate-float text-red-400' },
+      { text: 'A', className: 'text-4.5xl font-black rotate-45 animate-float' },
+      { text: 'B', className: 'text-6xl font-black -rotate-45 animate-float-delayed' },
+      { text: '\u27F7', className: 'text-3.5xl font-extrabold rotate-12' },
+      { text: '===', className: 'text-4xl font-black' },
+    ],
+    method: 'LCS Diff Algorithm',
+    visualization: 'Side-by-Side Comparison',
+    precision: 'Line-Level Match',
+  },
+  '/knowledge/calculators/zodiac-moon-phase': {
+    symbols: [
+      { text: '\uD83C\uDF19', className: 'text-4.5xl font-black rotate-12 animate-float-delayed' },
+      { text: '\u2600\uFE0F', className: 'text-5xl font-black -rotate-12 animate-float' },
+      { text: '\uD83D\uDD2D', className: 'text-4.5xl font-black rotate-45 animate-float' },
+      { text: '\uD83C\uDF0D', className: 'text-6xl font-black -rotate-45 animate-float-delayed' },
+      { text: '\u2648', className: 'text-3.5xl font-extrabold rotate-12' },
+      { text: 'Zodiac', className: 'text-4xl font-black' },
+    ],
+    method: 'Ephemeris / Lunar Age',
+    visualization: 'Celestial Phase Chart',
+    precision: 'Exact Date / 1-Day Lunar Precision',
   },
 };

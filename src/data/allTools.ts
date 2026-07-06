@@ -144,7 +144,7 @@ export const allTools = [
     desc: "Calculate how much house you can afford",
     url: "/finance/calculators/house-affordability-calculator",
     category: "Finance",
-    icon: "fas fa-home",
+    icon: "fas fa-coins",
   },
   {
     name: "Compound Interest Calculator",
@@ -179,7 +179,7 @@ export const allTools = [
     desc: "Calculate investment growth, compound returns, and future value",
     url: "/finance/calculators/investment-calculator",
     category: "Finance",
-    icon: "fas fa-chart-line",
+    icon: "fas fa-chart-pie",
   },
   {
     name: "Tax Calculator",
@@ -207,7 +207,7 @@ export const allTools = [
     desc: "Calculate debt payoff time, total interest, and payment strategies",
     url: "/finance/calculators/debt-payoff-calculator",
     category: "Finance",
-    icon: "fas fa-credit-card",
+    icon: "fas fa-sack-dollar",
   },
   {
     name: "Insurance Calculator",
@@ -228,7 +228,7 @@ export const allTools = [
     desc: "Calculate rental property ROI, cash flow, and investment returns",
     url: "/finance/calculators/rental-property-calculator",
     category: "Finance",
-    icon: "fas fa-home",
+    icon: "fas fa-building",
   },
   {
     name: "Debt Income Calculator",
@@ -242,21 +242,28 @@ export const allTools = [
     desc: "Calculate down payment amount, loan amount, and monthly mortgage payments",
     url: "/finance/calculators/down-payment-calculator",
     category: "Finance",
-    icon: "fas fa-home",
+    icon: "fas fa-arrow-down",
   },
   {
     name: "Present Value Calculator",
     desc: "Calculate the present value of future cash flows and investments",
     url: "/finance/calculators/present-value-calculator",
     category: "Finance",
-    icon: "fas fa-chart-line",
+    icon: "fas fa-hourglass-half",
   },
   {
     name: "Future Value Calculator",
     desc: "Calculate the future value of investments and savings with compound interest",
     url: "/finance/calculators/future-value-calculator",
     category: "Finance",
-    icon: "fas fa-chart-line",
+    icon: "fas fa-arrow-trend-up",
+  },
+  {
+    name: "Etsy Fee & Profit Calculator",
+    desc: "Calculate Etsy fees, net profit, and profit margins with a dynamic visual fee breakdown",
+    url: "/finance/calculators/etsy-fee-calculator",
+    category: "Finance",
+    icon: "fas fa-store",
   },
 
   {
@@ -309,11 +316,18 @@ export const allTools = [
     icon: "fas fa-lightning",
   },
   {
-    name: "Atomic Mass Calculator",
+    name: "Average Atomic Mass Calculator",
     desc: "Calculate average atomic mass",
     url: "/science/calculators/average-atomic-mass-calculator",
     category: "Science",
     icon: "fas fa-atom",
+  },
+  {
+    name: "Dilution Calculator",
+    desc: "Calculate stock concentration, volume, final concentration, or final volume using C\u2081V\u2081 = C\u2082V\u2082",
+    url: "/science/calculators/dilution-calculator",
+    category: "Science",
+    icon: "fas fa-flask",
   },
 
   {
@@ -414,6 +428,13 @@ export const allTools = [
     url: "/utility-tools/word-counter",
     category: "Utility",
     icon: "fas fa-font",
+  },
+  {
+    name: "Diff Checker",
+    desc: "Compare text differences side by side with line and word-level highlighting",
+    url: "/utility-tools/diff-checker",
+    category: "Utility",
+    icon: "fas fa-code-branch",
   },
   {
     name: "Password Generator",
@@ -720,5 +741,12 @@ export const allTools = [
     url: "/knowledge/calculators/zakat-calculator",
     category: "Knowledge",
     icon: "fas fa-hand-holding-heart",
-  }
+  },
+  {
+    name: "Zodiac Sign & Moon Phase",
+    desc: "Discover your zodiac sign, birth moon phase, and today's lunar phase",
+    url: "/knowledge/calculators/zodiac-moon-phase",
+    category: "Knowledge",
+    icon: "fas fa-moon",
+  },
 ];

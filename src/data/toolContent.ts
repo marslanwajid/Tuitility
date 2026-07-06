@@ -279,6 +279,12 @@ const SEO_PRIORITY_OVERRIDES = {
     rationale: 'Educational chemistry search intent is specific enough to compete with formula explanations and examples.',
     focusKeywords: ['average atomic mass calculator', 'weighted isotopic abundance calculator', 'atomic mass from isotopes'],
   },
+  '/science/calculators/dilution-calculator': {
+    tier: 'high',
+    outlook: 'high-intent steady traffic; low keyword difficulty',
+    rationale: 'Dilution calculator queries (C1V1 = C2V2) have strong educational and lab intent with low competition; differentiation through 4-way solve mode (C1, V1, C2, V2), built-in unit converters (M, mM, μM, nM + L, mL, μL), animated SVG dilution visualizer, and step-by-step KaTeX calculations.',
+    focusKeywords: ['dilution calculator', 'm1v1 calculator', 'dilution calculator m1v1', 'c1v1 calculator', 'c1v1 c2v2 calculator', 'solution dilution calculator', 'serial dilution calculator', 'stock solution calculator'],
+  },
   '/health/calculators/calorie-burn-calculator': {
     tier: 'medium',
     outlook: 'balanced opportunity',
@@ -332,6 +338,12 @@ const SEO_PRIORITY_OVERRIDES = {
     outlook: 'high volume / high competition',
     rationale: 'Huge demand but crowded SERPs with focused incumbent tools, so differentiation must be feature and content driven.',
     focusKeywords: ['word counter', 'character counter', 'sentence counter online'],
+  },
+  '/utility-tools/diff-checker': {
+    tier: 'high',
+    outlook: 'high volume; rankable with instant side-by-side local comparison',
+    rationale: 'Diff checker queries have strong developer/writer intent with manageable competition; differentiate with word-level inline highlighting, side-by-side and unified views, real-time local processing, and privacy-first design.',
+    focusKeywords: ['diff checker online', 'text compare online', 'difference checker', 'diff tool online', 'compare text files', 'side by side diff', 'text comparison tool', 'file diff checker'],
   },
   '/utility-tools/password-generator': {
     tier: 'high',
@@ -447,6 +459,12 @@ const SEO_PRIORITY_OVERRIDES = {
     rationale: 'Present value calculators serve investors, analysts, and finance students performing discounted cash flow analysis, bond valuation, and investment appraisal; differentiation through dual Lump Sum and Annuity modes, compounding frequency options (annually, semi-annually, quarterly, monthly), annuity payment timing toggle (end/beginning), what-if analysis with 5 rate scenarios ranging from -2% to +2% from the base rate, discount factor display, effective annual rate calculation, and year-by-year discount schedule table.',
     focusKeywords: ['present value calculator', 'PV calculator', 'discounted cash flow calculator', 'present value of future amount', 'present value of annuity calculator', 'lump sum present value', 'discount factor calculator', 'PV of future cash flows', 'time value of money calculator', 'net present value calculator'],
   },
+  '/finance/calculators/etsy-fee-calculator': {
+    tier: 'high',
+    outlook: 'high volume / Etsy seller search with strong commercial intent',
+    rationale: 'Etsy fee calculators have high sustained search demand from Etsy sellers calculating profitability; differentiation through dynamic doughnut chart showing where revenue goes, offsite ads fee tiers (none/12%/15%), itemized fee breakdown (transaction, listing, payment processing, offsite ads), profit margin percentage, and a warning banner for unprofitable sales. Etsy regularly updates fee structures so the tool has strong recurring engagement.',
+    focusKeywords: ['etsy fee calculator', 'etsy profit calculator', 'etsy fees 2025', 'etsy transaction fee', 'etsy seller calculator', 'etsy profit margin calculator', 'etsy listing fee', 'how much does etsy take', 'etsy payment processing fee', 'etsy offsite ads fee', 'etsy seller fees', 'etsy pricing calculator'],
+  },
   '/finance/calculators/down-payment-calculator': {
     tier: 'medium',
     outlook: 'steady year-round volume with home buying and mortgage planning search intent',
@@ -530,6 +548,12 @@ const SEO_PRIORITY_OVERRIDES = {
     outlook: 'strong long-tail opportunity',
     rationale: 'High search volume for personality testing and profiling; differentiate with deep AI analysis, cognitive stack mapping, and printable PDF reports.',
     focusKeywords: ['mbti calculator', 'mbti test online', 'personality type calculator', 'free mbti assessment', 'myers briggs calculator'],
+  },
+  '/knowledge/calculators/zodiac-moon-phase': {
+    tier: 'high',
+    outlook: 'extremely viral, high social traffic potential; low keyword difficulty for long-tail astrology queries',
+    rationale: 'Zodiac and moon phase queries have strong lifestyle/astrology intent with high social shareability; differentiate with interactive celestial visualizations, personalized birth chart readings, and today moon phase bonus.',
+    focusKeywords: ['zodiac sign calculator', 'moon phase birthday calculator', 'zodiac sign finder', 'moon phase today', 'astrology birth chart', 'moon phase on my birthday', 'what is my zodiac sign'],
   },
   '/utility-tools/image-tools/image-to-webp-converter': {
     tier: 'high',
@@ -916,6 +940,11 @@ export const getToolContent = (tool: any) => {
       `The Present Value Calculator is a free online financial tool designed to calculate the present value of a future sum of money or a series of regular payments, discounted at a given interest rate. It supports two calculation modes: Lump Sum PV for a single future amount, and Annuity PV for equal periodic payments (ordinary annuity or annuity due). Pair it with our [Future Value Calculator](/finance/calculators/future-value-calculator) to understand the other direction of time value of money or our [Compound Interest Calculator](/finance/calculators/compound-interest-calculator) for growth projections.`,
       `In Lump Sum mode, enter the future value, annual discount rate, time period, and compounding frequency (annually, semi-annually, quarterly, or monthly). The tool instantly computes the present value using the PV = FV / (1 + r/n)^(n×t) formula, along with the discount amount (FV − PV), discount factor (PV/FV), and effective annual rate. In Annuity mode, enter the payment amount, number of payments, discount rate, compounding frequency, and choose end-of-period or beginning-of-period (annuity due) timing. A what-if analysis panel shows 5 scenarios at rate variations of −2%, −1%, base, +1%, and +2%, giving immediate insight into interest rate sensitivity. A year-by-year discount schedule table shows how the present value builds over time, with the discount factor and cumulative PV for each year.`,
     ];
+    } else if (tool.url === '/finance/calculators/etsy-fee-calculator') {
+    overview = [
+      `The Etsy Fee & Profit Calculator is a free online financial tool designed to help Etsy sellers calculate exactly how much they will earn from each sale after all Etsy fees and costs. It breaks down Etsy's transaction fee (6.5%), listing fee ($0.20), payment processing fee (3% + $0.25), and optional offsite ads fee (12% or 15%) to show you exactly where your revenue goes. Pair it with our [Budget Calculator](/finance/calculators/budget-calculator) to incorporate Etsy income into your overall budget or our [Sales Tax Calculator](/finance/calculators/sales-tax-calculator) to factor in sales tax obligations on your Etsy sales. If you are evaluating broader business profitability, our [ROI Calculator](/finance/calculators/roi-calculator) can help assess overall returns.`,
+      `Enter your sale price, shipping charged to the buyer, item cost, and shipping cost, then select your offsite ads tier (not enrolled, standard 12% for under $10k lifetime sales, or premium 15% for over $10k lifetime sales). The tool instantly computes your net profit, profit margin percentage, and total Etsy fees with a full itemized breakdown. An interactive SVG doughnut chart visualizes where your revenue goes — your profit, Etsy fees, item cost, and shipping cost — making it easy to spot whether a listing is actually profitable. If your sale is at a loss, a warning banner suggests ways to improve profitability. Quick presets ($15, $25, $35, $45, $65, $100) let you test common price points instantly.`,
+    ];
     } else if (tool.url === '/health/calculators/bmi-calculator') {
     overview = [
       `The BMI Calculator is a free online health and wellness tool designed to calculate your Body Mass Index (BMI) and evaluate your body weight category according to World Health Organization (WHO) standards. To support your overall fitness and health goals, you can easily pair this analysis with our [Calorie Calculator](/health/calculators/calorie-calculator) to determine daily energy needs, use our [Calorie Burn Calculator](/health/calculators/calorie-burn-calculator) to estimate active calories burned, or use our [Water Intake Calculator](/health/calculators/water-intake-calculator) to calculate optimal daily hydration goals.`,
@@ -1001,10 +1030,15 @@ export const getToolContent = (tool: any) => {
       `The dBm Watts Calculator is a free online RF engineering and physics tool designed to convert between logarithmic power levels (dBm and dBW) and linear power metrics (Watts, milliwatts, microwatts). To expand your wave mechanics and system analysis, pair this with our [Wave Speed Calculator](/science/calculators/wave-speed-calculator) for electromagnetic wave propagation studies, or our [Work Power Calculator](/science/calculators/work-power-calculator) to bridge electromagnetic power with mechanical work output.`,
       `This tool features a bidirectional solver supporting log-to-linear and linear-to-log conversions, characteristic impedance calibration ($Z$) to derive RMS voltage ($V_{\\text{RMS}}$), peak-to-peak voltage ($V_{\\text{p-p}}$), voltage levels in $\\text{dB}\\mu\\text{V}$, and RMS current ($I_{\\text{RMS}}$). It includes a numeric keypad with scientific notation inputs, precision decibel offset modifiers ($+1$, $-1$, $+10$, $-10$ dB), and an interactive Logarithmic RF Power Ruler presenting physical benchmarks (thermal noise floor, receiver sensitivity thresholds, and broadcast signals) alongside an animated signal carrier amplitude oscilloscope. Results fade in with a canvas-confetti celebration, complete with KaTeX step-by-step mathematical resolutions.`,
     ];
-  } else if (tool.url === '/science/calculators/average-atomic-mass-calculator') {
+    } else if (tool.url === '/science/calculators/average-atomic-mass-calculator') {
     overview = [
       `The Average Atomic Mass Calculator is a free online chemistry tool designed to determine the weighted average atomic mass of an element from its naturally occurring isotopes ($M_{\\text{avg}} = \\sum m_i \\cdot A_i$), or to solve for unknown isotope abundances in a two-isotope system given isotopic masses and a target average. To explore related physics and engineering concepts, you can also check out our [dBm Watts Calculator](/science/calculators/dbm-watts-calculator) for decibel power conversions or our [Work Power Calculator](/science/calculators/work-power-calculator) for mechanical work calculations.`,
       `This tool features a dual-mode solver. In Mode 1 (Average Atomic Mass), you can dynamically add up to 8 isotopes, inputting their masses in unified atomic mass units (u or Da) and abundances as percentages (which automatically scale and validate to 100%). In Mode 2 (Isotope Abundance), the calculator solves a system of linear equations to find the exact percentage mix of two isotopes that produces a specific average mass. It includes presets for common chemical elements (Hydrogen, Carbon, Chlorine, Silicon, Copper), an integrated dynamic SVG visualizer displaying isotope peaks and a center-of-mass balance scale, a helper numeric keypad with decimal values, and step-by-step KaTeX mathematical steps showing the calculations.`,
+    ];
+    } else if (tool.url === '/science/calculators/dilution-calculator') {
+    overview = [
+      `The Dilution Calculator is a free online chemistry lab tool designed to solve any variable in the dilution equation $C_1 V_1 = C_2 V_2$ — stock concentration ($C_1$), stock volume ($V_1$), final concentration ($C_2$), or final volume ($V_2$). It includes built-in unit converters for concentration (M, mM, $\mu$M, nM) and volume (L, mL, $\mu$L) so you can work in whatever units your protocol requires. To expand your lab calculation toolkit, pair this with our [Average Atomic Mass Calculator](/science/calculators/average-atomic-mass-calculator) for isotopic abundance analysis or our [Capacitance Calculator](/science/calculators/capacitance-calculator) for electronics work. If you need broader physics support, our [Work Power Calculator](/science/calculators/work-power-calculator) and [Wave Speed Calculator](/science/calculators/wave-speed-calculator) cover mechanical and wave mechanics.`,
+      `This tool supports four solve modes with dynamically disabled inputs for the target variable. Choose from 6 real-world examples such as "10X to 1X PBS", "Make 100 mL of 0.5 M NaCl", or "Dilute to 50 \u00B5M (10X dilution)" to see the tool in action. An animated SVG dilution visualizer shows the stock and final beakers with a color-coded concentration gradient, pipette arrow animation, and a key parameters panel. Results include a dark hero card with all four variables displayed, a dilution summary with factor, ratio, and stock remaining, plus full step-by-step KaTeX calculations showing the formula rearrangement with actual values.`,
     ];
     } else if (tool.url ===   '/knowledge/calculators/age-calculator') {
     overview = [
@@ -1060,6 +1094,45 @@ export const getToolContent = (tool: any) => {
     overview = [
       `The Carbon Footprint Calculator is a free online environmental impact tool designed to estimate your annual personal CO₂ emissions across four major categories: transportation, home energy, food and diet, and waste. To build a complete sustainability profile, pair this with our [Fuel Calculator](/knowledge/calculators/fuel-calculator) to analyze vehicle-specific fuel consumption, our [Habit Formation Calculator](/knowledge/calculators/habit-formation-calculator) to turn reduction goals into daily routines, our [Average Time Calculator](/knowledge/calculators/average-time-calculator) to analyze commute and appliance usage patterns, or our [Age Calculator](/knowledge/calculators/age-calculator) to set long-term sustainability milestones, or our [Zakat Calculator](/knowledge/calculators/zakat-calculator) to explore ethical wealth management aligned with environmental stewardship.`,
       `This tool features a four-tab input system covering Transportation (weekly car miles, MPG, public transit, short and long flights), Home Energy (monthly electricity and natural gas usage, renewable energy percentage, household size), Food & Diet (diet type from meat-heavy to vegan, local food percentage, weekly food waste), and Waste (weekly waste generation, recycling rate, composting status). The calculation engine applies standard emission factors — 0.404 kg CO₂e per car mile, 0.14 kg per transit mile, 223 kg per short flight, 986 kg per long flight, 0.42 kg per kWh, 5.3 kg per therm, diet baselines from 1,000 to 2,500 kg/year, and 0.57 kg per pound of waste — adjusting for recycling (up to 70% reduction) and composting (additional 30% reduction). Results include total annual footprint in metric tons CO₂e with comparison to the US average of 16 tons, a four-card category breakdown, personalized reduction tips based on your highest-contributing categories, an interactive SVG Carbon Impact Gauge with color-coded scale bands (green 0–8, yellow 8–16, orange 16–24, red 24+), needle position, grouped category bar chart, and step-by-step KaTeX mathematical resolution.`,
+    ];
+  } else if (tool.url === '/knowledge/calculators/zodiac-moon-phase') {
+    overview = [
+      `The Zodiac Sign & Moon Phase Calculator is a free online astrology tool designed to discover your Western zodiac sign, Chinese zodiac animal, and the exact moon phase on your birth date — plus today's lunar phase for comparison. Whether you are exploring astrology for self-discovery, checking what the moon looked like when you were born, finding compatible zodiac matches, or just curious about today's moon phase, this tool provides instant personalized celestial insights entirely in your browser. To build a holistic self-discovery toolkit, pair this with our [MBTI Personality Calculator](/knowledge/calculators/mbti-calculator) for personality profiling, our [Career Assessment Calculator](/knowledge/calculators/career-assessment-calculator) for career alignment, or our [Age Calculator](/knowledge/calculators/age-calculator) to explore your full birth chronology.`,
+      `Perfect for astrology enthusiasts, the curious, and anyone planning events around lunar phases. Enter your birth date to instantly receive your zodiac sign with symbol, element, quality, ruling planet, personality traits, and best compatibility matches, alongside your Chinese zodiac animal. The moon phase engine calculates the Julian Day Number and lunar age since the last new moon to determine your birth moon phase (New Moon through Waning Crescent) with exact illumination percentage. A celestial SVG chart visualizes both your birth moon and today's moon side by side. All calculations use precise astronomical formulas (ephemeris-based lunar age with 29.53-day synodic cycle) and run entirely in your browser.`,
+    ];
+    faqs = [
+      {
+        question: "How accurate is the zodiac sign calculation?",
+        answer: "The calculator uses traditional tropical zodiac date boundaries, which are the most widely recognized in Western astrology. These boundaries divide the year into 12 equal 30-degree segments of the ecliptic, each associated with a specific date range. Note that due to the precession of the equinoxes, there is a slight offset between tropical and sidereal zodiac systems; this calculator uses the tropical system (Western astrology)."
+      },
+      {
+        question: "How is the moon phase calculated?",
+        answer: "The moon phase is calculated using the Julian Day Number of your birth date. We compute the number of days since a known reference new moon (January 6, 2000 at 18:14 UTC) and divide by the synodic month length (29.53058867 days). The remainder gives the lunar age — the number of days since the last new moon — which maps directly to one of eight primary moon phases (New Moon, Waxing Crescent, First Quarter, Waxing Gibbous, Full Moon, Waning Gibbous, Last Quarter, Waning Crescent). The illumination percentage is derived from the phase angle using the cosine function."
+      },
+      {
+        question: "Are my birth details stored or uploaded?",
+        answer: "No. All zodiac sign mapping, Chinese zodiac determination, and moon phase calculations happen 100% locally in your browser using JavaScript. No date, personal information, or calculation data is ever uploaded, logged, or stored. Your birth details never leave your device."
+      },
+      {
+        question: "What is the Chinese zodiac and how is it determined?",
+        answer: "The Chinese zodiac (Shengxiao) is a 12-year repeating cycle of animals: Rat, Ox, Tiger, Rabbit, Dragon, Snake, Horse, Goat, Monkey, Rooster, Dog, and Pig. Your Chinese zodiac animal is determined by your birth year according to the traditional cycle. Each animal is associated with specific personality traits and compatibility patterns that complement the Western zodiac profile."
+      },
+      {
+        question: "Can I use this tool to find today's moon phase?",
+        answer: "Yes. After entering your birth date and viewing your results, the tool automatically displays today's moon phase alongside your birth moon phase for comparison. You can also simply enter today's date to get just the current moon phase information."
+      },
+      {
+        question: "What do the zodiac elements mean?",
+        answer: "The four zodiac elements (Fire, Earth, Air, Water) describe core temperamental qualities. Fire signs (Aries, Leo, Sagittarius) are passionate and dynamic. Earth signs (Taurus, Virgo, Capricorn) are grounded and practical. Air signs (Gemini, Libra, Aquarius) are intellectual and communicative. Water signs (Cancer, Scorpio, Pisces) are emotional and intuitive. Each element includes three signs separated by a 120-degree trine aspect."
+      },
+      {
+        question: "Does the tool work on mobile?",
+        answer: "Yes. The calculator is fully responsive and works on any device with a modern browser. The celestial phase chart and result cards adapt to smaller screens while maintaining readability."
+      },
+      {
+        question: "How are compatibility matches determined?",
+        answer: "Compatibility matches are based on traditional astrological synastry — the relationships between signs by element and modality. Fire signs pair well with Air signs (which fuel fire), Earth signs pair with Water signs (which nourish earth), and signs of the same quality (Cardinal, Fixed, Mutable) often share complementary approaches to life. The tool shows four traditional best matches for each sign."
+      }
     ];
   } else if (tool.url === '/utility-tools/image-tools/image-to-webp-converter') {
     overview = [
@@ -1176,6 +1249,45 @@ export const getToolContent = (tool: any) => {
       {
         question: "How are sentences and paragraphs counted?",
         answer: "Sentences are counted by splitting on sentence-ending punctuation (period, exclamation mark, question mark) and filtering out empty segments. Paragraphs are counted by splitting on double line breaks (one or more blank lines between text blocks)."
+      }
+    ];
+  } else if (tool.url === '/utility-tools/diff-checker') {
+    overview = [
+      `The Diff Checker is a free online text comparison tool designed to instantly identify differences between two texts with line-level and word-level highlighting — side by side or in unified view. Whether you are a developer reviewing code changes before a commit, a writer comparing document revisions, an editor proofreading updated copy, or a student checking for plagiarism between drafts, this tool gives you instant visual diff output as you type, entirely in your browser. To build a complete document workflow, pair this with our [Word Counter](/utility-tools/word-counter) for text statistics, our [Text Case Converter](/utility-tools/converter-tools/text-case-converter) for formatting, or our [Markdown File Viewer](/utility-tools/markdown-file-viewer) for rendering documents.`,
+      `Perfect for developers, writers, editors, translators, students, and anyone who needs to compare text versions side by side. Paste or type your original and modified text — the diff engine automatically highlights added lines in green, removed lines in red, and unchanged lines in neutral gray. Within each changed line, individual word-level highlighting shows exactly which words were added or removed. Toggle between side-by-side (left/right) and unified (single column with +/- markers) views. A stats summary shows total added lines, removed lines, and unchanged lines at a glance. Swap original and modified to reverse the comparison. All processing happens entirely in your browser — nothing is uploaded, logged, or stored.`,
+    ];
+    faqs = [
+      {
+        question: "How does the diff algorithm work?",
+        answer: "The Diff Checker uses the Longest Common Subsequence (LCS) diff algorithm via the diff library. It first compares text line by line to identify which lines were added, removed, or left unchanged. Then, for each changed line, it performs a word-level diff to highlight exactly which words within that line differ. This two-pass approach gives you both structural and granular insight into what changed."
+      },
+      {
+        question: "What is the difference between side-by-side and unified view?",
+        answer: "Side-by-side view shows the original text on the left and the modified text on the right, with line numbers on each side. Added lines appear only on the right, removed lines only on the left, and unchanged lines appear on both sides at the same row. Unified view combines both versions into a single column where each line is prefixed with a plus (+) for additions, minus (-) for deletions, or a space for unchanged lines, with both original and modified line numbers shown."
+      },
+      {
+        question: "Are my texts stored or uploaded anywhere?",
+        answer: "No. All text comparison and diff processing happens 100% locally in your browser using JavaScript. No text, data, or logs are ever uploaded to any server. Your content never leaves your device, making it safe for sensitive code, confidential documents, or any private text you need to compare."
+      },
+      {
+        question: "Can I compare code files with this tool?",
+        answer: "Yes. The Diff Checker works with any text content including source code, JSON, HTML, CSS, configuration files, and more. The monospace font rendering and line-level highlighting make it particularly well-suited for reviewing code changes before commits, pull requests, or deployment."
+      },
+      {
+        question: "How do I copy the diff output?",
+        answer: "Click the 'Copy Diff' button to copy the diff result to your clipboard in a unified format. Copied text uses +/- prefixes for added/removed lines and spaces for unchanged lines, making it ready to paste into code review comments, documentation, or messages."
+      },
+      {
+        question: "What does the Swap button do?",
+        answer: "The Swap button exchanges the contents of the Original and Modified text areas. This is useful when you accidentally pasted text into the wrong panel, or when you want to reverse the comparison direction to see what would be removed or added from the opposite perspective."
+      },
+      {
+        question: "Does the tool work on mobile?",
+        answer: "Yes. On smaller screens, the tool defaults to unified view (which works better on narrow displays) and stacks the two text areas vertically. You can still toggle to side-by-side view if preferred, though unified view is recommended on mobile for readability."
+      },
+      {
+        question: "Is there a text size limit?",
+        answer: "No hard limit. The entire diff computation runs in your browser, so the practical limit depends on your device's memory. Most modern browsers can handle documents with thousands of lines without any noticeable performance impact."
       }
     ];
   } else if (tool.url === '/utility-tools/password-generator') {

@@ -149,6 +149,10 @@ export const CALCULATOR_REGISTRY: Record<string, React.ComponentType<any>> = {
     () => import('./finance/FutureValueCalculator'),
     { ssr: false }
   ),
+  '/finance/calculators/etsy-fee-calculator': dynamic(
+    () => import('./finance/EtsyFeeCalculator'),
+    { ssr: false }
+  ),
   '/health/calculators/bmi-calculator': dynamic(
     () => import('./health/BMICalculator'),
     { ssr: false }
@@ -225,6 +229,10 @@ export const CALCULATOR_REGISTRY: Record<string, React.ComponentType<any>> = {
     () => import('./science/ElectricFluxCalculator'),
     { ssr: false }
   ),
+  '/science/calculators/dilution-calculator': dynamic(
+    () => import('./science/DilutionCalculator'),
+    { ssr: false }
+  ),
   '/knowledge/calculators/gpa-calculator': dynamic(
     () => import('./knowledge/GPACalculator'),
     { ssr: false }
@@ -277,6 +285,10 @@ export const CALCULATOR_REGISTRY: Record<string, React.ComponentType<any>> = {
     () => import('./knowledge/ZakatCalculator'),
     { ssr: false }
   ),
+  '/knowledge/calculators/zodiac-moon-phase': dynamic(
+    () => import('./knowledge/ZodiacMoonPhaseCalculator'),
+    { ssr: false }
+  ),
   '/utility-tools/image-tools/image-to-webp-converter': dynamic(
     () => import('./utility/ImageToWebP'),
     { ssr: false }
@@ -287,6 +299,10 @@ export const CALCULATOR_REGISTRY: Record<string, React.ComponentType<any>> = {
   ),
   '/utility-tools/word-counter': dynamic(
     () => import('./utility/WordCounter'),
+    { ssr: false }
+  ),
+  '/utility-tools/diff-checker': dynamic(
+    () => import('./utility/DiffChecker'),
     { ssr: false }
   ),
   '/utility-tools/password-generator': dynamic(
