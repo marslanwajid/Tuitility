@@ -105,6 +105,13 @@ export const allTools = [
     icon: "fas fa-integral",
   },
   {
+    name: "Significant Figures Calculator",
+    desc: "Count significant figures in any number with digit-by-digit significance analysis and rule explanations, or round numbers to a target number of significant figures.",
+    url: "/math/calculators/sig-fig-calculator",
+    category: "Math",
+    icon: "fas fa-ruler-combined",
+  },
+  {
     name: "Mortgage Calculator",
     desc: "Calculate monthly mortgage payments with taxes, insurance, PMI",
     url: "/finance/calculators/mortgage-calculator",

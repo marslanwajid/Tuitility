@@ -804,7 +804,8 @@ export default function PercentageCalculator() {
         confetti({
           particleCount: 100,
           spread: 70,
-          origin: { y: 0.6 }
+          origin: { y: 0.6 },
+          colors: ['#1a1a1a', '#ffffff', '#a1a1a1']
         });
       }
     } catch (ex) {

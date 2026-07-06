@@ -61,6 +61,10 @@ export const CALCULATOR_REGISTRY: Record<string, React.ComponentType<any>> = {
     () => import('./math/IntegralCalculator'),
     { ssr: false }
   ),
+  '/math/calculators/sig-fig-calculator': dynamic(
+    () => import('./math/SigFigCalculator'),
+    { ssr: false }
+  ),
   '/finance/calculators/mortgage-calculator': dynamic(
     () => import('./finance/MortgageCalculator'),
     { ssr: false }

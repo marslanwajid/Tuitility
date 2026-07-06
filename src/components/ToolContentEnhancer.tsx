@@ -607,6 +607,23 @@ const FORMULAS_BY_PATH: Record<string, FormulaConfig[]> = {
       explanation: 'Evaluate a definite integral by subtracting the antiderivative evaluated at the lower limit from the antiderivative evaluated at the upper limit.'
     }
   ],
+  '/math/calculators/sig-fig-calculator': [
+    {
+      title: 'Significant Figure Rules',
+      latex: '\\text{Non-zero} > 0,\\; \\text{Captive } 0 > 0,\\; \\text{Leading } 0 = 0,\\; \\text{Trailing decimal } 0 > 0,\\; \\text{Trailing whole } 0 = 0',
+      explanation: 'Non-zero digits (1-9) are always significant. Captive zeros between non-zero digits are significant. Leading zeros before the first non-zero digit are never significant. Trailing zeros after a decimal point are significant. Trailing zeros in a whole number without a decimal are ambiguous and treated as not significant by default.'
+    },
+    {
+      title: 'Rounding to N Significant Figures',
+      latex: 'x \\to \\text{round}_N(x): \\text{keep } N \\text{ sig figs, check digit } N+1, \\; \\geq 5 \\to \\text{round up}',
+      explanation: 'Identify the first N significant digits from the left. If the (N+1)th significant digit is 5 or greater, round the Nth digit up. If it is 4 or less, keep the Nth digit the same. Preserve place value by padding with zeros as needed.'
+    },
+    {
+      title: 'Identifying the First Significant Digit',
+      latex: '\\text{First non-zero digit from left} = \\text{most significant digit}',
+      explanation: 'Scan the number from left to right. The first non-zero digit (ignoring leading zeros and the decimal point) is the most significant digit. All significant figures are counted starting from this digit.'
+    }
+  ],
   '/knowledge/calculators/gpa-calculator': [
     {
       title: 'Weighted GPA Formula',
