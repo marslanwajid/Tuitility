@@ -591,6 +591,12 @@ const SEO_PRIORITY_OVERRIDES = {
     rationale: 'High search volume for browser-based transparent GIF generators; differentiate with multi-frame canvas color extraction, alpha threshold adjustments, and zero server storage privacy.',
     focusKeywords: ['gif background remover', 'remove background from gif', 'make gif background transparent', 'transparent gif maker online', 'change gif background'],
   },
+  '/utility-tools/converter-tools/video-compressor': {
+    tier: 'high',
+    outlook: 'high volume with strong developer and creator intent; manageable competition for long-tail codec/CRF queries',
+    rationale: 'Video compressor queries have broad creator demand; differentiate with full ffmpeg.wasm-powered codec selection (H.264, H.265, VP9), CRF slider, resolution presets, trim controls, side-by-side comparison, and privacy-first 100% local processing.',
+    focusKeywords: ['video compressor online', 'compress video without uploading', 'ffmpeg wasm video converter', 'video codec converter', 'h.264 compressor', 'h.265 hevc converter', 'vp9 webm converter', 'crf video quality', 'compress video for discord', 'compress video for twitter'],
+  },
 };
 
 const normalizePath = (pathname: string = '/') => {
@@ -2342,6 +2348,45 @@ export const getToolContent = (tool: any) => {
       {
         question: "Where can I compress the transparent output?",
         answer: "You can download the transparent GIF and upload it directly to our [GIF Compressor](/utility-tools/image-tools/gif-compressor) to reduce its file size before sharing."
+      }
+    ];
+  } else if (tool.url === '/utility-tools/converter-tools/video-compressor') {
+    overview = [
+      `The Video Compressor & Converter is a free online video utility that compresses and converts video files using FFmpeg WebAssembly — a full FFmpeg build that runs entirely in your browser. Whether you need to shrink a large MP4 for Discord, convert H.264 to VP9 for WebM, transcode to H.265/HEVC for smaller files, trim a clip, or batch-apply custom CRF quality settings, this tool gives you professional-grade codec control without installing any software or uploading to a server. To build a complete media workflow, pair this with our [Video to GIF Converter](/utility-tools/converter-tools/video-to-gif) for animated GIF exports or our [Video to Audio Extractor](/utility-tools/video-to-audio-extractor) for audio track ripping.`,
+      `Perfect for content creators, developers, social media managers, and anyone who needs precise control over video encoding. Choose from quick presets optimized for YouTube (H.264, CRF 23, 1080p30), Twitter / X (H.264, CRF 28, 720p30), Instagram (H.264, CRF 26, 1080p30), Discord (H.264, CRF 28, 720p30, under 25MB), Telegram (H.264, CRF 28, 720p30), High Quality (H.264, CRF 18, source resolution), or Small File (H.265, CRF 32, 480p24). Fine-tune with manual controls: format (MP4 / WebM / MOV / MKV), codec (H.264 / H.265 / VP9), CRF quality slider (0–51, lower = better), encoding speed preset (Ultrafast / Medium / Slow), resolution scaling (480p / 720p / 1080p / 4K / Source), frame rate (Source / 24 / 30 / 60), audio options (Keep / Re-encode / Remove), audio bitrate, and trim start/end. Results include a side-by-side video comparison of original vs compressed output, exact file size reduction percentage, and one-click download. The ~30MB FFmpeg WebAssembly engine loads once from a CDN and is cached by your browser for subsequent use.`,
+    ];
+    faqs = [
+      {
+        question: "How does the video compression work?",
+        answer: "The tool uses FFmpeg compiled to WebAssembly, running entirely in your browser. When you upload a video and click compress, the tool writes the file to a virtual filesystem inside the WASM runtime, runs the FFmpeg command with your chosen settings, and reads back the compressed output. No data is sent to any server — everything happens locally on your device."
+      },
+      {
+        question: "Why does FFmpeg need to download a ~30MB engine first time?",
+        answer: "The FFmpeg WebAssembly binary contains the full FFmpeg executable compiled to run in the browser. This ~30MB download happens once (and is cached by your browser for subsequent visits). After the initial load, you can compress videos with the same codecs and options as a desktop FFmpeg installation — H.264, H.265/HEVC, VP9, AAC, and more."
+      },
+      {
+        question: "Is there a limit on video file size or duration?",
+        answer: "There is no hard limit, but very large or long videos will take longer to process and consume more browser memory. Videos under 500MB and under 10 minutes typically process within 1–5 minutes depending on settings and your device's CPU. For best results, start with shorter clips and use the trim feature to select only the portion you need."
+      },
+      {
+        question: "What is CRF and how should I choose a value?",
+        answer: "CRF (Constant Rate Factor) controls quality — lower numbers mean better quality but larger files. The scale is 0–51: 0 is lossless (very large), 18 is visually lossless, 23 is the default (good balance), 28 is acceptable for web sharing, 32+ is heavily compressed. A CRF of 23 is recommended for YouTube uploads, 28 for Discord/Twitter, and 18 for archival quality."
+      },
+      {
+        question: "Can I convert between different video formats and codecs?",
+        answer: "Yes. You can convert between MP4, WebM, MOV, and MKV container formats with corresponding codec support: H.264 (MP4, MOV, MKV), H.265/HEVC (MP4, MKV), and VP9 (WebM). The tool automatically filters compatible codecs based on your selected output format."
+      },
+      {
+        question: "Does the tool preserve video quality?",
+        answer: "The tool uses CRF-based encoding which preserves as much quality as possible for a given file size target. For near-lossless quality, use the 'High Quality' preset (CRF 18) or set CRF to values between 14 and 18. Keep in mind that transcoding always introduces some generational quality loss — for best results, encode from your original source file rather than a previously compressed video."
+      },
+      {
+        question: "Can I use this on mobile?",
+        answer: "Yes, the tool is fully responsive and works on mobile browsers. However, video encoding is CPU-intensive and may take longer on mobile devices. The FFmpeg WASM engine works on all modern browsers (Chrome, Firefox, Safari, Edge) that support WebAssembly."
+      },
+      {
+        question: "How do I know what preset to use for my platform?",
+        answer: "Each preset is tuned for a specific platform's recommended upload settings. YouTube works best with H.264, CRF 23, 1080p at 30 FPS. Twitter/X and Discord benefit from 720p with higher compression. Instagram supports 1080p. For maximum platform compatibility, the H.264 codec with AAC audio is recommended. Use the 'Small File' preset for sharing via messaging apps where file size limits apply."
       }
     ];
   }

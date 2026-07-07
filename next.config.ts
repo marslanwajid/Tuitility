@@ -8,7 +8,7 @@ const nextConfig: NextConfig = {
     optimizePackageImports: ['gsap', 'react-katex', 'canvas-confetti'],
   },
   compiler: {
-    removeConsole: process.env.NODE_ENV === 'production',
+    removeConsole: process.env.NODE_ENV === 'production' ? { exclude: ['error', 'warn'] } : false,
   },
 };
 

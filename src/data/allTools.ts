@@ -650,6 +650,13 @@ export const allTools = [
     category: "Utility",
     icon: "fas fa-eraser",
   },
+  {
+    name: "Video Compressor & Converter",
+    desc: "Compress and convert videos with advanced codec control, CRF quality, resolution scaling, and preset workflows",
+    url: "/utility-tools/converter-tools/video-compressor",
+    category: "Utility",
+    icon: "fas fa-compress-alt",
+  },
 
   {
     name: "GPA Calculator",

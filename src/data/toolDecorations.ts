@@ -839,4 +839,17 @@ const EXACT_TOOL_DECORATIONS: Record<string, ToolDecoration> = {
     visualization: 'Celestial Phase Chart',
     precision: 'Exact Date / 1-Day Lunar Precision',
   },
+  '/utility-tools/converter-tools/video-compressor': {
+    symbols: [
+      { text: '\uD83C\uDFA5', className: 'text-4.5xl font-black rotate-12 animate-float-delayed' },
+      { text: '\uD83D\uDCBF', className: 'text-5xl font-black -rotate-12 animate-float' },
+      { text: 'H.264', className: 'text-4xl font-black rotate-45 animate-float' },
+      { text: 'CRF', className: 'text-5xl font-black -rotate-45 animate-float-delayed' },
+      { text: '4K', className: 'text-3.5xl font-extrabold rotate-12' },
+      { text: 'HD', className: 'text-4xl font-black' },
+    ],
+    method: 'FFmpeg WASM Transcoding',
+    visualization: 'Side-by-Side Comparison',
+    precision: 'CRF 0\u201351 Scale',
+  },
 };

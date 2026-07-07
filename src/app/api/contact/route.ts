@@ -1,5 +1,4 @@
-// @ts-ignore
-import { NextRequest, NextResponse, waitUntil } from 'next/server';
+import { NextRequest, NextResponse, after } from 'next/server';
 import nodemailer from 'nodemailer';
 
 export async function POST(request: NextRequest) {
@@ -148,16 +147,11 @@ export async function POST(request: NextRequest) {
           </div>
         </div>
       `,
-    }).then((info) => {
-      console.log('Email sent successfully in background:', info.messageId);
-    }).catch((err) => {
-      console.error('Email background error:', err);
     });
 
-    // Signal the server environment to keep executing the promise in the background
-    if (typeof waitUntil === 'function') {
-      waitUntil(mailPromise);
-    }
+    after(() => mailPromise.catch((err) => {
+      console.error('Email send error:', err);
+    }));
 
     return NextResponse.json({ success: true, message: 'Message sent successfully.' });
   } catch (error: unknown) {

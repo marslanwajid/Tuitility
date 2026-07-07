@@ -1221,7 +1221,7 @@ export default function ToolContentEnhancer({ toolContent }: ToolContentEnhancer
     setEmail('');
   }, [toolContent.url]);
 
-  const handleFeedbackSubmit = (e: React.FormEvent) => {
+  const handleFeedbackSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     const autoName = email ? email.split('@')[0] : `User of ${toolContent.name}`;
@@ -1229,25 +1229,30 @@ export default function ToolContentEnhancer({ toolContent }: ToolContentEnhancer
     const ratingLabel = rating === 'helpful' ? 'Helpful (5/5)' : rating === 'not-helpful' ? 'Not Helpful (1/5)' : 'No rating';
     const currentUrl = typeof window !== 'undefined' ? window.location.href : toolContent.url;
 
-    // Dispatch SMTP request in the background
-    fetch('/api/contact', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        name: autoName,
-        email: autoEmail,
-        subject: `Tool Feedback: ${toolContent.name}`,
-        message: feedbackText,
-        formType: 'tool-feedback',
-        toolName: toolContent.name,
-        rating: ratingLabel,
-        pageUrl: currentUrl,
-      }),
-    }).catch((err) => {
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: autoName,
+          email: autoEmail,
+          subject: `Tool Feedback: ${toolContent.name}`,
+          message: feedbackText,
+          formType: 'tool-feedback',
+          toolName: toolContent.name,
+          rating: ratingLabel,
+          pageUrl: currentUrl,
+        }),
+      });
+      if (!res.ok) {
+        const data = await res.json();
+        throw new Error(data.error || 'Failed to send feedback');
+      }
+    } catch (err) {
       console.error('Feedback SMTP submission error:', err);
-    });
+    }
 
     setSubmitted(true);
   };
