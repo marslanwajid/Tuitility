@@ -65,6 +65,10 @@ export const CALCULATOR_REGISTRY: Record<string, React.ComponentType<any>> = {
     () => import('./math/SigFigCalculator'),
     { ssr: false }
   ),
+  '/math/calculators/percent-error-calculator': dynamic(
+    () => import('./math/PercentErrorCalculator'),
+    { ssr: false }
+  ),
   '/finance/calculators/mortgage-calculator': dynamic(
     () => import('./finance/MortgageCalculator'),
     { ssr: false }
@@ -153,6 +157,10 @@ export const CALCULATOR_REGISTRY: Record<string, React.ComponentType<any>> = {
     () => import('./finance/EtsyFeeCalculator'),
     { ssr: false }
   ),
+  '/finance/calculators/fiverr-fee-calculator': dynamic(
+    () => import('./finance/FiverrFeeCalculator'),
+    { ssr: false }
+  ),
   '/health/calculators/bmi-calculator': dynamic(
     () => import('./health/BMICalculator'),
     { ssr: false }
@@ -197,6 +205,10 @@ export const CALCULATOR_REGISTRY: Record<string, React.ComponentType<any>> = {
     () => import('./health/BRICalculator'),
     { ssr: false }
   ),
+  '/health/calculators/tdee-calculator': dynamic(
+    () => import('./health/TDEECalculator'),
+    { ssr: false }
+  ),
   '/science/calculators/wave-speed-calculator': dynamic(
     () => import('./science/WaveSpeedCalculator'),
     { ssr: false }
@@ -231,6 +243,10 @@ export const CALCULATOR_REGISTRY: Record<string, React.ComponentType<any>> = {
   ),
   '/science/calculators/dilution-calculator': dynamic(
     () => import('./science/DilutionCalculator'),
+    { ssr: false }
+  ),
+  '/science/calculators/ph-calculator': dynamic(
+    () => import('./science/PHCalculator'),
     { ssr: false }
   ),
   '/knowledge/calculators/gpa-calculator': dynamic(
@@ -287,6 +303,10 @@ export const CALCULATOR_REGISTRY: Record<string, React.ComponentType<any>> = {
   ),
   '/knowledge/calculators/zodiac-moon-phase': dynamic(
     () => import('./knowledge/ZodiacMoonPhaseCalculator'),
+    { ssr: false }
+  ),
+  '/knowledge/calculators/chronological-age-calculator': dynamic(
+    () => import('./knowledge/ChronologicalAgeCalculator'),
     { ssr: false }
   ),
   '/utility-tools/image-tools/image-to-webp-converter': dynamic(
@@ -427,6 +447,10 @@ export const CALCULATOR_REGISTRY: Record<string, React.ComponentType<any>> = {
   ),
   '/utility-tools/converter-tools/video-compressor': dynamic(
     () => import('./utility/VideoCompressor'),
+    { ssr: false }
+  ),
+  '/utility-tools/exif-data-remover': dynamic(
+    () => import('./utility/ExifDataRemover'),
     { ssr: false }
   ),
 };

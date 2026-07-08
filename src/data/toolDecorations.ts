@@ -540,6 +540,19 @@ const EXACT_TOOL_DECORATIONS: Record<string, ToolDecoration> = {
     visualization: 'Doughnut Chart',
     precision: '2-Decimal Currency',
   },
+  '/finance/calculators/fiverr-fee-calculator': {
+    symbols: [
+      { text: '$', className: 'text-4.5xl font-black rotate-12 animate-float-delayed' },
+      { text: '20%', className: 'text-5xl font-black -rotate-12 animate-float' },
+      { text: 'Fiverr', className: 'text-4xl font-bold rotate-45 animate-float' },
+      { text: 'Fee', className: 'text-6xl font-black -rotate-45 animate-float-delayed' },
+      { text: '\uD83E\uDD1D', className: 'text-3xl font-extrabold rotate-12' },
+      { text: 'Profit', className: 'text-4xl font-black' },
+    ],
+    method: 'Percentage-Based Commission Deduction',
+    visualization: 'Fee Breakdown Card',
+    precision: '2-Decimal Currency',
+  },
   '/health/calculators/bmi-calculator': {
     symbols: [
       { text: '🩺', className: 'text-4.5xl font-black rotate-12 animate-float-delayed' },
@@ -683,6 +696,19 @@ const EXACT_TOOL_DECORATIONS: Record<string, ToolDecoration> = {
     visualization: 'Risk Gauge',
     precision: '2-Decimal Float / Risk Category',
   },
+  '/health/calculators/tdee-calculator': {
+    symbols: [
+      { text: 'TDEE', className: 'text-4xl font-extrabold rotate-12 animate-float-delayed' },
+      { text: 'BMR', className: 'text-5xl font-black -rotate-12 animate-float' },
+      { text: 'kcal', className: 'text-4xl font-bold rotate-45 animate-float' },
+      { text: 'Macro', className: 'text-6xl font-black -rotate-45 animate-float-delayed' },
+      { text: '\uD83D\uDCAA', className: 'text-3xl font-extrabold rotate-12' },
+      { text: '\u26A1', className: 'text-4xl font-black' },
+    ],
+    method: 'Mifflin-St Jeor + Activity Multiplier',
+    visualization: 'Goal Grid (Cut / Maintain / Bulk)',
+    precision: '0-Decimal Integer (kcal)',
+  },
   '/science/calculators/wave-speed-calculator': {
     symbols: [
       { text: 'λ', className: 'text-4xl font-extrabold rotate-12 animate-float-delayed' },
@@ -747,6 +773,19 @@ const EXACT_TOOL_DECORATIONS: Record<string, ToolDecoration> = {
     method: 'C\u2081V\u2081 = C\u2082V\u2082',
     visualization: 'Dilution Gradient',
     precision: '6-Decimal Float',
+  },
+  '/science/calculators/ph-calculator': {
+    symbols: [
+      { text: 'pH', className: 'text-4xl font-extrabold rotate-12 animate-float-delayed' },
+      { text: 'H\u207A', className: 'text-5xl font-black -rotate-12 animate-float' },
+      { text: 'pOH', className: 'text-4xl font-bold rotate-45 animate-float' },
+      { text: 'OH\u207B', className: 'text-6xl font-black -rotate-45 animate-float-delayed' },
+      { text: 'K_w', className: 'text-3xl font-extrabold rotate-12' },
+      { text: '\u2212log', className: 'text-4xl font-black' },
+    ],
+    method: 'pH = \u2212log[H\u207A]',
+    visualization: 'Interactive pH Scale (0\u201314)',
+    precision: '2-Decimal Float',
   },
   '/knowledge/calculators/gpa-calculator': {
     symbols: [
@@ -839,6 +878,32 @@ const EXACT_TOOL_DECORATIONS: Record<string, ToolDecoration> = {
     visualization: 'Celestial Phase Chart',
     precision: 'Exact Date / 1-Day Lunar Precision',
   },
+  '/knowledge/calculators/chronological-age-calculator': {
+    symbols: [
+      { text: 'Yrs', className: 'text-4xl font-extrabold rotate-12 animate-float-delayed' },
+      { text: 'Mo', className: 'text-5xl font-black -rotate-12 animate-float' },
+      { text: 'Days', className: 'text-4xl font-bold rotate-45 animate-float' },
+      { text: 'DOB', className: 'text-6xl font-black -rotate-45 animate-float-delayed' },
+      { text: '\uD83D\uDCCB', className: 'text-3xl font-extrabold rotate-12' },
+      { text: 'Corrected', className: 'text-4xl font-black' },
+    ],
+    method: 'Date Subtraction (Borrow)',
+    visualization: 'Age Breakdown Card',
+    precision: 'Day-Level Exact',
+  },
+  '/math/calculators/percent-error-calculator': {
+    symbols: [
+      { text: '\u00B1', className: 'text-4xl font-extrabold rotate-12 animate-float-delayed' },
+      { text: '%', className: 'text-5xl font-black -rotate-12 animate-float' },
+      { text: 'E', className: 'text-4xl font-bold rotate-45 animate-float' },
+      { text: 'T', className: 'text-6xl font-black -rotate-45 animate-float-delayed' },
+      { text: '|x|', className: 'text-3xl font-extrabold rotate-12' },
+      { text: '\u2248', className: 'text-4xl font-black' },
+    ],
+    method: 'Absolute Difference Formula',
+    visualization: 'Comparison Summary Card',
+    precision: '4-Decimal Float',
+  },
   '/utility-tools/converter-tools/video-compressor': {
     symbols: [
       { text: '\uD83C\uDFA5', className: 'text-4.5xl font-black rotate-12 animate-float-delayed' },
@@ -851,5 +916,18 @@ const EXACT_TOOL_DECORATIONS: Record<string, ToolDecoration> = {
     method: 'FFmpeg WASM Transcoding',
     visualization: 'Side-by-Side Comparison',
     precision: 'CRF 0\u201351 Scale',
+  },
+  '/utility-tools/exif-data-remover': {
+    symbols: [
+      { text: 'EXIF', className: 'text-4xl font-extrabold rotate-12 animate-float-delayed' },
+      { text: 'GPS', className: 'text-5xl font-black -rotate-12 animate-float' },
+      { text: '\uD83D\uDDD1\uFE0F', className: 'text-4xl font-bold rotate-45 animate-float' },
+      { text: '\uD83D\uDEE1\uFE0F', className: 'text-6xl font-black -rotate-45 animate-float-delayed' },
+      { text: '\uD83D\uDCF7', className: 'text-3xl font-extrabold rotate-12' },
+      { text: 'Meta', className: 'text-4xl font-black' },
+    ],
+    method: 'Canvas Re-encoding (Metadata Strip)',
+    visualization: 'Before/After Metadata Table',
+    precision: 'N/A',
   },
 };

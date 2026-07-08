@@ -285,6 +285,12 @@ const SEO_PRIORITY_OVERRIDES = {
     rationale: 'Dilution calculator queries (C1V1 = C2V2) have strong educational and lab intent with low competition; differentiation through 4-way solve mode (C1, V1, C2, V2), built-in unit converters (M, mM, μM, nM + L, mL, μL), animated SVG dilution visualizer, and step-by-step KaTeX calculations.',
     focusKeywords: ['dilution calculator', 'm1v1 calculator', 'dilution calculator m1v1', 'c1v1 calculator', 'c1v1 c2v2 calculator', 'solution dilution calculator', 'serial dilution calculator', 'stock solution calculator'],
   },
+  '/science/calculators/ph-calculator': {
+    tier: 'high',
+    outlook: 'high-intent steady traffic; low keyword difficulty',
+    rationale: 'pH calculator queries (pH, pOH, [H+], [OH-]) have strong educational and lab intent with low competition; differentiation through 5 solve modes, interactive SVG pH scale visualizer (0–14), and step-by-step KaTeX calculations showing the full -log₁₀ derivation.',
+    focusKeywords: ['ph calculator', 'poh calculator', 'ph to h+ concentration', 'h+ concentration calculator', 'chemistry ph calculator', 'acid base calculator', 'ph scale', 'ka ph calculator'],
+  },
   '/health/calculators/calorie-burn-calculator': {
     tier: 'medium',
     outlook: 'balanced opportunity',
@@ -513,6 +519,12 @@ const SEO_PRIORITY_OVERRIDES = {
     rationale: 'Diabetes risk tools have strong health-conscious search intent with less competition than weight-related queries.',
     focusKeywords: ['diabetes risk calculator', 'diabetes risk test', 'type 2 diabetes risk', 'ada diabetes risk test'],
   },
+  '/health/calculators/tdee-calculator': {
+    tier: 'high',
+    outlook: 'huge search volume for fitness calculators; rankable with clean macro breakdown and goal-based calorie targets',
+    rationale: 'TDEE queries have massive fitness and weight management search volume; differentiate with simultaneous Cut/Maintain/Bulk calorie targets, customized macro grams per goal, optional body fat integration, and clean visual comparison.',
+    focusKeywords: ['tdee calculator', 'total daily energy expenditure', 'bmr calculator', 'maintenance calories', 'cutting calories', 'bulking calories', 'macro calculator', 'tdee with body fat', 'calorie calculator for cutting', 'fitness calorie calculator'],
+  },
   '/knowledge/calculators/habit-formation-calculator': {
     tier: 'medium',
     outlook: 'good long-tail opportunity',
@@ -555,6 +567,12 @@ const SEO_PRIORITY_OVERRIDES = {
     rationale: 'Zodiac and moon phase queries have strong lifestyle/astrology intent with high social shareability; differentiate with interactive celestial visualizations, personalized birth chart readings, and today moon phase bonus.',
     focusKeywords: ['zodiac sign calculator', 'moon phase birthday calculator', 'zodiac sign finder', 'moon phase today', 'astrology birth chart', 'moon phase on my birthday', 'what is my zodiac sign'],
   },
+  '/knowledge/calculators/chronological-age-calculator': {
+    tier: 'high',
+    outlook: 'strong clinical and educational search intent with low competition for corrected age queries',
+    rationale: 'Chronological age calculator queries are heavily used by child psychologists, speech-language pathologists, and early intervention specialists for developmental assessment scoring; differentiate with corrected age for prematurity, exact Y:M:D format, decimal age for formula scoring, and clinical-grade step-by-step.',
+    focusKeywords: ['chronological age calculator', 'corrected age calculator', 'adjusted age calculator', 'gestational age correction', 'chronological age for developmental assessment', 'age calculator for bayley', 'age calculator for asq', 'premature corrected age'],
+  },
   '/utility-tools/image-tools/image-to-webp-converter': {
     tier: 'high',
     outlook: 'strong long-tail opportunity',
@@ -596,6 +614,12 @@ const SEO_PRIORITY_OVERRIDES = {
     outlook: 'high volume with strong developer and creator intent; manageable competition for long-tail codec/CRF queries',
     rationale: 'Video compressor queries have broad creator demand; differentiate with full ffmpeg.wasm-powered codec selection (H.264, H.265, VP9), CRF slider, resolution presets, trim controls, side-by-side comparison, and privacy-first 100% local processing.',
     focusKeywords: ['video compressor online', 'compress video without uploading', 'ffmpeg wasm video converter', 'video codec converter', 'h.264 compressor', 'h.265 hevc converter', 'vp9 webm converter', 'crf video quality', 'compress video for discord', 'compress video for twitter'],
+  },
+  '/utility-tools/exif-data-remover': {
+    tier: 'high',
+    outlook: 'growing privacy-driven search volume; low competition for client-side-only tools',
+    rationale: 'EXIF removal queries have strong privacy and security intent with low competition; differentiate with full exifr-powered metadata parsing (camera, GPS, date, software), 100% local canvas-based stripping, clear file size comparison, and privacy-first messaging.',
+    focusKeywords: ['exif data remover', 'remove exif data from image', 'remove metadata from photo', 'exif viewer and remover', 'strip exif online', 'remove gps data from photo', 'clear image metadata', 'exif cleaner', 'privacy image tool', 'remove camera info from photo'],
   },
 };
 
@@ -841,6 +865,11 @@ export const getToolContent = (tool: any) => {
       `The Significant Figures Calculator is a free online tool designed to count significant figures in any number with a digit-by-digit significance breakdown, or round numbers to a specified number of significant figures with step-by-step walkthroughs of each rounding decision. If you need to perform decimal arithmetic before evaluating precision, you can use our [Decimal Calculator](/math/calculators/decimal-calculator) to work with decimal numbers first. For converting between number formats where precision matters, try our [Fraction to Percent Calculator](/math/calculators/fraction-to-percent-calculator) and [Percent to Fraction Calculator](/math/calculators/percent-to-fraction-calculator).`,
       `This tool highlights each digit in your number with color-coded significance indicators and explains which rule applies — non-zero digits, captive zeros, leading zeros, or trailing zeros — so students and professionals can understand exactly why each digit counts (or does not). In rounding mode, it walks you through every step of identifying the target significant digit, checking the next digit, rounding up or keeping the same, and preserving place value. A visual proportion bar shows the ratio of significant to non-significant digits at a glance.`,
     ];
+    } else if (tool.url === '/math/calculators/percent-error-calculator') {
+      overview = [
+        `The Percent Error Calculator is a free online tool designed to calculate the absolute error and percentage error between an experimental (measured) value and a theoretical (accepted) value. The result helps you quantify the accuracy of measurements, lab experiments, or predictions using the formula $|(E - T) / T| \\times 100$. If you need to work with percentage changes instead of errors, you can use our [Percentage Calculator](/math/calculators/percentage-calculator). For more advanced experiment analysis, pair this with our [Significant Figures Calculator](/math/calculators/sig-fig-calculator) to ensure your measurements are correctly rounded.`,
+        `This tool provides a step-by-step breakdown of the percent error calculation, showing each stage from the initial formula through the absolute difference, division, and final multiplication. Results display both the absolute difference between your values and the final percentage, making it easy to report lab findings, assess experimental accuracy, or validate calibration measurements.`,
+      ];
     } else if (tool.url === '/finance/calculators/mortgage-calculator') {
     overview = [
       `The Mortgage Calculator is a free online financial tool designed to calculate estimated monthly payments including principal, interest, property taxes, home insurance, private mortgage insurance (PMI), and HOA fees. If you want to estimate standard borrowing scenarios without taxes or insurance, you can also use our upcoming [Loan Calculator](/finance/calculators/loan-calculator) or check how much home is within budget using our [House Affordability Calculator](/finance/calculators/house-affordability-calculator).`,
@@ -951,6 +980,11 @@ export const getToolContent = (tool: any) => {
       `The Etsy Fee & Profit Calculator is a free online financial tool designed to help Etsy sellers calculate exactly how much they will earn from each sale after all Etsy fees and costs. It breaks down Etsy's transaction fee (6.5%), listing fee ($0.20), payment processing fee (3% + $0.25), and optional offsite ads fee (12% or 15%) to show you exactly where your revenue goes. Pair it with our [Budget Calculator](/finance/calculators/budget-calculator) to incorporate Etsy income into your overall budget or our [Sales Tax Calculator](/finance/calculators/sales-tax-calculator) to factor in sales tax obligations on your Etsy sales. If you are evaluating broader business profitability, our [ROI Calculator](/finance/calculators/roi-calculator) can help assess overall returns.`,
       `Enter your sale price, shipping charged to the buyer, item cost, and shipping cost, then select your offsite ads tier (not enrolled, standard 12% for under $10k lifetime sales, or premium 15% for over $10k lifetime sales). The tool instantly computes your net profit, profit margin percentage, and total Etsy fees with a full itemized breakdown. An interactive SVG doughnut chart visualizes where your revenue goes — your profit, Etsy fees, item cost, and shipping cost — making it easy to spot whether a listing is actually profitable. If your sale is at a loss, a warning banner suggests ways to improve profitability. Quick presets ($15, $25, $35, $45, $65, $100) let you test common price points instantly.`,
     ];
+    } else if (tool.url === '/finance/calculators/fiverr-fee-calculator') {
+      overview = [
+        `The Fiverr Fee Calculator is a free online financial tool designed to help freelancers calculate exactly how much they will earn from each Fiverr order after Fiverr's 20% commission, buyer service fees, and withdrawal costs. It shows both sides of every transaction — what the seller nets and what the buyer pays — so there are no surprises at payout time. Pair it with our [Budget Calculator](/finance/calculators/budget-calculator) to incorporate freelance income into your monthly budget, our [ROI Calculator](/finance/calculators/roi-calculator) to evaluate overall business profitability, or our [Sales Tax Calculator](/finance/calculators/sales-tax-calculator) to account for sales tax obligations on your freelance services.`,
+        `Enter your gig price, optional buyer extras (expedited delivery, extra revisions, etc.), and any seller-side costs you incur (materials, software, subcontractors). Choose your withdrawal method — Bank Transfer (free), PayPal ($2), Payoneer (1%), or Direct Deposit ($0.50) — and the tool instantly computes your net earnings after Fiverr's 20% commission, the buyer's 5.5% service fee, and your chosen withdrawal fee. A detailed fee breakdown shows where every dollar goes, and a quick comparison card shows the full buyer's cost versus your net earnings at a glance. Quick price presets ($5, $10, $25, $50, $100, $500, $1,000) let you test common gig pricing tiers instantly.`,
+      ];
     } else if (tool.url === '/health/calculators/bmi-calculator') {
     overview = [
       `The BMI Calculator is a free online health and wellness tool designed to calculate your Body Mass Index (BMI) and evaluate your body weight category according to World Health Organization (WHO) standards. To support your overall fitness and health goals, you can easily pair this analysis with our [Calorie Calculator](/health/calculators/calorie-calculator) to determine daily energy needs, use our [Calorie Burn Calculator](/health/calculators/calorie-burn-calculator) to estimate active calories burned, or use our [Water Intake Calculator](/health/calculators/water-intake-calculator) to calculate optimal daily hydration goals.`,
@@ -1006,7 +1040,38 @@ export const getToolContent = (tool: any) => {
       `The BRI Calculator is a free online health assessment tool designed to calculate your Body Roundness Index (BRI) — a geometric measure of body fat distribution that goes beyond traditional BMI by incorporating waist circumference to evaluate health risk. To build a complete wellness picture, pair this with our [BMI Calculator](/health/calculators/bmi-calculator) for basic weight screening, our [Body Fat Calculator](/health/calculators/body-fat-calculator) for direct body composition estimation, our [Calorie Calculator](/health/calculators/calorie-calculator) for daily energy needs, or our [Ideal Weight Calculator](/health/calculators/ideal-body-weight-calculator) to set healthy target weights.`,
       `This tool uses the BRI formula (364.2 - 365.5 × sqrt(1 - (waist/(2π×height))²)) to compute your roundness score, along with BMI, Waist-to-Height Ratio (WHtR), and Waist-to-Hip Ratio (WHR). It classifies your body shape as Pear (lower body fat), Avocado (balanced), or Apple (upper body fat) based on gender-specific WHR thresholds, and provides a comprehensive 0-100 health risk score. Results include your BRI value, BMI with category, WHtR with status, WHR with body shape, body shape analysis, health risk level with identified risk factors, a visual BRI risk gauge, body surface area (BSA), ideal weight range, weight difference from ideal, estimated metabolic age, and personalized recommendations tailored to your risk category.`,
     ];
-  } else if (tool.url === '/science/calculators/wave-speed-calculator') {
+    } else if (tool.url === '/health/calculators/tdee-calculator') {
+      overview = [
+        `The TDEE Calculator is a free online fitness and health tool designed to calculate your Total Daily Energy Expenditure (TDEE) — the total number of calories your body burns each day — using the Mifflin-St Jeor equation for Basal Metabolic Rate (BMR) adjusted for your activity level. Instead of showing just a single number, this tool outputs three complete goal plans: Cutting (weight loss), Maintenance, and Bulking (muscle gain), each with target calories and a full macronutrient breakdown in grams of protein, carbs, and fat. To build a complete health picture, pair this with our [BMI Calculator](/health/calculators/bmi-calculator) for body composition tracking, our [Body Fat Calculator](/health/calculators/body-fat-calculator) for body fat estimation, our [Calorie Calculator](/health/calculators/calorie-calculator) for general daily needs, our [Calorie Burn Calculator](/health/calculators/calorie-burn-calculator) for exercise-specific expenditure, our [Water Intake Calculator](/health/calculators/water-intake-calculator) for hydration planning, or our [Ideal Weight Calculator](/health/calculators/ideal-body-weight-calculator) to set healthy target weights.`,
+        `Enter your age, gender, height, weight, activity level, and optionally your body fat percentage. The tool instantly calculates your BMR using the Mifflin-St Jeor equation (10 × weight(kg) + 6.25 × height(cm) − 5 × age + 5 for men, −161 for women), then multiplies by your activity factor to determine TDEE. Three calorie targets are computed: Cutting (TDEE − 500), Maintenance (TDEE), and Bulking (TDEE + 500), each with a customized macro split optimized for the goal. Cutting uses 35% protein / 35% carbs / 30% fat to preserve muscle, Maintenance uses 30/40/30 for balanced health, and Bulking uses 25/50/25 for muscle growth. Each goal card visualizes the macro distribution with color-coded progress bars. If you enter your body fat percentage, your lean body mass is displayed alongside the results. All calculations are based on clinically validated equations and run entirely in your browser.`,
+      ];
+      faqs = [
+        {
+          question: "What is TDEE and why does it matter?",
+          answer: "Total Daily Energy Expenditure (TDEE) is the total number of calories your body burns in a day, including your basal metabolic rate (BMR — calories burned at rest), the thermic effect of food (digestion), and physical activity. Knowing your TDEE lets you set precise calorie targets: eat below TDEE to lose weight, at TDEE to maintain, and above TDEE to gain weight or build muscle.",
+        },
+        {
+          question: "What is the Mifflin-St Jeor equation?",
+          answer: "The Mifflin-St Jeor equation is the most clinically validated formula for estimating BMR. For men: BMR = 10 × weight(kg) + 6.25 × height(cm) − 5 × age(y) + 5. For women: BMR = 10 × weight(kg) + 6.25 × height(cm) − 5 × age(y) − 161. It was developed in 1990 and is considered the gold standard for BMR estimation in healthy adults.",
+        },
+        {
+          question: "What macro split should I use for cutting vs bulking?",
+          answer: "This tool uses evidence-based macro splits for each goal. Cutting (weight loss) uses 35% protein, 35% carbs, and 30% fat — higher protein preserves muscle mass during a calorie deficit. Maintenance uses 30% protein, 40% carbs, and 30% fat for balanced nutrition. Bulking (muscle gain) uses 25% protein, 50% carbs, and 25% fat — higher carbs fuel intense workouts and recovery. You can adjust these ratios based on your personal preferences and dietary needs.",
+        },
+        {
+          question: "How accurate is the body fat percentage input?",
+          answer: "If you know your body fat percentage from DEXA scan, caliper measurements, or bioelectrical impedance, entering it provides a more complete picture by showing your lean body mass. However, it is optional — the TDEE and macro calculations work correctly without it. The BMR and TDEE formulas use total body weight, not lean mass, so body fat does not affect the calorie calculations.",
+        },
+        {
+          question: "How much weight will I lose/gain per week with these targets?",
+          answer: "A deficit of 500 kcal/day (Cutting target) typically results in approximately 0.5 kg (1 lb) of weight loss per week. A surplus of 500 kcal/day (Bulking target) typically results in approximately 0.5 kg (1 lb) of weight gain per week. Individual results vary based on metabolism, adherence, exercise type, and other factors.",
+        },
+        {
+          question: "Should I use metric or imperial units?",
+          answer: "Both are equally accurate. The tool automatically converts between metric (kg, cm) and imperial (lbs, ft/in) systems. Choose whichever you are most comfortable with. If you use imperial, enter your height in feet and inches (e.g., 5'9\") and weight in pounds.",
+        },
+      ];
+    } else if (tool.url === '/science/calculators/wave-speed-calculator') {
     overview = [
       `The Wave Speed Calculator is a free online physics tool designed to calculate wave speed, frequency, and wavelength using the fundamental wave equation. If you are analyzing electromagnetic wave propagation, you can pair this analysis with our [dBm to Watts Calculator](/science/calculators/dbm-watts-calculator) to compute power level thresholds, or evaluate mechanical output using our [Work Power Calculator](/science/calculators/work-power-calculator).`,
       `This tool supports a multi-mode 'Solve For' solver: calculate wave speed from frequency and wavelength, frequency from speed and wavelength, or wavelength from speed and frequency. It features increment/decrement steppers, preset shortcuts for common frequencies (sound notes, radio bands, visible spectrum) and speed mediums, and a live animated SVG wave visualizer that dynamically adapts its wavelength and animation speed to your parameters. Results are initially hidden and fade in with canvas-confetti on click, showing step-by-step KaTeX equations and derived physical wave properties (Period, Angular Frequency, and Wave Number).`,
@@ -1046,6 +1111,11 @@ export const getToolContent = (tool: any) => {
       `The Dilution Calculator is a free online chemistry lab tool designed to solve any variable in the dilution equation $C_1 V_1 = C_2 V_2$ — stock concentration ($C_1$), stock volume ($V_1$), final concentration ($C_2$), or final volume ($V_2$). It includes built-in unit converters for concentration (M, mM, $\mu$M, nM) and volume (L, mL, $\mu$L) so you can work in whatever units your protocol requires. To expand your lab calculation toolkit, pair this with our [Average Atomic Mass Calculator](/science/calculators/average-atomic-mass-calculator) for isotopic abundance analysis or our [Capacitance Calculator](/science/calculators/capacitance-calculator) for electronics work. If you need broader physics support, our [Work Power Calculator](/science/calculators/work-power-calculator) and [Wave Speed Calculator](/science/calculators/wave-speed-calculator) cover mechanical and wave mechanics.`,
       `This tool supports four solve modes with dynamically disabled inputs for the target variable. Choose from 6 real-world examples such as "10X to 1X PBS", "Make 100 mL of 0.5 M NaCl", or "Dilute to 50 \u00B5M (10X dilution)" to see the tool in action. An animated SVG dilution visualizer shows the stock and final beakers with a color-coded concentration gradient, pipette arrow animation, and a key parameters panel. Results include a dark hero card with all four variables displayed, a dilution summary with factor, ratio, and stock remaining, plus full step-by-step KaTeX calculations showing the formula rearrangement with actual values.`,
     ];
+    } else if (tool.url === '/science/calculators/ph-calculator') {
+      overview = [
+        `The pH Calculator is a free online chemistry tool designed to compute pH, pOH, hydrogen ion concentration $[\\text{H}^+]$, and hydroxide ion concentration $[\\text{OH}^-]$ using the core acid-base formulas $\\text{pH} = -\\log_{10}[\\text{H}^+]$, $\\text{pOH} = -\\log_{10}[\\text{OH}^-]$, and $\\text{pH} + \\text{pOH} = 14$. To complement your lab work, pair this with our [Dilution Calculator](/science/calculators/dilution-calculator) for $C_1V_1 = C_2V_2$ stock solution preparation or our [Average Atomic Mass Calculator](/science/calculators/average-atomic-mass-calculator) for isotopic abundance analysis. For broader physics concepts, try our [Work Power Calculator](/science/calculators/work-power-calculator) or [Wave Speed Calculator](/science/calculators/wave-speed-calculator).`,
+        `This tool supports five solve modes: $[\\text{H}^+] \\to \\text{pH}$, $\\text{pH} \\to [\\text{H}^+]$, $[\\text{OH}^-] \\to \\text{pOH}$, $\\text{pOH} \\to [\\text{OH}^-]$, and $\\text{pH} \\leftrightarrow \\text{pOH}$ conversion. After entering a value, the calculator instantly returns all four related quantities with a full step-by-step KaTeX derivation showing the logarithmic formulas, intermediate substitutions, and final results. A color-coded interactive SVG pH scale (0–14) places your result on the spectrum from strong acid to strong base, and a classification badge labels the solution as Strong Acid, Weak Acid, Neutral, Weak Base, or Strong Base. A $K_w = [\\text{H}^+][\\text{OH}^-] = 1.0 \\times 10^{-14}$ verification line confirms the product of ion concentrations.`,
+      ];
     } else if (tool.url ===   '/knowledge/calculators/age-calculator') {
     overview = [
       `The Age Calculator is a free online time computation tool designed to calculate the exact chronological age between any two dates with precision down to years, months, days, hours, minutes, and seconds. To complement your personal development tracking, pair this with our [Language Level Calculator](/knowledge/calculators/language-level-calculator) for CEFR proficiency assessment, our [Habit Formation Calculator](/knowledge/calculators/habit-formation-calculator) to build consistent routines, our [Fuel Calculator](/knowledge/calculators/fuel-calculator) to plan road trips for milestone celebrations, our [Average Time Calculator](/knowledge/calculators/average-time-calculator) for statistical timing analysis, or our [Carbon Footprint Calculator](/knowledge/calculators/carbon-footprint-calculator) to track the environmental impact of lifestyle changes over time, or our [Zakat Calculator](/knowledge/calculators/zakat-calculator) to plan charitable giving aligned with life stage transitions.`,
@@ -1139,6 +1209,37 @@ export const getToolContent = (tool: any) => {
         question: "How are compatibility matches determined?",
         answer: "Compatibility matches are based on traditional astrological synastry — the relationships between signs by element and modality. Fire signs pair well with Air signs (which fuel fire), Earth signs pair with Water signs (which nourish earth), and signs of the same quality (Cardinal, Fixed, Mutable) often share complementary approaches to life. The tool shows four traditional best matches for each sign."
       }
+    ];
+  } else if (tool.url === '/knowledge/calculators/chronological-age-calculator') {
+    overview = [
+      `The Chronological Age Calculator is a free online clinical assessment tool designed to compute a child's exact chronological age in years, months, and days — the standard format required for scoring norm-referenced developmental tests. It also calculates corrected (adjusted) age for children born prematurely, which is essential for accurate developmental screening and early intervention eligibility. To support a complete assessment toolkit, pair this with our [Age Calculator](/knowledge/calculators/age-calculator) for general age computation or our [Average Time Calculator](/knowledge/calculators/average-time-calculator) for statistical timing analysis.`,
+      `Simply enter the child's date of birth, the assessment or testing date (defaults to today), and optionally the number of weeks premature (0–20). The tool instantly returns the chronological age in years, months, and days along with the decimal years format commonly used in scoring formulas. When prematurity is entered, a corrected age is displayed below the chronological age with a clear visual distinction. A step-by-step KaTeX breakdown shows the date subtraction logic with month and day borrowing, and a clinical reference note explains when corrected age should be used for developmental assessments.`,
+    ];
+    faqs = [
+      {
+        question: "What is the difference between chronological age and corrected age?",
+        answer: "Chronological age is the actual time elapsed since birth. Corrected (adjusted) age subtracts the weeks of prematurity from the chronological age, effectively calculating age as if the child had been born at full term (40 weeks). For example, a 12-month-old born 8 weeks early has a corrected age of approximately 10 months. Corrected age is the standard for developmental assessment of preterm infants.",
+      },
+      {
+        question: "When should I use corrected age for developmental testing?",
+        answer: "Corrected age is recommended for all developmental screening and assessment of children born before 37 weeks gestation until at least 24 months of corrected age. Many clinicians extend correction to 36 months or even longer for certain assessments. Always follow the specific test publisher's guidelines for your chosen assessment tool.",
+      },
+      {
+        question: "How is corrected age calculated?",
+        answer: "Corrected age is calculated by subtracting the number of weeks of prematurity (40 weeks minus gestational age at birth) from the chronological age. For example, if a child is 18 months old chronologically but was born 10 weeks early, their corrected age is approximately 15.5 months (18 months − 10 weeks).",
+      },
+      {
+        question: "What assessments use chronological age?",
+        answer: "Most standardized developmental assessments require chronological age in years:months:days format, including the Bayley Scales of Infant and Toddler Development (Bayley-4), Ages and Stages Questionnaires (ASQ-3, ASQ:SE-2), Wechsler Preschool and Primary Scale of Intelligence (WPPSI-IV), Mullen Scales of Early Learning, and many others. Some tests provide separate norms for chronological vs. corrected age.",
+      },
+      {
+        question: "What is the decimal years format used for?",
+        answer: "Decimal years (e.g., 5.42 years) is used in many test scoring formulas and research contexts where a continuous age variable is needed. It is calculated as years + months/12 + days/365.25.",
+      },
+      {
+        question: "Does the tool account for different month lengths and leap years?",
+        answer: "Yes. The calculation uses a precise date subtraction algorithm that accounts for varying days in each month, February leap days, and the full 365.25-day astronomical year for the decimal conversion.",
+      },
     ];
   } else if (tool.url === '/utility-tools/image-tools/image-to-webp-converter') {
     overview = [
@@ -2388,6 +2489,37 @@ export const getToolContent = (tool: any) => {
         question: "How do I know what preset to use for my platform?",
         answer: "Each preset is tuned for a specific platform's recommended upload settings. YouTube works best with H.264, CRF 23, 1080p at 30 FPS. Twitter/X and Discord benefit from 720p with higher compression. Instagram supports 1080p. For maximum platform compatibility, the H.264 codec with AAC audio is recommended. Use the 'Small File' preset for sharing via messaging apps where file size limits apply."
       }
+    ];
+  } else if (tool.url === '/utility-tools/exif-data-remover') {
+    overview = [
+      `The Exif Data Remover is a free online privacy tool that scans images for hidden EXIF metadata — camera make and model, GPS coordinates, date and time, ISO settings, flash information, and software details — and strips it all away with a single click. Every photo taken on a phone or digital camera embeds this information automatically, often revealing more than you intend when sharing online. To complete your privacy toolkit, pair this with our [Image Converter](/utility-tools/image-tools/image-converter) for additional format control or our [Image to WebP Converter](/utility-tools/image-tools/image-to-webp-converter) for web-optimized output that also strips metadata in the process.`,
+      `Just drop or upload an image (JPEG, PNG, WebP, TIFF) and the tool immediately reads and displays any embedded EXIF metadata in a clean table — camera details, GPS location, capture settings, and more. Click "Remove EXIF & Download" to strip all metadata by re-encoding the image through an HTML5 canvas, producing a clean copy with no trace of the original metadata. A file size comparison shows the difference between original and cleaned versions. All processing happens 100% in your browser — your image never leaves your device, making this a truly private solution for preparing photos before sharing them online.`,
+    ];
+    faqs = [
+      {
+        question: "What is EXIF data and why should I remove it?",
+        answer: "EXIF (Exchangeable Image File Format) data is metadata embedded by cameras and smartphones in every photo. It can include your camera make and model, GPS coordinates of where the photo was taken, the exact date and time, camera settings (ISO, aperture, shutter speed), and even the software used to edit the image. Removing this data protects your privacy before sharing photos online.",
+      },
+      {
+        question: "Is this really 100% private?",
+        answer: "Yes. The entire process runs locally in your browser using JavaScript. Your image is never uploaded to any server — it is read directly from your device, processed through an HTML5 canvas element, and the cleaned result is downloaded back to your device. No data is transmitted over the network at any point.",
+      },
+      {
+        question: "What image formats are supported?",
+        answer: "The tool supports JPEG, PNG, WebP, and TIFF images. These are the most common formats that carry EXIF metadata. The cleaned image is saved in the same format as the original.",
+      },
+      {
+        question: "Does removing EXIF affect image quality?",
+        answer: "The re-encoding process uses a high quality setting (92%) which means there is a small and usually imperceptible change in quality. The file size may increase or decrease slightly depending on the original compression. A size comparison is shown so you can see the difference before downloading.",
+      },
+      {
+        question: "Does this remove GPS location data?",
+        answer: "Yes. GPS coordinates (latitude, longitude, and altitude) are standard EXIF fields and are completely stripped along with all other metadata during the removal process.",
+      },
+      {
+        question: "Can I use this on mobile?",
+        answer: "Yes, the tool works on mobile browsers. You can either tap to browse for an image or drag and drop from your file manager on supported devices.",
+      },
     ];
   }
 

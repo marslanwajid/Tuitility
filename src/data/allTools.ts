@@ -112,6 +112,13 @@ export const allTools = [
     icon: "fas fa-ruler-combined",
   },
   {
+    name: "Percent Error Calculator",
+    desc: "Calculate absolute error and percentage error between experimental and theoretical values with step-by-step formula explanation",
+    url: "/math/calculators/percent-error-calculator",
+    category: "Math",
+    icon: "fas fa-percentage",
+  },
+  {
     name: "Mortgage Calculator",
     desc: "Calculate monthly mortgage payments with taxes, insurance, PMI",
     url: "/finance/calculators/mortgage-calculator",
@@ -265,6 +272,13 @@ export const allTools = [
     category: "Finance",
     icon: "fas fa-store",
   },
+  {
+    name: "Fiverr Fee Calculator",
+    desc: "Calculate Fiverr fees, seller earnings, and buyer total with 20% commission and 5.5% service fee breakdown",
+    url: "/finance/calculators/fiverr-fee-calculator",
+    category: "Finance",
+    icon: "fas fa-handshake",
+  },
 
   {
     name: "Wave Speed Calculator",
@@ -328,6 +342,13 @@ export const allTools = [
     url: "/science/calculators/dilution-calculator",
     category: "Science",
     icon: "fas fa-flask",
+  },
+  {
+    name: "pH Calculator",
+    desc: "Calculate pH, pOH, hydrogen ion concentration [H\u207A], and hydroxide ion concentration [OH\u207B] with step-by-step chemistry formula explanation",
+    url: "/science/calculators/ph-calculator",
+    category: "Science",
+    icon: "fas fa-vial",
   },
 
   {
@@ -406,6 +427,13 @@ export const allTools = [
     url: "/health/calculators/bri-calculator",
     category: "Health",
     icon: "fas fa-circle-notch",
+  },
+  {
+    name: "TDEE Calculator",
+    desc: "Calculate Total Daily Energy Expenditure with BMR, maintenance calories, and customized macros for cutting, bulking, and maintenance goals",
+    url: "/health/calculators/tdee-calculator",
+    category: "Health",
+    icon: "fas fa-fire",
   },
 
   {
@@ -657,6 +685,13 @@ export const allTools = [
     category: "Utility",
     icon: "fas fa-compress-alt",
   },
+  {
+    name: "Exif Data Remover",
+    desc: "Remove hidden metadata (EXIF, GPS, camera info) from photos and images — 100% private, no upload required",
+    url: "/utility-tools/exif-data-remover",
+    category: "Utility",
+    icon: "fas fa-shield-alt",
+  },
 
   {
     name: "GPA Calculator",
@@ -755,5 +790,12 @@ export const allTools = [
     url: "/knowledge/calculators/zodiac-moon-phase",
     category: "Knowledge",
     icon: "fas fa-moon",
+  },
+  {
+    name: "Chronological Age Calculator",
+    desc: "Calculate exact chronological age in years, months, and days for clinical assessments, developmental testing, and corrected age for preterm infants",
+    url: "/knowledge/calculators/chronological-age-calculator",
+    category: "Knowledge",
+    icon: "fas fa-calendar-check",
   },
 ];
