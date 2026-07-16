@@ -6,6 +6,7 @@ import { getDecorationSymbols, getDecorationPositions, getToolMetrics } from '..
 import CategoryView from '../../components/CategoryView';
 import ToolContentEnhancer from '../../components/ToolContentEnhancer';
 import CalculatorWidget from '../../components/CalculatorWidget';
+import { SITE_URL } from '../../data/siteConfig';
 
 interface RouteParams {
   slug: string[];
@@ -67,8 +68,51 @@ export default async function Page({ params }: { params: Promise<RouteParams> })
       </div>
     );
 
+    // Build WebApplication Schema
+    const appSchema = {
+      '@context': 'https://schema.org',
+      '@type': toolContent.schema?.type || 'WebApplication',
+      'name': toolContent.name,
+      'url': `${SITE_URL}${path}`,
+      'description': toolContent.seoDescription,
+      'applicationCategory': toolContent.schema?.applicationCategory || `${toolContent.category}Application`,
+      'operatingSystem': 'All',
+      'browserRequirements': 'Requires HTML5 and JavaScript support',
+      'featureList': toolContent.schema?.featureList || [toolContent.desc],
+      'keywords': toolContent.seoKeywords?.join(', '),
+      'audience': {
+        '@type': 'Audience',
+        'audienceType': toolContent.schema?.audience?.join(', ') || ''
+      }
+    };
+
+    // Build FAQPage Schema if there are FAQs
+    const faqSchema = toolContent.faqs && toolContent.faqs.length > 0 ? {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      'mainEntity': toolContent.faqs.map((faq: any) => ({
+        '@type': 'Question',
+        'name': faq.question,
+        'acceptedAnswer': {
+          '@type': 'Answer',
+          'text': faq.answer,
+        },
+      })),
+    } : null;
+
     return (
       <div className="flex flex-col gap-12 text-left">
+        {/* Schema markup tags */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(appSchema) }}
+        />
+        {faqSchema && (
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+          />
+        )}
         {/* Tool Title and Breadcrumbs Card */}
         <div className="relative overflow-hidden bg-white border border-slate-100 rounded-3xl p-8 md:p-12 shadow-sm flex flex-col lg:flex-row lg:items-center justify-between gap-8 animate-fade-in-up">
           

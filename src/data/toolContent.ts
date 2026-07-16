@@ -111,6 +111,22 @@ const FUNCTIONALITY_PLAYBOOK = {
 };
 
 const SEO_PRIORITY_OVERRIDES = {
+  '/math/calculators/decimal-to-fraction-calculator': {
+    tier: 'high',
+    outlook: 'strong long-tail opportunity',
+    rationale: 'Consistent academic search volume for decimal and fraction conversions with step-by-step division breakdowns.',
+    focusKeywords: ['decimal to fraction calculator', 'convert decimal to fraction', 'decimal to fraction converter', 'repeating decimal to fraction'],
+    customTitle: 'Decimal to Fraction Calculator | Step-by-Step Converter',
+    customDescription: 'Convert terminating or repeating decimals to simplified fractions step-by-step. Includes division explanations and greatest common divisor reduction.',
+  },
+  '/health/calculators/water-intake-calculator': {
+    tier: 'high',
+    outlook: 'strong long-tail opportunity',
+    rationale: 'High search volume with healthy lifestyle intent; differentiate with physical activity level, climate factors, and beverage adjustments.',
+    focusKeywords: ['water intake calculator', 'how much water to drink a day calculator', 'daily water intake calculator', 'hydrate calculator'],
+    customTitle: 'Water Intake Calculator | Daily Water Requirement Calculator',
+    customDescription: 'Calculate how much water you should drink daily based on weight, exercise level, climate, and lifestyle factors. Stay hydrated with personalized water goals.',
+  },
   '/utility-tools/html-to-markdown-converter': {
     tier: 'high',
     outlook: 'strong long-tail opportunity',
@@ -254,6 +270,8 @@ const SEO_PRIORITY_OVERRIDES = {
     outlook: 'strong long-tail opportunity',
     rationale: 'Engineering conversion intent is highly specific and rewards pages with formulas, tables, and examples.',
     focusKeywords: ['dbm to watts calculator', 'watts to dbm converter', 'rf power conversion'],
+    customTitle: 'dBm to Watts Calculator | Watts to dBm Power Converter',
+    customDescription: 'Convert RF power from dBm to Watts and Watts to dBm. Includes calculation formulas, conversion chart table, and RMS voltage estimates based on impedance.',
   },
   '/science/calculators/dbm-milliwatts-calculator': {
     tier: 'high',
@@ -422,6 +440,8 @@ const SEO_PRIORITY_OVERRIDES = {
     outlook: 'good long-tail opportunity',
     rationale: 'Credit card payoff calculators have strong consumer finance intent at scale; differentiation through iterative daily-rate payoff simulation, extra payment accelerator, and goal-based required payment calculation.',
     focusKeywords: ['credit card calculator', 'credit card payoff calculator', 'credit card payment calculator', 'credit card interest calculator', 'pay off credit card calculator', 'credit card interest rate calculator', 'credit card minimum payment calculator'],
+    customTitle: 'Credit Card Interest & Payoff Calculator | APR Repayment Calculator',
+    customDescription: 'Calculate credit card interest, monthly payments, and APR payoff timeline. Simulate extra repayments to clear credit card debt faster with 100% private browser calculations.',
   },
   '/finance/calculators/investment-calculator': {
     tier: 'medium',
@@ -512,6 +532,8 @@ const SEO_PRIORITY_OVERRIDES = {
     outlook: 'good long-tail opportunity',
     rationale: 'Niche health search with specific intent around ideal weight formulas; less competition than general BMI queries.',
     focusKeywords: ['ideal weight calculator', 'ideal body weight calculator', 'ideal weight for height', 'ideal weight by age and height'],
+    customTitle: 'Ideal Body Weight Calculator | IBW Formula for Height & Age',
+    customDescription: 'Calculate your ideal body weight using Devine, Robinson, Miller, Hamwi, and BMI-based formulas. Get a complete comparison of healthy weight ranges.',
   },
   '/health/calculators/diabetes-risk-calculator': {
     tier: 'medium',
@@ -548,6 +570,8 @@ const SEO_PRIORITY_OVERRIDES = {
     outlook: 'strong long-tail opportunity',
     rationale: 'High search volume for clinically backed trauma screener assessments and PTSD claim/compensation calculators; differentiate with custom IES-R subscale progress bars and Gemini-powered coping narratives.',
     focusKeywords: ['trauma assessment calculator', 'ies-r calculator', 'ptsd check calculator', 'free trauma test', 'ptsd claim calculator', 'ptsd compensation calculator', 'ptsd screening tool', 'ptsd test online', 'ptsd calculator', 'ptsd score calculator', 'ptsd severity calculator'],
+    customTitle: 'Trauma & PTSD Claim Calculator | Severity Screening Tool',
+    customDescription: 'Screen PTSD severity levels using the clinical IES-R score assessment. Calculate potential VA claim compensation estimates with immediate coping plans.',
   },
   '/knowledge/calculators/anxiety-assessment-calculator': {
     tier: 'high',
@@ -662,12 +686,21 @@ const getPriorityProfile = (tool: any): any => SEO_PRIORITY_OVERRIDES[normalizeP
   focusKeywords: [],
 };
 
-const buildToolTitle = (tool: any) => `${tool.name} - Free Online ${tool.category} Tool | ${SITE_NAME}`;
+const buildToolTitle = (tool: any) => {
+  const priority = getPriorityProfile(tool);
+  if (priority.customTitle) {
+    return priority.customTitle;
+  }
+  return `${tool.name} - Free Online ${tool.category} Tool | ${SITE_NAME}`;
+};
 
 const buildToolDescription = (tool: any) => {
+  const priority = getPriorityProfile(tool);
+  if (priority.customDescription) {
+    return priority.customDescription;
+  }
   const kind = detectToolKind(tool);
   const base = tool.desc.charAt(0).toLowerCase() + tool.desc.slice(1);
-  const priority = getPriorityProfile(tool);
   const focus = priority.focusKeywords[0] ? ` Optimized for searches like "${priority.focusKeywords[0]}".` : '';
   return `Use Tuitility's ${tool.name.toLowerCase()} to ${base}. Fast, free, mobile-friendly ${kind} with practical guidance, clearer results, related examples, and search-friendly support content.${focus}`;
 };
