@@ -39,3 +39,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# indexing API credentials and progress tracking
+/scripts/service_account.json
+/scripts/indexing-progress.json
