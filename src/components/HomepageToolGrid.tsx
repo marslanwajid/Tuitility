@@ -1,11 +1,12 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { allTools } from '../data/allTools';
 
 const filterTabs = [
   { id: 'all', title: 'All Tools', icon: 'fas fa-th-large' },
+  { id: 'favorites', title: 'Favorites', icon: 'fas fa-star text-amber-500' },
   { id: 'math', title: 'Math', icon: 'fas fa-calculator' },
   { id: 'finance', title: 'Finance', icon: 'fas fa-dollar-sign' },
   { id: 'science', title: 'Science', icon: 'fas fa-atom' },
@@ -17,6 +18,45 @@ const filterTabs = [
 export default function HomepageToolGrid() {
   const [activeFilter, setActiveFilter] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
+  const [favorites, setFavorites] = useState<string[]>([]);
+
+  useEffect(() => {
+    const loadFavorites = () => {
+      const saved = localStorage.getItem('tuitility-favorite-tools');
+      if (saved) {
+        try {
+          setFavorites(JSON.parse(saved));
+        } catch (e) {}
+      }
+    };
+    loadFavorites();
+    window.addEventListener('favorites-updated', loadFavorites);
+    return () => window.removeEventListener('favorites-updated', loadFavorites);
+  }, []);
+
+  const toggleFavorite = (url: string, e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    const saved = localStorage.getItem('tuitility-favorite-tools');
+    let list: string[] = [];
+    if (saved) {
+      try {
+        list = JSON.parse(saved);
+      } catch (e) {}
+    }
+
+    let updated: string[];
+    if (list.includes(url)) {
+      updated = list.filter((u) => u !== url);
+    } else {
+      updated = [...list, url];
+    }
+
+    localStorage.setItem('tuitility-favorite-tools', JSON.stringify(updated));
+    setFavorites(updated);
+    window.dispatchEvent(new CustomEvent('favorites-updated'));
+  };
 
   const filteredTools = searchQuery
     ? allTools.filter(
@@ -27,6 +67,8 @@ export default function HomepageToolGrid() {
       )
     : activeFilter === 'all'
     ? allTools
+    : activeFilter === 'favorites'
+    ? allTools.filter((tool) => favorites.includes(tool.url))
     : allTools.filter((tool) => tool.category.toLowerCase() === activeFilter.toLowerCase());
 
   return (
@@ -93,6 +135,8 @@ export default function HomepageToolGrid() {
             ? `Search Results for "${searchQuery}"`
             : activeFilter === 'all'
             ? 'All Tools & Calculators'
+            : activeFilter === 'favorites'
+            ? 'My Favorite Tools'
             : `${activeFilter.charAt(0).toUpperCase() + activeFilter.slice(1)} Tools`}
         </h3>
         <span className="text-[11px] font-bold text-slate-400 bg-slate-50 border border-slate-100 px-3 py-1.5 rounded-full uppercase tracking-wider">
@@ -106,13 +150,28 @@ export default function HomepageToolGrid() {
             <Link
               key={tool.url}
               href={tool.url}
-              className="flex flex-col p-6 bg-white border border-slate-100/80 rounded-3xl hover:border-slate-300 shadow-[0_4px_20px_-8px_rgba(26,26,26,0.02)] transition-all duration-500 group hover:-translate-y-2.5 hover:bg-slate-50/40 animate-fade-in-up"
+              className="relative flex flex-col p-6 bg-white border border-slate-100/80 rounded-3xl hover:border-slate-300 shadow-[0_4px_20px_-8px_rgba(26,26,26,0.02)] transition-all duration-500 group hover:-translate-y-2.5 hover:bg-slate-50/40 animate-fade-in-up"
               style={{ animationDelay: `${index * 0.03}s` }}
             >
+              {/* Favorite Star Button */}
+              {(() => {
+                const isFav = favorites.includes(tool.url);
+                return (
+                  <button
+                    onClick={(e) => toggleFavorite(tool.url, e)}
+                    className="absolute top-5 right-5 z-10 w-8 h-8 rounded-full bg-white/95 hover:bg-white border border-slate-200/60 hover:border-slate-300 flex items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95 cursor-pointer shadow-[0_2px_8px_-2px_rgba(26,26,26,0.05)] focus:outline-none"
+                    title={isFav ? 'Remove from Favorites' : 'Add to Favorites'}
+                    aria-label={isFav ? 'Remove from Favorites' : 'Add to Favorites'}
+                  >
+                    <i className={`${isFav ? 'fas fa-star text-amber-400' : 'far fa-star text-slate-400'} text-xs`} />
+                  </button>
+                );
+              })()}
+
               <div className="w-11 h-11 rounded-xl border border-slate-200 bg-slate-50 text-slate-800 flex items-center justify-center mb-4.5 transition-all duration-300 group-hover:scale-110 group-hover:bg-[#1a1a1a] group-hover:text-white group-hover:border-[#1a1a1a]">
                 <i className={`${tool.icon} text-sm`}></i>
               </div>
-              <h4 className="text-base sm:text-lg font-extrabold text-[#1a1a1a] font-display relative inline-block max-w-full truncate mb-1">
+              <h4 className="text-base sm:text-lg font-extrabold text-[#1a1a1a] font-display relative inline-block max-w-full truncate mb-1 pr-6">
                 <span className="relative">{tool.name}</span>
                 <span className="absolute bottom-0 left-0 h-[2px] w-0 bg-[#1a1a1a] group-hover:w-full transition-all duration-300"></span>
               </h4>
@@ -129,6 +188,16 @@ export default function HomepageToolGrid() {
               </div>
             </Link>
           ))}
+        </div>
+      ) : activeFilter === 'favorites' && !searchQuery ? (
+        <div className="py-20 text-center max-w-md mx-auto">
+          <div className="w-16 h-16 bg-slate-50 rounded-full border border-slate-100 flex items-center justify-center mx-auto mb-4.5 text-slate-400">
+            <i className="fas fa-star text-xl text-slate-300"></i>
+          </div>
+          <p className="text-lg font-bold text-slate-800 tracking-tight">No favorites yet</p>
+          <p className="text-xs text-slate-400 font-medium mt-1.5 leading-relaxed">
+            Click the star icon in the corner of any tool card to bookmark your most used tools here.
+          </p>
         </div>
       ) : (
         <div className="py-20 text-center max-w-md mx-auto">

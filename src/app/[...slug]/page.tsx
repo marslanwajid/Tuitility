@@ -6,6 +6,7 @@ import { getDecorationSymbols, getDecorationPositions, getToolMetrics } from '..
 import CategoryView from '../../components/CategoryView';
 import ToolContentEnhancer from '../../components/ToolContentEnhancer';
 import CalculatorWidget from '../../components/CalculatorWidget';
+import FavoriteButton from '../../components/FavoriteButton';
 import { SITE_URL } from '../../data/siteConfig';
 
 interface RouteParams {
@@ -141,8 +142,9 @@ export default async function Page({ params }: { params: Promise<RouteParams> })
               <i className="fas fa-chevron-right text-[8px]"></i>
               <span className="text-slate-600">{toolContent.name}</span>
             </div>
-            <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight leading-none font-display">
-              {toolContent.name}
+            <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight leading-none font-display flex items-center gap-3.5">
+              <span>{toolContent.name}</span>
+              <FavoriteButton toolUrl={path} />
             </h1>
             <p className="text-sm text-slate-500 font-medium leading-relaxed max-w-xl">
               {toolContent.desc}
