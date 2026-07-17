@@ -12,7 +12,7 @@ import FaviconAnimator from '../components/FaviconAnimator';
 const FloatingBrainGames = dynamic(() => import('../components/FloatingBrainGames'));
 const FloatingChatbot = dynamic(() => import('../components/FloatingChatbot'));
 const ScrollToTop = dynamic(() => import('../components/ScrollToTop'));
-const CookieConsent = dynamic(() => import('../components/CookieConsent'), { ssr: false });
+import CookieConsent from '../components/CookieConsent';
 
 const inter = Inter({
   variable: '--font-sans',
