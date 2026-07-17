@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -130,6 +132,16 @@ const Footer: React.FC = () => {
                 <Link href="/terms-and-conditions" className="hover:text-white transition-colors py-0.5">
                   Terms &amp; Conditions
                 </Link>
+                <button
+                  onClick={() => {
+                    if (typeof window !== 'undefined') {
+                      window.dispatchEvent(new CustomEvent('open-cookie-settings'));
+                    }
+                  }}
+                  className="hover:text-white transition-colors py-0.5 text-left cursor-pointer focus:outline-none"
+                >
+                  Cookie Preferences
+                </button>
               </div>
               <div className="pt-2 flex flex-col space-y-2">
                 <h4 className="text-xs font-semibold text-white uppercase tracking-wider">Get in Touch</h4>

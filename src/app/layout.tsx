@@ -12,6 +12,7 @@ import FaviconAnimator from '../components/FaviconAnimator';
 const FloatingBrainGames = dynamic(() => import('../components/FloatingBrainGames'));
 const FloatingChatbot = dynamic(() => import('../components/FloatingChatbot'));
 const ScrollToTop = dynamic(() => import('../components/ScrollToTop'));
+const CookieConsent = dynamic(() => import('../components/CookieConsent'), { ssr: false });
 
 const inter = Inter({
   variable: '--font-sans',
@@ -86,6 +87,41 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${jost.variable} h-full scroll-smooth`}>
       <head>
+        {/* Google Analytics Consent Mode Initialization */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              
+              var consent = null;
+              try {
+                var saved = localStorage.getItem('tuitility-cookie-consent');
+                if (saved) {
+                  consent = JSON.parse(saved);
+                }
+              } catch (e) {}
+              
+              var gpc = false;
+              try {
+                if (navigator.globalPrivacyControl) {
+                  gpc = true;
+                }
+              } catch (e) {}
+              
+              gtag('consent', 'default', {
+                'ad_storage': consent ? (consent.marketing ? 'granted' : 'denied') : (gpc ? 'denied' : 'granted'),
+                'ad_user_data': consent ? (consent.marketing ? 'granted' : 'denied') : (gpc ? 'denied' : 'granted'),
+                'ad_personalization': consent ? (consent.marketing ? 'granted' : 'denied') : (gpc ? 'denied' : 'granted'),
+                'analytics_storage': consent ? (consent.analytics ? 'granted' : 'denied') : 'denied',
+                'personalization_storage': consent ? (consent.functional ? 'granted' : 'denied') : 'denied',
+                'functionality_storage': consent ? (consent.functional ? 'granted' : 'denied') : 'denied',
+                'security_storage': 'granted'
+              });
+            `
+          }}
+        />
+
         {/* Google Analytics (gtag.js) — loaded after page is interactive */}
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${gtagId}`}
@@ -120,6 +156,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
+        <CookieConsent />
         <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">
           <FloatingBrainGames />
           <FloatingChatbot />
