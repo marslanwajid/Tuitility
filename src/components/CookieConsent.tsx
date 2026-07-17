@@ -138,7 +138,7 @@ const CookieConsent: React.FC = () => {
       )}
 
       {shouldShow && (
-        <div className="fixed bottom-6 right-6 z-50 max-w-md w-[calc(100vw-3rem)] md:max-w-lg bg-white border border-slate-200 shadow-2xl rounded-3xl overflow-hidden p-6 transition-all duration-500 ease-in-out animate-fade-in-up">
+        <div className="fixed bottom-6 left-6 z-50 max-w-md w-[calc(100vw-3rem)] md:max-w-lg bg-white border border-slate-200 shadow-2xl rounded-3xl overflow-hidden p-6 transition-all duration-500 ease-in-out animate-fade-in-up">
           <div className="flex items-start space-x-3.5 mb-4">
             <div className="w-10 h-10 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-800 shrink-0">
               <i className="fas fa-cookie-bite text-base"></i>
